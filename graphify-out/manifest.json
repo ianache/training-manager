@@ -1054,5 +1054,35 @@
     "seen": 1790536370.7001495,
     "ast_hash": "65e4685b0e93d1792f8f00686066bd71",
     "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ACP-001-contexto-arquitectonico-uxui.md": {
+    "mtime": 1790552092.5393307,
+    "seen": 1790552817.01159,
+    "ast_hash": "ce17bc3626e8dde6d037934e6e1caa2f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/DMD-001-alineacion-std-db-001.md": {
+    "mtime": 1790552799.3978658,
+    "seen": 1790552817.0302782,
+    "ast_hash": "81e575e3fbf08121ebc1a9276580c8d4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/standards/database.md": {
+    "mtime": 1790552452.8526294,
+    "seen": 1790552817.0315359,
+    "ast_hash": "327740432753677fd81e679ff29d569b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/components/ui-inventory.md": {
+    "mtime": 1790552139.0716188,
+    "seen": 1790552817.0780723,
+    "ast_hash": "82ec9c8d37b7778510c248f0bf750b01",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002-dise\u00f1o-consolidado-uxr-001-a-006.md": {
+    "mtime": 1790551163.9417648,
+    "seen": 1790552817.0780723,
+    "ast_hash": "149447ac421eb488705397c06e2fd5cd",
+    "semantic_hash": ""
   }
 }

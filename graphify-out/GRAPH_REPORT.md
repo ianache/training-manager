@@ -1,17 +1,17 @@
 # Graph Report - UX_UI_agentic  (2026-09-27)
 
 ## Corpus Check
-- 180 files · ~185,899 words
+- 187 files · ~197,852 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 1 file(s) not represented in the graph (top: (none) 1)
 
 ## Summary
-- 1041 nodes · 1624 edges · 77 communities (73 shown, 4 thin omitted)
+- 1165 nodes · 1745 edges · 75 communities (72 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `24df6a8b`
+- Built from commit: `6a73699a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - ASR candidato — Ninguna certificación sin firma humana
 - RCP-001 — H1 El idioma común
 - Reglas, dependencias e impactos
-- TRM-0037-kpi.md
+- GLS-001-glosario-de-negocio.md
 - VIS-001 — Plataforma de Gestión de Formación del Recurso Humano
 - USC-001 — User Stories de la Plataforma de Gestión de Formación
 - IMD-002-modelo-conceptual-de-partes.md
@@ -40,16 +40,16 @@
 - ASR candidato — Explicabilidad de las propuestas de la IA
 - ACP-001 — Architecture Context Pack
 - ASR candidato — Trazabilidad auditable de las certificaciones
-- index.md
+- USC-001-user-stories-plataforma-gestion-formacion.md
 - ADB-001 — Descubrimiento de arquitectura
 - IMD-001 — Modelo de información conceptual
 - ASR candidato — Identidad y autorización por rol
 - RCP-002 — Gestión de colaboradores
 - US-015 — Registrar un colaborador
 - ASR candidato — Versionado del catálogo de competencias
-- ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno
+- ADB-001-descubrimiento-arquitectura-plataforma.md
 - US-016 — Actualizar datos y medios de contacto
-- ASR candidato — Contingencia ante fallas de integración con Google Classroom
+- ACP-001 — Contexto arquitectónico UX/UI
 - UXR-004 — Consultar mi perfil de competencias
 - ASR candidato — Medibilidad de los KPI desde H1
 - GEN-001 — Diseño Google Stitch del catálogo de roles y competencias
@@ -60,12 +60,12 @@
 - UXR-002 — Declarar un requerimiento de proyecto
 - UXR-003 — Certificar un nivel de competencia
 - UXR-006 — Buscar candidatos para un requerimiento
-- ADR-003 — Persistencia compatible con MySQL y PostgreSQL
+- UI-INV-001 — Inventario de pantallas y componentes
 - ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios
-- TST-001 — Pruebas de restricciones del modelo de partes
+- STD-DB-001 — Estándar de base de datos
 - UXR-001 — Gestionar el catálogo de roles y competencias
 - US-019 — Asignar un Rol-Nivel a una persona
-- USC-001-user-stories-plataforma-gestion-formacion.md
+- RCP-001-h1-idioma-comun.md
 - ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE
 - US-023 — Consultar la ficha y su historial
 - UXR-000 — Requisitos UX transversales
@@ -75,24 +75,22 @@
 - US-021 — Dar de baja a un colaborador
 - US-022 — Vincular la identidad de acceso
 - IMD-002 — Modelo de información conceptual de partes
-- LDM-001 — Modelo lógico de partes
-- PDM-001 — Modelo físico de partes
-- TRM-0073-rol-de-la-parte.md
+- ADR-003-persistencia-mysql-y-postgresql.md
+- GEN-002 — Diseño consolidado UXR-001 a UXR-006
+- DMD-001 — Alineación de DDL a STD-DB-001
 - ADR-004 — Secretos y parametría en HashiCorp Vault
-- TRM-0021-evaluador.md
+- TRM-0017-curso-final.md
 - run-tests.sh
-- GLS-001-glosario-de-negocio.md
-- TRM-0013-colaborador.md
-- TRM-0001-acreditacion.md
+- TRM-0047-producto.md
+- TRM-0028-gitlab.md
 - IMD-001-modelo-de-informacion-conceptual.md
-- TRM-0055-rol.md
-- TRM-0076-contratista.md
-- ASR candidato — Privacidad y visibilidad de datos de desempeño
+- 2. Auditoría: Desviaciones encontradas
+- 3. Prefijos obligatorios
+- 4. Plan de alineación (fase por fase)
+- 6. Ejemplos completos
 - TRM-0029-google-classroom.md
-- TRM-0096-anonimizacion.md
-- AIM-001 — Matriz de impacto de arquitectura
-- Catálogo de candidatos ASR
-- TRM-0007-catalogo-de-competencias.md
+- 5. Mapeo de cambios (referencia rápida)
+- 4. Convenciones de estructura
 
 ## God Nodes (most connected - your core abstractions)
 1. `ACP-001 — Architecture Context Pack` - 26 edges
@@ -112,11 +110,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (77 total, 4 thin omitted)
+## Communities (75 total, 3 thin omitted)
 
 ### Community 0 - "TRM-0008-certificado.md"
-Cohesion: 0.16
-Nodes (9): API REST, Certificado de curso, Curso final, docsuite, PDF, Edición de curso, Inscripción, Versión de curso (+1 more)
+Cohesion: 0.18
+Nodes (7): API REST, Certificado de curso, docsuite, Gestión de formación, PDF, RR. HH., Sistema de RR. HH.
 
 ### Community 1 - "Índice"
 Cohesion: 0.07
@@ -142,9 +140,9 @@ Nodes (27): 10. Decisiones y validación humana, 11. Knowledge Candidates, 12. H
 Cohesion: 0.10
 Nodes (20): BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación, Brechas, Catálogo de competencias, Certificación, Certificados de curso (H2), Colaboradores e información maestra (Party), Contradicciones y ambigüedades, Dependencias (+12 more)
 
-### Community 7 - "TRM-0037-kpi.md"
-Cohesion: 0.10
-Nodes (12): Cierre de brechas, Dirección, Evidencia real, GitLab, Issue, KPI, Milestone, MR (+4 more)
+### Community 7 - "GLS-001-glosario-de-negocio.md"
+Cohesion: 0.08
+Nodes (20): Adopción, Cierre de brechas, Cobertura de roles, Dirección, Evidencia de GitLab asistida por IA, Evidencia real, Evidencia sobre volumen, Firma humana (+12 more)
 
 ### Community 8 - "VIS-001 — Plataforma de Gestión de Formación del Recurso Humano"
 Cohesion: 0.13
@@ -155,8 +153,8 @@ Cohesion: 0.08
 Nodes (26): Evidencias y trazabilidad, Gestión de colaboradores (SPEC-001), H1 — El idioma común, H2 — Formación integrada, H3 — Evidencia real con IA, Lista de calidad, Objetivo y alcance, Preparación y entrega (+18 more)
 
 ### Community 10 - "IMD-002-modelo-conceptual-de-partes.md"
-Cohesion: 0.16
-Nodes (10): Parte, Persona, Jefe directo, Identificación, DNI, Medio de contacto, Perfil profesional en línea, Identidad de acceso (+2 more)
+Cohesion: 0.07
+Nodes (29): COMSATEL, Parte, Persona, Organización, Rol de la parte, Relación entre partes, Empleado, Contratista (+21 more)
 
 ### Community 11 - "US-001 — Definir el catálogo de roles y competencias"
 Cohesion: 0.20
@@ -202,9 +200,9 @@ Nodes (26): ACP-001 — Architecture Context Pack, Application landscape, Archit
 Cohesion: 0.22
 Nodes (9): ASR candidato — Trazabilidad auditable de las certificaciones, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
 
-### Community 24 - "index.md"
-Cohesion: 0.15
-Nodes (4): PDM-001 — Anexo MySQL 8, PDM-001 — Anexo PostgreSQL, Jefe de Ingeniería, Plataforma de Gestión de Formación del Recurso Humano
+### Community 24 - "USC-001-user-stories-plataforma-gestion-formacion.md"
+Cohesion: 0.22
+Nodes (3): Colaborador, Evaluador, Jefe de Ingeniería
 
 ### Community 25 - "ADB-001 — Descubrimiento de arquitectura"
 Cohesion: 0.13
@@ -230,17 +228,17 @@ Nodes (25): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis,
 Cohesion: 0.22
 Nodes (9): ASR candidato — Versionado del catálogo de competencias, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
 
-### Community 31 - "ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno"
-Cohesion: 0.22
-Nodes (9): ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
+### Community 31 - "ADB-001-descubrimiento-arquitectura-plataforma.md"
+Cohesion: 0.05
+Nodes (43): AIM-001 — Matriz de impacto de arquitectura, Dependency expansion, Human validation, Impact matrix, Potential ASR candidates, Required investigations, Risks and gaps, ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno (+35 more)
 
 ### Community 32 - "US-016 — Actualizar datos y medios de contacto"
 Cohesion: 0.09
 Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
-### Community 33 - "ASR candidato — Contingencia ante fallas de integración con Google Classroom"
-Cohesion: 0.22
-Nodes (9): ASR candidato — Contingencia ante fallas de integración con Google Classroom, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
+### Community 33 - "ACP-001 — Contexto arquitectónico UX/UI"
+Cohesion: 0.06
+Nodes (33): 10. Supuestos documentados, 11. Próximos pasos, 12. Validación y aprobaciones, 1. Resumen ejecutivo, 2. Decisiones arquitectónicas (ADRs), 3. Bounded Contexts (DDD) y MicroUI boundaries, 4. Angular setup y convenciones, 5. Design System: Tokens y contrato visual (+25 more)
 
 ### Community 34 - "UXR-004 — Consultar mi perfil de competencias"
 Cohesion: 0.25
@@ -282,17 +280,17 @@ Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario,
 Cohesion: 0.25
 Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-006 — Buscar candidatos para un requerimiento
 
-### Community 44 - "ADR-003 — Persistencia compatible con MySQL y PostgreSQL"
-Cohesion: 0.29
-Nodes (7): ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias, Contexto, Decisión, Historial, Metas de calidad, Opciones consideradas
+### Community 44 - "UI-INV-001 — Inventario de pantallas y componentes"
+Cohesion: 0.08
+Nodes (23): 1. Pantallas mapeadas (SCR-001 a SCR-004), 2. Componentes reutilizables identificados, 3. Estados y variantes, 4. Responsive breakpoints, 5. Reuse map: Atoms y Molecules compartidas, 6. Accessibility: estados y requisitos, 7. Preguntas abiertas y supuestos, 8. Próximos pasos (Component Catalog) (+15 more)
 
 ### Community 45 - "ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios"
 Cohesion: 0.33
 Nodes (6): ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
 
-### Community 46 - "TST-001 — Pruebas de restricciones del modelo de partes"
-Cohesion: 0.33
-Nodes (6): Casos, Cómo ejecutarlas, Fuera de estas pruebas, Para ejecutarlas (Q-06 respondida por D28), Resultado, TST-001 — Pruebas de restricciones del modelo de partes
+### Community 46 - "STD-DB-001 — Estándar de base de datos"
+Cohesion: 0.17
+Nodes (10): 1. Resumen, 2.1 Identadores: `snake_case` (minúsculas con guiones bajos), 2. Convenciones de naming, 5.1 Diferencias conocidas, 5.2 DDL portable + per-engine, 5. Portabilidad MySQL ↔ PostgreSQL, 7. Checklist: Antes de mergear DDL, 8. Referencias (+2 more)
 
 ### Community 47 - "UXR-001 — Gestionar el catálogo de roles y competencias"
 Cohesion: 0.22
@@ -302,9 +300,9 @@ Nodes (9): Acciones, Estados, Necesidades de información, Objetivo del usuario,
 Cohesion: 0.09
 Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
-### Community 49 - "USC-001-user-stories-plataforma-gestion-formacion.md"
-Cohesion: 0.23
-Nodes (7): Asignación, Búsqueda de personal, Gestión de formación, Jefe de proyecto, Producto, Proyecto, Requerimiento de proyecto
+### Community 49 - "RCP-001-h1-idioma-comun.md"
+Cohesion: 0.20
+Nodes (7): Asignación, Brecha, Búsqueda de personal, Jefe de proyecto, Proyecto, Requerimiento de proyecto, Responsable de producto
 
 ### Community 50 - "ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE"
 Cohesion: 0.33
@@ -342,89 +340,85 @@ Nodes (21): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis,
 Cohesion: 0.18
 Nodes (11): 10. Preparación y validación, 1. Vista general, 2. Diagrama — Núcleo de partes y vínculos con otros dominios, 3. Diagrama — Roles de la parte y relaciones entre partes, 4. Diagrama — Baja, anonimización y aviso, 5. Conceptos, 6. Relaciones, 7. Reglas que actúan sobre el modelo (+3 more)
 
-### Community 59 - "LDM-001 — Modelo lógico de partes"
-Cohesion: 0.22
-Nodes (9): 1. Alcance, 2. Diagrama, 3. Entidades, 4. Decisiones de diseño, 5. Restricciones y dónde se aplican, 6. Supuestos, 7. Preguntas abiertas, 8. Siguiente paso (+1 more)
+### Community 59 - "ADR-003-persistencia-mysql-y-postgresql.md"
+Cohesion: 0.06
+Nodes (31): ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias, Contexto, Decisión, Historial, Metas de calidad, Opciones consideradas, 1. Alcance (+23 more)
 
-### Community 60 - "PDM-001 — Modelo físico de partes"
-Cohesion: 0.29
-Nodes (7): 1. Archivos, 2. Convenciones, 3. Trazabilidad de restricciones, 4. Lo que la base no garantiza, 5. Procedimiento de referencia de anonimización, 6. Operación, PDM-001 — Modelo físico de partes
+### Community 60 - "GEN-002 — Diseño consolidado UXR-001 a UXR-006"
+Cohesion: 0.17
+Nodes (11): Estado de generación (2026-09-27T20:35:00-05:00), Estrategia de generación, GEN-002 — Diseño consolidado UXR-001 a UXR-006, H1: Catálogo de competencias (UXR-001) — Jefe de Ingeniería, H1: Certificación manual (UXR-003) — Evaluador, H1: Perfiles y brechas (UXR-004 a UXR-006) — Colaborador / Jefe de Proyecto, H1: Requerimientos de proyecto (UXR-002) — Jefe de Proyecto, Hallazgos críticos aplicables a todas las pantallas (+3 more)
 
-### Community 61 - "TRM-0073-rol-de-la-parte.md"
-Cohesion: 0.15
-Nodes (10): COMSATEL, Programa de Formación de Competencias, Organización, Rol de la parte, Relación entre partes, Proveedor, Organización interna, Unidad organizacional (+2 more)
+### Community 61 - "DMD-001 — Alineación de DDL a STD-DB-001"
+Cohesion: 0.18
+Nodes (11): 10. Aprobación, 1. Resumen ejecutivo, 3.1 Cambios requeridos, 3.2 Impacto en desarrollo, 3. Impacto de la alineación, 6. Riesgos y mitigaciones, 7. Próximos pasos, 8. Decisiones (+3 more)
 
 ### Community 62 - "ADR-004 — Secretos y parametría en HashiCorp Vault"
 Cohesion: 0.33
 Nodes (6): ADR-004 — Secretos y parametría en HashiCorp Vault, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
 
-### Community 63 - "TRM-0021-evaluador.md"
-Cohesion: 0.15
-Nodes (8): Evaluador, Evidencia de GitLab asistida por IA, Evidencia sobre volumen, Firma humana, Horizonte, Human-in-the-loop, IA, Propuesta de nivel
+### Community 63 - "TRM-0017-curso-final.md"
+Cohesion: 0.36
+Nodes (4): Curso final, Edición de curso, Inscripción, Instructor (edición de curso)
 
-### Community 65 - "GLS-001-glosario-de-negocio.md"
-Cohesion: 0.14
-Nodes (8): CLocator, CLocator v2, Cobertura de roles, Proyecto activo, RR. HH., SIGO, Sistema de RR. HH., SmartSuite
-
-### Community 66 - "TRM-0013-colaborador.md"
-Cohesion: 0.20
-Nodes (4): Adopción, Colaborador, Perfil de competencias del colaborador, Transparencia para el colaborador
-
-### Community 67 - "TRM-0001-acreditacion.md"
-Cohesion: 0.23
-Nodes (7): Certificación, Evidencia, Trazabilidad, Requisito de evidencia, Rúbrica, Evidencia requerida, Evidencia deseada
-
-### Community 68 - "IMD-001-modelo-de-informacion-conceptual.md"
-Cohesion: 0.24
-Nodes (6): Brecha, Escala de niveles de dominio, Google Drive, Nivel certificado, Nivel requerido, Ruta de formación
-
-### Community 69 - "TRM-0055-rol.md"
-Cohesion: 0.23
-Nodes (6): Competencia, Rol, Nivel de rol, Competencia transversal, Asignación de Rol-Nivel, MOF
-
-### Community 70 - "TRM-0076-contratista.md"
-Cohesion: 0.24
-Nodes (6): Empleado, Contratista, Correo laboral, Información maestra, Alta, Baja
-
-### Community 71 - "ASR candidato — Privacidad y visibilidad de datos de desempeño"
+### Community 65 - "TRM-0047-producto.md"
 Cohesion: 0.22
-Nodes (9): ASR candidato — Privacidad y visibilidad de datos de desempeño, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
+Nodes (5): CLocator, CLocator v2, Producto, SIGO, SmartSuite
+
+### Community 66 - "TRM-0028-gitlab.md"
+Cohesion: 0.36
+Nodes (4): GitLab, Issue, Milestone, MR
+
+### Community 67 - "IMD-001-modelo-de-informacion-conceptual.md"
+Cohesion: 0.12
+Nodes (18): Certificación, Catálogo de competencias, Competencia, Escala de niveles de dominio, Evidencia, Nivel certificado, Nivel requerido, Rol (+10 more)
+
+### Community 68 - "2. Auditoría: Desviaciones encontradas"
+Cohesion: 0.29
+Nodes (7): 2.1 Tablas (esperado: `tb_<nombre>`), 2.2 Columnas Primary Key (esperado: `pk_<tabla_singular>_id`), 2.3 Columnas Foreign Key (esperado: `fk_<tabla_referenciada>_id`), 2.4 Índices (esperado: `idx_<tabla>_<columnas>`), 2.5 Vistas (esperado: `vw_<descripcion>`), 2.6 Stored Procedures (esperado: `sp_<verbo>_<entidad>`), 2. Auditoría: Desviaciones encontradas
+
+### Community 69 - "3. Prefijos obligatorios"
+Cohesion: 0.33
+Nodes (6): 3.1 Tablas: `tb_`, 3.2 Vistas: `vw_`, 3.3 Stored Procedures: `sp_`, 3.4 Índices: `idx_`, 3.5 Campos: `pk_` y `fk_`, 3. Prefijos obligatorios
+
+### Community 70 - "4. Plan de alineación (fase por fase)"
+Cohesion: 0.40
+Nodes (5): 4. Plan de alineación (fase por fase), Fase 1: Preparación ✅ (completada), Fase 2: Alineación ✅ (completada), Fase 3: Validación ⏳, Fase 4: Liberación ⏳
+
+### Community 71 - "6. Ejemplos completos"
+Cohesion: 0.40
+Nodes (5): 6.1 Tabla simple: Rol, 6.2 Tabla con FK: Colaborador, 6.3 Vista: Colaborador vigente, 6.4 Stored Procedure: Crear Colaborador, 6. Ejemplos completos
 
 ### Community 72 - "TRM-0029-google-classroom.md"
-Cohesion: 0.32
-Nodes (4): Contingencia, Google Classroom, Integrar, no hospedar, LMS
+Cohesion: 0.21
+Nodes (6): Contingencia, Google Classroom, Google Drive, Integrar, no hospedar, LMS, Ruta de formación
 
-### Community 73 - "TRM-0096-anonimizacion.md"
-Cohesion: 0.29
-Nodes (4): Código de colaborador, Anonimización, Plazo de anonimización, Aviso de anonimización
+### Community 73 - "5. Mapeo de cambios (referencia rápida)"
+Cohesion: 0.50
+Nodes (4): 5. Mapeo de cambios (referencia rápida), Columnas (examples), Tablas, Índices
 
-### Community 74 - "AIM-001 — Matriz de impacto de arquitectura"
-Cohesion: 0.29
-Nodes (7): AIM-001 — Matriz de impacto de arquitectura, Dependency expansion, Human validation, Impact matrix, Potential ASR candidates, Required investigations, Risks and gaps
-
-### Community 75 - "Catálogo de candidatos ASR"
-Cohesion: 0.29
-Nodes (7): Candidates, Catálogo de candidatos ASR, Constraints, Human Validation, Knowledge Gaps, Metadata, Rejected Candidates
+### Community 74 - "4. Convenciones de estructura"
+Cohesion: 0.50
+Nodes (4): 4.1 Tipos de datos, 4.2 Constraints obligatorios, 4.3 Auditoría y campos de control, 4. Convenciones de estructura
 
 ## Knowledge Gaps
-- **774 isolated node(s):** `run-tests.sh script`, `Contexto`, `Estructura`, `Secuencia canónica de cursos`, `Cadena de trazabilidad` (+769 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 779 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **868 isolated node(s):** `run-tests.sh script`, `Contexto`, `Estructura`, `Secuencia canónica de cursos`, `Cadena de trazabilidad` (+863 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 876 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `US-019 — Asignar un Rol-Nivel a una persona` connect `US-019 — Asignar un Rol-Nivel a una persona` to `index.md`?**
-  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `GLS-001 — Glosario de negocio` connect `Índice` to `GLS-001-glosario-de-negocio.md`?**
-  _High betweenness centrality (0.053) - this node is a cross-community bridge._
+  _High betweenness centrality (0.056) - this node is a cross-community bridge._
 - **Why does `USC-001 — User Stories de la Plataforma de Gestión de Formación` connect `USC-001 — User Stories de la Plataforma de Gestión de Formación` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **What connects `run-tests.sh script`, `Contexto`, `Estructura` to the rest of the system?**
-  _774 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _868 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Índice` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `RCP-001 — H1 El idioma común` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `Reglas, dependencias e impactos` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `GLS-001-glosario-de-negocio.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.08048780487804878 - nodes in this community are weakly interconnected._
