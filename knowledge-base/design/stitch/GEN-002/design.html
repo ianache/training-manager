@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plataforma de Gestión de Formación</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#c6c6cd",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#001d32",
+            "surface-variant": "#d3e4fe",
+            "secondary": "#006399",
+            "on-secondary-fixed-variant": "#004b74",
+            "tertiary-fixed-dim": "#b9c7e0",
+            "on-secondary-container": "#004f7b",
+            "primary-container": "#131b2e",
+            "on-primary-container": "#7c839b",
+            "inverse-surface": "#213145",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#3f465c",
+            "inverse-on-surface": "#eaf1ff",
+            "secondary-fixed": "#cde5ff",
+            "on-tertiary-container": "#76859b",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#d5e3fd",
+            "on-surface": "#0b1c30",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#bec6e0",
+            "surface-dim": "#cbdbf5",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container": "#e5eeff",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#bec6e0",
+            "surface": "#f8f9ff",
+            "on-background": "#0b1c30",
+            "surface-container-high": "#dce9ff",
+            "surface-tint": "#565e74",
+            "secondary-container": "#7bc2ff",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#45464d",
+            "outline": "#76777d",
+            "tertiary": "#000000",
+            "primary": "#000000",
+            "tertiary-container": "#0d1c2f",
+            "surface-container-highest": "#d3e4fe",
+            "on-tertiary-fixed-variant": "#3a485c",
+            "on-tertiary-fixed": "#0d1c2f",
+            "on-primary-fixed": "#131b2e",
+            "surface-container-low": "#eff4ff",
+            "primary-fixed": "#dae2fd",
+            "secondary-fixed-dim": "#94ccff",
+            "surface-bright": "#f8f9ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "space-2xl": "2rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-2xs": "0.125rem",
+            "margin": "1rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["IBM Plex Sans"],
+            "body-md": ["IBM Plex Sans"],
+            "label-md": ["IBM Plex Sans"],
+            "code-inline": ["JetBrains Mono"],
+            "display": ["IBM Plex Sans"],
+            "headline-sm": ["IBM Plex Sans"],
+            "headline-lg": ["IBM Plex Sans"],
+            "label-sm": ["IBM Plex Sans"],
+            "body-sm": ["IBM Plex Sans"],
+            "headline-md": ["IBM Plex Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.025em", "fontWeight": "600" }],
+            "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.035em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    :focus-visible {
+      outline: 2px solid #0284c7 !important;
+      outline-offset: 2px !important;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="h-full bg-background text-on-surface antialiased flex flex-col font-body-md text-body-md select-none">
+<!-- 1. Accessible Skip Link -->
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-space-md focus:py-space-sm focus:bg-surface-container-lowest focus:text-on-surface focus:border focus:border-outline focus:font-label-md focus:text-label-md focus:shadow-md" href="#main-content">
+    Saltar al contenido
+  </a>
+<!-- 2. Top Bar (Barra superior) -->
+<header class="w-full h-14 px-gutter-desktop flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest z-40 fixed top-0 left-0 right-0">
+<div class="flex items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">
+        Plataforma de Gestión de Formación
+      </span>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<div aria-hidden="true" class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface">
+          AC
+        </div>
+<span class="font-body-md text-body-md text-on-surface font-medium">
+          Ana Colaboradora
+        </span>
+</div>
+<div aria-hidden="true" class="h-5 w-px bg-outline-variant"></div>
+<button class="h-9 px-space-md bg-surface-container-lowest text-on-surface border border-outline-variant rounded hover:bg-surface-container transition-none font-label-md text-label-md flex items-center justify-center" type="button">
+        Cerrar sesión
+      </button>
+</div>
+</header>
+<!-- Application Body Layout -->
+<div class="flex flex-1 pt-14 h-full">
+<!-- 3. Side Navigation (Navegación lateral) -->
+<nav aria-label="Menú principal de navegación" class="fixed left-0 top-14 bottom-0 w-64 flex flex-col border-r border-outline-variant bg-surface-container-lowest z-30 p-space-md">
+<div class="flex flex-col">
+<h2 class="px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-space-xs">
+          Mi desarrollo
+        </h2>
+<ul class="space-y-space-2xs list-none p-0 m-0">
+<li>
+<!-- Active navigation item -->
+<a aria-current="page" class="bg-surface-container text-on-surface border-l-2 border-secondary font-semibold px-space-md py-space-sm flex items-center gap-space-sm rounded-none w-full" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Mi perfil de competencias</span>
+</a>
+</li>
+<li>
+<!-- Inactive navigation item -->
+<a class="text-on-surface-variant hover:bg-surface-container px-space-md py-space-sm flex items-center gap-space-sm font-normal rounded-none border-l-2 border-transparent w-full" href="#">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mi brecha frente a un Rol-Nivel</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- 4. Main Content Area -->
+<main class="ml-64 flex-1 bg-background p-space-xl min-h-[calc(100vh-3.5rem)] flex flex-col justify-between" id="main-content">
+<div class="max-w-5xl w-full">
+<!-- Breadcrumbs -->
+<nav aria-label="Miga de pan" class="mb-space-md">
+<ol class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li>
+<span>Mi desarrollo</span>
+</li>
+<li aria-hidden="true" class="text-outline">&gt;</li>
+<li aria-current="location" class="text-on-surface font-semibold">
+              Mi perfil de competencias
+            </li>
+</ol>
+</nav>
+<!-- Main Page Title -->
+<div class="mb-space-xl border-b border-outline-variant pb-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">
+            Mi perfil de competencias
+          </h1>
+</div>
+<!-- Empty State Container -->
+<section aria-labelledby="empty-state-title" class="bg-surface-container-lowest border border-outline-variant rounded p-space-2xl text-center flex flex-col items-center justify-center my-space-lg max-w-2xl mx-auto">
+<!-- Neutral accessible outline icon -->
+<div aria-hidden="true" class="w-14 h-14 rounded-full bg-surface-container-low border border-outline-variant flex items-center justify-center mb-space-md text-on-surface-variant">
+<svg class="w-7 h-7 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Primary Heading -->
+<h2 class="font-headline-md text-headline-md text-on-surface mb-space-sm font-semibold" id="empty-state-title">
+            Todavía no tienes niveles certificados.
+          </h2>
+<!-- Secondary descriptive text -->
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+            Cuando un evaluador certifique un nivel de alguna de tus competencias, lo verás aquí con su fecha, quién lo certificó y sus evidencias.
+          </p>
+</section>
+</div>
+<!-- Discrete note at the footer of the content area -->
+<footer class="pt-space-xl pb-space-sm text-center border-t border-outline-variant mt-space-2xl">
+<p class="font-label-sm text-label-sm text-on-surface-variant tracking-normal">
+          Solo tú ves estos datos.
+        </p>
+</footer>
+</main>
+</div>
+</body></html>

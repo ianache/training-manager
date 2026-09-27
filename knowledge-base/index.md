@@ -76,6 +76,7 @@ sources:
 
 ## Requerimientos
 
+- [SPEC-001 — Gestión de colaboradores (Party UDM)](requirement/specs/SPEC-001-gestion-de-colaboradores.md) — especificación de feature, `draft`, en revisión
 - [USC-001 — User Stories de la Plataforma de Gestión de Formación](requirement/USC-001-user-stories-plataforma-gestion-formacion.md) — `draft`
 - [RCP-001 — H1 El idioma común](requirement/context-packs/RCP-001-h1-idioma-comun.md) — Requirement Context Pack, `draft`
 - User Stories refinadas de H1 (`draft`): [US-001](requirement/user-stories/US-001-definir-catalogo-de-competencias.md) · [US-002](requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md) · [US-003](requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md) · [US-004](requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md) · [US-005](requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md) · [US-006](requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md)

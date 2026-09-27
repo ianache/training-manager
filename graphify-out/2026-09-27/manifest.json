@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790483685.1270413,
-    "seen": 1790484293.4250352,
-    "ast_hash": "c27b00a7266556b2ca006864054ecd25",
+    "mtime": 1790489298.9482982,
+    "seen": 1790490169.5727413,
+    "ast_hash": "33e1bcd0d7ae9e1874b4d8e907f83e82",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790478106.878405,
-    "seen": 1790484293.4250352,
-    "ast_hash": "37c6535c98f767daa2b3198a2b80701e",
+    "mtime": 1790489298.9442978,
+    "seen": 1790490169.5727413,
+    "ast_hash": "786f6551750794b7aaf5f5d7257707b7",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -456,9 +456,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
-    "mtime": 1790483626.6892316,
-    "seen": 1790484293.4250352,
-    "ast_hash": "fdd725cbe25c57d58f04b3453a4f6ea6",
+    "mtime": 1790487770.7406569,
+    "seen": 1790490169.5727413,
+    "ast_hash": "87f9240889950686e98dae3c3eea5127",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1790483626.6982296,
-    "seen": 1790484293.4250352,
-    "ast_hash": "09529db51d6d042d84059c1ecbf0d781",
+    "mtime": 1790487770.7466104,
+    "seen": 1790490169.5727413,
+    "ast_hash": "48044f5f2372c74fe2f5e7cddc65e42c",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
@@ -492,15 +492,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ACP-001-architecture-context-pack.md": {
-    "mtime": 1790483626.3337562,
-    "seen": 1790484293.4250352,
-    "ast_hash": "ea71c2c2cf8e4ece9adfa3a9d1440457",
+    "mtime": 1790487157.3091342,
+    "seen": 1790490169.5727413,
+    "ast_hash": "6de0ca6990669e1b143b79af0296e0ed",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md": {
-    "mtime": 1790483626.3412342,
-    "seen": 1790484293.4250352,
-    "ast_hash": "06c64edeac684d6427d7a1c72d3e28e0",
+    "mtime": 1790487157.3091342,
+    "seen": 1790490169.5727413,
+    "ast_hash": "f85fd62bc467c92a3675041b194a7faa",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/AIM-001-matriz-impacto-arquitectura.md": {
@@ -510,9 +510,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/asr/asr-BR-ACR-02.md": {
-    "mtime": 1790483626.353057,
-    "seen": 1790484293.4250352,
-    "ast_hash": "a36bb4fa3f008aa12ae842cc7b467211",
+    "mtime": 1790487157.304293,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3f70b75b19c7f4a428cdc6d5a6726eb2",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/asr/asr-BR-ACR-03.md": {
@@ -564,9 +564,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/asr/asr-catalog.md": {
-    "mtime": 1790483626.3965552,
-    "seen": 1790484293.4250352,
-    "ast_hash": "9e7ea298d0ec2c4913d69019cfaf6ce3",
+    "mtime": 1790487157.3062894,
+    "seen": 1790490169.5727413,
+    "ast_hash": "b111d742f63c391b0e45ba8ad63263fc",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0066-nivel-de-rol.md": {
@@ -597,6 +597,102 @@
     "mtime": 1790483685.0837586,
     "seen": 1790484293.4250352,
     "ast_hash": "1b99e74d8fe9bab321ca193fa6b79250",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
+    "mtime": 1790487157.292286,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3d5919f77d9402a03db65cef5b885e88",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md": {
+    "mtime": 1790487157.2982864,
+    "seen": 1790490169.5727413,
+    "ast_hash": "c5cb1ae6dba138cf14cd8ed39ac7c89a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1790488799.65056,
+    "seen": 1790490169.5727413,
+    "ast_hash": "e5f1e4736d1c3a2d6f78643c66efd02f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002-shell-y-estados-transversales.md": {
+    "mtime": 1790489294.1114638,
+    "seen": 1790490169.5727413,
+    "ast_hash": "32dd97a60e0e4ff2ad071f300d3cdb9e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md": {
+    "mtime": 1790487879.027956,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3335e9f3fb5422e8443b827027a2661a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1790487880.735073,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3c8fa770ea993cedc8f562356da89cf2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-002-declarar-requerimiento-de-proyecto.md": {
+    "mtime": 1790487882.4459043,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3a32d46be93c8d8d12957eb2adb2136a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-003-certificar-un-nivel-de-competencia.md": {
+    "mtime": 1790487883.9148302,
+    "seen": 1790490169.5727413,
+    "ast_hash": "47e3be5b86cdc0c65df0a800add91532",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-004-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1790487885.5778642,
+    "seen": 1790490169.5727413,
+    "ast_hash": "20904033f3341e2fd4624e14d2d9d386",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-005-ver-mi-brecha-frente-a-un-rol-nivel.md": {
+    "mtime": 1790487887.2126667,
+    "seen": 1790490169.5727413,
+    "ast_hash": "16ea82a7059124cea153d52a1b8cdf6e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-006-buscar-candidatos-para-un-requerimiento.md": {
+    "mtime": 1790487888.7909489,
+    "seen": 1790490169.5727413,
+    "ast_hash": "1a498398cc289c1d99d236e987e35aeb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr1-catalogo-de-roles.png": {
+    "mtime": 1790488817.1190925,
+    "seen": 1790490169.5727413,
+    "ast_hash": "a50f2057c2112461bf9b47e7528883c7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr2-detalle-de-rol.png": {
+    "mtime": 1790488817.2348588,
+    "seen": 1790490169.5727413,
+    "ast_hash": "61bafddcd24e15b81ac80677d5fb2984",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr3-detalle-de-competencia.png": {
+    "mtime": 1790488817.6001613,
+    "seen": 1790490169.5727413,
+    "ast_hash": "6168351b6248c804f2f48837febbae93",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/s0-estados.png": {
+    "mtime": 1790489297.6758814,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3eea2e8b9c5e3c149a3d0d491f72c927",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/s0-shell.png": {
+    "mtime": 1790489297.6416206,
+    "seen": 1790490169.5727413,
+    "ast_hash": "0e98ba4e49389da8909679933d9c1f18",
     "semantic_hash": ""
   }
 }

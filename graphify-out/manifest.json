@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790489298.9482982,
-    "seen": 1790490169.5727413,
-    "ast_hash": "33e1bcd0d7ae9e1874b4d8e907f83e82",
+    "mtime": 1790516815.5368676,
+    "seen": 1790516832.3073132,
+    "ast_hash": "ab15f27ae6d349f7f18528258d876e7d",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790489298.9442978,
-    "seen": 1790490169.5727413,
-    "ast_hash": "786f6551750794b7aaf5f5d7257707b7",
+    "mtime": 1790516815.529707,
+    "seen": 1790516832.3073132,
+    "ast_hash": "94c9998a8bc9a2b0fa2af76348732188",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -693,6 +693,24 @@
     "mtime": 1790489297.6416206,
     "seen": 1790490169.5727413,
     "ast_hash": "0e98ba4e49389da8909679933d9c1f18",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/design.html": {
+    "mtime": 1790490319.1813695,
+    "seen": 1790516832.3073132,
+    "ast_hash": "c407b61ba006693c524a1eb79758a241",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/design.html": {
+    "mtime": 1790490256.496625,
+    "seen": 1790516832.3073132,
+    "ast_hash": "831a649db277604903de81b3fe161da2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md": {
+    "mtime": 1790516790.1349623,
+    "seen": 1790516832.3073132,
+    "ast_hash": "f7761b3842a52a208b3384a2184702f3",
     "semantic_hash": ""
   }
 }

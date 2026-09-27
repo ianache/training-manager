@@ -1,7 +1,7 @@
 {
-  "0": "TRM-0029-google-classroom.md",
+  "0": "TRM-0005-brecha.md",
   "1": "Índice",
-  "2": "RCP-001-h1-idioma-comun.md",
+  "2": "USC-001-user-stories-plataforma-gestion-formacion.md",
   "3": "AGENTS.md — UX/UI Potenciado por IA (Pack V2)",
   "4": "GLS-001-glosario-de-negocio.md",
   "5": "RCP-001 — H1 El idioma común",
@@ -23,7 +23,7 @@
   "21": "IMD-001-modelo-de-informacion-conceptual.md",
   "22": "ACP-001 — Architecture Context Pack",
   "23": "ADB-001-descubrimiento-arquitectura-plataforma.md",
-  "24": "USC-001-user-stories-plataforma-gestion-formacion.md",
+  "24": "index.md",
   "25": "ADB-001 — Descubrimiento de arquitectura",
   "26": "IMD-001 — Modelo de información conceptual",
   "27": "ASR candidato — Identidad y autorización por rol",
@@ -35,9 +35,15 @@
   "33": "ASR candidato — Contingencia ante fallas de integración con Google Classroom",
   "34": "ASR candidato — Privacidad y visibilidad de datos de desempeño",
   "35": "ASR candidato — Medibilidad de los KPI desde H1",
-  "36": "TRM-0028-gitlab.md",
+  "36": "GEN-001 — Diseño Google Stitch del catálogo de roles y competencias",
   "37": "AIM-001 — Matriz de impacto de arquitectura",
   "38": "Catálogo de candidatos ASR",
-  "39": "TRM-0036-jefe-de-ingenieria.md",
-  "40": "TRM-0056-rr-hh.md"
+  "39": "GEN-002 — Diseño Google Stitch del shell y los estados transversales",
+  "40": "TRM-0056-rr-hh.md",
+  "41": "UXR-002 — Declarar un requerimiento de proyecto",
+  "42": "UXR-003 — Certificar un nivel de competencia",
+  "43": "UXR-004 — Consultar mi perfil de competencias",
+  "44": "UXR-005 — Ver mi brecha frente a un Rol-Nivel",
+  "45": "UXR-006 — Buscar candidatos para un requerimiento",
+  "46": "TRM-0010-clocator.md"
 }
