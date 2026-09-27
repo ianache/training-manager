@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790474328.9950304,
-    "seen": 1790474960.5434701,
-    "ast_hash": "003342dde822a4179c6e2d6ad920757d",
+    "mtime": 1790470986.9846184,
+    "seen": 1790471487.4247468,
+    "ast_hash": "fecf62273d6693593164ee19687ae54d",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790474328.9878461,
-    "seen": 1790474960.5434701,
-    "ast_hash": "eb69d5179294e214e4ae5061876161ea",
+    "mtime": 1790469800.6009192,
+    "seen": 1790471487.4247468,
+    "ast_hash": "86c7150b77867cacc4c08bf659c896ca",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -441,54 +441,6 @@
     "mtime": 1790460344.478215,
     "seen": 1790471487.4247468,
     "ast_hash": "6c94e471cdea875361dfdb4039cbe43c",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md": {
-    "mtime": 1790474328.9794593,
-    "seen": 1790474960.5434701,
-    "ast_hash": "4a92801e7ca9cff2b9a1e2ecd4c80a42",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md": {
-    "mtime": 1790473861.0712159,
-    "seen": 1790474960.5434701,
-    "ast_hash": "881daa763b65d6ac9b238d48b31d7891",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
-    "mtime": 1790474293.7537124,
-    "seen": 1790474960.5434701,
-    "ast_hash": "f8b322de2921f3501b2600732b0237b7",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md": {
-    "mtime": 1790474295.3769164,
-    "seen": 1790474960.5434701,
-    "ast_hash": "7f401a135153a9955520ba433a3c3008",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1790474297.061988,
-    "seen": 1790474960.5434701,
-    "ast_hash": "a830c4a04f1d7d1b0549ee572625c7fc",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
-    "mtime": 1790474298.5416977,
-    "seen": 1790474960.5434701,
-    "ast_hash": "901b918e93d3f703365f8af8afc63823",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md": {
-    "mtime": 1790474300.0606346,
-    "seen": 1790474960.5434701,
-    "ast_hash": "c7a2c9d447a3594b4d4f10305a6c6c53",
-    "semantic_hash": ""
-  },
-  "knowledge-base/requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md": {
-    "mtime": 1790474302.809927,
-    "seen": 1790474960.5434701,
-    "ast_hash": "e1cd05f13603443ae0aa4dc51a43c86f",
     "semantic_hash": ""
   }
 }
