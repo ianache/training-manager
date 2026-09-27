@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:50:00-05:00"
+  at: "2026-09-27T09:55:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -72,6 +72,7 @@ sources:
 | D18 | Al vencer el plazo, la plataforma **envía automáticamente un correo** al Jefe de Ingeniería (la persona con ese rol vigente en la organización), a los medios de contacto de tipo **correo electrónico** que tenga registrados | Q-11 |
 | D19 | Los correos se envían desde una **cuenta de Gmail empresarial** (Google Workspace) de la empresa | Q-12 |
 | D20 | Se espera **un único Jefe de Ingeniería vigente**. Si hubiera más de uno (no debería suceder), el correo se envía **a todos** los que tengan el rol vigente | Q-13 |
+| D21 | Al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma **avisa sin impedirlo** | Propuesta del agente sobre D20, aceptada |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -119,7 +120,7 @@ sources:
 - Un contratista tiene una relación de contratación vigente con un proveedor, y su correo laboral es el del proveedor (D13).
 - Una persona anonimizada no se puede volver a identificar ni editar. Su código de colaborador y las referencias de auditoría se conservan (D16).
 - El correo de aviso se envía a todos los medios de contacto de tipo correo electrónico vigentes de las personas con rol vigente de Jefe de Ingeniería. Se espera una sola; si hay más, se envía a todas (D20). Si no hay ningún Jefe de Ingeniería con correo vigente, el aviso queda registrado como no enviado.
-- **Propuesta del agente (no es decisión):** al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma avisa sin impedirlo, porque se espera uno solo (D20).
+- Al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma avisa sin impedirlo, porque se espera uno solo (D21).
 - Solo se puede anonimizar a una persona sin roles de Empleado o Contratista vigentes, es decir, ya dada de baja. **Inferencia** a partir de C10; confirmar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
 - De un mismo rol, una persona tiene **un solo nivel vigente** (D6).
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
