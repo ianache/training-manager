@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T08:45:31-05:00"
+  at: "2026-09-27T09:05:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -64,6 +64,8 @@ sources:
 | D10 | Documentos aceptados: **DNI, carné de extranjería y pasaporte** para personas, y **RUC** para organizaciones | — |
 | D11 | **El Jefe de Ingeniería** mantiene toda la información maestra; **el colaborador** edita por sí mismo sus perfiles profesionales y su teléfono laboral | — |
 | D12 | El modelo físico soporta **MySQL y PostgreSQL**: un único modelo físico con **DDL portable** y **un anexo por motor** con las diferencias | Motor de base de datos (ADB-001 KG-01 en parte) |
+| D13 | El correo laboral de un **contratista** es **el de su proveedor**. El de un empleado es el de COMSATEL | Q-03 |
+| D14 | Cuando una persona se va, sus **datos personales (PII) se anonimizan**; no se borran los registros | Q-04 (ADB-001 KG-04 en parte) |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -93,19 +95,21 @@ sources:
 |---|---|---|
 | Persona | Código de colaborador (D9), nombres, apellidos y, opcional, un nombre preferido | Fecha de nacimiento, género, estado civil y foto |
 | Identificación | Tipo (DNI, carné de extranjería, pasaporte, RUC; D10), número y país emisor. Una parte puede tener varias | — |
-| Medio de contacto | Correo laboral, obligatorio para colaboradores; teléfono laboral, opcional; perfiles profesionales en línea, opcionales y múltiples, con URL y plataforma de una lista ampliable (LinkedIn, GitHub, Otro), D8 | Contactos personales y domicilio |
+| Medio de contacto | Correo laboral, obligatorio para colaboradores: el de COMSATEL para empleados y el del proveedor para contratistas (D13); teléfono laboral, opcional; perfiles profesionales en línea, opcionales y múltiples, con URL y plataforma de una lista ampliable (LinkedIn, GitHub, Otro), D8 | Contactos personales y domicilio |
 | Organización | Nombre (razón social si es empresa) y RUC si aplica | — |
 
 **Ciclo de vida:**
 - **Alta:** se crean la Persona, su código, su identificación, su correo laboral y su rol de Empleado o de Contratista con fecha desde. El vínculo con Keycloak puede quedar vacío.
 - **Cambio:** los datos simples se corrigen. Roles, relaciones, asignaciones y contactos no se sobrescriben: se cierra la vigencia anterior y se abre una nueva.
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
+- **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Cuándo se ejecuta está abierto (Q-09), y si alcanza al código de colaborador y a las referencias de auditoría también (Q-10).
 
 **Validaciones:**
 - La identificación es única por tipo, número y país.
 - El código de colaborador es único.
 - El correo laboral es único entre los colaboradores vigentes.
-- Un contratista tiene una relación de contratación vigente con un proveedor.
+- Un contratista tiene una relación de contratación vigente con un proveedor, y su correo laboral es el del proveedor (D13).
+- Una persona anonimizada no se puede volver a identificar ni editar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
 - De un mismo rol, una persona tiene **un solo nivel vigente** (D6).
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
 
@@ -126,6 +130,7 @@ sources:
 | C7 | Dar de baja: cerrar la vigencia del rol de Empleado o Contratista | Jefe de Ingeniería |
 | C8 | Vincular la identidad de acceso: registrar el identificador de Keycloak | Jefe de Ingeniería |
 | C9 | Consultar la ficha y su historial | Jefe de Ingeniería; el colaborador, la suya |
+| C10 | Anonimizar los datos personales de una persona dada de baja (D14) | Jefe de Ingeniería (propuesta; el disparador está en Q-09) |
 
 **Qué aporta a lo existente:**
 - **C5** alimenta UXR-004 (perfil) y UXR-005 (brecha), y define el Rol-Nivel del colaborador (P-28).
@@ -137,7 +142,7 @@ sources:
 
 | Entidad | Clave y vínculos | Vigencia |
 |---|---|---|
-| PARTY → PERSON / ORGANIZATION | Supertipo con dos subtipos. PERSON tiene `employee_code`, único | — |
+| PARTY → PERSON / ORGANIZATION | Supertipo con dos subtipos. PERSON tiene `employee_code`, único, y `anonymized_at` / `anonymized_by`, que marcan la anonimización (D14) | — |
 | PARTY_ROLE y PARTY_ROLE_TYPE | Parte y tipo de rol | `from_date` / `thru_date` |
 | PARTY_RELATIONSHIP y PARTY_RELATIONSHIP_TYPE | Rol origen, rol destino y tipo | `from_date` / `thru_date` |
 | PARTY_IDENTIFICATION e IDENTIFICATION_TYPE | Parte, tipo y país; única por tipo, número y país | — |
@@ -146,7 +151,7 @@ sources:
 | ACCESS_IDENTITY | Persona e identificador de Keycloak (0..1) | — |
 
 **Reglas transversales:**
-- Nada se sobrescribe ni se borra: se cierra la vigencia.
+- Nada se sobrescribe ni se borra: se cierra la vigencia. La única excepción es la anonimización (D14), que reemplaza los valores de PII y deja registro.
 - Hay auditoría de quién cambió qué y cuándo.
 - Los tipos (roles, relaciones, documentos, plataformas) son tablas ampliables.
 
@@ -164,6 +169,7 @@ sources:
 | Un nivel vigente por rol | Columna generada `current_role_id`, que vale el rol mientras la asignación está vigente y NULL cuando está cerrada, más un índice único sobre la persona y esa columna. Funciona en los dos motores, porque ambos admiten varios NULL en un índice único |
 | CHECK | Se usan (MySQL 8.0.16 o superior) |
 | Restricciones diferibles | No se usan |
+| Anonimización | Las columnas de PII admiten un valor anónimo, por ejemplo NULL o un marcador fijo, y los índices únicos de identificación, código y correo excluyen a las personas anonimizadas. En PostgreSQL se usa un índice parcial; en MySQL, una columna generada que vale NULL cuando la persona está anonimizada, el mismo mecanismo que "un nivel vigente por rol". Cada motor documenta su variante en su anexo |
 
 **Entregables:**
 - El DDL portable.
@@ -188,21 +194,23 @@ sources:
 **Verificación:**
 - `check_model.py` sobre IMD-002 y `glossary.py check` sobre el glosario, los dos con 0 errores.
 - Trazabilidad: cada historia cita sus reglas `BR-PTY-*`, y cada tabla cita su entidad lógica y su concepto de IMD-002.
-- El DDL se ejecuta en **MySQL 8 y en PostgreSQL**, junto con las pruebas de: un nivel vigente por rol, identificación única, código único y correo laboral único entre vigentes. Si no hay motores disponibles, por ejemplo Docker, se reporta como verificación pendiente.
+- El DDL se ejecuta en **MySQL 8 y en PostgreSQL**, junto con las pruebas de: un nivel vigente por rol, identificación única, código único, correo laboral único entre vigentes y anonimización (que no quede PII en ninguna tabla ni vigencia, y que las unicidades ignoren a los anonimizados). Si no hay motores disponibles, por ejemplo Docker, se reporta como verificación pendiente.
 - Todo queda en `draft`, salvo el ADR-003, que queda Aceptado por decisión del decisor.
 
 ## 8. Preguntas abiertas
 
-| ID | Pregunta | Responsable | Prioridad |
-|---|---|---|---|
-| Q-01 | ¿Cómo se genera el código de colaborador: automático, manual o con formato? | Jefe de Ingeniería | Media |
-| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media |
-| Q-03 | ¿Un contratista tiene correo laboral de COMSATEL o el de su proveedor? Afecta a la unicidad del correo | Jefe de Ingeniería | Media |
-| Q-04 | ¿La normativa de datos personales obliga a borrar o anonimizar a quien se va? (ADB-001 KG-04) | Legal + Jefe de Ingeniería | Alta |
-| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta |
-| Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media |
-| Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media |
-| Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja |
+| ID | Pregunta | Responsable | Prioridad | Estado |
+|---|---|---|---|---|
+| Q-01 | ¿Cómo se genera el código de colaborador: automático, manual o con formato? | Jefe de Ingeniería | Media | Abierta |
+| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | Abierta |
+| Q-03 | ¿Un contratista tiene correo laboral de COMSATEL o el de su proveedor? | Jefe de Ingeniería | Media | **Respondida (D13):** el del proveedor |
+| Q-04 | ¿La normativa obliga a borrar o anonimizar a quien se va? | Legal + Jefe de Ingeniería | Alta | **Respondida (D14):** se anonimizan los datos PII |
+| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta | Abierta |
+| Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media | Abierta |
+| Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media | Abierta |
+| Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | Abierta |
+| Q-09 | ¿Cuándo se anonimiza: en la baja, después de un plazo de retención o a pedido? ¿Lo ejecuta una persona o un proceso? | Jefe de Ingeniería + Legal | Alta | Abierta |
+| Q-10 | ¿La anonimización alcanza también al código de colaborador y a las referencias de auditoría, por ejemplo "quién certificó" cuando el evaluador se va? | Jefe de Ingeniería + Legal | Alta | Abierta |
 
 ## 9. Próximo paso
 
