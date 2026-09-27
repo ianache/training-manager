@@ -1,0 +1,4 @@
+# Excluidos del grafo de conocimiento
+.claude/
+material-curso/
+graphify-out/
