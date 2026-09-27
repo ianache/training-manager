@@ -6,7 +6,7 @@ tags: [ux-ui, stitch, generation-prompt, shell, estados, transversal, h1]
 status: draft
 generated:
   by: "stitch-ui-generator/1.0"
-  at: "2026-09-27T01:25:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: uxr-000
     resource: /knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md
@@ -88,7 +88,8 @@ La revisé contra UXR-000, ADR-001 y ADR-002, y contra el HTML exportado del she
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
 | GEN-002-Q1 | Un usuario con varios roles de acceso (colaborador, jefe de proyecto, evaluador), ¿ve todas sus secciones juntas o cambia de rol? | Responsable de producto | Alta |
-| P-08 | ¿Qué ve cada rol de los datos de otras personas? Define qué secciones del shell existen para cada rol | Responsable de producto | Alta |
+| ~~P-08~~ | ~~¿Qué ve cada rol de los datos de otras personas? Define qué secciones del shell existen para cada rol~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): resumen de niveles, evidencias y certificaciones para cualquier colaborador; brechas individuales para el Jefe de proyecto; propuestas de la IA para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN (BR-TRA-03 a BR-TRA-06, BR-IA-04; UXR-000.5). Las secciones por rol se derivan de ahí; qué es ADMIN sigue en P-45 | Responsable de producto | — |
+| P-54 | ¿Calificaciones y sustento del evaluador son visibles para todos? ¿Se muestran enlaces a GitLab? Define el estado de una evidencia no accesible | Jefe de Ingeniería | Media |
 | UXR-Q2, UXR-Q4 | ¿Qué dispositivos se usan? ¿Hay un design system corporativo? | Responsable de producto / Jefe de Ingeniería | Alta |
 
 ## Próximos pasos propuestos (no son decisiones)

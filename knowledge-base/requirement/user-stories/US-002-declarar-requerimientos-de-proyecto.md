@@ -6,7 +6,7 @@ tags: [user-story, h1, requerimientos, proyecto]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -25,7 +25,7 @@ sources:
 - **Pregunta:** ¿qué debe cumplir un requerimiento de proyecto para que la búsqueda de candidatos y el KPI de cobertura funcionen?
 - **Consumidor:** `ux-requirements-analyzer` (UX-101) y el Responsable de producto, que valida.
 - **Incluye:** alta de requerimientos (rol, competencias y nivel) de un proyecto.
-- **Excluye:** gestión de proyectos, que ya cubre GitLab (VIS-001:L111); asignación ([US-007](../USC-001-user-stories-plataforma-gestion-formacion.md#us-007)).
+- **Excluye:** gestión de proyectos, que ya cubre GitLab (VIS-001:L111); asignación ([US-007](../USC-001-user-stories-plataforma-gestion-formacion.md#us-007)), que hace el Jefe de Ingeniería o un usuario ADMIN, no el Jefe de proyecto (BR-REQ-04; P-05 respondida el 2026-09-27).
 - **Contexto:** [RCP-001](../context-packs/RCP-001-h1-idioma-comun.md), que está "En validación".
 
 ## Resultado
@@ -49,7 +49,7 @@ sources:
 - **Negativo:** un usuario distinto del Jefe de proyecto que registra el requerimiento intenta retirar competencias, y no puede (BR-REQ-10).
 - **Límite sin regla:** retirar todas las competencias del Rol-Nivel. Ninguna fuente lo trata (US2-Q4).
 - **Negativo:** un requerimiento no puede exigir un nivel de competencia sin requisitos de evidencia definidos (BR-ACR-13, P-39 respondida el 2026-09-27). Como el Rol-Nivel tampoco puede exigirlo (US-001 AC-11), las competencias que el requerimiento hereda ya cumplen esta regla.
-- **Por confirmar (no es criterio):** solo el Líder de ese proyecto declara sus requerimientos. VIS-001:L42 dice "su proyecto", pero no lo establece como regla (US2-Q2).
+- **Negativo:** un usuario que no es el Jefe de proyecto de ese proyecto intenta declarar un requerimiento del proyecto, y no puede (BR-REQ-02; US2-Q2 respondida el 2026-09-27, EVD-2026-0127). Antes era un "por confirmar".
 - **Límite sin regla:** varios requerimientos del mismo rol en un proyecto (por ejemplo, dos desarrolladores). Ninguna fuente lo trata (US2-Q3).
 
 ## Evidencias y trazabilidad
@@ -66,6 +66,7 @@ sources:
 | EVD-2026-0067 | Un requerimiento indica el nivel de rol que necesita (por ejemplo, Developer Senior 2). | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-26 | decision | high |
 | EVD-2026-0072 | Un requerimiento no puede pedir competencias que no pertenecen a su rol: si se pide un Developer Junior 1, se entiende que las competencias definidas para ese rol y nivel son las idóneas para el proyecto. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-26 | decision | high |
 | EVD-2026-0104 | BR-REQ-07 sigue vigente. Cuando un proyecto requiere colaboradores de un Rol-Nivel, por defecto se asumen todas las competencias de ese rol y nivel; el Jefe de proyecto que registra el requerimiento puede refinarlo retirando las competencias que no considere necesarias para el proyecto. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-38 | decision | high |
+| EVD-2026-0127 | Solo el Jefe de proyecto del proyecto declara los requerimientos de ese proyecto. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a US2-Q2 | decision | high |
 
 Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58-05:00`, `freshness: current`, `owner: Responsable de producto`.
 
@@ -83,8 +84,8 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | US2-Q1 — ¿De dónde salen los proyectos y su Líder, si la gestión de proyectos queda en GitLab? | Responsable de producto | Alta | Nueva |
 | P-10 — ¿El requerimiento solo usa roles y competencias del catálogo de su producto? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no; los roles son comunes (BR-CAT-08) |
 | P-11 — ¿Qué estados tiene un proyecto y cuándo es "activo"? | Responsable de producto | Media | Abierta (BRC-001) |
-| US2-Q2 — ¿Solo el Jefe del proyecto puede declarar sus requerimientos? | Responsable de producto | Media | Nueva |
-| US2-Q3 — ¿Un requerimiento indica cuántas personas se necesitan para un rol? | Responsable de producto | Baja | Nueva |
+| US2-Q2 — ¿Solo el Jefe del proyecto puede declarar sus requerimientos? | Responsable de producto | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí, solo el Jefe de proyecto de ese proyecto (BR-REQ-02, EVD-2026-0127) |
+| US2-Q3 — ¿Un requerimiento indica cuántas personas se necesitan para un rol? | Responsable de producto | Baja | Nueva. Relacionado: a un requerimiento se le pueden asignar uno o varios colaboradores (BR-REQ-04), pero eso no dice si el requerimiento declara una cantidad |
 | IM-Q6 — ¿Un requerimiento puede pedir solo algunas de las competencias del rol? | Responsable de producto | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-07) |
 | P-25 — ¿Un requerimiento indica el nivel de rol que necesita? | Responsable de producto | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-08) |
 | P-29 — ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | Responsable de producto | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no (BR-REQ-09) |

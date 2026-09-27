@@ -6,7 +6,7 @@ tags: [user-story, h1, certificacion, evidencia]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -25,7 +25,7 @@ sources:
 - **Pregunta:** ¿qué debe cumplir la certificación manual de H1 para que cada nivel sea verificable y trazable?
 - **Consumidor:** `ux-requirements-analyzer` (UX-101) y el Jefe de Ingeniería, que valida.
 - **Incluye:** certificación manual por un evaluador con evidencias de formación, práctica evaluada o desempeño en proyecto.
-- **Excluye:** propuestas de la IA ([US-011](../USC-001-user-stories-plataforma-gestion-formacion.md#us-011), H3) y certificados de curso ([US-010](../USC-001-user-stories-plataforma-gestion-formacion.md#us-010), H2).
+- **Excluye:** propuestas de la IA ([US-011](../USC-001-user-stories-plataforma-gestion-formacion.md#us-011), H3) y certificados de curso ([US-010](../USC-001-user-stories-plataforma-gestion-formacion.md#us-010), H2). También la **propuesta de certificación a partir de un curso** (H2): cuando las evidencias reunidas en un curso cumplen los requisitos de evidencia requeridos del nivel objetivo, la plataforma propone certificar el nivel objetivo de cada competencia que el curso desarrolla (BR-ACR-14; P-07 respondida el 2026-09-27). **Inferencia:** esa propuesta entra a este mismo flujo y solo certifica con la firma de un evaluador (BR-ACR-02, BR-ACR-04); ninguna historia la cubre todavía. Quién la firma, el Evaluador o el Instructor de la edición (confirmado el 2026-09-27, BR-FOR-05), está abierto (P-07.4, P-49.2).
 - **Contexto:** [RCP-001](../context-packs/RCP-001-h1-idioma-comun.md), que está "En validación".
 
 ## Resultado
@@ -77,6 +77,8 @@ sources:
 | EVD-2026-0102 | La rúbrica define el comportamiento y el logro visible y verificable (a través de evidencias). Las rúbricas las define y aprueba el Jefe de Ingeniería. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-37 | decision | high |
 | EVD-2026-0103 | Al registrar un colaborador se le asigna un nivel inicial según su rol; después se evalúa la evolución en las competencias del rol a través de los cursos o de su desempeño en los proyectos, con evidencias específicas de lo que produce. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-28 | decision | high |
 | EVD-2026-0105 | El Evaluador y el Jefe de Ingeniería son solo gestores del programa; por ahora quedan fuera del proceso de evaluación, aunque su rol tiene competencias definidas. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-31 | decision | high |
+| EVD-2026-0128 | Aprobar un curso es parte de la demostración del nivel requerido de las competencias que desarrolla; la plataforma propone certificar el nivel objetivo cuando las evidencias reunidas en el curso (evaluaciones o cuestionarios y lo producido en proyectos durante el curso) cumplen los requisitos requeridos. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-07 | decision | high |
+| EVD-2026-0129 | Las certificaciones y su auditoría las puede ver cualquier colaborador. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-08 | decision | high |
 
 Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
 
@@ -87,7 +89,8 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 - **Alimenta:** [US-004](US-004-consultar-mi-perfil-de-competencias.md) (perfil), [US-005](US-005-ver-mi-brecha-frente-a-un-rol.md) (brecha) y [US-006](US-006-buscar-candidatos-para-un-requerimiento.md) (búsqueda).
 - **Base de:** US-011 (H3), que reutiliza este flujo de certificación.
 - **Contradicción vigente:** AMB-03. Gestión de formación / RR. HH. "gestiona certificaciones" (VIS-001:L45), pero el que certifica es el evaluador (VIS-001:L80). Se mantienen las dos fuentes.
-- **Ambigüedad vigente:** AMB-01. La formación cuenta como evidencia (VIS-001:L71), pero el certificado de curso no equivale a un nivel (VIS-001:L82).
+- **Ambigüedad resuelta:** AMB-01 (ianache (Jefe de Ingeniería), 2026-09-27, P-07). La formación cuenta como evidencia: aprobar el curso es parte de la demostración del nivel y la plataforma propone certificar el nivel objetivo (BR-ACR-14); el certificado de curso sigue sin certificar un nivel por sí solo (BR-CER-02).
+- **Visibilidad (P-08, respondida el 2026-09-27):** cualquier colaborador puede ver las certificaciones y su auditoría (BR-TRA-06). Afecta a AC-2: "alguien" es cualquier colaborador. Qué se muestra de las calificaciones y del sustento del evaluador sigue abierto (P-54).
 
 ## Vacíos y preguntas abiertas
 
@@ -101,11 +104,12 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | P-41 — ¿Cómo "refuerza" una evidencia deseada la certificación? ¿Solo queda registrada o cambia algo? | Jefe de Ingeniería | Media | Nueva (BRC-001, derivada de P-23) |
 | P-31 — ¿El Evaluador y el Jefe de Ingeniería tienen perfil de competencias? | Jefe de Ingeniería | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son solo gestores del programa y por ahora quedan fuera de la evaluación (BR-PRG-01, BR-PRG-02) |
 | P-42 — ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? | Jefe de Ingeniería | Alta | Nueva (BRC-001, derivada de P-28); no bloquea esta historia |
-| RCP-Q1 — ¿Quiénes son los evaluadores y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol |
+| RCP-Q1 — ¿Quiénes son los evaluadores y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol. *Actualización (2026-09-27, P-49):* el Instructor está confirmado como un colaborador que el Jefe de Ingeniería o un ADMIN asigna a una edición de curso para evaluar a los inscritos (BR-FOR-05); si puede certificar niveles sigue abierto (P-49.2) |
 | P-09 — ¿Qué hace Gestión de formación / RR. HH. en la certificación? ¿Un evaluador puede certificar a su propio equipo? | Responsable de producto | Media | Abierta (BRC-001) |
 | RCP-Q2 — ¿En H1 un evaluador puede registrar a mano evidencia de GitLab? | Jefe de Ingeniería | Media | Abierta (RCP-001) |
 | P-14 — ¿Una certificación vence o puede revocarse? ¿Se puede recertificar? | Jefe de Ingeniería | Baja | Abierta (BRC-001) |
-| P-07 — ¿Aprobar un curso aporta evidencia para algún nivel? | Jefe de Ingeniería | Media | Abierta (BRC-001) |
+| P-07 — ¿Aprobar un curso aporta evidencia para algún nivel? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí; la plataforma propone certificar el nivel objetivo y la certificación sigue exigiendo firma humana (BR-ACR-14, BR-CER-02, BR-FOR-04). AMB-01 resuelta |
+| P-54 — ¿Las calificaciones de evaluaciones y cuestionarios y el sustento del evaluador también son visibles para todos, o solo el resultado? | Jefe de Ingeniería | Media | Nueva (BRC-001, derivada de P-08) |
 
 ## Preparación y entrega
 
@@ -118,6 +122,6 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 
 - [x] Fuentes y procedencia registradas
 - [x] Hechos separados de supuestos e hipótesis
-- [x] Contradicciones visibles (AMB-01, AMB-03)
+- [x] Contradicciones visibles (AMB-03; AMB-01 resuelta el 2026-09-27)
 - [x] Casos negativos y límite considerados
 - [ ] Validación humana registrada

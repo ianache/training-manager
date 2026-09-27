@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T19:51:17-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -32,4 +32,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [IA](TRM-0033-ia.md) · [Firma humana](TRM-0026-firma-humana.md) · [Evaluador](TRM-0021-evaluador.md) · [Evidencia de GitLab asistida por IA](TRM-0023-evidencia-de-gitlab-asistida-por-ia.md)
-- **Notas:** Es el único elemento con estados derivables en las fuentes (BRC-001:L36). El colaborador puede ver las propuestas sobre él (BRC-001:L130).
+- **Notas:** Es el único elemento con estados derivables en las fuentes (BRC-001:L36). El colaborador puede ver las propuestas sobre él (BRC-001 BR-IA-04). Ampliada el 2026-09-27 (ianache, Jefe de Ingeniería, respuesta a P-08; EVD-2026-0129): también las ven quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y cualquier usuario ADMIN. No confundir con la propuesta de certificación que la plataforma hace a partir de un curso (BR-ACR-14), que no viene de la IA.

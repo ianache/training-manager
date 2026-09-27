@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, brecha, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T14:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: us-005
     resource: /knowledge-base/requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md
@@ -45,7 +45,7 @@ Saber qué le falta para un Rol-Nivel.
 ## Reglas que la interfaz debe hacer visibles
 
 - La diferencia se muestra por competencia (BR-BRE-01), en texto y no solo con color (UXR-000.3).
-- El colaborador solo ve sus propias brechas; no hay acceso a las de otros ni a las agregadas (BR-BRE-04, BR-BRE-06).
+- El colaborador solo ve sus propias brechas; no hay acceso a las de otros ni a las agregadas (BR-BRE-04, BR-BRE-06). Desde el 2026-09-27 (P-08) el Jefe de proyecto sí ve la brecha individual de cualquier colaborador (BR-TRA-04); eso se diseña en la búsqueda de candidatos (UXR-006), no en esta vista.
 
 ## Estados
 

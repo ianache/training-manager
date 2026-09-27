@@ -6,7 +6,7 @@ tags: [user-story, h1, perfil, transparencia]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T10:45:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -27,7 +27,7 @@ sources:
 - **Pregunta:** ¿qué debe ver un colaborador en su propio perfil para saber qué nivel tiene?
 - **Consumidor:** `ux-requirements-analyzer` (UX-101) y el Responsable de producto, que valida.
 - **Incluye:** la vista del propio perfil: niveles certificados, historial y evidencias.
-- **Excluye:** la vista del perfil de otra persona (P-08); la brecha ([US-005](US-005-ver-mi-brecha-frente-a-un-rol.md)); las propuestas de la IA (US-012, H3).
+- **Excluye:** la vista del perfil de otra persona (P-08, respondida el 2026-09-27: ver "Casos negativos y límite"); la brecha ([US-005](US-005-ver-mi-brecha-frente-a-un-rol.md)); las propuestas de la IA (US-012, H3).
 - **Contexto:** [RCP-001](../context-packs/RCP-001-h1-idioma-comun.md), que está "En validación".
 
 ## Resultado
@@ -45,7 +45,7 @@ sources:
 ### Casos negativos y límite
 
 - **Negativo:** ninguno sostenido por las fuentes.
-- **Fuera de esta historia:** quién más puede ver este perfil (P-08). Hasta que se resuelva, RCP-001 indica que el colaborador vea solo lo suyo.
+- **Fuera de esta historia:** quién más puede ver este perfil. P-08 quedó respondida el 2026-09-27 (EVD-2026-0129): el resumen de niveles certificados es público para cualquier colaborador (BR-TRA-03), las evidencias son accesibles a cualquier colaborador, con las de GitLab sujetas al control de acceso de cada repositorio (BR-TRA-05), y las certificaciones y su auditoría también (BR-TRA-06). Ya no aplica el acceso mínimo que RCP-001 recomendaba. **Recomendación, no decisión:** la vista del perfil de otra persona necesita su propia historia; esta sigue siendo la del propio perfil. Queda abierto qué se muestra de las calificaciones y del sustento del evaluador (P-54).
 
 ## Evidencias y trazabilidad
 
@@ -63,7 +63,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 - **Reglas:** BR-TRA-01, BR-ACR-03.
 - **Depende de:** [US-003](US-003-acreditar-manualmente-un-nivel.md) (sin certificaciones, el perfil solo muestra el estado vacío).
 - **Alimenta:** el KPI 6, porcentaje de colaboradores con perfil activo (VIS-001:L124). "Perfil activo" está sin definir (GQ-08).
-- **Dato personal:** el perfil contiene datos de desempeño de una persona.
+- **Dato personal:** el perfil contiene datos de desempeño de una persona. Por decisión del 2026-09-27 (P-08), el resumen de niveles, las evidencias y las certificaciones son visibles para cualquier colaborador (BR-TRA-03, BR-TRA-05, BR-TRA-06).
 
 ## Vacíos y preguntas abiertas
 
@@ -71,6 +71,8 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 |---|---|---|---|
 | VIS-§11.4 — ¿De dónde salen los colaboradores y sus datos básicos? | Responsable de producto + ARQ | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2): la plataforma es el sistema de registro de colaboradores, sin integración con RR. HH. (BR-PTY-01). Las fichas las mantiene el Jefe de Ingeniería (US de SPEC-001). |
 | GQ-08 — ¿Qué es un "perfil activo"? | Responsable de producto | Media | Abierta (GLS-001). Afecta al KPI 6, no a esta historia. |
+| P-08 — ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Responsable de producto | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): ver BR-TRA-03 a BR-TRA-06. No cambia esta historia |
+| P-54 — ¿Las calificaciones y el sustento del evaluador también son visibles para todos? | Jefe de Ingeniería | Media | Nueva (BRC-001, derivada de P-08). No bloquea esta historia: el propio colaborador ya ve sus evidencias (BR-TRA-01) |
 
 ## Preparación y entrega
 

@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, catalogo, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: us-001
     resource: /knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md
@@ -76,7 +76,7 @@ Mantener un catálogo único y confiable, que proyectos, formación y certificac
 
 ## Supuestos
 
-- La edición se hace sobre el catálogo vigente. P-02 se respondió en parte el 2026-09-27: se versionan los **cursos** (BR-FOR-06 a BR-FOR-10), pero el versionado del **catálogo** sigue abierto (P-50), así que no se diseña ninguna función de versiones del catálogo.
+- La edición se hace sobre el catálogo vigente. P-02 se respondió en parte el 2026-09-27: se versionan los **cursos** (BR-FOR-06 a BR-FOR-10), pero el versionado del **catálogo** sigue abierto (P-50), así que no se diseña ninguna función de versiones del catálogo. **Actualización (2026-09-27, P-50 en parte):** se versionan las **competencias**, no los roles (BR-CAT-22). Una función de versiones aplicaría solo a la competencia (**inferencia:** con su rúbrica y sus requisitos de evidencia, y estados DRAFT, APPROVED y DEPRECATED, como los cursos). Todavía no se diseña: faltan el efecto de una versión nueva sobre Rol-Nivel, requerimientos y certificaciones (P-50.1) y quién la aprueba (P-50.2).
 
 ## Preguntas abiertas
 
@@ -86,6 +86,6 @@ Mantener un catálogo único y confiable, que proyectos, formación y certificac
 | ~~P-39~~ | ~~¿Se puede exigir en un Rol-Nivel un nivel de competencia sin requisitos de evidencia definidos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no; siempre debe haber forma de evidenciar (BR-ACR-13). La interfaz bloquea la asignación | Jefe de Ingeniería | — |
 | ~~P-40~~ | ~~¿Se registran criterios de cada nivel de rol (años de experiencia, formación técnica)?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) | Jefe de Ingeniería | — |
 | P-37 | ¿La rúbrica contiene los requisitos de evidencia, o son cosas distintas? Define si se editan en la misma vista. Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la rúbrica describe el logro verificable y la define y aprueba el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19); que sean cosas distintas es una inferencia a confirmar | Jefe de Ingeniería | Media |
-| P-02 / P-50 | ¿Se versiona el catálogo? Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto en P-50 | Jefe de Ingeniería | Alta (P-50) |
+| P-02 / P-50 | ¿Se versiona el catálogo? Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10) y las competencias, no los roles (BR-CAT-22). Siguen abiertos P-50.1 (efecto sobre datos vigentes) y P-50.2 (quién aprueba una versión de competencia) | Jefe de Ingeniería | Alta (P-50.1) |
 | ~~US1-Q1~~ | ~~¿Se permite un rol sin competencias o una competencia repetida?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): un rol debe tener al menos una competencia, y una competencia puede repetirse en varios roles (BR-CAT-20) pero no dentro de un rol (BR-CAT-21; interpretación a confirmar: una vez por Rol-Nivel) | Jefe de Ingeniería | — |
 | ~~UXR-001-Q1~~ | ~~¿Otros roles (por ejemplo, el Jefe de proyecto) pueden consultar el catálogo en modo lectura?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): todos los colaboradores, sin restricción (BR-TRA-02) | Jefe de Ingeniería | — |

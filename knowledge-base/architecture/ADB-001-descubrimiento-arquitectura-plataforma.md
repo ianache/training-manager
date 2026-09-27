@@ -6,7 +6,7 @@ tags: [architecture, discovery, as-is, integraciones, restricciones]
 status: draft
 generated:
   by: "architecture-discovery/1.0"
-  at: "2026-09-27T17:00:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -157,7 +157,7 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 | KG-01 | Arquitectura AS-IS y contexto corporativo: plataformas, alojamiento (on-premise o nube), estándares, tecnologías aprobadas, ADR previos. **Respondido en parte:** tecnología y estructura ([ADR-001](adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md)), identidad ([ADR-002](adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md)), motores de base de datos ([ADR-003](adrs/ADR-003-persistencia-mysql-y-postgresql.md)) y secretos ([ADR-004](adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md)); siguen abiertos el alojamiento y los estándares corporativos | Sin esto no se puede analizar impacto ni validar la significancia de los ASR | Arquitecto | Alta |
 | KG-02 | Política corporativa sobre enviar datos internos a servicios de IA | Define si la IA de H3 puede procesar datos de GitLab fuera del perímetro interno | Arquitecto + Seguridad | Alta |
 | KG-03 | Proveedor de identidad y fuente de datos de colaboradores (¿sistema de RR. HH.?). **Respondido en parte:** el proveedor es Keycloak ([ADR-002](adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md)); la fuente de datos es la propia plataforma, sin integración con RR. HH. ([SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md) D2; BR-PTY-01), y la plataforma solo guarda el identificador del usuario de Keycloak (D4; BR-PTY-16). Sigue abierto cómo se modelan los roles de acceso en Keycloak y si se federa | Afecta a la autenticación, los roles y el alta de personas | Arquitecto + Negocio | Alta |
-| KG-04 | Normativa de datos personales aplicable; matriz de visibilidad por rol (P-08); quiénes son los evaluadores y quién los designa (RCP-Q1); si un evaluador puede certificar a su propio equipo (P-09) | Afecta a la autorización a nivel de dato y a la auditoría de accesos | Negocio + Legal | Alta |
+| KG-04 | Normativa de datos personales aplicable; matriz de visibilidad por rol (P-08, respondida el 2026-09-27: BR-TRA-03 a BR-TRA-06, BR-IA-04 y BR-PTY-20 precisada por P-52; abierto P-54); quiénes son los evaluadores y quién los designa (RCP-Q1); si un evaluador puede certificar a su propio equipo (P-09) | Afecta a la autorización a nivel de dato y a la auditoría de accesos | Negocio + Legal | Alta |
 | KG-05 | Contratos y límites de las API: Classroom, Drive, GitLab (instancia, versión, permisos) y docsuite | Afecta a la viabilidad y a la resiliencia de las integraciones | Arquitecto | Media |
 | KG-06 | Metas de calidad: disponibilidad, rendimiento, RTO/RPO, retención, respaldo | Sin metas no se puede dimensionar | Negocio + Arquitecto | Media |
 | KG-07 | Volúmenes: colaboradores, proyectos, competencias, actividad de GitLab | Afecta al dimensionamiento y al diseño de la búsqueda y la IA | Negocio | Media |
@@ -170,7 +170,7 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 |---|---|---|---|---|
 | CF-01 | **Potencial:** la evidencia de GitLab es de "uso interno", pero la IA de H3 podría requerir un servicio externo. Ninguna fuente dice si está permitido. | VIS-001:L95, L165 | VIS-001:L81 (sin proveedor definido) | Sin resolver (KG-02) |
 | CF-02 | Gestión de formación / RR. HH. "gestiona certificaciones", pero quien certifica es el evaluador | VIS-001:L45 | VIS-001:L80 | Sin resolver (AMB-03, P-09) |
-| CF-03 | La formación cuenta como evidencia de nivel, pero el certificado de curso no equivale a un nivel | VIS-001:L71 | VIS-001:L82 | Sin resolver (AMB-01, P-07) |
+| CF-03 | La formación cuenta como evidencia de nivel, pero el certificado de curso no equivale a un nivel | VIS-001:L71 | VIS-001:L82 | Resuelta el 2026-09-27 (AMB-01, P-07): aprobar el curso es parte de la demostración y la plataforma propone certificar el nivel objetivo, con firma humana (BR-ACR-14); el certificado de curso no certifica por sí solo (BR-CER-02) |
 | CF-04 | Los `generated.at` de VIS-001, `index.md` y `changelog.md` (22:02 y 22:05) son posteriores a documentos derivados de ellos; la cronología de procedencia no es confiable | VIS-001 frontmatter | BRC-001, GLS-001 y siguientes | Sin resolver: corregir las marcas de tiempo |
 
 ## Prioritized architecture questions
@@ -180,10 +180,10 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 | 1 | ¿Dónde se aloja la plataforma y qué estándares y tecnologías corporativas son obligatorios? | Condiciona todas las decisiones posteriores | Estándares de arquitectura de COMSATEL, ADR existentes Parcialmente respondida: la tecnología y la estructura están en ADR-001 (Angular, Node.js, microUIs, BFF, microservicios), los motores de base de datos en ADR-003 (MySQL 8.0.16+ y PostgreSQL) y la plataforma de secretos en ADR-004 (HashiCorp Vault); el alojamiento sigue abierto |
 | 2 | ¿Pueden los datos de GitLab procesarse con un servicio de IA externo? | Define si la IA puede procesar datos fuera del perímetro interno (CF-01) | Política de IA / seguridad de la información |
 | 3 | ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? | Autenticación, autorización y datos maestros | Inventario de sistemas de identidad y de RR. HH. Parcialmente respondida: el proveedor es Keycloak, integrado en el BFF (ADR-002). El origen de los colaboradores y sus roles quedó respondido por SPEC-001 D2, D6 y D11: se registran en la plataforma, que es el sistema de registro, sin integración con RR. HH. (BR-PTY-01). Sigue abierto el modelo de roles de acceso en Keycloak |
-| 4 | ¿Qué normativa de datos personales aplica y quién ve qué? | Autorización a nivel de dato, auditoría de accesos | Normativa aplicable; respuesta a P-08 |
+| 4 | ¿Qué normativa de datos personales aplica y quién ve qué? | Autorización a nivel de dato, auditoría de accesos | Normativa aplicable; P-08 respondida el 2026-09-27 (BR-TRA-03 a BR-TRA-06, BR-IA-04, BR-PTY-20); falta P-54 |
 | 5 | ¿El historial y la evidencia deben conservarse con copia o basta la referencia externa, y por cuánto tiempo? ¿Una certificación vence o se revoca (P-14)? | Persistencia, trazabilidad y retención | Política de retención; requisitos de auditoría; respuesta a P-14 |
 | 6 | ¿De dónde salen los proyectos y sus Líderes? | Posible integración adicional con GitLab | Respuesta a US2-Q1 |
-| 7 | ¿Se versiona el catálogo? | Modelo de datos de H1 | Respuesta a P-50 (P-02 quedó respondida solo para cursos: BR-FOR-06 a BR-FOR-10) |
+| 7 | ¿Se versiona el catálogo? | Modelo de datos de H1 | Respuesta a P-50 (P-02 quedó respondida solo para cursos: BR-FOR-06 a BR-FOR-10). *2026-09-27:* P-50 respondida en parte: el versionado aplica solo a las **competencias**, no a los roles (BR-CAT-22); faltan P-50.1 (efecto sobre datos vigentes) y P-50.2 (quién aprueba) |
 | 8 | ¿Qué acceso real hay a las API de Classroom, Drive, GitLab y docsuite? | Viabilidad de las integraciones y de la contingencia | Credenciales de prueba, documentación de las API, contrato de docsuite |
 | 9 | ¿Qué volúmenes y metas de calidad se esperan? | Dimensionamiento | Cifras de negocio; SLA internos |
 | 10 | ¿Qué equipo, presupuesto y plazo hay? | Restringe las opciones | Plan del proyecto |

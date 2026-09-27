@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c5, rol-nivel]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -150,7 +150,7 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** el nivel de rol es un dato de desempeño de una persona; acceso mínimo hasta P-08.
+- **Privacidad y datos personales:** el nivel de rol es un dato de desempeño de una persona. P-08 quedó respondida el 2026-09-27: el rol de una persona es visible para cualquier colaborador (BR-PTY-20, P-52) y el resumen de sus niveles certificados también (BR-TRA-03). Ya no aplica el "acceso mínimo" provisional. **Inferencia:** "rol" en BR-PTY-20 incluye el nivel de rol vigente; no se precisó.
 - **Otros:** auditoría (BR-PTY-12).
 
 ## 10. Consideraciones de UX

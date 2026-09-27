@@ -6,7 +6,7 @@ tags: [ux-ui, knowledge-base, index]
 status: draft
 generated:
   by: "manual/1.0"
-  at: "2026-09-27T17:20:00-05:00"
+  at: "2026-09-27T18:15:00-05:00"
 sources:
   - id: repository-guidelines
     resource: /AGENTS.md

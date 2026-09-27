@@ -6,7 +6,7 @@ tags: [data-model, physical, ddl, mysql, postgresql, party, anonimizacion, dtc]
 status: draft
 generated:
   by: "data-model-designer/1.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: ldm-001
     resource: /knowledge-base/architecture/data-model/LDM-001-modelo-logico-de-partes.md
@@ -78,7 +78,7 @@ Los dos scripts por motor se derivan del portable y deben mantenerse en sincron�
 
 ## 4. Lo que la base no garantiza
 
-Lo aplica el microservicio de partes; queda fuera del DDL: la generación del GUID del código de colaborador (D25), que un contratista no tenga relación de reporte (BR-PTY-19, D26), la visibilidad de los datos para cualquier colaborador (BR-PTY-20, alcance en P-52), BR-PTY-05 (derivado), la obligatoriedad y el dominio del correo laboral (BR-PTY-08, D13), la contratación vigente del contratista (BR-PTY-10), los pares de roles por tipo de relación (A-10), vigencias solapadas (DM-Q-06), no editar a un anonimizado y anonimizar solo tras la baja (BR-PTY-14), el envío del correo (BR-PTY-15, D19, D22), los permisos (BR-PTY-17) y el aviso de BR-PTY-18.
+Lo aplica el microservicio de partes; queda fuera del DDL: la generación del GUID del código de colaborador (D25), que un contratista no tenga relación de reporte (BR-PTY-19, D26), la visibilidad para otros colaboradores de solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20, precisada el 2026-09-27 por P-52), BR-PTY-05 (derivado), la obligatoriedad y el dominio del correo laboral (BR-PTY-08, D13), la contratación vigente del contratista (BR-PTY-10), los pares de roles por tipo de relación (A-10), vigencias solapadas (DM-Q-06), no editar a un anonimizado y anonimizar solo tras la baja (BR-PTY-14), el envío del correo (BR-PTY-15, D19, D22), los permisos (BR-PTY-17) y el aviso de BR-PTY-18.
 
 ## 5. Procedimiento de referencia de anonimización
 

@@ -34,7 +34,7 @@ El catálogo de roles, competencias y niveles cambiará. Hay que decidir si esos
 | Estímulo | Cambia el nivel requerido de una competencia, o retira una competencia de un rol |
 | Entorno | Hay requerimientos y certificaciones vigentes contra la versión anterior |
 | Artefacto | Catálogo, requerimientos, certificaciones, brechas, KPI |
-| Respuesta | **UNKNOWN**: depende de P-50 (antes P-02). P-02 quedó respondida el 2026-09-27 solo para los **cursos** (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto como **P-50** |
+| Respuesta | **UNKNOWN**: depende de P-50 (antes P-02). P-02 quedó respondida el 2026-09-27 solo para los **cursos** (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto como **P-50**. *Nota (2026-09-27):* P-50 respondida en parte: se versionan las **competencias**, no los roles (BRC-001 BR-CAT-22). Los dos estímulos de esta fila (cambiar el nivel requerido en un Rol-Nivel, retirar una competencia de un rol) son cambios del rol, que no se versiona; cómo se trata su efecto, y el de una versión nueva de competencia, sigue en P-50.1 |
 | Medida de respuesta | **UNKNOWN** |
 
 ## Por qué puede ser significativo
@@ -57,7 +57,7 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 
 ## Evidencia faltante
 
-- La respuesta a P-50 (resto de P-02): versionado del catálogo y efecto sobre los datos vigentes. Los cursos ya se versionan (BR-FOR-06 a BR-FOR-10), lo que muestra el patrón DRAFT → APPROVED → DEPRECATED que el decisor usa.
+- La respuesta a P-50 (resto de P-02): versionado del catálogo y efecto sobre los datos vigentes. Los cursos ya se versionan (BR-FOR-06 a BR-FOR-10), lo que muestra el patrón DRAFT → APPROVED → DEPRECATED que el decisor usa. *2026-09-27:* respondida en parte (competencias sí, roles no; BR-CAT-22). Faltan P-50.1 (efecto sobre Rol-Nivel, requerimientos y certificaciones) y P-50.2 (quién aprueba; si la versión incluye rúbrica y requisitos de evidencia). La disposición no cambia.
 - La frecuencia esperada de cambios del catálogo.
 
 ## Preguntas para el arquitecto

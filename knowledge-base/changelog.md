@@ -6,7 +6,7 @@ tags: [ux-ui, knowledge-base, changelog]
 status: draft
 generated:
   by: "manual/1.0"
-  at: "2026-09-27T17:20:00-05:00"
+  at: "2026-09-27T18:15:00-05:00"
 sources:
   - id: repository-guidelines
     resource: /AGENTS.md
@@ -130,3 +130,5 @@ sources:
 - Artefactos afectados: `knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md`, `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`.
 - Propagación: glosario con TRM-0102 Edición de curso, TRM-0103 Inscripción y TRM-0104 Versión de curso en `draft`, GQ-33 y GQ-34, y GQ-22, GQ-23 y GQ-25 cerradas (`glossary.py check`: 104 términos, 0 errores); IMD-001 con Versión de curso, Edición de curso e Inscripción (R-36 a R-39) e IMD-002 con la relación de reporte solo para empleados (`check_model.py`: 0 errores); modelo de datos con código GUID único, `postgres:latest` y pruebas t03 y t05 ajustadas (ejecución todavía PENDIENTE: Docker Desktop no está en marcha); ADR-003 con historial; historias, Context Packs, UXR, GEN-001, AIM-001, ACP-001, ADB-001 y los ASR actualizados.
 - Artefactos afectados: `knowledge-base/business/glossary/`, `knowledge-base/business/information-model/`, `knowledge-base/architecture/data-model/`, `knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md`, `knowledge-base/architecture/` (AIM-001, ACP-001, ADB-001, asr-BR-CAT-06, asr-catalog), `knowledge-base/requirement/`, `knowledge-base/design/`, `knowledge-base/changelog.md`.
+- Respuestas finales de `human:ianache` (2026-09-27) a P-49, P-50 y P-52: el Instructor es confirmado (regla BR-FOR-05); las competencias se versionan, no los roles (BR-CAT-22); los datos de personas no incluyen identificaciones ni teléfono para otros colaboradores (BR-PTY-20 precisada). Subpreguntas P-49.1..P-49.3, P-50.1..P-50.2 y P-05.1..P-05.5, P-07.1..P-07.5, P-08.1..P-08.6 registradas en BRC-001.
+- Artefactos afectados: `knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md`.

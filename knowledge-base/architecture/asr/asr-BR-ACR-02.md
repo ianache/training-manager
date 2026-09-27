@@ -7,7 +7,7 @@ related: [ADR-002, ADR-001]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-27T11:00:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -62,8 +62,8 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 ## Evidencia faltante
 
 - El proveedor de identidad corporativo y cómo se obtienen los roles.
-- Si los permisos de Jefe de proyecto se limitan a sus proyectos (US2-Q2).
-- La matriz de permisos completa (qué ve y qué hace cada actor), incluida la visibilidad de perfiles ajenos (P-08).
+- ~~Si los permisos de Jefe de proyecto se limitan a sus proyectos (US2-Q2).~~ Respondida el 2026-09-27: solo el Jefe de proyecto de ese proyecto declara sus requerimientos (BRC-001 BR-REQ-02); el permiso por ámbito de proyecto deja de ser inferencia para esta acción.
+- La matriz de permisos completa (qué ve y qué hace cada actor), incluida la visibilidad de perfiles ajenos (P-08). *2026-09-27:* P-08 respondida (BR-TRA-03 a BR-TRA-06, BR-IA-04) y la asignación la hacen el Jefe de Ingeniería o un ADMIN (BR-REQ-04, P-05); el Instructor, asignado a una edición de curso, es un permiso nuevo con ámbito de edición (BR-FOR-05, P-49). Sigue abierto qué es ADMIN (P-45) y P-54. *Nota del agente; la disposición no cambia.*
 
 ## Preguntas para el arquitecto
 

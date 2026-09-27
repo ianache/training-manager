@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c7, baja]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T12:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -119,7 +119,7 @@ Escenario: Registrar el inicio del plazo de anonimización
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** la PII se conserva hasta la anonimización (US-024); acceso mínimo hasta P-08.
+- **Privacidad y datos personales:** la PII se conserva hasta la anonimización (US-024). P-08 y P-52 quedaron respondidas el 2026-09-27: a otros colaboradores solo se les muestran nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20); identificaciones y teléfono no. Si eso también vale para las personas dadas de baja no se precisó (**inferencia:** sí, porque la regla no distingue).
 - **Otros:** auditoría de quién registró la baja y cuándo (BR-PTY-12).
 
 ## 10. Consideraciones de UX

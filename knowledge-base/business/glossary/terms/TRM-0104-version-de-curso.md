@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: draft
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: brc-001
     resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
@@ -26,4 +26,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Edición de curso](TRM-0102-edicion-de-curso.md) · [Inscripción](TRM-0103-inscripcion.md) · [Curso final](TRM-0017-curso-final.md)
-- **Notas:** Decisión de ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-02 (EVD-2026-0116; BR-FOR-06 a BR-FOR-09). El responsable se toma de BR-FOR-07 (/knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L258): el Jefe de Ingeniería o un usuario ADMIN aprueban las versiones; qué es un usuario ADMIN está abierto (BRC-001 P-45). Que un curso tenga a lo sumo una versión APPROVED a la vez es una inferencia de BR-FOR-09. El versionado del catálogo de roles y competencias es otra cosa y sigue abierto (P-50). Cómo se relaciona una versión con el curso de Classroom está abierto (P-51). DRAFT, APPROVED y DEPRECATED son los nombres que usa la fuente.
+- **Notas:** Decisión de ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-02 (EVD-2026-0116; BR-FOR-06 a BR-FOR-09). El responsable se toma de BR-FOR-07 (/knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L258): el Jefe de Ingeniería o un usuario ADMIN aprueban las versiones; qué es un usuario ADMIN está abierto (BRC-001 P-45). Que un curso tenga a lo sumo una versión APPROVED a la vez es una inferencia de BR-FOR-09. El versionado del catálogo es otra cosa: el 2026-09-27 (respuesta a P-50, EVD-2026-0132; BR-CAT-22) se decidió que se versionan las competencias, no los roles; que las versiones de competencia sigan estos mismos estados es una inferencia (P-50.1, P-50.2 abiertas). Cómo se relaciona una versión con el curso de Classroom está abierto (P-51). DRAFT, APPROVED y DEPRECATED son los nombres que usa la fuente.

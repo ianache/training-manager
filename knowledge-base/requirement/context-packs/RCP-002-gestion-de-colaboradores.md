@@ -6,7 +6,7 @@ tags: [context-pack, requirements, colaboradores, party, master-data, anonimizac
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -69,7 +69,9 @@ El Jefe de Ingeniería mantiene toda la información; el colaborador solo edita 
 
 El 2026-09-27 el decisor respondió: el código de colaborador lo genera la plataforma como un GUID (D25, BR-PTY-06); un contratista no tiene jefe directo en COMSATEL (D26, BR-PTY-19); los datos de las personas, incluidos los perfiles profesionales, son data abierta para cualquier colaborador (D27, BR-PTY-20); hay Docker (D28), no hace falta verificar contra el UDM (D29) y se adopta la versión estable más reciente de PostgreSQL (D30).
 
-Quedan abiertos, con impacto en las historias: qué incluye la "data abierta" (identificaciones, teléfono, personas anonimizadas; P-52), el método de autenticación ante Gmail (Q-14) y si solo se puede anonimizar a alguien dado de baja (inferencia de SPEC-001:L127).
+Ese mismo día quedó respondida P-52 (EVD-2026-0130): a los demás colaboradores solo se les muestran nombre, correo laboral, unidad, rol y perfiles profesionales; identificaciones y teléfono no (BR-PTY-20, precisada). También P-08 (EVD-2026-0129): el perfil de competencias, las evidencias y las certificaciones tienen su propia visibilidad (BR-TRA-03 a BR-TRA-06), fuera del alcance de este pack.
+
+Quedan abiertos, con impacto en las historias: el método de autenticación ante Gmail (Q-14) y si solo se puede anonimizar a alguien dado de baja (inferencia de SPEC-001:L127).
 
 ## 4. Registro de evidencia
 
@@ -108,7 +110,7 @@ No se consultaron GDrive, GitLab ni *The Data Model Resource Book*; el decisor r
 | E-17 | Los campos de persona y organización son una propuesta aprobada con minimización de datos. | S-01:L102-L109 | Hecho (propuesta aprobada) | Media |
 | E-18 | El código de colaborador se genera automáticamente como un GUID. *Antes era un vacío (Q-01).* | S-01:L79, L229 (D25); EVD-2026-0119; BR-PTY-06 | Decisión humana | Alta |
 | E-19 | Un contratista no tiene jefe directo en COMSATEL: la relación de reporte es solo para empleados. *Antes era un vacío (Q-02).* | S-01:L80, L230 (D26); EVD-2026-0120; BR-PTY-19 | Decisión humana | Alta |
-| E-20 | Los datos de las personas, incluidos los perfiles profesionales, los ve cualquier colaborador que ingrese (data abierta). El alcance exacto sigue abierto (P-52). *Antes era un vacío (Q-05 / P-08).* | S-01:L81, L233 (D27); EVD-2026-0121; BR-PTY-20 | Decisión humana | Alta |
+| E-20 | Los datos de las personas, incluidos los perfiles profesionales, los ve cualquier colaborador que ingrese (data abierta). *Antes era un vacío (Q-05 / P-08).* Alcance fijado el 2026-09-27 (P-52, EVD-2026-0130): solo nombre, correo laboral, unidad, rol y perfiles profesionales. | S-01:L81, L233 (D27); EVD-2026-0121; BR-PTY-20 | Decisión humana | Alta |
 | E-21 | Hay Docker para verificar el DDL (la ejecución sigue pendiente); no hace falta verificar contra el UDM; se adopta la versión estable más reciente de PostgreSQL. No afectan a las historias. | S-01:L82-L84 (D28-D30); EVD-2026-0122 a 0124 | Decisión humana | Alta |
 
 ## 5. Hechos confirmados
@@ -119,7 +121,7 @@ Todos provienen de decisiones del decisor o de propuestas aprobadas en SPEC-001;
 - **Modelo:** Party del UDM con vigencias; tipos de rol y de relación ampliables (E-03; BR-PTY-02 a BR-PTY-04).
 - **Colaborador derivado** (E-05).
 - **Alta:** persona, identificación, correo laboral y rol de Empleado o Contratista con fecha desde; el código lo genera la plataforma (E-18); el jefe directo solo se registra para empleados (E-19); el vínculo con Keycloak puede quedar vacío (SPEC-001:L112).
-- **Visibilidad:** data abierta para cualquier colaborador, con alcance a confirmar (E-20, P-52).
+- **Visibilidad:** para cualquier colaborador, solo nombre, correo laboral, unidad, rol y perfiles profesionales de las demás personas (E-20, BR-PTY-20; P-52 respondida el 2026-09-27).
 - **Validaciones:** código único (E-07, E-18), identificación única (E-08), correo laboral único entre vigentes y dependiente del tipo de colaborador (E-10), contratista con contratación vigente con un proveedor (BR-PTY-10), un nivel vigente por rol (E-04).
 - **Permisos:** E-09.
 - **Historial:** E-14.
@@ -141,8 +143,8 @@ Todos provienen de decisiones del decisor o de propuestas aprobadas en SPEC-001;
 |---|---|---|---|---|
 | Q-01 | ¿Cómo se genera el código de colaborador: automático, manual o con formato? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D25): automático, GUID |
 | Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D26): no (BR-PTY-19) |
-| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D27): cualquier colaborador que ingrese (data abierta, BR-PTY-20). P-08 queda abierta para el perfil de competencias, las evidencias y las certificaciones |
-| P-52 | "Data abierta": ¿incluye identificaciones, teléfono laboral y datos de personas dadas de baja o anonimizadas, o solo nombre, correo laboral, unidad, rol y perfiles? | Negocio (Jefe de Ingeniería + Legal) | Alta | Nueva (BRC-001, derivada de Q-05). Bloquea el alcance de US-023 AC-5 |
+| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D27): cualquier colaborador que ingrese (data abierta, BR-PTY-20). P-08 quedó respondida el 2026-09-27 para el perfil de competencias, las evidencias y las certificaciones (BR-TRA-03 a BR-TRA-06) |
+| P-52 | "Data abierta": ¿incluye identificaciones, teléfono laboral y datos de personas dadas de baja o anonimizadas, o solo nombre, correo laboral, unidad, rol y perfiles? | Negocio (Jefe de Ingeniería + Legal) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20, EVD-2026-0130). US-023 AC-5 queda confirmado. **Inferencia:** el código de colaborador y los datos de anonimizados no se muestran más allá de esos cinco datos |
 | Q-06 | ¿Hay Docker u otro medio para verificar el DDL en MySQL 8 y PostgreSQL? | ARQ / DEV | Media | Respondida (SPEC-001 D28): sí, Docker; la ejecución de TST-001 sigue pendiente mientras Docker Desktop no esté en marcha. No afecta a las historias |
 | Q-07 | Verificar la correspondencia con el UDM (Silverston). | ARQ | Media | Respondida (SPEC-001 D29): no es necesario |
 | Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | ARQ | Baja | Respondida (SPEC-001 D30): la versión estable más reciente. No afecta a las historias |
@@ -193,7 +195,7 @@ Estados derivables: persona vigente → dada de baja → anonimizada (SPEC-001:L
 | Plazo de anonimización | Configurable, en BD, auditado | D23 |
 | Aviso de anonimización | Fecha, destinatarios, estado del aviso y del envío | SPEC-001:L169 |
 
-**Datos personales:** nombres, identificaciones, contactos y perfiles son PII. Minimización (SPEC-001:L102). Son data abierta para cualquier colaborador (D27, BR-PTY-20); P-52 confirma si eso incluye identificaciones, teléfono y personas anonimizadas.
+**Datos personales:** nombres, identificaciones, contactos y perfiles son PII. Minimización (SPEC-001:L102). De las demás personas, cualquier colaborador ve solo nombre, correo laboral, unidad, rol y perfiles profesionales (D27, BR-PTY-20; P-52 respondida el 2026-09-27); identificaciones y teléfono no se muestran.
 
 ### Dependencias y consumidores
 
@@ -205,8 +207,8 @@ Estados derivables: persona vigente → dada de baja → anonimizada (SPEC-001:L
 
 | Tipo | Descripción | Mitigación conocida | Fuente |
 |---|---|---|---|
-| Riesgo | El código de colaborador conservado es un cuasi-identificador | Menor desde D25: es un GUID propio de la plataforma y no se reutiliza. La restricción de visibilidad propuesta ya no aplica sin decisión explícita (D27); se decide en P-52 | SPEC-001:L122 |
-| Riesgo | Mostrar documentos de identidad a todos los colaboradores choca con la minimización de datos personales | Confirmar el alcance de la data abierta (P-52) con Legal | BRC-001 P-52 |
+| Riesgo | El código de colaborador conservado es un cuasi-identificador | Menor desde D25: es un GUID propio de la plataforma y no se reutiliza. Con P-52 respondida, el código no está entre los datos visibles para otros colaboradores (BR-PTY-20; inferencia) | SPEC-001:L122 |
+| Riesgo | ~~Mostrar documentos de identidad a todos los colaboradores choca con la minimización de datos personales~~ | Mitigado el 2026-09-27: las identificaciones no se muestran a otros colaboradores (BR-PTY-20, P-52) | BRC-001 P-52 |
 | Riesgo | La cuenta de Gmail falla o alcanza su límite | Aviso fallido con reintentos | SPEC-001:L117 |
 | Riesgo | Sin Jefe de Ingeniería con correo vigente, nadie recibe el aviso | Queda registrado como no enviado | SPEC-001:L125 |
 | Riesgo | Dos Jefes de Ingeniería vigentes | Aviso sin impedir (D21); correo a todos (D20) | BR-PTY-18 |
@@ -259,7 +261,7 @@ Estados derivables: persona vigente → dada de baja → anonimizada (SPEC-001:L
 
 ### Qué debe validar antes de continuar
 
-- P-52 (alcance de la data abierta) y RCP2-Q1 (anonimizar solo a dados de baja). Q-01, Q-02 y Q-05 se respondieron el 2026-09-27 (D25 a D27).
+- RCP2-Q1 (anonimizar solo a dados de baja). Q-01, Q-02 y Q-05 se respondieron el 2026-09-27 (D25 a D27), y P-52 también (BR-PTY-20).
 - La validación humana de este pack (§10).
 
 ### Artefactos relacionados

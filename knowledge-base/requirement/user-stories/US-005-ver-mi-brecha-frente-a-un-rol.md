@@ -6,7 +6,7 @@ tags: [user-story, h1, brecha, perfil]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T14:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -45,7 +45,7 @@ sources:
 - **Límite sin regla:** un nivel certificado mayor que el requerido. No está definido si la brecha es negativa o se muestra como cubierta (P-12).
 - **Por confirmar (no es criterio):** la diferencia se calcula restando la posición en la escala (L3 − L1 = 2). Es una inferencia (BR-BRE-02).
 - **Negativo:** el colaborador no declara un rol al que aspira; su rol y nivel los asigna el Jefe de Ingeniería al registrarlo (BR-BRE-04, BR-PRF-02; P-15 respondida el 2026-09-27).
-- **Negativo:** un colaborador intenta ver la brecha de otra persona, y no puede (BR-BRE-04). **Inferencia:** BR-BRE-04 dice que ve sus propias brechas; que no vea las ajenas se deduce de que es una regla de permiso, junto con BR-BRE-06 (brechas agregadas solo para otros actores).
+- **Negativo:** un colaborador intenta ver la brecha de otra persona, y no puede (BR-BRE-04). **Inferencia:** BR-BRE-04 dice que ve sus propias brechas; que no vea las ajenas se deduce de que es una regla de permiso, junto con BR-BRE-06 (brechas agregadas solo para otros actores). *Nota (P-08, respondida el 2026-09-27):* el Jefe de proyecto sí ve las brechas individuales de cualquier colaborador (BR-TRA-04), y el resumen de niveles certificados de cualquier colaborador es público (BR-TRA-03); la brecha individual ajena sigue sin ser visible para un colaborador sin ese rol.
 - **Sin regla:** contra qué Rol-Nivel ve su brecha: el asignado, el siguiente nivel de su rol, ambos, u otros roles (P-43).
 
 ## Evidencias y trazabilidad

@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c10, anonimizacion, privacidad]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -50,7 +50,7 @@ sources:
   - Registrar cuándo y quién anonimizó; marcar el aviso pendiente como atendido (inferencia, ver H-2).
 - **Excluye:**
   - El aviso por plazo (US-025).
-  - Quién ve el código y los datos de los anonimizados (Q-05 respondida con D27, data abierta; el alcance para anonimizados sigue abierto en P-52).
+  - Quién ve el código y los datos de los anonimizados (Q-05 respondida con D27, data abierta; P-52 respondida el 2026-09-27: a otros colaboradores solo se muestran nombre, correo laboral, unidad, rol y perfiles profesionales, BR-PTY-20. **Inferencia:** el código de colaborador no está en esa lista, así que no se muestra a otros colaboradores, y en una persona anonimizada esos cinco datos ya son anónimos. P-52 no nombró a los anonimizados).
 
 ## 5. Criterios de aceptación
 
@@ -107,7 +107,7 @@ Escenario: Reutilizar un correo tras la anonimización
 | Anonimizar antes de que venza el plazo | Sin regla: la anonimización es a demanda y el plazo solo dispara el aviso (D15) | US-024-Q1 |
 | Anonimizar dos veces | Sin regla; la persona ya no se puede editar | BR-PTY-14 |
 | Usuario que no es Jefe de Ingeniería | No puede | BR-PTY-14, BR-PTY-17 |
-| El código de colaborador conservado reidentifica a la persona | Riesgo menor: el código es un GUID propio de la plataforma que ningún otro sistema comparte y no se reutiliza (D25). La restricción de visibilidad propuesta ya no aplica sin decisión explícita, porque los datos son abiertos (D27) | SPEC-001:L122; P-52 |
+| El código de colaborador conservado reidentifica a la persona | Riesgo menor: el código es un GUID propio de la plataforma que ningún otro sistema comparte y no se reutiliza (D25). Con P-52 respondida el 2026-09-27, el código no está entre los datos que ven otros colaboradores (BR-PTY-20; inferencia, porque la regla enumera lo visible y no lo nombra) | SPEC-001:L122; P-52 |
 
 ## 7. Reglas de negocio aplicables
 
@@ -150,8 +150,8 @@ Escenario: Reutilizar un correo tras la anonimización
 | RCP2-Q1 | ¿Solo se anonimiza a una persona dada de baja? | Jefe de Ingeniería | Alta | Sí (precondición de AC-1) | Abierta |
 | US-024-Q1 | ¿Se puede anonimizar antes de que venza el plazo? | Jefe de Ingeniería + Legal | Media | No | Abierta |
 | US-024-Q2 | ¿Qué marca como "atendido" un aviso: anonimizar, o también decidir no anonimizar? | Jefe de Ingeniería | Media | No | Abierta |
-| Q-05 | ¿Quién ve el código de colaborador de una persona anonimizada? (P-08) | Responsable de producto | Alta | No (mitigación de riesgo) | Respondida en parte (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D27): los datos de las personas son data abierta. Si incluye a las anonimizadas se decide en P-52 |
-| P-52 | ¿"Data abierta" incluye los datos (y el código) de las personas dadas de baja o anonimizadas? | Jefe de Ingeniería + Legal | Alta | No (mitigación de riesgo) | Nueva |
+| Q-05 | ¿Quién ve el código de colaborador de una persona anonimizada? (P-08) | Responsable de producto | Alta | No (mitigación de riesgo) | Respondida en parte (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D27): los datos de las personas son data abierta. El alcance se fijó en P-52 |
+| P-52 | ¿"Data abierta" incluye los datos (y el código) de las personas dadas de baja o anonimizadas? | Jefe de Ingeniería + Legal | Alta | No (mitigación de riesgo) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20). Que el código no se muestre y que valga igual para los anonimizados es inferencia a confirmar |
 
 ## 13. Evidencia y trazabilidad
 

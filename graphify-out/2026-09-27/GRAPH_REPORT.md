@@ -1,17 +1,17 @@
 # Graph Report - UX_UI_agentic  (2026-09-27)
 
 ## Corpus Check
-- 176 files · ~163,033 words
+- 179 files · ~174,549 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 1 file(s) not represented in the graph (top: (none) 1)
 
 ## Summary
-- 1029 nodes · 1595 edges · 58 communities (55 shown, 3 thin omitted)
+- 1038 nodes · 1615 edges · 62 communities (59 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ae408fdd`
+- Built from commit: `de6d64a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - ASR candidato — Ninguna certificación sin firma humana
 - RCP-001 — H1 El idioma común
 - Reglas, dependencias e impactos
-- TRM-0049-propuesta-de-nivel.md
+- TRM-0037-kpi.md
 - VIS-001 — Plataforma de Gestión de Formación del Recurso Humano
 - USC-001 — User Stories de la Plataforma de Gestión de Formación
 - GLS-001-glosario-de-negocio.md
@@ -46,19 +46,23 @@
 - ASR candidato — Identidad y autorización por rol
 - RCP-002 — Gestión de colaboradores
 - US-015 — Registrar un colaborador
-- ASR candidato — Versionado del catálogo de competencias
+- ADB-001-descubrimiento-arquitectura-plataforma.md
 - ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno
 - US-016 — Actualizar datos y medios de contacto
 - ASR candidato — Contingencia ante fallas de integración con Google Classroom
-- ASR candidato — Privacidad y visibilidad de datos de desempeño
+- UXR-004 — Consultar mi perfil de competencias
 - ASR candidato — Medibilidad de los KPI desde H1
 - GEN-001 — Diseño Google Stitch del catálogo de roles y competencias
 - US-025 — Configurar el plazo de anonimización y recibir el aviso
-- AIM-001 — Matriz de impacto de arquitectura
+- UXR-005 — Ver mi brecha frente a un Rol-Nivel
 - GEN-002 — Diseño Google Stitch del shell y los estados transversales
 - US-017 — Gestionar la estructura organizacional
 - UXR-002 — Declarar un requerimiento de proyecto
 - UXR-003 — Certificar un nivel de competencia
+- UXR-006 — Buscar candidatos para un requerimiento
+- ADR-003 — Persistencia compatible con MySQL y PostgreSQL
+- ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios
+- TST-001 — Pruebas de restricciones del modelo de partes
 - UXR-001 — Gestionar el catálogo de roles y competencias
 - US-019 — Asignar un Rol-Nivel a una persona
 - ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE
@@ -93,11 +97,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (58 total, 3 thin omitted)
+## Communities (62 total, 3 thin omitted)
 
 ### Community 0 - "IMD-001-modelo-de-informacion-conceptual.md"
-Cohesion: 0.05
-Nodes (31): API REST, Brecha, Catálogo de competencias, Certificado de curso, Cierre de brechas, Cobertura de roles, Competencia, Contingencia (+23 more)
+Cohesion: 0.06
+Nodes (31): Certificación, API REST, Brecha, Catálogo de competencias, Certificado de curso, Competencia, Contingencia, Curso final (+23 more)
 
 ### Community 1 - "Índice"
 Cohesion: 0.07
@@ -123,9 +127,9 @@ Nodes (27): 10. Decisiones y validación humana, 11. Knowledge Candidates, 12. H
 Cohesion: 0.10
 Nodes (20): BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación, Brechas, Catálogo de competencias, Certificación, Certificados de curso (H2), Colaboradores e información maestra (Party), Contradicciones y ambigüedades, Dependencias (+12 more)
 
-### Community 7 - "TRM-0049-propuesta-de-nivel.md"
-Cohesion: 0.13
-Nodes (11): Evidencia de GitLab asistida por IA, Evidencia sobre volumen, Firma humana, GitLab, Horizonte, Human-in-the-loop, IA, Issue (+3 more)
+### Community 7 - "TRM-0037-kpi.md"
+Cohesion: 0.08
+Nodes (15): Adopción, Cierre de brechas, Cobertura de roles, Evidencia real, GitLab, Horizonte, Issue, KPI (+7 more)
 
 ### Community 8 - "VIS-001 — Plataforma de Gestión de Formación del Recurso Humano"
 Cohesion: 0.13
@@ -136,8 +140,8 @@ Cohesion: 0.08
 Nodes (26): Evidencias y trazabilidad, Gestión de colaboradores (SPEC-001), H1 — El idioma común, H2 — Formación integrada, H3 — Evidencia real con IA, Lista de calidad, Objetivo y alcance, Preparación y entrega (+18 more)
 
 ### Community 10 - "GLS-001-glosario-de-negocio.md"
-Cohesion: 0.05
-Nodes (47): Certificación, Adopción, CLocator, CLocator v2, Colaborador, COMSATEL, Evidencia, Gestión de formación (+39 more)
+Cohesion: 0.06
+Nodes (39): CLocator, CLocator v2, COMSATEL, Gestión de formación, Producto, Programa de Formación de Competencias, RR. HH., SIGO (+31 more)
 
 ### Community 11 - "US-001 — Definir el catálogo de roles y competencias"
 Cohesion: 0.20
@@ -185,7 +189,7 @@ Nodes (9): ASR candidato — Trazabilidad auditable de las certificaciones, Disp
 
 ### Community 24 - "USC-001-user-stories-plataforma-gestion-formacion.md"
 Cohesion: 0.08
-Nodes (21): Candidates, Catálogo de candidatos ASR, Constraints, Human Validation, Knowledge Gaps, Metadata, Rejected Candidates, PDM-001 — Anexo MySQL 8 (+13 more)
+Nodes (20): PDM-001 — Anexo MySQL 8, PDM-001 — Anexo PostgreSQL, Asignación, Búsqueda de personal, Colaborador, Dirección, Evaluador, Evidencia de GitLab asistida por IA (+12 more)
 
 ### Community 25 - "ADB-001 — Descubrimiento de arquitectura"
 Cohesion: 0.13
@@ -207,9 +211,9 @@ Nodes (27): 10. Decisiones y validación humana, 11. Knowledge Candidates, 12. H
 Cohesion: 0.08
 Nodes (25): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+17 more)
 
-### Community 30 - "ASR candidato — Versionado del catálogo de competencias"
-Cohesion: 0.22
-Nodes (9): ASR candidato — Versionado del catálogo de competencias, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
+### Community 30 - "ADB-001-descubrimiento-arquitectura-plataforma.md"
+Cohesion: 0.07
+Nodes (33): AIM-001 — Matriz de impacto de arquitectura, Dependency expansion, Human validation, Impact matrix, Potential ASR candidates, Required investigations, Risks and gaps, ASR candidato — Versionado del catálogo de competencias (+25 more)
 
 ### Community 31 - "ASR candidato — Procesamiento de evidencia de GitLab por IA bajo uso interno"
 Cohesion: 0.22
@@ -223,9 +227,9 @@ Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis,
 Cohesion: 0.22
 Nodes (9): ASR candidato — Contingencia ante fallas de integración con Google Classroom, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
 
-### Community 34 - "ASR candidato — Privacidad y visibilidad de datos de desempeño"
-Cohesion: 0.22
-Nodes (9): ASR candidato — Privacidad y visibilidad de datos de desempeño, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
+### Community 34 - "UXR-004 — Consultar mi perfil de competencias"
+Cohesion: 0.25
+Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-004 — Consultar mi perfil de competencias
 
 ### Community 35 - "ASR candidato — Medibilidad de los KPI desde H1"
 Cohesion: 0.22
@@ -239,25 +243,41 @@ Nodes (8): GEN-001 — Diseño Google Stitch del catálogo de roles y competenci
 Cohesion: 0.09
 Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
-### Community 38 - "AIM-001 — Matriz de impacto de arquitectura"
-Cohesion: 0.29
-Nodes (7): AIM-001 — Matriz de impacto de arquitectura, Dependency expansion, Human validation, Impact matrix, Potential ASR candidates, Required investigations, Risks and gaps
+### Community 38 - "UXR-005 — Ver mi brecha frente a un Rol-Nivel"
+Cohesion: 0.25
+Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-005 — Ver mi brecha frente a un Rol-Nivel
 
 ### Community 39 - "GEN-002 — Diseño Google Stitch del shell y los estados transversales"
-Cohesion: 0.06
-Nodes (30): ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas, GEN-002 — Diseño Google Stitch del shell y los estados transversales, Pantallas candidatas (+22 more)
+Cohesion: 0.25
+Nodes (8): GEN-002 — Diseño Google Stitch del shell y los estados transversales, Pantallas candidatas, Preguntas abiertas, Prompts (para reproducir la generación), Proyecto en Stitch, Próximos pasos propuestos (no son decisiones), Revisión crítica, Trazabilidad
 
 ### Community 40 - "US-017 — Gestionar la estructura organizacional"
 Cohesion: 0.09
 Nodes (22): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+14 more)
 
 ### Community 41 - "UXR-002 — Declarar un requerimiento de proyecto"
-Cohesion: 0.12
-Nodes (16): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-002 — Declarar un requerimiento de proyecto (+8 more)
+Cohesion: 0.25
+Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-002 — Declarar un requerimiento de proyecto
 
 ### Community 42 - "UXR-003 — Certificar un nivel de competencia"
 Cohesion: 0.25
 Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-003 — Certificar un nivel de competencia
+
+### Community 43 - "UXR-006 — Buscar candidatos para un requerimiento"
+Cohesion: 0.25
+Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-006 — Buscar candidatos para un requerimiento
+
+### Community 44 - "ADR-003 — Persistencia compatible con MySQL y PostgreSQL"
+Cohesion: 0.29
+Nodes (7): ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias, Contexto, Decisión, Historial, Metas de calidad, Opciones consideradas
+
+### Community 45 - "ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios"
+Cohesion: 0.33
+Nodes (6): ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
+
+### Community 46 - "TST-001 — Pruebas de restricciones del modelo de partes"
+Cohesion: 0.33
+Nodes (6): Casos, Cómo ejecutarlas, Fuera de estas pruebas, Para ejecutarlas (Q-06 respondida por D28), Resultado, TST-001 — Pruebas de restricciones del modelo de partes
 
 ### Community 47 - "UXR-001 — Gestionar el catálogo de roles y competencias"
 Cohesion: 0.22
@@ -265,7 +285,7 @@ Nodes (9): Acciones, Estados, Necesidades de información, Objetivo del usuario,
 
 ### Community 48 - "US-019 — Asignar un Rol-Nivel a una persona"
 Cohesion: 0.09
-Nodes (22): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+14 more)
+Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
 ### Community 50 - "ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE"
 Cohesion: 0.33
@@ -273,7 +293,7 @@ Nodes (6): ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE, 
 
 ### Community 51 - "US-023 — Consultar la ficha y su historial"
 Cohesion: 0.09
-Nodes (22): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+14 more)
+Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
 ### Community 52 - "UXR-000 — Requisitos UX transversales"
 Cohesion: 0.33
@@ -308,31 +328,31 @@ Cohesion: 0.22
 Nodes (9): 1. Alcance, 2. Diagrama, 3. Entidades, 4. Decisiones de diseño, 5. Restricciones y dónde se aplican, 6. Supuestos, 7. Preguntas abiertas, 8. Siguiente paso (+1 more)
 
 ### Community 60 - "PDM-001 — Modelo físico de partes"
-Cohesion: 0.09
-Nodes (19): ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas, 1. Archivos, 2. Convenciones (+11 more)
+Cohesion: 0.29
+Nodes (7): 1. Archivos, 2. Convenciones, 3. Trazabilidad de restricciones, 4. Lo que la base no garantiza, 5. Procedimiento de referencia de anonimización, 6. Operación, PDM-001 — Modelo físico de partes
 
 ### Community 62 - "ADR-004 — Secretos y parametría en HashiCorp Vault"
 Cohesion: 0.33
 Nodes (6): ADR-004 — Secretos y parametría en HashiCorp Vault, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
 
 ## Knowledge Gaps
-- **767 isolated node(s):** `run-tests.sh script`, `Contexto`, `Estructura`, `Secuencia canónica de cursos`, `Cadena de trazabilidad` (+762 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 772 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **773 isolated node(s):** `run-tests.sh script`, `Contexto`, `Estructura`, `Secuencia canónica de cursos`, `Cadena de trazabilidad` (+768 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 778 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ACP-001 — Architecture Context Pack` connect `ACP-001 — Architecture Context Pack` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
-- **Why does `USC-001 — User Stories de la Plataforma de Gestión de Formación` connect `USC-001 — User Stories de la Plataforma de Gestión de Formación` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
+- **Why does `RCP-002 — Gestión de colaboradores` connect `RCP-002 — Gestión de colaboradores` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+- **Why does `US-019 — Asignar un Rol-Nivel a una persona` connect `US-019 — Asignar un Rol-Nivel a una persona` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `RCP-001 — H1 El idioma común` connect `RCP-001 — H1 El idioma común` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
   _High betweenness centrality (0.053) - this node is a cross-community bridge._
 - **What connects `run-tests.sh script`, `Contexto`, `Estructura` to the rest of the system?**
-  _767 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _773 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `IMD-001-modelo-de-informacion-conceptual.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05109126984126984 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `Índice` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `RCP-001 — H1 El idioma común` be split into smaller, more focused modules?**

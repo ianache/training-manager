@@ -6,7 +6,7 @@ tags: [information-model, conceptual, party, colaboradores, master-data, anonimi
 status: draft
 generated:
   by: "af-conceptual-model-designer/1.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -165,7 +165,7 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción razonada
 | R-10 | Una parte se identifica con una o varias identificaciones; cada una es única por tipo, número y país emisor, y los tipos dependen del tipo de parte (DNI, carné de extranjería o pasaporte para personas; RUC para organizaciones) | 1 : 0..N (una organización tiene RUC solo "si aplica") | FACT | BR-PTY-07; SPEC-001:L107, L109, L120 | — |
 | R-11 | Una parte se contacta por medios de contacto, cada uno con su uso (laboral o perfil profesional) y su vigencia | 1 : N | FACT (relación) · INFERENCE (cardinalidad: cada medio pertenece a una sola parte, porque el correo laboral es único entre los colaboradores vigentes, BR-PTY-08; las fuentes no dicen si un medio puede compartirse) | BR-PTY-09; SPEC-001:L90, L108 | — |
 | R-12 | Todo colaborador tiene un correo laboral vigente: el de COMSATEL si es empleado y el de su proveedor si es contratista | 1 : 1 vigente | FACT (obligatorio y único, BR-PTY-08) · INFERENCE (máximo uno vigente) | BR-PTY-08; SPEC-001:L67, L108 | — |
-| R-13 | Una persona puede tener varios perfiles profesionales en línea, cada uno en una plataforma de una lista ampliable; no son evidencia de nivel | 1 : 0..N | FACT | BR-PTY-09; SPEC-001:L108 | BRC-001 P-52 (SPEC-001 Q-05 respondida, D27: visibles para cualquier colaborador) |
+| R-13 | Una persona puede tener varios perfiles profesionales en línea, cada uno en una plataforma de una lista ampliable; no son evidencia de nivel | 1 : 0..N | FACT | BR-PTY-09; SPEC-001:L108 | BRC-001 P-52 (respondida el 2026-09-27: los perfiles profesionales son visibles para cualquier colaborador, BR-PTY-20) |
 | R-14 | Una persona tiene cero o una identidad de acceso | 1 : 0..1 | FACT | BR-PTY-16; SPEC-001:L92 | — |
 | R-15 | Una identidad de acceso identifica a un usuario de Keycloak | 1 : 1 | FACT (relación) · INFERENCE (cardinalidad: un usuario de Keycloak se vincula con una sola persona) | BR-PTY-16; SPEC-001:L58 | IM-Q6 |
 | R-16 | Una persona tiene asignaciones de Rol-Nivel, cada una con vigencia | 1 : 0..N (un colaborador, 1..N desde su registro: R-29) | FACT | BR-PTY-11, BR-PTY-12; SPEC-001:L91 | BRC-001 P-28 (respondida), BRC-001 P-42 |
@@ -206,7 +206,7 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción razonada
 | BR-PTY-17 | Información maestra | La mantiene el Jefe de Ingeniería; el colaborador edita solo sus perfiles profesionales y su teléfono laboral (permiso: no se modela aquí) |
 | BR-PTY-18 | Jefe de Ingeniería | Se espera uno solo vigente; un segundo se avisa sin impedirlo |
 | BR-PTY-19 | Contratista, Relación entre partes (reporte) | Un contratista no tiene jefe directo en COMSATEL: la relación de reporte solo parte de un empleado (R-09) |
-| BR-PTY-20 | Información maestra | Cualquier colaborador que ingrese ve los datos de las demás personas, incluidos los perfiles profesionales (permiso: no se modela aquí; alcance en P-52) |
+| BR-PTY-20 | Información maestra | Cualquier colaborador que ingrese ve de las demás personas solo nombre, correo laboral, unidad, rol y perfiles profesionales; identificaciones y teléfono no (precisada el 2026-09-27, P-52; permiso: no se modela aquí) |
 | BR-PRF-01 | Asignación de Rol-Nivel | Al colaborador le es asignado un rol; puede tener varios, con un nivel vigente por rol |
 | BR-PRF-02 | Asignación de Rol-Nivel | Al registrar a un colaborador se le asigna un nivel inicial del rol; su evolución se evalúa después por cursos o desempeño en proyectos |
 | BR-PRG-01 | Evaluador, Jefe de Ingeniería | Gestionan todo el programa de formación; son solo gestores |
@@ -229,8 +229,8 @@ Se reutilizan las preguntas de SPEC-001 (Q-nn), BRC-001 (P-nn) y el glosario (GQ
 | IM-Q7 | BR-PRG-02 dice que los roles de Evaluador y de Jefe de Ingeniería "también tienen competencias definidas". Aquí son roles de la parte (BR-PTY-03), no roles del catálogo. ¿Existen también como roles del catálogo con sus Rol-Nivel y competencias, que se asignan con la asignación de Rol-Nivel? | R-28, R-17 | Jefe de Ingeniería | Media |
 | SPEC-001 Q-01 | ¿Cómo se genera el código de colaborador? (GQ-22) | Persona | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, D25): automáticamente, como un GUID (BR-PTY-06) |
 | SPEC-001 Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? (GQ-23) | R-09 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, D26): no (BR-PTY-19). R-09 queda solo para empleados |
-| SPEC-001 Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08; permiso, no se modela aquí) | R-13 | Responsable de producto | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, D27): cualquier colaborador que ingrese (BR-PTY-20). El alcance sigue en P-52 |
-| BRC-001 P-52 | "Data abierta": ¿incluye identificaciones, teléfono laboral y personas dadas de baja o anonimizadas? (permiso, no se modela aquí) | R-10, R-11, R-13, R-20 | Jefe de Ingeniería + Legal | Alta |
+| SPEC-001 Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08; permiso, no se modela aquí) | R-13 | Responsable de producto | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, D27): cualquier colaborador que ingrese (BR-PTY-20). El alcance se fijó en P-52 |
+| BRC-001 P-52 | "Data abierta": ¿incluye identificaciones, teléfono laboral y personas dadas de baja o anonimizadas? (permiso, no se modela aquí) | R-10, R-11, R-13, R-20 | Jefe de Ingeniería + Legal | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, EVD-2026-0130): solo nombre, correo laboral, unidad, rol y perfiles profesionales. Sin cambio de estructura |
 | SPEC-001 Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (GQ-25) | R-01 a R-04, R-16 | Arquitecto responsable | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, D29): no es necesario |
 | BRC-001 P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | R-16, R-17, R-29 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): al registrar al colaborador se asigna un nivel inicial según su rol, y su evolución se evalúa después por cursos o desempeño en proyectos (BR-PRF-02) |
 | BRC-001 P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol (quién lo decide, o si se deduce de las competencias certificadas)? | R-16, R-17, R-29 | Jefe de Ingeniería | Alta |

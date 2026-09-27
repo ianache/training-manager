@@ -6,7 +6,7 @@ tags: [asr, privacidad, datos-personales, transparencia]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-26T21:14:12-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -54,13 +54,15 @@ Seguridad · Datos · Cumplimiento · UX
 | EVD-2026-0016 | El colaborador ve su perfil, sus evidencias y las propuestas de la IA sobre él | VIS-001:L104 | FACT | Alta |
 | EVD-2026-0039 | Riesgo: que el análisis de GitLab se perciba como vigilancia; mitigación: uso interno y transparencia | VIS-001:L143 | FACT | Alta |
 | EVD-2026-0048 | La evaluación de desempeño salarial o de RR. HH. está fuera de alcance | VIS-001:L110 | FACT | Alta |
-| EVD-2026-0049 | Quién puede ver el perfil de otra persona está sin definir (P-08) | BRC-001 P-08; RCP-001 §8 | UNKNOWN | Alta |
+| EVD-2026-0049 | Quién puede ver el perfil de otra persona está sin definir (P-08) *(respondido por EVD-2026-0129)* | BRC-001 P-08; RCP-001 §8 | UNKNOWN | Alta |
+| EVD-2026-0129 | Resumen de niveles certificados, evidencias (las de GitLab, según el control de acceso de cada repositorio) y certificaciones con su auditoría, visibles para cualquier colaborador; brechas individuales, para el Jefe de proyecto; propuestas de la IA, para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, respuesta a P-08 (BRC-001 BR-TRA-03 a BR-TRA-06, BR-IA-04) | FACT | Alta |
+| EVD-2026-0130 | De los datos maestros, otros colaboradores ven solo nombre, correo laboral, unidad, rol y perfiles profesionales | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, respuesta a P-52 (BRC-001 BR-PTY-20) | FACT | Alta |
 
 Evidencia compartida: `source_type: document`, `freshness: current`, `status: sin verificar`.
 
 ## Evidencia faltante
 
-- La matriz de visibilidad por rol (P-08).
+- ~~La matriz de visibilidad por rol (P-08).~~ Respondida el 2026-09-27 (EVD-2026-0129, EVD-2026-0130). La visibilidad es mucho más abierta que el "acceso mínimo" supuesto: el riesgo de confidencialidad baja en alcance, pero la autorización a nivel de dato sigue siendo necesaria (brechas ajenas solo para el Jefe de proyecto, propuestas de la IA solo para ciertos roles, identificaciones y teléfono ocultos) y aparece una dependencia del control de acceso de GitLab (BR-TRA-05). Queda abierto P-54 (calificaciones, sustento del evaluador y el "uso interno" de GitLab, BR-IA-01). *Nota del agente; la disposición del candidato no cambia.*
 - La normativa de protección de datos personales aplicable y la política interna de COMSATEL.
 - Si se requiere consentimiento o aviso al colaborador sobre el análisis de GitLab.
 

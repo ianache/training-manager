@@ -6,7 +6,7 @@ tags: [user-stories, requirements, formacion, competencias, certificacion]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -43,7 +43,7 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 | [US-004](#us-004) | H1 | Colaborador | Consultar mi perfil de competencias y mis evidencias | READY | [US-004](user-stories/US-004-consultar-mi-perfil-de-competencias.md) |
 | [US-005](#us-005) | H1 | Colaborador | Ver mi brecha frente a un rol | CONDITIONAL | [US-005](user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md) |
 | [US-006](#us-006) | H1 | Jefe de proyecto | Buscar candidatos para un requerimiento | CONDITIONAL | [US-006](user-stories/US-006-buscar-candidatos-para-un-requerimiento.md) |
-| [US-007](#us-007) | H1 | Jefe de proyecto | Asignar un colaborador a un requerimiento | NOT READY | — |
+| [US-007](#us-007) | H1 | Jefe de Ingeniería, usuario ADMIN | Asignar uno o varios colaboradores a un requerimiento | CONDITIONAL | — |
 | [US-008](#us-008) | H1 | Jefe de Ingeniería, Jefe de proyecto, usuario ADMIN | Ver brechas agregadas por producto | CONDITIONAL | — |
 | [US-009](#us-009) | H2 | Colaborador | Recibir una ruta de formación a partir de mi brecha | NOT READY | — |
 | [US-010](#us-010) | H2 | Gestión de formación / RR. HH. | Emitir el certificado de un curso final aprobado | CONDITIONAL | — |
@@ -52,7 +52,7 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 | [US-013](#us-013) | H3 | Dirección / Gerencia | Ver la capacidad frente a la demanda por producto | NOT READY | — |
 | [US-014](#us-014) | H3 | Dirección / Gerencia | Ver los KPI de la plataforma | NOT READY | — |
 
-**Resumen:** 2 READY, 7 CONDITIONAL y 5 NOT READY. H1 tiene el núcleo más sólido. Las historias NOT READY dependen de preguntas abiertas que solo pueden responder los responsables.
+**Resumen:** 2 READY, 9 CONDITIONAL y 3 NOT READY (recalculado el 2026-09-27: US-008 pasó a CONDITIONAL al responderse P-17, y US-007, al responderse P-05). H1 tiene el núcleo más sólido. Las historias NOT READY dependen de preguntas abiertas que solo pueden responder los responsables.
 
 **Actualización (2026-09-27):** se agregaron 11 historias de la feature de gestión de colaboradores ([SPEC-001](specs/SPEC-001-gestion-de-colaboradores.md), capacidades C1 a C11), US-015 a US-025, en la sección [Gestión de colaboradores](#gestion-de-colaboradores). Están refinadas con `af-user-story-refiner/2.0` y su contexto es [RCP-002](context-packs/RCP-002-gestion-de-colaboradores.md). Total del catálogo: 25 historias.
 
@@ -78,8 +78,8 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
   - Un nivel de competencia sin requisitos de evidencia definidos no se puede exigir en un Rol-Nivel (BR-ACR-13; P-39 respondida el 2026-09-27).
   - Un nivel fuera de la [escala L1–L4](../business/glossary/terms/TRM-0020-escala-de-niveles-de-dominio.md) se rechaza (BR-CAT-02).
   - Un usuario que no es el Jefe de Ingeniería no puede modificar el catálogo ni los requisitos de evidencia (BR-CAT-04, BR-CAT-16). Queda abierto si el Responsable de producto puede proponer cambios (P-06).
-- **Vacíos:** versionado del catálogo y efecto de un cambio sobre requerimientos y certificaciones vigentes (P-02 respondida solo para cursos; el catálogo sigue en P-50); confirmar que rúbrica y requisito de evidencia son cosas distintas (inferencia de P-37, respondida el 2026-09-27: la rúbrica la define y aprueba el Jefe de Ingeniería, BR-CAT-19); confirmar que un nivel exige al menos un requisito requerido (inferencia de BR-ACR-13) y que "no se repite dentro de un rol" significa una vez por Rol-Nivel (interpretación de BR-CAT-21). Los criterios de nivel de rol no se registran: son parte del MOF, fuera de alcance, como la escala salarial (BR-CAT-18; P-40 respondida el 2026-09-27).
-- **Preparación:** CONDITIONAL. Crear un catálogo está sostenido, incluidos los niveles por rol, los requisitos requeridos o deseados y las validaciones nuevas (respuestas del 2026-09-27 a P-21, P-22, P-24, P-26, P-36, P-39, P-40, US1-Q1 y UXR-001-Q1); editarlo depende de P-50.
+- **Vacíos:** versionado del catálogo y efecto de un cambio sobre requerimientos y certificaciones vigentes (P-02 respondida solo para cursos; P-50 respondida en parte el 2026-09-27: se versionan las competencias, no los roles, BR-CAT-22; siguen P-50.1 y P-50.2); confirmar que rúbrica y requisito de evidencia son cosas distintas (inferencia de P-37, respondida el 2026-09-27: la rúbrica la define y aprueba el Jefe de Ingeniería, BR-CAT-19); confirmar que un nivel exige al menos un requisito requerido (inferencia de BR-ACR-13) y que "no se repite dentro de un rol" significa una vez por Rol-Nivel (interpretación de BR-CAT-21). Los criterios de nivel de rol no se registran: son parte del MOF, fuera de alcance, como la escala salarial (BR-CAT-18; P-40 respondida el 2026-09-27).
+- **Preparación:** CONDITIONAL. Crear un catálogo está sostenido, incluidos los niveles por rol, los requisitos requeridos o deseados y las validaciones nuevas (respuestas del 2026-09-27 a P-21, P-22, P-24, P-26, P-36, P-39, P-40, US1-Q1 y UXR-001-Q1); editarlo (versiones de competencias) depende de P-50.1 y P-50.2.
 
 <a id="us-002"></a>
 ### US-002 — Declarar los requerimientos de un proyecto
@@ -95,8 +95,9 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 - **Casos negativos:**
   - Cualquier rol del catálogo se puede pedir, sea cual sea el producto del proyecto (BR-CAT-08).
   - No se pueden agregar competencias ajenas al Rol-Nivel; solo retirar (BR-REQ-09, BR-REQ-10).
+  - Solo el Jefe de proyecto de ese proyecto declara sus requerimientos (BR-REQ-02; US2-Q2 respondida el 2026-09-27).
 - **Vacíos:** qué es un [proyecto activo](../business/glossary/terms/TRM-0051-proyecto-activo.md) y qué estados tiene un proyecto (P-11; término en `draft`, `gap`).
-- **Preparación:** CONDITIONAL, por P-11 y US2-Q1 (IM-Q6 y P-38 quedaron respondidas).
+- **Preparación:** CONDITIONAL, por P-11 y US2-Q1 (IM-Q6, P-38 y US2-Q2 quedaron respondidas).
 
 <a id="us-003"></a>
 ### US-003 — Certificar manualmente un nivel
@@ -115,6 +116,7 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
   - Si falta la evidencia de algún requisito "requerida" de esa competencia y nivel, el nivel no se puede certificar; las evidencias "deseadas" son opcionales (BR-ACR-09, BR-ACR-12).
   - Un nivel de competencia sin requisitos de evidencia definidos no se puede certificar (BR-ACR-13; P-39 respondida el 2026-09-27).
 - **Vacíos:** si se aceptan evidencias equivalentes (P-23) y cómo refuerza una evidencia deseada (P-41); confirmar que un nivel exige al menos un requisito requerido (inferencia de BR-ACR-13); qué parte hace Gestión de formación / RR. HH. y si un evaluador puede certificar a su propio equipo (P-09); si una certificación vence o se revoca (P-14). P-22 quedó respondida y confirmada (evidencia concreta, BR-ACR-08).
+- **Relación con cursos (P-07, respondida el 2026-09-27):** cuando las evidencias reunidas en un curso cumplen los requisitos requeridos del nivel objetivo, la plataforma propone certificar el nivel objetivo de cada competencia que el curso desarrolla (BR-ACR-14); la propuesta no certifica sin firma humana (BR-ACR-02, BR-ACR-04). Es de H2 y ninguna historia la cubre todavía; quién la firma está abierto (P-07.4, P-49.2). AMB-01 quedó resuelta. Las certificaciones y su auditoría las ve cualquier colaborador (BR-TRA-06, P-08).
 - **Preparación:** CONDITIONAL. El flujo y la exigencia de las evidencias requeridas (BR-ACR-07, BR-ACR-09, BR-ACR-12) están sostenidos, y P-39 quedó respondida el 2026-09-27 (BR-ACR-13); falta RCP-Q1.
 
 <a id="us-004"></a>
@@ -128,7 +130,7 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 - **Criterios de aceptación:**
   - **Dado** que soy un colaborador con certificaciones, **cuando** abro mi [perfil](../business/glossary/terms/TRM-0045-perfil-de-competencias-del-colaborador.md), **entonces** veo cada competencia con su nivel certificado, la fecha, quién lo certificó y sus evidencias.
   - **Dado** que no tengo certificaciones, **cuando** abro mi perfil, **entonces** veo que no tengo niveles certificados.
-- **Casos negativos:** ninguno sostenido por las fuentes. Quién más puede ver este perfil está abierto (P-08) y no forma parte de esta historia.
+- **Casos negativos:** ninguno sostenido por las fuentes. Quién más puede ver este perfil no forma parte de esta historia; P-08 quedó respondida el 2026-09-27: el resumen de niveles certificados, las evidencias (las de GitLab, según el control de acceso de cada repositorio) y las certificaciones con su auditoría son visibles para cualquier colaborador (BR-TRA-03, BR-TRA-05, BR-TRA-06). **Recomendación:** identificar una historia para ver el perfil de otro colaborador.
 - **Preparación:** READY.
 
 <a id="us-005"></a>
@@ -159,18 +161,24 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
   - **Dado** el resultado, **cuando** no cambio el orden, **entonces** aparecen primero los de menor brecha (mayor cumplimiento); **cuando** invierto el orden, primero los de mayor brecha (BR-BRE-05).
 - **Vacíos:**
   - Cómo se resume en un solo valor la brecha de un candidato para ordenar (P-44, nueva en BRC-001). P-16 quedó respondida el 2026-09-27 (BR-BRE-05).
-  - Qué datos del perfil de otra persona puede ver el Jefe de proyecto (P-08).
-- **Preparación:** CONDITIONAL, por P-08 y P-44.
+  - P-08 quedó respondida el 2026-09-27: el Jefe de proyecto ve la brecha individual de cualquier colaborador (BR-TRA-04), y el resumen de niveles, las evidencias y las certificaciones son visibles para cualquier colaborador (BR-TRA-03, BR-TRA-05, BR-TRA-06).
+  - La lista es la recomendación de la plataforma; asignar le toca al Jefe de Ingeniería o a un ADMIN (BR-REQ-04, P-05). Quién ve la recomendación está abierto (US6-Q2).
+- **Preparación:** CONDITIONAL, por P-44 (P-08 ya no bloquea).
 
 <a id="us-007"></a>
-### US-007 — Asignar un colaborador a un requerimiento
+### US-007 — Asignar colaboradores a un requerimiento
 
-**Como** Jefe de proyecto, **quiero** asignar un candidato a un requerimiento de mi proyecto, **para** cubrir el rol.
+**Como** [Jefe de Ingeniería](../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md) o usuario ADMIN, **quiero** asignar uno o varios colaboradores a un requerimiento de proyecto, a partir de los candidatos que recomienda la plataforma, **para** cubrir el rol.
 
-- **Reglas:** ninguna. La [asignación](../business/glossary/terms/TRM-0004-asignacion.md) aparece en el modelo conceptual (VIS-001:L58), pero su decisión no está definida (BR-REQ-04).
-- **Criterios de aceptación:** no se pueden escribir sin P-05: si la plataforma solo recomienda y el Jefe de proyecto decide, o si hay un flujo de aprobación.
-- **Nota:** el actor es una inferencia. VIS-001 dice que el Jefe de proyecto "encuentra personal", no que asigna.
-- **Preparación:** NOT READY, por P-05.
+- **Reglas:** BR-REQ-04, BR-REQ-11, BR-REQ-12 (P-05 respondida por ianache (Jefe de Ingeniería), 2026-09-27, EVD-2026-0126). La [asignación](../business/glossary/terms/TRM-0004-asignacion.md) aparece en el modelo conceptual (VIS-001:L58).
+- **Criterios de aceptación:**
+  - **Dado** un requerimiento con candidatos recomendados (US-006), **cuando** el Jefe de Ingeniería o un ADMIN asigna uno o varios colaboradores, **entonces** la asignación queda registrada; la decisión final es suya (BR-REQ-04).
+  - **Dado** un candidato que no alcanza el nivel requerido, **cuando** se lo asigna, **entonces** la asignación se permite (BR-REQ-11). Se espera que siga un curso que cubra su brecha antes de integrarse; si la plataforma lo registra o avisa está abierto (P-53).
+  - **Dado** un colaborador ya asignado a otro requerimiento, **cuando** se lo asigna, **entonces** la plataforma puede advertirlo, pero no impide la asignación (BR-REQ-12).
+- **Casos negativos:** la recomendación de la plataforma no asigna a nadie por sí sola (BR-REQ-04). **Inferencia:** un usuario que no es Jefe de Ingeniería ni ADMIN, incluido el Jefe de proyecto, no puede asignar.
+- **Vacíos:** qué es un usuario ADMIN (P-45); si se registra el curso de cierre o un motivo al asignar bajo el nivel (P-53); si una asignación se puede retirar o termina, y qué pasa con ella al cerrar el proyecto (sin regla; P-11); si el Jefe de proyecto propone candidatos o solo ve la recomendación (US6-Q2).
+- **Nota:** el actor ya no es una inferencia: VIS-001 decía que el Jefe de proyecto "encuentra personal", y P-05 fijó que asignan el Jefe de Ingeniería o un ADMIN.
+- **Preparación:** CONDITIONAL (antes NOT READY): los criterios se pueden escribir; faltan P-53, P-45 y el ciclo de vida de la asignación.
 
 <a id="us-008"></a>
 ### US-008 — Ver brechas agregadas por producto
@@ -206,13 +214,14 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 
 **Como** [Gestión de formación / RR. HH.](../business/glossary/terms/TRM-0027-gestion-de-formacion.md), **quiero** emitir el [certificado de curso](../business/glossary/terms/TRM-0008-certificado.md) de un colaborador que aprobó el [curso final](../business/glossary/terms/TRM-0017-curso-final.md), **para** dejar constancia del cumplimiento de sus objetivos.
 
-- **Reglas:** BR-CER-01 a BR-CER-07, BR-FOR-03, BR-FOR-04, BR-FOR-08, BR-FOR-10, BR-ACR-12.
-- **Sostenido (2026-09-27, P-02 en parte):** el colaborador se inscribe en una edición de una versión APPROVED del curso y termina el curso en esa edición, sin homologar versiones (BR-FOR-08, BR-FOR-10, EVD-2026-0116). Edición de curso e inscripción ya son hechos; el Instructor de la edición sigue siendo una propuesta (BR-FOR-05, P-49).
+- **Reglas:** BR-CER-01 a BR-CER-07, BR-FOR-03, BR-FOR-04, BR-FOR-05, BR-FOR-08, BR-FOR-10, BR-ACR-12; BR-ACR-14 como contexto.
+- **Sostenido (2026-09-27, P-02 en parte):** el colaborador se inscribe en una edición de una versión APPROVED del curso y termina el curso en esa edición, sin homologar versiones (BR-FOR-08, BR-FOR-10, EVD-2026-0116). Edición de curso e inscripción ya son hechos. El Instructor de la edición quedó **confirmado** el 2026-09-27 (P-49, EVD-2026-0131): un colaborador que el Jefe de Ingeniería o un ADMIN asigna para ejecutar una edición y que evalúa a los inscritos; el Jefe de Ingeniería también puede evaluar (BR-FOR-05, ahora regla).
+- **Sostenido (2026-09-27, P-07):** aprobar el curso es parte de la demostración del nivel de las competencias que desarrolla. Cuando las evidencias reunidas en el curso cumplen los requisitos requeridos del nivel objetivo, la plataforma propone certificar el nivel objetivo de cada competencia que el curso desarrolla (BR-ACR-14, EVD-2026-0128); la propuesta necesita firma humana (BR-ACR-02, BR-ACR-04). AMB-01 quedó resuelta. **Recomendación, no decisión:** esa propuesta de certificación no es parte de emitir el certificado de curso; conviene identificarla como historia propia de H2 (o como extensión de US-003) cuando se responda quién la firma (P-07.4, P-49.2).
 - **Criterios de aceptación:**
   - **Dado** un colaborador en un curso, **cuando** se evidencia que cumple los requisitos de evidencia **requeridos** de las competencias que el curso desarrolla (BR-ACR-12), **entonces** la plataforma propone automáticamente aprobar el curso (BR-CER-06, precisada por P-47).
   - **Dado** un colaborador inscrito en una edición de un curso, **cuando** se aprueba una versión nueva del curso, **entonces** el colaborador sigue y termina el curso en su edición, y su aprobación se evalúa en esa edición (BR-FOR-09, BR-FOR-10).
-  - **Dado** ese mismo curso, **cuando** se evalúa el cumplimiento, **entonces** las evidencias que se consideran son las de evaluaciones y las de artefactos producidos durante la participación del colaborador en los proyectos (BR-FOR-04).
-  - **Dada** esa propuesta, **cuando** el evaluador (quién es sigue abierto, P-49) emite la conclusión final igual a la propuesta, **entonces** el curso queda aprobado; **cuando** decide distinto, **entonces** debe registrar el sustento, que queda en la auditoría (BR-CER-07).
+  - **Dado** ese mismo curso, **cuando** se evalúa el cumplimiento, **entonces** las evidencias que se consideran son las de evaluaciones o cuestionarios y lo que el colaborador produce en los proyectos que se ejecutan durante el curso, antes de terminar su participación en la edición (BR-FOR-04, precisada por P-07).
+  - **Dada** esa propuesta, **cuando** el Instructor de la edición o el Jefe de Ingeniería (BR-FOR-05, confirmada por P-49) emite la conclusión final igual a la propuesta, **entonces** el curso queda aprobado; **cuando** decide distinto, **entonces** debe registrar el sustento, que queda en la auditoría (BR-CER-07).
   - **Dado** un colaborador que aprobó el curso final, **cuando** Gestión de formación emite el certificado de curso, **entonces** el PDF se genera en [docsuite](../business/glossary/terms/TRM-0019-docsuite.md) y la plataforma guarda su referencia (BR-CER-03).
 - **Casos negativos:**
   - La propuesta automática no aprueba el curso por sí sola (BR-CER-06).
@@ -220,16 +229,16 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
   - Una versión de curso en DRAFT o DEPRECATED no admite inscripciones nuevas (BR-FOR-08).
   - No se homologa lo avanzado en una edición con otra versión del curso (BR-FOR-10).
   - Una conclusión distinta de la propuesta sin sustento no se registra (BR-CER-07).
-  - Emitir un certificado de curso no cambia ningún nivel certificado (BR-CER-02).
+  - Emitir un certificado de curso no cambia ningún nivel certificado (BR-CER-02); la certificación del nivel sigue el camino de BR-ACR-14, con firma humana.
   - No hay forma de verificar un certificado de curso fuera de la organización (BR-CER-04).
   - Sin aprobación del curso final no se emite certificado de curso (BR-CER-01).
 - **Vacíos:**
   - De qué es "final" el curso final (GQ-06).
-  - Si aprobar un curso aporta evidencia para algún nivel (P-07).
-  - P-19 quedó respondida el 2026-09-27 a través de P-47 (BR-CER-06, BR-CER-07, BR-FOR-03, BR-FOR-04): el criterio son los requisitos de evidencia requeridos de las competencias, no las calificaciones de Classroom. Sigue abierto quién es el "evaluador" que concluye: P-48 se respondió solo en parte, con una **propuesta en consideración** (BR-FOR-05, EVD-2026-0113, hipótesis): un colaborador asignado como Instructor a cada edición del curso, y también el Jefe de Ingeniería. No es regla vigente; Instructor, edición de curso e inscripción no se usan en los criterios hasta que se confirme (P-49; ver AMB-03).
+  - P-07 quedó respondida el 2026-09-27: aprobar un curso aporta evidencia y la plataforma propone certificar el nivel objetivo (BR-ACR-14). No se precisó si "aprobar el curso X" se declara como requisito requerido o deseado (P-07.1).
+  - P-19 quedó respondida el 2026-09-27 a través de P-47 (BR-CER-06, BR-CER-07, BR-FOR-03, BR-FOR-04): el criterio son los requisitos de evidencia requeridos de las competencias, no las calificaciones de Classroom. Quién concluye quedó resuelto con P-49 (2026-09-27, EVD-2026-0131): el Instructor que el Jefe de Ingeniería o un ADMIN asigna a la edición, y también el Jefe de Ingeniería (BR-FOR-05, ya no es propuesta). Siguen abiertos si el Instructor debe tener certificadas las competencias que evalúa (P-49.1), si su evaluación puede certificar niveles (P-49.2) y el alcance de "también el Jefe de Ingeniería" (P-49.3); ver AMB-03.
   - Cómo se registran en la plataforma las evaluaciones y los artefactos de proyecto que sirven de evidencia del curso (sin regla; BR-FOR-04 solo dice de dónde salen).
   - Si una edición en curso de una versión que pasa a DEPRECATED sigue hasta terminar (se supone que sí, por BR-FOR-10) y cómo se relaciona una versión con el curso de Classroom (P-51).
-- **Preparación:** CONDITIONAL, por GQ-06 y P-49, y en menor medida P-51 (antes: GQ-06, P-47 y P-48). El criterio de aprobación y la inscripción por edición ya están definidos; falta quién concluye la aprobación.
+- **Preparación:** CONDITIONAL, por GQ-06, y en menor medida P-49.1 y P-51 (antes: GQ-06 y P-49). El criterio de aprobación, la inscripción por edición y quién concluye la aprobación (el Instructor o el Jefe de Ingeniería, BR-FOR-05) ya están definidos.
 
 ## H3 — Evidencia real con IA
 
@@ -260,7 +269,8 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 - **Reglas:** BR-IA-04, BR-IA-01.
 - **Criterios de aceptación:**
   - **Dada** una propuesta sobre mí, **cuando** abro mi perfil, **entonces** veo la propuesta, su justificación, las evidencias usadas y su estado (pendiente, aprobada, ajustada o rechazada).
-- **Casos negativos:** la evidencia de GitLab no sale del uso interno (BR-IA-01).
+- **Casos negativos:** la evidencia de GitLab no sale del uso interno (BR-IA-01). Si la plataforma puede mostrar enlaces a GitLab y dejar el control al repositorio está abierto (P-54).
+- **Nota (P-08, respondida el 2026-09-27):** además del colaborador, ven sus propuestas quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y cualquier ADMIN (BR-IA-04, ampliada). No cambia esta historia, que es la vista del propio colaborador.
 - **Preparación:** READY.
 
 <a id="us-013"></a>
@@ -276,9 +286,9 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 
 **Como** Dirección / Gerencia, **quiero** ver los seis [KPI](../business/glossary/terms/TRM-0037-kpi.md) (cobertura de roles, tiempo de asignación, cierre de brechas, tiempo a competencia, evidencia real y adopción), **para** medir el programa (VIS-001:L113-L124).
 
-- **Criterios de aceptación:** las definiciones de los KPI están en VIS-001 §8, pero sin metas ni línea base (P-03) no se pueden escribir umbrales. El KPI "tiempo de asignación" depende de US-007 (P-05).
+- **Criterios de aceptación:** las definiciones de los KPI están en VIS-001 §8, pero sin metas ni línea base (P-03) no se pueden escribir umbrales. El KPI "tiempo de asignación" depende de US-007; P-05 quedó respondida el 2026-09-27 (la asignación la registra el Jefe de Ingeniería o un ADMIN, BR-REQ-04), así que ya hay un hecho que medir, pero no se definió desde qué momento se cuenta.
 - **Nota:** que Dirección sea quien ve los KPI es una inferencia: VIS-001 los asocia al tablero de capacidad (L83).
-- **Preparación:** NOT READY, por P-03 y P-05.
+- **Preparación:** NOT READY, por P-03 (antes también por P-05).
 
 <a id="gestion-de-colaboradores"></a>
 ## Gestión de colaboradores (SPEC-001)
@@ -295,11 +305,11 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 | US-020 | H1 | Jefe de Ingeniería | Asignar roles del programa: Evaluador y Jefe de Ingeniería (C6) | READY | [US-020](user-stories/US-020-asignar-roles-del-programa.md) |
 | US-021 | Por definir | Jefe de Ingeniería | Dar de baja a un colaborador (C7) | CONDITIONAL | [US-021](user-stories/US-021-dar-de-baja-a-un-colaborador.md) |
 | US-022 | Por definir | Jefe de Ingeniería | Vincular la identidad de acceso de Keycloak (C8) | READY | [US-022](user-stories/US-022-vincular-identidad-de-acceso.md) |
-| US-023 | Por definir | Jefe de Ingeniería; Colaborador (la suya) | Consultar la ficha y su historial (C9) | CONDITIONAL | [US-023](user-stories/US-023-consultar-ficha-e-historial.md) |
+| US-023 | Por definir | Jefe de Ingeniería; Colaborador (la suya) | Consultar la ficha y su historial (C9) | READY | [US-023](user-stories/US-023-consultar-ficha-e-historial.md) |
 | US-024 | Por definir | Jefe de Ingeniería | Anonimizar los datos personales de una persona dada de baja (C10) | CONDITIONAL | [US-024](user-stories/US-024-anonimizar-datos-personales.md) |
 | US-025 | Por definir | Jefe de Ingeniería | Configurar el plazo de anonimización y recibir el aviso (C11) | CONDITIONAL | [US-025](user-stories/US-025-configurar-plazo-y-aviso.md) |
 
-**Resumen:** 4 READY y 7 CONDITIONAL. Las preguntas que más historias bloquean son Q-01 y Q-02 (US-015, US-018), Q-05 / P-08 (US-023), RCP2-Q1 (US-024), RCP2-Q2 (US-021) y RCP2-Q3 (US-025); las preguntas `Q-nn` son de SPEC-001 §8 y las `RCP2-Qn`, de RCP-002 §7.
+**Resumen:** 5 READY y 6 CONDITIONAL (US-023 pasó a READY el 2026-09-27, al responderse P-52). Las preguntas que más historias bloquean son Q-01 y Q-02 (US-015, US-018), RCP2-Q1 (US-024), RCP2-Q2 (US-021) y RCP2-Q3 (US-025); las preguntas `Q-nn` son de SPEC-001 §8 y las `RCP2-Qn`, de RCP-002 §7.
 
 - **Orden de dependencia:** US-017 y US-018 → US-015 → US-016, US-019, US-020, US-021, US-022 y US-023; US-021 → US-024 y US-025; US-020 → US-025. US-001 → US-019.
 - **Impacto en H1:** US-015 y US-022 dan origen a los colaboradores de US-003 a US-006; US-019 alimenta US-004 y US-005 (SPEC-001:L152); US-020 designa a los evaluadores de US-003 (RCP-Q1, en parte).
@@ -315,15 +325,18 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 | E-03 | Reglas BR-* usadas en los criterios de aceptación. | BRC-001 §Reglas | fact (N2) | medium |
 | E-04 | El colaborador aspira a un rol, pero no se dice cómo lo declara. | VIS-001:L41 | gap | high |
 | E-05 | Brechas "por producto" sin actor que las consulte. | VIS-001:L78 | gap | high |
-| E-06 | El actor de la asignación y el de los KPI son inferencias. | VIS-001:L42, L58, L83 | inference | medium |
+| E-06 | El actor de la asignación y el de los KPI son inferencias. *El de la asignación quedó definido el 2026-09-27 (P-05, EVD-2026-0126): Jefe de Ingeniería o ADMIN; el de los KPI sigue siendo inferencia.* | VIS-001:L42, L58, L83 | inference | medium |
 | E-07 | Vocabulario tomado del glosario; 59 términos aprobados, y Proyecto activo y Riesgo de cobertura siguen en `draft`. | GLS-001 | fact | high |
 
 ## Reglas, dependencias e impactos
 
 - **Orden de dependencia:** US-001 → US-002 → US-006 → US-007. US-003 → US-004, US-005 y US-006. US-011 depende de US-003 (mismo flujo de certificación).
 - **Impacto de P-01 (respondida en lo esencial, BR-ACR-07):** US-001 define el tipo de evidencia por competencia y nivel, y US-003 y US-011 lo exigen al certificar. El detalle quedó resuelto el 2026-09-27: evidencia concreta (P-22, confirmada), definida por el Jefe de Ingeniería (BR-CAT-16) de forma progresiva (BR-CAT-17), y declarada requerida o deseada; certificar exige las requeridas (BR-ACR-09, BR-ACR-12). P-39 quedó respondida el 2026-09-27: un nivel sin requisitos definidos no se exige ni se certifica (BR-ACR-13). Abiertas: P-23 (equivalencias) y P-41 (efecto de una evidencia deseada).
-- **Impacto de P-02 (respondida en parte el 2026-09-27):** los cursos tienen versiones DRAFT → APPROVED → DEPRECATED, que aprueba el Jefe de Ingeniería o un ADMIN; solo las APPROVED admiten inscripciones y el inscrito termina en su edición (BR-FOR-06 a BR-FOR-10). Afecta a US-009 y US-010. Ninguna historia del catálogo cubre la gestión de versiones de curso (crear, aprobar, deprecar): **recomendación**, no decisión: identificarla en H2. El versionado del catálogo sigue abierto (P-50), y la relación de las versiones con Classroom, en P-51.
-- **Impacto de P-05:** bloquea US-007 y el KPI "tiempo de asignación" (US-014).
+- **Impacto de P-02 (respondida en parte el 2026-09-27):** los cursos tienen versiones DRAFT → APPROVED → DEPRECATED, que aprueba el Jefe de Ingeniería o un ADMIN; solo las APPROVED admiten inscripciones y el inscrito termina en su edición (BR-FOR-06 a BR-FOR-10). Afecta a US-009 y US-010. Ninguna historia del catálogo cubre la gestión de versiones de curso (crear, aprobar, deprecar): **recomendación**, no decisión: identificarla en H2. El versionado del catálogo quedó respondido en parte (P-50, 2026-09-27): se versionan las competencias, no los roles (BR-CAT-22); el efecto sobre datos vigentes y quién aprueba siguen en P-50.1 y P-50.2. La relación de las versiones de curso con Classroom sigue en P-51.
+- **Impacto de P-05 (respondida el 2026-09-27):** ya no bloquea. US-007 pasa a CONDITIONAL (asignan el Jefe de Ingeniería o un ADMIN; bajo el nivel y a varios requerimientos, con advertencia: BR-REQ-04, BR-REQ-11, BR-REQ-12); US-014 sigue NOT READY por P-03. Derivada: P-53.
+- **Impacto de P-07 (respondida el 2026-09-27):** AMB-01 resuelta. Un curso aprobado aporta evidencia y la plataforma propone certificar el nivel objetivo (BR-ACR-14); afecta a US-003 y US-010. **Recomendación:** identificar en H2 la historia de revisar y firmar esa propuesta; quién la firma está abierto (P-07.4, P-49.2).
+- **Impacto de P-08 (respondida el 2026-09-27):** fija la visibilidad (BR-TRA-03 a BR-TRA-06, BR-IA-04) y deja de condicionar US-006 y US-023 (esta última, junto con P-52). **Recomendación:** identificar una historia para ver el perfil de otro colaborador. Derivada: P-54.
+- **Impacto de P-49 (respondida en parte el 2026-09-27):** el Instructor queda confirmado (BR-FOR-05); US-010 ya sabe quién concluye la aprobación del curso.
 
 ## Vacíos y preguntas abiertas
 
@@ -335,22 +348,22 @@ Las preguntas P-01 a P-14 son las de [BRC-001](../business/rules/BRC-001-reglas-
 | P-16 | ¿La búsqueda muestra también candidatos que no alcanzan el nivel, con su brecha? ¿Cómo se ordena? | US-006 | Responsable de producto | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí, con su brecha; por defecto de menor a mayor brecha, y el usuario puede invertir el orden (BR-BRE-05). Derivada: P-44 |
 | P-17 | ¿Quién consulta las brechas agregadas por producto? | US-008 | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): Jefe de Ingeniería, Jefe de proyecto y cualquier usuario ADMIN (BR-BRE-06). Derivada: P-45 |
 | P-18 | ¿Cómo se asocian competencias y niveles a cursos de Classroom, y quién arma o aprueba las rutas? | US-009 | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): el curso define por rol un nivel de rol mínimo y uno objetivo, y quien lo diseña elige qué competencias desarrolla (BR-FOR-01, BR-FOR-02). Siguen abiertos la asociación con Classroom y quién arma o aprueba las rutas. Derivada: P-46 |
-| P-19 | ¿Qué criterio determina que un curso está aprobado a partir de las calificaciones de Classroom? | US-010 | Gestión de formación | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): cuando se cumplen los requisitos requeridos, la plataforma propone aprobar el curso y el evaluador concluye, con sustento si decide distinto (BR-CER-06, BR-CER-07). Completada el mismo día vía P-47: los requisitos requeridos son los requisitos de evidencia requeridos de las competencias que el curso desarrolla, con evidencia de evaluaciones y de artefactos de proyectos (BR-FOR-03, BR-FOR-04). Queda abierto quién es el evaluador del curso: P-48 respondida en parte con una propuesta en consideración (BR-FOR-05); pendiente de P-49 |
+| P-19 | ¿Qué criterio determina que un curso está aprobado a partir de las calificaciones de Classroom? | US-010 | Gestión de formación | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): cuando se cumplen los requisitos requeridos, la plataforma propone aprobar el curso y el evaluador concluye, con sustento si decide distinto (BR-CER-06, BR-CER-07). Completada el mismo día vía P-47: los requisitos requeridos son los requisitos de evidencia requeridos de las competencias que el curso desarrolla, con evidencia de evaluaciones y de artefactos de proyectos (BR-FOR-03, BR-FOR-04). Quién es el evaluador del curso quedó resuelto con P-49 (2026-09-27): el Instructor de la edición, y también el Jefe de Ingeniería (BR-FOR-05, confirmada). Siguen P-49.1 a P-49.3 |
 | P-20 | ¿Ajustar o rechazar una propuesta de la IA exige registrar un motivo? | US-011 | Jefe de Ingeniería | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí, exige registrar el motivo (BR-IA-05) |
 
-**Preguntas previas que más historias bloquean:** P-05 (US-007, US-014), RCP-Q1 (US-003 y, por herencia, US-011; P-39 quedó respondida el 2026-09-27), P-11 (US-002, US-013) y P-08 (US-004, US-006).
+**Preguntas previas que más historias bloquean:** RCP-Q1 (US-003 y, por herencia, US-011; P-39 quedó respondida el 2026-09-27), P-11 (US-002, US-013 y el ciclo de vida de la asignación de US-007) y P-03 (US-014). P-05 y P-08 quedaron respondidas el 2026-09-27 y ya no bloquean US-004, US-006, US-007 ni US-014; sus derivadas son P-53 y P-54.
 
 ## Preparación y entrega
 
 - **Estado:** CONDITIONAL
-- **Motivo:** US-004 y US-012 están listas. Otras 8 historias tienen flujo y reglas, pero les faltan respuestas para completar sus criterios (US-008 pasó de NOT READY a CONDITIONAL el 2026-09-27, al responderse P-17). Las 4 NOT READY dependen de P-03, P-05, P-11, P-18 (en parte), P-46 y GQ-05.
+- **Motivo:** US-004 y US-012 están listas. Otras 9 historias tienen flujo y reglas, pero les faltan respuestas para completar sus criterios (US-008 pasó de NOT READY a CONDITIONAL al responderse P-17, y US-007, al responderse P-05, ambas el 2026-09-27). Las 3 NOT READY (US-009, US-013 y US-014) dependen de P-03, P-11, P-18 (en parte), P-46 y GQ-05.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer` (UX-101) sobre las historias READY y CONDITIONAL de H1, para derivar UXR.
-- **Decisión humana requerida:** el Jefe de Ingeniería y el Responsable de producto validan las 14 historias y responden P-05, P-50 (versionado del catálogo), lo que queda abierto de P-18, P-49 (evaluador del curso; reemplaza a P-47, respondida el 2026-09-27) y las derivadas de alta prioridad P-43 y P-46, además de las abiertas de BRC-001 y GLS-001.
+- **Decisión humana requerida:** el Jefe de Ingeniería y el Responsable de producto validan las 14 historias y responden P-50.1 y P-50.2 (versionado de competencias), lo que queda abierto de P-18, P-49.1 a P-49.3 (Instructor), P-53 (asignación bajo el nivel), P-54 (visibilidad de calificaciones y de GitLab) y las derivadas de alta prioridad P-43 y P-46, además de las abiertas de BRC-001 y GLS-001.
 
 ## Lista de calidad
 
 - [x] Fuentes y procedencia registradas
-- [x] Hechos separados de supuestos, inferencias y vacíos (actores inferidos marcados en US-007, US-008 y US-014)
+- [x] Hechos separados de supuestos, inferencias y vacíos (actor inferido marcado en US-014; los de US-007 y US-008 quedaron definidos el 2026-09-27 por P-05 y P-17)
 - [x] Contradicciones visibles (ninguna nueva; las de BRC-001 siguen vigentes)
 - [x] Casos negativos y límite considerados
 - [ ] Validación humana registrada

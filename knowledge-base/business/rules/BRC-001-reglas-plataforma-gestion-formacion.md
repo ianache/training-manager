@@ -6,7 +6,7 @@ tags: [business-rules, formacion, colaboradores, party, competencias, certificac
 status: draft
 generated:
   by: "af-business-rule-extractor/1.0"
-  at: "2026-09-27T16:50:00-05:00"
+  at: "2026-09-27T18:10:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -32,8 +32,8 @@ sources:
 Se catalogaron **32 entradas**: 26 reglas y 6 vacíos. Tres áreas tienen reglas suficientes para redactar historias: el catálogo y su escala de niveles, la certificación con firma humana y los certificados de curso. Hay tres áreas con vacíos que impiden escribir criterios de aceptación completos:
 
 1. **Evidencia por nivel (L1–L4):** respondida en lo esencial. Por decisión de ianache (Jefe de Ingeniería), 2026-09-26, el tipo de evidencia que demuestra cada nivel se define por competencia y nivel (BR-ACR-07). Siguen abiertos los detalles P-21 a P-24.
-2. **Decisión de asignación:** no se sabe si la plataforma solo recomienda o si hay un flujo de aprobación (P-05).
-3. **Permisos:** la fuente no define quién puede ver o editar qué, salvo unos pocos casos (P-08, P-09).
+2. **Decisión de asignación:** respondida el 2026-09-27: la plataforma recomienda y el Jefe de Ingeniería o un ADMIN asigna (BR-REQ-04, P-05).
+3. **Permisos:** la visibilidad quedó definida el 2026-09-27 (P-08, BR-TRA-03 a BR-TRA-06); siguen abiertos P-09, P-52 y P-54.
 
 **Actualización (2026-09-27):** con [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) se añadieron 18 reglas de información maestra de colaboradores (BR-PTY-01 a BR-PTY-18) y las evidencias EVD-2026-0076 a EVD-2026-0095. Son decisiones humanas registradas, pero siguen sin verificar.
 
@@ -144,6 +144,13 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0123 | No es necesario verificar el modelo contra The Data Model Resource Book; la información disponible es suficiente. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 Q-07 | decision | high |
 | EVD-2026-0124 | Se adopta la versión estable más reciente de PostgreSQL (open source). | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 Q-08 | decision | high |
 | EVD-2026-0125 | No se repite una competencia dentro de un rol: al avanzar a niveles superiores de un rol, las competencias de los niveles anteriores ya están definidas, y el colaborador debe haber cumplido esas competencias de nivel inferior para escalar a niveles superiores. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a US1-Q1 (UXR-001) | decision | high |
+| EVD-2026-0126 | La plataforma recomienda candidatos y el Jefe de Ingeniería o un usuario ADMIN asigna uno o varios colaboradores al requerimiento; la decisión final es de ellos. Se puede asignar a alguien que no alcanza el nivel: se entiende que a esa persona se le debe definir un curso que cubra la brecha antes de integrarse al proyecto, lo que es un tema de planificación anticipada. Una persona puede estar asignada a más de un requerimiento; por ahora la plataforma puede mostrar una advertencia, pero no debe limitar la asignación. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-05 | decision | high |
+| EVD-2026-0127 | Solo el Jefe de proyecto del proyecto declara los requerimientos de ese proyecto. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a US2-Q2 | decision | high |
+| EVD-2026-0128 | Durante la ejecución de un curso, el desarrollo de la competencia se demuestra con evaluaciones o cuestionarios y con lo que el colaborador produce en los proyectos que se ejecutan durante el curso, antes de terminar su participación en la edición. Aprobar el curso es parte de la demostración del nivel requerido de las competencias que el curso desarrolla. La plataforma propone certificar ese nivel cuando las evidencias reunidas en el curso cumplen los requisitos requeridos del nivel objetivo; el nivel que se certifica es el nivel objetivo de cada competencia que el curso desarrolla. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-07 | decision | high |
+| EVD-2026-0129 | Los niveles certificados de las competencias, a modo de resumen, son públicos para cualquier colaborador. Las brechas individuales las ve el Jefe de proyecto, de los candidatos a sus requerimientos o de cualquier persona, sin restricción. Cualquier colaborador puede acceder a las evidencias; las que están en GitLab quedan sujetas al control de acceso de sus repositorios. Las certificaciones y su auditoría las puede ver cualquier colaborador. Las propuestas de la IA las ven el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y cualquier usuario ADMIN. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-08 | decision | high |
+| EVD-2026-0130 | A los demás colaboradores solo se les muestran el nombre, el correo laboral, la unidad, el rol y los perfiles profesionales de una persona. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-52 | decision | high |
+| EVD-2026-0131 | El Instructor es un colaborador que el Jefe de Ingeniería o un usuario ADMIN asigna para ejecutar una edición de un curso. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-49 | decision | high |
+| EVD-2026-0132 | Se versionan las competencias, pero no los roles. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-50 | decision | high |
 
 Todas las evidencias comparten estos campos del esquema:
 
@@ -183,21 +190,24 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-CAT-19 | Permiso | El Jefe de Ingeniería define y aprueba las rúbricas de las competencias. | EVD-2026-0102 |
 | BR-CAT-20 | Validación | Un rol debe tener al menos una competencia. Una misma competencia, por ejemplo una general como la comunicación oral o escrita, puede repetirse en varios roles (BR-CAT-11). | EVD-2026-0117 |
 | BR-CAT-21 | Validación | Una competencia no se repite dentro de un rol. *Interpretación a confirmar:* aparece una sola vez en cada Rol-Nivel, con un solo nivel L1–L4 esperado; en los niveles superiores del rol puede exigirse con un nivel L mayor (BR-CAT-14). | EVD-2026-0125 |
+| BR-CAT-22 | Estado | Las competencias se versionan; los roles no. *Inferencia a confirmar:* una versión de competencia sigue los estados DRAFT, APPROVED y DEPRECATED, como las versiones de curso (BR-FOR-06), e incluye su rúbrica y sus requisitos de evidencia. | EVD-2026-0132 |
 
 ### Requerimientos de proyecto y asignación
 
 | ID | Tipo | Regla | Evidencia |
 |---|---|---|---|
 | BR-REQ-01 | Estructura | Un proyecto pertenece a un producto. | EVD-2026-0007 |
-| BR-REQ-02 | Permiso | El PM declara los requerimientos de su proyecto indicando el rol; competencias y niveles se toman del catálogo (BR-REQ-06). | EVD-2026-0007, EVD-2026-0054 |
+| BR-REQ-02 | Permiso | Solo el Jefe de proyecto del proyecto declara los requerimientos de ese proyecto, indicando el Rol-Nivel; competencias y niveles se toman del catálogo (BR-REQ-06). *Precisada el 2026-09-27 (US2-Q2).* | EVD-2026-0007, 0054, 0127 |
 | BR-REQ-03 | RETIRADA (2026-09-26) | ~~Un requerimiento solo puede usar roles y competencias del catálogo del producto del proyecto.~~ No aplica: roles y competencias no pertenecen a un producto (BR-CAT-07, BR-CAT-08). | EVD-2026-0056 |
-| BR-REQ-04 | Vacío | Decisión de asignación: recomendación al PM o flujo de aprobación. | EVD-2026-0023 → P-05 |
+| BR-REQ-04 | Permiso | La plataforma recomienda candidatos; el Jefe de Ingeniería o un usuario ADMIN asigna uno o varios colaboradores al requerimiento y tiene la decisión final. *Antes era un vacío (P-05); respondida el 2026-09-27.* | EVD-2026-0023, 0126 |
 | BR-REQ-05 | Vacío | Estados de un proyecto (qué es "activo"). | EVD-2026-0027 → P-11 |
 | BR-REQ-06 | Estructura | Un requerimiento de proyecto no indica niveles de competencia propios: toma del catálogo los niveles L1–L4 esperados de las competencias que pide, según el rol y el nivel de rol que indica (BR-REQ-08). | EVD-2026-0054, 0058, 0067 |
 | BR-REQ-07 | Estructura | Un requerimiento puede pedir solo algunas de las competencias de su Rol-Nivel. Por defecto asume todas las competencias del Rol-Nivel indicado; el Jefe de proyecto que lo registra puede refinarlo retirando las que no considere necesarias. *Precisada el 2026-09-27 (P-38).* | EVD-2026-0058, 0104 |
 | BR-REQ-08 | Estructura | Un requerimiento indica el nivel de rol que necesita (por ejemplo, Developer Senior 2). | EVD-2026-0067 |
 | BR-REQ-09 | Validación | Un requerimiento no puede pedir competencias que no pertenezcan a su Rol-Nivel. | EVD-2026-0072 |
 | BR-REQ-10 | Permiso | Solo el Jefe de proyecto que registra el requerimiento puede retirar competencias de las que el Rol-Nivel aporta por defecto. No puede agregar competencias ajenas al Rol-Nivel (BR-REQ-09). | EVD-2026-0104, 0072 |
+| BR-REQ-11 | Validación | Se puede asignar a un requerimiento a un colaborador que no alcanza el nivel requerido. Se espera que antes de integrarse al proyecto siga un curso que cubra su brecha; es un tema de planificación anticipada. | EVD-2026-0126 → P-53 |
+| BR-REQ-12 | Validación | Una persona puede estar asignada a más de un requerimiento. La plataforma puede advertirlo, pero no impide la asignación. | EVD-2026-0126 |
 
 ### Brechas
 
@@ -227,6 +237,7 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-ACR-11 | Validación | Una evidencia específica, como un entregable de un proyecto real (por ejemplo, el Plan de Pruebas del Sprint 1 del proyecto "Optimización de Rutas" de SmartSuite), se puede utilizar para evidenciar el nivel de logro de una competencia. El requisito define qué se exige (por ejemplo, un plan de pruebas); la evidencia es lo que se presenta. | EVD-2026-0066 |
 | BR-ACR-12 | Validación | Cada requisito de evidencia de una competencia y nivel se declara como **requerida** (se debe satisfacer siempre para certificar el nivel) o **deseada** (puede o no presentarse; si se presenta, refuerza la certificación del nivel objetivo). | EVD-2026-0098 |
 | BR-ACR-13 | Validación | Siempre debe haber forma de evidenciar una competencia: no se certifica un nivel, ni se exige en un Rol-Nivel o en un requerimiento, si ese nivel de la competencia no tiene requisitos de evidencia definidos. *Inferencia a confirmar:* al menos uno de ellos debe ser requerido (BR-ACR-12). | EVD-2026-0114 |
+| BR-ACR-14 | Cálculo | Cuando las evidencias reunidas en un curso cumplen los requisitos de evidencia requeridos del nivel objetivo, la plataforma propone certificar ese nivel. El nivel que se propone es el nivel objetivo de cada competencia que el curso desarrolla (BR-FOR-01, BR-FOR-02). La propuesta no certifica por sí sola: la certificación exige firma humana (BR-ACR-02, BR-ACR-04). | EVD-2026-0128 |
 
 ### Evidencia de GitLab asistida por IA (H3)
 
@@ -235,7 +246,7 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-IA-01 | Restricción | La plataforma lee GitLab (issues, MRs, milestones) en solo lectura y usa esa evidencia solo internamente. | EVD-2026-0014 |
 | BR-IA-02 | Estado | La propuesta de nivel de la IA siempre incluye justificación y termina en uno de tres estados: aprobada, ajustada o rechazada por un humano. | EVD-2026-0013 |
 | BR-IA-03 | Principio | La cantidad de issues cerrados no basta para proponer un nivel. Falta un criterio medible de calidad y contexto. | EVD-2026-0015 → P-13 |
-| BR-IA-04 | Permiso | El colaborador puede ver las propuestas de la IA sobre él. | EVD-2026-0016 |
+| BR-IA-04 | Permiso | Ven las propuestas de la IA sobre un colaborador: el propio colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y cualquier usuario ADMIN. *Ampliada el 2026-09-27 (P-08).* | EVD-2026-0016, 0129 |
 | BR-IA-05 | Auditoría | Ajustar o rechazar una propuesta de nivel de la IA exige registrar el motivo. | EVD-2026-0111 |
 
 ### Certificados de curso (H2)
@@ -243,7 +254,7 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | ID | Tipo | Regla | Evidencia |
 |---|---|---|---|
 | BR-CER-01 | Condición | Se emite un certificado de curso cuando el colaborador aprueba el curso final, según el cumplimiento de sus objetivos. | EVD-2026-0017 |
-| BR-CER-02 | Restricción | Un certificado de curso no certifica, por sí solo, un nivel de competencia. | EVD-2026-0018 |
+| BR-CER-02 | Restricción | Un certificado de curso no certifica, por sí solo, un nivel de competencia. Aprobar el curso es parte de la demostración del nivel objetivo; la certificación del nivel se propone según BR-ACR-14. *Precisada el 2026-09-27 (P-07).* | EVD-2026-0018, 0128 |
 | BR-CER-03 | Integración | El PDF se genera en docsuite por API REST y la plataforma guarda solo la referencia. | EVD-2026-0019 |
 | BR-CER-04 | Restricción | No hay verificación pública de certificados de curso. | EVD-2026-0019 |
 | BR-CER-05 | Permiso | Gestión de formación / RR. HH. emite los certificados de curso. | EVD-2026-0026 |
@@ -252,8 +263,8 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-FOR-01 | Estructura | Los cursos se diseñan para desarrollar competencias en un determinado nivel (L1 a L4), para los roles y niveles de rol a los que están dirigidos. Para cada rol al que se orienta, el curso define un nivel de rol mínimo y un nivel de rol objetivo. *Precisada el 2026-09-27 (P-18).* | EVD-2026-0074, 0109 |
 | BR-FOR-02 | Estructura | Un curso no necesariamente desarrolla todas las competencias del Rol-Nivel objetivo: quien diseña el curso selecciona cuáles de ellas desarrolla. | EVD-2026-0109 |
 | BR-FOR-03 | Estructura | Los objetivos de un curso deben estar alineados con las competencias, en los niveles de los roles designados, que el curso desarrolla. | EVD-2026-0112 |
-| BR-FOR-04 | Validación | Las evidencias que respaldan la aprobación de un curso salen de evaluaciones y de artefactos producidos durante la participación del colaborador en los proyectos. | EVD-2026-0112 |
-| BR-FOR-05 | Propuesta (en consideración) | A cada edición de un curso se le puede asignar un colaborador como Instructor, que evalúa el desempeño de los colaboradores inscritos. El Jefe de Ingeniería también puede evaluar. No es regla vigente hasta que el decisor la confirme. | EVD-2026-0113 → P-49 |
+| BR-FOR-04 | Validación | Las evidencias que respaldan la aprobación de un curso salen de evaluaciones o cuestionarios y de lo que el colaborador produce en los proyectos que se ejecutan durante el curso, antes de terminar su participación en la edición. *Precisada el 2026-09-27 (P-07).* | EVD-2026-0112, 0128 |
+| BR-FOR-05 | Permiso | El Jefe de Ingeniería o un usuario ADMIN asigna a un colaborador como Instructor para ejecutar una edición de un curso. El Instructor evalúa el desempeño de los colaboradores inscritos; el Jefe de Ingeniería también puede evaluar. *Confirmada el 2026-09-27 (P-49); antes era una propuesta.* | EVD-2026-0113, 0131 |
 | BR-FOR-06 | Estado | Un curso tiene versiones. Cada versión pasa por DRAFT (al crearse), APPROVED y DEPRECATED. | EVD-2026-0116 |
 | BR-FOR-07 | Permiso | Solo el Jefe de Ingeniería o un usuario con rol ADMIN aprueba una versión de curso (DRAFT → APPROVED). | EVD-2026-0116 |
 | BR-FOR-08 | Validación | Solo las versiones APPROVED admiten inscripciones nuevas. | EVD-2026-0116 |
@@ -274,6 +285,10 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 |---|---|---|---|
 | BR-TRA-01 | Permiso | El colaborador puede ver su perfil y sus evidencias. | EVD-2026-0016 |
 | BR-TRA-02 | Permiso | Todos los colaboradores pueden consultar el catálogo de roles y competencias en modo lectura. | EVD-2026-0118 |
+| BR-TRA-03 | Permiso | Los niveles certificados de las competencias de cada colaborador, a modo de resumen, son públicos para cualquier colaborador. | EVD-2026-0129 |
+| BR-TRA-04 | Permiso | El Jefe de proyecto ve las brechas individuales de cualquier colaborador, sin restricción. | EVD-2026-0129 |
+| BR-TRA-05 | Permiso | Cualquier colaborador puede acceder a las evidencias. Las que están en GitLab quedan sujetas al control de acceso de cada repositorio. | EVD-2026-0129 |
+| BR-TRA-06 | Permiso | Cualquier colaborador puede ver las certificaciones y su auditoría (quién certificó, cuándo y con qué evidencia). | EVD-2026-0129 |
 | BR-PRG-01 | Responsabilidad | El Evaluador y el Jefe de Ingeniería son quienes gestionan todo el programa de formación. Son solo gestores del programa. | EVD-2026-0062, 0105 |
 | BR-PRF-01 | Estructura | Al colaborador le es asignado un rol; puede tener varios, con un nivel vigente por rol (BR-PTY-11). | EVD-2026-0065, EVD-2026-0079 |
 | BR-PRF-02 | Estructura | Al registrar un colaborador se le asigna un nivel inicial del rol que se le asigna. Después se evalúa la evolución de sus competencias del rol a través de los cursos o de su desempeño en los proyectos, con evidencias específicas de lo que produce. | EVD-2026-0103 |
@@ -305,19 +320,19 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 | BR-PTY-17 | Permiso | El Jefe de Ingeniería mantiene la información maestra. El colaborador edita por sí mismo solo sus perfiles profesionales y su teléfono laboral. | EVD-2026-0084 |
 | BR-PTY-18 | Validación | Se espera un único Jefe de Ingeniería vigente. Al asignar un segundo, la plataforma avisa sin impedirlo. | EVD-2026-0092, EVD-2026-0093 |
 | BR-PTY-19 | Validación | Un contratista no tiene jefe directo dentro de COMSATEL: la relación de reporte solo se registra para empleados. | EVD-2026-0120 |
-| BR-PTY-20 | Permiso | Cualquier colaborador que ingrese a la plataforma ve los datos de las demás personas, incluidos sus perfiles profesionales (data abierta). *Alcance a confirmar* (P-52). | EVD-2026-0121 |
+| BR-PTY-20 | Permiso | Cualquier colaborador que ingrese a la plataforma ve de las demás personas solo el nombre, el correo laboral, la unidad, el rol y los perfiles profesionales. Las identificaciones, el teléfono y los demás datos personales no se muestran a otros colaboradores. *Precisada el 2026-09-27 (P-52).* | EVD-2026-0121, 0130 |
 
 ### Dependencias
 
 - BR-BRE-01 y la búsqueda de personal dependen de BR-CAT-01 a BR-CAT-03 y BR-CAT-08. Así lo justifica VIS-001:L136: "sin un catálogo acordado, ni la formación ni la IA tienen contra qué medir".
 - BR-IA-02 depende de BR-ACR-02 y BR-ACR-04: la propuesta de la IA entra al mismo flujo de certificación humana.
-- BR-CER-02 depende de P-07: mientras no se resuelva, no se puede decir si un certificado de curso aporta evidencia a BR-ACR-01.
+- BR-CER-02 dependía de P-07, respondida el 2026-09-27: aprobar un curso aporta evidencia y la plataforma propone certificar el nivel objetivo (BR-ACR-14).
 
 ### Contradicciones y ambigüedades
 
 | ID | Descripción | Fuentes |
 |---|---|---|
-| AMB-01 | VIS-001 cuenta la **formación** como evidencia de nivel (L71), pero también dice que el certificado de curso **no equivale** a un nivel (L82). No es una contradicción, pero sin resolver P-07 no se sabe si aprobar un curso aporta evidencia a algún nivel. | VIS-001:L71, L82, L156 |
+| AMB-01 | VIS-001 cuenta la **formación** como evidencia de nivel (L71), pero también dice que el certificado de curso **no equivale** a un nivel (L82). No es una contradicción, pero sin resolver P-07 no se sabe si aprobar un curso aporta evidencia a algún nivel. **Resuelta** (ianache (Jefe de Ingeniería), 2026-09-27, P-07): el curso aporta evidencia y la plataforma propone certificar el nivel objetivo (BR-ACR-14); el certificado de curso sigue sin certificar por sí solo (BR-CER-02). | VIS-001:L71, L82, L156 |
 | AMB-02 | La ausencia de un catálogo común está clasificada a la vez como "Supuesto" y como "validado en la sesión, falta evidencia documental". | VIS-001:L35 |
 | AMB-03 | Gestión de formación / RR. HH. "gestiona certificaciones" (L45), pero el que certifica es el evaluador (L80). No está claro qué parte de la certificación hace cada uno. | VIS-001:L45, L46, L80 |
 | AMB-04 | VIS-001 describe un catálogo de roles y competencias **por producto** (L43, L51, L56, L75, L162). Las decisiones del 2026-09-26 establecen roles y competencias comunes a todos los productos (BR-CAT-07, BR-CAT-08). Prevalece la decisión más reciente; VIS-001 queda pendiente de actualización por su responsable. | VIS-001:L43, L51, L56, L75, L162; EVD-2026-0053, 0056 |
@@ -330,10 +345,10 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 |---|---|---|---|---|
 | P-01 | ¿Qué evidencia mínima exige cada nivel L1–L4? | Jefe de Ingeniería | Alta | Respondida en lo esencial (ianache (Jefe de Ingeniería), 2026-09-26): se define por competencia y nivel (BR-ACR-07). Detalles en P-21 a P-24 |
 | P-02 | ¿Cómo se versiona el catálogo y qué pasa con los requerimientos y certificaciones vigentes cuando cambia? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): los **cursos** se versionan (BR-FOR-06 a BR-FOR-10). Sigue abierto el versionado del **catálogo** de roles, competencias y rúbricas (P-50) |
-| P-05 | ¿La plataforma solo recomienda y el PM decide la asignación, o hay un flujo de aprobación? ¿Quién aprueba? | Responsable del producto | Alta | Abierta (VIS-001 §11.5) |
+| P-05 | ¿La plataforma solo recomienda y el PM decide la asignación, o hay un flujo de aprobación? ¿Quién aprueba? | Responsable del producto | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la plataforma recomienda; el Jefe de Ingeniería o un ADMIN asigna y decide; se puede asignar bajo el nivel y a varios requerimientos, con advertencia (BR-REQ-04, BR-REQ-11, BR-REQ-12). Ver P-53 |
 | P-06 | ¿Qué papel tiene el Responsable de producto frente al Jefe de Ingeniería en el mantenimiento del catálogo? | Jefe de Ingeniería | Media | Abierta (VIS-001 §11.6) |
-| P-07 | ¿Aprobar un curso aporta evidencia para algún nivel? ¿Para cuál? | Jefe de Ingeniería | Alta | Abierta (VIS-001 §11.7). Con BR-ACR-08, un curso determinado puede ser el requisito de evidencia de un nivel; falta confirmarlo como respuesta. BR-FOR-01 (los cursos se diseñan para una competencia y un nivel L1–L4) refuerza esa lectura |
-| P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador (PM, evaluador, Dirección)? | Responsable del producto | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 Q-05): los datos maestros de las personas son data abierta para cualquier colaborador (BR-PTY-20). Sigue abierto quién ve el perfil de competencias, las evidencias y las certificaciones de otro colaborador |
+| P-07 | ¿Aprobar un curso aporta evidencia para algún nivel? ¿Para cuál? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): aprobar el curso es parte de la demostración del nivel; la plataforma propone certificar el nivel objetivo cuando las evidencias del curso cumplen los requisitos requeridos (BR-ACR-14, BR-CER-02, BR-FOR-04). AMB-01 resuelta |
+| P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador (PM, evaluador, Dirección)? | Responsable del producto | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): datos maestros abiertos (BR-PTY-20, alcance en P-52); resumen de niveles certificados, evidencias, certificaciones y auditoría visibles para cualquier colaborador; brechas individuales para el Jefe de proyecto; propuestas de la IA para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN (BR-TRA-03 a BR-TRA-06, BR-IA-04). Ver P-54 |
 | P-09 | ¿Qué parte de la certificación hace Gestión de formación / RR. HH. y qué parte el evaluador? ¿El evaluador puede certificar a alguien de su propio equipo? | Responsable del producto | Media | Nueva (AMB-03) |
 | P-10 | ¿Un requerimiento solo puede usar roles y competencias del catálogo de su producto? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no hay catálogo por producto; cualquier rol se puede pedir en un proyecto de cualquier producto (BR-CAT-08) |
 | P-11 | ¿Qué estados tiene un proyecto y cuándo se considera "activo"? | Responsable del producto | Media | Nueva |
@@ -368,10 +383,33 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 | P-46 | ¿Quién diseña los cursos y registra su nivel mínimo, nivel objetivo y competencias? ¿Lo aprueba el Jefe de Ingeniería? ¿Cómo se relaciona el nivel de rol mínimo con los niveles L1–L4 de las competencias? | Jefe de Ingeniería | Alta | Nueva (derivada de P-18 de USC-001) |
 | P-47 | En P-19, ¿qué son los requisitos "requeridos" de un curso: actividades o calificaciones de Classroom con un mínimo, o los requisitos de evidencia requeridos de las competencias que el curso desarrolla (BR-ACR-12)? ¿De dónde sale la evidencia de que se cumplen? | Jefe de Ingeniería + Gestión de formación | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son los requisitos de evidencia requeridos de las competencias; las evidencias salen de evaluaciones y de artefactos de proyectos (BR-CER-06, BR-FOR-03, BR-FOR-04) |
 | P-48 | ¿Quién es el "evaluador" que concluye la aprobación de un curso: el rol Evaluador, el Jefe de Ingeniería o Gestión de formación (que emite el certificado, BR-CER-05)? | Jefe de Ingeniería | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): en consideración, el Instructor asignado a la edición del curso, y también el Jefe de Ingeniería (BR-FOR-05, propuesta). Ver P-49 |
-| P-49 | ¿Se confirma la propuesta de BR-FOR-05 (edición de curso con un colaborador como Instructor)? Si se confirma: ¿el Instructor debe tener certificadas las competencias que evalúa?; ¿"también podrá evaluar el Jefe de Ingeniería" significa que el Jefe de Ingeniería puede evaluar a los inscritos, o que el Instructor puede evaluar al Jefe de Ingeniería si se inscribe (BR-PRG-02 lo deja fuera de la evaluación)?; ¿la evaluación del Instructor puede certificar niveles (BR-ACR-02 exige un evaluador humano) o solo concluye la aprobación del curso?; ¿quién asigna al Instructor? | Jefe de Ingeniería | Alta | Nueva (derivada de P-48) |
-| P-50 | La respuesta a P-02 trata del versionado de cursos. ¿El catálogo (roles, niveles de rol, competencias, rúbricas y requisitos de evidencia) también se versiona con DRAFT, APPROVED y DEPRECATED? ¿Qué pasa con los requerimientos y certificaciones vigentes cuando cambia? | Jefe de Ingeniería | Alta | Nueva (resto de P-02) |
+| P-49 | ¿Se confirma la propuesta de BR-FOR-05 (edición de curso con un colaborador como Instructor)? Si se confirma: ¿el Instructor debe tener certificadas las competencias que evalúa?; ¿"también podrá evaluar el Jefe de Ingeniería" significa que el Jefe de Ingeniería puede evaluar a los inscritos, o que el Instructor puede evaluar al Jefe de Ingeniería si se inscribe (BR-PRG-02 lo deja fuera de la evaluación)?; ¿la evaluación del Instructor puede certificar niveles (BR-ACR-02 exige un evaluador humano) o solo concluye la aprobación del curso?; ¿quién asigna al Instructor? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se confirma el Instructor, asignado por el Jefe de Ingeniería o un ADMIN a una edición (BR-FOR-05). Siguen abiertos P-49.1 a P-49.3 |
+| P-50 | La respuesta a P-02 trata del versionado de cursos. ¿El catálogo (roles, niveles de rol, competencias, rúbricas y requisitos de evidencia) también se versiona con DRAFT, APPROVED y DEPRECATED? ¿Qué pasa con los requerimientos y certificaciones vigentes cuando cambia? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan las competencias, no los roles (BR-CAT-22). Siguen abiertos P-50.1 y P-50.2 |
 | P-51 | Sobre las versiones de curso: ¿una edición en curso de una versión que pasa a DEPRECATED sigue hasta terminar (se supone que sí, por BR-FOR-10)? ¿Cómo se relaciona una versión con el curso en Classroom (un curso de Classroom por versión, por edición o uno solo)? | Jefe de Ingeniería + Gestión de formación | Media | Nueva (derivada de P-02) |
-| P-52 | "Data abierta" (BR-PTY-20): ¿incluye las identificaciones (DNI, carné de extranjería, pasaporte), el teléfono laboral y los datos de las personas dadas de baja o anonimizadas, o solo nombre, correo laboral, unidad, rol y perfiles profesionales? Mostrar documentos de identidad a todos los colaboradores es un riesgo de privacidad que choca con la minimización de datos personales de SPEC-001 | Jefe de Ingeniería + Legal | Alta | Nueva (derivada de SPEC-001 Q-05) |
+| P-52 | "Data abierta" (BR-PTY-20): ¿incluye las identificaciones (DNI, carné de extranjería, pasaporte), el teléfono laboral y los datos de las personas dadas de baja o anonimizadas, o solo nombre, correo laboral, unidad, rol y perfiles profesionales? Mostrar documentos de identidad a todos los colaboradores es un riesgo de privacidad que choca con la minimización de datos personales de SPEC-001 | Jefe de Ingeniería + Legal | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20) |
+| P-53 | Asignar a un colaborador bajo el nivel (BR-REQ-11): ¿la plataforma registra el curso que debe seguir para cubrir la brecha, o lo avisa, o queda fuera de la plataforma como planificación? ¿Exige registrar un motivo? | Jefe de Ingeniería | Media | Nueva (derivada de P-05) |
+| P-54 | La visibilidad abierta de evidencias y certificaciones (BR-TRA-05, BR-TRA-06) incluye las calificaciones de evaluaciones y cuestionarios y el sustento de un evaluador que decidió distinto de la propuesta (BR-CER-07). ¿Se muestran también a todos, o solo el resultado? Además, BR-IA-01 dice que la evidencia de GitLab se usa "solo internamente": ¿se mantiene, o la plataforma puede mostrar enlaces a GitLab y dejar el control al repositorio? | Jefe de Ingeniería | Media | Nueva (derivada de P-08) |
+| P-05.1 | ¿La plataforma registra la asignación o solo muestra candidatos? | Responsable de producto | Alta | Respondida (EVD-2026-0126): recomienda candidatos y registra la asignación que hace el Jefe de Ingeniería o un ADMIN (BR-REQ-04) |
+| P-05.2 | Si se registra, ¿quién decide la asignación? | Responsable de producto | Alta | Respondida (EVD-2026-0126): el Jefe de Ingeniería o un ADMIN (BR-REQ-04) |
+| P-05.3 | ¿Se permite asignar a alguien que no alcanza el nivel? ¿Exige registrar un motivo? | Jefe de Ingeniería | Media | Parcialmente respondida (EVD-2026-0126): se permite (BR-REQ-11). El motivo y el registro del curso de cierre siguen abiertos en P-53 |
+| P-05.4 | ¿Se controla que una persona no esté asignada a dos requerimientos a la vez? | Jefe de Ingeniería | Media | Respondida (EVD-2026-0126): puede estarlo; la plataforma advierte y no impide (BR-REQ-12) |
+| P-05.5 | ¿Solo el Jefe de proyecto de ese proyecto declara sus requerimientos? (US2-Q2) | Jefe de Ingeniería | Media | Respondida (EVD-2026-0127): sí (BR-REQ-02) |
+| P-07.1 | ¿"Aprobar el curso X" puede ser un requisito de evidencia de un nivel? ¿Como requerido o deseado? | Jefe de Ingeniería | Alta | Respondida en lo esencial (EVD-2026-0128): aprobar el curso es parte de la demostración del nivel (BR-CER-02, BR-ACR-14). No se precisó si se declara como requisito requerido o deseado |
+| P-07.2 | Cuando las evidencias del curso cumplen los requisitos requeridos del nivel objetivo, ¿la plataforma propone certificar el nivel o solo aprobar el curso? | Jefe de Ingeniería | Alta | Respondida (EVD-2026-0128): propone certificar el nivel (BR-ACR-14) |
+| P-07.3 | ¿Qué nivel se certifica? | Jefe de Ingeniería | Alta | Respondida (EVD-2026-0128): el nivel objetivo de cada competencia que el curso desarrolla (BR-ACR-14) |
+| P-07.4 | ¿Quién certifica ese nivel: el Evaluador (BR-ACR-02) o el Instructor? | Jefe de Ingeniería | Alta | Abierta: el Instructor evalúa a los inscritos (BR-FOR-05), pero BR-ACR-02 dice que solo un evaluador humano certifica. Ver P-49.2 |
+| P-07.5 | AMB-01: ¿la formación cuenta como evidencia de nivel si el certificado de curso no equivale a un nivel? | Jefe de Ingeniería | Media | Respondida (EVD-2026-0128): sí, como parte de la demostración; AMB-01 resuelta |
+| P-08.1 | ¿Quién ve el perfil de competencias (niveles certificados) de otro colaborador? | Responsable de producto | Alta | Respondida (EVD-2026-0129): cualquier colaborador, a modo de resumen (BR-TRA-03) |
+| P-08.2 | ¿Quién ve la brecha individual de otro colaborador? | Responsable de producto | Alta | Respondida (EVD-2026-0129): el Jefe de proyecto, de cualquier colaborador (BR-TRA-04). No se dijo si otros roles la ven |
+| P-08.3 | ¿Quién ve las evidencias de otro colaborador? | Responsable de producto | Alta | Respondida (EVD-2026-0129): cualquier colaborador; las de GitLab según el control de acceso de cada repositorio (BR-TRA-05). Ver P-54 |
+| P-08.4 | ¿Quién ve las certificaciones y su auditoría? | Responsable de producto | Alta | Respondida (EVD-2026-0129): cualquier colaborador (BR-TRA-06). Ver P-54 |
+| P-08.5 | ¿Quién ve las propuestas de la IA sobre un colaborador? | Responsable de producto | Media | Respondida (EVD-2026-0129): el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN (BR-IA-04) |
+| P-08.6 | ¿Dirección o Gerencia ven algo si no tienen rol ADMIN? | Responsable de producto | Baja | Respondida en parte (EVD-2026-0129): ven las propuestas de la IA (BR-IA-04) y, como todo colaborador, lo público. Qué es ADMIN sigue en P-45 |
+| P-49.1 | ¿El Instructor debe tener certificadas las competencias que evalúa, en el nivel objetivo o superior? | Jefe de Ingeniería | Media | Abierta |
+| P-49.2 | ¿La evaluación del Instructor puede certificar niveles (firma la propuesta de BR-ACR-14), o solo concluye la aprobación del curso (BR-CER-07) y certifica un Evaluador? | Jefe de Ingeniería | Alta | Abierta |
+| P-49.3 | "También podrá evaluar el Jefe de Ingeniería": ¿el Jefe de Ingeniería puede evaluar a los inscritos de cualquier edición? (Se interpreta así; BR-PRG-02 lo deja fuera de ser evaluado) | Jefe de Ingeniería | Baja | Abierta (interpretación a confirmar) |
+| P-50.1 | Cuando se aprueba una versión nueva de una competencia, ¿qué pasa con los Rol-Nivel y requerimientos que la exigen y con las certificaciones hechas con la versión anterior? ¿Se mantienen vigentes o hay que recertificar? | Jefe de Ingeniería | Alta | Abierta |
+| P-50.2 | ¿Quién aprueba una versión de competencia (se supone el Jefe de Ingeniería o ADMIN, como los cursos)? ¿La versión incluye la rúbrica y los requisitos de evidencia (BR-CAT-22, inferencia)? | Jefe de Ingeniería | Media | Abierta |
 
 Las preguntas P-15 a P-20 de USC-001 fueron respondidas el 2026-09-27; sus respuestas están en BR-BRE-04 a BR-BRE-06, BR-FOR-01, BR-FOR-02, BR-CER-06, BR-CER-07 y BR-IA-05, y sus derivadas son P-43 a P-48.
 

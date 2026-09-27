@@ -6,7 +6,7 @@ tags: [asr, medibilidad, kpi, datos-historicos]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-26T21:14:12-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -57,7 +57,7 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 ## Evidencia faltante
 
 - Metas y línea base de los KPI (P-03).
-- Qué evento marca "asignado" (P-05) y qué es un "perfil activo" (GQ-08).
+- Qué evento marca "asignado" (P-05) y qué es un "perfil activo" (GQ-08). *Nota (2026-09-27):* P-05 quedó respondida: la asignación la registra el Jefe de Ingeniería o un ADMIN (BRC-001 BR-REQ-04), así que el evento existe en la plataforma; puede cubrir uno o varios colaboradores y una persona puede estar en varios requerimientos (BR-REQ-12). Desde qué momento se mide el "tiempo de asignación" (¿declaración del requerimiento?) y si cuenta una asignación bajo el nivel (BR-REQ-11, P-53) siguen sin definir. La disposición no cambia.
 
 ## Preguntas para el arquitecto
 

@@ -6,7 +6,7 @@ tags: [user-story, h1, catalogo, competencias]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -25,7 +25,7 @@ sources:
 - **Pregunta:** ¿qué debe cumplir la definición del catálogo para que proyectos, formación y certificación midan contra la misma referencia?
 - **Consumidor:** `ux-requirements-analyzer` (UX-101) y el Jefe de Ingeniería, que valida.
 - **Incluye:** alta de roles, competencias y niveles requeridos en un catálogo único, común a todos los productos (BR-CAT-07, BR-CAT-08).
-- **Excluye:** versionado y edición del catálogo con efectos sobre datos vigentes (P-02 se respondió solo para cursos; el catálogo depende de P-50); rutas de formación (H2); la escala salarial de los niveles de rol, el MOF (Manual de Operaciones y Funciones) y los criterios de nivel de la organización, como los años de experiencia (BR-CAT-18).
+- **Excluye:** versionado y edición del catálogo con efectos sobre datos vigentes (P-02 se respondió solo para cursos; P-50 se respondió en parte el 2026-09-27: se versionan las **competencias**, no los roles, BR-CAT-22; el efecto sobre datos vigentes y quién aprueba siguen en P-50.1 y P-50.2); rutas de formación (H2); la escala salarial de los niveles de rol, el MOF (Manual de Operaciones y Funciones) y los criterios de nivel de la organización, como los años de experiencia (BR-CAT-18).
 - **Contexto:** [RCP-001](../context-packs/RCP-001-h1-idioma-comun.md), que está "En validación".
 
 ## Resultado
@@ -102,7 +102,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 - **Reglas:** BR-CAT-01 a BR-CAT-04, BR-CAT-07 a BR-CAT-21, BR-ACR-07 a BR-ACR-09, BR-ACR-12, BR-ACR-13 y BR-TRA-02 ([BRC-001](../../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md)).
 - **Decisión (antes hipótesis):** los requisitos de evidencia los define el Jefe de Ingeniería, responsable de las capacitaciones (BR-CAT-16, EVD-2026-0096; responde P-21).
 - **Es prerrequisito de:** [US-002](US-002-declarar-requerimientos-de-proyecto.md), [US-005](US-005-ver-mi-brecha-frente-a-un-rol.md) y [US-006](US-006-buscar-candidatos-para-un-requerimiento.md). Sin catálogo no hay requerimientos, brechas ni búsqueda (VIS-001:L136).
-- **Impacto:** todo cambio posterior del catálogo afecta a requerimientos y certificaciones vigentes; cómo se trata ese impacto está abierto. P-02 se respondió solo para los cursos (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue en P-50.
+- **Impacto:** todo cambio posterior del catálogo afecta a requerimientos y certificaciones vigentes; cómo se trata ese impacto está abierto. P-02 se respondió solo para los cursos (BR-FOR-06 a BR-FOR-10). P-50 se respondió en parte el 2026-09-27 (EVD-2026-0132): se versionan las competencias, no los roles (BR-CAT-22). **Inferencia a confirmar:** una versión de competencia sigue DRAFT, APPROVED y DEPRECATED, como los cursos, e incluye su rúbrica y sus requisitos de evidencia. Qué pasa con Rol-Nivel, requerimientos y certificaciones al aprobarse una versión nueva sigue abierto (P-50.1), igual que quién la aprueba (P-50.2).
 - **Riesgo:** catálogo sin consenso entre productos (VIS-001:L142).
 
 ## Vacíos y preguntas abiertas
@@ -123,15 +123,17 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | P-39 — Mientras la definición es progresiva, ¿se puede exigir en un Rol-Nivel o en un requerimiento un nivel de competencia sin requisitos de evidencia definidos? ¿Se puede certificar? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no; siempre debe haber forma de evidenciar (BR-ACR-13). Queda como inferencia a confirmar que al menos un requisito sea requerido |
 | P-40 — ¿La plataforma registra solo el nombre y las competencias de cada nivel de rol, o también sus criterios (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) |
 | P-41 — ¿Cómo "refuerza" una evidencia deseada la certificación? | Jefe de Ingeniería | Media | Nueva (BRC-001, derivada de P-23); no bloquea el alta del catálogo |
-| P-50 — ¿El catálogo (roles, niveles de rol, competencias, rúbricas y requisitos de evidencia) también se versiona con DRAFT, APPROVED y DEPRECATED? ¿Qué pasa con los requerimientos y certificaciones vigentes cuando cambia? | Jefe de Ingeniería | Alta | Nueva (BRC-001, resto de P-02) |
+| P-50 — ¿El catálogo (roles, niveles de rol, competencias, rúbricas y requisitos de evidencia) también se versiona con DRAFT, APPROVED y DEPRECATED? ¿Qué pasa con los requerimientos y certificaciones vigentes cuando cambia? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan las competencias, no los roles (BR-CAT-22). Siguen abiertos P-50.1 y P-50.2 |
+| P-50.1 — Al aprobarse una versión nueva de una competencia, ¿qué pasa con los Rol-Nivel y requerimientos que la exigen y con las certificaciones hechas con la versión anterior? | Jefe de Ingeniería | Alta | Nueva (BRC-001) |
+| P-50.2 — ¿Quién aprueba una versión de competencia? ¿Incluye la rúbrica y los requisitos de evidencia? | Jefe de Ingeniería | Media | Nueva (BRC-001) |
 
 ## Preparación y entrega
 
 - **Estado:** CONDITIONAL
-- **Motivo:** el alta del catálogo está sostenida (AC-1 a AC-9): niveles de rol definidos por cada rol (BR-CAT-09), requisitos de evidencia concretos (P-22 confirmada), declarados como requeridos o deseados (BR-ACR-12), definidos solo por el Jefe de Ingeniería (BR-CAT-16) y de forma progresiva (BR-CAT-17). Las rúbricas las define y aprueba el Jefe de Ingeniería (BR-CAT-19, P-37 respondida). Con las respuestas del 2026-09-27 ya no quedan preguntas de nivel alto sobre la estructura de roles, niveles y rúbricas (P-26, P-36, P-37). El 2026-09-27 se respondieron P-39 (un nivel sin requisitos de evidencia no se exige ni se certifica, BR-ACR-13: AC-11), P-40 (criterios de nivel fuera de alcance), US1-Q1 (un rol tiene al menos una competencia, BR-CAT-20: AC-10; una competencia no se repite dentro de un rol, BR-CAT-21: AC-13) y UXR-001-Q1 (lectura para todos, BR-TRA-02: AC-12). Sigue siendo CONDITIONAL porque la edición y el versionado del catálogo dependen de P-50 (alta), el papel del Responsable de producto de P-06, y faltan confirmar tres interpretaciones: que rúbrica y requisito de evidencia son cosas distintas (P-37), que un nivel exige al menos un requisito requerido (BR-ACR-13) y que "no se repite dentro de un rol" significa una vez por Rol-Nivel (BR-CAT-21).
-- **Recomendación (no es decisión):** separar "alta del catálogo" (lista para UXR) de "edición y versionado del catálogo" (espera P-50).
+- **Motivo:** el alta del catálogo está sostenida (AC-1 a AC-9): niveles de rol definidos por cada rol (BR-CAT-09), requisitos de evidencia concretos (P-22 confirmada), declarados como requeridos o deseados (BR-ACR-12), definidos solo por el Jefe de Ingeniería (BR-CAT-16) y de forma progresiva (BR-CAT-17). Las rúbricas las define y aprueba el Jefe de Ingeniería (BR-CAT-19, P-37 respondida). Con las respuestas del 2026-09-27 ya no quedan preguntas de nivel alto sobre la estructura de roles, niveles y rúbricas (P-26, P-36, P-37). El 2026-09-27 se respondieron P-39 (un nivel sin requisitos de evidencia no se exige ni se certifica, BR-ACR-13: AC-11), P-40 (criterios de nivel fuera de alcance), US1-Q1 (un rol tiene al menos una competencia, BR-CAT-20: AC-10; una competencia no se repite dentro de un rol, BR-CAT-21: AC-13) y UXR-001-Q1 (lectura para todos, BR-TRA-02: AC-12). Sigue siendo CONDITIONAL porque la edición y el versionado del catálogo dependen de P-50.1 (alta) y P-50.2 (P-50 se respondió en parte el 2026-09-27: solo las competencias se versionan, BR-CAT-22), el papel del Responsable de producto de P-06, y faltan confirmar tres interpretaciones: que rúbrica y requisito de evidencia son cosas distintas (P-37), que un nivel exige al menos un requisito requerido (BR-ACR-13) y que "no se repite dentro de un rol" significa una vez por Rol-Nivel (BR-CAT-21).
+- **Recomendación (no es decisión):** separar "alta del catálogo" (lista para UXR) de "edición y versionado de competencias" (espera P-50.1 y P-50.2; los roles no se versionan, BR-CAT-22).
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde P-50 y P-06, y confirma las interpretaciones de P-37, BR-ACR-13 y BR-CAT-21.
+- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde P-50.1, P-50.2 y P-06, y confirma las interpretaciones de P-37, BR-ACR-13 y BR-CAT-21.
 
 ## Lista de calidad
 

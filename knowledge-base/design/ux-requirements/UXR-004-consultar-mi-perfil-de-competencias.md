@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, perfil, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: us-004
     resource: /knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md
@@ -44,7 +44,7 @@ Saber qué nivel tiene certificado en cada competencia y con qué respaldo.
 
 ## Reglas que la interfaz debe hacer visibles
 
-- Solo muestra los datos del propio colaborador (BR-TRA-01; UXR-000.5).
+- Esta vista muestra los datos del propio colaborador (BR-TRA-01). Desde el 2026-09-27 (P-08) el resumen de sus niveles certificados, sus evidencias y sus certificaciones también los puede ver cualquier colaborador (BR-TRA-03, BR-TRA-05, BR-TRA-06; UXR-000.5). **Inferencia:** conviene que la vista lo indique para que el colaborador sepa qué es público. Las evidencias de GitLab solo se abren si el repositorio lo permite (BR-TRA-05).
 - El nivel se expresa en la escala L1–L4 con su nombre (Principiante, Autónomo, Avanzado, Experto / Referente), sin depender solo del color (UXR-000.3).
 
 ## Estados
@@ -59,3 +59,4 @@ Saber qué nivel tiene certificado en cada competencia y con qué respaldo.
 | P-28 | ¿El perfil muestra un nivel de rol (por ejemplo, Developer Junior 2)? Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el colaborador tiene un nivel de rol, asignado al registrarlo (BR-PRF-02). Si el perfil lo muestra es una decisión de UX pendiente | Jefe de Ingeniería | Media |
 | P-33 | ¿Un colaborador tiene uno o varios roles asignados? | Jefe de Ingeniería | Alta |
 | UXR-004-Q1 | ¿El perfil muestra también las competencias exigidas por su rol que todavía no tiene certificadas? Eso se acerca a la brecha (UXR-005) | Responsable de producto | Media |
+| UXR-004-Q2 | ¿La vista del perfil de otro colaborador (resumen de niveles, evidencias y certificaciones, visibles para todos desde P-08) reutiliza esta vista en modo lectura, o es otra? No hay historia para ella todavía | Responsable de producto | Media |

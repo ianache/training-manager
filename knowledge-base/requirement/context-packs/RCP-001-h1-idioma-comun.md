@@ -6,7 +6,7 @@ tags: [context-pack, requirements, h1, catalogo, certificacion, brechas]
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -80,8 +80,8 @@ VIS-001 pone H1 primero porque, sin catálogo, ni la formación (H2) ni la IA (H
 
 Las reglas del catálogo, la certificación y el cálculo de brecha están sostenidas por la visión y ya tienen términos aprobados en el glosario. Quedan abiertos cinco puntos que bloquean parte de la especificación:
 - ~~El **detalle del tipo de evidencia** por competencia y nivel (P-22)~~: respondida y confirmada el 2026-09-27 (evidencia concreta, BR-ACR-08); cada requisito se declara requerida o deseada (BR-ACR-12) y lo define el Jefe de Ingeniería de forma progresiva (BR-CAT-16, BR-CAT-17). P-39 quedó respondida el 2026-09-27: un nivel sin requisitos definidos no se certifica ni se exige en un Rol-Nivel o requerimiento (BR-ACR-13); es inferencia a confirmar que al menos uno sea requerido.
-- Cómo se **decide una asignación** (P-05).
-- **Quién ve el perfil de otra persona** (P-08).
+- ~~Cómo se **decide una asignación** (P-05)~~: respondida el 2026-09-27. La plataforma recomienda y el Jefe de Ingeniería o un ADMIN asigna uno o varios colaboradores, con la decisión final; se puede asignar bajo el nivel y a varios requerimientos, con advertencia (BR-REQ-04, BR-REQ-11, BR-REQ-12). Derivada: P-53.
+- ~~**Quién ve el perfil de otra persona** (P-08)~~: respondida el 2026-09-27. Resumen de niveles certificados, evidencias (las de GitLab, según el control de acceso de cada repositorio) y certificaciones con su auditoría, para cualquier colaborador; brechas individuales, para el Jefe de proyecto; propuestas de la IA, para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN (BR-TRA-03 a BR-TRA-06, BR-IA-04). Derivada: P-54.
 - ~~De dónde sale la lista de colaboradores~~ (VIS-001 §11.4): respondida por [SPEC-001](../specs/SPEC-001-gestion-de-colaboradores.md) D2; la plataforma es el sistema de registro.
 - **Quiénes son los evaluadores** (RCP-Q1).
 
@@ -113,11 +113,11 @@ No se consultaron GDrive, GitLab Issues ni fuentes externas: H1 no las necesita 
 | E-09 | Ninguna certificación sin firma humana. | S-01:L81, L101 | Decisión humana | Alta |
 | E-10 | El colaborador ve su perfil y sus evidencias. | S-01:L104 | Hecho | Media |
 | E-11 | La evidencia exigida por cada nivel está abierta. | S-01:L71, L150 | Vacío | Alta |
-| E-12 | Cómo se decide una asignación está abierto. | S-01:L154 | Vacío | Alta |
+| E-12 | Cómo se decide una asignación está abierto. *Cerrado el 2026-09-27 por EVD-2026-0126 (P-05): recomienda la plataforma, asigna el Jefe de Ingeniería o un ADMIN.* | S-01:L154 | Vacío | Alta |
 | E-13 | Integrar el sistema de RR. HH. como fuente de la ficha del colaborador estaba abierto; SPEC-001 D2 lo cierra: no hay integración y la plataforma es el sistema de registro (BR-PTY-01). | S-01:L153; SPEC-001 D2 | Decisión humana | Alta |
 | E-14 | No existe un catálogo común hoy. | S-01:L35 ("Supuesto (validado en la sesión, falta evidencia documental)") | Supuesto | Media |
 | E-15 | 59 términos del glosario aprobados; Proyecto activo, Responsable de producto y Sistema de RR. HH. siguen en `draft`. | S-03 | Decisión humana | Alta |
-| E-16 | 8 historias de H1: 1 READY (US-004), 5 CONDITIONAL y 2 NOT READY (US-007, US-008). | S-04 | Hecho | Alta |
+| E-16 | 8 historias de H1: 1 READY (US-004), 5 CONDITIONAL y 2 NOT READY (US-007, US-008). *Recalculado el 2026-09-27: 1 READY y 7 CONDITIONAL; US-008 pasó a CONDITIONAL por P-17 y US-007, por P-05.* | S-04 | Hecho | Alta |
 
 ## 5. Hechos confirmados
 
@@ -139,7 +139,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | H-01 | Hoy no existe un catálogo común de roles y competencias. | Supuesto | S-01:L35 | Evidencia documental o confirmación del Jefe de Ingeniería |
 | H-02 | ~~Un requerimiento solo puede usar roles y competencias del catálogo de su producto.~~ | Descartada (2026-09-26) | BR-REQ-03, retirada | Respondida en P-10: los roles son comunes (BR-CAT-08) |
 | H-03 | Los niveles L1–L4 se restan como números para calcular la brecha. | Hipótesis (agente) | BR-BRE-02 | Respuesta a P-12 |
-| H-04 | El Jefe de proyecto es quien asigna. | Hipótesis (agente) | US-007; S-01 solo dice que "encuentra personal" (L42) | Respuesta a P-05 |
+| H-04 | ~~El Jefe de proyecto es quien asigna.~~ Descartada el 2026-09-27 (P-05): asigna el Jefe de Ingeniería o un ADMIN (BR-REQ-04) | Hipótesis (agente), descartada | US-007; S-01 solo dice que "encuentra personal" (L42) | Respuesta a P-05 |
 | H-05 | ~~Las brechas por producto las consulta el Jefe de Ingeniería o Dirección.~~ Resuelta el 2026-09-27 (P-17): Jefe de Ingeniería, Jefe de proyecto y usuarios ADMIN (BR-BRE-06); Dirección no se nombra | Hipótesis (agente), resuelta | US-008; S-01:L78 no nombra al actor | Respuesta a P-17 |
 | H-06 | El Responsable de producto aporta conocimiento del catálogo sin gobernarlo. | Supuesto | S-01:L44 | Respuesta a P-06 |
 
@@ -166,11 +166,13 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | P-30 | ¿"Líder de proyecto" (el actor que declara requerimientos) es el mismo rol que "jefe de proyecto" de la lista de roles del catálogo? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí; se usa Jefe de proyecto |
 | P-38 | La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí; por defecto se asumen todas las competencias del Rol-Nivel y el Jefe de proyecto que registra el requerimiento puede retirar algunas (BR-REQ-07, BR-REQ-10). AMB-06 resuelta |
 | P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Negocio (Jefe de Ingeniería) | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son solo gestores del programa y por ahora quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas (BR-PRG-01, BR-PRG-02) |
-| P-05 | ¿La plataforma solo recomienda y el Jefe de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
-| P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
+| P-05 | ¿La plataforma solo recomienda y el Jefe de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): recomienda; asigna y decide el Jefe de Ingeniería o un ADMIN; bajo el nivel y asignación múltiple permitidas, con advertencia (BR-REQ-04, BR-REQ-11, BR-REQ-12) |
+| P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): BR-TRA-03 a BR-TRA-06, BR-IA-04 |
+| P-53 | Asignar bajo el nivel: ¿la plataforma registra el curso de cierre o un motivo? | Negocio (Jefe de Ingeniería) | Media | Nueva (BRC-001, derivada de P-05) |
+| P-54 | ¿Las calificaciones y el sustento del evaluador son visibles para todos? ¿Se mantiene el uso "solo interno" de la evidencia de GitLab (BR-IA-01)? | Negocio (Jefe de Ingeniería) | Media | Nueva (BRC-001, derivada de P-08) |
 | VIS-§11.4 | ¿De dónde sale la lista de colaboradores y sus datos básicos? ¿Se integra el sistema de RR. HH.? | Negocio + ARQ | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2): la plataforma es el sistema de registro de colaboradores, sin integración con RR. HH. (BR-PTY-01) |
-| RCP-Q1 | ¿Quiénes son los evaluadores de H1 y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol |
-| P-02 | ¿Cómo se versiona el catálogo y qué pasa con requerimientos y certificaciones vigentes cuando cambia? | Negocio (Jefe de Ingeniería) | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto en P-50 (Alta) |
+| RCP-Q1 | ¿Quiénes son los evaluadores de H1 y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol. *2026-09-27 (P-49):* el Instructor está confirmado: un colaborador que el Jefe de Ingeniería o un ADMIN asigna a una edición de curso (BR-FOR-05); si puede certificar niveles sigue abierto (P-49.2) |
+| P-02 | ¿Cómo se versiona el catálogo y qué pasa con requerimientos y certificaciones vigentes cuando cambia? | Negocio (Jefe de Ingeniería) | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10) y, por P-50, las competencias pero no los roles (BR-CAT-22). Siguen abiertos P-50.1 (efecto sobre datos vigentes, Alta) y P-50.2 (quién aprueba) |
 | P-06 | ¿Qué papel tiene el Responsable de producto en el mantenimiento del catálogo? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
 | P-09 | ¿Qué parte de la certificación hace Gestión de formación / RR. HH. y qué parte el evaluador? ¿El evaluador puede certificar a su propio equipo? | Negocio | Media | Abierta (BRC-001) |
 | P-10 | ¿Un requerimiento solo usa roles y competencias del catálogo de su producto? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no; roles comunes (BR-CAT-08) |
@@ -204,12 +206,12 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 
 | Proceso | Actor | Entradas | Resultado | Estados conocidos |
 |---|---|---|---|---|
-| Definir el catálogo | Jefe de Ingeniería | Roles, competencias, nivel L1–L4, evidencia concreta por nivel | Catálogo común a todos los productos | Sin estados definidos para el catálogo; su versionado sigue abierto (P-50). Validaciones del 2026-09-27: un rol tiene al menos una competencia (BR-CAT-20) y un nivel sin requisitos de evidencia no se exige (BR-ACR-13). Lectura para todos los colaboradores (BR-TRA-02) |
-| Declarar requerimiento | Jefe de proyecto | Proyecto, rol | Requerimiento del proyecto, con las competencias y niveles del rol | Proyecto "activo" sin definir (P-11) |
+| Definir el catálogo | Jefe de Ingeniería | Roles, competencias, nivel L1–L4, evidencia concreta por nivel | Catálogo común a todos los productos | Se versionan las competencias, no los roles (BR-CAT-22, P-50 en parte); los estados de una versión de competencia son inferencia y el efecto sobre datos vigentes sigue abierto (P-50.1, P-50.2). Validaciones del 2026-09-27: un rol tiene al menos una competencia (BR-CAT-20) y un nivel sin requisitos de evidencia no se exige (BR-ACR-13). Lectura para todos los colaboradores (BR-TRA-02) |
+| Declarar requerimiento | Jefe de proyecto (solo el de ese proyecto, BR-REQ-02; US2-Q2 respondida) | Proyecto, rol | Requerimiento del proyecto, con las competencias y niveles del rol | Proyecto "activo" sin definir (P-11) |
 | Certificar nivel (manual) | Evaluador | Colaborador, competencia, evidencias | Nivel certificado con registro de quién, cuándo y evidencia | Sin estados definidos; vencimiento o revocación abiertos (P-14) |
 | Consultar perfil y brecha | Colaborador | Perfil, rol del catálogo | Niveles, evidencias y brecha por competencia | — |
 | Buscar candidatos | Jefe de proyecto | Requerimiento, perfiles | Candidatos que alcanzan el nivel y los que no, con su brecha, ordenados de menor a mayor brecha (BR-BRE-05) | Cómo se resume la brecha para ordenar (P-44) |
-| Asignar | Por confirmar (H-04) | Requerimiento, candidato | Asignación | **Sin definir** (P-05) |
+| Asignar | Jefe de Ingeniería o usuario ADMIN (BR-REQ-04; P-05 respondida el 2026-09-27) | Requerimiento, candidatos recomendados | Asignación de uno o varios colaboradores; se permite bajo el nivel (BR-REQ-11) y a más de un requerimiento, con advertencia (BR-REQ-12) | Sin estados definidos; si se registra el curso de cierre o un motivo, P-53 |
 
 ### Datos relevantes (funcionales)
 
@@ -228,7 +230,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Brecha | Nivel requerido − nivel certificado | [TRM-0005](../../business/glossary/terms/TRM-0005-brecha.md) | S-01:L59 |
 | Asignación | Vínculo entre un requerimiento y un colaborador | [TRM-0004](../../business/glossary/terms/TRM-0004-asignacion.md) | S-01:L58 |
 
-**Datos personales:** el perfil de competencias y las evidencias son datos de una persona. La visibilidad para terceros no está definida (P-08). Hasta que se defina, el siguiente rol debe asumir el acceso mínimo: el colaborador ve lo suyo.
+**Datos personales:** el perfil de competencias y las evidencias son datos de una persona. La visibilidad para terceros quedó definida el 2026-09-27 (P-08) y reemplaza el acceso mínimo provisional: resumen de niveles certificados, evidencias y certificaciones con su auditoría, visibles para cualquier colaborador (las evidencias de GitLab, sujetas al control de acceso de cada repositorio); brechas individuales, para el Jefe de proyecto; propuestas de la IA, para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN (BR-TRA-03 a BR-TRA-06, BR-IA-04). De los datos maestros, otros colaboradores ven solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20, P-52). Abierto: calificaciones y sustento del evaluador (P-54).
 
 ### Dependencias y consumidores
 
@@ -245,13 +247,13 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 |---|---|---|---|
 | Restricción | Sin firma humana no hay certificación | — | S-01:L101 |
 | Restricción | Trazabilidad de cada nivel hasta su evidencia y quien lo certificó | — | S-01:L103 |
-| Riesgo | Catálogo desactualizado o sin consenso entre productos | El Jefe de Ingeniería lo gobierna; falta el versionado del catálogo (P-50; P-02 solo resolvió el de cursos) | S-01:L142 |
+| Riesgo | Catálogo desactualizado o sin consenso entre productos | El Jefe de Ingeniería lo gobierna; se versionan las competencias, no los roles (BR-CAT-22); falta el efecto de una versión nueva sobre datos vigentes (P-50.1) y quién la aprueba (P-50.2) | S-01:L142 |
 | Riesgo | Certificaciones inconsistentes entre evaluadores si el tipo de evidencia no se concreta | BR-ACR-07, BR-ACR-08 (P-22 confirmada) y BR-ACR-12 lo acotan; falta P-23 (equivalencias); P-39 quedó respondida (BR-ACR-13) | Inferencia a partir de S-01:L150 |
 | Riesgo | KPI 1 y 6 imposibles de medir mientras "proyecto activo" y "perfil activo" no estén definidos | Ninguna todavía (P-11, GQ-08) | S-01:L119, L124 |
-| Riesgo | Exposición de datos de desempeño de personas | Acceso mínimo hasta resolver P-08 | S-01:L104; P-08 |
+| Riesgo | Exposición de datos de desempeño de personas | P-08 respondida el 2026-09-27: la visibilidad abierta es decisión del negocio (BR-TRA-03 a BR-TRA-06); los datos maestros se limitan a cinco (BR-PTY-20, P-52). Sigue abierto P-54 (calificaciones, sustento del evaluador, GitLab) | S-01:L104; P-08 |
 
 **Contradicciones y ambigüedades vigentes** (de BRC-001):
-- **AMB-01:** formación como evidencia frente a certificado de curso ≠ nivel. Afecta el tipo de evidencia "formación" en H1.
+- ~~**AMB-01:** formación como evidencia frente a certificado de curso ≠ nivel.~~ Resuelta el 2026-09-27 (P-07): aprobar el curso es parte de la demostración del nivel y la plataforma propone certificar el nivel objetivo (BR-ACR-14); el certificado de curso no certifica por sí solo (BR-CER-02). La propuesta es de H2.
 - **AMB-02:** la ausencia de catálogo está clasificada a la vez como supuesto y como validada.
 - **AMB-03:** Gestión de formación / RR. HH. "gestiona certificaciones", pero el que certifica es el evaluador.
 
@@ -274,6 +276,8 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | El Jefe de Ingeniería define los requisitos de evidencia (BR-CAT-16), de forma progresiva (BR-CAT-17); cada requisito es requerida o deseada y certificar exige las requeridas (BR-ACR-12, BR-ACR-09 revisada); P-22 confirmada | ianache (Jefe de Ingeniería) | Respuestas a P-21 a P-24 (EVD-2026-0096 a 0099) | 2026-09-27 |
 | Sin cantidad general de niveles de rol: cada rol define los suyos al registrarse (BR-CAT-09 y BR-CAT-14 revisadas; ya no "Rol-Nivel 1 a 4"); escala salarial, MOF y criterios de nivel fuera de alcance (BR-CAT-18) | ianache (Jefe de Ingeniería) | Respuestas a P-26 y P-36 (EVD-2026-0100, 0101) | 2026-09-27 |
 | Rúbrica como logro visible y verificable, definida y aprobada por el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19); requerimiento con todas las competencias del Rol-Nivel por defecto y retiro opcional (BR-REQ-07, BR-REQ-10; AMB-06 resuelta); nivel inicial de rol al registrar (BR-PRF-02); Evaluador y Jefe de Ingeniería solo gestores, fuera de la evaluación por ahora (BR-PRG-01, BR-PRG-02) | ianache (Jefe de Ingeniería) | Respuestas a P-37, P-28, P-38 y P-31 (EVD-2026-0102 a 0105) | 2026-09-27 |
+| Asignación por el Jefe de Ingeniería o ADMIN, con recomendación de la plataforma, bajo el nivel y múltiple con advertencia (BR-REQ-04, BR-REQ-11, BR-REQ-12); solo el Jefe de proyecto del proyecto declara sus requerimientos (BR-REQ-02); el curso aporta evidencia y la plataforma propone certificar el nivel objetivo (BR-ACR-14; AMB-01 resuelta); visibilidad de perfil, brechas, evidencias, certificaciones y propuestas de la IA (BR-TRA-03 a BR-TRA-06, BR-IA-04) | ianache (Jefe de Ingeniería) | Respuestas a P-05, US2-Q2, P-07 y P-08 (EVD-2026-0126 a 0129) | 2026-09-27 |
+| Datos maestros visibles para otros colaboradores (BR-PTY-20, P-52); Instructor confirmado (BR-FOR-05, P-49 en parte); se versionan las competencias, no los roles (BR-CAT-22, P-50 en parte) | ianache (Jefe de Ingeniería) | EVD-2026-0130 a 0132 | 2026-09-27 |
 | **Validación de este pack** | Pendiente: Jefe de Ingeniería y Responsable de producto | — | — |
 
 ### Checklist de validación humana
@@ -305,7 +309,7 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 | Regla: toda competencia de un rol tiene un nivel mínimo L1–L4 | S-01:L62-L71; BR-CAT-02, BR-CAT-03 | Jefe de Ingeniería | Pendiente |
 | Regla: no existe certificación automática; toda certificación la firma un evaluador humano y queda registrada con quién, cuándo y evidencias | S-01:L80-L81, L101, L103; BR-ACR-02 a BR-ACR-04 | Jefe de Ingeniería | Pendiente |
 | Regla: la brecha se calcula por competencia como nivel requerido − nivel certificado | S-01:L59; BR-BRE-01 | Jefe de Ingeniería | Pendiente (depende de P-12) |
-| Proceso: orden funcional catálogo → requerimiento → búsqueda → asignación | S-01:L58, L136 | Responsable de producto | Pendiente (la asignación depende de P-05) |
+| Proceso: orden funcional catálogo → requerimiento → búsqueda → asignación | S-01:L58, L136 | Responsable de producto | Pendiente (P-05 respondida el 2026-09-27: la asignación la hace el Jefe de Ingeniería o un ADMIN) |
 | Supuesto H-01: hoy no hay catálogo común | S-01:L35 | Jefe de Ingeniería | Pendiente de evidencia documental |
 
 ## 12. Handoff para el siguiente rol
@@ -320,9 +324,9 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 
 ### Qué debe validar antes de continuar
 
-- Las preguntas de prioridad alta: P-05, P-08, P-42, P-50 y RCP-Q1 (VIS-§11.4 quedó respondida por SPEC-001 D2; P-22, P-26, P-28, P-36, P-37, P-38 y P-39 quedaron respondidas el 2026-09-27).
+- Las preguntas de prioridad alta: P-42, P-50.1 y RCP-Q1 (VIS-§11.4 quedó respondida por SPEC-001 D2; P-22, P-26, P-28, P-36, P-37, P-38 y P-39 quedaron respondidas el 2026-09-27, y P-05, P-07 y P-08 también, con P-50 en parte).
 - La validación humana de este pack (§10).
-- No derivar UXR ni flujos para US-007 (asignación) hasta resolver P-05. US-008 (brechas por producto) ya tiene actor (P-17 respondida, BR-BRE-06); falta P-45 y la regla de agregación por producto.
+- US-007 (asignación) ya se puede refinar y llevar a UXR: P-05 quedó respondida el 2026-09-27; quedan P-53 y P-45. US-008 (brechas por producto) ya tiene actor (P-17 respondida, BR-BRE-06); falta P-45 y la regla de agregación por producto.
 
 ### Artefactos relacionados
 

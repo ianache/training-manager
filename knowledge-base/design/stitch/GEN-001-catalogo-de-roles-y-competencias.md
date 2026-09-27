@@ -6,7 +6,7 @@ tags: [ux-ui, stitch, generation-prompt, catalogo, h1]
 status: draft
 generated:
   by: "stitch-ui-generator/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: uxr-001
     resource: /knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md
@@ -103,7 +103,7 @@ Revisé cada pantalla contra UXR-001, UXR-000, las reglas BR-* y el glosario. **
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
 | GEN-001-Q1 | ¿Las competencias se clasifican en tipos, además de "transversal"? Si sí, ¿cuáles? El agente usó "Técnica" sin fuente | Jefe de Ingeniería | Media |
-| P-02 / P-50 | ¿Qué pasa con los perfiles y los requerimientos vigentes cuando cambia el catálogo? Define el texto del pie (F-08). P-02 se respondió el 2026-09-27 solo para cursos (BR-FOR-06 a BR-FOR-10); el catálogo sigue en P-50 | Jefe de Ingeniería | Alta |
+| P-02 / P-50 | ¿Qué pasa con los perfiles y los requerimientos vigentes cuando cambia el catálogo? Define el texto del pie (F-08). P-02 se respondió el 2026-09-27 solo para cursos (BR-FOR-06 a BR-FOR-10). P-50 se respondió en parte el mismo día: se versionan las competencias, no los roles (BR-CAT-22), así que un cambio en un rol no genera versión y uno en una competencia sí. El efecto sobre perfiles, Rol-Nivel y requerimientos vigentes, que decide el texto del pie, sigue en P-50.1; quién aprueba, en P-50.2 | Jefe de Ingeniería | Alta (P-50.1) |
 | ~~P-36~~ | ~~¿Cómo se nombran los Rol-Nivel?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse (BR-CAT-09). Ver F-13 | Jefe de Ingeniería | — |
 | ~~P-37~~ | ~~¿Rúbrica y requisitos de evidencia se editan juntos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la rúbrica describe el logro verificable y la define y aprueba el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19). Que sean cosas distintas es una inferencia a confirmar (BRC-001) | Jefe de Ingeniería | Media |
 | ~~P-39~~ | ~~¿Se puede exigir o certificar un nivel sin requisitos de evidencia definidos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no (BR-ACR-13). F-15 pasa a validación bloqueante | Jefe de Ingeniería | — |

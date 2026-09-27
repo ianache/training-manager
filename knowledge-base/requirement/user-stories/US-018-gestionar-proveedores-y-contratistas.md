@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c4, proveedores]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -117,7 +117,7 @@ Escenario: Cerrar la única contratación vigente
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** el vínculo contratista–proveedor es dato de una persona. Los datos de las personas son visibles para cualquier colaborador (BR-PTY-20, D27); si ese alcance incluye este vínculo se confirma en P-52.
+- **Privacidad y datos personales:** el vínculo contratista–proveedor es dato de una persona. De las demás personas, cualquier colaborador ve solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20, D27; P-52 respondida el 2026-09-27). **Inferencia:** el vínculo contratista–proveedor no está en esa lista, así que no se muestra a otros colaboradores.
 - **Otros:** auditoría (BR-PTY-12).
 
 ## 10. Consideraciones de UX

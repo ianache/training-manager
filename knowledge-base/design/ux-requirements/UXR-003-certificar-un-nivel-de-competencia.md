@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, certificacion, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T16:10:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: us-003
     resource: /knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md
@@ -52,7 +52,8 @@ Decidir, con fundamento y dejando trazabilidad, si un colaborador alcanza un niv
 - La acción de certificar solo se habilita cuando cada requisito de evidencia "requerida" tiene una evidencia asociada (BR-ACR-09, BR-ACR-12). Si falta alguna requerida, la interfaz indica cuáles faltan.
 - Los requisitos "deseada" no bloquean la certificación: la interfaz los presenta como opcionales (BR-ACR-12). Si deben mostrarse de algún modo especial en la certificación, depende de P-41.
 - La certificación registra de forma automática quién certificó y cuándo; el evaluador no escribe esos datos (BR-ACR-03).
-- En H1 no hay propuestas automáticas (BR-ACR-05).
+- En H1 no hay propuestas automáticas (BR-ACR-05). En H2 la plataforma propondrá certificar el nivel objetivo cuando las evidencias de un curso cumplan los requisitos requeridos (BR-ACR-14; P-07 respondida el 2026-09-27); esa propuesta necesitará la misma firma humana y no se diseña aquí. Quién la firma está abierto (P-07.4, P-49.2).
+- La certificación registrada, con quién certificó, cuándo y con qué evidencias, la puede ver cualquier colaborador (BR-TRA-06; P-08 respondida el 2026-09-27). **Inferencia:** conviene que la confirmación de UXR-003.7 lo advierta. Si se muestran también calificaciones y el sustento del evaluador está abierto (P-54).
 
 ## Estados
 
@@ -73,4 +74,5 @@ Decidir, con fundamento y dejando trazabilidad, si un colaborador alcanza un niv
 | P-41 | ¿Cómo "refuerza" una evidencia deseada la certificación? Define si la certificación muestra algo distinto cuando las incluye | Jefe de Ingeniería | Media |
 | P-14 | ¿Una certificación vence o se revoca? ¿Se puede recertificar hacia arriba o hacia abajo? | Jefe de Ingeniería | Baja |
 | P-09 | ¿Un evaluador puede certificar a alguien de su equipo? | Responsable de producto | Media |
+| P-54 | ¿Las calificaciones y el sustento del evaluador son visibles para todos, o solo el resultado? | Jefe de Ingeniería | Media |
 | UXR-003-Q2 | ¿Quién inicia una certificación: el colaborador la solicita o el evaluador la abre? No está definido | Jefe de Ingeniería | Alta |

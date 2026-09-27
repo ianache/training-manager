@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto, party]
 status: draft
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-27T11:00:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -32,4 +32,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Medio de contacto](TRM-0084-medio-de-contacto.md) · [Datos personales](TRM-0095-datos-personales.md) · [Perfil de competencias del colaborador](TRM-0045-perfil-de-competencias-del-colaborador.md)
-- **Notas:** No confundir con el Perfil de competencias del colaborador (TRM-0045). Lo edita la propia persona (BR-PTY-17). Es un dato personal; quién lo ve está abierto (SPEC-001 Q-05, BRC-001 P-08). Responsable según BRC-001 BR-PTY-17 (/knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L247).
+- **Notas:** No confundir con el Perfil de competencias del colaborador (TRM-0045). Lo edita la propia persona (BR-PTY-17). Es un dato personal. Quién lo ve quedó definido el 2026-09-27 (SPEC-001 D27; respuesta a P-52, BRC-001 EVD-2026-0130, BR-PTY-20 precisada): cualquier colaborador que ingrese a la plataforma, junto con el nombre, el correo laboral, la unidad y el rol de la persona. Responsable según BRC-001 BR-PTY-17 (/knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L247).

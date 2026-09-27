@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T19:51:17-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -32,4 +32,4 @@ sources:
 - **Confianza:** medium
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Rol](TRM-0055-rol.md) · [Catálogo de competencias](TRM-0007-catalogo-de-competencias.md) · [Nivel requerido](TRM-0043-nivel-requerido.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md)
-- **Notas:** Las fuentes definen la competencia solo por su lugar en el modelo; no hay una lista ni una definición de contenido. Decisiones del 2026-09-26: catálogo único (BR-CAT-07); algunas competencias son transversales, como el trabajo en equipo (BR-CAT-11, ver [Competencia transversal](TRM-0067-competencia-transversal.md)).
+- **Notas:** Las fuentes definen la competencia solo por su lugar en el modelo; no hay una lista ni una definición de contenido. Decisiones del 2026-09-26: catálogo único (BR-CAT-07); algunas competencias son transversales, como el trabajo en equipo (BR-CAT-11, ver [Competencia transversal](TRM-0067-competencia-transversal.md)). Decisión de ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-50 (BRC-001 EVD-2026-0132; BR-CAT-22): las competencias se versionan (los roles no). **Inferencia a confirmar:** una versión sigue DRAFT, APPROVED y DEPRECATED, como las de curso, e incluye la rúbrica y los requisitos de evidencia; abiertos P-50.1 (efecto sobre Rol-Nivel, requerimientos y certificaciones) y P-50.2 (quién aprueba). El término "Versión de competencia" se propone en GQ-36. No cambia la definición aprobada.

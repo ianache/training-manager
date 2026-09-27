@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T16:30:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -119,7 +119,7 @@ sources:
 - **Cambio:** los datos simples se corrigen. Roles, relaciones, asignaciones y contactos no se sobrescriben: se cierra la vigencia anterior y se abre una nueva.
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
 - **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Se ejecuta **a demanda** del Jefe de Ingeniería; cuando se cumple el plazo configurado, la plataforma le notifica que la persona puede anonimizarse (D15). **No se anonimizan** el código de colaborador ni las referencias de auditoría, así que las certificaciones siguen mostrando quién certificó mediante su código (D16).
-- **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08). **Actualización (D25, D27):** el código es un GUID generado por la plataforma, que ningún otro sistema comparte, así que el riesgo baja; pero los datos son visibles para cualquier colaborador, así que la restricción propuesta ya no aplica sin una decisión explícita (P-52).
+- **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08). **Actualización (D25, D27):** el código es un GUID generado por la plataforma, que ningún otro sistema comparte, así que el riesgo baja; pero los datos son visibles para cualquier colaborador, así que la restricción propuesta ya no aplica sin una decisión explícita (P-52). **Actualización (2026-09-27, P-52):** a otros colaboradores solo se les muestran nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20); el código no está en esa lista (inferencia: no se muestra).
 - **Riesgo (D19):** el envío depende de una cuenta de Gmail empresarial. Sus credenciales se custodian en HashiCorp Vault (D22) y hay que respetar los límites de envío de la cuenta. Si la cuenta falla, el aviso queda como fallido con reintentos (ANONYMIZATION_NOTICE).
 
 **Validaciones:**
@@ -135,7 +135,7 @@ sources:
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
 
 **Perfiles profesionales:**
-- Son datos personales. Hasta resolver P-08, los ven la propia persona y los roles de gestión.
+- Son datos personales. ~~Hasta resolver P-08, los ven la propia persona y los roles de gestión.~~ Por D27 y P-52 (2026-09-27), los ve cualquier colaborador que ingrese a la plataforma (BR-PTY-20).
 - **No son evidencia de nivel**: la evidencia sigue BR-ACR-07 a BR-ACR-11.
 
 ## 5. Capacidades (sección 3)
@@ -230,7 +230,7 @@ sources:
 | Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | **Respondida (D26):** no |
 | Q-03 | ¿Un contratista tiene correo laboral de COMSATEL o el de su proveedor? | Jefe de Ingeniería | Media | **Respondida (D13):** el del proveedor |
 | Q-04 | ¿La normativa obliga a borrar o anonimizar a quien se va? | Legal + Jefe de Ingeniería | Alta | **Respondida (D14):** se anonimizan los datos PII |
-| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta | **Respondida (D27):** cualquier colaborador que ingrese a la plataforma (data abierta). Ver P-52 |
+| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta | **Respondida (D27):** cualquier colaborador que ingrese a la plataforma (data abierta). P-52 fijó el alcance el 2026-09-27: solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20) |
 | Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media | **Respondida (D28):** sí, Docker. La ejecución de las pruebas sigue pendiente mientras Docker Desktop no esté en marcha |
 | Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media | **Respondida (D29):** no es necesario |
 | Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | **Respondida (D30):** la versión estable más reciente |

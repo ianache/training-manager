@@ -6,7 +6,7 @@ tags: [data-model, logical, party, udm, colaboradores, anonimizacion, dtc]
 status: draft
 generated:
   by: "data-model-designer/1.0"
-  at: "2026-09-27T16:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -218,7 +218,7 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 | BR-PTY-17 | Quién edita qué | Aplicación y BFF |
 | BR-PTY-18 | Aviso ante un segundo Jefe de Ingeniería | Aplicación; la base lo permite a propósito |
 | BR-PTY-19 | Un contratista no tiene jefe directo: la relación de reporte solo parte de un rol de Empleado | Aplicación, al registrar la relación (como A-10). La base no puede comprobar el tipo del rol de origen sin repetirlo en PARTY_RELATIONSHIP; se puede reconsiderar si el arquitecto lo pide |
-| BR-PTY-20 | Datos de las personas visibles para cualquier colaborador (alcance en P-52) | Aplicación y BFF; no afecta al esquema |
+| BR-PTY-20 | De las demás personas, cualquier colaborador ve solo nombre, correo laboral, unidad, rol y perfiles profesionales; identificaciones y teléfono no (precisada el 2026-09-27, P-52) | Aplicación y BFF (proyección de lectura para otros colaboradores); no afecta al esquema |
 
 ## 6. Supuestos
 
@@ -241,7 +241,7 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 |---|---|---|---|
 | Q-01 | Formato y generación del código de colaborador (de SPEC-001) | Jefe de Ingeniería | **Respondida (D25):** GUID generado automáticamente. `employee_code` pasa a `CHAR(36)` con UNIQUE simple (DM-12) |
 | Q-02 | ¿Un contratista tiene jefe directo en COMSATEL? (de SPEC-001) | Jefe de Ingeniería | **Respondida (D26):** no. Validación en la aplicación (BR-PTY-19, §5) |
-| Q-05 | Quién ve los datos de otras personas (de SPEC-001, P-08) | Responsable de producto | **Respondida (D27):** cualquier colaborador (data abierta, BR-PTY-20). Sin cambio de esquema. El alcance (identificaciones, teléfono, anonimizados) sigue abierto en P-52 |
+| Q-05 | Quién ve los datos de otras personas (de SPEC-001, P-08) | Responsable de producto | **Respondida (D27):** cualquier colaborador (data abierta, BR-PTY-20). Sin cambio de esquema. El alcance quedó fijado el 2026-09-27 (P-52): solo nombre, correo laboral, unidad, rol y perfiles profesionales; sigue sin cambio de esquema |
 | Q-06 | Medio para ejecutar MySQL 8 y PostgreSQL (de SPEC-001) | Jefe de Ingeniería | **Respondida (D28):** Docker. La ejecución de TST-001 sigue pendiente mientras Docker Desktop no esté en marcha |
 | Q-07 | Verificar la correspondencia con el UDM (Silverston) (de SPEC-001) | Arquitecto | **Respondida (D29):** no es necesario |
 | Q-08 | Versión mínima de PostgreSQL (de SPEC-001) | Arquitecto | **Respondida (D30):** la versión estable más reciente. Las pruebas usan `postgres:latest` y registran la versión al ejecutar |

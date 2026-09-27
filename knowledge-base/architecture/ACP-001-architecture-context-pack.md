@@ -6,7 +6,7 @@ tags: [architecture, context-pack, arq-101, as-is, greenfield]
 status: draft
 generated:
   by: "architecture-context-builder/1.0"
-  at: "2026-09-27T15:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -135,7 +135,7 @@ Hoy no hay integraciones documentadas entre estos sistemas relevantes para la pl
 
 - **Identidad y autenticación:** decidido en ADR-002 (2026-09-27): Keycloak, integrado en el BFF mediante PKCE. Los colaboradores se registran en la plataforma (SPEC-001 D2), y los usuarios de Keycloak se gestionan aparte: la plataforma solo guarda el identificador que vincula a la persona con su usuario (SPEC-001 D4; BR-PTY-16). Siguen abiertos el modelo de roles en Keycloak y la federación (ADR-002).
 - **Secretos:** HashiCorp Vault guarda la parametría y los datos sensibles, incluidas las credenciales de la cuenta de Gmail empresarial ([ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md)). Siguen UNKNOWN el método de autenticación ante Vault y ante Gmail, y la rotación.
-- **Autorización:** 7 actores (VIS-001:L37-L51) con permisos distintos según BRC-001 (BR-CAT-04, BR-ACR-02, BR-REQ-02). Que los permisos dependan también del ámbito (proyecto propio) es una INFERENCE a partir de "su proyecto" (L42; asr-BR-ACR-02). La visibilidad de datos ajenos está sin definir (P-08), igual que quiénes son los evaluadores (RCP-Q1) y si pueden certificar a su propio equipo (P-09).
+- **Autorización:** 7 actores (VIS-001:L37-L51) con permisos distintos según BRC-001 (BR-CAT-04, BR-ACR-02, BR-REQ-02). Que los permisos dependan también del ámbito (proyecto propio) es una INFERENCE a partir de "su proyecto" (L42; asr-BR-ACR-02). La visibilidad de datos ajenos estaba sin definir (P-08); quiénes son los evaluadores (RCP-Q1) y si pueden certificar a su propio equipo (P-09) siguen abiertos. *Nota (2026-09-27):* P-08 y P-52 quedaron respondidas: resumen de niveles, evidencias y certificaciones con su auditoría, visibles para cualquier colaborador (las evidencias de GitLab, sujetas al control de acceso del repositorio); brechas individuales, para el Jefe de proyecto; propuestas de la IA, para el colaborador, quien evalúa, el Jefe de Ingeniería, Dirección, Gerencia y ADMIN; de los datos maestros, solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-TRA-03 a BR-TRA-06, BR-IA-04, BR-PTY-20). También US2-Q2 (solo el Jefe de proyecto del proyecto declara sus requerimientos, BR-REQ-02) y P-05 (asigna el Jefe de Ingeniería o un ADMIN, BR-REQ-04). La autorización por ámbito de proyecto deja de ser solo inferencia para BR-REQ-02. Abierto: P-54 (calificaciones, sustento del evaluador y el "uso interno" de GitLab, BR-IA-01).
 - **Acceso a sistemas externos:** INFERENCE a partir de las integraciones requeridas: hará falta algún mecanismo de acceso autorizado a Classroom, Drive, GitLab y docsuite. Ninguno está documentado (UNKNOWN).
 - **Límites de confianza:** la plataforma es interna (VIS-001:L29). Si los datos de GitLab pueden cruzar a un servicio de IA externo es UNKNOWN (CF-01).
 - **Auditoría:** trazabilidad obligatoria de cada certificación (VIS-001:L80, L103).
@@ -150,13 +150,13 @@ El detalle está en [AIM-001](AIM-001-matriz-impacto-arquitectura.md). Resumen:
   - convenciones de etiquetado en GitLab;
   - la sustitución parcial de Classroom si se activa la contingencia.
 - **UNKNOWN:**
-  - el criterio de aprobación a partir de Classroom (P-19, respondida en parte el 2026-09-27: propuesta automática y conclusión del evaluador, BR-CER-06 y BR-CER-07; P-47 respondida el mismo día: son los requisitos de evidencia requeridos de las competencias que el curso desarrolla, y la evidencia sale de evaluaciones y de artefactos de proyectos, BR-FOR-03 y BR-FOR-04). **Nota:** esto puede reducir la dependencia de las calificaciones de Classroom; se mantiene UNKNOWN porque no está dicho de qué sistema se leen esas evaluaciones y artefactos, ni quién concluye la aprobación (P-49; el Instructor por edición de curso de BR-FOR-05 es solo una propuesta en consideración);
+  - el criterio de aprobación a partir de Classroom (P-19, respondida en parte el 2026-09-27: propuesta automática y conclusión del evaluador, BR-CER-06 y BR-CER-07; P-47 respondida el mismo día: son los requisitos de evidencia requeridos de las competencias que el curso desarrolla, y la evidencia sale de evaluaciones y de artefactos de proyectos, BR-FOR-03 y BR-FOR-04). **Nota:** esto puede reducir la dependencia de las calificaciones de Classroom; se mantiene UNKNOWN porque no está dicho de qué sistema se leen esas evaluaciones y artefactos, ni quién concluye la aprobación (P-49; el Instructor por edición de curso de BR-FOR-05 es solo una propuesta en consideración). *Nota (2026-09-27):* P-49 confirmó al Instructor (BR-FOR-05) y P-07 precisó la evidencia del curso (BR-FOR-04) y la propuesta de certificar el nivel objetivo (BR-ACR-14); sigue UNKNOWN de qué sistema se leen las evaluaciones y lo producido en proyectos;
   - GitLab como fuente de proyectos (US2-Q1);
   - el sistema de RR. HH. como fuente de personas: **respondido** por SPEC-001 D2, no hay integración con RR. HH.;
   - la identidad;
   - la seguridad del acceso de la IA a GitLab.
 - **Proveedor de identidad:** UNKNOWN para todas las historias.
-- **POTENTIAL sobre el proceso de asignación**, que es organizativo y no un sistema. No es DIRECT porque el proceso actual es un supuesto (A-04) y la asignación depende de P-05.
+- **POTENTIAL sobre el proceso de asignación**, que es organizativo y no un sistema. No es DIRECT porque el proceso actual es un supuesto (A-04) y la asignación dependía de P-05. *Nota (2026-09-27):* P-05 quedó respondida (BR-REQ-04, BR-REQ-11, BR-REQ-12); la clasificación la revisa el arquitecto.
 - **NO_IMPACT externo:** catálogo (US-001) y brechas (US-005), con exclusión basada en la tabla de integraciones (VIS-001:L91-L96). US-005 conserva un UNKNOWN sobre el origen de los colaboradores.
 - **UNKNOWN:** US-008 (actor sin definir) y el tablero (US-013, US-014), porque la demanda depende de la fuente de proyectos.
 - **Consumidores downstream:** no se identificaron sistemas; solo personas.

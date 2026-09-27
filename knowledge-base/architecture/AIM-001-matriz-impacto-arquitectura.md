@@ -6,7 +6,7 @@ tags: [architecture, impact-analysis, integraciones, as-is]
 status: draft
 generated:
   by: "architecture-impact-analyzer/1.0"
-  at: "2026-09-27T15:40:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -49,7 +49,7 @@ sources:
 | US-002 | 3. Requerimientos de proyecto | E-GLB GitLab | Data | UNKNOWN: GitLab podría ser la fuente de proyectos y Líderes | VIS-001:L111; US2-Q1 (EVD-2026-0028) | Baja | Posible integración no prevista | Abierto |
 | US-004, US-006 | 2. Perfil; 4. Búsqueda | E-RRH Sistema de RR. HH. | Data | UNKNOWN: posible fuente de la ficha del colaborador | VIS-001:L153 (EVD-2026-0047) | Baja | Datos maestros de personas sin origen | Abierto |
 | Todas | Todas | E-IDP Proveedor de identidad | Security | UNKNOWN: se desconoce el proveedor de identidad y el origen de los roles | ADB-001 KG-03; RCP-001 RCP-Q1; BRC-001 P-09 | Baja | Autenticación y autorización sin base | Abierto |
-| US-006, US-007 | 4. Búsqueda; asignación | E-PRC Proceso de asignación | Operations | POTENTIAL (proceso, no sistema): la asignación informal pasaría a basarse en requerimientos y niveles certificados. No es DIRECT porque E-PRC es un supuesto (A-04) y la asignación depende de P-05 | VIS-001:L35, L42, L58 | Baja | — | Investigar |
+| US-006, US-007 | 4. Búsqueda; asignación | E-PRC Proceso de asignación | Operations | POTENTIAL (proceso, no sistema): la asignación informal pasaría a basarse en requerimientos y niveles certificados. No es DIRECT porque E-PRC es un supuesto (A-04). *Nota (2026-09-27):* P-05 quedó respondida: la plataforma recomienda y el Jefe de Ingeniería o un ADMIN registra la asignación, bajo el nivel y múltiple con advertencia (BR-REQ-04, BR-REQ-11, BR-REQ-12); la asignación pasa a ser un dato de la plataforma, pero la clasificación no se cambia aquí | VIS-001:L35, L42, L58 | Baja | — | Investigar |
 | US-001 | 1. Catálogo | E-CLS, E-DRV, E-GLB, E-DOC | — | NO_IMPACT: la tabla de integraciones (VIS-001:L91-L96) asigna a cada sistema una función que no incluye el catálogo, y el catálogo lo gobierna el Jefe de Ingeniería en la plataforma (L51, L75) | VIS-001:L51, L75, L91-L96 | Media | — | Por validar |
 | US-003 | 6. Certificación (manual, H1) | E-GLB GitLab | Data | UNKNOWN: si el evaluador puede adjuntar a mano evidencia de GitLab en H1 | RCP-001 RCP-Q2 (EVD-2026-0030) | Baja | — | Abierto |
 | US-005 | 4. Brechas | E-CLS, E-DRV, E-GLB, E-DOC | — | NO_IMPACT: la brecha se define sobre niveles requeridos y certificados (VIS-001:L59), y ninguno de esos sistemas los provee según L91-L96 | VIS-001:L59, L78, L91-L96 | Media | — | Por validar |
@@ -81,7 +81,7 @@ La expansión se limita a las dependencias que las fuentes nombran. No se agrega
 | RG-02 | Posible conflicto entre "uso interno" de GitLab y un servicio de IA externo | US-011, US-012 | Alta | CF-01; EVD-2026-0050 | Consultar la política de IA y seguridad |
 | RG-03 | Identidad y datos maestros de personas sin origen | Todas | Alta | KG-03; VIS-001:L153 | Identificar el proveedor de identidad y el sistema de RR. HH. |
 | RG-04 | Acceso a las API de Classroom, Drive, GitLab y docsuite sin confirmar | US-009 a US-012 | Media | KG-05 | Pruebas de acceso y documentación de las API |
-| RG-05 | Criterio de aprobación del curso final sin definir. P-19 respondida en parte (2026-09-27): propuesta automática y conclusión del evaluador con sustento si difiere (BR-CER-06, BR-CER-07); P-47 respondida (2026-09-27): los requisitos son los requisitos de evidencia requeridos de las competencias y la evidencia sale de evaluaciones y artefactos de proyectos (BR-FOR-03, BR-FOR-04). Siguen abiertos el sistema de origen de esa evidencia y quién concluye (P-49; la propuesta de un Instructor por edición de curso, BR-FOR-05, está solo en consideración) | US-010 | Media | P-49, GQ-06 | Respuesta de Gestión de formación |
+| RG-05 | Criterio de aprobación del curso final sin definir. P-19 respondida en parte (2026-09-27): propuesta automática y conclusión del evaluador con sustento si difiere (BR-CER-06, BR-CER-07); P-47 respondida (2026-09-27): los requisitos son los requisitos de evidencia requeridos de las competencias y la evidencia sale de evaluaciones y artefactos de proyectos (BR-FOR-03, BR-FOR-04). Sigue abierto el sistema de origen de esa evidencia. *2026-09-27:* quién concluye quedó resuelto (P-49: el Instructor de la edición, asignado por el Jefe de Ingeniería o un ADMIN, y el Jefe de Ingeniería; BR-FOR-05 confirmada), la evidencia del curso son evaluaciones o cuestionarios y lo producido en proyectos durante el curso (BR-FOR-04, P-07), y la plataforma propone certificar el nivel objetivo, con firma humana (BR-ACR-14) | US-010 | Media | P-49.1 a P-49.3, P-07.4, GQ-06 | Respuesta de Gestión de formación |
 | RG-06 | Fuente de proyectos y Líderes sin definir | US-002 | Media | US2-Q1 | Respuesta del Responsable de producto |
 
 ## Potential ASR candidates

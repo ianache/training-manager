@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, requerimientos, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T18:00:00-05:00"
 sources:
   - id: us-002
     resource: /knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md
@@ -51,6 +51,7 @@ Decir qué perfil necesita su proyecto, con la precisión suficiente para encont
 
 - Solo se ofrecen competencias del Rol-Nivel elegido. Pedir una competencia de fuera del rol no es posible (BR-REQ-09). Solo se pueden retirar competencias, no agregar (BR-REQ-10).
 - Solo el Jefe de proyecto que registra el requerimiento puede retirar competencias (BR-REQ-10).
+- Solo el Jefe de proyecto de ese proyecto declara sus requerimientos (BR-REQ-02; US2-Q2 respondida el 2026-09-27). Otro usuario no ve la acción de declarar en ese proyecto, o ve el estado "sin permiso" (UXR-000).
 - Los niveles L1–L4 no se editan en el requerimiento: vienen del catálogo (BR-REQ-06).
 
 ## Estados
@@ -66,6 +67,6 @@ Decir qué perfil necesita su proyecto, con la precisión suficiente para encont
 | ~~P-38~~ | ~~¿Se pueden pedir solo algunas competencias del Rol-Nivel o siempre todas?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por defecto todas; quien registra el requerimiento puede retirar algunas (BR-REQ-07, BR-REQ-10) | Jefe de Ingeniería | — |
 | US2-Q4 | ¿Se pueden retirar todas las competencias, o debe quedar al menos una? Define la validación al guardar | Responsable de producto | Baja |
 | US2-Q1 | ¿De dónde salen los proyectos y su jefe? Define cómo se elige el proyecto | Responsable de producto | Alta |
-| US2-Q2 | ¿Solo el jefe de ese proyecto declara sus requerimientos? | Responsable de producto | Media |
+| ~~US2-Q2~~ | ~~¿Solo el jefe de ese proyecto declara sus requerimientos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí (BR-REQ-02) | Responsable de producto | — |
 | US2-Q3 | ¿Un requerimiento indica cuántas personas se necesitan? | Responsable de producto | Baja |
 | P-11 | ¿Qué estados tiene un proyecto? | Responsable de producto | Media |
