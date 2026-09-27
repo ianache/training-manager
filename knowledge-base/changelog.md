@@ -92,4 +92,6 @@ sources:
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 - SPEC-001 actualizada con dos decisiones de `human:ianache`. D15: la anonimización es a demanda, y la plataforma notifica al Jefe de Ingeniería cuando se cumple un plazo configurable (Q-09). D16: el código de colaborador y las referencias de auditoría no se anonimizan (Q-10). Se agregaron la capacidad C11 (configurar el plazo y recibir los avisos), las entidades ANONYMIZATION_SETTING y ANONYMIZATION_NOTICE, el riesgo de que el código conservado funcione como cuasi-identificador y la pregunta Q-11 (inicio del plazo y canal de notificación).
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
+- SPEC-001: decisión D17 de `human:ianache`, que fija el inicio del plazo de anonimización en el registro de la baja. Q-11 queda parcialmente respondida; sigue abierto el canal de notificación.
+- Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 

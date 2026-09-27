@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:20:00-05:00"
+  at: "2026-09-27T09:30:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -68,6 +68,7 @@ sources:
 | D14 | Cuando una persona se va, sus **datos personales (PII) se anonimizan**; no se borran los registros | Q-04 (ADB-001 KG-04 en parte) |
 | D15 | La anonimización se ejecuta **a demanda**. Cuando se cumple un **plazo configurable**, la plataforma **notifica al Jefe de Ingeniería**, que decide si anonimiza | Q-09 |
 | D16 | El **código de colaborador** y las **referencias de auditoría** (quién certificó, quién cambió algo) **no se anonimizan** | Q-10 |
+| D17 | El plazo de D15 se cuenta **desde que se registra la baja** de la persona | Q-11 (en parte) |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -154,7 +155,7 @@ sources:
 | CONTACT_MECHANISM (correo, teléfono, URL) y PARTY_CONTACT_MECHANISM | Parte, medio, propósito y plataforma del perfil | `from_date` / `thru_date` |
 | ROLE_LEVEL_ASSIGNMENT | Persona y Rol-Nivel del catálogo; un solo nivel vigente por rol | `from_date` / `thru_date` |
 | ACCESS_IDENTITY | Persona e identificador de Keycloak (0..1) | — |
-| ANONYMIZATION_SETTING | Plazo configurable (por ejemplo, en días) tras el cual se notifica que una persona dada de baja puede anonimizarse (D15) | — |
+| ANONYMIZATION_SETTING | Plazo configurable (por ejemplo, en días), contado desde el registro de la baja (D17), tras el cual se notifica que una persona dada de baja puede anonimizarse (D15) | — |
 | ANONYMIZATION_NOTICE | Aviso generado para una persona cuando vence el plazo: fecha, destinatario (Jefe de Ingeniería) y estado (pendiente, atendido) | — |
 
 **Reglas transversales:**
@@ -218,7 +219,7 @@ sources:
 | Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | Abierta |
 | Q-09 | ¿Cuándo se anonimiza y quién lo ejecuta? | Jefe de Ingeniería + Legal | Alta | **Respondida (D15):** a demanda, con notificación al Jefe de Ingeniería al cumplirse un plazo configurable |
 | Q-10 | ¿La anonimización alcanza al código de colaborador y a las referencias de auditoría? | Jefe de Ingeniería + Legal | Alta | **Respondida (D16):** no |
-| Q-11 | ¿Desde cuándo se cuenta el plazo (se supone que desde la baja) y por qué canal llega la notificación: aviso en la plataforma, correo o ambos? | Jefe de Ingeniería | Media | Abierta |
+| Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Parcialmente respondida (D17):** desde el registro de la baja. Sigue abierto el canal: aviso en la plataforma, correo o ambos |
 
 ## 9. Próximo paso
 
