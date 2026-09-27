@@ -1928,7 +1928,7 @@
         "status": "draft",
         "generated": {
           "by": "superpowers-brainstorming/6.4.1",
-          "at": "2026-09-27T08:45:31-05:00"
+          "at": "2026-09-27T09:05:00-05:00"
         },
         "sources": [
           {
@@ -1996,7 +1996,7 @@
       "node_kind": "heading",
       "norm_label": "3. modelo conceptual (seccion 1)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L68"
+      "source_location": "L70"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_4_datos_de_la_persona_y_la_organizaci\u00f3n_y_ciclo_de_vida_secci\u00f3n_2",
@@ -2008,7 +2008,7 @@
       "node_kind": "heading",
       "norm_label": "4. datos de la persona y la organizacion, y ciclo de vida (seccion 2)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L88"
+      "source_location": "L90"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_5_capacidades_secci\u00f3n_3",
@@ -2020,7 +2020,7 @@
       "node_kind": "heading",
       "norm_label": "5. capacidades (seccion 3)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L116"
+      "source_location": "L120"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_6_1_l\u00f3gico",
@@ -2032,7 +2032,7 @@
       "node_kind": "heading",
       "norm_label": "6.1 logico",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L136"
+      "source_location": "L141"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_6_2_f\u00edsico_mysql_8_0_16_o_superior_y_postgresql_d12",
@@ -2044,7 +2044,7 @@
       "node_kind": "heading",
       "norm_label": "6.2 fisico: mysql 8.0.16 o superior, y postgresql (d12)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L158"
+      "source_location": "L163"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_6_modelo_de_datos_secci\u00f3n_4",
@@ -2056,7 +2056,7 @@
       "node_kind": "heading",
       "norm_label": "6. modelo de datos (seccion 4)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L134"
+      "source_location": "L139"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_7_artefactos_y_verificaci\u00f3n_secci\u00f3n_5",
@@ -2068,7 +2068,7 @@
       "node_kind": "heading",
       "norm_label": "7. artefactos y verificacion (seccion 5)",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L175"
+      "source_location": "L181"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_8_preguntas_abiertas",
@@ -2080,7 +2080,7 @@
       "node_kind": "heading",
       "norm_label": "8. preguntas abiertas",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L194"
+      "source_location": "L200"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_9_pr\u00f3ximo_paso",
@@ -2092,7 +2092,7 @@
       "node_kind": "heading",
       "norm_label": "9. proximo paso",
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L207"
+      "source_location": "L215"
     },
     {
       "id": "knowledge_base_requirement_specs_spec_001_gestion_de_colaboradores_spec_001_gesti\u00f3n_de_colaboradores",
@@ -15077,7 +15077,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L136",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -15088,7 +15088,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L158",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -15099,7 +15099,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L116",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -15110,7 +15110,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L134",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -15121,7 +15121,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L175",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -15132,7 +15132,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L194",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -15143,7 +15143,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L207",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -15176,7 +15176,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L68",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -15187,7 +15187,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md",
-      "source_location": "L88",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -21132,5 +21132,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d193ab5ce1b9eda541ee1c893e2ce515e44fd6e2"
+  "built_at_commit": "c898b07d4b606a6f1396465b4c08836733ba2f56"
 }

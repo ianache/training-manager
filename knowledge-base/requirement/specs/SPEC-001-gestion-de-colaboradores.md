@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:05:00-05:00"
+  at: "2026-09-27T09:20:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -66,6 +66,8 @@ sources:
 | D12 | El modelo físico soporta **MySQL y PostgreSQL**: un único modelo físico con **DDL portable** y **un anexo por motor** con las diferencias | Motor de base de datos (ADB-001 KG-01 en parte) |
 | D13 | El correo laboral de un **contratista** es **el de su proveedor**. El de un empleado es el de COMSATEL | Q-03 |
 | D14 | Cuando una persona se va, sus **datos personales (PII) se anonimizan**; no se borran los registros | Q-04 (ADB-001 KG-04 en parte) |
+| D15 | La anonimización se ejecuta **a demanda**. Cuando se cumple un **plazo configurable**, la plataforma **notifica al Jefe de Ingeniería**, que decide si anonimiza | Q-09 |
+| D16 | El **código de colaborador** y las **referencias de auditoría** (quién certificó, quién cambió algo) **no se anonimizan** | Q-10 |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -102,14 +104,16 @@ sources:
 - **Alta:** se crean la Persona, su código, su identificación, su correo laboral y su rol de Empleado o de Contratista con fecha desde. El vínculo con Keycloak puede quedar vacío.
 - **Cambio:** los datos simples se corrigen. Roles, relaciones, asignaciones y contactos no se sobrescriben: se cierra la vigencia anterior y se abre una nueva.
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
-- **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Cuándo se ejecuta está abierto (Q-09), y si alcanza al código de colaborador y a las referencias de auditoría también (Q-10).
+- **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Se ejecuta **a demanda** del Jefe de Ingeniería; cuando se cumple el plazo configurado, la plataforma le notifica que la persona puede anonimizarse (D15). **No se anonimizan** el código de colaborador ni las referencias de auditoría, así que las certificaciones siguen mostrando quién certificó mediante su código (D16).
+- **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08).
 
 **Validaciones:**
 - La identificación es única por tipo, número y país.
 - El código de colaborador es único.
 - El correo laboral es único entre los colaboradores vigentes.
 - Un contratista tiene una relación de contratación vigente con un proveedor, y su correo laboral es el del proveedor (D13).
-- Una persona anonimizada no se puede volver a identificar ni editar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
+- Una persona anonimizada no se puede volver a identificar ni editar. Su código de colaborador y las referencias de auditoría se conservan (D16).
+- Solo se puede anonimizar a una persona sin roles de Empleado o Contratista vigentes, es decir, ya dada de baja. **Inferencia** a partir de C10; confirmar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
 - De un mismo rol, una persona tiene **un solo nivel vigente** (D6).
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
 
@@ -130,7 +134,8 @@ sources:
 | C7 | Dar de baja: cerrar la vigencia del rol de Empleado o Contratista | Jefe de Ingeniería |
 | C8 | Vincular la identidad de acceso: registrar el identificador de Keycloak | Jefe de Ingeniería |
 | C9 | Consultar la ficha y su historial | Jefe de Ingeniería; el colaborador, la suya |
-| C10 | Anonimizar los datos personales de una persona dada de baja (D14) | Jefe de Ingeniería (propuesta; el disparador está en Q-09) |
+| C10 | Anonimizar los datos personales de una persona dada de baja, a demanda (D14, D15) | Jefe de Ingeniería |
+| C11 | Configurar el plazo tras el cual la plataforma notifica que una persona puede anonimizarse, y recibir esas notificaciones (D15) | Jefe de Ingeniería |
 
 **Qué aporta a lo existente:**
 - **C5** alimenta UXR-004 (perfil) y UXR-005 (brecha), y define el Rol-Nivel del colaborador (P-28).
@@ -149,6 +154,8 @@ sources:
 | CONTACT_MECHANISM (correo, teléfono, URL) y PARTY_CONTACT_MECHANISM | Parte, medio, propósito y plataforma del perfil | `from_date` / `thru_date` |
 | ROLE_LEVEL_ASSIGNMENT | Persona y Rol-Nivel del catálogo; un solo nivel vigente por rol | `from_date` / `thru_date` |
 | ACCESS_IDENTITY | Persona e identificador de Keycloak (0..1) | — |
+| ANONYMIZATION_SETTING | Plazo configurable (por ejemplo, en días) tras el cual se notifica que una persona dada de baja puede anonimizarse (D15) | — |
+| ANONYMIZATION_NOTICE | Aviso generado para una persona cuando vence el plazo: fecha, destinatario (Jefe de Ingeniería) y estado (pendiente, atendido) | — |
 
 **Reglas transversales:**
 - Nada se sobrescribe ni se borra: se cierra la vigencia. La única excepción es la anonimización (D14), que reemplaza los valores de PII y deja registro.
@@ -194,7 +201,7 @@ sources:
 **Verificación:**
 - `check_model.py` sobre IMD-002 y `glossary.py check` sobre el glosario, los dos con 0 errores.
 - Trazabilidad: cada historia cita sus reglas `BR-PTY-*`, y cada tabla cita su entidad lógica y su concepto de IMD-002.
-- El DDL se ejecuta en **MySQL 8 y en PostgreSQL**, junto con las pruebas de: un nivel vigente por rol, identificación única, código único, correo laboral único entre vigentes y anonimización (que no quede PII en ninguna tabla ni vigencia, y que las unicidades ignoren a los anonimizados). Si no hay motores disponibles, por ejemplo Docker, se reporta como verificación pendiente.
+- El DDL se ejecuta en **MySQL 8 y en PostgreSQL**, junto con las pruebas de: un nivel vigente por rol, identificación única, código único, correo laboral único entre vigentes y anonimización (que no quede PII en ninguna tabla ni vigencia, y que las unicidades ignoren a los anonimizados; que se conserven el código y la auditoría, D16; y que se genere el aviso al vencer el plazo, D15). Si no hay motores disponibles, por ejemplo Docker, se reporta como verificación pendiente.
 - Todo queda en `draft`, salvo el ADR-003, que queda Aceptado por decisión del decisor.
 
 ## 8. Preguntas abiertas
@@ -209,8 +216,9 @@ sources:
 | Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media | Abierta |
 | Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media | Abierta |
 | Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | Abierta |
-| Q-09 | ¿Cuándo se anonimiza: en la baja, después de un plazo de retención o a pedido? ¿Lo ejecuta una persona o un proceso? | Jefe de Ingeniería + Legal | Alta | Abierta |
-| Q-10 | ¿La anonimización alcanza también al código de colaborador y a las referencias de auditoría, por ejemplo "quién certificó" cuando el evaluador se va? | Jefe de Ingeniería + Legal | Alta | Abierta |
+| Q-09 | ¿Cuándo se anonimiza y quién lo ejecuta? | Jefe de Ingeniería + Legal | Alta | **Respondida (D15):** a demanda, con notificación al Jefe de Ingeniería al cumplirse un plazo configurable |
+| Q-10 | ¿La anonimización alcanza al código de colaborador y a las referencias de auditoría? | Jefe de Ingeniería + Legal | Alta | **Respondida (D16):** no |
+| Q-11 | ¿Desde cuándo se cuenta el plazo (se supone que desde la baja) y por qué canal llega la notificación: aviso en la plataforma, correo o ambos? | Jefe de Ingeniería | Media | Abierta |
 
 ## 9. Próximo paso
 
