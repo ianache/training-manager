@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:40:00-05:00"
+  at: "2026-09-27T09:50:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -70,6 +70,8 @@ sources:
 | D16 | El **código de colaborador** y las **referencias de auditoría** (quién certificó, quién cambió algo) **no se anonimizan** | Q-10 |
 | D17 | El plazo de D15 se cuenta **desde que se registra la baja** de la persona | Q-11 (en parte) |
 | D18 | Al vencer el plazo, la plataforma **envía automáticamente un correo** al Jefe de Ingeniería (la persona con ese rol vigente en la organización), a los medios de contacto de tipo **correo electrónico** que tenga registrados | Q-11 |
+| D19 | Los correos se envían desde una **cuenta de Gmail empresarial** (Google Workspace) de la empresa | Q-12 |
+| D20 | Se espera **un único Jefe de Ingeniería vigente**. Si hubiera más de uno (no debería suceder), el correo se envía **a todos** los que tengan el rol vigente | Q-13 |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -108,6 +110,7 @@ sources:
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
 - **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Se ejecuta **a demanda** del Jefe de Ingeniería; cuando se cumple el plazo configurado, la plataforma le notifica que la persona puede anonimizarse (D15). **No se anonimizan** el código de colaborador ni las referencias de auditoría, así que las certificaciones siguen mostrando quién certificó mediante su código (D16).
 - **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08).
+- **Riesgo (D19):** el envío depende de una cuenta de Gmail empresarial. Hay que gestionar sus credenciales de forma segura y respetar los límites de envío de la cuenta. Si la cuenta falla, el aviso queda como fallido con reintentos (ANONYMIZATION_NOTICE).
 
 **Validaciones:**
 - La identificación es única por tipo, número y país.
@@ -115,7 +118,8 @@ sources:
 - El correo laboral es único entre los colaboradores vigentes.
 - Un contratista tiene una relación de contratación vigente con un proveedor, y su correo laboral es el del proveedor (D13).
 - Una persona anonimizada no se puede volver a identificar ni editar. Su código de colaborador y las referencias de auditoría se conservan (D16).
-- El correo de aviso se envía a todos los medios de contacto de tipo correo electrónico vigentes de **todas** las personas con rol vigente de Jefe de Ingeniería. Que sean todas es una **inferencia**, porque la decisión habla de "la persona"; confirmar (Q-13). Si no hay ningún Jefe de Ingeniería con correo vigente, el aviso queda registrado como no enviado.
+- El correo de aviso se envía a todos los medios de contacto de tipo correo electrónico vigentes de las personas con rol vigente de Jefe de Ingeniería. Se espera una sola; si hay más, se envía a todas (D20). Si no hay ningún Jefe de Ingeniería con correo vigente, el aviso queda registrado como no enviado.
+- **Propuesta del agente (no es decisión):** al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma avisa sin impedirlo, porque se espera uno solo (D20).
 - Solo se puede anonimizar a una persona sin roles de Empleado o Contratista vigentes, es decir, ya dada de baja. **Inferencia** a partir de C10; confirmar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
 - De un mismo rol, una persona tiene **un solo nivel vigente** (D6).
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
@@ -222,8 +226,9 @@ sources:
 | Q-09 | ¿Cuándo se anonimiza y quién lo ejecuta? | Jefe de Ingeniería + Legal | Alta | **Respondida (D15):** a demanda, con notificación al Jefe de Ingeniería al cumplirse un plazo configurable |
 | Q-10 | ¿La anonimización alcanza al código de colaborador y a las referencias de auditoría? | Jefe de Ingeniería + Legal | Alta | **Respondida (D16):** no |
 | Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Respondida (D17, D18):** desde el registro de la baja, por correo automático al Jefe de Ingeniería |
-| Q-12 | ¿Qué servicio de envío de correo usa la plataforma (SMTP corporativo u otro)? Es una dependencia nueva de la arquitectura | Arquitecto responsable | Media | Abierta |
-| Q-13 | Si hay varias personas con rol vigente de Jefe de Ingeniería, ¿el correo va a todas? | Jefe de Ingeniería | Baja | Abierta |
+| Q-12 | ¿Qué servicio de envío de correo usa la plataforma? | Arquitecto responsable | Media | **Respondida (D19):** cuenta de Gmail empresarial de la empresa |
+| Q-13 | Si hay varias personas con rol vigente de Jefe de Ingeniería, ¿el correo va a todas? | Jefe de Ingeniería | Baja | **Respondida (D20):** se espera una sola; si hay más, a todas |
+| Q-14 | ¿Cómo se autentica la plataforma ante la cuenta de Gmail empresarial (OAuth con cuenta de servicio, contraseña de aplicación u otro) y dónde se guardan esas credenciales? | Arquitecto responsable | Media | Abierta |
 
 ## 9. Próximo paso
 

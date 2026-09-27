@@ -96,4 +96,6 @@ sources:
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 - SPEC-001: decisión D18 de `human:ianache`. Al vencer el plazo, la plataforma envía un correo automático al Jefe de Ingeniería (la persona con ese rol vigente), a sus medios de contacto de tipo correo electrónico. Q-11 queda respondida. ANONYMIZATION_NOTICE registra ahora los destinatarios y el estado del envío. Preguntas nuevas: Q-12 (servicio de envío de correo, una dependencia de arquitectura) y Q-13 (si el correo va a todos los Jefes de Ingeniería vigentes).
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
+- SPEC-001: decisiones D19 y D20 de `human:ianache`. D19: los correos se envían desde una cuenta de Gmail empresarial de la empresa (Q-12). D20: se espera un único Jefe de Ingeniería vigente y, si hay más de uno, el correo va a todos (Q-13). Se agregaron el riesgo de la dependencia de la cuenta de Gmail, la propuesta de avisar al asignar un segundo Jefe de Ingeniería vigente y la pregunta Q-14 (autenticación ante Gmail y custodia de las credenciales).
+- Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 
