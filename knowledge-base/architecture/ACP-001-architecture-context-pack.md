@@ -124,7 +124,7 @@ Hoy no hay integraciones documentadas entre estos sistemas relevantes para la pl
 
 ## Security landscape
 
-- **Identidad y autenticación:** UNKNOWN. No se conoce el proveedor de identidad corporativo (KG-03).
+- **Identidad y autenticación:** decidido en ADR-002 (2026-09-27): Keycloak, integrado en el BFF mediante PKCE. Siguen UNKNOWN el origen de los usuarios y sus roles (KG-03).
 - **Autorización:** 7 actores (VIS-001:L37-L51) con permisos distintos según BRC-001 (BR-CAT-04, BR-ACR-02, BR-REQ-02). Que los permisos dependan también del ámbito (proyecto propio) es una INFERENCE a partir de "su proyecto" (L42; asr-BR-ACR-02). La visibilidad de datos ajenos está sin definir (P-08), igual que quiénes son los evaluadores (RCP-Q1) y si pueden certificar a su propio equipo (P-09).
 - **Acceso a sistemas externos:** INFERENCE a partir de las integraciones requeridas: hará falta algún mecanismo de acceso autorizado a Classroom, Drive, GitLab y docsuite. Ninguno está documentado (UNKNOWN).
 - **Límites de confianza:** la plataforma es interna (VIS-001:L29). Si los datos de GitLab pueden cruzar a un servicio de IA externo es UNKNOWN (CF-01).
@@ -173,7 +173,12 @@ No se encontraron estándares corporativos de arquitectura, desarrollo, segurida
 
 ## Existing ADR
 
-No se encontró ningún ADR (UNKNOWN, KG-01). Este pack no crea ninguno.
+Al construir el pack no existía ningún ADR (KG-01), y este pack no creó ninguno. El 2026-09-27 se registraron dos ADR por decisión de `human:ianache`:
+
+- [ADR-001](/knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md): shell y microUIs en Angular, y BFF en Node.js intermediario con los microservicios.
+- [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md): autenticación en el BFF con Keycloak y PKCE.
+
+Responden en parte KG-01 (tecnologías) y KG-03 (proveedor de identidad). El AS-IS corporativo sigue sin reconstruir, y el pack sigue NOT READY_FOR_ARQ_102.
 
 ## Architecture debt
 

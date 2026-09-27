@@ -104,6 +104,8 @@ La disposición de cada candidato es **obligatoriamente humana**. Las sugerencia
 | asr-BR-CAT-06 | INVESTIGATE | Pendiente | | | |
 | asr-US-014 | CANDIDATE | Pendiente | | | |
 
+**Decisiones registradas (2026-09-27):** [ADR-001](/knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md) define la estructura: shell y microUIs en Angular, y BFF en Node.js intermediario con los microservicios. [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md) define la autenticación: Keycloak y PKCE en el BFF, y atiende en parte asr-BR-ACR-02. Ninguno cambia la disposición de los candidatos.
+
 - [ ] El arquitecto revisó los candidatos y registró su disposición
 - [ ] Se revisaron los candidatos descartados
 - [ ] Los vacíos ASR-KG-01 a ASR-KG-04 tienen responsable y fecha

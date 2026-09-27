@@ -3,6 +3,7 @@ type: ASR Candidate
 title: "ASR candidato — Identidad y autorización por rol (BR-ACR-02)"
 description: "Siete actores con permisos distintos sobre catálogo, requerimientos, certificaciones y perfiles, con una fuente de identidad todavía desconocida."
 tags: [asr, seguridad, autorizacion, identidad, roles]
+related: [ADR-002, ADR-001]
 status: draft
 generated:
   by: "asr-discovery/1.0"
@@ -68,6 +69,10 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 
 1. ¿Existe un proveedor de identidad corporativo obligatorio?
 2. ¿Los roles se administran en la plataforma o vienen de un sistema externo?
+
+## Decisiones que lo atienden
+
+- [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md), Aceptado, 2026-09-27, `human:ianache`: Keycloak es el proveedor de identidad, integrado en el BFF de Node.js mediante PKCE. Atiende **en parte** este candidato: responde la pregunta 1 (proveedor de identidad). Siguen abiertos el modelo de roles y permisos, la visibilidad de datos ajenos (P-08) y el origen de los usuarios (KG-03). El candidato sigue sin disposición.
 
 ## Disposición humana
 

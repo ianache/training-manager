@@ -84,7 +84,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | Pregunta | Responsable | Prioridad | Estado |
 |---|---|---|---|
 | P-01 — ¿Qué evidencia mínima exige cada nivel L1–L4? | Jefe de Ingeniería | Alta | Respondida en lo esencial (ianache (Jefe de Ingeniería), 2026-09-26): BR-ACR-07 |
-| P-22 — ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Jefe de Ingeniería | Alta | Nueva |
+| P-22 — ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): evidencia concreta dentro de una de las tres categorías (BR-ACR-08) |
 | P-23 — ¿El evaluador puede aceptar una evidencia equivalente a la definida? | Jefe de Ingeniería | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): se exigen todas las evidencias definidas (BR-ACR-09); las equivalencias siguen abiertas |
 | RCP-Q1 — ¿Quiénes son los evaluadores y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol |
 | P-09 — ¿Qué hace Gestión de formación / RR. HH. en la certificación? ¿Un evaluador puede certificar a su propio equipo? | Responsable de producto | Media | Abierta (BRC-001) |

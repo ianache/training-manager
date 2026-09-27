@@ -30,16 +30,37 @@ sources:
     resource: /knowledge-base/architecture/AIM-001-matriz-impacto-arquitectura.md
   - id: acp-001
     resource: /knowledge-base/architecture/ACP-001-architecture-context-pack.md
+  - id: adr-001
+    resource: /knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md
+  - id: adr-002
+    resource: /knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md
 ---
 
 # Índice de la base de conocimiento
 
 ## Arquitectura
 
+- [ADR-001 — Estructura: shell y microUIs en Angular, BFF en Node.js](architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md) — Aceptado (`human:ianache`), `draft`
+- [ADR-002 — Autenticación en el BFF con Keycloak y PKCE](architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md) — Aceptado (`human:ianache`), `draft`
 - [ACP-001 — Architecture Context Pack](architecture/ACP-001-architecture-context-pack.md) — DRAFT, no READY_FOR_ARQ_102
 - [AIM-001 — Matriz de impacto de arquitectura](architecture/AIM-001-matriz-impacto-arquitectura.md) — `draft`
 - [ADB-001 — Descubrimiento de arquitectura](architecture/ADB-001-descubrimiento-arquitectura-plataforma.md) — Architecture Discovery Brief, `draft`
 - [Catálogo de candidatos ASR](architecture/asr/asr-catalog.md) — 9 candidatos pendientes de disposición del arquitecto, `draft`
+
+## Diseño — Requisitos UX
+
+- [UXR-000 — Requisitos UX transversales de la plataforma](design/ux-requirements/UXR-000-requisitos-ux-transversales.md) — `draft`
+- [UXR-001 — Gestionar el catálogo de roles y competencias](design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md) — `draft`
+- [UXR-002 — Declarar un requerimiento de proyecto](design/ux-requirements/UXR-002-declarar-requerimiento-de-proyecto.md) — `draft`
+- [UXR-003 — Certificar un nivel de competencia](design/ux-requirements/UXR-003-certificar-un-nivel-de-competencia.md) — `draft`
+- [UXR-004 — Consultar mi perfil de competencias](design/ux-requirements/UXR-004-consultar-mi-perfil-de-competencias.md) — `draft`
+- [UXR-005 — Ver mi brecha frente a un Rol-Nivel](design/ux-requirements/UXR-005-ver-mi-brecha-frente-a-un-rol-nivel.md) — `draft`
+- [UXR-006 — Buscar candidatos para un requerimiento](design/ux-requirements/UXR-006-buscar-candidatos-para-un-requerimiento.md) — `draft`
+
+## Diseño — Generaciones Stitch
+
+- [GEN-001 — Diseño Google Stitch del catálogo de roles y competencias (UXR-001)](design/stitch/GEN-001-catalogo-de-roles-y-competencias.md) — exploratorio, `draft`
+- [GEN-002 — Diseño Google Stitch del shell y los estados transversales (UXR-000)](design/stitch/GEN-002-shell-y-estados-transversales.md) — exploratorio, `draft`
 
 ## Negocio — Modelo de información
 

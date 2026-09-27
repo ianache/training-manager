@@ -171,9 +171,9 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 
 | Priority | Question | Why it matters | Required evidence |
 |---|---|---|---|
-| 1 | ¿Dónde se aloja la plataforma y qué estándares y tecnologías corporativas son obligatorios? | Condiciona todas las decisiones posteriores | Estándares de arquitectura de COMSATEL, ADR existentes |
+| 1 | ¿Dónde se aloja la plataforma y qué estándares y tecnologías corporativas son obligatorios? | Condiciona todas las decisiones posteriores | Estándares de arquitectura de COMSATEL, ADR existentes Parcialmente respondida: la tecnología y la estructura están en ADR-001 (Angular, Node.js, microUIs, BFF, microservicios); el alojamiento sigue abierto |
 | 2 | ¿Pueden los datos de GitLab procesarse con un servicio de IA externo? | Define si la IA puede procesar datos fuera del perímetro interno (CF-01) | Política de IA / seguridad de la información |
-| 3 | ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? | Autenticación, autorización y datos maestros | Inventario de sistemas de identidad y de RR. HH. |
+| 3 | ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? | Autenticación, autorización y datos maestros | Inventario de sistemas de identidad y de RR. HH. Parcialmente respondida: el proveedor es Keycloak, integrado en el BFF (ADR-002); el origen de los colaboradores y sus roles sigue abierto |
 | 4 | ¿Qué normativa de datos personales aplica y quién ve qué? | Autorización a nivel de dato, auditoría de accesos | Normativa aplicable; respuesta a P-08 |
 | 5 | ¿El historial y la evidencia deben conservarse con copia o basta la referencia externa, y por cuánto tiempo? ¿Una certificación vence o se revoca (P-14)? | Persistencia, trazabilidad y retención | Política de retención; requisitos de auditoría; respuesta a P-14 |
 | 6 | ¿De dónde salen los proyectos y sus Líderes? | Posible integración adicional con GitLab | Respuesta a US2-Q1 |

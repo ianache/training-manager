@@ -1,0 +1,69 @@
+---
+type: UX Requirement
+title: "UXR-002 — Declarar un requerimiento de proyecto"
+description: "Lo que el Jefe de proyecto necesita para declarar qué Rol-Nivel y qué competencias necesita su proyecto."
+tags: [ux-ui, ux-requirement, requerimientos, h1]
+status: draft
+generated:
+  by: "ux-requirements-analyzer/1.0"
+  at: "2026-09-27T00:42:35-05:00"
+sources:
+  - id: us-002
+    resource: /knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md
+  - id: brc-001
+    resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
+  - id: imd-001
+    resource: /knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md
+---
+
+# UXR-002 — Declarar un requerimiento de proyecto
+
+## Trazabilidad
+
+- **Historia:** [US-002](../../requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md), criterio AC-1.
+- **Reglas:** BR-REQ-01, BR-REQ-02, BR-REQ-06 a BR-REQ-09, BR-CAT-08, BR-CAT-14.
+- **Conceptos (IMD-001):** Proyecto, Requerimiento, Rol, Nivel de rol, Competencia, Nivel requerido.
+- **Actor:** [Jefe de proyecto](../../business/glossary/terms/TRM-0038-lider-de-proyecto.md).
+- **Transversal:** [UXR-000](UXR-000-requisitos-ux-transversales.md).
+
+## Objetivo del usuario
+
+Decir qué perfil necesita su proyecto, con la precisión suficiente para encontrar personas certificadas.
+
+## Necesidades de información
+
+| ID | El usuario necesita ver… | Fuente |
+|---|---|---|
+| UXR-002.1 | Su proyecto y el producto al que pertenece | BR-REQ-01 |
+| UXR-002.2 | Los roles del catálogo y sus Rol-Nivel, sea cual sea el producto | BR-CAT-08 |
+| UXR-002.3 | Para el Rol-Nivel elegido, sus competencias con el nivel L1–L4 esperado, en solo lectura porque vienen del catálogo | BR-REQ-06, BR-CAT-14 |
+| UXR-002.4 | Los requerimientos que ya declaró para su proyecto | BR-REQ-01, BR-REQ-02 |
+
+## Acciones
+
+| ID | El usuario puede… | Fuente |
+|---|---|---|
+| UXR-002.5 | Elegir un rol y un nivel de rol | BR-REQ-08 |
+| UXR-002.6 | Pedir todas o algunas de las competencias de ese Rol-Nivel. **Condicionado a P-38** | BR-REQ-07; AMB-06 |
+| UXR-002.7 | Guardar el requerimiento asociado a su proyecto | AC-1 |
+
+## Reglas que la interfaz debe hacer visibles
+
+- Solo se ofrecen competencias del Rol-Nivel elegido. Pedir una competencia de fuera del rol no es posible (BR-REQ-09).
+- Los niveles L1–L4 no se editan en el requerimiento: vienen del catálogo (BR-REQ-06).
+
+## Estados
+
+- **Vacío:** el proyecto no tiene requerimientos todavía.
+- **Sin proyectos:** el usuario no es jefe de ningún proyecto.
+- **Sin permiso** y **error:** según UXR-000.
+
+## Preguntas abiertas
+
+| ID | Pregunta | Responsable | Prioridad |
+|---|---|---|---|
+| P-38 | ¿Se pueden pedir solo algunas competencias del Rol-Nivel o siempre todas? Define si la selección de competencias existe en la interfaz | Jefe de Ingeniería | Alta |
+| US2-Q1 | ¿De dónde salen los proyectos y su jefe? Define cómo se elige el proyecto | Responsable de producto | Alta |
+| US2-Q2 | ¿Solo el jefe de ese proyecto declara sus requerimientos? | Responsable de producto | Media |
+| US2-Q3 | ¿Un requerimiento indica cuántas personas se necesitan? | Responsable de producto | Baja |
+| P-11 | ¿Qué estados tiene un proyecto? | Responsable de producto | Media |
