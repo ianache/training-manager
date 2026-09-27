@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:30:00-05:00"
+  at: "2026-09-27T09:40:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -69,6 +69,7 @@ sources:
 | D15 | La anonimización se ejecuta **a demanda**. Cuando se cumple un **plazo configurable**, la plataforma **notifica al Jefe de Ingeniería**, que decide si anonimiza | Q-09 |
 | D16 | El **código de colaborador** y las **referencias de auditoría** (quién certificó, quién cambió algo) **no se anonimizan** | Q-10 |
 | D17 | El plazo de D15 se cuenta **desde que se registra la baja** de la persona | Q-11 (en parte) |
+| D18 | Al vencer el plazo, la plataforma **envía automáticamente un correo** al Jefe de Ingeniería (la persona con ese rol vigente en la organización), a los medios de contacto de tipo **correo electrónico** que tenga registrados | Q-11 |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -114,6 +115,7 @@ sources:
 - El correo laboral es único entre los colaboradores vigentes.
 - Un contratista tiene una relación de contratación vigente con un proveedor, y su correo laboral es el del proveedor (D13).
 - Una persona anonimizada no se puede volver a identificar ni editar. Su código de colaborador y las referencias de auditoría se conservan (D16).
+- El correo de aviso se envía a todos los medios de contacto de tipo correo electrónico vigentes de **todas** las personas con rol vigente de Jefe de Ingeniería. Que sean todas es una **inferencia**, porque la decisión habla de "la persona"; confirmar (Q-13). Si no hay ningún Jefe de Ingeniería con correo vigente, el aviso queda registrado como no enviado.
 - Solo se puede anonimizar a una persona sin roles de Empleado o Contratista vigentes, es decir, ya dada de baja. **Inferencia** a partir de C10; confirmar. Las reglas de unicidad (identificación, código y correo) ignoran a las personas anonimizadas.
 - De un mismo rol, una persona tiene **un solo nivel vigente** (D6).
 - Colaborador = persona con un rol vigente de Empleado o de Contratista (D7).
@@ -136,7 +138,7 @@ sources:
 | C8 | Vincular la identidad de acceso: registrar el identificador de Keycloak | Jefe de Ingeniería |
 | C9 | Consultar la ficha y su historial | Jefe de Ingeniería; el colaborador, la suya |
 | C10 | Anonimizar los datos personales de una persona dada de baja, a demanda (D14, D15) | Jefe de Ingeniería |
-| C11 | Configurar el plazo tras el cual la plataforma notifica que una persona puede anonimizarse, y recibir esas notificaciones (D15) | Jefe de Ingeniería |
+| C11 | Configurar el plazo tras el cual se notifica que una persona puede anonimizarse (D15, D17). Al vencer, la plataforma envía un correo automático al Jefe de Ingeniería (D18) | Jefe de Ingeniería (configura); la plataforma (envía) |
 
 **Qué aporta a lo existente:**
 - **C5** alimenta UXR-004 (perfil) y UXR-005 (brecha), y define el Rol-Nivel del colaborador (P-28).
@@ -156,7 +158,7 @@ sources:
 | ROLE_LEVEL_ASSIGNMENT | Persona y Rol-Nivel del catálogo; un solo nivel vigente por rol | `from_date` / `thru_date` |
 | ACCESS_IDENTITY | Persona e identificador de Keycloak (0..1) | — |
 | ANONYMIZATION_SETTING | Plazo configurable (por ejemplo, en días), contado desde el registro de la baja (D17), tras el cual se notifica que una persona dada de baja puede anonimizarse (D15) | — |
-| ANONYMIZATION_NOTICE | Aviso generado para una persona cuando vence el plazo: fecha, destinatario (Jefe de Ingeniería) y estado (pendiente, atendido) | — |
+| ANONYMIZATION_NOTICE | Aviso generado para una persona cuando vence el plazo: fecha, destinatarios (las personas con rol vigente de Jefe de Ingeniería y sus correos, D18), estado del aviso (pendiente, atendido) y estado del envío del correo (enviado, fallido, con reintentos) | — |
 
 **Reglas transversales:**
 - Nada se sobrescribe ni se borra: se cierra la vigencia. La única excepción es la anonimización (D14), que reemplaza los valores de PII y deja registro.
@@ -219,7 +221,9 @@ sources:
 | Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | Abierta |
 | Q-09 | ¿Cuándo se anonimiza y quién lo ejecuta? | Jefe de Ingeniería + Legal | Alta | **Respondida (D15):** a demanda, con notificación al Jefe de Ingeniería al cumplirse un plazo configurable |
 | Q-10 | ¿La anonimización alcanza al código de colaborador y a las referencias de auditoría? | Jefe de Ingeniería + Legal | Alta | **Respondida (D16):** no |
-| Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Parcialmente respondida (D17):** desde el registro de la baja. Sigue abierto el canal: aviso en la plataforma, correo o ambos |
+| Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Respondida (D17, D18):** desde el registro de la baja, por correo automático al Jefe de Ingeniería |
+| Q-12 | ¿Qué servicio de envío de correo usa la plataforma (SMTP corporativo u otro)? Es una dependencia nueva de la arquitectura | Arquitecto responsable | Media | Abierta |
+| Q-13 | Si hay varias personas con rol vigente de Jefe de Ingeniería, ¿el correo va a todas? | Jefe de Ingeniería | Baja | Abierta |
 
 ## 9. Próximo paso
 

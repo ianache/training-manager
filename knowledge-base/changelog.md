@@ -94,4 +94,6 @@ sources:
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 - SPEC-001: decisión D17 de `human:ianache`, que fija el inicio del plazo de anonimización en el registro de la baja. Q-11 queda parcialmente respondida; sigue abierto el canal de notificación.
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
+- SPEC-001: decisión D18 de `human:ianache`. Al vencer el plazo, la plataforma envía un correo automático al Jefe de Ingeniería (la persona con ese rol vigente), a sus medios de contacto de tipo correo electrónico. Q-11 queda respondida. ANONYMIZATION_NOTICE registra ahora los destinatarios y el estado del envío. Preguntas nuevas: Q-12 (servicio de envío de correo, una dependencia de arquitectura) y Q-13 (si el correo va a todos los Jefes de Ingeniería vigentes).
+- Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 
