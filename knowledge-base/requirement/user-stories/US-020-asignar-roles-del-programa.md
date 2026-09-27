@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c6, roles-del-programa]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T12:05:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -38,7 +38,7 @@ sources:
 
 ## 3. Contexto y valor
 
-- **Problema que resuelve:** no estaba definido quién designa a los evaluadores (RCP-Q1); el Evaluador y el Jefe de Ingeniería gestionan el programa (BR-PRG-01).
+- **Problema que resuelve:** no estaba definido quién designa a los evaluadores (RCP-Q1); el Evaluador y el Jefe de Ingeniería gestionan el programa (BR-PRG-01). Desde el 2026-09-27 (P-31) son solo gestores del programa y por ahora quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas (BR-PRG-02, EVD-2026-0105).
 - **Valor esperado:** roles del programa vigentes e históricos, y un único Jefe de Ingeniería esperado.
 - **Métrica o KPI que impacta:** Sin métrica asociada.
 
@@ -95,13 +95,15 @@ Escenario: Avisar sin bloquear
 | Asignar a una persona dada de baja o sin rol de Empleado o Contratista | Sin regla | US-020-Q2 |
 | El mismo rol del programa dos veces vigente para la misma persona | Sin regla | US-020-Q2 |
 | Usuario que no es Jefe de Ingeniería | No puede | BR-PTY-17 |
+| Asignar el rol del programa no crea una evaluación ni un perfil a evaluar para esa persona | Por ahora, los gestores del programa quedan fuera del proceso de evaluación | BR-PRG-02; EVD-2026-0105 |
 
 ## 7. Reglas de negocio aplicables
 
 | ID | Regla | Fuente |
 |---|---|---|
 | BR-PTY-03 | Roles de la parte Evaluador y Jefe de Ingeniería | BRC-001 |
-| BR-PRG-01 | Evaluador y Jefe de Ingeniería gestionan el programa | BRC-001 §Transparencia |
+| BR-PRG-01 | Evaluador y Jefe de Ingeniería gestionan el programa; son solo gestores (revisada el 2026-09-27) | BRC-001 §Transparencia |
+| BR-PRG-02 | Por ahora quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas | BRC-001 §Transparencia |
 | BR-PTY-12 | Vigencias y auditoría | BRC-001 |
 | BR-PTY-17 | Permiso | BRC-001 |
 | BR-PTY-18 | Único Jefe de Ingeniería esperado; aviso sin bloqueo | BRC-001 |
@@ -140,6 +142,7 @@ Escenario: Avisar sin bloquear
 | US-020-Q1 | ¿Se puede cerrar el rol del único Jefe de Ingeniería vigente? | Jefe de Ingeniería | Media | No | Abierta |
 | US-020-Q2 | ¿Los roles del programa exigen ser colaborador vigente? | Jefe de Ingeniería | Baja | No | Abierta |
 | US-020-Q3 | ¿Cómo se registra el primer Jefe de Ingeniería? | Jefe de Ingeniería + ARQ | Media | No | Abierta |
+| P-31 | ¿El Evaluador y el Jefe de Ingeniería tienen perfil de competencias como colaboradores? | Jefe de Ingeniería | Baja | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son solo gestores del programa y por ahora quedan fuera de la evaluación (BR-PRG-01, BR-PRG-02) |
 
 ## 13. Evidencia y trazabilidad
 
@@ -148,6 +151,7 @@ Escenario: Avisar sin bloquear
 | EVD-2026-0078 | Roles de la parte del programa | SPEC-001:L87 (D5) | decision | high |
 | EVD-2026-0092 | Único Jefe de Ingeniería esperado | SPEC-001:L74 (D20) | decision | high |
 | EVD-2026-0093 | Aviso sin impedir el segundo | SPEC-001:L75 (D21) | decision | high |
+| EVD-2026-0105 | El Evaluador y el Jefe de Ingeniería son solo gestores del programa; por ahora quedan fuera del proceso de evaluación, aunque su rol tiene competencias definidas | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-31 | decision | high |
 
 Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
 
@@ -186,7 +190,7 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** READY
-- **Motivo:** asignación, cierre y aviso sostenidos por BR-PTY-03, 12, 17, 18 y BR-PRG-01; las preguntas abiertas no bloquean.
+- **Motivo:** asignación, cierre y aviso sostenidos por BR-PTY-03, 12, 17, 18, BR-PRG-01 y BR-PRG-02; las preguntas abiertas no bloquean.
 - **Bloqueos de entrega:** US-015.
 - **Propuesta de división (si no es pequeña):** No aplica.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.

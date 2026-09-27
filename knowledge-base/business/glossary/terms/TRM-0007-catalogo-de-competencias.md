@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T22:50:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T22:50:00-05:00"
@@ -39,4 +39,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Jefe de Ingeniería](TRM-0036-jefe-de-ingenieria.md) · [Rol](TRM-0055-rol.md) · [Competencia](TRM-0014-competencia.md) · [Nivel requerido](TRM-0043-nivel-requerido.md) · [Horizonte](TRM-0031-horizonte.md)
-- **Notas:** Definición revisada el 2026-09-26 por decisión de ianache (Jefe de Ingeniería): catálogo único (BR-CAT-07), común a los productos (BR-CAT-08), con competencias por nivel de rol (BR-CAT-10) y evidencias por competencia y nivel (BR-ACR-07 a BR-ACR-09). VIS-001 lo describía por producto (BRC-001 AMB-04). El versionado sigue abierto (P-02).
+- **Notas:** Definición revisada el 2026-09-26 por decisión de ianache (Jefe de Ingeniería): catálogo único (BR-CAT-07), común a los productos (BR-CAT-08), con competencias por nivel de rol (BR-CAT-10) y evidencias por competencia y nivel (BR-ACR-07 a BR-ACR-09). VIS-001 lo describía por producto (BRC-001 AMB-04). El versionado sigue abierto (P-02). Desde el 2026-09-27 (ianache, Jefe de Ingeniería): el Jefe de Ingeniería define los requisitos de evidencia de cada competencia y nivel (BR-CAT-16, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L160), cada uno declarado requerido o deseado (BR-ACR-12), y los define de forma progresiva (BR-CAT-17); los niveles de rol los define cada rol al registrarse (BR-CAT-09). La definición aprobada sigue siendo compatible.

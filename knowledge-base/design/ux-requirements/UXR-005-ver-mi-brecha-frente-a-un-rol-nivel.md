@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, brecha, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T00:42:35-05:00"
+  at: "2026-09-27T14:10:00-05:00"
 sources:
   - id: us-005
     resource: /knowledge-base/requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md
@@ -20,8 +20,8 @@ sources:
 
 ## Trazabilidad
 
-- **Historia:** [US-005](../../requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md), criterio AC-1.
-- **Reglas:** BR-BRE-01, BR-CAT-14.
+- **Historia:** [US-005](../../requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md), criterios AC-1 y AC-2.
+- **Reglas:** BR-BRE-01, BR-BRE-04, BR-CAT-14.
 - **Conceptos (IMD-001):** Brecha (derivado), Nivel requerido, Nivel certificado, Nivel de rol.
 - **Actor:** [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md).
 - **Transversal:** [UXR-000](UXR-000-requisitos-ux-transversales.md).
@@ -40,11 +40,12 @@ Saber qué le falta para un Rol-Nivel.
 
 ## Acciones
 
-- **UXR-005.3:** elegir el Rol-Nivel con el que compararse. Qué Rol-Nivel puede elegir está abierto (P-15).
+- **UXR-005.3:** ver su brecha frente a un Rol-Nivel. No declara un rol al que aspira: su rol y nivel los asigna el Jefe de Ingeniería (BR-BRE-04; P-15 respondida). Si puede elegir otro Rol-Nivel (el siguiente de su rol u otros roles) o solo ve el asignado está abierto (P-43); de eso depende que exista un selector.
 
 ## Reglas que la interfaz debe hacer visibles
 
 - La diferencia se muestra por competencia (BR-BRE-01), en texto y no solo con color (UXR-000.3).
+- El colaborador solo ve sus propias brechas; no hay acceso a las de otros ni a las agregadas (BR-BRE-04, BR-BRE-06).
 
 ## Estados
 
@@ -56,6 +57,7 @@ Saber qué le falta para un Rol-Nivel.
 
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
-| P-15 | ¿Con qué Rol-Nivel puede compararse el colaborador: el siguiente de su rol, cualquiera, uno al que aspira? | Responsable de producto | Alta |
+| ~~P-15~~ | ~~¿Con qué Rol-Nivel puede compararse el colaborador?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no declara un rol al que aspira; ve sus propias brechas (BR-BRE-04) | Jefe de Ingeniería | — |
+| P-43 | ¿Contra qué Rol-Nivel ve su brecha: el asignado, el siguiente de su rol o ambos? ¿Puede ver brechas de otros roles? Define si hay selector | Jefe de Ingeniería | Alta |
 | P-12 | ¿Cómo se muestra la brecha sin nivel certificado o con nivel superior al esperado? | Jefe de Ingeniería | Media |
 | UXR-005-Q1 | ¿Desde la brecha se ofrece un camino a formación (cursos del nivel)? Es H2 (BR-FOR-01, US-009) y no se diseña en H1 | Responsable de producto | Baja |

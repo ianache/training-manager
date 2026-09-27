@@ -6,7 +6,7 @@ tags: [information-model, conceptual, party, colaboradores, master-data, anonimi
 status: draft
 generated:
   by: "af-conceptual-model-designer/1.0"
-  at: "2026-09-27T11:30:00-05:00"
+  at: "2026-09-27T13:45:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -24,7 +24,7 @@ sources:
 
 > **Qué es y qué no es:** es un modelo **conceptual**. Muestra qué conceptos de negocio existen y cómo se relacionan. **No** es un modelo de datos: no define tablas, atributos técnicos, identificadores ni persistencia (eso corresponde a `data-model-designer`, que parte de este modelo y de SPEC-001 §6).
 >
-> **Procedencia:** [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) §2 a §5 (decisiones D1 a D24 de ianache, Jefe de Ingeniería, 2026-09-27), las reglas BR-PTY-01 a BR-PTY-18 de [BRC-001](../rules/BRC-001-reglas-plataforma-gestion-formacion.md) (evidencias EVD-2026-0076 a EVD-2026-0095), el glosario [GLS-001](../glossary/GLS-001-glosario-de-negocio.md) (términos TRM-0070 a TRM-0098) y [IMD-001](IMD-001-modelo-de-informacion-conceptual.md) para los conceptos del catálogo y la certificación. Todas las fuentes están en `draft`. La alineación con el patrón Party del Universal Data Model es una decisión de SPEC-001 (D5) cuya correspondencia con la fuente original no se verificó (SPEC-001 Q-07). En los diagramas, las relaciones marcadas **(inf.)** son inferencias y **(card. inf.)** indica que solo la cardinalidad es inferida. El detalle de cada relación está en la sección 5.
+> **Procedencia:** [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) §2 a §5 (decisiones D1 a D24 de ianache, Jefe de Ingeniería, 2026-09-27), las reglas BR-PTY-01 a BR-PTY-18 de [BRC-001](../rules/BRC-001-reglas-plataforma-gestion-formacion.md) (evidencias EVD-2026-0076 a EVD-2026-0095), el glosario [GLS-001](../glossary/GLS-001-glosario-de-negocio.md) (términos TRM-0070 a TRM-0098) y [IMD-001](IMD-001-modelo-de-informacion-conceptual.md) para los conceptos del catálogo y la certificación. Todas las fuentes están en `draft`. La alineación con el patrón Party del Universal Data Model es una decisión de SPEC-001 (D5) cuya correspondencia con la fuente original no se verificó (SPEC-001 Q-07). En los diagramas, las relaciones marcadas **(inf.)** son inferencias y **(card. inf.)** indica que solo la cardinalidad es inferida. El detalle de cada relación está en la sección 6. También el 2026-09-27 se incorporaron las decisiones EVD-2026-0103 y EVD-2026-0105 de BRC-001 (ianache, Jefe de Ingeniería, en respuesta a P-28 y P-31): nivel inicial de Rol-Nivel al registrar a un colaborador (BR-PRF-02) y Evaluador y Jefe de Ingeniería como solo gestores del programa, fuera del proceso de evaluación (BR-PRG-01 revisada, BR-PRG-02).
 >
 > - **Alcance:** información maestra de colaboradores (empleados y contratistas), personas que cumplen roles del programa, organizaciones (COMSATEL, sus unidades y los proveedores), su historial por vigencias, el vínculo con Keycloak, la asignación de Rol-Nivel y la anonimización.
 > - **Consumidor previsto:** `data-model-designer` (modelo lógico y físico de SPEC-001 §6), `af-user-story-refiner` (historias C1 a C11) y los responsables humanos (Jefe de Ingeniería).
@@ -130,8 +130,8 @@ erDiagram
 | Rol | ROL | Rol del catálogo de competencias, modelado en IMD-001; no es un rol de la parte | Vínculos (IMD-001) | [TRM-0055](../glossary/terms/TRM-0055-rol.md) | SPEC-001:L98; BR-CAT-08 | H1 |
 | Empleado | EMPLEADO | Rol de la parte de una persona con relación de empleo con la organización interna | Roles | [TRM-0075](../glossary/terms/TRM-0075-empleado.md) | BR-PTY-03, BR-PTY-04, BR-PTY-05 | H1 (inf.) |
 | Contratista | CONTRATISTA | Rol de la parte de una persona externa con relación de contratación vigente con un proveedor | Roles | [TRM-0076](../glossary/terms/TRM-0076-contratista.md) | BR-PTY-03, BR-PTY-10 | H1 (inf.) |
-| Evaluador | EVALUADOR | Rol de la parte de una persona que revisa evidencias y certifica | Roles | [TRM-0021](../glossary/terms/TRM-0021-evaluador.md) (revisar definición: GQ-20) | BR-PTY-03; BR-PRG-01 | H1 |
-| Jefe de Ingeniería | JEFE_DE_INGENIERIA | Rol de la parte de la persona que mantiene la información maestra; se espera uno solo vigente | Roles | [TRM-0036](../glossary/terms/TRM-0036-jefe-de-ingenieria.md) (revisar definición: GQ-19) | BR-PTY-03, BR-PTY-17, BR-PTY-18 | H1 |
+| Evaluador | EVALUADOR | Rol de la parte de una persona que revisa evidencias y certifica; es solo gestor del programa y por ahora queda fuera del proceso de evaluación | Roles | [TRM-0021](../glossary/terms/TRM-0021-evaluador.md) (revisar definición: GQ-20, GQ-31) | BR-PTY-03; BR-PRG-01, BR-PRG-02 | H1 |
+| Jefe de Ingeniería | JEFE_DE_INGENIERIA | Rol de la parte de la persona que mantiene la información maestra; se espera uno solo vigente; es solo gestor del programa y por ahora queda fuera del proceso de evaluación | Roles | [TRM-0036](../glossary/terms/TRM-0036-jefe-de-ingenieria.md) (revisar definición: GQ-19) | BR-PTY-03, BR-PTY-17, BR-PTY-18; BR-PRG-01, BR-PRG-02 | H1 |
 | Organización interna | ORGANIZACION_INTERNA | Rol de la parte de COMSATEL, con la que los empleados tienen relación de empleo | Roles | [TRM-0078](../glossary/terms/TRM-0078-organizacion-interna.md) | SPEC-001:L35; BR-PTY-03 | H1 (inf.) |
 | Unidad organizacional | UNIDAD_ORGANIZACIONAL | Rol de la parte de una unidad interna; forma una jerarquía y agrupa personas | Roles | [TRM-0079](../glossary/terms/TRM-0079-unidad-organizacional.md) | SPEC-001:L35; BR-PTY-03, BR-PTY-04 | H1 (inf.) |
 | Proveedor | PROVEEDOR | Rol de la parte de una organización externa con la que se contratan contratistas | Roles | [TRM-0077](../glossary/terms/TRM-0077-proveedor.md) | SPEC-001:L36; BR-PTY-03, BR-PTY-10 | H1 (inf.) |
@@ -168,8 +168,8 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción razonada
 | R-13 | Una persona puede tener varios perfiles profesionales en línea, cada uno en una plataforma de una lista ampliable; no son evidencia de nivel | 1 : 0..N | FACT | BR-PTY-09; SPEC-001:L108 | SPEC-001 Q-05 (P-08) |
 | R-14 | Una persona tiene cero o una identidad de acceso | 1 : 0..1 | FACT | BR-PTY-16; SPEC-001:L92 | — |
 | R-15 | Una identidad de acceso identifica a un usuario de Keycloak | 1 : 1 | FACT (relación) · INFERENCE (cardinalidad: un usuario de Keycloak se vincula con una sola persona) | BR-PTY-16; SPEC-001:L58 | IM-Q6 |
-| R-16 | Una persona tiene asignaciones de Rol-Nivel, cada una con vigencia | 1 : 0..N | FACT | BR-PTY-11, BR-PTY-12; SPEC-001:L91 | BRC-001 P-28 |
-| R-17 | Una asignación de Rol-Nivel es de un nivel de rol del catálogo | N : 1 | FACT | BR-PTY-11; SPEC-001:L91 | BRC-001 P-28 |
+| R-16 | Una persona tiene asignaciones de Rol-Nivel, cada una con vigencia | 1 : 0..N (un colaborador, 1..N desde su registro: R-29) | FACT | BR-PTY-11, BR-PTY-12; SPEC-001:L91 | BRC-001 P-28 (respondida), BRC-001 P-42 |
+| R-17 | Una asignación de Rol-Nivel es de un nivel de rol del catálogo | N : 1 | FACT | BR-PTY-11; SPEC-001:L91 | BRC-001 P-28 (respondida), BRC-001 P-42 |
 | R-18 | Una persona puede tener varios roles del catálogo asignados, con un solo nivel vigente por rol; cambiar de nivel cierra la asignación anterior | Por persona y rol: 0..1 asignación vigente; por persona: 0..N roles | FACT (decisión SPEC-001 D6) | BR-PTY-11 | — |
 | R-19 | Se espera una sola persona con rol vigente de Jefe de Ingeniería; si se asigna un segundo, la plataforma avisa sin impedirlo | 1 esperado; 0..N permitido | FACT (decisión SPEC-001 D20, D21) | BR-PTY-18 | — |
 | R-20 | Una persona dada de baja puede ser objeto de una anonimización, irreversible, que registra quién y cuándo | 1 : 0..1 | FACT (relación y registro, SPEC-001:L115) · INFERENCE (condición: solo personas dadas de baja, SPEC-001:L127) | BR-PTY-14; SPEC-001:L115, L127 | GQ-26, IM-Q4 |
@@ -180,7 +180,8 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción razonada
 | R-25 | La baja cierra la vigencia del rol de Empleado o de Contratista; la persona no se borra | — (cambio de vigencia sobre R-02) | FACT | BR-PTY-13; SPEC-001:L114 | IM-Q1, IM-Q4 |
 | R-26 | Una persona recibe certificaciones, que necesitan conservarla aunque se dé de baja | 1 : N | FACT (IMD-001 R-05) | BR-PTY-13, BR-ACR-03; SPEC-001:L114 | — |
 | R-27 | Una certificación registra quién la firmó; tras la anonimización lo sigue mostrando por su código de colaborador, que no se anonimiza | N : 1 | FACT (decisión SPEC-001 D16) | BR-PTY-14, BR-ACR-03; SPEC-001:L115 | — |
-| R-28 | Un evaluador o un Jefe de Ingeniería es también un colaborador | UNKNOWN | UNKNOWN: los roles del programa son roles de la parte de una persona (BR-PTY-03), pero las fuentes no dicen si esa persona debe tener un rol vigente de Empleado o de Contratista | BR-PTY-03, BR-PTY-05 | IM-Q3 (BRC-001 P-31) |
+| R-28 | Un evaluador o un Jefe de Ingeniería es también un colaborador | UNKNOWN | UNKNOWN: los roles del programa son roles de la parte de una persona (BR-PTY-03), pero las fuentes no dicen si esa persona debe tener un rol vigente de Empleado o de Contratista. Desde el 2026-09-27 (respuesta a P-31, BR-PRG-01, BR-PRG-02) es FACT que son solo gestores del programa y que por ahora quedan fuera del proceso de evaluación, aunque "sus roles también tienen competencias definidas"; eso no dice si deben ser colaboradores | BR-PTY-03, BR-PTY-05, BR-PRG-01, BR-PRG-02 | IM-Q3, IM-Q7 (BRC-001 P-31, respondida) |
+| R-29 | Al registrar a un colaborador se le asigna un nivel inicial del rol que se le asigna (su primera asignación de Rol-Nivel); después se evalúa la evolución de sus competencias del rol por cursos o desempeño en proyectos | Por colaborador: 1..N asignaciones de Rol-Nivel desde su registro | FACT (relación, decisión ianache (Jefe de Ingeniería), 2026-09-27, respuesta a P-28) · INFERENCE (cardinalidad: la asignación inicial se hace al registrar, así que todo colaborador tiene al menos una) | BR-PRF-02, BR-PTY-11 | BRC-001 P-42, IM-Q4 |
 
 ## 7. Reglas que actúan sobre el modelo
 
@@ -205,7 +206,9 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción razonada
 | BR-PTY-17 | Información maestra | La mantiene el Jefe de Ingeniería; el colaborador edita solo sus perfiles profesionales y su teléfono laboral (permiso: no se modela aquí) |
 | BR-PTY-18 | Jefe de Ingeniería | Se espera uno solo vigente; un segundo se avisa sin impedirlo |
 | BR-PRF-01 | Asignación de Rol-Nivel | Al colaborador le es asignado un rol; puede tener varios, con un nivel vigente por rol |
-| BR-PRG-01 | Evaluador, Jefe de Ingeniería | Gestionan todo el programa de formación |
+| BR-PRF-02 | Asignación de Rol-Nivel | Al registrar a un colaborador se le asigna un nivel inicial del rol; su evolución se evalúa después por cursos o desempeño en proyectos |
+| BR-PRG-01 | Evaluador, Jefe de Ingeniería | Gestionan todo el programa de formación; son solo gestores |
+| BR-PRG-02 | Evaluador, Jefe de Ingeniería | Por ahora quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas |
 | BR-ACR-03 | Certificación | Registra quién certificó, cuándo y con qué evidencia |
 | SPEC-001:L127 (inferencia, sin BR-*) | Anonimización | Solo se anonimiza a una persona sin roles vigentes de Empleado o Contratista (a confirmar: GQ-26) |
 
@@ -217,29 +220,32 @@ Se reutilizan las preguntas de SPEC-001 (Q-nn), BRC-001 (P-nn) y el glosario (GQ
 |---|---|---|---|---|
 | IM-Q1 | ¿El plazo de anonimización se cuenta desde el momento en que se registra la baja o desde la fecha hasta del rol de Empleado o de Contratista, si son distintas (por ejemplo, una baja registrada con fecha pasada o futura)? | R-22, R-25 | Jefe de Ingeniería | Media |
 | IM-Q2 | ¿Una persona puede pertenecer a más de una unidad organizacional, tener más de un jefe directo o más de una relación de contratación vigentes al mismo tiempo? | R-06, R-07, R-09 | Jefe de Ingeniería | Media |
-| IM-Q3 | ¿Un evaluador o un Jefe de Ingeniería debe ser colaborador (tener un rol vigente de Empleado o de Contratista)? | R-28 | Jefe de Ingeniería | Media |
+| IM-Q3 | ¿Un evaluador o un Jefe de Ingeniería debe ser colaborador (tener un rol vigente de Empleado o de Contratista)? | R-28 | Jefe de Ingeniería | Media — sigue abierta. P-31 se respondió el 2026-09-27 (solo gestores, fuera de la evaluación, BR-PRG-02), pero no dice si deben ser colaboradores |
 | IM-Q4 | Al registrar la baja de una persona, ¿se cierran también sus roles vigentes de Evaluador o de Jefe de Ingeniería y sus asignaciones de Rol-Nivel? ¿Una persona con esos roles vigentes puede anonimizarse? | R-20, R-25 | Jefe de Ingeniería | Media |
 | IM-Q5 | ¿Se genera un solo aviso por persona dada de baja, o se vuelve a avisar si el Jefe de Ingeniería no lo atiende? | R-23 | Jefe de Ingeniería | Baja |
 | IM-Q6 | ¿Hace falta un término de glosario para "usuario de Keycloak", o basta con Keycloak e Identidad de acceso? | R-15; Glosario | Jefe de Ingeniería | Baja |
+| IM-Q7 | BR-PRG-02 dice que los roles de Evaluador y de Jefe de Ingeniería "también tienen competencias definidas". Aquí son roles de la parte (BR-PTY-03), no roles del catálogo. ¿Existen también como roles del catálogo con sus Rol-Nivel y competencias, que se asignan con la asignación de Rol-Nivel? | R-28, R-17 | Jefe de Ingeniería | Media |
 | SPEC-001 Q-01 | ¿Cómo se genera el código de colaborador? (GQ-22) | Persona | Jefe de Ingeniería | Media |
 | SPEC-001 Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? (GQ-23) | R-09 | Jefe de Ingeniería | Media |
 | SPEC-001 Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08; permiso, no se modela aquí) | R-13 | Responsable de producto | Alta |
 | SPEC-001 Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (GQ-25) | R-01 a R-04, R-16 | Arquitecto responsable | Media |
-| BRC-001 P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? (parcialmente respondida: el nivel de rol se asigna, BR-PTY-11) | R-16, R-17 | Jefe de Ingeniería | Alta |
+| BRC-001 P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | R-16, R-17, R-29 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): al registrar al colaborador se asigna un nivel inicial según su rol, y su evolución se evalúa después por cursos o desempeño en proyectos (BR-PRF-02) |
+| BRC-001 P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol (quién lo decide, o si se deduce de las competencias certificadas)? | R-16, R-17, R-29 | Jefe de Ingeniería | Alta |
 
 ## 9. Historial de cambios del modelo
 
 | Fecha | Cambio | Relaciones o conceptos afectados | Fuente |
 |---|---|---|---|
 | 2026-09-27 | Alta del modelo: 23 conceptos registrados, 3 derivados y 28 relaciones; IM-Q1 a IM-Q6 nuevas | R-01 a R-28; todos los conceptos | SPEC-001 (D1 a D24), BRC-001 BR-PTY-01 a BR-PTY-18 (EVD-2026-0076 a 0095), GLS-001 TRM-0070 a TRM-0098 |
+| 2026-09-27 | P-28 y P-31 respondidas por ianache (Jefe de Ingeniería), 2026-09-27: alta de R-29 (nivel inicial de Rol-Nivel al registrar a un colaborador); R-16 y R-17 remiten a P-42; R-28 sigue UNKNOWN con la nueva decisión anotada; Evaluador y Jefe de Ingeniería, solo gestores y fuera de la evaluación; reglas BR-PRF-02 y BR-PRG-02; IM-Q7 nueva | R-16, R-17, R-28, R-29; Evaluador, Jefe de Ingeniería, Asignación de Rol-Nivel | BR-PRF-02, BR-PRG-01, BR-PRG-02 (EVD-2026-0103, 0105) |
 
 ## 10. Preparación y validación
 
 - **Estado:** CONDITIONAL para pasar a `data-model-designer`
 - **Motivo:** el núcleo de partes, los tipos de rol y de relación, la asignación de Rol-Nivel, el vínculo con Keycloak y la anonimización están sostenidos por decisiones humanas registradas (SPEC-001 D2 a D24, BR-PTY-01 a BR-PTY-18), pero SPEC-001, BRC-001 y los términos TRM-0070 a TRM-0098 siguen en `draft`, y la correspondencia con el UDM no está verificada (Q-07). Las cardinalidades de R-02, R-04 a R-09, R-11, R-12, R-15, R-22 y R-23 son inferencias. Ninguna pregunta abierta bloquea el modelo lógico de SPEC-001 §6, que ya fija las mismas vigencias y unicidades; IM-Q1, IM-Q2 e IM-Q4 pueden cambiar validaciones.
 - **Validación por bloque:**
-  - [ ] Núcleo de partes y roles — Jefe de Ingeniería — IM-Q2, IM-Q3, Q-01, Q-02
-  - [ ] Vínculos (Keycloak y Rol-Nivel) — Jefe de Ingeniería — P-28, IM-Q6
+  - [ ] Núcleo de partes y roles — Jefe de Ingeniería — IM-Q2, IM-Q3, IM-Q7, Q-01, Q-02
+  - [ ] Vínculos (Keycloak y Rol-Nivel) — Jefe de Ingeniería — P-42, IM-Q6
   - [ ] Baja y anonimización — Jefe de Ingeniería (y Legal para la anonimización) — IM-Q1, IM-Q4, IM-Q5, GQ-26
   - [ ] Correspondencia con el UDM — Arquitecto responsable — Q-07
-- **Inferencias a aceptar o rechazar:** R-20 (solo personas dadas de baja) y las cardinalidades de R-02, R-04 a R-09, R-11, R-12, R-15, R-22 y R-23
+- **Inferencias a aceptar o rechazar:** R-20 (solo personas dadas de baja) y las cardinalidades de R-02, R-04 a R-09, R-11, R-12, R-15, R-22, R-23 y R-29

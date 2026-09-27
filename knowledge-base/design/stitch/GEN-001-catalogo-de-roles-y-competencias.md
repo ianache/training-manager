@@ -6,7 +6,7 @@ tags: [ux-ui, stitch, generation-prompt, catalogo, h1]
 status: draft
 generated:
   by: "stitch-ui-generator/1.0"
-  at: "2026-09-27T01:05:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: uxr-001
     resource: /knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md
@@ -78,12 +78,15 @@ Revisé cada pantalla contra UXR-001, UXR-000, las reglas BR-* y el glosario. **
 | F-08 | SCR-003 | Pie: "**Los cambios guardados se aplicarán de inmediato a los perfiles vinculados**". Esto decide el comportamiento ante cambios del catálogo, que está abierto (P-02) | **Alta** | Stitch | Quitar hasta resolver P-02 |
 | F-09 | SCR-003 | "**Evidencias** configuradas para L2" mezcla evidencia y requisito de evidencia (BR-ACR-11; TRM-0068) | **Alta** | Stitch | Usar "Requisitos de evidencia de L2" |
 | F-10 | SCR-003 | Ejemplo "Certificación JUnit o informe de cobertura" y ayuda "vía de validación institucional": sin fuente | Baja | Stitch | Sustituir por un texto neutro |
-| F-11 | SCR-003 | Rúbrica y requisitos aparecen como secciones separadas de una misma vista. Es una propuesta: si la rúbrica contiene los requisitos está abierto (P-37) | Media | Prompt del agente | Pregunta P-37 |
+| F-11 | SCR-003 | Rúbrica y requisitos aparecen como secciones separadas de una misma vista. Es una propuesta. P-37 quedó respondida el 2026-09-27 (la rúbrica describe el logro verificable, que se verifica con evidencias; BR-CAT-15, BR-CAT-19); que sean cosas distintas es una inferencia a confirmar, compatible con esta separación | Media | Prompt del agente | Confirmar la inferencia de P-37 |
 | F-12 | Todas | Solo escritorio; no hay variantes para móvil | Media | Supuesto | Pregunta UXR-Q2 |
+| F-13 | SCR-002 | Pestañas fijas "Nivel 1 a 4". Desde el 2026-09-27 no hay una cantidad general de niveles de rol: cada rol define los suyos y sus nombres al registrarse, por ejemplo Developer Junior (Nivel 1) a (Nivel 3) (BR-CAT-09, P-36) | **Alta** | Prompt del agente (siguió UXR-001 anterior) | Regenerar con una cantidad variable de niveles y sus nombres |
+| F-14 | SCR-003 | Los requisitos de evidencia no se marcan como "requerida" o "deseada" (BR-ACR-12, UXR-001.11) | **Alta** | Regla posterior al diseño (2026-09-27) | Agregar la marca en cada requisito |
+| F-15 | SCR-003 | No distingue los niveles L1–L4 que aún no tienen requisitos de evidencia; la definición es progresiva (BR-CAT-17, UXR-001.5b) | Media | Regla posterior al diseño (2026-09-27) | Mostrar el estado "sin requisitos" sin tratarlo como error (P-39) |
 
 **Qué cumple:**
 - Los 7 roles iniciales.
-- Rol-Nivel 1 a 4.
+- ~~Rol-Nivel 1 a 4.~~ Ya no cumple: la cantidad de niveles la define cada rol (F-13).
 - Selector L1–L4 con los nombres correctos.
 - Error y botón "Guardar" deshabilitado cuando una competencia no tiene nivel (BR-CAT-03).
 - Aviso de impacto de las competencias compartidas (BR-CAT-07).
@@ -100,13 +103,14 @@ Revisé cada pantalla contra UXR-001, UXR-000, las reglas BR-* y el glosario. **
 |---|---|---|---|
 | GEN-001-Q1 | ¿Las competencias se clasifican en tipos, además de "transversal"? Si sí, ¿cuáles? El agente usó "Técnica" sin fuente | Jefe de Ingeniería | Media |
 | P-02 | ¿Qué pasa con los perfiles y los requerimientos vigentes cuando cambia el catálogo? Define el texto del pie (F-08) | Jefe de Ingeniería | Alta |
-| P-36 | ¿Cómo se nombran los Rol-Nivel: Junior/Senior y números? Las pestañas dicen "Nivel 1 a 4" | Jefe de Ingeniería | Alta |
-| P-37 | ¿Rúbrica y requisitos de evidencia se editan juntos? | Jefe de Ingeniería | Alta |
+| ~~P-36~~ | ~~¿Cómo se nombran los Rol-Nivel?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse (BR-CAT-09). Ver F-13 | Jefe de Ingeniería | — |
+| ~~P-37~~ | ~~¿Rúbrica y requisitos de evidencia se editan juntos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la rúbrica describe el logro verificable y la define y aprueba el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19). Que sean cosas distintas es una inferencia a confirmar (BRC-001) | Jefe de Ingeniería | Media |
+| P-39 | ¿Se puede exigir o certificar un nivel sin requisitos de evidencia definidos? Define el estado de F-15 | Jefe de Ingeniería | Alta |
 | UXR-Q2, UXR-Q4 | ¿Qué dispositivos se usan? ¿Hay un design system corporativo? | Responsable de producto / Jefe de Ingeniería | Alta |
 
 ## Próximos pasos propuestos (no son decisiones)
 
-1. Corregir F-01 a F-10 regenerando o editando las pantallas en Stitch.
+1. Corregir F-01 a F-10 y F-13 a F-15 regenerando o editando las pantallas en Stitch. El diseño es exploratorio; F-13 a F-15 vienen de decisiones del 2026-09-27, posteriores a la generación.
 2. Pasar `accessibility-reviewer` sobre el HTML exportado.
 3. Validar las pantallas con el Jefe de Ingeniería.
 4. Con las pantallas validadas, identificar los componentes con `web-atomic-component-designer`, que era el objetivo inicial.

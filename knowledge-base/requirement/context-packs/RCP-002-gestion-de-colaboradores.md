@@ -6,7 +6,7 @@ tags: [context-pack, requirements, colaboradores, party, master-data, anonimizac
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-27T11:30:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -39,7 +39,7 @@ Que la plataforma sea el sistema de registro de las personas que participan del 
 
 Resultado observable:
 - Cada colaborador existe una sola vez, con código, identificación, correo laboral y rol de Empleado o Contratista vigente.
-- El Rol-Nivel asignado alimenta el perfil (US-004) y la brecha (US-005) (SPEC-001:L152).
+- El Rol-Nivel asignado alimenta el perfil (US-004) y la brecha (US-005) (SPEC-001:L152). El nivel inicial se asigna en el alta (BR-PRF-02).
 - Los datos personales de quien se va se anonimizan a demanda, sin perder el historial ni los KPI (D14, D15).
 
 ### Incluido
@@ -90,6 +90,7 @@ No se consultaron GDrive, GitLab ni *The Data Model Resource Book* (Q-07).
 | E-02 | Solo se guarda el identificador de Keycloak (0 o 1); no se aprovisionan usuarios. | S-01:L58 (D4); EVD-2026-0077; BR-PTY-16 | Decisión humana | Alta |
 | E-03 | Patrón Party: parte, rol de la parte, relación, identificación, medio de contacto; Asignación de Rol-Nivel aparte. | S-01:L59, L80-L92 (D5); EVD-2026-0078 | Decisión humana | Alta |
 | E-04 | Varios Rol-Nivel por persona, un nivel vigente por rol. | S-01:L60 (D6); EVD-2026-0079; BR-PTY-11 | Decisión humana | Alta |
+| E-04b | Al registrar un colaborador se le asigna un nivel inicial del rol; la evolución se evalúa después por cursos o desempeño en proyectos. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27 (P-28); EVD-2026-0103; BR-PRF-02 | Decisión humana | Alta |
 | E-05 | Colaborador = persona con rol vigente de Empleado o Contratista. | S-01:L61 (D7); EVD-2026-0080; BR-PTY-05 | Decisión humana | Alta |
 | E-06 | Perfiles profesionales en línea como medio de contacto; no son evidencia de nivel. | S-01:L62, L131-L133 (D8); EVD-2026-0081; BR-PTY-09 | Decisión humana | Alta |
 | E-07 | Código de colaborador único y obligatorio. | S-01:L63 (D9); EVD-2026-0082; BR-PTY-06 | Decisión humana | Alta |
@@ -145,7 +146,8 @@ Todos provienen de decisiones del decisor o de propuestas aprobadas en SPEC-001;
 | RCP2-Q2 | ¿Qué pasa con las asignaciones de Rol-Nivel, los roles del programa y las relaciones vigentes al dar de baja? ¿Se cierran también? | Negocio (Jefe de Ingeniería) | Media | Nueva |
 | RCP2-Q3 | ¿Qué valor tiene el plazo por defecto y qué rango es válido? | Negocio (Jefe de Ingeniería) | Media | Nueva |
 | RCP2-Q4 | ¿Una persona externa que no es colaboradora (por ejemplo, un contacto del proveedor) se registra en esta feature? SPEC-001 incluye "personas externas" solo como contratistas. | Negocio (Jefe de Ingeniería) | Baja | Nueva |
-| P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida (BRC-001) |
+| P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): al registrar al colaborador se le asigna un nivel inicial de su rol, sin certificaciones previas; después se evalúa su evolución por cursos o desempeño en proyectos (BR-PRF-02, EVD-2026-0103). El alta (US-015) incluye el nivel inicial |
+| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? | Negocio (Jefe de Ingeniería) | Alta | Nueva (BRC-001, derivada de P-28); afecta a C5 (US-019) |
 
 ## 8. Actores, procesos, datos y dependencias
 

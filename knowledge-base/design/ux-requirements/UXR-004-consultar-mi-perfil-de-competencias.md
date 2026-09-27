@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, perfil, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T00:42:35-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: us-004
     resource: /knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md
@@ -56,6 +56,6 @@ Saber qué nivel tiene certificado en cada competencia y con qué respaldo.
 
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
-| P-28 | ¿El perfil muestra un nivel de rol (por ejemplo, Developer Junior 2)? No está definido si el colaborador tiene uno | Jefe de Ingeniería | Alta |
+| P-28 | ¿El perfil muestra un nivel de rol (por ejemplo, Developer Junior 2)? Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el colaborador tiene un nivel de rol, asignado al registrarlo (BR-PRF-02). Si el perfil lo muestra es una decisión de UX pendiente | Jefe de Ingeniería | Media |
 | P-33 | ¿Un colaborador tiene uno o varios roles asignados? | Jefe de Ingeniería | Alta |
 | UXR-004-Q1 | ¿El perfil muestra también las competencias exigidas por su rol que todavía no tiene certificadas? Eso se acerca a la brecha (UXR-005) | Responsable de producto | Media |

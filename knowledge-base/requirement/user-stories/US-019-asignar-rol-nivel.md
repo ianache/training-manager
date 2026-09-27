@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c5, rol-nivel]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T12:00:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -27,7 +27,7 @@ sources:
 | Horizonte / release | H1 (alimenta perfil y brecha, SPEC-001:L152) |
 | Actor | [Jefe de Ingeniería](../../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md) |
 | Responsable de negocio (PO) | Jefe de Ingeniería |
-| Prioridad | Must: la brecha (US-005) necesita el Rol-Nivel del colaborador (P-28) |
+| Prioridad | Must: la brecha (US-005) necesita el Rol-Nivel del colaborador (P-28, BR-PRF-02) |
 | Estimación | |
 | Dependencias | US-001 (catálogo de Rol-Nivel), US-015 |
 | Preparación | CONDITIONAL |
@@ -38,7 +38,7 @@ sources:
 
 ## 3. Contexto y valor
 
-- **Problema que resuelve:** no estaba definido si un colaborador tiene un nivel de rol ni quién lo asigna (P-28, P-33).
+- **Problema que resuelve:** no estaba definido si un colaborador tiene un nivel de rol ni quién lo asigna (P-28, P-33). P-28 quedó respondida el 2026-09-27: al registrarlo se le asigna un nivel inicial del rol (en el alta, US-015) y después se evalúa su evolución por cursos o desempeño en proyectos (BR-PRF-02). Esta historia cubre las asignaciones y los cambios de nivel posteriores al alta.
 - **Valor esperado:** cada persona tiene su nivel vigente por rol, con historial de cambios.
 - **Métrica o KPI que impacta:** KPI 3 Cierre de brechas, de forma indirecta (RCP-001 §2).
 
@@ -104,8 +104,10 @@ Escenario: Conservar asignaciones anteriores
 |---|---|---|
 | Dos niveles vigentes del mismo rol | No puede ocurrir: asignar otro nivel cierra el anterior | BR-PTY-11 |
 | Rol-Nivel que no existe en el catálogo | Se rechaza (solo Rol-Nivel del catálogo) | SPEC-001:L91 |
+| Nivel que el rol no define (por ejemplo, un Nivel 4 en un rol registrado con tres niveles) | Se rechaza: cada rol define sus propios niveles al registrarse | BR-CAT-09; EVD-2026-0100, EVD-2026-0101 |
 | Asignar a una persona sin rol vigente de Empleado o Contratista | Sin regla | US-019-Q1 |
-| Asignar un nivel sin competencias certificadas que lo respalden | Sin regla | P-28 |
+| Asignar el nivel inicial sin competencias certificadas | Se permite: el nivel inicial se asigna al registrar y la evolución se evalúa después | BR-PRF-02; EVD-2026-0103 |
+| Cambiar a un nivel superior sin competencias certificadas que lo respalden | Sin regla: no está definido cómo se decide el paso al siguiente nivel | P-42 |
 | Persona anonimizada | No se edita | BR-PTY-14 |
 | Usuario que no es Jefe de Ingeniería | No puede | BR-PTY-17 |
 
@@ -115,8 +117,11 @@ Escenario: Conservar asignaciones anteriores
 |---|---|---|
 | BR-PTY-11 | Varios Rol-Nivel, un nivel vigente por rol; cambiar de nivel cierra el anterior | BRC-001 |
 | BR-PRF-01 | Al colaborador se le asigna un rol; puede tener varios | BRC-001 §Transparencia |
+| BR-PRF-02 | Nivel inicial del rol al registrar; la evolución se evalúa después por cursos o desempeño en proyectos | BRC-001 §Transparencia |
 | BR-CAT-13 | Jefe de proyecto es un Rol-Nivel del catálogo | BRC-001 §Catálogo |
-| BR-CAT-14 | Rol-Nivel 1 a 4 con nivel L1–L4 esperado por competencia | BRC-001 §Catálogo |
+| BR-CAT-09 | Cada rol define sus niveles al registrarse; no hay una cantidad general (revisada el 2026-09-27) | BRC-001 §Catálogo |
+| BR-CAT-14 | Cada Rol-Nivel fija el nivel L1–L4 esperado de sus competencias (revisada el 2026-09-27: ya no "niveles 1 a 4") | BRC-001 §Catálogo |
+| BR-CAT-18 | Escala salarial, MOF y criterios de nivel (años de experiencia, formación técnica) fuera de alcance | BRC-001 §Catálogo |
 | BR-PTY-12 | Vigencias y auditoría | BRC-001 |
 | BR-PTY-17 | Permiso | BRC-001 |
 
@@ -151,8 +156,10 @@ Escenario: Conservar asignaciones anteriores
 
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
-| P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Jefe de Ingeniería | Alta | Sí (si exige validación al asignar) | Parcialmente respondida |
-| P-36 | ¿Cómo se combinan Junior/Senior con 1 a 4? | Jefe de Ingeniería | Alta | No (lo resuelve el catálogo, US-001) | Abierta |
+| P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Jefe de Ingeniería | Alta | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el nivel inicial se asigna al registrar, sin certificaciones previas, y la evolución se evalúa después (BR-PRF-02). Ver P-42 |
+| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Jefe de Ingeniería | Alta | Sí (si el cambio de nivel exige validación o se deduce) | Nueva (BRC-001, derivada de P-28) |
+| P-36 | ¿Cómo se combinan Junior/Senior con 1 a 4? | Jefe de Ingeniería | Alta | No (lo resuelve el catálogo, US-001) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse, por ejemplo Developer Junior (Nivel 1) a (Nivel 3) (BR-CAT-09) |
+| P-40 | ¿La plataforma registra los criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | No (la asignación no valida esos criterios) | Nueva (BRC-001) |
 | US-019-Q1 | ¿Se puede asignar Rol-Nivel a una persona que no es colaborador vigente? | Jefe de Ingeniería | Media | No | Abierta |
 
 ## 13. Evidencia y trazabilidad
@@ -162,6 +169,9 @@ Escenario: Conservar asignaciones anteriores
 | EVD-2026-0079 | Varios roles, un nivel vigente por rol | SPEC-001:L60 (D6) | decision | high |
 | EVD-2026-0078 | Asignación de Rol-Nivel como entidad aparte | SPEC-001:L59 (D5) | decision | high |
 | EVD-2026-0084 | La asigna el Jefe de Ingeniería | SPEC-001:L65 (D11) | decision | high |
+| EVD-2026-0100 | No hay una cantidad general de niveles de rol; se definen al registrar cada rol | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-26 | decision | high |
+| EVD-2026-0101 | Ejemplo de niveles de un rol: Developer Junior (Nivel 1), (Nivel 2) y (Nivel 3) | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-36 | decision | high |
+| EVD-2026-0103 | Al registrar un colaborador se le asigna un nivel inicial según el rol; después se evalúa su evolución por cursos o desempeño en proyectos | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-28 | decision | high |
 
 Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
 
@@ -175,7 +185,7 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 | Independiente | Parcial | Necesita el catálogo (US-001) y personas (US-015) |
 | Negociable | Sí | Justificación con certificaciones abierta |
 | Valiosa | Sí | Habilita perfil y brecha |
-| Estimable | Parcial | P-28 puede agregar validaciones |
+| Estimable | Parcial | P-42 puede agregar validaciones al cambiar de nivel |
 | Pequeña (Small) | Sí | Asignar y cambiar nivel |
 | Testeable | Sí | Criterios verificables |
 
@@ -201,9 +211,9 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** CONDITIONAL
-- **Motivo:** asignación y cambio de nivel sostenidos por BR-PTY-11; P-28 puede agregar una condición al asignar.
+- **Motivo:** asignación y cambio de nivel sostenidos por BR-PTY-11 y BR-PRF-02 (P-28 respondida el 2026-09-27). Sigue CONDITIONAL porque P-42 (cómo se decide el paso al siguiente nivel) puede agregar una condición al cambiar de nivel.
 - **Bloqueos de entrega:** US-001 y US-015.
 - **Propuesta de división (si no es pequeña):** No aplica.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería responde P-28 y valida la historia.
+- **Decisión humana requerida:** el Jefe de Ingeniería responde P-42 y valida la historia.
 - **Validación:** Pendiente · Responsable: Jefe de Ingeniería · Fecha: —

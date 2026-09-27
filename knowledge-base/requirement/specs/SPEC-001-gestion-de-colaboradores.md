@@ -149,7 +149,7 @@ sources:
 | C11 | Configurar el plazo tras el cual se notifica que una persona puede anonimizarse (D15, D17). Al vencer, la plataforma envía un correo automático al Jefe de Ingeniería (D18) | Jefe de Ingeniería (configura); la plataforma (envía) |
 
 **Qué aporta a lo existente:**
-- **C5** alimenta UXR-004 (perfil) y UXR-005 (brecha), y define el Rol-Nivel del colaborador (P-28).
+- **C5** alimenta UXR-004 (perfil) y UXR-005 (brecha), y define el Rol-Nivel del colaborador (P-28). *Nota 2026-09-27: P-28 quedó respondida (ianache (Jefe de Ingeniería)); el nivel inicial se asigna al registrar al colaborador (BR-PRF-02, EVD-2026-0103) y queda abierto cómo se decide el paso al siguiente nivel (P-42), ver BRC-001.*
 - **C1 y C8** resuelven de dónde salen los colaboradores y su vínculo con Keycloak (VIS-001 §11.4, KG-03).
 
 ## 6. Modelo de datos (sección 4)

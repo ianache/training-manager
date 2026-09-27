@@ -6,7 +6,7 @@ tags: [context-pack, requirements, h1, catalogo, certificacion, brechas]
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-27T10:45:00-05:00"
+  at: "2026-09-27T14:10:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -79,7 +79,7 @@ H1 crea ese "idioma común". Sus piezas son cuatro:
 VIS-001 pone H1 primero porque, sin catálogo, ni la formación (H2) ni la IA (H3) tienen contra qué medir (VIS-001:L136).
 
 Las reglas del catálogo, la certificación y el cálculo de brecha están sostenidas por la visión y ya tienen términos aprobados en el glosario. Quedan abiertos cinco puntos que bloquean parte de la especificación:
-- El **detalle del tipo de evidencia** por competencia y nivel (P-22). P-01 quedó respondida en lo esencial con BR-ACR-07.
+- ~~El **detalle del tipo de evidencia** por competencia y nivel (P-22)~~: respondida y confirmada el 2026-09-27 (evidencia concreta, BR-ACR-08); cada requisito se declara requerida o deseada (BR-ACR-12) y lo define el Jefe de Ingeniería de forma progresiva (BR-CAT-16, BR-CAT-17). Queda abierto qué pasa con un nivel que aún no tiene requisitos definidos (P-39).
 - Cómo se **decide una asignación** (P-05).
 - **Quién ve el perfil de otra persona** (P-08).
 - ~~De dónde sale la lista de colaboradores~~ (VIS-001 §11.4): respondida por [SPEC-001](../specs/SPEC-001-gestion-de-colaboradores.md) D2; la plataforma es el sistema de registro.
@@ -140,7 +140,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | H-02 | ~~Un requerimiento solo puede usar roles y competencias del catálogo de su producto.~~ | Descartada (2026-09-26) | BR-REQ-03, retirada | Respondida en P-10: los roles son comunes (BR-CAT-08) |
 | H-03 | Los niveles L1–L4 se restan como números para calcular la brecha. | Hipótesis (agente) | BR-BRE-02 | Respuesta a P-12 |
 | H-04 | El Jefe de proyecto es quien asigna. | Hipótesis (agente) | US-007; S-01 solo dice que "encuentra personal" (L42) | Respuesta a P-05 |
-| H-05 | Las brechas por producto las consulta el Jefe de Ingeniería o Dirección. | Hipótesis (agente) | US-008; S-01:L78 no nombra al actor | Respuesta a P-17 |
+| H-05 | ~~Las brechas por producto las consulta el Jefe de Ingeniería o Dirección.~~ Resuelta el 2026-09-27 (P-17): Jefe de Ingeniería, Jefe de proyecto y usuarios ADMIN (BR-BRE-06); Dirección no se nombra | Hipótesis (agente), resuelta | US-008; S-01:L78 no nombra al actor | Respuesta a P-17 |
 | H-06 | El Responsable de producto aporta conocimiento del catálogo sin gobernarlo. | Supuesto | S-01:L44 | Respuesta a P-06 |
 
 ## 7. Vacíos y preguntas abiertas
@@ -148,20 +148,24 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | ID | Pregunta | Destinatario | Prioridad | Estado |
 |---|---|---|---|---|
 | P-01 | ¿Qué evidencia mínima exige cada nivel L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Respondida en lo esencial (ianache (Jefe de Ingeniería), 2026-09-26): BR-ACR-07 |
-| P-21 | ¿Quién define el tipo de evidencia de cada competencia y nivel? ¿Forma parte del catálogo que gobierna el Jefe de Ingeniería? | Negocio (Jefe de Ingeniería) | Media | Nueva |
-| P-22 | ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
-| P-23 | ¿Una competencia y nivel puede exigir más de un tipo de evidencia o una cantidad mínima? ¿El evaluador puede aceptar evidencia de otro tipo como equivalente? | Negocio (Jefe de Ingeniería) | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): se exigen todas las evidencias definidas (BR-ACR-09); las equivalencias siguen abiertas |
-| P-24 | ¿Hay que definir el tipo de evidencia para los cuatro niveles de cada competencia, o solo para los niveles que exige algún rol? | Negocio (Jefe de Ingeniería) | Baja | Nueva |
+| P-21 | ¿Quién define el tipo de evidencia de cada competencia y nivel? ¿Forma parte del catálogo que gobierna el Jefe de Ingeniería? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el Jefe de Ingeniería, responsable de las capacitaciones (BR-CAT-16) |
+| P-22 | ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): evidencia concreta dentro de una de las tres categorías (BR-ACR-08); confirmada (ianache (Jefe de Ingeniería), 2026-09-27) |
+| P-23 | ¿Una competencia y nivel puede exigir más de un tipo de evidencia o una cantidad mínima? ¿El evaluador puede aceptar evidencia de otro tipo como equivalente? | Negocio (Jefe de Ingeniería) | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada evidencia se declara requerida o deseada; se exigen todas las requeridas y las deseadas refuerzan la certificación (BR-ACR-09, BR-ACR-12). Sigue abierta la equivalencia, y cómo "refuerza" una deseada (P-41) |
+| P-24 | ¿Hay que definir el tipo de evidencia para los cuatro niveles de cada competencia, o solo para los niveles que exige algún rol? | Negocio (Jefe de Ingeniería) | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): se definen de forma progresiva; lo ideal es tenerlos todos (BR-CAT-17). Ver P-39 |
 | P-25 | ¿Un requerimiento indica el nivel de rol que necesita? | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-08) |
-| P-26 | ¿Cuántos niveles de rol hay y cómo se relacionan con L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida: Rol-Nivel 1 a 4 (BR-CAT-14); resto en P-36 |
+| P-26 | ¿Cuántos niveles de rol hay y cómo se relacionan con L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no hay una cantidad general; cada rol define sus niveles al registrarse (BR-CAT-09), y cada Rol-Nivel fija el nivel L1–L4 esperado (BR-CAT-14). Escala salarial y MOF, fuera de alcance (BR-CAT-18) |
 | P-27 | ¿Una competencia transversal aplica automáticamente o se asigna? | Negocio (Jefe de Ingeniería) | Media | Respondida: se asigna a los roles (BR-CAT-11) |
-| P-36 | ¿Cómo se combinan Junior/Senior con la numeración 1 a 4 del Rol-Nivel (por ejemplo, ¿Junior 1-2 y Senior 3-4, o Junior 1-4 y Senior 1-4?)? ¿Todos los roles tienen los mismos niveles? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
-| P-37 | ¿La rúbrica de una competencia contiene los requisitos de evidencia de cada nivel, o son cosas distintas? ¿Quién define y aprueba las rúbricas? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
-| P-28 | ¿Un colaborador tiene un nivel de rol (por ejemplo, Developer Junior 2)? Si lo tiene, ¿se certifica o se deduce de sus competencias certificadas? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-36 | ¿Cómo se combinan Junior/Senior con la numeración 1 a 4 del Rol-Nivel (por ejemplo, ¿Junior 1-2 y Senior 3-4, o Junior 1-4 y Senior 1-4?)? ¿Todos los roles tienen los mismos niveles? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): los niveles y sus nombres se definen al registrar cada rol, por ejemplo Developer Junior (Nivel 1) a (Nivel 3); no son iguales para todos los roles (BR-CAT-09). Ver P-40 |
+| P-39 | Mientras la definición es progresiva (BR-CAT-17), ¿se puede certificar un nivel de una competencia que aún no tiene requisitos de evidencia definidos? ¿Y exigirlo en un Rol-Nivel o en un requerimiento? | Negocio (Jefe de Ingeniería) | Alta | Nueva (BRC-001, derivada de P-24) |
+| P-40 | ¿La plataforma registra solo el nombre y las competencias de cada nivel de rol, o también sus criterios (años de experiencia en el rol, formación técnica)? Se supone que no (BR-CAT-18) | Negocio (Jefe de Ingeniería) | Media | Nueva (BRC-001, derivada de P-36) |
+| P-41 | ¿Cómo "refuerza" una evidencia deseada la certificación? ¿Solo queda registrada o cambia algo? | Negocio (Jefe de Ingeniería) | Media | Nueva (BRC-001, derivada de P-23) |
+| P-37 | ¿La rúbrica de una competencia contiene los requisitos de evidencia de cada nivel, o son cosas distintas? ¿Quién define y aprueba las rúbricas? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la rúbrica describe el comportamiento y el logro visible y verificable, que se verifica con evidencias; la define y aprueba el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19). Inferencia a confirmar: rúbrica y requisito de evidencia son cosas distintas |
+| P-28 | ¿Un colaborador tiene un nivel de rol (por ejemplo, Developer Junior 2)? Si lo tiene, ¿se certifica o se deduce de sus competencias certificadas? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): se asigna un nivel inicial al registrar al colaborador, según su rol, y después se evalúa la evolución de sus competencias por cursos o desempeño en proyectos (BR-PRF-02). Ver P-42 |
+| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Negocio (Jefe de Ingeniería) | Alta | Nueva (BRC-001, derivada de P-28) |
 | P-29 | ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | Negocio (Responsable de producto) | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no (BR-REQ-09) |
 | P-30 | ¿"Líder de proyecto" (el actor que declara requerimientos) es el mismo rol que "jefe de proyecto" de la lista de roles del catálogo? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí; se usa Jefe de proyecto |
-| P-38 | La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
-| P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Negocio (Jefe de Ingeniería) | Baja | Nueva |
+| P-38 | La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Negocio (Jefe de Ingeniería) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí; por defecto se asumen todas las competencias del Rol-Nivel y el Jefe de proyecto que registra el requerimiento puede retirar algunas (BR-REQ-07, BR-REQ-10). AMB-06 resuelta |
+| P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Negocio (Jefe de Ingeniería) | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son solo gestores del programa y por ahora quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas (BR-PRG-01, BR-PRG-02) |
 | P-05 | ¿La plataforma solo recomienda y el Jefe de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
 | P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
 | VIS-§11.4 | ¿De dónde sale la lista de colaboradores y sus datos básicos? ¿Se integra el sistema de RR. HH.? | Negocio + ARQ | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2): la plataforma es el sistema de registro de colaboradores, sin integración con RR. HH. (BR-PTY-01) |
@@ -172,9 +176,12 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | P-10 | ¿Un requerimiento solo usa roles y competencias del catálogo de su producto? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no; roles comunes (BR-CAT-08) |
 | P-11 | ¿Qué estados tiene un proyecto y cuándo es "activo"? Lo necesitan el KPI 1 y la búsqueda. | Negocio (Responsable de producto) | Media | Abierta (BRC-001) |
 | P-12 | ¿Cómo se trata la brecha sin nivel certificado y la brecha negativa? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
-| P-15 | ¿Cómo declara el colaborador el rol al que aspira? | Negocio (Responsable de producto) | Media | Abierta (USC-001) |
-| P-16 | ¿La búsqueda muestra también candidatos por debajo del nivel requerido? ¿Cómo se ordena? | Negocio (Responsable de producto) | Media | Abierta (USC-001) |
-| P-17 | ¿Quién consulta las brechas agregadas por producto? | Negocio (Jefe de Ingeniería) | Media | Abierta (USC-001) |
+| P-15 | ¿Cómo declara el colaborador el rol al que aspira? | Negocio (Responsable de producto) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no declara un rol al que aspira; el Jefe de Ingeniería le asigna rol y nivel al registrarlo y él ve sus propias brechas (BR-BRE-04) |
+| P-43 | ¿Contra qué Rol-Nivel ve el colaborador su brecha: el asignado, el siguiente de su rol o ambos? ¿Puede ver brechas de otros roles? | Negocio (Jefe de Ingeniería) | Alta | Nueva (BRC-001, derivada de P-15) |
+| P-16 | ¿La búsqueda muestra también candidatos por debajo del nivel requerido? ¿Cómo se ordena? | Negocio (Responsable de producto) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí, con su brecha; por defecto de menor a mayor brecha y el usuario puede invertir el orden (BR-BRE-05) |
+| P-44 | ¿Cómo se resume en un solo valor la brecha de un candidato para ordenar la búsqueda? | Negocio (Jefe de Ingeniería) | Media | Nueva (BRC-001, derivada de P-16) |
+| P-17 | ¿Quién consulta las brechas agregadas por producto? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): Jefe de Ingeniería, Jefe de proyecto y cualquier usuario con privilegios de ADMIN (BR-BRE-06) |
+| P-45 | ¿Qué es un usuario con privilegios de ADMIN y quién lo otorga? | Negocio (Jefe de Ingeniería) + ARQ | Media | Nueva (BRC-001, derivada de P-17) |
 | GQ-08 | ¿Qué es un "perfil activo"? Lo necesita el KPI 6. | Negocio (Responsable de producto) | Media | Abierta (GLS-001) |
 | RCP-Q2 | En H1, sin el agente de IA, ¿un evaluador puede registrar a mano evidencia de GitLab (desempeño en proyecto)? | Negocio (Jefe de Ingeniería) | Media | Nueva |
 | P-14 | ¿Una certificación vence o puede revocarse? | Negocio (Jefe de Ingeniería) | Baja | Abierta (BRC-001) |
@@ -188,10 +195,10 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | [Jefe de Ingeniería](../../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md) | Define y gobierna el catálogo | S-01:L43, L51 | US-001 |
 | [Responsable de producto](../../business/glossary/terms/TRM-0053-responsable-de-producto.md) | Aporta el conocimiento de los roles de su producto; papel exacto por confirmar | S-01:L44 (supuesto); término en `draft` | US-001 (indirecto) |
 | [Jefe de proyecto](../../business/glossary/terms/TRM-0038-lider-de-proyecto.md) (PM) | Declara requerimientos y busca candidatos; es a la vez un colaborador con perfil de competencias y nivel de rol (BR-CAT-13) | S-01:L42, L77; BR-CAT-13 | US-002, US-006, US-007 (hipótesis) |
-| [Evaluador](../../business/glossary/terms/TRM-0021-evaluador.md) | Revisa evidencias y certifica niveles; junto con el Jefe de Ingeniería, gestiona el programa | S-01:L46, L80; BR-PRG-01 | US-003 |
+| [Evaluador](../../business/glossary/terms/TRM-0021-evaluador.md) | Revisa evidencias y certifica niveles; junto con el Jefe de Ingeniería, gestiona el programa. Es solo gestor: por ahora queda fuera del proceso de evaluación (BR-PRG-02) | S-01:L46, L80; BR-PRG-01 | US-003 |
 | [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md) | Consulta su perfil y su brecha | S-01:L41, L104 | US-004, US-005 |
 | [Gestión de formación / RR. HH.](../../business/glossary/terms/TRM-0027-gestion-de-formacion.md) | "Gestiona certificaciones": no está claro qué hace frente al evaluador | S-01:L45; AMB-03 | — (P-09) |
-| [Dirección / Gerencia](../../business/glossary/terms/TRM-0018-direccion.md) | Posible consumidor de brechas por producto (hipótesis H-05); su tablero es de H3 | S-01:L47 | US-008 (por confirmar) |
+| [Dirección / Gerencia](../../business/glossary/terms/TRM-0018-direccion.md) | No figura entre quienes consultan brechas agregadas (BR-BRE-06; H-05 resuelta), salvo que tenga privilegios de ADMIN (P-45); su tablero es de H3 | S-01:L47; BR-BRE-06 | US-013, US-014 (H3) |
 
 ### Procesos y estados
 
@@ -201,7 +208,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Declarar requerimiento | Jefe de proyecto | Proyecto, rol | Requerimiento del proyecto, con las competencias y niveles del rol | Proyecto "activo" sin definir (P-11) |
 | Certificar nivel (manual) | Evaluador | Colaborador, competencia, evidencias | Nivel certificado con registro de quién, cuándo y evidencia | Sin estados definidos; vencimiento o revocación abiertos (P-14) |
 | Consultar perfil y brecha | Colaborador | Perfil, rol del catálogo | Niveles, evidencias y brecha por competencia | — |
-| Buscar candidatos | Jefe de proyecto | Requerimiento, perfiles | Candidatos que alcanzan el nivel | Criterios de la lista abiertos (P-16) |
+| Buscar candidatos | Jefe de proyecto | Requerimiento, perfiles | Candidatos que alcanzan el nivel y los que no, con su brecha, ordenados de menor a mayor brecha (BR-BRE-05) | Cómo se resume la brecha para ordenar (P-44) |
 | Asignar | Por confirmar (H-04) | Requerimiento, candidato | Asignación | **Sin definir** (P-05) |
 
 ### Datos relevantes (funcionales)
@@ -209,7 +216,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Dato | Descripción | Término | Fuente |
 |---|---|---|---|
 | Producto | Uno de los 4 productos en alcance | [TRM-0047](../../business/glossary/terms/TRM-0047-producto.md) | S-01:L23 |
-| Rol | Rol común a todos los productos, con niveles de rol (Junior y Senior) y competencias por nivel | [TRM-0055](../../business/glossary/terms/TRM-0055-rol.md) | S-01:L56; BR-CAT-08 a BR-CAT-10 |
+| Rol | Rol común a todos los productos, con niveles de rol propios, definidos al registrarlo (por ejemplo, Developer Junior (Nivel 1) a (Nivel 3)), y competencias por nivel | [TRM-0055](../../business/glossary/terms/TRM-0055-rol.md) | S-01:L56; BR-CAT-08 a BR-CAT-10; EVD-2026-0100, 0101 |
 | Competencia | Competencia exigida por un rol | [TRM-0014](../../business/glossary/terms/TRM-0014-competencia.md) | S-01:L56 |
 | Nivel requerido | L1–L4 mínimo por competencia, para cada rol y nivel de rol | [TRM-0043](../../business/glossary/terms/TRM-0043-nivel-requerido.md) | S-01:L71; BR-CAT-10 |
 | Colaborador | Persona con perfil de competencias; se registra en la propia plataforma (SPEC-001 D2) y es derivado: persona con rol vigente de Empleado o Contratista (BR-PTY-05) | [TRM-0013](../../business/glossary/terms/TRM-0013-colaborador.md) | S-01:L57, L153 |
@@ -217,7 +224,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Evidencia | Formación, práctica evaluada o desempeño en proyecto | [TRM-0022](../../business/glossary/terms/TRM-0022-evidencia.md) | S-01:L57, L71 |
 | Registro de certificación | Quién, cuándo y con qué evidencia | [TRM-0001](../../business/glossary/terms/TRM-0001-acreditacion.md) | S-01:L80 |
 | Proyecto | Proyecto de un producto | [TRM-0050](../../business/glossary/terms/TRM-0050-proyecto.md) | S-01:L58 |
-| Requerimiento | Rol que necesita un proyecto y todas o algunas de sus competencias; los niveles se toman del catálogo (BR-REQ-06, BR-REQ-07) | [TRM-0052](../../business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md) | S-01:L58; BR-REQ-06, BR-REQ-07 |
+| Requerimiento | Rol-Nivel que necesita un proyecto; por defecto incluye todas sus competencias y el Jefe de proyecto que lo registra puede retirar algunas; los niveles se toman del catálogo (BR-REQ-06, BR-REQ-07, BR-REQ-10) | [TRM-0052](../../business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md) | S-01:L58; BR-REQ-06, BR-REQ-07 |
 | Brecha | Nivel requerido − nivel certificado | [TRM-0005](../../business/glossary/terms/TRM-0005-brecha.md) | S-01:L59 |
 | Asignación | Vínculo entre un requerimiento y un colaborador | [TRM-0004](../../business/glossary/terms/TRM-0004-asignacion.md) | S-01:L58 |
 
@@ -239,7 +246,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Restricción | Sin firma humana no hay certificación | — | S-01:L101 |
 | Restricción | Trazabilidad de cada nivel hasta su evidencia y quien lo certificó | — | S-01:L103 |
 | Riesgo | Catálogo desactualizado o sin consenso entre productos | El Jefe de Ingeniería lo gobierna; falta el versionado (P-02) | S-01:L142 |
-| Riesgo | Certificaciones inconsistentes entre evaluadores si el tipo de evidencia no se concreta | BR-ACR-07 lo acota; falta P-22 | Inferencia a partir de S-01:L150 |
+| Riesgo | Certificaciones inconsistentes entre evaluadores si el tipo de evidencia no se concreta | BR-ACR-07, BR-ACR-08 (P-22 confirmada) y BR-ACR-12 lo acotan; faltan P-23 (equivalencias) y P-39 (niveles sin requisitos definidos) | Inferencia a partir de S-01:L150 |
 | Riesgo | KPI 1 y 6 imposibles de medir mientras "proyecto activo" y "perfil activo" no estén definidos | Ninguna todavía (P-11, GQ-08) | S-01:L119, L124 |
 | Riesgo | Exposición de datos de desempeño de personas | Acceso mínimo hasta resolver P-08 | S-01:L104; P-08 |
 
@@ -260,10 +267,13 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | P-01: el tipo de evidencia se define por competencia y nivel (BR-ACR-07) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0052) | 2026-09-26 |
 | Catálogo único de competencias (BR-CAT-07), requerimiento que hereda del rol (BR-REQ-06) y evidencia concreta (BR-ACR-08) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0053 a 0055) | 2026-09-26 |
 | Roles independientes de los productos (BR-CAT-08) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0056) | 2026-09-26 |
-| Varias evidencias por competencia y nivel, todas obligatorias (BR-ACR-09) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0057) | 2026-09-26 |
+| Varias evidencias por competencia y nivel, todas obligatorias (BR-ACR-09; revisada el 2026-09-27: obligatorias solo las requeridas, BR-ACR-12) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0057) | 2026-09-26 |
 | Requerimiento con todas o algunas competencias del rol (BR-REQ-07); niveles de rol y competencias por nivel (BR-CAT-09, BR-CAT-10); competencias transversales (BR-CAT-11) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0058 a 0060) | 2026-09-26 |
 | Jefe de proyecto como rol con perfil (BR-CAT-13); Evaluador y Jefe de Ingeniería gestionan el programa (BR-PRG-01); roles iniciales del catálogo (BR-CAT-12) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0061 a 0063) | 2026-09-26 |
 | Requerimiento con nivel de rol (BR-REQ-08); Rol-Nivel 1 a 4 con nivel L1–L4 esperado (BR-CAT-14); rúbrica por competencia (BR-CAT-15); transversales asignadas a roles (BR-CAT-11) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0067 a 0071) | 2026-09-26 |
+| El Jefe de Ingeniería define los requisitos de evidencia (BR-CAT-16), de forma progresiva (BR-CAT-17); cada requisito es requerida o deseada y certificar exige las requeridas (BR-ACR-12, BR-ACR-09 revisada); P-22 confirmada | ianache (Jefe de Ingeniería) | Respuestas a P-21 a P-24 (EVD-2026-0096 a 0099) | 2026-09-27 |
+| Sin cantidad general de niveles de rol: cada rol define los suyos al registrarse (BR-CAT-09 y BR-CAT-14 revisadas; ya no "Rol-Nivel 1 a 4"); escala salarial, MOF y criterios de nivel fuera de alcance (BR-CAT-18) | ianache (Jefe de Ingeniería) | Respuestas a P-26 y P-36 (EVD-2026-0100, 0101) | 2026-09-27 |
+| Rúbrica como logro visible y verificable, definida y aprobada por el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19); requerimiento con todas las competencias del Rol-Nivel por defecto y retiro opcional (BR-REQ-07, BR-REQ-10; AMB-06 resuelta); nivel inicial de rol al registrar (BR-PRF-02); Evaluador y Jefe de Ingeniería solo gestores, fuera de la evaluación por ahora (BR-PRG-01, BR-PRG-02) | ianache (Jefe de Ingeniería) | Respuestas a P-37, P-28, P-38 y P-31 (EVD-2026-0102 a 0105) | 2026-09-27 |
 | **Validación de este pack** | Pendiente: Jefe de Ingeniería y Responsable de producto | — | — |
 
 ### Checklist de validación humana
@@ -310,9 +320,9 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 
 ### Qué debe validar antes de continuar
 
-- Las preguntas de prioridad alta: P-05, P-08, P-22 y RCP-Q1 (VIS-§11.4 quedó respondida por SPEC-001 D2).
+- Las preguntas de prioridad alta: P-05, P-08, P-39, P-42 y RCP-Q1 (VIS-§11.4 quedó respondida por SPEC-001 D2; P-22, P-26, P-28, P-36, P-37 y P-38 quedaron respondidas el 2026-09-27).
 - La validación humana de este pack (§10).
-- No derivar UXR ni flujos para US-007 (asignación) ni US-008 (brechas por producto) hasta resolver P-05 y P-17.
+- No derivar UXR ni flujos para US-007 (asignación) hasta resolver P-05. US-008 (brechas por producto) ya tiene actor (P-17 respondida, BR-BRE-06); falta P-45 y la regla de agregación por producto.
 
 ### Artefactos relacionados
 

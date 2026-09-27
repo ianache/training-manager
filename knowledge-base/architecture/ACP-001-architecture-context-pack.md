@@ -6,7 +6,7 @@ tags: [architecture, context-pack, arq-101, as-is, greenfield]
 status: draft
 generated:
   by: "architecture-context-builder/1.0"
-  at: "2026-09-27T09:20:00-05:00"
+  at: "2026-09-27T14:10:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -150,7 +150,7 @@ El detalle está en [AIM-001](AIM-001-matriz-impacto-arquitectura.md). Resumen:
   - convenciones de etiquetado en GitLab;
   - la sustitución parcial de Classroom si se activa la contingencia.
 - **UNKNOWN:**
-  - el criterio de aprobación a partir de Classroom (P-19);
+  - el criterio de aprobación a partir de Classroom (P-19, respondida en parte el 2026-09-27: propuesta automática y conclusión del evaluador, BR-CER-06 y BR-CER-07; falta qué son los requisitos requeridos y de dónde sale su evidencia, P-47);
   - GitLab como fuente de proyectos (US2-Q1);
   - el sistema de RR. HH. como fuente de personas: **respondido** por SPEC-001 D2, no hay integración con RR. HH.;
   - la identidad;

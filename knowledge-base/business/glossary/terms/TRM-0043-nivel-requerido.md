@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T22:50:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T22:50:00-05:00"
@@ -34,4 +34,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Brecha](TRM-0005-brecha.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md) · [Rol](TRM-0055-rol.md) · [Competencia](TRM-0014-competencia.md)
-- **Notas:** Definición revisada el 2026-09-26 (decisión de ianache, Jefe de Ingeniería): el nivel requerido se fija por rol y nivel de rol (BR-CAT-10). No confundir con el nivel de rol (Junior o Senior). Decisión del 2026-09-26 (BRC-001 BR-CAT-14): es el nivel L1–L4 esperado que fija cada Rol-Nivel; por ejemplo, L1 para Developer Junior Nivel 1.
+- **Notas:** Definición revisada el 2026-09-26 (decisión de ianache, Jefe de Ingeniería): el nivel requerido se fija por rol y nivel de rol (BR-CAT-10). No confundir con el nivel de rol (Junior o Senior). Decisión del 2026-09-26 (BRC-001 BR-CAT-14): es el nivel L1–L4 esperado que fija cada Rol-Nivel; por ejemplo, L1 para Developer Junior Nivel 1. Desde el 2026-09-27 (BRC-001 BR-CAT-09 y BR-CAT-14 revisadas, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L158): la cantidad y los nombres de los niveles de rol los define cada rol; ya no se supone "niveles 1 a 4".

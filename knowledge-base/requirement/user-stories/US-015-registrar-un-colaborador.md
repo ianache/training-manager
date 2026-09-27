@@ -1,12 +1,12 @@
 ---
 type: User Story
 title: "US-015 — Registrar un colaborador"
-description: "El Jefe de Ingeniería da de alta a un empleado o contratista con su código, identificación, correo laboral, rol vigente, unidad, jefe directo y proveedor si aplica."
+description: "El Jefe de Ingeniería da de alta a un empleado o contratista con su código, identificación, correo laboral, rol vigente, unidad, jefe directo, proveedor si aplica y su nivel inicial del rol que se le asigna (Rol-Nivel)."
 tags: [user-story, colaboradores, party, c1, alta]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T11:40:00-05:00"
+  at: "2026-09-27T13:30:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -29,7 +29,7 @@ sources:
 | Responsable de negocio (PO) | Jefe de Ingeniería (decisor de SPEC-001) |
 | Prioridad | Must: sin colaboradores registrados no hay perfil, certificación ni búsqueda (SPEC-001:L151-L153) |
 | Estimación | |
-| Dependencias | US-017 (unidades), US-018 (proveedores) |
+| Dependencias | US-017 (unidades), US-018 (proveedores), US-001 (Rol-Nivel del catálogo, para el nivel inicial) |
 | Preparación | CONDITIONAL |
 
 ## 2. Historia
@@ -47,9 +47,11 @@ sources:
 - **Incluye:**
   - Crear la persona con código de colaborador, nombres, apellidos, nombre preferido opcional, identificación, correo laboral y rol de Empleado o Contratista con fecha desde (SPEC-001:L112).
   - Registrar su pertenencia a una unidad, su jefe directo y, si es contratista, su relación de contratación con un proveedor (C1).
+  - Asignarle un nivel inicial del rol que se le asigna (Rol-Nivel del catálogo), con fecha desde (BR-PRF-02, EVD-2026-0103). Se registra con las mismas reglas de US-019.
 - **Excluye:**
   - Vincular el usuario de Keycloak (US-022); puede quedar vacío en el alta.
-  - Asignar Rol-Nivel (US-019) y roles del programa (US-020).
+  - Cambiar de nivel o asignar otros Rol-Nivel después del alta (US-019), y roles del programa (US-020).
+  - Evaluar la evolución de sus competencias (se hace después, por cursos o desempeño en proyectos, US-003; BR-PRF-02) y decidir el paso al siguiente nivel (P-42).
   - Crear unidades (US-017) y proveedores (US-018).
 
 ## 5. Criterios de aceptación
@@ -120,6 +122,17 @@ Escenario: Rechazar un correo laboral en uso
 
 - **Regla / fuente:** BR-PTY-08
 
+### AC-7 — Nivel inicial del rol
+
+```gherkin
+Escenario: Asignar el nivel inicial al registrar
+  Dado que el catálogo tiene el rol Developer con los niveles Developer Junior (Nivel 1) a (Nivel 3)
+  Cuando registro a una persona y le asigno el rol Developer con el nivel inicial Developer Junior (Nivel 1) desde una fecha
+  Entonces la persona queda registrada como colaborador con Developer Junior (Nivel 1) vigente desde esa fecha
+```
+
+- **Regla / fuente:** BR-PRF-02, BR-PTY-11, BR-CAT-09; EVD-2026-0103
+
 ## 6. Casos negativos y límite
 
 | Caso | Comportamiento esperado | Fuente o pregunta |
@@ -133,6 +146,9 @@ Escenario: Rechazar un correo laboral en uso
 | Cómo se genera el código | Sin regla | Q-01 |
 | Jefe directo de un contratista | Sin regla | Q-02 |
 | Un usuario que no es Jefe de Ingeniería intenta registrar | No puede | BR-PTY-17 |
+| Nivel inicial que no existe en el catálogo o que el rol no define | Se rechaza | BR-CAT-09; SPEC-001:L91 |
+| Alta sin nivel inicial de rol | Sin regla: BR-PRF-02 dice que se asigna al registrar, pero no si el alta se puede completar sin él | US-015-Q3 |
+| Asignar como nivel inicial uno que no es el primero del rol (por ejemplo, un Developer Senior) | Sin regla: "según el rol" no dice cuál; se supone que lo elige el Jefe de Ingeniería | US-015-Q3 |
 
 ## 7. Reglas de negocio aplicables
 
@@ -147,6 +163,8 @@ Escenario: Rechazar un correo laboral en uso
 | BR-PTY-10 | Contratista con contratación vigente | BRC-001 |
 | BR-PTY-12 | Todo cambio auditado | BRC-001 |
 | BR-PTY-17 | Solo el Jefe de Ingeniería mantiene la información | BRC-001 |
+| BR-PRF-02 | Al registrar un colaborador se le asigna un nivel inicial del rol; la evolución se evalúa después | BRC-001 §Transparencia |
+| BR-PTY-11 | Un nivel vigente por rol | BRC-001 |
 
 ## 8. Datos y términos
 
@@ -170,7 +188,7 @@ Escenario: Rechazar un correo laboral en uso
 
 ## 11. Dependencias, supuestos e hipótesis
 
-- **Depende de:** US-017 (unidades y organización interna) y US-018 (proveedores).
+- **Depende de:** US-017 (unidades y organización interna), US-018 (proveedores) y US-001 (Rol-Nivel del catálogo).
 - **Es prerrequisito de:** US-016, US-019, US-020, US-021, US-022, US-023; y de US-003, US-004 y US-006.
 - **Supuestos:** ninguno.
 - **Hipótesis del agente:** H-1: el jefe directo es otra persona registrada (relación de reporte persona ↔ jefe directo, BR-PTY-04); confirma el Jefe de Ingeniería.
@@ -183,6 +201,8 @@ Escenario: Rechazar un correo laboral en uso
 | Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | Sí (AC-2) | Abierta |
 | US-015-Q1 | ¿Cómo se comprueba que el correo de un contratista es del proveedor (por ejemplo, por dominio)? | Jefe de Ingeniería | Baja | No | Abierta |
 | US-015-Q2 | ¿Unidad y jefe directo son obligatorios en el alta? | Jefe de Ingeniería | Media | No | Abierta |
+| P-28 | ¿Un colaborador tiene un nivel de rol? ¿Se certifica o se deduce? | Jefe de Ingeniería | Alta | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): se asigna un nivel inicial al registrarlo y después se evalúa su evolución (BR-PRF-02). Origina AC-7 |
+| US-015-Q3 | ¿El nivel inicial de rol es obligatorio para completar el alta? ¿Puede ser cualquier nivel del rol o solo el primero? | Jefe de Ingeniería | Media | Sí (AC-7) | Nueva |
 
 ## 13. Evidencia y trazabilidad
 
@@ -193,6 +213,7 @@ Escenario: Rechazar un correo laboral en uso
 | EVD-2026-0082 | Código único y obligatorio | SPEC-001:L63 (D9) | decision | high |
 | EVD-2026-0083 | Identificaciones aceptadas | SPEC-001:L64 (D10) | decision | high |
 | EVD-2026-0085 | Correo laboral del contratista es del proveedor | SPEC-001:L67 (D13) | decision | high |
+| EVD-2026-0103 | Al registrar un colaborador se le asigna un nivel inicial según el rol; después se evalúa su evolución por cursos o desempeño en proyectos | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-28 | decision | high |
 
 Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
 
@@ -232,9 +253,9 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** CONDITIONAL
-- **Motivo:** actor, valor y validaciones sostenidos por BR-PTY; Q-01 (código) y Q-02 (jefe directo del contratista) bloquean parte del alta.
+- **Motivo:** actor, valor y validaciones sostenidos por BR-PTY; el nivel inicial de rol, por BR-PRF-02 (P-28, respondida el 2026-09-27). Q-01 (código), Q-02 (jefe directo del contratista) y US-015-Q3 (obligatoriedad del nivel inicial) bloquean parte del alta.
 - **Bloqueos de entrega:** US-017 y US-018 (redactadas, no implementadas).
 - **Propuesta de división (si no es pequeña):** No aplica. Si crece, dividir por variación de regla: alta de empleado y alta de contratista.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería responde Q-01 y Q-02 y valida la historia.
+- **Decisión humana requerida:** el Jefe de Ingeniería responde Q-01, Q-02 y US-015-Q3 y valida la historia.
 - **Validación:** Pendiente · Responsable: Jefe de Ingeniería · Fecha: —

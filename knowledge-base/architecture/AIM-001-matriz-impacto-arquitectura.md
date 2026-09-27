@@ -6,7 +6,7 @@ tags: [architecture, impact-analysis, integraciones, as-is]
 status: draft
 generated:
   by: "architecture-impact-analyzer/1.0"
-  at: "2026-09-26T21:43:55-05:00"
+  at: "2026-09-27T14:10:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -40,7 +40,7 @@ sources:
 |---|---|---|---|---|---|---|---|---|
 | US-009 | 5. Rutas de formación | E-CLS Classroom | Integration | INDIRECT: requiere acceso de lectura a los cursos; Classroom no cambia | VIS-001:L79, L93; BR-INT-01 | Media | Acceso a la API no confirmado (KG-05) | Por validar |
 | US-009 | 5. Rutas de formación | E-DRV Drive | Integration | INDIRECT: enlace y lectura del material; Drive no cambia | VIS-001:L79, L94 | Media | Permisos de compartición no confirmados | Por validar |
-| US-010 | 8. Certificados de curso | E-CLS Classroom | Data | UNKNOWN: aprobar el curso final depende de calificaciones de Classroom, pero el criterio de aprobación no está definido | VIS-001:L82, L93; P-19 | Baja | Sin criterio, no se puede saber qué dato leer | Abierto |
+| US-010 | 8. Certificados de curso | E-CLS Classroom | Data | UNKNOWN: aprobar el curso final depende de calificaciones de Classroom, pero el criterio de aprobación no está definido. P-19 quedó respondida en parte el 2026-09-27: la plataforma propone la aprobación cuando se cumplen los requisitos requeridos y el evaluador concluye (BR-CER-06, BR-CER-07); qué son esos requisitos y de dónde sale su evidencia sigue abierto (P-47) | VIS-001:L82, L93; P-19, P-47 | Baja | Sin criterio, no se puede saber qué dato leer | Abierto |
 | US-010 | 8. Certificados de curso | E-DOC docsuite | Integration | INDIRECT: consumo de su API REST para generar el PDF | VIS-001:L82, L96 (EVD-2026-0019) | Alta | Contrato de la API desconocido (KG-05) | Por validar |
 | US-010 | 8. Certificados de curso | E-DOC docsuite | Data | POTENTIAL: puede requerir una plantilla de certificado de curso final en docsuite | VIS-001:L34 (diseña plantillas) | Baja | — | Investigar |
 | US-011, US-012 | 7. Evidencia de GitLab con IA | E-GLB GitLab | Integration | INDIRECT: lectura de issues, MRs y milestones; GitLab no cambia | VIS-001:L81, L95 (EVD-2026-0013, 0014) | Alta | Volumen y permisos desconocidos (KG-05, KG-07) | Por validar |
@@ -54,7 +54,7 @@ sources:
 | US-003 | 6. Certificación (manual, H1) | E-GLB GitLab | Data | UNKNOWN: si el evaluador puede adjuntar a mano evidencia de GitLab en H1 | RCP-001 RCP-Q2 (EVD-2026-0030) | Baja | — | Abierto |
 | US-005 | 4. Brechas | E-CLS, E-DRV, E-GLB, E-DOC | — | NO_IMPACT: la brecha se define sobre niveles requeridos y certificados (VIS-001:L59), y ninguno de esos sistemas los provee según L91-L96 | VIS-001:L59, L78, L91-L96 | Media | — | Por validar |
 | US-005 | 4. Brechas | E-RRH Sistema de RR. HH. | Data | UNKNOWN: la brecha es por colaborador, y la fuente de los colaboradores está sin definir | VIS-001:L153 (EVD-2026-0047) | Baja | — | Abierto |
-| US-008 | 4. Brechas por producto | Todos los elementos | — | UNKNOWN: el actor está sin definir (P-17), así que no se puede delimitar el impacto | VIS-001:L78; USC-001 US-008 | Baja | — | Abierto |
+| US-008 | 4. Brechas por producto | Todos los elementos | — | UNKNOWN: el actor quedó definido el 2026-09-27 (P-17: Jefe de Ingeniería, Jefe de proyecto y usuarios ADMIN, BR-BRE-06), pero falta qué es un usuario ADMIN (P-45) y cómo se agregan las brechas por producto, así que el impacto aún no se puede delimitar | VIS-001:L78; USC-001 US-008 | Baja | — | Abierto |
 | US-013, US-014 | 9. Tablero | E-GLB GitLab | Data | UNKNOWN: la "demanda" y los KPI 1 y 6 dependen de los proyectos (activos), cuya fuente podría ser GitLab (US2-Q1, P-11) | VIS-001:L83, L119, L124 | Baja | Depende también de datos con fecha desde H1 (asr-US-014) | Abierto |
 | BR-INT-02 (contingencia) | 5. Rutas; 8. Certificados de curso | E-CLS Classroom | Application / Integration | POTENTIAL: sustitución parcial de Classroom por gestión propia de material y progreso | VIS-001:L89, L144 (EVD-2026-0021) | Media | Cambio de "integrar" a "hospedar" | Investigar |
 
@@ -65,7 +65,7 @@ La expansión se limita a las dependencias que las fuentes nombran. No se agrega
 | Origin | Dependency | Target | Why relevant | Evidence |
 |---|---|---|---|---|
 | E-NEW (rutas) | lee cursos | E-CLS | Base de US-009 | VIS-001:L79, L93 |
-| E-NEW (certificados de curso) | podría leer calificaciones para saber si se aprobó el curso final | E-CLS | US-010; depende de P-19 | VIS-001:L82, L93 (UNKNOWN) |
+| E-NEW (certificados de curso) | podría leer calificaciones para saber si se aprobó el curso final | E-CLS | US-010; depende de P-19 (en parte respondida) y P-47 | VIS-001:L82, L93 (UNKNOWN) |
 | E-NEW (rutas) | enlaza y lee material | E-DRV | US-009 | VIS-001:L94 |
 | E-NEW (certificados de curso) | genera el PDF y guarda la referencia | E-DOC | US-010 | VIS-001:L82, L96 |
 | E-NEW (IA) | lee issues, MRs y milestones | E-GLB | US-011, US-012 | VIS-001:L81, L95 |
@@ -81,7 +81,7 @@ La expansión se limita a las dependencias que las fuentes nombran. No se agrega
 | RG-02 | Posible conflicto entre "uso interno" de GitLab y un servicio de IA externo | US-011, US-012 | Alta | CF-01; EVD-2026-0050 | Consultar la política de IA y seguridad |
 | RG-03 | Identidad y datos maestros de personas sin origen | Todas | Alta | KG-03; VIS-001:L153 | Identificar el proveedor de identidad y el sistema de RR. HH. |
 | RG-04 | Acceso a las API de Classroom, Drive, GitLab y docsuite sin confirmar | US-009 a US-012 | Media | KG-05 | Pruebas de acceso y documentación de las API |
-| RG-05 | Criterio de aprobación del curso final sin definir | US-010 | Media | P-19, GQ-06 | Respuesta de Gestión de formación |
+| RG-05 | Criterio de aprobación del curso final sin definir. P-19 respondida en parte (2026-09-27): propuesta automática y conclusión del evaluador con sustento si difiere (BR-CER-06, BR-CER-07); falta qué son los requisitos requeridos y su fuente (P-47) | US-010 | Media | P-19, P-47, GQ-06 | Respuesta de Gestión de formación |
 | RG-06 | Fuente de proyectos y Líderes sin definir | US-002 | Media | US2-Q1 | Respuesta del Responsable de producto |
 
 ## Potential ASR candidates
