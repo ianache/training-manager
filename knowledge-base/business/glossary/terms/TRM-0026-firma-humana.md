@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Firma humana"
-description: "Aprobación de una persona sin la cual ningún nivel se acredita, tampoco a partir de una propuesta de la IA."
+description: "Aprobación de una persona sin la cual ningún nivel se certifica, tampoco a partir de una propuesta de la IA."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0026
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Aprobación de una persona sin la cual ningún nivel se acredita, tampoco a partir de una propuesta de la IA.
+- **Definición:** Aprobación de una persona sin la cual ningún nivel se certifica, tampoco a partir de una propuesta de la IA.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L81 — consultada 2026-09-26
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** decision
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
-- **Relacionados:** [Human-in-the-loop](TRM-0032-human-in-the-loop.md) · [Acreditación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md)
+- **Relacionados:** [Human-in-the-loop](TRM-0032-human-in-the-loop.md) · [Certificación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md)
 - **Notas:** —

@@ -1,7 +1,7 @@
 ---
 type: Product Vision
 title: "VIS-001 — Plataforma de Gestión de Formación del Recurso Humano"
-description: "Visión de producto de la plataforma interna que conecta los requerimientos de competencias de los proyectos de CLocator, C-Go, SIGO y SmartSuite con colaboradores formados y acreditados por niveles de dominio."
+description: "Visión de producto de la plataforma interna que conecta los requerimientos de competencias de los proyectos de CLocator, C-Go, SIGO y SmartSuite con colaboradores formados y certificados por niveles de dominio."
 tags: [vision, formacion, competencias, rrhh, asignacion, gitlab, ia]
 status: draft
 generated:
@@ -20,7 +20,7 @@ sources:
 
 ## 1. Declaración de visión
 
-> Que cada proyecto de **CLocator (v1)**, **CLocator v2 (C-Go)**, **SIGO** y **SmartSuite** cuente, en el momento en que lo necesita, con colaboradores cuyo dominio de las competencias requeridas por su rol esté acreditado con evidencia verificable, tanto de formación como de trabajo real.
+> Que cada proyecto de **CLocator (v1)**, **CLocator v2 (C-Go)**, **SIGO** y **SmartSuite** cuente, en el momento en que lo necesita, con colaboradores cuyo dominio de las competencias requeridas por su rol esté certificado con evidencia verificable, tanto de formación como de trabajo real.
 
 **Propuesta de valor:** es el puente entre lo que piden los proyectos y lo que las personas demuestran saber hacer.
 
@@ -31,7 +31,7 @@ sources:
 - **Decisión:** el resultado principal combina dos cosas: la **preparación por rol** (brecha y ruta de formación) y la **asignación a proyectos** según los requerimientos de competencias de cada proyecto.
 - **Hecho:** el material de los cursos está en **Google Drive** y los cursos se dictan en **Google Classroom**.
 - **Hecho:** los colaboradores trabajan en **GitLab** (issues, tareas, bugs, milestones). Hoy esa actividad no alimenta la evaluación de competencias.
-- **Hecho:** existe la plataforma **docsuite**, que diseña plantillas de certificado, genera PDF por API REST y los guarda en un repositorio propio.
+- **Hecho:** existe la plataforma **docsuite**, que diseña plantillas de certificado de curso, genera PDF por API REST y los guarda en un repositorio propio.
 - **Supuesto (validado en la sesión, falta evidencia documental):** no existe un catálogo común de roles y competencias por producto. Por eso, asignar personal depende del conocimiento informal de los líderes y no de brechas medibles.
 
 ## 3. Usuarios
@@ -39,10 +39,10 @@ sources:
 | Actor | Valor principal |
 |---|---|
 | Colaborador | Sabe qué nivel tiene, qué le falta para el rol al que aspira y qué ruta seguir. |
-| Líder de proyecto / PM | Declara lo que su proyecto requiere y encuentra personal acreditado. |
+| Jefe de proyecto / PM | Declara lo que su proyecto requiere y encuentra personal certificado. |
 | Jefe de Ingeniería | Es dueño del catálogo de roles y competencias de los 4 productos y responsable de la capacitación de todo el equipo. |
 | Responsable de producto | Aporta el conocimiento de los roles y competencias de su producto (Supuesto: su rol exacto frente al Jefe de Ingeniería está por confirmar). |
-| Gestión de formación / RR. HH. | Diseña programas, gestiona acreditaciones y emite certificados. |
+| Gestión de formación / RR. HH. | Diseña programas, gestiona certificaciones y emite certificados de curso. |
 | Instructor / evaluador | Evalúa evidencias y valida o rechaza las propuestas de la IA. |
 | Dirección / Gerencia | Ve la capacidad frente a la demanda y los riesgos de cobertura por producto. |
 
@@ -54,9 +54,9 @@ sources:
 
 ```
 Producto → Rol → Competencia → Nivel requerido
-Colaborador → Competencia → Nivel acreditado ← Evidencia (formación | práctica | GitLab)
+Colaborador → Competencia → Nivel certificado ← Evidencia (formación | práctica | GitLab)
 Proyecto (de un Producto) → Requerimiento (Rol + Competencias + Nivel) → Asignación
-Brecha = Nivel requerido − Nivel acreditado
+Brecha = Nivel requerido − Nivel certificado
 ```
 
 ### Escala de niveles de dominio (Decisión)
@@ -68,18 +68,18 @@ Brecha = Nivel requerido − Nivel acreditado
 | L3 | Avanzado |
 | L4 | Experto / Referente |
 
-Cada rol exige un nivel mínimo por competencia. Cada nivel se acredita con evidencia de distinto tipo: formación, práctica evaluada o desempeño en proyecto. Qué evidencia exige cada nivel es una pregunta abierta (§11).
+Cada rol exige un nivel mínimo por competencia. Cada nivel se certifica con evidencia de distinto tipo: formación, práctica evaluada o desempeño en proyecto. Qué evidencia exige cada nivel es una pregunta abierta (§11).
 
 ## 5. Capacidades del producto
 
 1. **Catálogo de competencias:** roles, competencias y niveles requeridos por producto, gobernado por el Jefe de Ingeniería.
-2. **Perfil de competencias del colaborador:** nivel acreditado por competencia, historial y evidencias.
+2. **Perfil de competencias del colaborador:** nivel certificado por competencia, historial y evidencias.
 3. **Requerimientos de proyecto:** el PM declara los roles, las competencias y los niveles que necesita.
 4. **Brechas y búsqueda de personal:** calce entre persona y rol, candidatos por requerimiento y brechas individuales o por producto.
 5. **Rutas de formación:** se generan a partir de la brecha y se vinculan con cursos de Classroom y material de Drive.
-6. **Acreditación:** un evaluador revisa las evidencias y acredita el nivel. Todo queda registrado: quién, cuándo y con qué evidencia.
-7. **Evidencia de GitLab asistida por IA (Decisión):** un agente analiza issues, MRs y milestones, los asocia a las competencias del rol y **propone** un nivel con su justificación. Un humano aprueba, ajusta o rechaza. Nada se acredita sin firma humana.
-8. **Certificados (Decisión):** se certifica la **aprobación del curso final**, según el cumplimiento de los objetivos del curso. La plataforma pide el PDF a docsuite por API REST y guarda la referencia. El certificado no equivale a un nivel acreditado: el nivel se acredita aparte, con sus evidencias (capacidad 6). El uso es interno y no hay verificación pública.
+6. **Certificación:** un evaluador revisa las evidencias y certifica el nivel. Todo queda registrado: quién, cuándo y con qué evidencia.
+7. **Evidencia de GitLab asistida por IA (Decisión):** un agente analiza issues, MRs y milestones, los asocia a las competencias del rol y **propone** un nivel con su justificación. Un humano aprueba, ajusta o rechaza. Nada se certifica sin firma humana.
+8. **Certificados de curso (Decisión):** se certifica la **aprobación del curso final**, según el cumplimiento de los objetivos del curso. La plataforma pide el PDF a docsuite por API REST y guarda la referencia. El certificado de curso no equivale a un nivel certificado: el nivel se certifica aparte, con sus evidencias (capacidad 6). El uso es interno y no hay verificación pública.
 9. **Tablero de capacidad:** capacidad frente a demanda por producto, riesgos de cobertura y KPI.
 
 ## 6. Integraciones
@@ -93,20 +93,20 @@ Cada rol exige un nivel mínimo por competencia. Cada nivel se acredita con evid
 | Google Classroom | Cursos, tareas y calificaciones | Solo lectura (Decisión) |
 | Google Drive | Material de los cursos | Enlace y lectura |
 | GitLab | Evidencia de desempeño real (issues, tareas, bugs, milestones, MRs) | Lectura; uso interno (Decisión) |
-| docsuite | Plantillas, generación de PDF y repositorio de certificados | API REST |
+| docsuite | Plantillas, generación de PDF y repositorio de certificados de curso | API REST |
 
 ## 7. Principios de producto
 
 - **Integrar, no hospedar:** la plataforma no reconstruye un LMS ni un repositorio documental.
-- **Human-in-the-loop:** ninguna acreditación ocurre sin firma humana. La IA propone y justifica, pero no decide.
+- **Human-in-the-loop:** ninguna certificación ocurre sin firma humana. La IA propone y justifica, pero no decide.
 - **Evidencia sobre volumen:** cuántos issues cierra alguien no prueba dominio. La calidad y el contexto pesan más.
-- **Trazabilidad:** cada nivel acreditado se puede rastrear hasta sus evidencias y hasta quien lo acreditó.
+- **Trazabilidad:** cada nivel certificado se puede rastrear hasta sus evidencias y hasta quien lo certificó.
 - **Transparencia para el colaborador:** cada persona ve su perfil, sus evidencias y las propuestas de la IA sobre ella.
 
 ### Fuera de alcance
 
 - Hospedar contenido de cursos (se queda en Drive y Classroom), salvo que se active la contingencia de §6.
-- Verificación pública de certificados.
+- Verificación pública de certificados de curso.
 - Evaluación de desempeño salarial o de RR. HH.
 - Gestión de proyectos (ya la cubre GitLab).
 
@@ -116,11 +116,11 @@ Cada rol exige un nivel mínimo por competencia. Cada nivel se acredita con evid
 
 | # | KPI | Definición |
 |---|---|---|
-| 1 | Cobertura de roles | Porcentaje de roles requeridos por proyectos activos que se cubren con personal acreditado al nivel exigido. |
+| 1 | Cobertura de roles | Porcentaje de roles requeridos por proyectos activos que se cubren con personal certificado al nivel exigido. |
 | 2 | Tiempo de asignación | Días entre que un proyecto pide un perfil y se asigna a alguien preparado. |
-| 3 | Cierre de brechas | Reducción de la brecha promedio (nivel requerido − nivel acreditado) por colaborador y por producto. |
+| 3 | Cierre de brechas | Reducción de la brecha promedio (nivel requerido − nivel certificado) por colaborador y por producto. |
 | 4 | Tiempo a competencia | Tiempo que tarda un colaborador en pasar de un nivel al siguiente. |
-| 5 | Evidencia real | Porcentaje de acreditaciones de L3 o superior respaldadas por evidencia de GitLab. |
+| 5 | Evidencia real | Porcentaje de certificaciones de L3 o superior respaldadas por evidencia de GitLab. |
 | 6 | Adopción | Porcentaje de colaboradores con perfil activo y porcentaje de proyectos con requerimientos registrados. |
 
 ## 9. Horizontes
@@ -129,8 +129,8 @@ Cada rol exige un nivel mínimo por competencia. Cada nivel se acredita con evid
 
 | Horizonte | Alcance | KPI habilitados |
 |---|---|---|
-| **H1 — El idioma común** | Catálogo de roles, competencias y niveles; requerimientos de proyecto; perfil con acreditación manual; brechas y búsqueda de personal. | 1, 2, 3, 6 |
-| **H2 — Formación integrada** | Rutas de formación con Classroom y Drive; certificados en docsuite. | 4 |
+| **H1 — El idioma común** | Catálogo de roles, competencias y niveles; requerimientos de proyecto; perfil con certificación manual; brechas y búsqueda de personal. | 1, 2, 3, 6 |
+| **H2 — Formación integrada** | Rutas de formación con Classroom y Drive; certificados de curso en docsuite. | 4 |
 | **H3 — Evidencia real con IA** | Agente sobre GitLab que propone niveles; tablero de capacidad frente a demanda. | 5 |
 
 **Por qué este orden:** sin un catálogo acordado, ni la formación ni la IA tienen contra qué medir.
@@ -147,13 +147,13 @@ Cada rol exige un nivel mínimo por competencia. Cada nivel se acredita con evid
 
 ## 11. Preguntas abiertas
 
-1. Qué evidencia exige cada nivel (L1–L4) para acreditarse.
+1. Qué evidencia exige cada nivel (L1–L4) para certificarse.
 2. Cómo se versiona el catálogo de competencias.
 3. Metas numéricas y línea base de los KPI (Hecho: aún no se tienen).
 4. Si hay que integrar el sistema de RR. HH. como fuente de la ficha del colaborador.
 5. Cómo se decide una asignación: la plataforma recomienda y el PM decide, o hay un flujo de aprobación.
 6. Qué papel exacto tiene el Responsable de producto frente al Jefe de Ingeniería en el mantenimiento del catálogo.
-7. Cómo se relaciona el curso certificado con los niveles: si aprobar un curso aporta evidencia para algún nivel y para cuál.
+7. Cómo se relaciona el certificado de curso con los niveles: si aprobar un curso aporta evidencia para algún nivel y para cuál.
 
 ## 12. Preguntas resueltas
 

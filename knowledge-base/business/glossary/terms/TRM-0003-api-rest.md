@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "API REST"
-description: "Interfaz por la que la plataforma pide a docsuite la generación del PDF de un certificado."
+description: "Interfaz por la que la plataforma pide a docsuite la generación del PDF de un certificado de curso."
 tags: [glossary, business-term, sigla]
 status: approved
 generated:
@@ -27,7 +27,7 @@ sources:
 - **Tipo:** sigla
 - **Forma completa:** Application programming interface + Representational State Transfer [API: ISO/IEC/IEEE 26514:2022, 3.1.6; REST: Fielding, cap. 5]
 - **Sinónimos:** —
-- **Definición:** Interfaz por la que la plataforma pide a docsuite la generación del PDF de un certificado.
+- **Definición:** Interfaz por la que la plataforma pide a docsuite la generación del PDF de un certificado de curso.
 - **Definición de referencia:** API: conjunto de funciones, protocolos, parámetros y objetos usados para crear software que interactúa con las funciones o datos de un sistema o servicio externo (ISO/IEC/IEEE 26514:2022, 3.1.6). REST: estilo arquitectónico para sistemas hipermedia distribuidos (Fielding, cap. 5).
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
@@ -40,5 +40,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
-- **Relacionados:** [docsuite](TRM-0019-docsuite.md) · [PDF](TRM-0044-pdf.md) · [Certificado](TRM-0008-certificado.md)
+- **Relacionados:** [docsuite](TRM-0019-docsuite.md) · [PDF](TRM-0044-pdf.md) · [Certificado de curso](TRM-0008-certificado.md)
 - **Notas:** Las fuentes internas no especifican la API de docsuite (endpoints, autenticación). La expansión combina dos fuentes N1, una por componente.

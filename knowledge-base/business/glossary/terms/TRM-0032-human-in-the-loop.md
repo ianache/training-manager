@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Human-in-the-loop"
-description: "Principio de producto: ninguna acreditación ocurre sin firma humana; la IA propone y justifica, pero no decide."
+description: "Principio de producto: ninguna certificación ocurre sin firma humana; la IA propone y justifica, pero no decide."
 tags: [glossary, business-term, término]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0032
 - **Tipo:** término
 - **Sinónimos:** —
-- **Definición:** Principio de producto: ninguna acreditación ocurre sin firma humana; la IA propone y justifica, pero no decide.
+- **Definición:** Principio de producto: ninguna certificación ocurre sin firma humana; la IA propone y justifica, pero no decide.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L101 — consultada 2026-09-26

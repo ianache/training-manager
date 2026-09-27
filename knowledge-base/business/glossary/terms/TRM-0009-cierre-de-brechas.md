@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Cierre de brechas"
-description: "KPI 3: reducción de la brecha promedio (nivel requerido − nivel acreditado) por colaborador y por producto."
+description: "KPI 3: reducción de la brecha promedio (nivel requerido − nivel certificado) por colaborador y por producto."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -20,7 +20,7 @@ sources:
 - **ID:** TRM-0009
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** KPI 3: reducción de la brecha promedio (nivel requerido − nivel acreditado) por colaborador y por producto.
+- **Definición:** KPI 3: reducción de la brecha promedio (nivel requerido − nivel certificado) por colaborador y por producto.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L121 — consultada 2026-09-26

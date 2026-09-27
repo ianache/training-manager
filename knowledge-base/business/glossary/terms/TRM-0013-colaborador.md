@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Colaborador"
-description: "Persona de COMSATEL que participa en roles de los proyectos, tiene un perfil de competencias y recibe formación y acreditación."
+description: "Persona de COMSATEL que participa en roles de los proyectos, tiene un perfil de competencias y recibe formación y certificación."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -20,7 +20,7 @@ sources:
 - **ID:** TRM-0013
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Persona de COMSATEL que participa en roles de los proyectos, tiene un perfil de competencias y recibe formación y acreditación.
+- **Definición:** Persona de COMSATEL que participa en roles de los proyectos, tiene un perfil de competencias y recibe formación y certificación.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L30 — consultada 2026-09-26
@@ -30,5 +30,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Perfil de competencias del colaborador](TRM-0045-perfil-de-competencias-del-colaborador.md) · [Nivel acreditado](TRM-0042-nivel-acreditado.md) · [Transparencia para el colaborador](TRM-0064-transparencia-para-el-colaborador.md)
+- **Relacionados:** [Perfil de competencias del colaborador](TRM-0045-perfil-de-competencias-del-colaborador.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md) · [Transparencia para el colaborador](TRM-0064-transparencia-para-el-colaborador.md)
 - **Notas:** —

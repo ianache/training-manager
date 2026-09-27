@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "IA"
-description: "Agente de análisis que propone niveles con su justificación a partir de la evidencia de GitLab; no acredita."
+description: "Agente de análisis que propone niveles con su justificación a partir de la evidencia de GitLab; no certifica."
 tags: [glossary, business-term, sigla]
 status: draft
 generated:
@@ -20,7 +20,7 @@ sources:
 - **Tipo:** sigla
 - **Forma completa:** Desconocida
 - **Sinónimos:** —
-- **Definición:** Agente de análisis que propone niveles con su justificación a partir de la evidencia de GitLab; no acredita.
+- **Definición:** Agente de análisis que propone niveles con su justificación a partir de la evidencia de GitLab; no certifica.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L46 — consultada 2026-09-26

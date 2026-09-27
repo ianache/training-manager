@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Curso final"
-description: "Curso cuya aprobación, según el cumplimiento de sus objetivos, da derecho a un certificado."
+description: "Curso cuya aprobación, según el cumplimiento de sus objetivos, da derecho a un certificado de curso."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0017
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Curso cuya aprobación, según el cumplimiento de sus objetivos, da derecho a un certificado.
+- **Definición:** Curso cuya aprobación, según el cumplimiento de sus objetivos, da derecho a un certificado de curso.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L82 — consultada 2026-09-26
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** decision
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Certificado](TRM-0008-certificado.md) · [Ruta de formación](TRM-0057-ruta-de-formacion.md)
+- **Relacionados:** [Certificado de curso](TRM-0008-certificado.md) · [Ruta de formación](TRM-0057-ruta-de-formacion.md)
 - **Notas:** Las fuentes no dicen de qué es "final" (programa, ruta o curso individual) (GQ-06).

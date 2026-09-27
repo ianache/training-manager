@@ -1,7 +1,7 @@
 ---
 type: Refined User Story
 title: "US-005 — Ver mi brecha frente a un rol"
-description: "El colaborador ve, por competencia, la diferencia entre el nivel que exige un rol y su nivel acreditado."
+description: "El colaborador ve, por competencia, la diferencia entre el nivel que exige un rol y su nivel certificado."
 tags: [user-story, h1, brecha, perfil]
 status: draft
 generated:
@@ -30,18 +30,18 @@ sources:
 
 ## Resultado
 
-**Como** [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md), **quiero** ver la diferencia entre mis niveles acreditados y los que exige un rol, **para** saber qué me falta para ese rol (VIS-001:L41).
+**Como** [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md), **quiero** ver la diferencia entre mis niveles certificados y los que exige un rol, **para** saber qué me falta para ese rol (VIS-001:L41).
 
 ### Criterios de aceptación
 
 | ID | Dado | Cuando | Entonces | Regla |
 |---|---|---|---|---|
-| AC-1 | un rol del catálogo y mi perfil | consulto mi [brecha](../../business/glossary/terms/TRM-0005-brecha.md) para ese rol | veo, por cada competencia del rol, el nivel requerido, mi nivel acreditado y la diferencia | BR-BRE-01 |
+| AC-1 | un rol del catálogo y mi perfil | consulto mi [brecha](../../business/glossary/terms/TRM-0005-brecha.md) para ese rol | veo, por cada competencia del rol, el nivel requerido, mi nivel certificado y la diferencia | BR-BRE-01 |
 
 ### Casos negativos y límite
 
-- **Límite sin regla:** una competencia del rol en la que no tengo nivel acreditado (P-12).
-- **Límite sin regla:** un nivel acreditado mayor que el requerido. No está definido si la brecha es negativa o se muestra como cubierta (P-12).
+- **Límite sin regla:** una competencia del rol en la que no tengo nivel certificado (P-12).
+- **Límite sin regla:** un nivel certificado mayor que el requerido. No está definido si la brecha es negativa o se muestra como cubierta (P-12).
 - **Por confirmar (no es criterio):** la diferencia se calcula restando la posición en la escala (L3 − L1 = 2). Es una inferencia (BR-BRE-02).
 - **Sin regla:** qué roles puede consultar el colaborador y cómo declara el rol al que aspira (P-15).
 
@@ -49,7 +49,7 @@ sources:
 
 | ID | Hallazgo | Fuente | Clasificación | Confianza |
 |---|---|---|---|---|
-| EVD-2026-0008 | Brecha = Nivel requerido − Nivel acreditado | VIS-001:L59 | fact | medium |
+| EVD-2026-0008 | Brecha = Nivel requerido − Nivel certificado | VIS-001:L59 | fact | medium |
 | EVD-2026-0003 | Escala L1–L4 | VIS-001:L62-L69 | decision | high |
 | EVD-2026-0033 | El colaborador sabe "qué le falta para el rol al que aspira"; no se define cómo declara esa aspiración | VIS-001:L41 | gap | high |
 
@@ -58,14 +58,14 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 ## Reglas, dependencias e impactos
 
 - **Reglas:** BR-BRE-01; BR-BRE-02 como inferencia; BR-BRE-03 (casos límite abiertos).
-- **Depende de:** [US-001](US-001-definir-catalogo-de-competencias.md) (nivel requerido) y [US-003](US-003-acreditar-manualmente-un-nivel.md) (nivel acreditado).
+- **Depende de:** [US-001](US-001-definir-catalogo-de-competencias.md) (nivel requerido) y [US-003](US-003-acreditar-manualmente-un-nivel.md) (nivel certificado).
 - **Alimenta:** el KPI 3, cierre de brechas (VIS-001:L121), y las rutas de formación de H2 (VIS-001:L79).
 
 ## Vacíos y preguntas abiertas
 
 | Pregunta | Responsable | Prioridad | Estado |
 |---|---|---|---|
-| P-12 — ¿Cómo se trata la brecha sin nivel acreditado y la brecha negativa? ¿Los niveles se restan como números? | Jefe de Ingeniería | Media | Abierta (BRC-001) |
+| P-12 — ¿Cómo se trata la brecha sin nivel certificado y la brecha negativa? ¿Los niveles se restan como números? | Jefe de Ingeniería | Media | Abierta (BRC-001) |
 | P-15 — ¿Cómo declara el colaborador el rol al que aspira? ¿Puede ver la brecha de cualquier rol? | Responsable de producto | Media | Abierta (USC-001) |
 
 ## Preparación y entrega

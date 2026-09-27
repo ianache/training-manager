@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Plataforma de Gestión de Formación del Recurso Humano"
-description: "Plataforma interna de COMSATEL que conecta los requerimientos de competencias de los proyectos con colaboradores formados y acreditados por niveles de dominio."
+description: "Plataforma interna de COMSATEL que conecta los requerimientos de competencias de los proyectos con colaboradores formados y certificados por niveles de dominio."
 tags: [glossary, business-term, término]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0046
 - **Tipo:** término
 - **Sinónimos:** Plataforma de Gestión de Formación [BRC-001:L3]
-- **Definición:** Plataforma interna de COMSATEL que conecta los requerimientos de competencias de los proyectos con colaboradores formados y acreditados por niveles de dominio.
+- **Definición:** Plataforma interna de COMSATEL que conecta los requerimientos de competencias de los proyectos con colaboradores formados y certificados por niveles de dominio.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L3-L4 — consultada 2026-09-26

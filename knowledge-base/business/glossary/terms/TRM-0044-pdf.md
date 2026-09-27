@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "PDF"
-description: "Formato del certificado que genera docsuite."
+description: "Formato del certificado de curso que genera docsuite."
 tags: [glossary, business-term, sigla]
 status: approved
 generated:
@@ -25,7 +25,7 @@ sources:
 - **Tipo:** sigla
 - **Forma completa:** Portable Document Format [Adobe — About Adobe PDF]
 - **Sinónimos:** —
-- **Definición:** Formato del certificado que genera docsuite.
+- **Definición:** Formato del certificado de curso que genera docsuite.
 - **Definición de referencia:** Formato de archivo creado por Adobe para presentar e intercambiar documentos con independencia del software, hardware o sistema operativo; normalizado en ISO 32000 (Adobe).
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
@@ -36,5 +36,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** high
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Certificado](TRM-0008-certificado.md) · [docsuite](TRM-0019-docsuite.md)
+- **Relacionados:** [Certificado de curso](TRM-0008-certificado.md) · [docsuite](TRM-0019-docsuite.md)
 - **Notas:** iso.org (ISO 32000) respondió 403; se usó la documentación del creador del formato.

@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Horizonte"
-description: "Etapa de la estrategia de producto: H1 \"El idioma común\" (catálogo, requerimientos, perfil con acreditación manual, brechas), H2 \"Formación integrada\" (rutas y certificados) y H3 \"Evidencia real con IA\" (agente de GitLab y tablero)."
+description: "Etapa de la estrategia de producto: H1 \"El idioma común\" (catálogo, requerimientos, perfil con certificación manual, brechas), H2 \"Formación integrada\" (rutas y certificados de curso) y H3 \"Evidencia real con IA\" (agente de GitLab y tablero)."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -20,7 +20,7 @@ sources:
 - **ID:** TRM-0031
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Etapa de la estrategia de producto: H1 "El idioma común" (catálogo, requerimientos, perfil con acreditación manual, brechas), H2 "Formación integrada" (rutas y certificados) y H3 "Evidencia real con IA" (agente de GitLab y tablero).
+- **Definición:** Etapa de la estrategia de producto: H1 "El idioma común" (catálogo, requerimientos, perfil con certificación manual, brechas), H2 "Formación integrada" (rutas y certificados de curso) y H3 "Evidencia real con IA" (agente de GitLab y tablero).
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L126-L136 — consultada 2026-09-26

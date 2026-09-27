@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "docsuite"
-description: "Plataforma que diseña plantillas de certificado, genera PDF por API REST y los guarda en un repositorio propio; la plataforma le pide el PDF del certificado."
+description: "Plataforma que diseña plantillas de certificado de curso, genera PDF por API REST y los guarda en un repositorio propio; la plataforma le pide el PDF del certificado de curso."
 tags: [glossary, business-term, término]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0019
 - **Tipo:** término
 - **Sinónimos:** —
-- **Definición:** Plataforma que diseña plantillas de certificado, genera PDF por API REST y los guarda en un repositorio propio; la plataforma le pide el PDF del certificado.
+- **Definición:** Plataforma que diseña plantillas de certificado de curso, genera PDF por API REST y los guarda en un repositorio propio; la plataforma le pide el PDF del certificado de curso.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L34 — consultada 2026-09-26
@@ -32,5 +32,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** high
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Certificado](TRM-0008-certificado.md) · [API REST](TRM-0003-api-rest.md) · [PDF](TRM-0044-pdf.md)
+- **Relacionados:** [Certificado de curso](TRM-0008-certificado.md) · [API REST](TRM-0003-api-rest.md) · [PDF](TRM-0044-pdf.md)
 - **Notas:** No se sabe si es un sistema interno o un producto de terceros; no se encontró documentación oficial (GQ-10).

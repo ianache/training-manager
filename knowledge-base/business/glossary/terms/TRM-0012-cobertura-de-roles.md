@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Cobertura de roles"
-description: "KPI 1: porcentaje de roles requeridos por proyectos activos que se cubren con personal acreditado al nivel exigido."
+description: "KPI 1: porcentaje de roles requeridos por proyectos activos que se cubren con personal certificado al nivel exigido."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -20,7 +20,7 @@ sources:
 - **ID:** TRM-0012
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** KPI 1: porcentaje de roles requeridos por proyectos activos que se cubren con personal acreditado al nivel exigido.
+- **Definición:** KPI 1: porcentaje de roles requeridos por proyectos activos que se cubren con personal certificado al nivel exigido.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L119 — consultada 2026-09-26

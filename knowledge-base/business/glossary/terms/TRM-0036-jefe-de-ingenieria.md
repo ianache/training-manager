@@ -33,4 +33,4 @@ sources:
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
 - **Relacionados:** [Catálogo de competencias](TRM-0007-catalogo-de-competencias.md) · [Responsable de producto](TRM-0053-responsable-de-producto.md)
-- **Notas:** —
+- **Notas:** Decisión del 2026-09-26 (BRC-001 BR-PRG-01): junto con el Evaluador, gestiona todo el programa. Si tiene perfil de competencias está abierto (P-31).

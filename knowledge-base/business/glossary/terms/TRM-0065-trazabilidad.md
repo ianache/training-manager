@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Trazabilidad"
-description: "Principio de producto: cada nivel acreditado se puede rastrear hasta sus evidencias y hasta quien lo acreditó."
+description: "Principio de producto: cada nivel certificado se puede rastrear hasta sus evidencias y hasta quien lo certificó."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0065
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Principio de producto: cada nivel acreditado se puede rastrear hasta sus evidencias y hasta quien lo acreditó.
+- **Definición:** Principio de producto: cada nivel certificado se puede rastrear hasta sus evidencias y hasta quien lo certificó.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L103 — consultada 2026-09-26
@@ -30,5 +30,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Jefe de Ingeniería
-- **Relacionados:** [Acreditación](TRM-0001-acreditacion.md) · [Evidencia](TRM-0022-evidencia.md) · [Nivel acreditado](TRM-0042-nivel-acreditado.md)
+- **Relacionados:** [Certificación](TRM-0001-acreditacion.md) · [Evidencia](TRM-0022-evidencia.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md)
 - **Notas:** —

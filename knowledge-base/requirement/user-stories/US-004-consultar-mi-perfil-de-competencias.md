@@ -1,7 +1,7 @@
 ---
 type: Refined User Story
 title: "US-004 — Consultar mi perfil de competencias"
-description: "El colaborador ve sus niveles acreditados por competencia, su historial y las evidencias que los respaldan."
+description: "El colaborador ve sus niveles certificados por competencia, su historial y las evidencias que los respaldan."
 tags: [user-story, h1, perfil, transparencia]
 status: draft
 generated:
@@ -24,21 +24,21 @@ sources:
 
 - **Pregunta:** ¿qué debe ver un colaborador en su propio perfil para saber qué nivel tiene?
 - **Consumidor:** `ux-requirements-analyzer` (UX-101) y el Responsable de producto, que valida.
-- **Incluye:** la vista del propio perfil: niveles acreditados, historial y evidencias.
+- **Incluye:** la vista del propio perfil: niveles certificados, historial y evidencias.
 - **Excluye:** la vista del perfil de otra persona (P-08); la brecha ([US-005](US-005-ver-mi-brecha-frente-a-un-rol.md)); las propuestas de la IA (US-012, H3).
 - **Contexto:** [RCP-001](../context-packs/RCP-001-h1-idioma-comun.md), que está "En validación".
 
 ## Resultado
 
-**Como** [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md), **quiero** ver mis niveles acreditados, su historial y las evidencias que los respaldan, **para** saber qué nivel tengo en cada competencia (VIS-001:L41, L76).
+**Como** [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md), **quiero** ver mis niveles certificados, su historial y las evidencias que los respaldan, **para** saber qué nivel tengo en cada competencia (VIS-001:L41, L76).
 
 ### Criterios de aceptación
 
 | ID | Dado | Cuando | Entonces | Regla |
 |---|---|---|---|---|
-| AC-1 | que soy un colaborador con acreditaciones | abro mi [perfil](../../business/glossary/terms/TRM-0045-perfil-de-competencias-del-colaborador.md) | veo cada competencia con su nivel acreditado, la fecha, quién lo acreditó y sus evidencias | BR-TRA-01, BR-ACR-03 |
-| AC-2 | que soy un colaborador con varias acreditaciones de una misma competencia a lo largo del tiempo | abro mi perfil | veo su historial | VIS-001:L76 ("historial") |
-| AC-3 | que no tengo acreditaciones | abro mi perfil | veo que no tengo niveles acreditados | Estado vacío (no es una regla de negocio) |
+| AC-1 | que soy un colaborador con certificaciones | abro mi [perfil](../../business/glossary/terms/TRM-0045-perfil-de-competencias-del-colaborador.md) | veo cada competencia con su nivel certificado, la fecha, quién lo certificó y sus evidencias | BR-TRA-01, BR-ACR-03 |
+| AC-2 | que soy un colaborador con varias certificaciones de una misma competencia a lo largo del tiempo | abro mi perfil | veo su historial | VIS-001:L76 ("historial") |
+| AC-3 | que no tengo certificaciones | abro mi perfil | veo que no tengo niveles certificados | Estado vacío (no es una regla de negocio) |
 
 ### Casos negativos y límite
 
@@ -50,8 +50,8 @@ sources:
 | ID | Hallazgo | Fuente | Clasificación | Confianza |
 |---|---|---|---|---|
 | EVD-2026-0016 | El colaborador ve su perfil y sus evidencias | VIS-001:L104 | fact | medium |
-| EVD-2026-0011 | Se registra quién, cuándo y con qué evidencia se acreditó | VIS-001:L80 | fact | medium |
-| EVD-2026-0031 | El perfil incluye nivel acreditado por competencia, historial y evidencias | VIS-001:L76 | fact | medium |
+| EVD-2026-0011 | Se registra quién, cuándo y con qué evidencia se certificó | VIS-001:L80 | fact | medium |
+| EVD-2026-0031 | El perfil incluye nivel certificado por competencia, historial y evidencias | VIS-001:L76 | fact | medium |
 | EVD-2026-0032 | No está definido de dónde salen los colaboradores (¿sistema de RR. HH.?) | VIS-001:L153 | gap | high |
 
 Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58-05:00`, `freshness: current`, `owner: Responsable de producto`.
@@ -59,7 +59,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 ## Reglas, dependencias e impactos
 
 - **Reglas:** BR-TRA-01, BR-ACR-03.
-- **Depende de:** [US-003](US-003-acreditar-manualmente-un-nivel.md) (sin acreditaciones, el perfil solo muestra el estado vacío).
+- **Depende de:** [US-003](US-003-acreditar-manualmente-un-nivel.md) (sin certificaciones, el perfil solo muestra el estado vacío).
 - **Alimenta:** el KPI 6, porcentaje de colaboradores con perfil activo (VIS-001:L124). "Perfil activo" está sin definir (GQ-08).
 - **Dato personal:** el perfil contiene datos de desempeño de una persona.
 

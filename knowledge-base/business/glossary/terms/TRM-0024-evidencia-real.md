@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Evidencia real"
-description: "KPI 5: porcentaje de acreditaciones de L3 o superior respaldadas por evidencia de GitLab."
+description: "KPI 5: porcentaje de certificaciones de L3 o superior respaldadas por evidencia de GitLab."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -20,7 +20,7 @@ sources:
 - **ID:** TRM-0024
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** KPI 5: porcentaje de acreditaciones de L3 o superior respaldadas por evidencia de GitLab.
+- **Definición:** KPI 5: porcentaje de certificaciones de L3 o superior respaldadas por evidencia de GitLab.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L123 — consultada 2026-09-26

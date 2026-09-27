@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Perfil de competencias del colaborador"
-description: "Registro del nivel acreditado por competencia de un colaborador, con su historial y sus evidencias."
+description: "Registro del nivel certificado por competencia de un colaborador, con su historial y sus evidencias."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0045
 - **Tipo:** concepto
 - **Sinónimos:** —
-- **Definición:** Registro del nivel acreditado por competencia de un colaborador, con su historial y sus evidencias.
+- **Definición:** Registro del nivel certificado por competencia de un colaborador, con su historial y sus evidencias.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L76 — consultada 2026-09-26
@@ -32,5 +32,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Colaborador](TRM-0013-colaborador.md) · [Nivel acreditado](TRM-0042-nivel-acreditado.md) · [Transparencia para el colaborador](TRM-0064-transparencia-para-el-colaborador.md) · [Adopción](TRM-0002-adopcion.md)
+- **Relacionados:** [Colaborador](TRM-0013-colaborador.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md) · [Transparencia para el colaborador](TRM-0064-transparencia-para-el-colaborador.md) · [Adopción](TRM-0002-adopcion.md)
 - **Notas:** "Perfil" también se usa en VIS-001:L120 ("un proyecto pide un perfil") con el sentido de necesidad de un rol, y en L124 "perfil activo" sin definir (GQ-08). Quién puede ver el perfil de otro está abierto (BRC-001:L178, P-08).

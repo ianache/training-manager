@@ -1,7 +1,7 @@
 ---
 type: Business Term
 title: "Evaluador"
-description: "Actor que revisa evidencias, acredita el nivel y valida, ajusta o rechaza las propuestas de la IA."
+description: "Actor que revisa evidencias, certifica el nivel y valida, ajusta o rechaza las propuestas de la IA."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
@@ -22,7 +22,7 @@ sources:
 - **ID:** TRM-0021
 - **Tipo:** concepto
 - **Sinónimos:** Instructor [VIS-001:L46]
-- **Definición:** Actor que revisa evidencias, acredita el nivel y valida, ajusta o rechaza las propuestas de la IA.
+- **Definición:** Actor que revisa evidencias, certifica el nivel y valida, ajusta o rechaza las propuestas de la IA.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L46 — consultada 2026-09-26
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Jefe de Ingeniería
-- **Relacionados:** [Acreditación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md) · [Firma humana](TRM-0026-firma-humana.md)
-- **Notas:** VIS-001:L46 nombra al actor "Instructor / evaluador"; no está claro si instructor y evaluador son el mismo rol (GQ-07). Si puede acreditar a alguien de su propio equipo está abierto (BRC-001:L179, P-09).
+- **Relacionados:** [Certificación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md) · [Firma humana](TRM-0026-firma-humana.md)
+- **Notas:** VIS-001:L46 nombra al actor "Instructor / evaluador"; no está claro si instructor y evaluador son el mismo rol (GQ-07). Si puede certificar a alguien de su propio equipo está abierto (BRC-001:L179, P-09). Decisión del 2026-09-26 (BRC-001 BR-PRG-01): junto con el Jefe de Ingeniería, gestiona todo el programa. Si tiene perfil de competencias está abierto (P-31).

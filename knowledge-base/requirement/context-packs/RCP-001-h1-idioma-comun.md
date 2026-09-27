@@ -1,12 +1,12 @@
 ---
 type: Requirement Context Pack
 title: "RCP-001 — H1 El idioma común"
-description: "Contexto funcional mínimo y trazable del horizonte H1 de la Plataforma de Gestión de Formación: catálogo de competencias, requerimientos de proyecto, perfil con acreditación manual, brechas y búsqueda de personal."
-tags: [context-pack, requirements, h1, catalogo, acreditacion, brechas]
+description: "Contexto funcional mínimo y trazable del horizonte H1 de la Plataforma de Gestión de Formación: catálogo de competencias, requerimientos de proyecto, perfil con certificación manual, brechas y búsqueda de personal."
+tags: [context-pack, requirements, h1, catalogo, certificacion, brechas]
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-26T20:49:19-05:00"
+  at: "2026-09-26T23:38:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -33,10 +33,10 @@ sources:
 
 ### Objetivo de negocio
 
-Que cada [proyecto](../../business/glossary/terms/TRM-0050-proyecto.md) de los 4 productos pueda declarar los roles, competencias y niveles que necesita, y encontrar colaboradores cuyo nivel en esas competencias está acreditado, medido contra un catálogo común.
+Que cada [proyecto](../../business/glossary/terms/TRM-0050-proyecto.md) de los 4 productos pueda declarar los roles, competencias y niveles que necesita, y encontrar colaboradores cuyo nivel en esas competencias está certificado, medido contra un catálogo común.
 
 Resultado observable: los KPI que H1 habilita (VIS-001:L132):
-- **1 — Cobertura de roles:** porcentaje de roles requeridos por proyectos activos que se cubren con personal acreditado.
+- **1 — Cobertura de roles:** porcentaje de roles requeridos por proyectos activos que se cubren con personal certificado.
 - **2 — Tiempo de asignación.**
 - **3 — Cierre de brechas.**
 - **6 — Adopción:** perfiles activos y proyectos con requerimientos registrados.
@@ -45,23 +45,23 @@ Las metas y la línea base todavía no existen (VIS-001:L152).
 
 ### Incluido
 
-- Catálogo de roles, competencias y niveles requeridos por producto (capacidad 1).
+- Catálogo de roles, competencias y niveles requeridos (capacidad 1). Por decisión del 2026-09-26 es común a todos los productos (BR-CAT-07, BR-CAT-08).
 - Requerimientos de proyecto (capacidad 3).
-- Perfil de competencias con **acreditación manual** (capacidades 2 y 6).
+- Perfil de competencias con **certificación manual** (capacidades 2 y 6).
 - Brechas y búsqueda de personal (capacidad 4).
 - Historias USC-001 que cubren esto: US-001 a US-008.
 
 ### Excluido
 
-- Rutas de formación, Google Classroom, Google Drive y certificados de docsuite (H2).
+- Rutas de formación, Google Classroom, Google Drive y certificados de curso de docsuite (H2).
 - Agente de IA sobre GitLab y tablero de capacidad (H3).
-- Lo que VIS-001 §7 declara fuera de alcance: hospedar cursos, verificación pública de certificados, evaluación salarial o de RR. HH. y gestión de proyectos.
+- Lo que VIS-001 §7 declara fuera de alcance: hospedar cursos, verificación pública de certificados de curso, evaluación salarial o de RR. HH. y gestión de proyectos.
 - Diseño técnico, modelo de datos físico y APIs.
 
 ### Restricciones conocidas
 
-- Ninguna acreditación ocurre sin firma humana (VIS-001:L81, L101; BR-ACR-04).
-- Cada nivel acreditado se puede rastrear hasta sus evidencias y hasta quien lo acreditó (VIS-001:L103; BR-ACR-03).
+- Ninguna certificación ocurre sin firma humana (VIS-001:L81, L101; BR-ACR-04).
+- Cada nivel certificado se puede rastrear hasta sus evidencias y hasta quien lo certificó (VIS-001:L103; BR-ACR-03).
 - La escala es L1–L4 (VIS-001:L62-L69; BR-CAT-02).
 
 ## 3. Resumen ejecutivo del contexto
@@ -70,14 +70,14 @@ Hoy la asignación de personal depende del conocimiento informal de los líderes
 
 H1 crea ese "idioma común". Sus piezas son cuatro:
 - El Jefe de Ingeniería define el catálogo.
-- Los Líderes de proyecto declaran qué necesitan sus proyectos.
-- Los evaluadores acreditan niveles con evidencias.
-- La plataforma calcula brechas (nivel requerido − nivel acreditado) y muestra candidatos.
+- Los Jefes de proyecto declaran qué necesitan sus proyectos.
+- Los evaluadores certifican niveles con evidencias.
+- La plataforma calcula brechas (nivel requerido − nivel certificado) y muestra candidatos.
 
 VIS-001 pone H1 primero porque, sin catálogo, ni la formación (H2) ni la IA (H3) tienen contra qué medir (VIS-001:L136).
 
-Las reglas del catálogo, la acreditación y el cálculo de brecha están sostenidas por la visión y ya tienen términos aprobados en el glosario. Quedan abiertos cinco puntos que bloquean parte de la especificación:
-- La **evidencia mínima de cada nivel** (P-01).
+Las reglas del catálogo, la certificación y el cálculo de brecha están sostenidas por la visión y ya tienen términos aprobados en el glosario. Quedan abiertos cinco puntos que bloquean parte de la especificación:
+- El **detalle del tipo de evidencia** por competencia y nivel (P-22). P-01 quedó respondida en lo esencial con BR-ACR-07.
 - Cómo se **decide una asignación** (P-05).
 - **Quién ve el perfil de otra persona** (P-08).
 - **De dónde sale la lista de colaboradores** (VIS-001 §11.4).
@@ -100,15 +100,15 @@ No se consultaron GDrive, GitLab Issues ni fuentes externas: H1 no las necesita 
 
 | ID | Hallazgo | Fuente y fragmento | Tipo | Confianza |
 |---|---|---|---|---|
-| E-01 | H1 abarca catálogo; requerimientos de proyecto; perfil con acreditación manual; brechas y búsqueda de personal. | S-01:L132 | Decisión humana | Alta |
+| E-01 | H1 abarca catálogo; requerimientos de proyecto; perfil con certificación manual; brechas y búsqueda de personal. | S-01:L132 | Decisión humana | Alta |
 | E-02 | El Jefe de Ingeniería es dueño del catálogo de los 4 productos. | S-01:L51, L162 | Decisión humana | Alta |
-| E-03 | Modelo: Producto → Rol → Competencia → Nivel requerido; Colaborador → Competencia → Nivel acreditado ← Evidencia. | S-01:L56-L57 | Hecho | Media |
+| E-03 | Modelo: Producto → Rol → Competencia → Nivel requerido; Colaborador → Competencia → Nivel certificado ← Evidencia. | S-01:L56-L57 | Hecho | Media |
 | E-04 | Escala L1 Principiante, L2 Autónomo, L3 Avanzado, L4 Experto / Referente. | S-01:L62-L69 | Decisión humana | Alta |
 | E-05 | Cada rol exige un nivel mínimo por competencia. | S-01:L71 | Hecho | Media |
 | E-06 | Proyecto (de un Producto) → Requerimiento (Rol + Competencias + Nivel) → Asignación. | S-01:L58 | Hecho | Media |
-| E-07 | Brecha = Nivel requerido − Nivel acreditado. | S-01:L59 | Hecho | Media |
-| E-08 | Un evaluador revisa evidencias y acredita; se registra quién, cuándo y con qué evidencia. | S-01:L80 | Hecho | Media |
-| E-09 | Ninguna acreditación sin firma humana. | S-01:L81, L101 | Decisión humana | Alta |
+| E-07 | Brecha = Nivel requerido − Nivel certificado. | S-01:L59 | Hecho | Media |
+| E-08 | Un evaluador revisa evidencias y certifica; se registra quién, cuándo y con qué evidencia. | S-01:L80 | Hecho | Media |
+| E-09 | Ninguna certificación sin firma humana. | S-01:L81, L101 | Decisión humana | Alta |
 | E-10 | El colaborador ve su perfil y sus evidencias. | S-01:L104 | Hecho | Media |
 | E-11 | La evidencia exigida por cada nivel está abierta. | S-01:L71, L150 | Vacío | Alta |
 | E-12 | Cómo se decide una asignación está abierto. | S-01:L154 | Vacío | Alta |
@@ -121,13 +121,13 @@ No se consultaron GDrive, GitLab Issues ni fuentes externas: H1 no las necesita 
 
 Están respaldados por una fuente. Los que vienen de una decisión humana se listan en §10.
 
-- **Catálogo:** se organiza por producto (CLocator, CLocator v2 / C-Go, SIGO, SmartSuite), con roles, competencias y un nivel mínimo L1–L4 por competencia (E-01 a E-05; BR-CAT-01 a BR-CAT-04).
-- **Requerimientos:** cada requerimiento pertenece a un proyecto y cada proyecto a un producto. El Líder de proyecto declara rol, competencias y nivel (E-06; BR-REQ-01, BR-REQ-02).
-- **Acreditación:**
+- **Catálogo:** es único y común a los 4 productos (CLocator, CLocator v2 / C-Go, SIGO, SmartSuite): roles y competencias no pertenecen a un producto. Cada competencia de un rol tiene un nivel mínimo L1–L4 (E-01 a E-05; BR-CAT-01 a BR-CAT-04, BR-CAT-07, BR-CAT-08). VIS-001 describía un catálogo por producto (AMB-04).
+- **Requerimientos:** cada requerimiento pertenece a un proyecto y cada proyecto a un producto. El Jefe de proyecto declara rol, competencias y nivel (E-06; BR-REQ-01, BR-REQ-02).
+- **Certificación:**
   - En H1 es manual (E-01).
-  - Un evaluador humano acredita con al menos una evidencia de formación, práctica evaluada o desempeño en proyecto.
-  - Queda registro de quién acreditó, cuándo y con qué evidencia (E-08, E-09; BR-ACR-01 a BR-ACR-05).
-- **Brecha:** se calcula por competencia como nivel requerido − nivel acreditado (E-07; BR-BRE-01).
+  - Un evaluador humano certifica con al menos una evidencia de formación, práctica evaluada o desempeño en proyecto.
+  - Queda registro de quién certificó, cuándo y con qué evidencia (E-08, E-09; BR-ACR-01 a BR-ACR-05).
+- **Brecha:** se calcula por competencia como nivel requerido − nivel certificado (E-07; BR-BRE-01).
 - **Transparencia:** el colaborador ve su perfil y sus evidencias (E-10; BR-TRA-01).
 
 ## 6. Supuestos e hipótesis
@@ -135,9 +135,9 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | ID | Afirmación | Tipo | Origen | Qué la confirmaría |
 |---|---|---|---|---|
 | H-01 | Hoy no existe un catálogo común de roles y competencias. | Supuesto | S-01:L35 | Evidencia documental o confirmación del Jefe de Ingeniería |
-| H-02 | Un requerimiento solo puede usar roles y competencias del catálogo de su producto. | Hipótesis (agente) | BR-REQ-03 | Respuesta a P-10 |
+| H-02 | ~~Un requerimiento solo puede usar roles y competencias del catálogo de su producto.~~ | Descartada (2026-09-26) | BR-REQ-03, retirada | Respondida en P-10: los roles son comunes (BR-CAT-08) |
 | H-03 | Los niveles L1–L4 se restan como números para calcular la brecha. | Hipótesis (agente) | BR-BRE-02 | Respuesta a P-12 |
-| H-04 | El Líder de proyecto es quien asigna. | Hipótesis (agente) | US-007; S-01 solo dice que "encuentra personal" (L42) | Respuesta a P-05 |
+| H-04 | El Jefe de proyecto es quien asigna. | Hipótesis (agente) | US-007; S-01 solo dice que "encuentra personal" (L42) | Respuesta a P-05 |
 | H-05 | Las brechas por producto las consulta el Jefe de Ingeniería o Dirección. | Hipótesis (agente) | US-008; S-01:L78 no nombra al actor | Respuesta a P-17 |
 | H-06 | El Responsable de producto aporta conocimiento del catálogo sin gobernarlo. | Supuesto | S-01:L44 | Respuesta a P-06 |
 
@@ -145,23 +145,37 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 
 | ID | Pregunta | Destinatario | Prioridad | Estado |
 |---|---|---|---|---|
-| P-01 | ¿Qué evidencia mínima exige cada nivel L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Abierta (BRC-001) |
-| P-05 | ¿La plataforma solo recomienda y el Líder de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
+| P-01 | ¿Qué evidencia mínima exige cada nivel L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Respondida en lo esencial (ianache (Jefe de Ingeniería), 2026-09-26): BR-ACR-07 |
+| P-21 | ¿Quién define el tipo de evidencia de cada competencia y nivel? ¿Forma parte del catálogo que gobierna el Jefe de Ingeniería? | Negocio (Jefe de Ingeniería) | Media | Nueva |
+| P-22 | ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-23 | ¿Una competencia y nivel puede exigir más de un tipo de evidencia o una cantidad mínima? ¿El evaluador puede aceptar evidencia de otro tipo como equivalente? | Negocio (Jefe de Ingeniería) | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): se exigen todas las evidencias definidas (BR-ACR-09); las equivalencias siguen abiertas |
+| P-24 | ¿Hay que definir el tipo de evidencia para los cuatro niveles de cada competencia, o solo para los niveles que exige algún rol? | Negocio (Jefe de Ingeniería) | Baja | Nueva |
+| P-25 | ¿Un requerimiento indica el nivel de rol que necesita? | Negocio (Responsable de producto) | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-08) |
+| P-26 | ¿Cuántos niveles de rol hay y cómo se relacionan con L1–L4? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida: Rol-Nivel 1 a 4 (BR-CAT-14); resto en P-36 |
+| P-27 | ¿Una competencia transversal aplica automáticamente o se asigna? | Negocio (Jefe de Ingeniería) | Media | Respondida: se asigna a los roles (BR-CAT-11) |
+| P-36 | ¿Cómo se combinan Junior/Senior con la numeración 1 a 4 del Rol-Nivel (por ejemplo, ¿Junior 1-2 y Senior 3-4, o Junior 1-4 y Senior 1-4?)? ¿Todos los roles tienen los mismos niveles? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-37 | ¿La rúbrica de una competencia contiene los requisitos de evidencia de cada nivel, o son cosas distintas? ¿Quién define y aprueba las rúbricas? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-28 | ¿Un colaborador tiene un nivel de rol (por ejemplo, Developer Junior 2)? Si lo tiene, ¿se certifica o se deduce de sus competencias certificadas? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-29 | ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | Negocio (Responsable de producto) | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no (BR-REQ-09) |
+| P-30 | ¿"Líder de proyecto" (el actor que declara requerimientos) es el mismo rol que "jefe de proyecto" de la lista de roles del catálogo? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí; se usa Jefe de proyecto |
+| P-38 | La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
+| P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Negocio (Jefe de Ingeniería) | Baja | Nueva |
+| P-05 | ¿La plataforma solo recomienda y el Jefe de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
 | P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
 | VIS-§11.4 | ¿De dónde sale la lista de colaboradores y sus datos básicos? ¿Se integra el sistema de RR. HH.? | Negocio + ARQ | Alta | Abierta (VIS-001) |
-| RCP-Q1 | ¿Quiénes son los evaluadores de H1 y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Negocio (Jefe de Ingeniería) | Alta | Nueva |
-| P-02 | ¿Cómo se versiona el catálogo y qué pasa con requerimientos y acreditaciones vigentes cuando cambia? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
+| RCP-Q1 | ¿Quiénes son los evaluadores de H1 y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol |
+| P-02 | ¿Cómo se versiona el catálogo y qué pasa con requerimientos y certificaciones vigentes cuando cambia? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
 | P-06 | ¿Qué papel tiene el Responsable de producto en el mantenimiento del catálogo? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
-| P-09 | ¿Qué parte de la acreditación hace Gestión de formación / RR. HH. y qué parte el evaluador? ¿El evaluador puede acreditar a su propio equipo? | Negocio | Media | Abierta (BRC-001) |
-| P-10 | ¿Un requerimiento solo usa roles y competencias del catálogo de su producto? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
+| P-09 | ¿Qué parte de la certificación hace Gestión de formación / RR. HH. y qué parte el evaluador? ¿El evaluador puede certificar a su propio equipo? | Negocio | Media | Abierta (BRC-001) |
+| P-10 | ¿Un requerimiento solo usa roles y competencias del catálogo de su producto? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no; roles comunes (BR-CAT-08) |
 | P-11 | ¿Qué estados tiene un proyecto y cuándo es "activo"? Lo necesitan el KPI 1 y la búsqueda. | Negocio (Responsable de producto) | Media | Abierta (BRC-001) |
-| P-12 | ¿Cómo se trata la brecha sin nivel acreditado y la brecha negativa? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
+| P-12 | ¿Cómo se trata la brecha sin nivel certificado y la brecha negativa? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
 | P-15 | ¿Cómo declara el colaborador el rol al que aspira? | Negocio (Responsable de producto) | Media | Abierta (USC-001) |
 | P-16 | ¿La búsqueda muestra también candidatos por debajo del nivel requerido? ¿Cómo se ordena? | Negocio (Responsable de producto) | Media | Abierta (USC-001) |
 | P-17 | ¿Quién consulta las brechas agregadas por producto? | Negocio (Jefe de Ingeniería) | Media | Abierta (USC-001) |
 | GQ-08 | ¿Qué es un "perfil activo"? Lo necesita el KPI 6. | Negocio (Responsable de producto) | Media | Abierta (GLS-001) |
 | RCP-Q2 | En H1, sin el agente de IA, ¿un evaluador puede registrar a mano evidencia de GitLab (desempeño en proyecto)? | Negocio (Jefe de Ingeniería) | Media | Nueva |
-| P-14 | ¿Una acreditación vence o puede revocarse? | Negocio (Jefe de Ingeniería) | Baja | Abierta (BRC-001) |
+| P-14 | ¿Una certificación vence o puede revocarse? | Negocio (Jefe de Ingeniería) | Baja | Abierta (BRC-001) |
 
 ## 8. Actores, procesos, datos y dependencias
 
@@ -171,21 +185,21 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 |---|---|---|---|
 | [Jefe de Ingeniería](../../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md) | Define y gobierna el catálogo | S-01:L43, L51 | US-001 |
 | [Responsable de producto](../../business/glossary/terms/TRM-0053-responsable-de-producto.md) | Aporta el conocimiento de los roles de su producto; papel exacto por confirmar | S-01:L44 (supuesto); término en `draft` | US-001 (indirecto) |
-| [Líder de proyecto](../../business/glossary/terms/TRM-0038-lider-de-proyecto.md) (PM) | Declara requerimientos y busca candidatos | S-01:L42, L77 | US-002, US-006, US-007 (hipótesis) |
-| [Evaluador](../../business/glossary/terms/TRM-0021-evaluador.md) | Revisa evidencias y acredita niveles | S-01:L46, L80 | US-003 |
+| [Jefe de proyecto](../../business/glossary/terms/TRM-0038-lider-de-proyecto.md) (PM) | Declara requerimientos y busca candidatos; es a la vez un colaborador con perfil de competencias y nivel de rol (BR-CAT-13) | S-01:L42, L77; BR-CAT-13 | US-002, US-006, US-007 (hipótesis) |
+| [Evaluador](../../business/glossary/terms/TRM-0021-evaluador.md) | Revisa evidencias y certifica niveles; junto con el Jefe de Ingeniería, gestiona el programa | S-01:L46, L80; BR-PRG-01 | US-003 |
 | [Colaborador](../../business/glossary/terms/TRM-0013-colaborador.md) | Consulta su perfil y su brecha | S-01:L41, L104 | US-004, US-005 |
-| [Gestión de formación / RR. HH.](../../business/glossary/terms/TRM-0027-gestion-de-formacion.md) | "Gestiona acreditaciones": no está claro qué hace frente al evaluador | S-01:L45; AMB-03 | — (P-09) |
+| [Gestión de formación / RR. HH.](../../business/glossary/terms/TRM-0027-gestion-de-formacion.md) | "Gestiona certificaciones": no está claro qué hace frente al evaluador | S-01:L45; AMB-03 | — (P-09) |
 | [Dirección / Gerencia](../../business/glossary/terms/TRM-0018-direccion.md) | Posible consumidor de brechas por producto (hipótesis H-05); su tablero es de H3 | S-01:L47 | US-008 (por confirmar) |
 
 ### Procesos y estados
 
 | Proceso | Actor | Entradas | Resultado | Estados conocidos |
 |---|---|---|---|---|
-| Definir el catálogo | Jefe de Ingeniería | Productos, roles, competencias, nivel L1–L4 | Catálogo por producto | Sin estados definidos; versionado abierto (P-02) |
-| Declarar requerimiento | Líder de proyecto | Proyecto, rol, competencias, nivel | Requerimiento del proyecto | Proyecto "activo" sin definir (P-11) |
-| Acreditar nivel (manual) | Evaluador | Colaborador, competencia, evidencias | Nivel acreditado con registro de quién, cuándo y evidencia | Sin estados definidos; vencimiento o revocación abiertos (P-14) |
+| Definir el catálogo | Jefe de Ingeniería | Roles, competencias, nivel L1–L4, evidencia concreta por nivel | Catálogo común a todos los productos | Sin estados definidos; versionado abierto (P-02) |
+| Declarar requerimiento | Jefe de proyecto | Proyecto, rol | Requerimiento del proyecto, con las competencias y niveles del rol | Proyecto "activo" sin definir (P-11) |
+| Certificar nivel (manual) | Evaluador | Colaborador, competencia, evidencias | Nivel certificado con registro de quién, cuándo y evidencia | Sin estados definidos; vencimiento o revocación abiertos (P-14) |
 | Consultar perfil y brecha | Colaborador | Perfil, rol del catálogo | Niveles, evidencias y brecha por competencia | — |
-| Buscar candidatos | Líder de proyecto | Requerimiento, perfiles | Candidatos que alcanzan el nivel | Criterios de la lista abiertos (P-16) |
+| Buscar candidatos | Jefe de proyecto | Requerimiento, perfiles | Candidatos que alcanzan el nivel | Criterios de la lista abiertos (P-16) |
 | Asignar | Por confirmar (H-04) | Requerimiento, candidato | Asignación | **Sin definir** (P-05) |
 
 ### Datos relevantes (funcionales)
@@ -193,23 +207,23 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Dato | Descripción | Término | Fuente |
 |---|---|---|---|
 | Producto | Uno de los 4 productos en alcance | [TRM-0047](../../business/glossary/terms/TRM-0047-producto.md) | S-01:L23 |
-| Rol | Rol de un producto con sus competencias | [TRM-0055](../../business/glossary/terms/TRM-0055-rol.md) | S-01:L56 |
+| Rol | Rol común a todos los productos, con niveles de rol (Junior y Senior) y competencias por nivel | [TRM-0055](../../business/glossary/terms/TRM-0055-rol.md) | S-01:L56; BR-CAT-08 a BR-CAT-10 |
 | Competencia | Competencia exigida por un rol | [TRM-0014](../../business/glossary/terms/TRM-0014-competencia.md) | S-01:L56 |
-| Nivel requerido | L1–L4 mínimo por competencia de un rol | [TRM-0043](../../business/glossary/terms/TRM-0043-nivel-requerido.md) | S-01:L71 |
+| Nivel requerido | L1–L4 mínimo por competencia, para cada rol y nivel de rol | [TRM-0043](../../business/glossary/terms/TRM-0043-nivel-requerido.md) | S-01:L71; BR-CAT-10 |
 | Colaborador | Persona con perfil de competencias; su origen está abierto (VIS-§11.4) | [TRM-0013](../../business/glossary/terms/TRM-0013-colaborador.md) | S-01:L57, L153 |
-| Nivel acreditado | Nivel L1–L4 acreditado por competencia | [TRM-0042](../../business/glossary/terms/TRM-0042-nivel-acreditado.md) | S-01:L57 |
+| Nivel certificado | Nivel L1–L4 certificado por competencia | [TRM-0042](../../business/glossary/terms/TRM-0042-nivel-acreditado.md) | S-01:L57 |
 | Evidencia | Formación, práctica evaluada o desempeño en proyecto | [TRM-0022](../../business/glossary/terms/TRM-0022-evidencia.md) | S-01:L57, L71 |
-| Registro de acreditación | Quién, cuándo y con qué evidencia | [TRM-0001](../../business/glossary/terms/TRM-0001-acreditacion.md) | S-01:L80 |
+| Registro de certificación | Quién, cuándo y con qué evidencia | [TRM-0001](../../business/glossary/terms/TRM-0001-acreditacion.md) | S-01:L80 |
 | Proyecto | Proyecto de un producto | [TRM-0050](../../business/glossary/terms/TRM-0050-proyecto.md) | S-01:L58 |
-| Requerimiento | Rol + competencias + nivel de un proyecto | [TRM-0052](../../business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md) | S-01:L58 |
-| Brecha | Nivel requerido − nivel acreditado | [TRM-0005](../../business/glossary/terms/TRM-0005-brecha.md) | S-01:L59 |
+| Requerimiento | Rol que necesita un proyecto y todas o algunas de sus competencias; los niveles se toman del catálogo (BR-REQ-06, BR-REQ-07) | [TRM-0052](../../business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md) | S-01:L58; BR-REQ-06, BR-REQ-07 |
+| Brecha | Nivel requerido − nivel certificado | [TRM-0005](../../business/glossary/terms/TRM-0005-brecha.md) | S-01:L59 |
 | Asignación | Vínculo entre un requerimiento y un colaborador | [TRM-0004](../../business/glossary/terms/TRM-0004-asignacion.md) | S-01:L58 |
 
 **Datos personales:** el perfil de competencias y las evidencias son datos de una persona. La visibilidad para terceros no está definida (P-08). Hasta que se defina, el siguiente rol debe asumir el acceso mínimo: el colaborador ve lo suyo.
 
 ### Dependencias y consumidores
 
-- **Orden funcional:** catálogo → requerimientos → búsqueda → asignación. La acreditación alimenta el perfil, la brecha y la búsqueda (S-01:L136; USC-001).
+- **Orden funcional:** catálogo → requerimientos → búsqueda → asignación. La certificación alimenta el perfil, la brecha y la búsqueda (S-01:L136; USC-001).
 - **Consumidores de H1:**
   - H2 (las rutas de formación se generan a partir de la brecha, S-01:L79).
   - H3 (la IA propone niveles contra el catálogo, S-01:L81).
@@ -220,17 +234,17 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 
 | Tipo | Descripción | Mitigación conocida | Fuente |
 |---|---|---|---|
-| Restricción | Sin firma humana no hay acreditación | — | S-01:L101 |
-| Restricción | Trazabilidad de cada nivel hasta su evidencia y quien lo acreditó | — | S-01:L103 |
+| Restricción | Sin firma humana no hay certificación | — | S-01:L101 |
+| Restricción | Trazabilidad de cada nivel hasta su evidencia y quien lo certificó | — | S-01:L103 |
 | Riesgo | Catálogo desactualizado o sin consenso entre productos | El Jefe de Ingeniería lo gobierna; falta el versionado (P-02) | S-01:L142 |
-| Riesgo | Acreditaciones inconsistentes entre evaluadores si no hay evidencia mínima por nivel | Ninguna todavía (P-01) | Inferencia a partir de S-01:L150 |
+| Riesgo | Certificaciones inconsistentes entre evaluadores si el tipo de evidencia no se concreta | BR-ACR-07 lo acota; falta P-22 | Inferencia a partir de S-01:L150 |
 | Riesgo | KPI 1 y 6 imposibles de medir mientras "proyecto activo" y "perfil activo" no estén definidos | Ninguna todavía (P-11, GQ-08) | S-01:L119, L124 |
 | Riesgo | Exposición de datos de desempeño de personas | Acceso mínimo hasta resolver P-08 | S-01:L104; P-08 |
 
 **Contradicciones y ambigüedades vigentes** (de BRC-001):
-- **AMB-01:** formación como evidencia frente a certificado ≠ nivel. Afecta el tipo de evidencia "formación" en H1.
+- **AMB-01:** formación como evidencia frente a certificado de curso ≠ nivel. Afecta el tipo de evidencia "formación" en H1.
 - **AMB-02:** la ausencia de catálogo está clasificada a la vez como supuesto y como validada.
-- **AMB-03:** Gestión de formación / RR. HH. "gestiona acreditaciones", pero el que acredita es el evaluador.
+- **AMB-03:** Gestión de formación / RR. HH. "gestiona certificaciones", pero el que certifica es el evaluador.
 
 ## 10. Decisiones y validación humana
 
@@ -241,6 +255,13 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Escala de niveles L1–L4 | Responsable del producto | S-01:L62 | 2026-09-26 |
 | Aprobación de 59 términos del glosario | ianache (Jefe de Ingeniería) | S-03, `verified` por término | 2026-09-26 |
 | Alcance de este pack: H1 | ianache | Elección en esta sesión | 2026-09-26 |
+| P-01: el tipo de evidencia se define por competencia y nivel (BR-ACR-07) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0052) | 2026-09-26 |
+| Catálogo único de competencias (BR-CAT-07), requerimiento que hereda del rol (BR-REQ-06) y evidencia concreta (BR-ACR-08) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0053 a 0055) | 2026-09-26 |
+| Roles independientes de los productos (BR-CAT-08) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0056) | 2026-09-26 |
+| Varias evidencias por competencia y nivel, todas obligatorias (BR-ACR-09) | ianache (Jefe de Ingeniería) | Respuesta en esta sesión (EVD-2026-0057) | 2026-09-26 |
+| Requerimiento con todas o algunas competencias del rol (BR-REQ-07); niveles de rol y competencias por nivel (BR-CAT-09, BR-CAT-10); competencias transversales (BR-CAT-11) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0058 a 0060) | 2026-09-26 |
+| Jefe de proyecto como rol con perfil (BR-CAT-13); Evaluador y Jefe de Ingeniería gestionan el programa (BR-PRG-01); roles iniciales del catálogo (BR-CAT-12) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0061 a 0063) | 2026-09-26 |
+| Requerimiento con nivel de rol (BR-REQ-08); Rol-Nivel 1 a 4 con nivel L1–L4 esperado (BR-CAT-14); rúbrica por competencia (BR-CAT-15); transversales asignadas a roles (BR-CAT-11) | ianache (Jefe de Ingeniería) | Respuestas en esta sesión (EVD-2026-0067 a 0071) | 2026-09-26 |
 | **Validación de este pack** | Pendiente: Jefe de Ingeniería y Responsable de producto | — | — |
 
 ### Checklist de validación humana
@@ -270,8 +291,8 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 | Candidato | Provenance | Verificador | Estado |
 |---|---|---|---|
 | Regla: toda competencia de un rol tiene un nivel mínimo L1–L4 | S-01:L62-L71; BR-CAT-02, BR-CAT-03 | Jefe de Ingeniería | Pendiente |
-| Regla: no existe acreditación automática; toda acreditación la firma un evaluador humano y queda registrada con quién, cuándo y evidencias | S-01:L80-L81, L101, L103; BR-ACR-02 a BR-ACR-04 | Jefe de Ingeniería | Pendiente |
-| Regla: la brecha se calcula por competencia como nivel requerido − nivel acreditado | S-01:L59; BR-BRE-01 | Jefe de Ingeniería | Pendiente (depende de P-12) |
+| Regla: no existe certificación automática; toda certificación la firma un evaluador humano y queda registrada con quién, cuándo y evidencias | S-01:L80-L81, L101, L103; BR-ACR-02 a BR-ACR-04 | Jefe de Ingeniería | Pendiente |
+| Regla: la brecha se calcula por competencia como nivel requerido − nivel certificado | S-01:L59; BR-BRE-01 | Jefe de Ingeniería | Pendiente (depende de P-12) |
 | Proceso: orden funcional catálogo → requerimiento → búsqueda → asignación | S-01:L58, L136 | Responsable de producto | Pendiente (la asignación depende de P-05) |
 | Supuesto H-01: hoy no hay catálogo común | S-01:L35 | Jefe de Ingeniería | Pendiente de evidencia documental |
 
@@ -287,7 +308,7 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 
 ### Qué debe validar antes de continuar
 
-- Las preguntas de prioridad alta: P-01, P-05, P-08, VIS-§11.4 y RCP-Q1.
+- Las preguntas de prioridad alta: P-05, P-08, P-22, VIS-§11.4 y RCP-Q1.
 - La validación humana de este pack (§10).
 - No derivar UXR ni flujos para US-007 (asignación) ni US-008 (brechas por producto) hasta resolver P-05 y P-17.
 

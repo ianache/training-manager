@@ -1,12 +1,12 @@
 ---
 type: Business Term
-title: "Certificado"
-description: "Documento PDF que acredita la aprobación del curso final según el cumplimiento de sus objetivos; lo genera docsuite y la plataforma guarda su referencia. No equivale a un nivel acreditado."
+title: "Certificado de curso"
+description: "Documento PDF que certifica la aprobación del curso final según el cumplimiento de sus objetivos; lo genera docsuite y la plataforma guarda su referencia. No equivale a un nivel certificado."
 tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T19:51:17-05:00"
+  at: "2026-09-26T23:50:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -17,12 +17,12 @@ sources:
     resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
 ---
 
-# Certificado
+# Certificado de curso
 
 - **ID:** TRM-0008
 - **Tipo:** concepto
-- **Sinónimos:** —
-- **Definición:** Documento PDF que acredita la aprobación del curso final según el cumplimiento de sus objetivos; lo genera docsuite y la plataforma guarda su referencia. No equivale a un nivel acreditado.
+- **Sinónimos:** Certificado [BRC-001 BR-TER-01]
+- **Definición:** Documento PDF que certifica la aprobación del curso final según el cumplimiento de sus objetivos; lo genera docsuite y la plataforma guarda su referencia. No equivale a un nivel certificado.
 - **Ámbito:** Plataforma de Gestión de Formación
 - **Fuentes:**
   - [N2] VIS-001 — /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md:L82 — consultada 2026-09-26
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** decision
 - **Confianza:** high
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Curso final](TRM-0017-curso-final.md) · [docsuite](TRM-0019-docsuite.md) · [Nivel acreditado](TRM-0042-nivel-acreditado.md) · [Gestión de formación](TRM-0027-gestion-de-formacion.md)
-- **Notas:** Uso interno, sin verificación pública (VIS-001:L82, L109). Si aprobar un curso aporta evidencia a algún nivel está abierto (VIS-001:L156; BRC-001:L165, AMB-01, P-07).
+- **Relacionados:** [Curso final](TRM-0017-curso-final.md) · [docsuite](TRM-0019-docsuite.md) · [Nivel certificado](TRM-0042-nivel-acreditado.md) · [Gestión de formación](TRM-0027-gestion-de-formacion.md)
+- **Notas:** Uso interno, sin verificación pública (VIS-001:L82, L109). Si aprobar un curso aporta evidencia a algún nivel está abierto (VIS-001:L156; BRC-001:L165, AMB-01, P-07). Terminología del 2026-09-26 (ianache (Jefe de Ingeniería), 2026-09-26, BRC-001 BR-TER-01): el término se llamaba "Certificado". El archivo conserva su nombre porque los IDs son permanentes.

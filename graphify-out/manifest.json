@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790474328.9950304,
-    "seen": 1790474960.5434701,
-    "ast_hash": "003342dde822a4179c6e2d6ad920757d",
+    "mtime": 1790483685.1270413,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c27b00a7266556b2ca006864054ecd25",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790474328.9878461,
-    "seen": 1790474960.5434701,
-    "ast_hash": "eb69d5179294e214e4ae5061876161ea",
+    "mtime": 1790478106.878405,
+    "seen": 1790484293.4250352,
+    "ast_hash": "37c6535c98f767daa2b3198a2b80701e",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -36,15 +36,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md": {
-    "mtime": 1790470986.9767337,
-    "seen": 1790471487.4247468,
-    "ast_hash": "c3dfe805fb59feaca90cf6d042141e1b",
+    "mtime": 1790483686.1432743,
+    "seen": 1790484293.4250352,
+    "ast_hash": "182ff538303cda8989f296bf0764a700",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0001-acreditacion.md": {
-    "mtime": 1790470949.8178494,
-    "seen": 1790471487.4247468,
-    "ast_hash": "e1713485388d13c560d53409ccd3f57a",
+    "mtime": 1790483685.091284,
+    "seen": 1790484293.4250352,
+    "ast_hash": "950baab3a7e99fa5ad3c2b87b844a29f",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0002-adopcion.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0003-api-rest.md": {
-    "mtime": 1790470949.8304243,
-    "seen": 1790471487.4247468,
-    "ast_hash": "bc46695f2039f72ab5aac166d70dd3d8",
+    "mtime": 1790483626.4234784,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1bb2b6a54270c80bf53cd9626ac9325e",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0004-asignacion.md": {
@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0005-brecha.md": {
-    "mtime": 1790470949.8407433,
-    "seen": 1790471487.4247468,
-    "ast_hash": "06e05dbc2d7311325773b5c01da300ee",
+    "mtime": 1790483626.4305704,
+    "seen": 1790484293.4250352,
+    "ast_hash": "82909e0a7200f431422617929c1a45a9",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0006-busqueda-de-personal.md": {
@@ -78,21 +78,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0007-catalogo-de-competencias.md": {
-    "mtime": 1790470949.8490987,
-    "seen": 1790471487.4247468,
-    "ast_hash": "45f54d66055cb2b97ecf81e25bc4f280",
+    "mtime": 1790482085.0235903,
+    "seen": 1790484293.4250352,
+    "ast_hash": "d2ee3a3d3e10cc022c170dfaca79440e",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0008-certificado.md": {
-    "mtime": 1790470949.8542657,
-    "seen": 1790471487.4247468,
-    "ast_hash": "a9c7aa6daf7d13e699310528fac253e3",
+    "mtime": 1790483685.106498,
+    "seen": 1790484293.4250352,
+    "ast_hash": "3299c6734678c79dbd2a05c1bf631bc3",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0009-cierre-de-brechas.md": {
-    "mtime": 1790470949.8542657,
-    "seen": 1790471487.4247468,
-    "ast_hash": "fae01eb86b16f0a5f39e5cc8fa36b6b0",
+    "mtime": 1790483626.4463217,
+    "seen": 1790484293.4250352,
+    "ast_hash": "2a54a4dad3fedd6c0319338a2df33793",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0010-clocator.md": {
@@ -108,21 +108,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0012-cobertura-de-roles.md": {
-    "mtime": 1790470949.873126,
-    "seen": 1790471487.4247468,
-    "ast_hash": "c70e8e8124321cb14e32ea890bb9ffac",
+    "mtime": 1790483626.4545977,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a716c5e63ec62f50f217a8daa963527a",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0013-colaborador.md": {
-    "mtime": 1790470949.8811748,
-    "seen": 1790471487.4247468,
-    "ast_hash": "416b300a78711c731c81c11263832fa4",
+    "mtime": 1790483626.4676332,
+    "seen": 1790484293.4250352,
+    "ast_hash": "951bba4bce6eac233e78a66fb8035a9b",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0014-competencia.md": {
-    "mtime": 1790470949.8876774,
-    "seen": 1790471487.4247468,
-    "ast_hash": "7d56d7c8a9b4fcea68dc9bcf34ee20fc",
+    "mtime": 1790483626.472641,
+    "seen": 1790484293.4250352,
+    "ast_hash": "04566b697c771e4f26fda36fd1983066",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0015-comsatel.md": {
@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0017-curso-final.md": {
-    "mtime": 1790470949.9139042,
-    "seen": 1790471487.4247468,
-    "ast_hash": "9c827f811de81f265bd9756720b227c7",
+    "mtime": 1790483626.481999,
+    "seen": 1790484293.4250352,
+    "ast_hash": "2739aa45374080378bfb0eb9e6dfbb3f",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0018-direccion.md": {
@@ -150,27 +150,27 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0019-docsuite.md": {
-    "mtime": 1790470949.924778,
-    "seen": 1790471487.4247468,
-    "ast_hash": "9133e140da372168df140387e246eb98",
+    "mtime": 1790483626.489027,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a56f3b27849a6d285b40834f62299085",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0020-escala-de-niveles-de-dominio.md": {
-    "mtime": 1790470949.9301007,
-    "seen": 1790471487.4247468,
-    "ast_hash": "12192a35f708530f663806bbabb051db",
+    "mtime": 1790483626.4936275,
+    "seen": 1790484293.4250352,
+    "ast_hash": "4422b63c4ea9a19524ea5a21eaf42000",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0021-evaluador.md": {
-    "mtime": 1790470949.9301007,
-    "seen": 1790471487.4247468,
-    "ast_hash": "5b003237232a5e3015866dc6c8801009",
+    "mtime": 1790483626.4989085,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7e65c6115613e00098c6b5112c7660e4",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0022-evidencia.md": {
-    "mtime": 1790470949.9376519,
-    "seen": 1790471487.4247468,
-    "ast_hash": "6fd8fa1717ff3a284a10fd8ad6eb8514",
+    "mtime": 1790483626.4989085,
+    "seen": 1790484293.4250352,
+    "ast_hash": "00e0b494740c41391ebd4da696ef6203",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0023-evidencia-de-gitlab-asistida-por-ia.md": {
@@ -180,9 +180,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0024-evidencia-real.md": {
-    "mtime": 1790470949.9461584,
-    "seen": 1790471487.4247468,
-    "ast_hash": "f0df0a0dcbcfab588185f7e2844c90c0",
+    "mtime": 1790483626.4989085,
+    "seen": 1790484293.4250352,
+    "ast_hash": "3abbe82e2a05673d0ca97118a2bf7ec1",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0025-evidencia-sobre-volumen.md": {
@@ -192,15 +192,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0026-firma-humana.md": {
-    "mtime": 1790470949.9614203,
-    "seen": 1790471487.4247468,
-    "ast_hash": "3b755fcf04a9204a1392ab3cec6e0c55",
+    "mtime": 1790483626.5197134,
+    "seen": 1790484293.4250352,
+    "ast_hash": "b1d937548258db972a8bc9fa0fa3eb43",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0027-gestion-de-formacion.md": {
-    "mtime": 1790470949.968686,
-    "seen": 1790471487.4247468,
-    "ast_hash": "67863a1b43e03750e8947af1e1611f4a",
+    "mtime": 1790483626.5252354,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c4f2c528493d494e8c0b94d1dd0c6e46",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0028-gitlab.md": {
@@ -222,21 +222,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0031-horizonte.md": {
-    "mtime": 1790470949.987722,
-    "seen": 1790471487.4247468,
-    "ast_hash": "dd674aeb558aa6c7db7ff510c294206c",
+    "mtime": 1790483626.5351777,
+    "seen": 1790484293.4250352,
+    "ast_hash": "6f4f596229d9ec23b0d5e4d946a3eab4",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0032-human-in-the-loop.md": {
-    "mtime": 1790470949.9907584,
-    "seen": 1790471487.4247468,
-    "ast_hash": "703a73524aa4ff1fe40104f49dd5eaf9",
+    "mtime": 1790483626.540925,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1d907f739a1d20b15c962d18cef79ec4",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0033-ia.md": {
-    "mtime": 1790470324.0316968,
-    "seen": 1790471487.4247468,
-    "ast_hash": "371c1768b93e4887ae80074917f6b618",
+    "mtime": 1790483626.5469244,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a58ce8ef4949f5b4d2ca407586b0f816",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0034-integrar-no-hospedar.md": {
@@ -252,9 +252,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0036-jefe-de-ingenieria.md": {
-    "mtime": 1790470950.011755,
-    "seen": 1790471487.4247468,
-    "ast_hash": "747896a29738d67783aef3d10e5771c5",
+    "mtime": 1790482592.000963,
+    "seen": 1790484293.4250352,
+    "ast_hash": "3426eec7dbdfd9769b4bb480254b1ab6",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0037-kpi.md": {
@@ -264,9 +264,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0038-lider-de-proyecto.md": {
-    "mtime": 1790470950.0215356,
-    "seen": 1790471487.4247468,
-    "ast_hash": "b898afd61ed3cf50f788b5cdadbffb21",
+    "mtime": 1790483626.5483575,
+    "seen": 1790484293.4250352,
+    "ast_hash": "086ba23e270328f260bb6c9a9f10ac89",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0039-lms.md": {
@@ -288,39 +288,39 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0042-nivel-acreditado.md": {
-    "mtime": 1790470950.045652,
-    "seen": 1790471487.4247468,
-    "ast_hash": "3551861e10a793347785a024aadffed0",
+    "mtime": 1790483685.0989797,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7ee1f35897c2ccdbbcbb5338fd9dfd4c",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0043-nivel-requerido.md": {
-    "mtime": 1790470950.0505433,
-    "seen": 1790471487.4247468,
-    "ast_hash": "a09bb695714aff4ea61b4163f6ae499c",
+    "mtime": 1790483626.5749614,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7afd7340dc19575380868eb460bd31ce",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0044-pdf.md": {
-    "mtime": 1790470950.0566287,
-    "seen": 1790471487.4247468,
-    "ast_hash": "661c00f54b41a4a9a96ed7813e8e4b4f",
+    "mtime": 1790483626.579963,
+    "seen": 1790484293.4250352,
+    "ast_hash": "64cc376633d06d94466f4fbf81c65d7a",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0045-perfil-de-competencias-del-colaborador.md": {
-    "mtime": 1790470950.0620613,
-    "seen": 1790471487.4247468,
-    "ast_hash": "7d5b33c6b8214759579fe53a6acddf40",
+    "mtime": 1790483626.5885618,
+    "seen": 1790484293.4250352,
+    "ast_hash": "fae736f0f552a0568653dcd584ec7b44",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0046-plataforma-de-gestion-de-formacion-del-recurso-humano.md": {
-    "mtime": 1790470950.0620613,
-    "seen": 1790471487.4247468,
-    "ast_hash": "5c3bf98cbbe0c2340a75e2273684e134",
+    "mtime": 1790483626.5935698,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7173d485ae635af52c4b3b252eba99c5",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0047-producto.md": {
-    "mtime": 1790470950.071504,
-    "seen": 1790471487.4247468,
-    "ast_hash": "25df44dede73c04c933a00de5562ba1f",
+    "mtime": 1790482085.0306032,
+    "seen": 1790484293.4250352,
+    "ast_hash": "306aee764e9b6f3a1d14c174f8f6692a",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0048-programa-de-formacion-de-competencias.md": {
@@ -348,9 +348,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md": {
-    "mtime": 1790470950.0956385,
-    "seen": 1790471487.4247468,
-    "ast_hash": "9e49dca1d1d2d50f431adcd52cfd16d4",
+    "mtime": 1790483245.055375,
+    "seen": 1790484293.4250352,
+    "ast_hash": "5a85269c6a2d9a57fee5b0cf7697276f",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0053-responsable-de-producto.md": {
@@ -366,9 +366,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0055-rol.md": {
-    "mtime": 1790470950.0956385,
-    "seen": 1790471487.4247468,
-    "ast_hash": "6952f6e7a290cc89bf32a56165c68345",
+    "mtime": 1790482591.9884207,
+    "seen": 1790484293.4250352,
+    "ast_hash": "dd06dd9c3e678f6a297340dc6d24cfbe",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0056-rr-hh.md": {
@@ -426,69 +426,177 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0065-trazabilidad.md": {
-    "mtime": 1790470950.1457615,
-    "seen": 1790471487.4247468,
-    "ast_hash": "c57b58785e50022d851cd164bd459973",
+    "mtime": 1790483626.6294966,
+    "seen": 1790484293.4250352,
+    "ast_hash": "f71e041313b303f8074f02687f9371ea",
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1790466417.8179383,
-    "seen": 1790471487.4247468,
-    "ast_hash": "94f47c86efafba676e9b4956f67289d8",
+    "mtime": 1790483685.0677423,
+    "seen": 1790484293.4250352,
+    "ast_hash": "54ee89f8668f95623a7d2261831a8b19",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
-    "mtime": 1790460344.478215,
-    "seen": 1790471487.4247468,
-    "ast_hash": "6c94e471cdea875361dfdb4039cbe43c",
+    "mtime": 1790483685.074752,
+    "seen": 1790484293.4250352,
+    "ast_hash": "6f7755eb3d3a2e6c70ff8a1c3a8c30c1",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md": {
-    "mtime": 1790474328.9794593,
-    "seen": 1790474960.5434701,
-    "ast_hash": "4a92801e7ca9cff2b9a1e2ecd4c80a42",
+    "mtime": 1790483626.6747253,
+    "seen": 1790484293.4250352,
+    "ast_hash": "cb3210d4812431861df81dfce791dc87",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md": {
-    "mtime": 1790473861.0712159,
-    "seen": 1790474960.5434701,
-    "ast_hash": "881daa763b65d6ac9b238d48b31d7891",
+    "mtime": 1790483626.6821136,
+    "seen": 1790484293.4250352,
+    "ast_hash": "5df34e0802f77162ccf91fc4b0433a73",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
-    "mtime": 1790474293.7537124,
-    "seen": 1790474960.5434701,
-    "ast_hash": "f8b322de2921f3501b2600732b0237b7",
+    "mtime": 1790483626.6892316,
+    "seen": 1790484293.4250352,
+    "ast_hash": "fdd725cbe25c57d58f04b3453a4f6ea6",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md": {
-    "mtime": 1790474295.3769164,
-    "seen": 1790474960.5434701,
-    "ast_hash": "7f401a135153a9955520ba433a3c3008",
+    "mtime": 1790483626.6952314,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1e8fcd25db0630df3a48a35f43bcdcd3",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1790474297.061988,
-    "seen": 1790474960.5434701,
-    "ast_hash": "a830c4a04f1d7d1b0549ee572625c7fc",
+    "mtime": 1790483626.6982296,
+    "seen": 1790484293.4250352,
+    "ast_hash": "09529db51d6d042d84059c1ecbf0d781",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
-    "mtime": 1790474298.5416977,
-    "seen": 1790474960.5434701,
-    "ast_hash": "901b918e93d3f703365f8af8afc63823",
+    "mtime": 1790483626.6982296,
+    "seen": 1790484293.4250352,
+    "ast_hash": "e3d3bdc05ed9150ddd6a899ddd2e2327",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md": {
-    "mtime": 1790474300.0606346,
-    "seen": 1790474960.5434701,
-    "ast_hash": "c7a2c9d447a3594b4d4f10305a6c6c53",
+    "mtime": 1790483626.714291,
+    "seen": 1790484293.4250352,
+    "ast_hash": "f2537a4068c8677beeba58276c1adb58",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md": {
-    "mtime": 1790474302.809927,
-    "seen": 1790474960.5434701,
-    "ast_hash": "e1cd05f13603443ae0aa4dc51a43c86f",
+    "mtime": 1790483626.7207139,
+    "seen": 1790484293.4250352,
+    "ast_hash": "208b45448bfac26c083ecb1112292c0a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ACP-001-architecture-context-pack.md": {
+    "mtime": 1790483626.3337562,
+    "seen": 1790484293.4250352,
+    "ast_hash": "ea71c2c2cf8e4ece9adfa3a9d1440457",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md": {
+    "mtime": 1790483626.3412342,
+    "seen": 1790484293.4250352,
+    "ast_hash": "06c64edeac684d6427d7a1c72d3e28e0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/AIM-001-matriz-impacto-arquitectura.md": {
+    "mtime": 1790483626.3490527,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c80b532c9b0ff3e13455c113848b1717",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-02.md": {
+    "mtime": 1790483626.353057,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a36bb4fa3f008aa12ae842cc7b467211",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-03.md": {
+    "mtime": 1790483626.353057,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7bb4935c38eaa1df60764939bf76b2cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-04.md": {
+    "mtime": 1790483626.3678567,
+    "seen": 1790484293.4250352,
+    "ast_hash": "11797867676acd4a263da6eb3138f502",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-CAT-06.md": {
+    "mtime": 1790483626.372869,
+    "seen": 1790484293.4250352,
+    "ast_hash": "32cdbed00696bbf5d98370df95f00a20",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-IA-01.md": {
+    "mtime": 1790475454.2240283,
+    "seen": 1790484293.4250352,
+    "ast_hash": "b43277e4221cf5cb7ce26dc5a77138e8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-IA-02.md": {
+    "mtime": 1790475457.4944816,
+    "seen": 1790484293.4250352,
+    "ast_hash": "8e7ae54f609cd2a05cb44cff41fb04e0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-INT-02.md": {
+    "mtime": 1790483626.3821256,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c5e896bd8771ce1abe45a3cfa99867f4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-TRA-01.md": {
+    "mtime": 1790483244.9295263,
+    "seen": 1790484293.4250352,
+    "ast_hash": "689633a1df7174bdba4be8838d92a348",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-US-014.md": {
+    "mtime": 1790483626.3895545,
+    "seen": 1790484293.4250352,
+    "ast_hash": "d1f46f63dc08f2785a41d92c86566f34",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-catalog.md": {
+    "mtime": 1790483626.3965552,
+    "seen": 1790484293.4250352,
+    "ast_hash": "9e7ea298d0ec2c4913d69019cfaf6ce3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0066-nivel-de-rol.md": {
+    "mtime": 1790483171.534564,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c481ea8e46eac5621f7e20b8a9f3f4b3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0067-competencia-transversal.md": {
+    "mtime": 1790483171.5389595,
+    "seen": 1790484293.4250352,
+    "ast_hash": "d642d7fb03b25a43fd87f192a3385d2a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0068-requisito-de-evidencia.md": {
+    "mtime": 1790483685.1135068,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a06f95bda34ef58cec301afa947189fe",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0069-rubrica.md": {
+    "mtime": 1790483685.1205063,
+    "seen": 1790484293.4250352,
+    "ast_hash": "3157c5a9f875fad71c59cbfcc1219f24",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
+    "mtime": 1790483685.0837586,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1b99e74d8fe9bab321ca193fa6b79250",
     "semantic_hash": ""
   }
 }
