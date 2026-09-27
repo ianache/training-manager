@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T22:50:00-05:00"
+  at: "2026-09-27T11:00:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T22:50:00-05:00"
@@ -35,5 +35,5 @@ sources:
 - **Clasificación:** decision
 - **Confianza:** high
 - **Responsable:** Jefe de Ingeniería
-- **Relacionados:** [Nivel de rol](TRM-0066-nivel-de-rol.md) · [Competencia](TRM-0014-competencia.md) · [Nivel requerido](TRM-0043-nivel-requerido.md) · [Catálogo de competencias](TRM-0007-catalogo-de-competencias.md) · [Competencia transversal](TRM-0067-competencia-transversal.md)
-- **Notas:** Definición revisada el 2026-09-26 por decisión de ianache (Jefe de Ingeniería): los roles no dependen del producto (BR-CAT-08) y sus competencias se definen por nivel de rol (BR-CAT-09, BR-CAT-10). Cuántos niveles hay está abierto (BRC-001 P-26). Roles iniciales del catálogo (BRC-001 BR-CAT-12, decisión del 2026-09-26): analista funcional, developer, analista QA, analista BI, diseñador UX, diseñador UI y jefe de proyecto; se pueden definir otros.
+- **Relacionados:** [Nivel de rol](TRM-0066-nivel-de-rol.md) · [Competencia](TRM-0014-competencia.md) · [Nivel requerido](TRM-0043-nivel-requerido.md) · [Catálogo de competencias](TRM-0007-catalogo-de-competencias.md) · [Competencia transversal](TRM-0067-competencia-transversal.md) · [Asignación de Rol-Nivel](TRM-0088-asignacion-de-rol-nivel.md) · [Rol de la parte](TRM-0073-rol-de-la-parte.md)
+- **Notas:** Definición revisada el 2026-09-26 por decisión de ianache (Jefe de Ingeniería): los roles no dependen del producto (BR-CAT-08) y sus competencias se definen por nivel de rol (BR-CAT-09, BR-CAT-10). Cuántos niveles hay está abierto (BRC-001 P-26). Roles iniciales del catálogo (BRC-001 BR-CAT-12, decisión del 2026-09-26): analista funcional, developer, analista QA, analista BI, diseñador UX, diseñador UI y jefe de proyecto; se pueden definir otros. Desde el 2026-09-27 (SPEC-001 D5, D6): el rol del catálogo no es un rol de la parte (TRM-0073); se asigna a una persona con una Asignación de Rol-Nivel, y una persona puede tener varios roles con un solo nivel vigente por rol (BR-PTY-11, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L241).

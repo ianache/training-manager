@@ -7,7 +7,7 @@ related: [ADR-002, ADR-001]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-26T21:14:12-05:00"
+  at: "2026-09-27T11:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -73,6 +73,7 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 ## Decisiones que lo atienden
 
 - [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md), Aceptado, 2026-09-27, `human:ianache`: Keycloak es el proveedor de identidad, integrado en el BFF de Node.js mediante PKCE. Atiende **en parte** este candidato: responde la pregunta 1 (proveedor de identidad). Siguen abiertos el modelo de roles y permisos, la visibilidad de datos ajenos (P-08) y el origen de los usuarios (KG-03). El candidato sigue sin disposición.
+- [SPEC-001](/knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md), decisiones D2 y D4 de `human:ianache`, 2026-09-27: responde **en parte** KG-03. Las personas se registran en la propia plataforma, sin integración con RR. HH. (BR-PTY-01), y se vinculan con su usuario de Keycloak solo por identificador (BR-PTY-16). No es un ADR y no cambia la disposición del candidato. Sigue abierto cómo se crean los usuarios en Keycloak.
 
 ## Disposición humana
 

@@ -201,14 +201,14 @@ sources:
 | # | Artefacto | Ubicación | Skill |
 |---|---|---|---|
 | 1 | Esta especificación | `knowledge-base/requirement/specs/` | superpowers:brainstorming |
-| 2 | Reglas `BR-PTY-*` y las decisiones D2 a D12 | BRC-001 | af-business-rule-extractor |
-| 3 | Términos nuevos y la nota de "Colaborador" (derivado) | Glosario | af-business-glossary-curator |
-| 4 | IMD-002 — Modelo conceptual Party, y actualización de IMD-001 (R-18, R-28, R-29) | `business/information-model/` | af-conceptual-model-designer |
-| 5 | ADR-003 | `architecture/adrs/` | architecture-adr-writer |
-| 5b | ADR-004 — Secretos y parametría en HashiCorp Vault (D22, D24) | `architecture/adrs/` | architecture-adr-writer |
-| 6 | RCP-002, el Context Pack de la feature | `requirement/context-packs/` | af-requirement-context-builder |
-| 7 | User Stories de C1 a C9 | `requirement/user-stories/` | af-user-story-refiner 2.0 |
-| 8 | Modelo lógico y físico: DDL portable y anexos por motor | `architecture/data-model/` | data-model-designer |
+| 2 | Reglas `BR-PTY-*` y las decisiones D2 a D23. **Creadas:** BR-PTY-01 a BR-PTY-18 y EVD-2026-0076 a EVD-2026-0095 en [BRC-001](../../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md) | BRC-001 | af-business-rule-extractor |
+| 3 | Términos nuevos y la nota de "Colaborador" (derivado). **Creados:** TRM-0070 a TRM-0098 en [GLS-001](../../business/glossary/GLS-001-glosario-de-negocio.md); nota en [TRM-0013](../../business/glossary/terms/TRM-0013-colaborador.md) y pregunta GQ-18 | Glosario | af-business-glossary-curator |
+| 4 | IMD-002 — Modelo conceptual Party, y actualización de IMD-001 (R-18, R-28, R-29). **Creado:** [IMD-002](../../business/information-model/IMD-002-modelo-conceptual-de-partes.md); [IMD-001](../../business/information-model/IMD-001-modelo-de-informacion-conceptual.md) actualizado | `business/information-model/` | af-conceptual-model-designer |
+| 5 | ADR-003 — Persistencia compatible con MySQL y PostgreSQL (D12). **Creado:** [ADR-003](../../architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md) | `architecture/adrs/` | architecture-adr-writer |
+| 5b | ADR-004 — Secretos y parametría en HashiCorp Vault (D22, D24). **Creado:** [ADR-004](../../architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md) | `architecture/adrs/` | architecture-adr-writer |
+| 6 | RCP-002, el Context Pack de la feature. **Creado:** [RCP-002](../context-packs/RCP-002-gestion-de-colaboradores.md) | `requirement/context-packs/` | af-requirement-context-builder |
+| 7 | User Stories de C1 a C11. **Creadas:** [US-015](../user-stories/US-015-registrar-un-colaborador.md) (C1), [US-016](../user-stories/US-016-actualizar-datos-y-contactos.md) (C2), [US-017](../user-stories/US-017-gestionar-estructura-organizacional.md) (C3), [US-018](../user-stories/US-018-gestionar-proveedores-y-contratistas.md) (C4), [US-019](../user-stories/US-019-asignar-rol-nivel.md) (C5), [US-020](../user-stories/US-020-asignar-roles-del-programa.md) (C6), [US-021](../user-stories/US-021-dar-de-baja-a-un-colaborador.md) (C7), [US-022](../user-stories/US-022-vincular-identidad-de-acceso.md) (C8), [US-023](../user-stories/US-023-consultar-ficha-e-historial.md) (C9), [US-024](../user-stories/US-024-anonimizar-datos-personales.md) (C10), [US-025](../user-stories/US-025-configurar-plazo-y-aviso.md) (C11) | `requirement/user-stories/` | af-user-story-refiner 2.0 |
+| 8 | Modelo lógico y físico: DDL portable y anexos por motor. **Creados:** [LDM-001](../../architecture/data-model/LDM-001-modelo-logico-de-partes.md), [PDM-001](../../architecture/data-model/PDM-001-modelo-fisico-de-partes.md), [DDL portable](../../architecture/data-model/ddl/party-portable.sql), [DDL MySQL](../../architecture/data-model/ddl/party-mysql.sql) y [anexo](../../architecture/data-model/PDM-001-anexo-mysql.md), [DDL PostgreSQL](../../architecture/data-model/ddl/party-postgresql.sql) y [anexo](../../architecture/data-model/PDM-001-anexo-postgresql.md), [TST-001](../../architecture/data-model/tests/TST-001-pruebas-de-restricciones.md) (ejecución pendiente, Q-06) | `architecture/data-model/` | data-model-designer |
 
 **Verificación:**
 - `check_model.py` sobre IMD-002 y `glossary.py check` sobre el glosario, los dos con 0 errores.

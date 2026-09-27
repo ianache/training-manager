@@ -5,8 +5,8 @@ description: "User Stories identificadas a partir de la visión VIS-001, el cat�
 tags: [user-stories, requirements, formacion, competencias, certificacion]
 status: draft
 generated:
-  by: "af-user-story-refiner/1.0"
-  at: "2026-09-26T23:20:00-05:00"
+  by: "af-user-story-refiner/2.0"
+  at: "2026-09-27T12:35:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -14,6 +14,10 @@ sources:
     resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
   - id: gls-001
     resource: /knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
+  - id: rcp-002
+    resource: /knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md
 ---
 
 # USC-001 — User Stories de la Plataforma de Gestión de Formación
@@ -49,6 +53,8 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 | [US-014](#us-014) | H3 | Dirección / Gerencia | Ver los KPI de la plataforma | NOT READY | — |
 
 **Resumen:** 2 READY, 7 CONDITIONAL y 5 NOT READY. H1 tiene el núcleo más sólido. Las historias NOT READY dependen de preguntas abiertas que solo pueden responder los responsables.
+
+**Actualización (2026-09-27):** se agregaron 11 historias de la feature de gestión de colaboradores ([SPEC-001](specs/SPEC-001-gestion-de-colaboradores.md), capacidades C1 a C11), US-015 a US-025, en la sección [Gestión de colaboradores](#gestion-de-colaboradores). Están refinadas con `af-user-story-refiner/2.0` y su contexto es [RCP-002](context-packs/RCP-002-gestion-de-colaboradores.md). Total del catálogo: 25 historias.
 
 ---
 
@@ -242,6 +248,30 @@ Se identificaron **14 User Stories**. Se derivan solo de capacidades y actores q
 - **Criterios de aceptación:** las definiciones de los KPI están en VIS-001 §8, pero sin metas ni línea base (P-03) no se pueden escribir umbrales. El KPI "tiempo de asignación" depende de US-007 (P-05).
 - **Nota:** que Dirección sea quien ve los KPI es una inferencia: VIS-001 los asocia al tablero de capacidad (L83).
 - **Preparación:** NOT READY, por P-03 y P-05.
+
+<a id="gestion-de-colaboradores"></a>
+## Gestión de colaboradores (SPEC-001)
+
+> **Procedencia:** una historia por capacidad C1 a C11 de [SPEC-001](specs/SPEC-001-gestion-de-colaboradores.md) §5, con las reglas BR-PTY-01 a BR-PTY-18 de [BRC-001](../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md) y el contexto de [RCP-002](context-packs/RCP-002-gestion-de-colaboradores.md). Ninguna capacidad se dividió: C2, C9 y C11 tienen una propuesta de división en su sección 17, pendiente del PO. El horizonte no está asignado: la feature es prerrequisito de H1.
+
+| ID | Horizonte | Actor | Historia (resumen) | Preparación | Refinada |
+|---|---|---|---|---|---|
+| US-015 | Por definir | Jefe de Ingeniería | Registrar un colaborador (C1) | CONDITIONAL | [US-015](user-stories/US-015-registrar-un-colaborador.md) |
+| US-016 | Por definir | Jefe de Ingeniería; Colaborador (acotado) | Actualizar datos y medios de contacto (C2) | READY | [US-016](user-stories/US-016-actualizar-datos-y-contactos.md) |
+| US-017 | Por definir | Jefe de Ingeniería | Gestionar la estructura organizacional (C3) | READY | [US-017](user-stories/US-017-gestionar-estructura-organizacional.md) |
+| US-018 | Por definir | Jefe de Ingeniería | Gestionar proveedores y contratistas (C4) | CONDITIONAL | [US-018](user-stories/US-018-gestionar-proveedores-y-contratistas.md) |
+| US-019 | H1 | Jefe de Ingeniería | Asignar un Rol-Nivel a una persona (C5) | CONDITIONAL | [US-019](user-stories/US-019-asignar-rol-nivel.md) |
+| US-020 | H1 | Jefe de Ingeniería | Asignar roles del programa: Evaluador y Jefe de Ingeniería (C6) | READY | [US-020](user-stories/US-020-asignar-roles-del-programa.md) |
+| US-021 | Por definir | Jefe de Ingeniería | Dar de baja a un colaborador (C7) | CONDITIONAL | [US-021](user-stories/US-021-dar-de-baja-a-un-colaborador.md) |
+| US-022 | Por definir | Jefe de Ingeniería | Vincular la identidad de acceso de Keycloak (C8) | READY | [US-022](user-stories/US-022-vincular-identidad-de-acceso.md) |
+| US-023 | Por definir | Jefe de Ingeniería; Colaborador (la suya) | Consultar la ficha y su historial (C9) | CONDITIONAL | [US-023](user-stories/US-023-consultar-ficha-e-historial.md) |
+| US-024 | Por definir | Jefe de Ingeniería | Anonimizar los datos personales de una persona dada de baja (C10) | CONDITIONAL | [US-024](user-stories/US-024-anonimizar-datos-personales.md) |
+| US-025 | Por definir | Jefe de Ingeniería | Configurar el plazo de anonimización y recibir el aviso (C11) | CONDITIONAL | [US-025](user-stories/US-025-configurar-plazo-y-aviso.md) |
+
+**Resumen:** 4 READY y 7 CONDITIONAL. Las preguntas que más historias bloquean son Q-01 y Q-02 (US-015, US-018), Q-05 / P-08 (US-023), RCP2-Q1 (US-024), RCP2-Q2 (US-021) y RCP2-Q3 (US-025); las preguntas `Q-nn` son de SPEC-001 §8 y las `RCP2-Qn`, de RCP-002 §7.
+
+- **Orden de dependencia:** US-017 y US-018 → US-015 → US-016, US-019, US-020, US-021, US-022 y US-023; US-021 → US-024 y US-025; US-020 → US-025. US-001 → US-019.
+- **Impacto en H1:** US-015 y US-022 dan origen a los colaboradores de US-003 a US-006; US-019 alimenta US-004 y US-005 (SPEC-001:L152); US-020 designa a los evaluadores de US-003 (RCP-Q1, en parte).
 
 ---
 

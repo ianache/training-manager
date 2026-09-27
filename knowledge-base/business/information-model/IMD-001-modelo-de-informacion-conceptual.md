@@ -6,7 +6,7 @@ tags: [information-model, conceptual, domain, competencias, certificacion]
 status: draft
 generated:
   by: "af-conceptual-model-designer/1.0"
-  at: "2026-09-26T23:50:00-05:00"
+  at: "2026-09-27T11:30:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -16,13 +16,17 @@ sources:
     resource: /knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md
   - id: usc-001
     resource: /knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
+  - id: imd-002
+    resource: /knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md
 ---
 
 # IMD-001 — Modelo de información conceptual
 
 > **Qué es y qué no es:** es un modelo **conceptual**. Muestra qué conceptos de negocio existen y cómo se relacionan. **No** es un modelo de datos: no define tablas, atributos técnicos, identificadores ni persistencia (eso corresponde a `data-model-designer`).
 >
-> **Procedencia:** VIS-001 §4 (L56-L59), BRC-001 y el glosario GLS-001. Las fuentes están en `draft`. En los diagramas, las relaciones marcadas **(inf.)** son inferencias, no hechos. El detalle de cada una está en la tabla de relaciones.
+> **Procedencia:** VIS-001 §4 (L56-L59), BRC-001 y el glosario GLS-001. Desde el 2026-09-27, las personas, las organizaciones y la asignación de Rol-Nivel se modelan en [IMD-002](IMD-002-modelo-conceptual-de-partes.md), a partir de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) y las reglas BR-PTY-*. Las fuentes están en `draft`. En los diagramas, las relaciones marcadas **(inf.)** son inferencias, no hechos. El detalle de cada una está en la tabla de relaciones.
 
 ## 1. Vista general
 
@@ -50,7 +54,8 @@ erDiagram
     RUBRICA ||--o{ REQUISITO_DE_EVIDENCIA : "detalla (inf.)"
     NIVEL ||--o{ REQUISITO_DE_EVIDENCIA : "para"
     COLABORADOR ||--o{ CERTIFICACION : "recibe"
-    COLABORADOR }o--|| ROL : "tiene asignado (card. inf.)"
+    COLABORADOR }o--o{ ROL : "tiene asignados"
+    COLABORADOR }o--o{ NIVEL_DE_ROL : "tiene un nivel vigente por rol asignado"
     EVALUADOR ||--o{ CERTIFICACION : "firma"
     CERTIFICACION }o--|| COMPETENCIA : "sobre"
     CERTIFICACION }o--|| NIVEL : "otorga"
@@ -76,6 +81,8 @@ Cada competencia tiene una **rúbrica** que describe, para cada nivel L1–L4, c
 El requerimiento pide un **rol y un nivel de rol** (BR-REQ-08), y todas o algunas de sus competencias (BR-REQ-07). No indica niveles de competencia: toma del catálogo los niveles L1–L4 esperados para ese Rol-Nivel (BR-REQ-06).
 
 **Roles iniciales del catálogo** (BR-CAT-12): analista funcional, developer, analista QA, analista BI, diseñador UX, diseñador UI y jefe de proyecto; se pueden definir otros. El **Jefe de proyecto** es un colaborador que desempeña un rol del catálogo y tiene su propio perfil de competencias y nivel de rol (BR-CAT-13); si es el mismo rol que "jefe de proyecto" está abierto (P-30). El **Evaluador** y el **Jefe de Ingeniería** gestionan el programa (BR-PRG-01).
+
+**Colaborador** es un concepto derivado: una persona con un rol vigente de Empleado o de Contratista (BR-PTY-05, SPEC-001 D7). Se mantiene en los diagramas como vista, y su estructura (persona, roles de la parte, relaciones, contactos) está en [IMD-002](IMD-002-modelo-conceptual-de-partes.md). Una persona puede tener **varios roles** del catálogo asignados, con **un solo nivel de rol vigente por rol**, mediante la asignación de Rol-Nivel que registra el Jefe de Ingeniería (BR-PTY-11, BR-PTY-17; IMD-002 R-16 a R-18). El Evaluador y el Jefe de Ingeniería son roles de la parte (BR-PTY-03); el Jefe de proyecto es un Rol-Nivel del catálogo asignado con la asignación de Rol-Nivel (SPEC-001:L96-L97).
 
 **Conceptos derivados** (se calculan, no se registran):
 - **Nivel certificado vigente:** el nivel de la certificación más reciente de un colaborador en una competencia. Es una inferencia, porque VIS-001:L76 habla de "historial" (P-14).
@@ -118,7 +125,7 @@ erDiagram
 | Nivel | NIVEL | Valor de la escala L1–L4 | Catálogo | [TRM-0020](../glossary/terms/TRM-0020-escala-de-niveles-de-dominio.md) | VIS-001:L62-L69 | H1 |
 | Nivel requerido | NIVEL_REQUERIDO | Nivel L1–L4 esperado que un Rol-Nivel establece para cada una de sus competencias | Catálogo | [TRM-0043](../glossary/terms/TRM-0043-nivel-requerido.md) | VIS-001:L71; BR-CAT-03, BR-CAT-14 | H1 |
 | Requisito de evidencia | REQUISITO_DE_EVIDENCIA | Lo que un colaborador debe cumplir para certificar un nivel de una competencia en el rol que tiene asignado: una o varias evidencias concretas, todas obligatorias | Catálogo | [TRM-0068](../glossary/terms/TRM-0068-requisito-de-evidencia.md) | BR-ACR-07 a BR-ACR-10 | H1 |
-| Colaborador | COLABORADOR | Persona con perfil de competencias | Personas | [TRM-0013](../glossary/terms/TRM-0013-colaborador.md) | VIS-001:L41, L57 | H1 |
+| Colaborador | COLABORADOR | Persona con perfil de competencias. Es un concepto derivado: persona con un rol vigente de Empleado o de Contratista, modelada en [IMD-002](IMD-002-modelo-conceptual-de-partes.md); se mantiene aquí como vista | Personas | [TRM-0013](../glossary/terms/TRM-0013-colaborador.md) (revisar definición: GQ-18) | VIS-001:L41, L57; BR-PTY-05 | H1 |
 | Evaluador | EVALUADOR | Persona que revisa evidencias y certifica; junto con el Jefe de Ingeniería, gestiona el programa | Personas | [TRM-0021](../glossary/terms/TRM-0021-evaluador.md) | VIS-001:L46, L80; BR-PRG-01 | H1 |
 | Certificación | CERTIFICACION | Registro de un nivel otorgado a un colaborador en una competencia: quién, cuándo y con qué evidencia | Personas | [TRM-0001](../glossary/terms/TRM-0001-acreditacion.md) | VIS-001:L80; BR-ACR-01 a 07 | H1 |
 | Evidencia | EVIDENCIA | Lo que el colaborador presenta para cumplir un requisito de evidencia: un curso aprobado, una práctica o un entregable concreto, por ejemplo el plan de pruebas de un sprint de un proyecto real | Personas | [TRM-0022](../glossary/terms/TRM-0022-evidencia.md) | VIS-001:L57, L71; BR-ACR-11 | H1 |
@@ -160,7 +167,7 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción del agen
 | R-15 | Un certificado de curso certifica la aprobación de un curso final y no otorga nivel | N : 1 | FACT | VIS-001:L82; BR-CER-01, BR-CER-02 | GQ-06, P-07 |
 | R-16 | Una propuesta de nivel es sobre un colaborador y una competencia, y se justifica en elementos de GitLab | N : 1; N : M | FACT | VIS-001:L81; BR-IA-02 | P-13 |
 | R-17 | Una propuesta aprobada o ajustada genera una certificación firmada por el evaluador | 0..1 : 0..1 | INFERENCE: BRC-001 dice que la propuesta entra al mismo flujo de certificación | BR-IA-02, BR-ACR-04 | — |
-| R-18 | Un Jefe de proyecto es un colaborador con perfil de competencias y nivel de rol | N : 1 | FACT (decisión ianache (Jefe de Ingeniería), 2026-09-26, BR-CAT-13). Para Evaluador y Jefe de Ingeniería: UNKNOWN | BR-CAT-13 | P-30, P-31 |
+| R-18 | Un Jefe de proyecto es un colaborador con perfil de competencias y nivel de rol | N : 1 | FACT (decisión ianache (Jefe de Ingeniería), 2026-09-26, BR-CAT-13). Desde el 2026-09-27: el Jefe de proyecto es un Rol-Nivel del catálogo que se asigna a la persona con la asignación de Rol-Nivel (SPEC-001:L97; IMD-002 R-16, R-17), y el Evaluador y el Jefe de Ingeniería son roles de la parte (BR-PTY-03; IMD-002 R-03). Si el Evaluador y el Jefe de Ingeniería también son colaboradores: UNKNOWN (IMD-002 R-28) | BR-CAT-13, BR-PTY-03, BR-PTY-11 | P-30, P-31, IMD-002 IM-Q3 |
 | R-19 | Un requerimiento toma del catálogo los niveles requeridos de las competencias que pide | 1 : N | FACT (decisión) | BR-REQ-06 | P-25 |
 | R-20 | Una evidencia de una certificación cumple uno de los requisitos de evidencia de esa competencia y nivel | N : 1 | FACT (relación, BR-ACR-07 y BR-ACR-09) · INFERENCE (cardinalidad) | BR-ACR-07, BR-ACR-09 | P-23 (equivalencias) |
 | R-21 | Un requisito de evidencia de la categoría formación puede ser un curso determinado | 0..1 : 1 | FACT (relación, decisión) · INFERENCE (cardinalidad) | BR-ACR-08 | P-07, IM-Q8 |
@@ -170,8 +177,8 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción del agen
 | R-25 | Una competencia transversal se asigna a varios roles | N : M | FACT (decisión) | BR-CAT-11 | — |
 | R-26 | Un requerimiento pide todas o algunas de las competencias de su rol, nunca competencias de fuera del rol | N : M | FACT (decisión: BR-REQ-07, BR-REQ-09) · CONFLICT posible sobre "algunas" (AMB-06) | BR-REQ-07, BR-REQ-09 | P-38 |
 | R-27 | Un requerimiento indica un nivel de rol | N : 1 | FACT (decisión) | BR-REQ-08 | — |
-| R-28 | Un colaborador tiene un nivel de rol | N : 1 | INFERENCE: el colaborador tiene un rol asignado (BR-PRF-01) y el Jefe de proyecto tiene nivel de rol (BR-CAT-13); se generaliza a todo colaborador | BR-PRF-01, BR-CAT-13 | P-28, P-33 |
-| R-29 | Un colaborador tiene asignado un rol | N : 1 | FACT (relación, decisión) · INFERENCE (cardinalidad: la fuente habla de "el rol", en singular) | BR-PRF-01 | P-33 |
+| R-28 | Un colaborador tiene, por cada rol asignado, un solo nivel de rol vigente | Por colaborador y rol: 0..1 vigente; por colaborador: 0..N | FACT (decisión ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6; BR-PTY-11): el nivel de rol se asigna con la asignación de Rol-Nivel (IMD-002 R-16 a R-18). Si debe justificarse con competencias certificadas: UNKNOWN | BR-PTY-11, BR-PRF-01, BR-CAT-13 | P-28 |
+| R-29 | Un colaborador tiene asignados uno o varios roles | N : M | FACT (decisión ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6; BR-PRF-01, BR-PTY-11): varios roles, un nivel vigente por rol, asignados por el Jefe de Ingeniería (BR-PTY-17; IMD-002 R-18) | BR-PRF-01, BR-PTY-11, BR-PTY-17 | P-33 (respondida) |
 | R-30 | Una evidencia puede ser un entregable concreto de un proyecto | 0..1 : N | FACT (relación, decisión) · INFERENCE (cardinalidad: un entregable proviene de un proyecto) | BR-ACR-11 | P-35 |
 | R-31 | Una competencia tiene una rúbrica | 1 : 1 | FACT (decisión: "por cada competencia… una rúbrica") | BR-CAT-15 | P-37 |
 | R-32 | La rúbrica describe, para cada nivel L1–L4, cómo se evidencia la competencia | 1 : 4 | FACT (decisión) | BR-CAT-15 | — |
@@ -201,7 +208,9 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción del agen
 | BR-REQ-09 | Requerimiento | No pide competencias de fuera de su Rol-Nivel |
 | BR-FOR-01 | Curso | Se diseña para desarrollar competencias en un nivel L1–L4, para ciertos roles y niveles de rol |
 | BR-TER-01 | Certificación | Para las competencias de la persona se usa "certificar"; el programa se acredita |
-| BR-PRF-01 | Colaborador | Tiene un rol asignado |
+| BR-PRF-01 | Colaborador | Tiene uno o varios roles asignados, con un nivel vigente por rol |
+| BR-PTY-05 | Colaborador | Es una persona con un rol vigente de Empleado o de Contratista (derivado; IMD-002) |
+| BR-PTY-11 | Colaborador, Rol, Nivel de rol | Varios roles asignados, un solo nivel vigente por rol; cambiar de nivel cierra la asignación anterior |
 | BR-ACR-01, BR-ACR-07 | Certificación | Al menos una evidencia, del tipo definido para esa competencia y nivel |
 | BR-ACR-02, BR-ACR-04 | Certificación | Solo la firma un evaluador humano; nunca es automática |
 | BR-ACR-03 | Certificación | Registra quién, cuándo y con qué evidencia |
@@ -220,7 +229,7 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 |---|---|---|---|---|
 | IM-Q1 | ¿Una competencia es única en el catálogo y puede exigirse en varios roles y productos, o cada rol tiene sus propias competencias? | R-03, R-04 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): catálogo único compartido (BR-CAT-07) |
 | IM-Q2 | ¿Un requerimiento indica un nivel por cada competencia, o un solo nivel para todas? | R-12 | Responsable de producto | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): hereda del rol (BR-REQ-06). Nota: la respondió el Jefe de Ingeniería; su responsable era el Responsable de producto |
-| IM-Q3 | ¿Evaluadores, Jefes de proyecto y el Jefe de Ingeniería también tienen perfil de competencias como colaboradores? | R-18 | Responsable de producto | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Jefe de proyecto sí (BR-CAT-13); Evaluador y Jefe de Ingeniería gestionan el programa (BR-PRG-01), y su perfil queda en P-31 |
+| IM-Q3 | ¿Evaluadores, Jefes de proyecto y el Jefe de Ingeniería también tienen perfil de competencias como colaboradores? | R-18 | Responsable de producto | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Jefe de proyecto sí (BR-CAT-13); Evaluador y Jefe de Ingeniería gestionan el programa (BR-PRG-01), y su perfil queda en P-31. Desde el 2026-09-27 son roles de la parte (BR-PTY-03); si también deben ser colaboradores sigue en IMD-002 IM-Q3 |
 | IM-Q4 | ¿Un rol pertenece a un solo producto, o puede existir en varios? | R-01 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): los roles son independientes de los productos (BR-CAT-08) |
 | IM-Q5 | ¿"Requisito de evidencia" (BR-ACR-07) debe entrar al glosario con ese nombre? | Glosario | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí; término TRM-0068 creado en `draft` |
 | IM-Q6 | ¿Un requerimiento puede pedir solo algunas de las competencias del rol, o siempre todas? | R-19, R-26 | Responsable de producto | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): puede pedir solo algunas (BR-REQ-07) |
@@ -230,12 +239,12 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 | P-25 | ¿Un requerimiento indica el nivel de rol que necesita? | R-27, R-19 | Responsable de producto | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-08) |
 | P-26 | ¿Cuántos niveles de rol hay y cómo se relacionan con L1–L4? | R-23, R-24 | Jefe de Ingeniería | Parcialmente respondida: Rol-Nivel 1 a 4 con nivel L1–L4 esperado por competencia (BR-CAT-14); resto en P-36 |
 | P-27 | ¿Una competencia transversal aplica automáticamente a todos los roles, o se asigna? | R-25 | Jefe de Ingeniería | Respondida: se asigna a los roles (BR-CAT-11) |
-| P-28 | ¿Un colaborador tiene un nivel de rol? ¿Se certifica o se deduce de sus competencias? | R-28 | Jefe de Ingeniería | Alta — parcialmente respondida (BR-CAT-13) |
+| P-28 | ¿Un colaborador tiene un nivel de rol? ¿Se certifica o se deduce de sus competencias? | R-28 | Jefe de Ingeniería | Alta — parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6): el nivel de rol se asigna con la asignación de Rol-Nivel, uno vigente por rol (BR-PTY-11). Sigue abierto si la asignación debe justificarse con competencias certificadas |
 | P-29 | ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | R-26 | Responsable de producto | Respondida: no (BR-REQ-09) |
 | P-30 | ¿Líder de proyecto y jefe de proyecto son lo mismo? | R-18 | Jefe de Ingeniería | Respondida: sí; el término pasa a llamarse Jefe de proyecto, con Líder de proyecto como sinónimo |
-| P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | R-18 | Jefe de Ingeniería | Baja |
+| P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | R-18 | Jefe de Ingeniería | Baja (relacionada con IMD-002 IM-Q3) |
 | P-32 | ¿"Certificar" un nivel equivale a acreditarlo? | Requisito de evidencia | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): se usa "certificar" (BR-TER-01) |
-| P-33 | ¿Un colaborador tiene asignado un solo rol o puede tener varios? ¿Quién le asigna el rol y con qué nivel de rol? | R-04, R-29 | Jefe de Ingeniería | Alta |
+| P-33 | ¿Un colaborador tiene asignado un solo rol o puede tener varios? ¿Quién le asigna el rol y con qué nivel de rol? | R-04, R-28, R-29 | Jefe de Ingeniería | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6, D11): varios roles, un nivel vigente por rol; los asigna el Jefe de Ingeniería (BR-PTY-11, BR-PTY-17) |
 | P-34 | ¿El requisito de evidencia varía según el rol? | R-04, R-29 | Jefe de Ingeniería | Parcialmente respondida (inferencia): la rúbrica es por competencia (BR-CAT-15); el rol fija el nivel esperado, no la evidencia (confirmar) |
 | P-35 | ¿Una misma evidencia (por ejemplo, un plan de pruebas de un proyecto) puede respaldar varias competencias o varios niveles, o solo uno? | R-20, R-30 | Jefe de Ingeniería | Media |
 | P-36 | ¿Cómo se combinan Junior/Senior con la numeración 1 a 4 del Rol-Nivel (por ejemplo, ¿Junior 1-2 y Senior 3-4, o Junior 1-4 y Senior 1-4?)? ¿Todos los roles tienen los mismos niveles? | R-23, R-24 | Jefe de Ingeniería | Alta |
@@ -259,13 +268,14 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 | 2026-09-26 | P-29 y P-30 respondidas por ianache (Jefe de Ingeniería), 2026-09-26: el requerimiento no pide competencias de fuera del rol (R-26 actualizada, AMB-06 y P-38); Jefe de proyecto pasa a llamarse Jefe de proyecto en todo el modelo (concepto y diagrama) | R-26; Jefe de proyecto | BR-REQ-09 (EVD-2026-0072, 0073) |
 | 2026-09-26 | Respuesta de ianache (Jefe de Ingeniería), 2026-09-26 a P-32: los cursos se diseñan para desarrollar competencias en un nivel L1–L4 para ciertos roles y niveles de rol. Aristas CURSO–COMPETENCIA y CURSO–NIVEL_DE_ROL; altas R-34 y R-35. P-32 sigue abierta | R-34, R-35; Curso | BR-FOR-01 (EVD-2026-0074) |
 | 2026-09-26 | Terminología (ianache (Jefe de Ingeniería), 2026-09-26): "acreditar" pasa a "certificar" para las competencias de la persona, y el documento de aprobación de un curso pasa a "certificado de curso". Conceptos CERTIFICACION y CERTIFICADO_DE_CURSO en los diagramas; los IDs no cambian | Certificación, Nivel certificado, Certificado de curso | BR-TER-01 (EVD-2026-0075) |
+| 2026-09-27 | SPEC-001 (decisiones de ianache (Jefe de Ingeniería), 2026-09-27): Colaborador pasa a concepto derivado, modelado en IMD-002; P-33 respondida y P-28 parcialmente respondida por D6 (varios roles, un nivel vigente por rol). R-28 pasa de INFERENCE a FACT (con resto UNKNOWN en P-28); R-29 pasa a N : M y FACT; R-18 actualizada (Evaluador y Jefe de Ingeniería son roles de la parte; Jefe de proyecto es un Rol-Nivel asignado). Arista COLABORADOR–ROL pasa a N : M y alta de la arista COLABORADOR–NIVEL_DE_ROL | R-18, R-28, R-29; Colaborador | BR-PTY-03, BR-PTY-05, BR-PTY-11, BR-PTY-17 (EVD-2026-0078 a 0080, 0084); IMD-002 |
 
 ## 9. Preparación y validación
 
 - **Estado:** CONDITIONAL para pasar a `data-model-designer`
-- **Motivo:** el núcleo de H1 está sostenido por decisiones del 2026-09-26: catálogo único, Rol-Nivel con nivel L1–L4 esperado por competencia, rúbrica por competencia, requerimiento con rol y nivel de rol, y evidencias concretas. Quedan preguntas de prioridad alta: si un requerimiento puede pedir solo algunas competencias del rol o siempre el Rol-Nivel completo (P-38, AMB-06); cómo se combinan Junior/Senior con 1 a 4 (P-36); si la rúbrica contiene los requisitos de evidencia (P-37); si todo colaborador tiene nivel de rol y quién asigna el rol (P-28, P-33); y confirmar que el requisito no varía por rol (P-34). Siguen abiertas P-05 (asignación) y P-23 (equivalencias). H2 y H3 siguen con reglas abiertas (P-18, P-07).
+- **Motivo:** el núcleo de H1 está sostenido por decisiones del 2026-09-26: catálogo único, Rol-Nivel con nivel L1–L4 esperado por competencia, rúbrica por competencia, requerimiento con rol y nivel de rol, y evidencias concretas. Quedan preguntas de prioridad alta: si un requerimiento puede pedir solo algunas competencias del rol o siempre el Rol-Nivel completo (P-38, AMB-06); cómo se combinan Junior/Senior con 1 a 4 (P-36); si la rúbrica contiene los requisitos de evidencia (P-37); si la asignación de Rol-Nivel debe justificarse con competencias certificadas (P-28; P-33 quedó respondida por SPEC-001 D6); y confirmar que el requisito no varía por rol (P-34). Siguen abiertas P-05 (asignación) y P-23 (equivalencias). H2 y H3 siguen con reglas abiertas (P-18, P-07).
 - **Validación por bloque:**
   - [ ] Catálogo y certificación — Jefe de Ingeniería — P-36, P-37, P-28, P-30 a P-35, P-23 (equivalencias)
   - [ ] Demanda — Responsable de producto — P-29, P-05; revisar las decisiones IM-Q2, IM-Q6 y P-25
   - [ ] Formación e IA — Jefe de Ingeniería y Gestión de formación — P-07, P-18
-- **Inferencias a aceptar o rechazar:** R-17, R-28 (todo colaborador tiene un nivel de rol), R-33 (la rúbrica detalla los requisitos de evidencia) y las cardinalidades de R-20, R-21, R-29 y R-30
+- **Inferencias a aceptar o rechazar:** R-17, R-33 (la rúbrica detalla los requisitos de evidencia) y las cardinalidades de R-20, R-21 y R-30. R-28 y R-29 dejaron de ser inferencias el 2026-09-27 (SPEC-001 D6, BR-PTY-11)

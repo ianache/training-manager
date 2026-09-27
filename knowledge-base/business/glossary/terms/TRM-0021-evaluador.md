@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T19:51:17-05:00"
+  at: "2026-09-27T11:00:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Jefe de Ingeniería
-- **Relacionados:** [Certificación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md) · [Firma humana](TRM-0026-firma-humana.md)
-- **Notas:** VIS-001:L46 nombra al actor "Instructor / evaluador"; no está claro si instructor y evaluador son el mismo rol (GQ-07). Si puede certificar a alguien de su propio equipo está abierto (BRC-001:L179, P-09). Decisión del 2026-09-26 (BRC-001 BR-PRG-01): junto con el Jefe de Ingeniería, gestiona todo el programa. Si tiene perfil de competencias está abierto (P-31).
+- **Relacionados:** [Certificación](TRM-0001-acreditacion.md) · [Propuesta de nivel](TRM-0049-propuesta-de-nivel.md) · [Firma humana](TRM-0026-firma-humana.md) · [Rol de la parte](TRM-0073-rol-de-la-parte.md)
+- **Notas:** VIS-001:L46 nombra al actor "Instructor / evaluador"; no está claro si instructor y evaluador son el mismo rol (GQ-07). Si puede certificar a alguien de su propio equipo está abierto (BRC-001:L179, P-09). Decisión del 2026-09-26 (BRC-001 BR-PRG-01): junto con el Jefe de Ingeniería, gestiona todo el programa. Si tiene perfil de competencias está abierto (P-31). Desde el 2026-09-27 es un rol de la parte de una persona, con vigencia, que asigna el Jefe de Ingeniería (BRC-001 BR-PTY-03, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L233; SPEC-001 C6). Si la definición debe incluirlo está en GQ-20.

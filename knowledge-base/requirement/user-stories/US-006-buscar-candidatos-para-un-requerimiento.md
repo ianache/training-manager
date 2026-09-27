@@ -6,7 +6,7 @@ tags: [user-story, h1, busqueda-de-personal, requerimientos]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-26T20:55:58-05:00"
+  at: "2026-09-27T10:45:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -16,6 +16,8 @@ sources:
     resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
 ---
 
 # US-006 — Buscar candidatos para un requerimiento
@@ -70,7 +72,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | P-08 — ¿Qué datos del perfil de otra persona puede ver el Jefe de proyecto? | Responsable de producto | Alta | Abierta (BRC-001) |
 | P-16 — ¿Se muestran candidatos por debajo del nivel, con su brecha? ¿Cómo se ordena? ¿Se admite calce parcial? | Responsable de producto | Media | Abierta (USC-001) |
 | US6-Q1 — ¿La búsqueda considera si el colaborador ya está asignado a otro proyecto? | Responsable de producto | Media | Nueva |
-| VIS-§11.4 — ¿De dónde salen los colaboradores que se buscan? | Responsable de producto + ARQ | Alta | Abierta (VIS-001) |
+| VIS-§11.4 — ¿De dónde salen los colaboradores que se buscan? | Responsable de producto + ARQ | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2): la plataforma es el sistema de registro de colaboradores, sin integración con RR. HH. (BR-PTY-01). Se buscan las personas con rol vigente de Empleado o Contratista (BR-PTY-05) |
 
 ## Preparación y entrega
 

@@ -1,0 +1,87 @@
+-- =====================================================================
+-- TST-001 · Datos de prueba comunes (portables: MySQL 8 y PostgreSQL)
+-- Ejecutar después del DDL (party-mysql.sql, party-postgresql.sql o
+-- party-portable.sql) y antes de t01..t06. Datos ficticios.
+-- Actor de auditoría: la parte p1 (Jefe de Ingeniería de prueba).
+-- =====================================================================
+
+-- Organizaciones: o1 = organización interna, o2 = proveedor
+INSERT INTO party (party_id, party_kind, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-00000000a001', 'ORGANIZATION', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-00000000a002', 'ORGANIZATION', '2026-01-01 00:00:00', 'bootstrap');
+INSERT INTO organization (party_id, organization_name, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-00000000a001', 'Organización interna de prueba', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-00000000a002', 'Proveedor de prueba S.A.C.',     '2026-01-01 00:00:00', 'bootstrap');
+
+-- Personas: p1 Ana (Empleado + Jefe de Ingeniería), p2 Bruno (Empleado),
+-- p3 Carla (Contratista), p4 Diego (Empleado; se da de baja y se anonimiza en t05),
+-- p6 Elena (Empleado), p8 Fabio y p9 Gina (Empleados dados de baja, t06)
+INSERT INTO party (party_id, party_kind, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-000000000001', 'PERSON', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-000000000002', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000003', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000004', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000006', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000008', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000009', 'PERSON', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+INSERT INTO person (party_id, employee_code, given_names, family_names, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-000000000001', 'EMP-001', 'Ana',   'Prueba Uno',    '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-000000000002', 'EMP-002', 'Bruno', 'Prueba Dos',    '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000003', 'EMP-003', 'Carla', 'Prueba Tres',   '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000004', 'EMP-004', 'Diego', 'Prueba Cuatro', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000006', 'EMP-006', 'Elena', 'Prueba Seis',   '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000008', 'EMP-008', 'Fabio', 'Prueba Ocho',   '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000009', 'EMP-009', 'Gina',  'Prueba Nueve',  '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Roles de la parte
+INSERT INTO party_role (party_role_id, party_id, party_kind, role_type_code, from_date, thru_date, thru_recorded_at, thru_recorded_by, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000r0a01', '00000000-0000-0000-0000-00000000a001', 'ORGANIZATION', 'INTERNAL_ORGANIZATION', '2026-01-01', NULL, NULL, NULL, '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000r0a02', '00000000-0000-0000-0000-00000000a002', 'ORGANIZATION', 'SUPPLIER',              '2026-01-01', NULL, NULL, NULL, '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000r0011', '00000000-0000-0000-0000-000000000001', 'PERSON', 'EMPLOYEE',         '2026-01-01', NULL, NULL, NULL, '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000r0012', '00000000-0000-0000-0000-000000000001', 'PERSON', 'ENGINEERING_HEAD', '2026-01-01', NULL, NULL, NULL, '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000r0021', '00000000-0000-0000-0000-000000000002', 'PERSON', 'EMPLOYEE',         '2026-01-02', NULL, NULL, NULL, '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000r0031', '00000000-0000-0000-0000-000000000003', 'PERSON', 'CONTRACTOR',       '2026-01-02', NULL, NULL, NULL, '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000r0041', '00000000-0000-0000-0000-000000000004', 'PERSON', 'EMPLOYEE',         '2026-01-02', NULL, NULL, NULL, '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000r0061', '00000000-0000-0000-0000-000000000006', 'PERSON', 'EMPLOYEE',         '2026-01-02', NULL, NULL, NULL, '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000r0081', '00000000-0000-0000-0000-000000000008', 'PERSON', 'EMPLOYEE',         '2026-01-02', '2026-06-01', '2026-06-01 09:00:00', '00000000-0000-0000-0000-000000000001', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000r0091', '00000000-0000-0000-0000-000000000009', 'PERSON', 'EMPLOYEE',         '2026-01-02', '2026-09-01', '2026-09-01 09:00:00', '00000000-0000-0000-0000-000000000001', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Relaciones: empleo de Ana con la organización interna; contratación de Carla con el proveedor
+INSERT INTO party_relationship (party_relationship_id, relationship_type_code, from_party_role_id, to_party_role_id, from_date, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000e0001', 'EMPLOYMENT',  '00000000-0000-0000-0000-0000000r0011', '00000000-0000-0000-0000-0000000r0a01', '2026-01-01', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000e0002', 'CONTRACTING', '00000000-0000-0000-0000-0000000r0031', '00000000-0000-0000-0000-0000000r0a02', '2026-01-02', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Identificaciones
+INSERT INTO party_identification (party_identification_id, party_id, party_kind, identification_type_code, identification_number, issuing_country_code, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000i0001', '00000000-0000-0000-0000-000000000001', 'PERSON',       'DNI', '11111111',    'PE', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000i0004', '00000000-0000-0000-0000-000000000004', 'PERSON',       'DNI', '44444444',    'PE', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000i0a01', '00000000-0000-0000-0000-00000000a001', 'ORGANIZATION', 'RUC', '20100000001', 'PE', '2026-01-01 00:00:00', 'bootstrap');
+
+-- Medios de contacto
+INSERT INTO contact_mechanism (contact_mechanism_id, mechanism_type_code, contact_value, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000c0001', 'EMAIL', 'ana@empresa.example',                 '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000c0004', 'EMAIL', 'diego@empresa.example',               '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000c0005', 'PHONE', '+51 999 000 444',                     '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000c0006', 'URL',   'https://www.linkedin.com/in/diego-x', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+INSERT INTO party_contact_mechanism (party_contact_mechanism_id, party_id, contact_mechanism_id, mechanism_type_code, purpose_type_code, profile_platform_code, from_date, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000m0001', '00000000-0000-0000-0000-000000000001', '00000000-0000-0000-0000-0000000c0001', 'EMAIL', 'WORK_EMAIL',           NULL,       '2026-01-01', '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-0000000m0004', '00000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-0000000c0004', 'EMAIL', 'WORK_EMAIL',           NULL,       '2026-01-02', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000m0005', '00000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-0000000c0005', 'PHONE', 'WORK_PHONE',           NULL,       '2026-01-02', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-0000000m0006', '00000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-0000000c0006', 'URL',   'PROFESSIONAL_PROFILE', 'LINKEDIN', '2026-01-02', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Identidad de acceso (Keycloak)
+INSERT INTO access_identity (person_party_id, keycloak_user_id, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-000000000001', 'kc-ana',   '2026-01-01 00:00:00', 'bootstrap'),
+  ('00000000-0000-0000-0000-000000000004', 'kc-diego', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Asignación de Rol-Nivel de Diego (se conserva tras anonimizar)
+INSERT INTO role_level_assignment (role_level_assignment_id, person_party_id, catalog_role_id, catalog_role_level_id, from_date, created_at, created_by) VALUES
+  ('00000000-0000-0000-0000-0000000a0041', '00000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-00000000c0r1', '00000000-0000-0000-0000-00000000c1l1', '2026-01-02', '2026-01-02 00:00:00', '00000000-0000-0000-0000-000000000001');
+
+-- Plazo de anonimización (D15, D23): 90 días (valor de prueba)
+INSERT INTO anonymization_setting (setting_key, notice_after_days, updated_at, updated_by) VALUES
+  ('X', 90, '2026-01-01 00:00:00', 'bootstrap');
+
+SELECT 'FIXTURES' AS test,
+       CASE WHEN (SELECT COUNT(*) FROM person) = 7 AND (SELECT COUNT(*) FROM party_role) = 10
+            THEN 'PASS' ELSE 'FAIL' END AS result;

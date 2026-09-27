@@ -1,7 +1,7 @@
 # Graph Report - UX_UI_agentic  (2026-09-27)
 
 ## Corpus Check
-- 112 files · ~93,729 words
+- 112 files · ~93,919 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 1 file(s) not represented in the graph (top: (none) 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6dae7bf3`
+- Built from commit: `bdecc826`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

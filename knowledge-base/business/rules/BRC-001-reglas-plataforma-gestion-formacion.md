@@ -2,16 +2,18 @@
 type: Business Rules Catalog
 title: "BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación"
 description: "Catálogo de reglas de negocio, estados, validaciones, permisos y excepciones extraídos de la visión VIS-001, con registro de evidencias, vacíos y preguntas abiertas."
-tags: [business-rules, formacion, competencias, certificacion, certificados de curso, gitlab, ia]
+tags: [business-rules, formacion, colaboradores, party, competencias, certificacion, certificados de curso, gitlab, ia]
 status: draft
 generated:
   by: "af-business-rule-extractor/1.0"
-  at: "2026-09-26T23:50:00-05:00"
+  at: "2026-09-27T10:30:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
   - id: repository-guidelines
     resource: /AGENTS.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
 ---
 
 # BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación
@@ -32,6 +34,8 @@ Se catalogaron **32 entradas**: 26 reglas y 6 vacíos. Tres áreas tienen reglas
 1. **Evidencia por nivel (L1–L4):** respondida en lo esencial. Por decisión de ianache (Jefe de Ingeniería), 2026-09-26, el tipo de evidencia que demuestra cada nivel se define por competencia y nivel (BR-ACR-07). Siguen abiertos los detalles P-21 a P-24.
 2. **Decisión de asignación:** no se sabe si la plataforma solo recomienda o si hay un flujo de aprobación (P-05).
 3. **Permisos:** la fuente no define quién puede ver o editar qué, salvo unos pocos casos (P-08, P-09).
+
+**Actualización (2026-09-27):** con [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) se añadieron 18 reglas de información maestra de colaboradores (BR-PTY-01 a BR-PTY-18) y las evidencias EVD-2026-0076 a EVD-2026-0095. Son decisiones humanas registradas, pero siguen sin verificar.
 
 La fuente no define **estados** explícitos. Los únicos que se pueden derivar son los de la propuesta de nivel hecha por la IA (BR-IA-02).
 
@@ -90,6 +94,26 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0073 | Líder de proyecto y Jefe de proyecto representan lo mismo; se usa "Jefe de proyecto" en toda la base de conocimiento, con "Líder de proyecto" como sinónimo. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-26, en respuesta a P-30 | decision | high |
 | EVD-2026-0074 | Los cursos se diseñan para desarrollar competencias en un determinado nivel (L1 a L4), para los roles y niveles de rol a los que están dirigidos. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-26, en respuesta a P-32 | decision | high |
 | EVD-2026-0075 | Se usa "certificar" (certificación, nivel certificado) para las competencias de la persona, en lugar de "acreditar": en términos académicos se acredita el programa y se certifican las competencias de la persona. El documento que acredita la aprobación de un curso se llama "certificado de curso". | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-26, en respuesta a P-32 | decision | high |
+| EVD-2026-0076 | La plataforma es el sistema de registro de la información maestra de colaboradores; altas, cambios y bajas se hacen en ella, sin integración con RR. HH. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2 | decision | high |
+| EVD-2026-0077 | Los usuarios de Keycloak se gestionan aparte; la plataforma solo guarda el identificador que vincula a la persona con su usuario. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D4 | decision | high |
+| EVD-2026-0078 | La información maestra sigue el patrón Party del Universal Data Model: parte (persona u organización), rol de la parte, relación entre partes, identificación y medio de contacto; la asignación de Rol-Nivel es una entidad aparte. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D5 | decision | high |
+| EVD-2026-0079 | Una persona puede tener asignado más de un rol, con un solo nivel vigente por rol. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6 | decision | high |
+| EVD-2026-0080 | Colaborador es una persona con un rol vigente de Empleado o de Contratista; no es una entidad propia. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D7 | decision | high |
+| EVD-2026-0081 | Los medios de contacto incluyen perfiles profesionales en línea (LinkedIn, GitHub y otros relevantes para el personal técnico). | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D8 | decision | high |
+| EVD-2026-0082 | Existe un código de colaborador interno, único y obligatorio. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D9 | decision | high |
+| EVD-2026-0083 | Se aceptan como identificación DNI, carné de extranjería y pasaporte para personas, y RUC para organizaciones. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D10 | decision | high |
+| EVD-2026-0084 | El Jefe de Ingeniería mantiene toda la información maestra; el colaborador edita por sí mismo sus perfiles profesionales y su teléfono laboral. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D11 | decision | high |
+| EVD-2026-0085 | El correo laboral de un contratista es el de su proveedor; el de un empleado es el de COMSATEL. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D13 | decision | high |
+| EVD-2026-0086 | Cuando una persona se va, sus datos personales (PII) se anonimizan; no se borran los registros. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D14 | decision | high |
+| EVD-2026-0087 | La anonimización se ejecuta a demanda, con notificación al Jefe de Ingeniería cuando se cumple un plazo configurable. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D15 | decision | high |
+| EVD-2026-0088 | El código de colaborador y las referencias de auditoría no se anonimizan. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D16 | decision | high |
+| EVD-2026-0089 | El plazo de anonimización se cuenta desde que se registra la baja. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D17 | decision | high |
+| EVD-2026-0090 | Al vencer el plazo, se envía un correo automático al Jefe de Ingeniería vigente, a sus medios de contacto de tipo correo electrónico. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D18 | decision | high |
+| EVD-2026-0091 | Los correos se envían desde una cuenta de Gmail empresarial de la empresa. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D19 | decision | high |
+| EVD-2026-0092 | Se espera un único Jefe de Ingeniería vigente; si hay más de uno, el correo se envía a todos. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D20 | decision | high |
+| EVD-2026-0093 | Al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma avisa sin impedirlo. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D21 | decision | high |
+| EVD-2026-0094 | Las credenciales de la cuenta de Gmail se guardan en HashiCorp Vault, la plataforma para parametría y datos sensibles. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D22 | decision | high |
+| EVD-2026-0095 | El plazo de anonimización se guarda en la base de datos, con su auditoría. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D23 | decision | high |
 
 Todas las evidencias comparten estos campos del esquema:
 
@@ -196,7 +220,32 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 |---|---|---|---|
 | BR-TRA-01 | Permiso | El colaborador puede ver su perfil y sus evidencias. | EVD-2026-0016 |
 | BR-PRG-01 | Responsabilidad | El Evaluador y el Jefe de Ingeniería son quienes gestionan todo el programa de formación. | EVD-2026-0062 |
-| BR-PRF-01 | Estructura | Al colaborador le es asignado un rol. Si puede tener varios y quién lo asigna está abierto (P-33). | EVD-2026-0065 |
+| BR-PRF-01 | Estructura | Al colaborador le es asignado un rol; puede tener varios, con un nivel vigente por rol (BR-PTY-11). | EVD-2026-0065, EVD-2026-0079 |
+
+### Colaboradores e información maestra (Party)
+
+Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md).
+
+| ID | Tipo | Regla | Evidencia |
+|---|---|---|---|
+| BR-PTY-01 | Responsabilidad | La plataforma es el sistema de registro de la información maestra de colaboradores, personas externas y organizaciones; no hay integración con RR. HH. | EVD-2026-0076 |
+| BR-PTY-02 | Estructura | Toda parte es una Persona o una Organización (patrón Party del UDM). Su participación se expresa con roles de la parte y relaciones entre partes, cada uno con vigencia (desde y hasta). | EVD-2026-0078 |
+| BR-PTY-03 | Estructura | Tipos de rol de la parte: Empleado, Contratista, Evaluador y Jefe de Ingeniería (personas); Organización interna, Unidad organizacional y Proveedor (organizaciones). Los tipos son ampliables. | EVD-2026-0078 |
+| BR-PTY-04 | Estructura | Tipos de relación entre partes: empleo (empleado ↔ organización interna), contratación (contratista ↔ proveedor), pertenencia (persona ↔ unidad), estructura (unidad ↔ unidad padre) y reporte (persona ↔ jefe directo). | EVD-2026-0078 |
+| BR-PTY-05 | Cálculo | Un colaborador es una persona con un rol vigente de Empleado o de Contratista. | EVD-2026-0080 |
+| BR-PTY-06 | Validación | Toda persona colaboradora tiene un código de colaborador interno, único y obligatorio. | EVD-2026-0082 |
+| BR-PTY-07 | Validación | Identificaciones aceptadas: DNI, carné de extranjería y pasaporte (personas) y RUC (organizaciones). Cada identificación es única por tipo, número y país emisor. | EVD-2026-0083 |
+| BR-PTY-08 | Validación | Todo colaborador tiene un correo laboral: el de COMSATEL si es empleado y el de su proveedor si es contratista. El correo laboral es único entre los colaboradores vigentes. | EVD-2026-0085 |
+| BR-PTY-09 | Estructura | Los medios de contacto son correo laboral, teléfono laboral (opcional) y perfiles profesionales en línea (opcionales y múltiples: LinkedIn, GitHub y otras plataformas de una lista ampliable). Los perfiles no son evidencia de nivel. | EVD-2026-0081 |
+| BR-PTY-10 | Validación | Un contratista tiene una relación de contratación vigente con un proveedor. | EVD-2026-0078, EVD-2026-0085 |
+| BR-PTY-11 | Validación | Una persona puede tener asignados varios Rol-Nivel, con un solo nivel vigente por rol. Cambiar de nivel cierra la asignación anterior. | EVD-2026-0079 |
+| BR-PTY-12 | Auditoría | Roles, relaciones, contactos y asignaciones no se sobrescriben ni se borran: se cierra la vigencia y se abre una nueva. Todo cambio queda auditado (quién y cuándo). | EVD-2026-0078, EVD-2026-0086 |
+| BR-PTY-13 | Estado | La baja de un colaborador cierra la vigencia de su rol de Empleado o de Contratista; la persona no se borra. | EVD-2026-0080, EVD-2026-0086 |
+| BR-PTY-14 | Privacidad | A demanda del Jefe de Ingeniería, los datos personales (PII) de una persona dada de baja se anonimizan en todas sus vigencias; es irreversible. Se conservan el código de colaborador y las referencias de auditoría. Las unicidades de identificación, código y correo ignoran a las personas anonimizadas. | EVD-2026-0086, EVD-2026-0087, EVD-2026-0088 |
+| BR-PTY-15 | Notificación | Al cumplirse el plazo configurable, contado desde el registro de la baja y guardado en la base de datos, la plataforma envía un correo automático a todos los correos vigentes de las personas con rol vigente de Jefe de Ingeniería, desde la cuenta de Gmail empresarial. Las credenciales de esa cuenta se guardan en HashiCorp Vault. | EVD-2026-0087, EVD-2026-0089, EVD-2026-0090, EVD-2026-0091, EVD-2026-0092, EVD-2026-0094, EVD-2026-0095 |
+| BR-PTY-16 | Integración | La plataforma guarda solo el identificador del usuario de Keycloak de cada persona (0 o 1); no aprovisiona usuarios. | EVD-2026-0077 |
+| BR-PTY-17 | Permiso | El Jefe de Ingeniería mantiene la información maestra. El colaborador edita por sí mismo solo sus perfiles profesionales y su teléfono laboral. | EVD-2026-0084 |
+| BR-PTY-18 | Validación | Se espera un único Jefe de Ingeniería vigente. Al asignar un segundo, la plataforma avisa sin impedirlo. | EVD-2026-0092, EVD-2026-0093 |
 
 ### Dependencias
 
@@ -238,19 +287,19 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | P-25 | ¿Un requerimiento indica el nivel de rol que necesita (por ejemplo, Developer Senior 2)? | Responsable de producto | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí (BR-REQ-08) |
 | P-26 | ¿Cuántos niveles de rol hay (Junior y Senior), cómo se nombran y son los mismos para todos los roles? ¿Cómo se relacionan con la escala L1–L4 de las competencias? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): cada Rol-Nivel (1 a 4) establece sus competencias y el nivel L1–L4 esperado de cada una (BR-CAT-14). Siguen abiertos cómo se combinan Junior/Senior con 1 a 4 y si todos los roles tienen los mismos niveles (P-36) |
 | P-27 | ¿Una competencia transversal aplica automáticamente a todos los roles, o se asigna a cada rol? ¿Tiene un nivel requerido distinto por rol y nivel de rol? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): se asigna a los roles (BR-CAT-11) y, como toda competencia, su nivel esperado lo fija cada Rol-Nivel (BR-CAT-14) |
-| P-28 | ¿Un colaborador tiene un nivel de rol (por ejemplo, Developer Junior 2)? Si lo tiene, ¿se certifica o se deduce de sus competencias certificadas? | Jefe de Ingeniería | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el colaborador tiene un rol asignado (BR-PRF-01) y el Jefe de proyecto tiene nivel de rol (BR-CAT-13). Siguen abiertos el nivel de rol de todo colaborador y cómo se obtiene |
+| P-28 | ¿Un colaborador tiene un nivel de rol (por ejemplo, Developer Junior 2)? Si lo tiene, ¿se acredita o se deduce de sus competencias certificadas? | Jefe de Ingeniería | Alta | Parcialmente respondida: el nivel de rol se asigna (Asignación de Rol-Nivel, BR-PTY-11; SPEC-001 D6). Sigue abierto si esa asignación debe justificarse con competencias certificadas |
 | P-29 | ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | Responsable de producto | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no (BR-REQ-09). Ver AMB-06 y P-38 |
 | P-30 | ¿"Líder de proyecto" (el actor que declara requerimientos) es el mismo rol que "jefe de proyecto" de la lista de roles del catálogo? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): sí; se usa "Jefe de proyecto" y "Líder de proyecto" queda como sinónimo |
 | P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Jefe de Ingeniería | Baja | Nueva (derivada de IM-Q3) |
 | P-32 | ¿"Certificar" un nivel equivale a acreditarlo? | Jefe de Ingeniería | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): se usa "certificar" para las competencias de la persona; el programa se acredita (BR-TER-01) |
-| P-33 | ¿Un colaborador tiene asignado un solo rol o puede tener varios? ¿Quién le asigna el rol y con qué nivel de rol? | Jefe de Ingeniería | Alta | Nueva (derivada de IM-Q5) |
+| P-33 | ¿Un colaborador tiene asignado un solo rol o puede tener varios? ¿Quién le asigna el rol y con qué nivel de rol? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D6, D11): varios roles, un nivel vigente por rol; los asigna el Jefe de Ingeniería (BR-PTY-11, BR-PTY-17) |
 | P-34 | ¿El requisito de evidencia de un nivel de una competencia es el mismo en todos los roles (BR-CAT-07), o depende del rol asignado al colaborador (BR-ACR-10)? | Jefe de Ingeniería | Alta | Parcialmente respondida (inferencia a confirmar): la rúbrica es por competencia (BR-CAT-15), así que lo que se exige para un nivel no depende del rol; el rol solo determina qué nivel se espera (BR-CAT-14) |
 | P-35 | ¿Una misma evidencia (por ejemplo, un plan de pruebas de un proyecto) puede respaldar varias competencias o varios niveles, o solo uno? | Jefe de Ingeniería | Media | Nueva (resto de IMD-001 IM-Q8) |
 | P-36 | ¿Cómo se combinan Junior/Senior con la numeración 1 a 4 del Rol-Nivel (por ejemplo, ¿Junior 1-2 y Senior 3-4, o Junior 1-4 y Senior 1-4?)? ¿Todos los roles tienen los mismos niveles? | Jefe de Ingeniería | Alta | Nueva |
 | P-37 | ¿La rúbrica de una competencia contiene los requisitos de evidencia de cada nivel, o son cosas distintas? ¿Quién define y aprueba las rúbricas? | Jefe de Ingeniería | Alta | Nueva |
 | P-38 | La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Jefe de Ingeniería | Alta | Nueva (AMB-06) |
 
-Las preguntas P-03 (metas de KPI) y P-04 (integración con el sistema de RR. HH.) de VIS-001 §11 no afectan a las reglas de este catálogo y siguen abiertas en la visión.
+La pregunta P-03 (metas de KPI) de VIS-001 §11 sigue abierta en la visión. La P-04 (integración con el sistema de RR. HH.) quedó respondida por SPEC-001 D2: la plataforma es el sistema de registro, sin integración con RR. HH. (BR-PTY-01).
 
 ## Riesgos y supuestos
 

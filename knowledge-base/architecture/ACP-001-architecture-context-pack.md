@@ -6,7 +6,7 @@ tags: [architecture, context-pack, arq-101, as-is, greenfield]
 status: draft
 generated:
   by: "architecture-context-builder/1.0"
-  at: "2026-09-26T21:53:16-05:00"
+  at: "2026-09-27T09:20:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -24,6 +24,8 @@ sources:
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
   - id: gls-001
     resource: /knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
 ---
 
 # ACP-001 — Architecture Context Pack
@@ -42,7 +44,7 @@ sources:
 
 La plataforma es interna y conecta lo que piden los proyectos de los 4 productos con lo que los colaboradores demuestran saber, mediante competencias certificadas con evidencia (VIS-001:L23-L25, L29).
 
-No existe evidencia de un sistema previo. Lo que existe son cuatro sistemas con los que la plataforma debe integrarse, sin reemplazarlos: Google Classroom, Google Drive, GitLab y docsuite (VIS-001:L32-L34, L87). Hay además un posible sistema de RR. HH. (VIS-001:L153).
+No existe evidencia de un sistema previo. Lo que existe son cuatro sistemas con los que la plataforma debe integrarse, sin reemplazarlos: Google Classroom, Google Drive, GitLab y docsuite (VIS-001:L32-L34, L87). La visión mencionaba un posible sistema de RR. HH. (VIS-001:L153). Por decisión de `human:ianache` del 2026-09-27 ([SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md) D2; BR-PTY-01), la plataforma es el sistema de registro de la información maestra de colaboradores y **no se integra con RR. HH.**
 
 Las decisiones de producto ya tomadas imponen fuertes restricciones:
 - integrar y no hospedar;
@@ -63,6 +65,7 @@ Igual que en [ADB-001](ADB-001-descubrimiento-arquitectura-plataforma.md) §Scop
 - **User Stories:** 14 en [USC-001](../requirement/USC-001-user-stories-plataforma-gestion-formacion.md). US-001 a US-006 están refinadas en `requirement/user-stories/`.
 - **Reglas de negocio:** [BRC-001](../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md) (26 reglas, 6 vacíos).
 - **Contexto funcional de H1:** [RCP-001](../requirement/context-packs/RCP-001-h1-idioma-comun.md).
+- **Especificación de gestión de colaboradores:** [SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md) (2026-09-27, `draft`), con las decisiones D1 a D24 de `human:ianache` y las reglas BR-PTY-01 a BR-PTY-18 de BRC-001.
 - **NFR explícitos:** C-01 a C-09 de ADB-001. No hay NFR cuantificados.
 
 ## Evidence sources
@@ -76,6 +79,7 @@ Igual que en [ADB-001](ADB-001-descubrimiento-arquitectura-plataforma.md) §Scop
 | S-05 | RCP-001 | Requirement Context Pack de H1 | `draft`, "En validación" | Disponible |
 | S-06 | ADB-001 | Architecture Discovery Brief | `draft` | Disponible |
 | S-07 | AGENTS.md | Guía del repositorio del curso | — | Disponible |
+| S-08 | SPEC-001 | Especificación de gestión de colaboradores, con decisiones humanas (D1 a D24) | `draft` | Disponible |
 | — | Estándares corporativos, ADR, documentación de las API, inventario de sistemas | — | — | **No disponibles** (KG-01, KG-05) |
 
 **Etapa de investigación de evidencia:** se buscó en la base de conocimiento cualquier mención de tecnologías, alojamiento, identidad, estándares o ADR, y no hubo resultados (ADB-001 F-24). No hay repositorio de código de la plataforma. Las preguntas priorizadas de ADB-001 siguen sin respuesta.
@@ -95,8 +99,10 @@ La plataforma **no existe** en el estado actual (ASSUMPTION, ADB-001 F-09). El e
 | Google Drive | Material de los cursos | VIS-001:L32, L94 | Alta |
 | GitLab | Trabajo diario (issues, tareas, bugs, milestones, MRs) y gestión de proyectos | VIS-001:L33, L95, L111 | Alta |
 | docsuite | Diseño de plantillas de certificado de curso, generación de PDF por API REST y repositorio de certificados de curso | VIS-001:L34, L96 | Alta |
-| Sistema de RR. HH. | Solo se infiere que existe; su función ("ficha del colaborador") está por confirmar | VIS-001:L153 | Baja (INFERENCE) |
-| Plataforma de Gestión de Formación | Nueva; su diseño está fuera de este pack | ADB-001 F-09 | ASSUMPTION |
+| Sistema de RR. HH. | Solo se infiere que existe. **No es fuente de la plataforma:** la ficha del colaborador se mantiene en la plataforma, sin integración (decisión humana) | VIS-001:L153; SPEC-001 D2; BR-PTY-01 | Baja (existencia, INFERENCE) · Alta (sin integración, decisión humana) |
+| Plataforma de Gestión de Formación | Nueva; su diseño está fuera de este pack. Incluye un **microservicio de partes**, único dueño de la información maestra de personas y organizaciones (decisión humana) | ADB-001 F-09; SPEC-001 §6.1 | ASSUMPTION (plataforma nueva) · Alta (microservicio de partes) |
+| Cuenta de Gmail empresarial (Google Workspace) | Envío de los correos automáticos de la plataforma, por ejemplo el aviso de anonimización | SPEC-001 D18, D19 | Alta (decisión humana) |
+| HashiCorp Vault | Plataforma para la parametría y los datos sensibles; guarda las credenciales de la cuenta de Gmail | SPEC-001 D22, D24; [ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md) | Alta (decisión humana) |
 
 No se conoce la versión, el alojamiento ni el dueño técnico de ningún sistema (UNKNOWN).
 
@@ -108,23 +114,27 @@ No se conoce la versión, el alojamiento ni el dueño técnico de ningún sistem
 | Plataforma → Drive | Enlace y lectura | Desconocido | VIS-001:L94 | UNKNOWN |
 | Plataforma → GitLab | Solo lectura; uso interno | Desconocido (instancia, versión, permisos) | VIS-001:L95, L165 | UNKNOWN |
 | Plataforma → docsuite | API REST (generación de PDF) | "API REST", sin contrato | VIS-001:L34, L96 | FACT (existe), UNKNOWN (contrato) |
-| Plataforma → RR. HH. | Por decidir | — | VIS-001:L153 | UNKNOWN |
+| Plataforma → RR. HH. | **No hay integración** | — | VIS-001:L153; SPEC-001 D2; BR-PTY-01 | Decidido (`human:ianache`, 2026-09-27) |
+| Plataforma → Gmail empresarial | Envío de correo | Desconocido (método de autenticación abierto, SPEC-001 Q-14) | SPEC-001 D19; BR-PTY-15 | Decidido (existe); UNKNOWN (contrato) |
+| Plataforma → HashiCorp Vault | Lectura de secretos | Desconocido (método de autenticación y componente que lo lee) | SPEC-001 D22; [ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md) | Decidido (existe); UNKNOWN (contrato) |
 
 Hoy no hay integraciones documentadas entre estos sistemas relevantes para la plataforma. Si Classroom referencia material de Drive, es UNKNOWN (AIM-001).
 
 ## Data landscape
 
-- **Datos existentes, fuera de la plataforma:** cursos, tareas y calificaciones (Classroom); material (Drive); issues, MRs, milestones y proyectos (GitLab); plantillas y certificados de curso (docsuite); posiblemente la ficha del colaborador (RR. HH.).
+- **Datos existentes, fuera de la plataforma:** cursos, tareas y calificaciones (Classroom); material (Drive); issues, MRs, milestones y proyectos (GitLab); plantillas y certificados de curso (docsuite). La ficha del colaborador **no** viene de RR. HH.: la plataforma es su sistema de registro (SPEC-001 D2).
 - **Datos de negocio que la plataforma introduce:** productos, roles, competencias, niveles requeridos, tipo de evidencia exigido por competencia y nivel (BR-ACR-07), niveles certificados, evidencias, certificaciones con su registro, proyectos, requerimientos, brechas y asignaciones (VIS-001:L56-L59; RCP-001 §8). Es un modelo conceptual, **no** un modelo de datos.
 - **Ownership:**
   - El catálogo lo gobierna el Jefe de Ingeniería (VIS-001:L51).
-  - El dueño de los datos de las personas es UNKNOWN (KG-03).
+  - Los datos maestros de personas y organizaciones (patrón Party) los mantiene la plataforma como sistema de registro (SPEC-001 D2; BR-PTY-01). Su único dueño técnico es el **microservicio de partes**; el catálogo y la certificación los referencian por el identificador de la parte, y solo el BFF los expone al frontend (SPEC-001 §6.1). Antes era UNKNOWN (KG-03).
+  - La persistencia es compatible con MySQL 8.0.16+ y PostgreSQL ([ADR-003](/knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md)). El plazo de anonimización se guarda en la base de datos (SPEC-001 D23).
   - Que el dueño de los datos de proyectos sea GitLab es UNKNOWN (US2-Q1).
-- **Datos personales:** perfiles, evidencias y propuestas de IA son datos de desempeño de personas (asr-BR-TRA-01).
+- **Datos personales:** perfiles, evidencias y propuestas de IA son datos de desempeño de personas (asr-BR-TRA-01). Los datos personales de quien se va se anonimizan a demanda, sin borrar registros (SPEC-001 D14 a D16; BR-PTY-14).
 
 ## Security landscape
 
-- **Identidad y autenticación:** decidido en ADR-002 (2026-09-27): Keycloak, integrado en el BFF mediante PKCE. Siguen UNKNOWN el origen de los usuarios y sus roles (KG-03).
+- **Identidad y autenticación:** decidido en ADR-002 (2026-09-27): Keycloak, integrado en el BFF mediante PKCE. Los colaboradores se registran en la plataforma (SPEC-001 D2), y los usuarios de Keycloak se gestionan aparte: la plataforma solo guarda el identificador que vincula a la persona con su usuario (SPEC-001 D4; BR-PTY-16). Siguen abiertos el modelo de roles en Keycloak y la federación (ADR-002).
+- **Secretos:** HashiCorp Vault guarda la parametría y los datos sensibles, incluidas las credenciales de la cuenta de Gmail empresarial ([ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md)). Siguen UNKNOWN el método de autenticación ante Vault y ante Gmail, y la rotación.
 - **Autorización:** 7 actores (VIS-001:L37-L51) con permisos distintos según BRC-001 (BR-CAT-04, BR-ACR-02, BR-REQ-02). Que los permisos dependan también del ámbito (proyecto propio) es una INFERENCE a partir de "su proyecto" (L42; asr-BR-ACR-02). La visibilidad de datos ajenos está sin definir (P-08), igual que quiénes son los evaluadores (RCP-Q1) y si pueden certificar a su propio equipo (P-09).
 - **Acceso a sistemas externos:** INFERENCE a partir de las integraciones requeridas: hará falta algún mecanismo de acceso autorizado a Classroom, Drive, GitLab y docsuite. Ninguno está documentado (UNKNOWN).
 - **Límites de confianza:** la plataforma es interna (VIS-001:L29). Si los datos de GitLab pueden cruzar a un servicio de IA externo es UNKNOWN (CF-01).
@@ -142,7 +152,7 @@ El detalle está en [AIM-001](AIM-001-matriz-impacto-arquitectura.md). Resumen:
 - **UNKNOWN:**
   - el criterio de aprobación a partir de Classroom (P-19);
   - GitLab como fuente de proyectos (US2-Q1);
-  - el sistema de RR. HH. como fuente de personas;
+  - el sistema de RR. HH. como fuente de personas: **respondido** por SPEC-001 D2, no hay integración con RR. HH.;
   - la identidad;
   - la seguridad del acceso de la IA a GitLab.
 - **Proveedor de identidad:** UNKNOWN para todas las historias.
@@ -169,16 +179,18 @@ Los IDs `KG-nn` y `C-nn` de este pack son los de ADB-001. El catálogo ASR usa `
 
 ## Existing standards
 
-No se encontraron estándares corporativos de arquitectura, desarrollo, seguridad ni datos (UNKNOWN, KG-01). WCAG 2.2 AA viene de la guía del repositorio del curso (AGENTS.md:L71), no de un estándar de COMSATEL confirmado.
+No se encontraron estándares corporativos de arquitectura, desarrollo, seguridad ni datos (UNKNOWN, KG-01). Las tecnologías fijadas desde el 2026-09-27 en ADR-001 a ADR-004 son decisiones del proyecto, no estándares corporativos confirmados; entre ellas, los motores de base de datos ([ADR-003](/knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md)) y la plataforma de secretos ([ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md)). WCAG 2.2 AA viene de la guía del repositorio del curso (AGENTS.md:L71), no de un estándar de COMSATEL confirmado.
 
 ## Existing ADR
 
-Al construir el pack no existía ningún ADR (KG-01), y este pack no creó ninguno. El 2026-09-27 se registraron dos ADR por decisión de `human:ianache`:
+Al construir el pack no existía ningún ADR (KG-01), y este pack no creó ninguno. El 2026-09-27 se registraron cuatro ADR por decisión de `human:ianache`:
 
 - [ADR-001](/knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md): shell y microUIs en Angular, y BFF en Node.js intermediario con los microservicios.
 - [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md): autenticación en el BFF con Keycloak y PKCE.
+- [ADR-003](/knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md): el modelo físico de datos es compatible con MySQL 8.0.16+ y PostgreSQL, con un DDL portable y un anexo por motor (SPEC-001 D12).
+- [ADR-004](/knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md): HashiCorp Vault para la parametría y los datos sensibles, incluidas las credenciales de la cuenta de Gmail empresarial (SPEC-001 D22 a D24).
 
-Responden en parte KG-01 (tecnologías) y KG-03 (proveedor de identidad). El AS-IS corporativo sigue sin reconstruir, y el pack sigue NOT READY_FOR_ARQ_102.
+Responden en parte KG-01 (tecnologías, motor de base de datos y plataforma de secretos) y KG-03 (proveedor de identidad). La parte de datos de KG-03 la respondió SPEC-001 D2, que no es un ADR. El AS-IS corporativo sigue sin reconstruir, y el pack sigue NOT READY_FOR_ARQ_102.
 
 ## Architecture debt
 
@@ -190,7 +202,8 @@ No aplica a la plataforma, porque no existe. No se conoce la deuda de los sistem
 |---|---|---|
 | R-01 | Diseñar sin conocer estándares ni alojamiento obliga a rehacer decisiones | KG-01 |
 | R-02 | Uso de IA incompatible con "uso interno" de GitLab | CF-01; RG-02 |
-| R-03 | Identidad y datos de personas sin origen | KG-03; RG-03 |
+| R-03 | Identidad y datos de personas sin origen. **Mitigado en parte:** proveedor de identidad en ADR-002 y datos de personas en la plataforma (SPEC-001 D2, D4) | KG-03; RG-03 |
+| R-09 | Dependencias nuevas: la cuenta de Gmail empresarial, con límites de envío, y HashiCorp Vault. Si fallan, los avisos por correo quedan como fallidos | SPEC-001 §4, D19, D22; ADR-004 |
 | R-04 | APIs externas inaccesibles o limitadas (sobre todo Classroom, que ya tiene contingencia) | VIS-001:L144; KG-05 |
 | R-05 | Percepción de vigilancia por el análisis de GitLab | VIS-001:L143 |
 | R-06 | Sesgo de la IA | VIS-001:L145 |
@@ -203,7 +216,7 @@ No aplica a la plataforma, porque no existe. No se conoce la deuda de los sistem
 |---|---|---|---|
 | A-01 | La plataforma es un sistema nuevo | Decisión del usuario; ADB-001 F-09 | Confirmación del arquitecto |
 | A-02 | No existe catálogo común hoy | VIS-001:L35 | Evidencia documental |
-| A-03 | Existe un sistema de RR. HH. | Inferido de VIS-001:L153 | Inventario de sistemas |
+| A-03 | Existe un sistema de RR. HH. Ya no condiciona la arquitectura: la plataforma no se integra con él (SPEC-001 D2) | Inferido de VIS-001:L153 | Inventario de sistemas |
 | A-04 | La asignación actual es informal | VIS-001:L35 | Confirmación del Responsable de producto |
 
 ## Unknowns
@@ -211,7 +224,7 @@ No aplica a la plataforma, porque no existe. No se conoce la deuda de los sistem
 Son los KG-01 a KG-09 de ADB-001. Los críticos:
 - **KG-01:** estándares y alojamiento.
 - **KG-02:** política de IA.
-- **KG-03:** identidad y RR. HH.
+- **KG-03:** identidad y RR. HH. **Respondido en parte:** proveedor de identidad en ADR-002; la plataforma es el sistema de registro de los colaboradores, sin integración con RR. HH. (SPEC-001 D2; BR-PTY-01). Sigue abierto cómo se modelan los roles en Keycloak y si se federa.
 - **KG-04:** normativa de datos personales.
 
 ## Conflicting evidence
@@ -233,7 +246,7 @@ Los 9 candidatos del [catálogo ASR](asr/asr-catalog.md) están **pendientes de 
 Son las 10 preguntas priorizadas de ADB-001, con P-14 (vencimiento y revocación de certificaciones) agregada a la 5. Las cuatro primeras bloquean ARQ-102:
 1. ¿Dónde se aloja la plataforma y qué estándares y tecnologías son obligatorios?
 2. ¿Pueden los datos de GitLab procesarse con un servicio de IA externo?
-3. ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles?
+3. ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? **Respondida en parte:** Keycloak (ADR-002); los colaboradores y sus roles se registran en la plataforma, sin integración con RR. HH. (SPEC-001 D2, D6, D11). Sigue abierto el modelo de roles de acceso en Keycloak.
 4. ¿Qué normativa de datos personales aplica y quién ve qué?
 
 ## Provenance
@@ -248,6 +261,10 @@ Son las 10 preguntas priorizadas de ADB-001, con P-14 (vencimiento y revocación
 | Firma humana | EVD-2026-0012 | VIS-001:L81, L101 | Alta |
 | Trazabilidad | EVD-2026-0011, 0037 | VIS-001:L80, L103 | Alta |
 | Sistema de RR. HH. posible | EVD-2026-0047 | VIS-001:L153 | Baja |
+| Sin integración con RR. HH.; la plataforma es el sistema de registro | EVD-2026-0076 | SPEC-001 D2; BR-PTY-01 | Alta (decisión humana, sin verificar) |
+| Microservicio de partes, dueño de los datos maestros | — | SPEC-001 §6.1 | Alta (diseño aprobado, sin verificar) |
+| Envío por Gmail empresarial; credenciales en Vault; plazo en la base de datos | — | SPEC-001 D19, D22, D23; BR-PTY-15; ADR-004 | Alta (decisión humana, sin verificar) |
+| MySQL 8.0.16+ y PostgreSQL | — | SPEC-001 D12; ADR-003 | Alta (decisión humana, sin verificar) |
 | IA externa sin política | EVD-2026-0050 | Ausencia | Alta (del vacío) |
 | Plataforma nueva | — | Decisión del usuario; ADB-001 F-09 | ASSUMPTION |
 | Impactos | — | AIM-001 | Según cada fila |
@@ -284,7 +301,7 @@ La revisión crítica la hizo un agente independiente, de solo lectura, sobre AC
 
 **Todavía no hay handoff.** Para llegar a READY_FOR_ARQ_102:
 
-1. Responder las preguntas 1 a 4 (KG-01 a KG-04).
+1. Responder las preguntas 1 a 4 (KG-01 a KG-04). La 1 y la 3 están respondidas en parte (ADR-001 a ADR-004; SPEC-001 D2); la 2 y la 4 siguen abiertas.
 2. Que el arquitecto valide ADB-001 y AIM-001 y dé disposición a los 9 candidatos ASR.
 3. Resolver o aceptar explícitamente CF-01.
 4. Reconstruir el AS-IS corporativo con esas respuestas y volver a ejecutar el quality gate.

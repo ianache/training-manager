@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T23:30:00-05:00"
+  at: "2026-09-27T11:00:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -31,5 +31,5 @@ sources:
 - **Clasificación:** fact
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
-- **Relacionados:** [Requerimiento de proyecto](TRM-0052-requerimiento-de-proyecto.md) · [Asignación](TRM-0004-asignacion.md) · [Proyecto](TRM-0050-proyecto.md)
-- **Notas:** Ninguna fuente expande la sigla PM; solo se equipara a Jefe de proyecto (GQ-03). Decisión del 2026-09-26 (BRC-001 BR-CAT-13): es también un rol del catálogo, y quien lo desempeña tiene perfil de competencias y nivel de rol (Junior, Senior). El 2026-09-26 ianache (Jefe de Ingeniería), 2026-09-26 decidió que Líder de proyecto y Jefe de proyecto representan lo mismo (BRC-001 P-30); el término se renombró y "Líder de proyecto" queda como sinónimo. El nombre del archivo se conserva porque los IDs son permanentes.
+- **Relacionados:** [Requerimiento de proyecto](TRM-0052-requerimiento-de-proyecto.md) · [Asignación](TRM-0004-asignacion.md) · [Proyecto](TRM-0050-proyecto.md) · [Asignación de Rol-Nivel](TRM-0088-asignacion-de-rol-nivel.md)
+- **Notas:** Ninguna fuente expande la sigla PM; solo se equipara a Jefe de proyecto (GQ-03). Decisión del 2026-09-26 (BRC-001 BR-CAT-13): es también un rol del catálogo, y quien lo desempeña tiene perfil de competencias y nivel de rol (Junior, Senior). El 2026-09-26 ianache (Jefe de Ingeniería), 2026-09-26 decidió que Líder de proyecto y Jefe de proyecto representan lo mismo (BRC-001 P-30); el término se renombró y "Líder de proyecto" queda como sinónimo. El nombre del archivo se conserva porque los IDs son permanentes. Según SPEC-001 (L97), el Jefe de proyecto es un Rol-Nivel del catálogo que se asigna a una persona con la Asignación de Rol-Nivel; no es un rol de la parte (/knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L233).

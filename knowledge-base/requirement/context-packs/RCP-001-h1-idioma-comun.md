@@ -6,7 +6,7 @@ tags: [context-pack, requirements, h1, catalogo, certificacion, brechas]
 status: draft
 generated:
   by: "af-requirement-context-builder/1.0"
-  at: "2026-09-26T23:38:00-05:00"
+  at: "2026-09-27T10:45:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -16,6 +16,8 @@ sources:
     resource: /knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md
   - id: usc-001
     resource: /knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
 ---
 
 # RCP-001 — H1 El idioma común
@@ -80,7 +82,7 @@ Las reglas del catálogo, la certificación y el cálculo de brecha están soste
 - El **detalle del tipo de evidencia** por competencia y nivel (P-22). P-01 quedó respondida en lo esencial con BR-ACR-07.
 - Cómo se **decide una asignación** (P-05).
 - **Quién ve el perfil de otra persona** (P-08).
-- **De dónde sale la lista de colaboradores** (VIS-001 §11.4).
+- ~~De dónde sale la lista de colaboradores~~ (VIS-001 §11.4): respondida por [SPEC-001](../specs/SPEC-001-gestion-de-colaboradores.md) D2; la plataforma es el sistema de registro.
 - **Quiénes son los evaluadores** (RCP-Q1).
 
 ## 4. Registro de evidencia
@@ -112,7 +114,7 @@ No se consultaron GDrive, GitLab Issues ni fuentes externas: H1 no las necesita 
 | E-10 | El colaborador ve su perfil y sus evidencias. | S-01:L104 | Hecho | Media |
 | E-11 | La evidencia exigida por cada nivel está abierta. | S-01:L71, L150 | Vacío | Alta |
 | E-12 | Cómo se decide una asignación está abierto. | S-01:L154 | Vacío | Alta |
-| E-13 | Integrar el sistema de RR. HH. como fuente de la ficha del colaborador está abierto. | S-01:L153 | Vacío | Alta |
+| E-13 | Integrar el sistema de RR. HH. como fuente de la ficha del colaborador estaba abierto; SPEC-001 D2 lo cierra: no hay integración y la plataforma es el sistema de registro (BR-PTY-01). | S-01:L153; SPEC-001 D2 | Decisión humana | Alta |
 | E-14 | No existe un catálogo común hoy. | S-01:L35 ("Supuesto (validado en la sesión, falta evidencia documental)") | Supuesto | Media |
 | E-15 | 59 términos del glosario aprobados; Proyecto activo, Responsable de producto y Sistema de RR. HH. siguen en `draft`. | S-03 | Decisión humana | Alta |
 | E-16 | 8 historias de H1: 1 READY (US-004), 5 CONDITIONAL y 2 NOT READY (US-007, US-008). | S-04 | Hecho | Alta |
@@ -162,7 +164,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | P-31 | ¿El Evaluador y el Jefe de Ingeniería también tienen un perfil de competencias como colaboradores, o solo gestionan el programa? | Negocio (Jefe de Ingeniería) | Baja | Nueva |
 | P-05 | ¿La plataforma solo recomienda y el Jefe de proyecto decide, o hay un flujo de aprobación? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
 | P-08 | ¿Quién puede ver el perfil y las evidencias de otro colaborador? | Negocio (Responsable de producto) | Alta | Abierta (BRC-001) |
-| VIS-§11.4 | ¿De dónde sale la lista de colaboradores y sus datos básicos? ¿Se integra el sistema de RR. HH.? | Negocio + ARQ | Alta | Abierta (VIS-001) |
+| VIS-§11.4 | ¿De dónde sale la lista de colaboradores y sus datos básicos? ¿Se integra el sistema de RR. HH.? | Negocio + ARQ | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D2): la plataforma es el sistema de registro de colaboradores, sin integración con RR. HH. (BR-PTY-01) |
 | RCP-Q1 | ¿Quiénes son los evaluadores de H1 y quién los designa? ¿Instructor y evaluador son el mismo rol (GQ-07)? | Negocio (Jefe de Ingeniería) | Alta | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-26): el Evaluador gestiona el programa junto con el Jefe de Ingeniería (BR-PRG-01). Sigue abierto quién los designa y si instructor y evaluador son el mismo rol |
 | P-02 | ¿Cómo se versiona el catálogo y qué pasa con requerimientos y certificaciones vigentes cuando cambia? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
 | P-06 | ¿Qué papel tiene el Responsable de producto en el mantenimiento del catálogo? | Negocio (Jefe de Ingeniería) | Media | Abierta (BRC-001) |
@@ -210,7 +212,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | Rol | Rol común a todos los productos, con niveles de rol (Junior y Senior) y competencias por nivel | [TRM-0055](../../business/glossary/terms/TRM-0055-rol.md) | S-01:L56; BR-CAT-08 a BR-CAT-10 |
 | Competencia | Competencia exigida por un rol | [TRM-0014](../../business/glossary/terms/TRM-0014-competencia.md) | S-01:L56 |
 | Nivel requerido | L1–L4 mínimo por competencia, para cada rol y nivel de rol | [TRM-0043](../../business/glossary/terms/TRM-0043-nivel-requerido.md) | S-01:L71; BR-CAT-10 |
-| Colaborador | Persona con perfil de competencias; su origen está abierto (VIS-§11.4) | [TRM-0013](../../business/glossary/terms/TRM-0013-colaborador.md) | S-01:L57, L153 |
+| Colaborador | Persona con perfil de competencias; se registra en la propia plataforma (SPEC-001 D2) y es derivado: persona con rol vigente de Empleado o Contratista (BR-PTY-05) | [TRM-0013](../../business/glossary/terms/TRM-0013-colaborador.md) | S-01:L57, L153 |
 | Nivel certificado | Nivel L1–L4 certificado por competencia | [TRM-0042](../../business/glossary/terms/TRM-0042-nivel-acreditado.md) | S-01:L57 |
 | Evidencia | Formación, práctica evaluada o desempeño en proyecto | [TRM-0022](../../business/glossary/terms/TRM-0022-evidencia.md) | S-01:L57, L71 |
 | Registro de certificación | Quién, cuándo y con qué evidencia | [TRM-0001](../../business/glossary/terms/TRM-0001-acreditacion.md) | S-01:L80 |
@@ -228,7 +230,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
   - H2 (las rutas de formación se generan a partir de la brecha, S-01:L79).
   - H3 (la IA propone niveles contra el catálogo, S-01:L81).
   - Los KPI 1, 2, 3 y 6.
-- **Dependencia externa sin confirmar:** el sistema de RR. HH. como fuente de colaboradores (VIS-§11.4). Queda como vacío, no como dependencia.
+- **Dependencia externa descartada:** el sistema de RR. HH. no es fuente de colaboradores; la plataforma es el sistema de registro (SPEC-001 D2, BR-PTY-01).
 
 ## 9. Restricciones y riesgos funcionales
 
@@ -308,7 +310,7 @@ Son propuestas para incorporar al conocimiento canónico. Ninguna es canónica h
 
 ### Qué debe validar antes de continuar
 
-- Las preguntas de prioridad alta: P-05, P-08, P-22, VIS-§11.4 y RCP-Q1.
+- Las preguntas de prioridad alta: P-05, P-08, P-22 y RCP-Q1 (VIS-§11.4 quedó respondida por SPEC-001 D2).
 - La validación humana de este pack (§10).
 - No derivar UXR ni flujos para US-007 (asignación) ni US-008 (brechas por producto) hasta resolver P-05 y P-17.
 

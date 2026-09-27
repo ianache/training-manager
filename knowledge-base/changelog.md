@@ -6,7 +6,7 @@ tags: [ux-ui, knowledge-base, changelog]
 status: draft
 generated:
   by: "manual/1.0"
-  at: "2026-09-26T22:05:37-05:00"
+  at: "2026-09-27T13:00:00-05:00"
 sources:
   - id: repository-guidelines
     resource: /AGENTS.md
@@ -102,4 +102,19 @@ sources:
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 - SPEC-001: decisiones D22 a D24 de `human:ianache`. D22: las credenciales de Gmail se guardan en HashiCorp Vault, la plataforma para parametría y datos sensibles (Q-14 en parte). D23: el plazo de anonimización queda en la base de datos. D24: el uso de Vault se registra como ADR-004, que se agrega a los artefactos por producir. Sigue abierto el método de autenticación ante Gmail.
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
-
+- SPEC-001 registrada en la base de conocimiento: sus decisiones D1 a D24 se propagaron a reglas, glosario, modelos, ADR, Context Pack, User Stories y modelo de datos. Todo queda en `draft`, sin verificación humana.
+- Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md` (tabla de artefactos enlazada).
+- BRC-001: sección "Colaboradores e información maestra (Party)" con las reglas BR-PTY-01 a BR-PTY-18 y las evidencias EVD-2026-0076 a EVD-2026-0095 (decisiones de `human:ianache`). P-33 respondida (D6, D11); P-28 parcialmente respondida; P-04 de VIS-001 respondida por D2; BR-PRF-01 admite varios roles.
+- Artefactos afectados: `knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md`.
+- GLS-001: 29 términos nuevos en `draft` (TRM-0070 a TRM-0098: Parte, Persona, Organización, Rol de la parte, Relación entre partes, Empleado, Contratista, Proveedor, Anonimización, entre otros) y preguntas GQ-18 a GQ-27. En los términos aprobados (Colaborador, Jefe de Ingeniería, Evaluador y otros) solo se editaron las notas; los cambios de definición quedan como preguntas para su responsable. `glossary.py check`: 98 términos, 0 errores.
+- Artefactos afectados: `knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md`, `knowledge-base/business/glossary/terms/` (29 archivos nuevos y 10 actualizados).
+- IMD-002 (modelo conceptual de partes): 23 conceptos y 28 relaciones, CONDITIONAL, preguntas IM-Q1 a IM-Q6. En IMD-001, R-18, R-28 y R-29 remiten a IMD-002; R-28 y R-29 pasan a FACT por D6. `check_model.py`: 0 errores en los dos modelos; diagramas validados con mermaid-cli.
+- Artefactos afectados: `knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md`, `knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md`.
+- ADR-003 (persistencia compatible con MySQL y PostgreSQL, D12) y ADR-004 (secretos y parametría en HashiCorp Vault, D22 y D24): Aceptados por `human:ianache`, con la justificación [PENDIENTE]. ACP-001 y ADB-001 enlazan los ADR; KG-03 (VIS-001 §11.4) queda respondida en parte por D2, y se agregan como dependencias el microservicio Party, Gmail empresarial y Vault. ACP-001 sigue en NOT READY_FOR_ARQ_102. asr-BR-ACR-02 registra la respuesta parcial de KG-03.
+- Artefactos afectados: `knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md`, `knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md`, `knowledge-base/architecture/ACP-001-architecture-context-pack.md`, `knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md`, `knowledge-base/architecture/asr/asr-BR-ACR-02.md`.
+- RCP-002 (Context Pack de la gestión de colaboradores, preguntas RCP2-Q1 a RCP2-Q4) y User Stories US-015 a US-025, una por capacidad C1 a C11: 4 READY y 7 CONDITIONAL. USC-001 las incluye en la sección "Gestión de colaboradores (SPEC-001)".
+- Artefactos afectados: `knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md`, `knowledge-base/requirement/user-stories/` (11 archivos nuevos), `knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md`.
+- Modelo de datos: LDM-001 (modelo lógico), PDM-001 (modelo físico) con anexos para MySQL y PostgreSQL, DDL portable y DDL por motor, y pruebas de restricciones t01 a t06 con TST-001. Las pruebas **no se ejecutaron** porque Docker no estaba disponible: ejecución PENDIENTE (Q-06). Preguntas nuevas DM-Q-01 a DM-Q-07; DM-Q-02 detecta que reutilizar el código de un anonimizado choca con D16.
+- Artefactos afectados: `knowledge-base/architecture/data-model/` (4 documentos, 3 DDL, 9 archivos de prueba).
+- VIS-001 §11.4 aparece como respondida por SPEC-001 D2 en RCP-001, US-004 y US-006.
+- Artefactos afectados: `knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md`, `knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md`, `knowledge-base/requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.

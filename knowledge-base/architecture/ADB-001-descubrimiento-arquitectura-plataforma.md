@@ -6,7 +6,7 @@ tags: [architecture, discovery, as-is, integraciones, restricciones]
 status: draft
 generated:
   by: "architecture-discovery/1.0"
-  at: "2026-09-26T21:37:26-05:00"
+  at: "2026-09-27T09:20:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -22,6 +22,8 @@ sources:
     resource: /knowledge-base/architecture/asr/asr-catalog.md
   - id: repository-guidelines
     resource: /AGENTS.md
+  - id: spec-001
+    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
 ---
 
 # ADB-001 — Descubrimiento de arquitectura
@@ -33,7 +35,7 @@ sources:
 - **Architect:** Por asignar.
 - **Date:** 2026-09-26.
 - **Version:** 0.1 (borrador).
-- **Fuentes:** [VIS-001](../vision/VIS-001-plataforma-gestion-formacion.md), [BRC-001](../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md), [GLS-001](../business/glossary/GLS-001-glosario-de-negocio.md), [USC-001](../requirement/USC-001-user-stories-plataforma-gestion-formacion.md), [RCP-001](../requirement/context-packs/RCP-001-h1-idioma-comun.md), AGENTS.md. Todas del 2026-09-26 y en `draft`, salvo 59 términos aprobados del glosario.
+- **Fuentes:** [VIS-001](../vision/VIS-001-plataforma-gestion-formacion.md), [BRC-001](../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md), [GLS-001](../business/glossary/GLS-001-glosario-de-negocio.md), [USC-001](../requirement/USC-001-user-stories-plataforma-gestion-formacion.md), [RCP-001](../requirement/context-packs/RCP-001-h1-idioma-comun.md), AGENTS.md. Todas del 2026-09-26 y en `draft`, salvo 59 términos aprobados del glosario. **Actualización del 2026-09-27:** se incorporan como fuente [SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md) (decisiones humanas D1 a D24 de `human:ianache`, sin verificar) y los ADR-001 a ADR-004; ver "Decisiones registradas después del brief".
 - **Nota de secuencia:** el [catálogo de candidatos ASR](asr/asr-catalog.md) se generó **antes** de este brief. Aquí sus candidatos se tratan solo como observaciones; el catálogo debería revisarse cuando este brief esté validado.
 
 ## Objective
@@ -81,7 +83,7 @@ Son preocupaciones que las fuentes plantean. **No son soluciones.**
 
 | ID | Preocupación | Origen | Observación ASR |
 |---|---|---|---|
-| AC-01 | Plataforma centrada en integraciones: orquesta cuatro sistemas externos, con uno más posible (RR. HH.) | VIS-001:L87, L91-L96, L153 | — |
+| AC-01 | Plataforma centrada en integraciones: orquesta cuatro sistemas externos. La integración con RR. HH., que era posible, quedó descartada (SPEC-001 D2); se agregan el envío de correo por Gmail empresarial (D19) y HashiCorp Vault (D22) | VIS-001:L87, L91-L96, L153; SPEC-001 D2, D19, D22 | — |
 | AC-02 | Separación entre lo que la IA propone y lo que un humano certifica | VIS-001:L81, L101 | [asr-BR-ACR-04](asr/asr-BR-ACR-04.md) |
 | AC-03 | Historial y trazabilidad de cada nivel hasta sus evidencias, incluidas las externas | VIS-001:L76, L80, L103 | [asr-BR-ACR-03](asr/asr-BR-ACR-03.md), [asr-BR-IA-02](asr/asr-BR-IA-02.md) |
 | AC-04 | Datos de desempeño de personas: visibilidad por rol y riesgo de vigilancia | VIS-001:L104, L143 | [asr-BR-TRA-01](asr/asr-BR-TRA-01.md) |
@@ -114,14 +116,18 @@ Son preocupaciones que las fuentes plantean. **No son soluciones.**
 | F-15 | Tres KPI (2, 3 y 4) dependen de eventos con fecha que ocurren desde H1 | INFERENCE | VIS-001:L117-L124, L132-L134 (EVD-2026-0041, 0051) | Media | |
 | F-16 | La IA de H3 necesita leer issues, MRs y milestones y asociarlos a competencias | FACT | VIS-001:L81 (EVD-2026-0013) | Alta | Frecuencia y volumen desconocidos |
 | F-17 | La visión identifica el riesgo de datos pobres en GitLab (etiquetas o asignaciones inconsistentes) | FACT (del riesgo declarado) | VIS-001:L146 (EVD-2026-0040) | Alta | La mitigación ("convenciones mínimas") está por definir |
-| F-18 | El sistema de RR. HH. podría ser la fuente de la ficha del colaborador | UNKNOWN | VIS-001:L153 (EVD-2026-0047) | Alta | KG-03 |
+| F-18 | El sistema de RR. HH. **no** es la fuente de la ficha del colaborador: la plataforma es el sistema de registro de la información maestra de colaboradores, sin integración con RR. HH. | FACT (decisión humana, sin verificar) | SPEC-001 D2; BR-PTY-01 (EVD-2026-0076) | Alta | Antes UNKNOWN (VIS-001:L153, EVD-2026-0047). Responde KG-03 en la parte de datos y VIS-001 §11.4 (P-04) |
 | F-19 | Los proyectos y su Líder no tienen fuente definida; la gestión de proyectos está fuera de alcance y la cubre GitLab | UNKNOWN | VIS-001:L111; US-002 (EVD-2026-0028) | Alta | Posible integración adicional con GitLab |
 | F-20 | Cómo se decide una asignación | UNKNOWN | VIS-001:L154 (EVD-2026-0023) | Alta | |
 | F-21 | Si la evidencia de GitLab puede procesarse con un servicio de IA externo | UNKNOWN | Ausencia en fuentes (EVD-2026-0050) | Alta | CF-01 |
 | F-22 | Si falla Classroom, se evaluará gestión propia de material y progreso | FACT | VIS-001:L89 (EVD-2026-0021) | Alta | Decisión posterior, fuera de alcance |
 | F-23 | Accesibilidad objetivo WCAG 2.2 AA | ASSUMPTION | AGENTS.md:L71 (EVD-2026-0046) | Media | Es el estándar del repositorio del curso; su aplicabilidad al producto está por confirmar |
-| F-24 | Tecnologías, alojamiento, proveedor de identidad, estándares corporativos y ADR previos | UNKNOWN | Ausencia en todas las fuentes | Alta | KG-01 |
+| F-24 | Tecnologías, alojamiento, proveedor de identidad, estándares corporativos y ADR previos | UNKNOWN | Ausencia en todas las fuentes | Alta | KG-01. Respondido en parte desde el 2026-09-27 por ADR-001 a ADR-004 (tecnologías del proyecto, identidad, motores de base de datos y secretos); siguen UNKNOWN el alojamiento y los estándares corporativos |
 | F-25 | Metas de calidad: disponibilidad, rendimiento, RTO/RPO, retención | UNKNOWN | Ausencia en todas las fuentes | Alta | KG-06. No se inventaron metas |
+| F-26 | Un microservicio de partes es el único dueño de la información maestra de personas y organizaciones; el catálogo y la certificación la referencian por el identificador de la parte, y solo el BFF la expone al frontend | FACT (diseño aprobado por `human:ianache`, sin verificar) | SPEC-001 §6.1 | Alta | Sobre la estructura de ADR-001 |
+| F-27 | La plataforma envía correos automáticos desde una cuenta de Gmail empresarial (Google Workspace) | FACT (decisión humana, sin verificar) | SPEC-001 D18, D19; BR-PTY-15 | Alta | Integración nueva. Método de autenticación abierto (SPEC-001 Q-14) |
+| F-28 | HashiCorp Vault es la plataforma para la parametría y los datos sensibles, y guarda las credenciales de Gmail; el plazo de anonimización se guarda en la base de datos | FACT (decisión humana, sin verificar) | SPEC-001 D22, D23, D24; ADR-004 | Alta | Dependencia nueva |
+| F-29 | El modelo físico de datos es compatible con MySQL 8.0.16+ y PostgreSQL | FACT (decisión humana, sin verificar) | SPEC-001 D12; ADR-003 | Alta | Responde KG-01 en la parte de motor de base de datos |
 
 Todas las fuentes son documentos (`source_type: document`) de la base de conocimiento, del 2026-09-26 y sin verificar, salvo el glosario. **Freshness:** que la fecha sea reciente no prueba que el contenido esté vigente; ver CF-04.
 
@@ -148,9 +154,9 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 
 | ID | Vacío | Por qué importa | Destinatario | Prioridad |
 |---|---|---|---|---|
-| KG-01 | Arquitectura AS-IS y contexto corporativo: plataformas, alojamiento (on-premise o nube), estándares, tecnologías aprobadas, ADR previos | Sin esto no se puede analizar impacto ni validar la significancia de los ASR | Arquitecto | Alta |
+| KG-01 | Arquitectura AS-IS y contexto corporativo: plataformas, alojamiento (on-premise o nube), estándares, tecnologías aprobadas, ADR previos. **Respondido en parte:** tecnología y estructura ([ADR-001](adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md)), identidad ([ADR-002](adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md)), motores de base de datos ([ADR-003](adrs/ADR-003-persistencia-mysql-y-postgresql.md)) y secretos ([ADR-004](adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md)); siguen abiertos el alojamiento y los estándares corporativos | Sin esto no se puede analizar impacto ni validar la significancia de los ASR | Arquitecto | Alta |
 | KG-02 | Política corporativa sobre enviar datos internos a servicios de IA | Define si la IA de H3 puede procesar datos de GitLab fuera del perímetro interno | Arquitecto + Seguridad | Alta |
-| KG-03 | Proveedor de identidad y fuente de datos de colaboradores (¿sistema de RR. HH.?) | Afecta a la autenticación, los roles y el alta de personas | Arquitecto + Negocio | Alta |
+| KG-03 | Proveedor de identidad y fuente de datos de colaboradores (¿sistema de RR. HH.?). **Respondido en parte:** el proveedor es Keycloak ([ADR-002](adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md)); la fuente de datos es la propia plataforma, sin integración con RR. HH. ([SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md) D2; BR-PTY-01), y la plataforma solo guarda el identificador del usuario de Keycloak (D4; BR-PTY-16). Sigue abierto cómo se modelan los roles de acceso en Keycloak y si se federa | Afecta a la autenticación, los roles y el alta de personas | Arquitecto + Negocio | Alta |
 | KG-04 | Normativa de datos personales aplicable; matriz de visibilidad por rol (P-08); quiénes son los evaluadores y quién los designa (RCP-Q1); si un evaluador puede certificar a su propio equipo (P-09) | Afecta a la autorización a nivel de dato y a la auditoría de accesos | Negocio + Legal | Alta |
 | KG-05 | Contratos y límites de las API: Classroom, Drive, GitLab (instancia, versión, permisos) y docsuite | Afecta a la viabilidad y a la resiliencia de las integraciones | Arquitecto | Media |
 | KG-06 | Metas de calidad: disponibilidad, rendimiento, RTO/RPO, retención, respaldo | Sin metas no se puede dimensionar | Negocio + Arquitecto | Media |
@@ -171,9 +177,9 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 
 | Priority | Question | Why it matters | Required evidence |
 |---|---|---|---|
-| 1 | ¿Dónde se aloja la plataforma y qué estándares y tecnologías corporativas son obligatorios? | Condiciona todas las decisiones posteriores | Estándares de arquitectura de COMSATEL, ADR existentes Parcialmente respondida: la tecnología y la estructura están en ADR-001 (Angular, Node.js, microUIs, BFF, microservicios); el alojamiento sigue abierto |
+| 1 | ¿Dónde se aloja la plataforma y qué estándares y tecnologías corporativas son obligatorios? | Condiciona todas las decisiones posteriores | Estándares de arquitectura de COMSATEL, ADR existentes Parcialmente respondida: la tecnología y la estructura están en ADR-001 (Angular, Node.js, microUIs, BFF, microservicios), los motores de base de datos en ADR-003 (MySQL 8.0.16+ y PostgreSQL) y la plataforma de secretos en ADR-004 (HashiCorp Vault); el alojamiento sigue abierto |
 | 2 | ¿Pueden los datos de GitLab procesarse con un servicio de IA externo? | Define si la IA puede procesar datos fuera del perímetro interno (CF-01) | Política de IA / seguridad de la información |
-| 3 | ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? | Autenticación, autorización y datos maestros | Inventario de sistemas de identidad y de RR. HH. Parcialmente respondida: el proveedor es Keycloak, integrado en el BFF (ADR-002); el origen de los colaboradores y sus roles sigue abierto |
+| 3 | ¿Cuál es el proveedor de identidad y de dónde salen los colaboradores y sus roles? | Autenticación, autorización y datos maestros | Inventario de sistemas de identidad y de RR. HH. Parcialmente respondida: el proveedor es Keycloak, integrado en el BFF (ADR-002). El origen de los colaboradores y sus roles quedó respondido por SPEC-001 D2, D6 y D11: se registran en la plataforma, que es el sistema de registro, sin integración con RR. HH. (BR-PTY-01). Sigue abierto el modelo de roles de acceso en Keycloak |
 | 4 | ¿Qué normativa de datos personales aplica y quién ve qué? | Autorización a nivel de dato, auditoría de accesos | Normativa aplicable; respuesta a P-08 |
 | 5 | ¿El historial y la evidencia deben conservarse con copia o basta la referencia externa, y por cuánto tiempo? ¿Una certificación vence o se revoca (P-14)? | Persistencia, trazabilidad y retención | Política de retención; requisitos de auditoría; respuesta a P-14 |
 | 6 | ¿De dónde salen los proyectos y sus Líderes? | Posible integración adicional con GitLab | Respuesta a US2-Q1 |
@@ -181,6 +187,16 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 | 8 | ¿Qué acceso real hay a las API de Classroom, Drive, GitLab y docsuite? | Viabilidad de las integraciones y de la contingencia | Credenciales de prueba, documentación de las API, contrato de docsuite |
 | 9 | ¿Qué volúmenes y metas de calidad se esperan? | Dimensionamiento | Cifras de negocio; SLA internos |
 | 10 | ¿Qué equipo, presupuesto y plazo hay? | Restringe las opciones | Plan del proyecto |
+
+## Decisiones registradas después del brief
+
+Este brief no toma decisiones. Después de generarlo, `human:ianache` registró las siguientes (2026-09-27), todas sin verificar:
+
+- [ADR-001](adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md): shell y microUIs en Angular, y BFF en Node.js intermediario con los microservicios.
+- [ADR-002](adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md): autenticación en el BFF con Keycloak y PKCE.
+- [ADR-003](adrs/ADR-003-persistencia-mysql-y-postgresql.md): modelo físico de datos compatible con MySQL 8.0.16+ y PostgreSQL, con DDL portable y un anexo por motor.
+- [ADR-004](adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md): HashiCorp Vault para la parametría y los datos sensibles, incluidas las credenciales de la cuenta de Gmail empresarial.
+- [SPEC-001](../requirement/specs/SPEC-001-gestion-de-colaboradores.md): la plataforma es el sistema de registro de los colaboradores, sin integración con RR. HH. (D2); un microservicio de partes es dueño de esos datos (§6.1); los correos se envían desde Gmail empresarial (D19); el plazo de anonimización se guarda en la base de datos (D23).
 
 ## Human validation
 
