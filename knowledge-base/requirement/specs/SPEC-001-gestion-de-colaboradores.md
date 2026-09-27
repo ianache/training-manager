@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T09:55:00-05:00"
+  at: "2026-09-27T10:05:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -73,6 +73,9 @@ sources:
 | D19 | Los correos se envían desde una **cuenta de Gmail empresarial** (Google Workspace) de la empresa | Q-12 |
 | D20 | Se espera **un único Jefe de Ingeniería vigente**. Si hubiera más de uno (no debería suceder), el correo se envía **a todos** los que tengan el rol vigente | Q-13 |
 | D21 | Al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma **avisa sin impedirlo** | Propuesta del agente sobre D20, aceptada |
+| D22 | Las credenciales de la cuenta de Gmail se guardan en **HashiCorp Vault**, la plataforma elegida para almacenar parametría y datos sensibles | Q-14 (en parte) |
+| D23 | El **plazo de anonimización** se guarda en la **base de datos** (ANONYMIZATION_SETTING), con su auditoría; Vault se usa para los secretos de esta feature | — |
+| D24 | El uso de HashiCorp Vault se registra como **ADR-004** | — |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -111,7 +114,7 @@ sources:
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
 - **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Se ejecuta **a demanda** del Jefe de Ingeniería; cuando se cumple el plazo configurado, la plataforma le notifica que la persona puede anonimizarse (D15). **No se anonimizan** el código de colaborador ni las referencias de auditoría, así que las certificaciones siguen mostrando quién certificó mediante su código (D16).
 - **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08).
-- **Riesgo (D19):** el envío depende de una cuenta de Gmail empresarial. Hay que gestionar sus credenciales de forma segura y respetar los límites de envío de la cuenta. Si la cuenta falla, el aviso queda como fallido con reintentos (ANONYMIZATION_NOTICE).
+- **Riesgo (D19):** el envío depende de una cuenta de Gmail empresarial. Sus credenciales se custodian en HashiCorp Vault (D22) y hay que respetar los límites de envío de la cuenta. Si la cuenta falla, el aviso queda como fallido con reintentos (ANONYMIZATION_NOTICE).
 
 **Validaciones:**
 - La identificación es única por tipo, número y país.
@@ -191,7 +194,7 @@ sources:
 - Un anexo MySQL y un anexo PostgreSQL con las diferencias.
 - Pruebas de las restricciones clave ejecutadas en los dos motores.
 
-**ADR asociado:** ADR-003 — Persistencia compatible con MySQL y PostgreSQL (decisor `human:ianache`, justificación pendiente).
+**ADR asociados:** ADR-003 — Persistencia compatible con MySQL y PostgreSQL, y ADR-004 — Secretos y parametría en HashiCorp Vault (decisor `human:ianache` en los dos, justificación pendiente).
 
 ## 7. Artefactos y verificación (sección 5)
 
@@ -202,6 +205,7 @@ sources:
 | 3 | Términos nuevos y la nota de "Colaborador" (derivado) | Glosario | af-business-glossary-curator |
 | 4 | IMD-002 — Modelo conceptual Party, y actualización de IMD-001 (R-18, R-28, R-29) | `business/information-model/` | af-conceptual-model-designer |
 | 5 | ADR-003 | `architecture/adrs/` | architecture-adr-writer |
+| 5b | ADR-004 — Secretos y parametría en HashiCorp Vault (D22, D24) | `architecture/adrs/` | architecture-adr-writer |
 | 6 | RCP-002, el Context Pack de la feature | `requirement/context-packs/` | af-requirement-context-builder |
 | 7 | User Stories de C1 a C9 | `requirement/user-stories/` | af-user-story-refiner 2.0 |
 | 8 | Modelo lógico y físico: DDL portable y anexos por motor | `architecture/data-model/` | data-model-designer |
@@ -210,7 +214,7 @@ sources:
 - `check_model.py` sobre IMD-002 y `glossary.py check` sobre el glosario, los dos con 0 errores.
 - Trazabilidad: cada historia cita sus reglas `BR-PTY-*`, y cada tabla cita su entidad lógica y su concepto de IMD-002.
 - El DDL se ejecuta en **MySQL 8 y en PostgreSQL**, junto con las pruebas de: un nivel vigente por rol, identificación única, código único, correo laboral único entre vigentes y anonimización (que no quede PII en ninguna tabla ni vigencia, y que las unicidades ignoren a los anonimizados; que se conserven el código y la auditoría, D16; y que se genere el aviso al vencer el plazo, D15). Si no hay motores disponibles, por ejemplo Docker, se reporta como verificación pendiente.
-- Todo queda en `draft`, salvo el ADR-003, que queda Aceptado por decisión del decisor.
+- Todo queda en `draft`, salvo ADR-003 y ADR-004, que quedan Aceptados por decisión del decisor.
 
 ## 8. Preguntas abiertas
 
@@ -229,7 +233,7 @@ sources:
 | Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Respondida (D17, D18):** desde el registro de la baja, por correo automático al Jefe de Ingeniería |
 | Q-12 | ¿Qué servicio de envío de correo usa la plataforma? | Arquitecto responsable | Media | **Respondida (D19):** cuenta de Gmail empresarial de la empresa |
 | Q-13 | Si hay varias personas con rol vigente de Jefe de Ingeniería, ¿el correo va a todas? | Jefe de Ingeniería | Baja | **Respondida (D20):** se espera una sola; si hay más, a todas |
-| Q-14 | ¿Cómo se autentica la plataforma ante la cuenta de Gmail empresarial (OAuth con cuenta de servicio, contraseña de aplicación u otro) y dónde se guardan esas credenciales? | Arquitecto responsable | Media | Abierta |
+| Q-14 | ¿Cómo se autentica la plataforma ante la cuenta de Gmail empresarial y dónde se guardan esas credenciales? | Arquitecto responsable | Media | **Parcialmente respondida (D22):** las credenciales van en HashiCorp Vault. Sigue abierto el método de autenticación (OAuth con cuenta de servicio, contraseña de aplicación u otro) |
 
 ## 9. Próximo paso
 

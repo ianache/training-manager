@@ -100,4 +100,6 @@ sources:
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 - SPEC-001: `human:ianache` aceptó la propuesta del agente sobre D20 y pasa a ser la decisión D21: al asignar un segundo rol vigente de Jefe de Ingeniería, la plataforma avisa sin impedirlo.
 - Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
+- SPEC-001: decisiones D22 a D24 de `human:ianache`. D22: las credenciales de Gmail se guardan en HashiCorp Vault, la plataforma para parametría y datos sensibles (Q-14 en parte). D23: el plazo de anonimización queda en la base de datos. D24: el uso de Vault se registra como ADR-004, que se agrega a los artefactos por producir. Sigue abierto el método de autenticación ante Gmail.
+- Artefactos afectados: `knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md`, `knowledge-base/changelog.md`.
 

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790517463.08621,
-    "seen": 1790517469.798494,
-    "ast_hash": "91b415e48a4c881480387ec3491f8580",
+    "mtime": 1790517557.18171,
+    "seen": 1790517564.5792205,
+    "ast_hash": "20358e2e4bc74bb04d246802388c59ee",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -708,9 +708,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md": {
-    "mtime": 1790517463.0758479,
-    "seen": 1790517469.798494,
-    "ast_hash": "f9bcd94dcfbb4a6f67839e3ebf0eaaac",
+    "mtime": 1790517557.1733234,
+    "seen": 1790517564.5792205,
+    "ast_hash": "4f8cead628955a6a5e808a437122008f",
     "semantic_hash": ""
   }
 }
