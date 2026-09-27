@@ -6,7 +6,7 @@ tags: [spec, feature, colaboradores, party, udm, master-data, data-model]
 status: draft
 generated:
   by: "superpowers-brainstorming/6.4.1"
-  at: "2026-09-27T10:05:00-05:00"
+  at: "2026-09-27T16:30:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -76,6 +76,12 @@ sources:
 | D22 | Las credenciales de la cuenta de Gmail se guardan en **HashiCorp Vault**, la plataforma elegida para almacenar parametría y datos sensibles | Q-14 (en parte) |
 | D23 | El **plazo de anonimización** se guarda en la **base de datos** (ANONYMIZATION_SETTING), con su auditoría; Vault se usa para los secretos de esta feature | — |
 | D24 | El uso de HashiCorp Vault se registra como **ADR-004** | — |
+| D25 | El **código de colaborador** se genera **automáticamente** como un GUID | Q-01 |
+| D26 | Un **contratista no tiene jefe directo** dentro de COMSATEL | Q-02 |
+| D27 | Los datos de las personas, incluidos los perfiles profesionales, son **data abierta**: los ve cualquier colaborador que ingrese a la plataforma | Q-05 (P-08 en parte) |
+| D28 | Se dispone de **Docker** para ejecutar MySQL y PostgreSQL y verificar el DDL | Q-06 |
+| D29 | **No es necesario** verificar el modelo contra *The Data Model Resource Book*: el decisor revisó la información disponible y la considera suficiente | Q-07 |
+| D30 | Se adopta la **versión estable más reciente de PostgreSQL** (open source) | Q-08 |
 
 ## 3. Modelo conceptual (sección 1)
 
@@ -113,7 +119,7 @@ sources:
 - **Cambio:** los datos simples se corrigen. Roles, relaciones, asignaciones y contactos no se sobrescriben: se cierra la vigencia anterior y se abre una nueva.
 - **Baja:** se cierra la vigencia del rol de Empleado o de Contratista. La persona **no se borra**, porque sus certificaciones históricas la necesitan (BR-ACR-03).
 - **Anonimización (D14):** los datos personales de la persona se reemplazan por valores anónimos, **en todas sus vigencias e historial**: nombres, apellidos, nombre preferido, identificaciones, medios de contacto (correo, teléfono y perfiles profesionales) e identidad de acceso. Se conservan el identificador técnico de la parte, sus roles, relaciones, asignaciones de Rol-Nivel y certificaciones, con sus fechas, de modo que los KPI y el historial siguen siendo calculables sin identificar a la persona. Queda registro de cuándo y quién anonimizó. Es irreversible. Se ejecuta **a demanda** del Jefe de Ingeniería; cuando se cumple el plazo configurado, la plataforma le notifica que la persona puede anonimizarse (D15). **No se anonimizan** el código de colaborador ni las referencias de auditoría, así que las certificaciones siguen mostrando quién certificó mediante su código (D16).
-- **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08).
+- **Riesgo (D16):** el código de colaborador conservado es un **cuasi-identificador**. Si otro sistema usa el mismo código, podría volver a identificar a la persona. Se mitiga restringiendo quién ve el código de las personas anonimizadas (a definir junto con P-08). **Actualización (D25, D27):** el código es un GUID generado por la plataforma, que ningún otro sistema comparte, así que el riesgo baja; pero los datos son visibles para cualquier colaborador, así que la restricción propuesta ya no aplica sin una decisión explícita (P-52).
 - **Riesgo (D19):** el envío depende de una cuenta de Gmail empresarial. Sus credenciales se custodian en HashiCorp Vault (D22) y hay que respetar los límites de envío de la cuenta. Si la cuenta falla, el aviso queda como fallido con reintentos (ANONYMIZATION_NOTICE).
 
 **Validaciones:**
@@ -187,7 +193,7 @@ sources:
 | Un nivel vigente por rol | Columna generada `current_role_id`, que vale el rol mientras la asignación está vigente y NULL cuando está cerrada, más un índice único sobre la persona y esa columna. Funciona en los dos motores, porque ambos admiten varios NULL en un índice único |
 | CHECK | Se usan (MySQL 8.0.16 o superior) |
 | Restricciones diferibles | No se usan |
-| Anonimización | Las columnas de PII admiten un valor anónimo, por ejemplo NULL o un marcador fijo, y los índices únicos de identificación, código y correo excluyen a las personas anonimizadas. En PostgreSQL se usa un índice parcial; en MySQL, una columna generada que vale NULL cuando la persona está anonimizada, el mismo mecanismo que "un nivel vigente por rol". Cada motor documenta su variante en su anexo |
+| Anonimización | Las columnas de PII admiten un valor anónimo, por ejemplo NULL o un marcador fijo, y los índices únicos de identificación y correo excluyen a las personas anonimizadas. El código de colaborador es único entre todas las personas, anonimizadas incluidas, porque es un GUID que no se reutiliza (D25). En PostgreSQL se usa un índice parcial; en MySQL, una columna generada que vale NULL cuando la persona está anonimizada, el mismo mecanismo que "un nivel vigente por rol". Cada motor documenta su variante en su anexo |
 
 **Entregables:**
 - El DDL portable.
@@ -220,14 +226,14 @@ sources:
 
 | ID | Pregunta | Responsable | Prioridad | Estado |
 |---|---|---|---|---|
-| Q-01 | ¿Cómo se genera el código de colaborador: automático, manual o con formato? | Jefe de Ingeniería | Media | Abierta |
-| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | Abierta |
+| Q-01 | ¿Cómo se genera el código de colaborador: automático, manual o con formato? | Jefe de Ingeniería | Media | **Respondida (D25):** automático, GUID |
+| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | **Respondida (D26):** no |
 | Q-03 | ¿Un contratista tiene correo laboral de COMSATEL o el de su proveedor? | Jefe de Ingeniería | Media | **Respondida (D13):** el del proveedor |
 | Q-04 | ¿La normativa obliga a borrar o anonimizar a quien se va? | Legal + Jefe de Ingeniería | Alta | **Respondida (D14):** se anonimizan los datos PII |
-| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta | Abierta |
-| Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media | Abierta |
-| Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media | Abierta |
-| Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | Abierta |
+| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles profesionales? (P-08) | Responsable de producto | Alta | **Respondida (D27):** cualquier colaborador que ingrese a la plataforma (data abierta). Ver P-52 |
+| Q-06 | ¿Hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL y verificar el DDL? | Jefe de Ingeniería | Media | **Respondida (D28):** sí, Docker. La ejecución de las pruebas sigue pendiente mientras Docker Desktop no esté en marcha |
+| Q-07 | Verificar la correspondencia con el UDM contra *The Data Model Resource Book, Vol. 1* (Silverston), que no se consultó en esta sesión | Arquitecto responsable | Media | **Respondida (D29):** no es necesario |
+| Q-08 | ¿Qué versión mínima de PostgreSQL se soporta? | Arquitecto responsable | Baja | **Respondida (D30):** la versión estable más reciente |
 | Q-09 | ¿Cuándo se anonimiza y quién lo ejecuta? | Jefe de Ingeniería + Legal | Alta | **Respondida (D15):** a demanda, con notificación al Jefe de Ingeniería al cumplirse un plazo configurable |
 | Q-10 | ¿La anonimización alcanza al código de colaborador y a las referencias de auditoría? | Jefe de Ingeniería + Legal | Alta | **Respondida (D16):** no |
 | Q-11 | ¿Desde cuándo se cuenta el plazo y por qué canal llega la notificación? | Jefe de Ingeniería | Media | **Respondida (D17, D18):** desde el registro de la baja, por correo automático al Jefe de Ingeniería |

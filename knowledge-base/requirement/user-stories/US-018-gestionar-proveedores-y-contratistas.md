@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c4, proveedores]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T11:55:00-05:00"
+  at: "2026-09-27T16:40:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -92,7 +92,7 @@ Escenario: Cerrar la única contratación vigente
 | Proveedor con RUC ya registrado | Se rechaza | BR-PTY-07 |
 | Cambio de proveedor sin cambio de correo laboral | Sin regla: el correo debe ser del proveedor (D13), pero no se dice si se exige cambiarlo en el mismo paso | US-018-Q1 |
 | Cerrar un proveedor con contratistas vigentes | Sin regla | US-018-Q2 |
-| Jefe directo del contratista | Sin regla | Q-02 |
+| Jefe directo del contratista | No tiene: la relación de reporte es solo para empleados. Al cambiar de proveedor no hay jefe directo que mantener | BR-PTY-19; D26 (Q-02) |
 | Usuario que no es Jefe de Ingeniería | No puede | BR-PTY-17 |
 
 ## 7. Reglas de negocio aplicables
@@ -106,6 +106,7 @@ Escenario: Cerrar la única contratación vigente
 | BR-PTY-10 | Contratista con contratación vigente | BRC-001 |
 | BR-PTY-12 | Vigencias y auditoría | BRC-001 |
 | BR-PTY-17 | Permiso | BRC-001 |
+| BR-PTY-19 | Un contratista no tiene jefe directo en COMSATEL | BRC-001 |
 
 ## 8. Datos y términos
 
@@ -116,7 +117,7 @@ Escenario: Cerrar la única contratación vigente
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** el vínculo contratista–proveedor es dato de una persona; acceso mínimo hasta P-08.
+- **Privacidad y datos personales:** el vínculo contratista–proveedor es dato de una persona. Los datos de las personas son visibles para cualquier colaborador (BR-PTY-20, D27); si ese alcance incluye este vínculo se confirma en P-52.
 - **Otros:** auditoría (BR-PTY-12).
 
 ## 10. Consideraciones de UX
@@ -136,7 +137,7 @@ Escenario: Cerrar la única contratación vigente
 
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
-| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | Sí (qué relaciones se mantienen del contratista) | Abierta |
+| Q-02 | ¿Un contratista tiene jefe directo dentro de COMSATEL? | Jefe de Ingeniería | Media | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D26): no (BR-PTY-19) |
 | US-018-Q1 | ¿Al cambiar de proveedor se exige cambiar el correo laboral en el mismo paso? | Jefe de Ingeniería | Media | Sí (AC-2 completo) | Abierta |
 | US-018-Q2 | ¿Se puede cerrar el rol Proveedor con contratistas vigentes? | Jefe de Ingeniería | Baja | No | Abierta |
 
@@ -147,6 +148,7 @@ Escenario: Cerrar la única contratación vigente
 | EVD-2026-0078 | Roles y relaciones con vigencia | SPEC-001:L59, L87-L88 (D5) | decision | high |
 | EVD-2026-0083 | RUC para organizaciones | SPEC-001:L64 (D10) | decision | high |
 | EVD-2026-0085 | Correo del contratista = del proveedor | SPEC-001:L67 (D13) | decision | high |
+| EVD-2026-0120 | Un contratista no tiene jefe directo dentro de COMSATEL | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 Q-02 (D26) | decision | high |
 
 Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
 
@@ -185,9 +187,9 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** CONDITIONAL
-- **Motivo:** registro de proveedores y contratación vigente sostenidos (BR-PTY-03, 04, 07, 10); Q-02 y US-018-Q1 bloquean el cambio de proveedor completo.
+- **Motivo:** registro de proveedores y contratación vigente sostenidos (BR-PTY-03, 04, 07, 10); Q-02 se respondió el 2026-09-27 (D26, BR-PTY-19: el contratista no tiene jefe directo). Sigue CONDITIONAL porque US-018-Q1 bloquea el cambio de proveedor completo (AC-2).
 - **Bloqueos de entrega:** US-015 para AC-2 y AC-3.
 - **Propuesta de división (si no es pequeña):** No aplica.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería responde Q-02 y US-018-Q1 y valida la historia.
+- **Decisión humana requerida:** el Jefe de Ingeniería responde US-018-Q1 y valida la historia.
 - **Validación:** Pendiente · Responsable: Jefe de Ingeniería · Fecha: —

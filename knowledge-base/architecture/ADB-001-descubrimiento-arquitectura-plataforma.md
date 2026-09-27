@@ -6,7 +6,7 @@ tags: [architecture, discovery, as-is, integraciones, restricciones]
 status: draft
 generated:
   by: "architecture-discovery/1.0"
-  at: "2026-09-27T09:20:00-05:00"
+  at: "2026-09-27T17:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -183,7 +183,7 @@ No hay NFR explícitos de rendimiento, disponibilidad, escalabilidad, recuperaci
 | 4 | ¿Qué normativa de datos personales aplica y quién ve qué? | Autorización a nivel de dato, auditoría de accesos | Normativa aplicable; respuesta a P-08 |
 | 5 | ¿El historial y la evidencia deben conservarse con copia o basta la referencia externa, y por cuánto tiempo? ¿Una certificación vence o se revoca (P-14)? | Persistencia, trazabilidad y retención | Política de retención; requisitos de auditoría; respuesta a P-14 |
 | 6 | ¿De dónde salen los proyectos y sus Líderes? | Posible integración adicional con GitLab | Respuesta a US2-Q1 |
-| 7 | ¿Se versiona el catálogo? | Modelo de datos de H1 | Respuesta a P-02 |
+| 7 | ¿Se versiona el catálogo? | Modelo de datos de H1 | Respuesta a P-50 (P-02 quedó respondida solo para cursos: BR-FOR-06 a BR-FOR-10) |
 | 8 | ¿Qué acceso real hay a las API de Classroom, Drive, GitLab y docsuite? | Viabilidad de las integraciones y de la contingencia | Credenciales de prueba, documentación de las API, contrato de docsuite |
 | 9 | ¿Qué volúmenes y metas de calidad se esperan? | Dimensionamiento | Cifras de negocio; SLA internos |
 | 10 | ¿Qué equipo, presupuesto y plazo hay? | Restringe las opciones | Plan del proyecto |

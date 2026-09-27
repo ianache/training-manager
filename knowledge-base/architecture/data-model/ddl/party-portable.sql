@@ -1,7 +1,8 @@
 -- =====================================================================
 -- PDM-001 · DDL portable del modelo de partes (SPEC-001, LDM-001)
 -- Motores objetivo: MySQL 8.0.16+ y PostgreSQL 12+ (columnas generadas
--- STORED). Versión mínima de PostgreSQL: pendiente (Q-08).
+-- STORED). PostgreSQL: se adopta la versión estable más reciente (D30,
+-- Q-08); la versión exacta se registra al ejecutar TST-001.
 --
 -- Este script es el "mínimo común denominador": corre sin cambios en los
 -- dos motores. Diferencias respecto de los scripts por motor:
@@ -80,14 +81,12 @@ CREATE TABLE party (
 CREATE TABLE person (
   party_id           CHAR(36)     NOT NULL,
   party_kind         VARCHAR(12)  NOT NULL DEFAULT 'PERSON',
-  employee_code      VARCHAR(20)  NOT NULL,            -- BR-PTY-06, D9, D16 (no se anonimiza)
+  employee_code      CHAR(36)     NOT NULL,            -- BR-PTY-06, D9, D16, D25: GUID generado por la aplicación; no se anonimiza ni se reutiliza
   given_names        VARCHAR(100) NULL,                -- PII: NULL tras anonimizar
   family_names       VARCHAR(100) NULL,                -- PII
   preferred_name     VARCHAR(100) NULL,                -- PII, opcional
   anonymized_at      TIMESTAMP(6) NULL,                -- D14
   anonymized_by      VARCHAR(36)  NULL,                -- D14, D16 (referencia de auditoría)
-  employee_code_key  VARCHAR(20)  GENERATED ALWAYS AS
-                     (CASE WHEN anonymized_at IS NULL THEN employee_code END) STORED,
   created_at         TIMESTAMP(6) NOT NULL,
   created_by         VARCHAR(36)  NOT NULL,
   updated_at         TIMESTAMP(6) NULL,
@@ -100,8 +99,9 @@ CREATE TABLE person (
   CONSTRAINT ck_person_pii CHECK (
        (anonymized_at IS NULL AND given_names IS NOT NULL AND family_names IS NOT NULL)
     OR (anonymized_at IS NOT NULL AND given_names IS NULL AND family_names IS NULL AND preferred_name IS NULL)),
-  -- BR-PTY-06 + BR-PTY-14: código único entre personas no anonimizadas
-  CONSTRAINT uq_person_employee_code_key UNIQUE (employee_code_key)
+  -- BR-PTY-06 + D25: código único entre TODAS las personas, anonimizadas incluidas
+  -- (un GUID generado no se reutiliza; resuelve DM-Q-02)
+  CONSTRAINT uq_person_employee_code UNIQUE (employee_code)
 );
 
 CREATE TABLE organization (

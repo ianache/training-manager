@@ -1,12 +1,12 @@
 ---
 type: Logical Data Model
 title: "LDM-001 — Modelo lógico de partes (colaboradores, organizaciones y vigencias)"
-description: "Modelo lógico del patrón Party de SPEC-001: entidades, atributos, claves, cardinalidades y restricciones trazadas a BR-PTY-01..18 y a las decisiones D1..D24."
+description: "Modelo lógico del patrón Party de SPEC-001: entidades, atributos, claves, cardinalidades y restricciones trazadas a BR-PTY-01..20 y a las decisiones D1..D30."
 tags: [data-model, logical, party, udm, colaboradores, anonimizacion, dtc]
 status: draft
 generated:
   by: "data-model-designer/1.0"
-  at: "2026-09-27T09:40:00-05:00"
+  at: "2026-09-27T16:40:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -24,8 +24,8 @@ sources:
 
 # LDM-001 — Modelo lógico de partes
 
-- **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Falta revisión humana; no hay `verified`. La ejecución de las pruebas está **PENDIENTE** (Q-06, ver [TST-001](tests/TST-001-pruebas-de-restricciones.md)).
-- **Fuente:** [SPEC-001 §3, §4 y §6.1](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) y las reglas BR-PTY-01 a BR-PTY-18 de [BRC-001](../../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md). Concepto: [IMD-002](../../business/information-model/IMD-002-modelo-conceptual-de-partes.md); cada entidad corresponde al concepto homónimo de SPEC-001 §3.
+- **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Falta revisión humana; no hay `verified`. La ejecución de las pruebas está **PENDIENTE**: hay Docker (D28), pero Docker Desktop no está en marcha (ver [TST-001](tests/TST-001-pruebas-de-restricciones.md)).
+- **Fuente:** [SPEC-001 §3, §4 y §6.1](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) y las reglas BR-PTY-01 a BR-PTY-20 de [BRC-001](../../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md). Concepto: [IMD-002](../../business/information-model/IMD-002-modelo-conceptual-de-partes.md); cada entidad corresponde al concepto homónimo de SPEC-001 §3.
 - **Modelo físico:** [PDM-001](PDM-001-modelo-fisico-de-partes.md). **Persistencia:** [ADR-003](../adrs/ADR-003-persistencia-mysql-y-postgresql.md).
 - **Dueño de los datos:** el microservicio de partes (SPEC-001 §6.1, [ADR-001](../adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md)). El catálogo y la certificación referencian a la parte por su identificador; solo el BFF expone estos datos al frontend.
 
@@ -64,7 +64,7 @@ erDiagram
     }
     PERSON {
         uuid party_id PK,FK
-        string employee_code "único entre no anonimizadas"
+        uuid employee_code "GUID generado, único, no se reutiliza"
         string given_names "PII"
         string family_names "PII"
         string preferred_name "PII, opcional"
@@ -161,10 +161,10 @@ Los catálogos CONTACT_MECHANISM_TYPE, CONTACT_PURPOSE_TYPE y PROFILE_PLATFORM s
 | Entidad | Qué guarda | Clave | Cardinalidades y reglas | Fuente |
 |---|---|---|---|---|
 | PARTY | Supertipo de Persona u Organización | `party_id` (UUID) | Exactamente un subtipo, fijado por `party_kind` (DM-03) | BR-PTY-02, D5 |
-| PERSON | Individuo | `party_id` | Código obligatorio, único entre personas no anonimizadas. Campos mínimos (asr-BR-TRA-01) | BR-PTY-06, BR-PTY-14, D9, D16 |
+| PERSON | Individuo | `party_id` | Código obligatorio: un GUID que genera la aplicación al registrar a la persona (DM-12). Único entre **todas** las personas, anonimizadas incluidas: no se reutiliza. Campos mínimos (asr-BR-TRA-01) | BR-PTY-06, D9, D16, D25 |
 | ORGANIZATION | COMSATEL, sus unidades y los proveedores; el tipo lo da su rol | `party_id` | Nombre obligatorio; el RUC va en PARTY_IDENTIFICATION | SPEC-001 §4, D10 |
 | PARTY_ROLE / PARTY_ROLE_TYPE | Cómo participa una parte, con vigencia | `party_role_id` / `code` | Una parte tiene 0..n roles. El tipo solo aplica a su clase de parte | BR-PTY-02, BR-PTY-03, BR-PTY-13 |
-| PARTY_RELATIONSHIP / _TYPE | Vínculo entre dos roles, con vigencia | `party_relationship_id` | Origen distinto de destino. Tipos: empleo, contratación, pertenencia, estructura, reporte | BR-PTY-04, BR-PTY-10 |
+| PARTY_RELATIONSHIP / _TYPE | Vínculo entre dos roles, con vigencia | `party_relationship_id` | Origen distinto de destino. Tipos: empleo, contratación, pertenencia, estructura, reporte. La relación de reporte (jefe directo) solo tiene como origen el rol de Empleado: un contratista no tiene jefe directo en COMSATEL | BR-PTY-04, BR-PTY-10, BR-PTY-19, D26 |
 | PARTY_IDENTIFICATION / IDENTIFICATION_TYPE | Documento de la parte | `party_identification_id` | Única por tipo, número y país, sin contar anonimizadas. DNI, CE y pasaporte para personas; RUC para organizaciones | BR-PTY-07, D10 |
 | CONTACT_MECHANISM | Correo, teléfono o URL | `contact_mechanism_id` | Una dirección de correo es un único medio, sin distinguir mayúsculas (DM-05) | BR-PTY-09, D8 |
 | PARTY_CONTACT_MECHANISM | Uso del medio por una parte: propósito, plataforma y vigencia | `party_contact_mechanism_id` | Un correo laboral vigente pertenece a una sola parte. La plataforma es obligatoria solo en perfiles | BR-PTY-08, BR-PTY-09, D8, D13 |
@@ -194,6 +194,7 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 | DM-09 | Un aviso por baja (único por `termination_party_role_id`) y destinatarios en tabla hija | D18 y D20 piden varios destinatarios; evita avisos duplicados del proceso programado | D18, D20 |
 | DM-10 | Las columnas de auditoría (`created_by`, `updated_by`, `anonymized_by`…) guardan el identificador del actor, sin clave foránea | Deben sobrevivir a la anonimización (D16) y admitir actores técnicos (`bootstrap`, proceso programado) | D16, BR-PTY-12 |
 | DM-11 | Las vigencias son `DATE` | SPEC-001 habla de fechas desde y hasta | SPEC-001 §3 |
+| DM-12 | El código de colaborador es un GUID que genera el microservicio de partes (aplicación) al registrar la persona, con el mismo formato que los demás UUID (`CHAR(36)`). La base no lo genera ni valida su formato; garantiza que sea obligatorio y único entre todas las personas | Igual que los demás identificadores (PDM-001 §2), el GUID es portable entre MySQL y PostgreSQL. Como nunca se reutiliza, la unicidad puede incluir a los anonimizados (resuelve DM-Q-02) | D25, BR-PTY-06 |
 
 ## 5. Restricciones y dónde se aplican
 
@@ -203,7 +204,7 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 | BR-PTY-03 | El tipo de rol corresponde a la clase de parte | Base: FK (tipo, clase) |
 | BR-PTY-04 | Tipos de relación | Base: catálogo. Qué pares de roles admite cada tipo: aplicación (A-10) |
 | BR-PTY-05 | Colaborador derivado | Consulta |
-| BR-PTY-06 | Código obligatorio y único | Base: NOT NULL + unicidad condicional |
+| BR-PTY-06 | Código obligatorio y único; GUID generado | Base: NOT NULL + UNIQUE simple (incluye anonimizados). Generación del GUID: aplicación (DM-12) |
 | BR-PTY-07 | Tipos aceptados; única por tipo, número y país | Base: FK (tipo, clase) + UNIQUE |
 | BR-PTY-08 | Correo laboral único entre vigentes | Base: unicidad condicional. Obligatorio para colaboradores y dominio según D13: aplicación |
 | BR-PTY-09 | Medios y plataformas; plataforma solo en perfiles | Base: catálogos, FK (propósito, tipo de medio), CHECK |
@@ -216,6 +217,8 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 | BR-PTY-16 | 0..1 identificador de Keycloak | Base: PK = persona, UNIQUE |
 | BR-PTY-17 | Quién edita qué | Aplicación y BFF |
 | BR-PTY-18 | Aviso ante un segundo Jefe de Ingeniería | Aplicación; la base lo permite a propósito |
+| BR-PTY-19 | Un contratista no tiene jefe directo: la relación de reporte solo parte de un rol de Empleado | Aplicación, al registrar la relación (como A-10). La base no puede comprobar el tipo del rol de origen sin repetirlo en PARTY_RELATIONSHIP; se puede reconsiderar si el arquitecto lo pide |
+| BR-PTY-20 | Datos de las personas visibles para cualquier colaborador (alcance en P-52) | Aplicación y BFF; no afecta al esquema |
 
 ## 6. Supuestos
 
@@ -225,7 +228,7 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 | A-02 | Cambiar un nivel o un contacto el mismo día se registra con `thru_date` = `from_date` de la nueva vigencia | Jefe de Ingeniería |
 | A-03 | La aplicación impide vigencias históricas solapadas; la base solo protege la vigencia abierta (DM-Q-06) | Arquitecto |
 | A-04 | El país emisor se codifica con ISO 3166-1 alfa-2 | Jefe de Ingeniería |
-| A-05 | Longitudes: código 20, nombres 100, número de documento 20, medio de contacto 500 caracteres | Jefe de Ingeniería (Q-01) |
+| A-05 | Longitudes: nombres 100, número de documento 20, medio de contacto 500 caracteres. El código mide 36 (GUID, D25) | Jefe de Ingeniería |
 | A-06 | Un medio de contacto puede reutilizarse entre partes (por ejemplo, un correo reasignado). Al anonimizar un medio compartido, se desvincula (PDM-001 §5) | Arquitecto |
 | A-07 | El identificador de Keycloak cabe en 255 caracteres | Arquitecto |
 | A-08 | Hay un solo plazo, en días, para toda la organización | Jefe de Ingeniería |
@@ -236,14 +239,14 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 
 | ID | Pregunta | Responsable | Impacto |
 |---|---|---|---|
-| Q-01 | Formato y generación del código de colaborador (de SPEC-001) | Jefe de Ingeniería | Longitud y validación de `employee_code` |
-| Q-02 | ¿Un contratista tiene jefe directo en COMSATEL? (de SPEC-001) | Jefe de Ingeniería | Validación de la relación de reporte |
-| Q-05 | Quién ve los datos de otras personas (de SPEC-001, P-08) | Responsable de producto | Vistas y permisos; visibilidad del código de anonimizados |
-| Q-06 | Medio para ejecutar MySQL 8 y PostgreSQL (de SPEC-001) | Jefe de Ingeniería | **Bloquea** la verificación de TST-001 |
-| Q-07 | Verificar la correspondencia con el UDM (Silverston) (de SPEC-001) | Arquitecto | Nombres y estructura del núcleo Party |
-| Q-08 | Versión mínima de PostgreSQL (de SPEC-001) | Arquitecto | El DDL exige 12+ (columnas generadas en el portable) |
+| Q-01 | Formato y generación del código de colaborador (de SPEC-001) | Jefe de Ingeniería | **Respondida (D25):** GUID generado automáticamente. `employee_code` pasa a `CHAR(36)` con UNIQUE simple (DM-12) |
+| Q-02 | ¿Un contratista tiene jefe directo en COMSATEL? (de SPEC-001) | Jefe de Ingeniería | **Respondida (D26):** no. Validación en la aplicación (BR-PTY-19, §5) |
+| Q-05 | Quién ve los datos de otras personas (de SPEC-001, P-08) | Responsable de producto | **Respondida (D27):** cualquier colaborador (data abierta, BR-PTY-20). Sin cambio de esquema. El alcance (identificaciones, teléfono, anonimizados) sigue abierto en P-52 |
+| Q-06 | Medio para ejecutar MySQL 8 y PostgreSQL (de SPEC-001) | Jefe de Ingeniería | **Respondida (D28):** Docker. La ejecución de TST-001 sigue pendiente mientras Docker Desktop no esté en marcha |
+| Q-07 | Verificar la correspondencia con el UDM (Silverston) (de SPEC-001) | Arquitecto | **Respondida (D29):** no es necesario |
+| Q-08 | Versión mínima de PostgreSQL (de SPEC-001) | Arquitecto | **Respondida (D30):** la versión estable más reciente. Las pruebas usan `postgres:latest` y registran la versión al ejecutar |
 | DM-Q-01 | ¿Hace falta un historial de cambios campo a campo, además de las columnas de auditoría? BR-PTY-12 pide "quién cambió qué y cuándo" | Arquitecto + Jefe de Ingeniería | Tabla o servicio de auditoría |
-| DM-Q-02 | BR-PTY-14 excluye a los anonimizados de la unicidad del código, pero D16 conserva el código para mostrar quién certificó. Si se reutiliza un código, dos personas lo comparten. ¿Se permite reutilizar códigos? | Jefe de Ingeniería | Si no se permite, basta un UNIQUE simple en `employee_code` |
+| DM-Q-02 | BR-PTY-14 excluye a los anonimizados de la unicidad del código, pero D16 conserva el código para mostrar quién certificó. Si se reutiliza un código, dos personas lo comparten. ¿Se permite reutilizar códigos? | Jefe de Ingeniería | **Resuelta por D25:** el código es un GUID generado, que nunca se reutiliza. El conflicto con D16 desaparece: `employee_code` tiene un UNIQUE simple que incluye a los anonimizados (DM-12; prueba T05.7) |
 | DM-Q-03 | ¿Distinguir mayúsculas y acentos en el código y en el número de documento? MySQL (`utf8mb4_0900_ai_ci`) no los distingue; PostgreSQL sí | Arquitecto | Resultado de la unicidad distinto por motor |
 | DM-Q-04 | ¿`TIMESTAMP` o `TIMESTAMPTZ` en PostgreSQL? SPEC-001 fija `TIMESTAMP` en UTC | Arquitecto | Riesgo de guardar horas locales |
 | DM-Q-05 | ¿UUID como `CHAR(36)` o `BINARY(16)`/`uuid` nativo? SPEC-001 deja la opción abierta | Arquitecto | Tamaño de índices |
@@ -252,4 +255,4 @@ Son propuestas del agente dentro del margen que deja SPEC-001. Requieren revisi�
 
 ## 8. Siguiente paso
 
-Revisión humana de LDM-001 y PDM-001, respuesta a DM-Q-02 y ejecución de [TST-001](tests/TST-001-pruebas-de-restricciones.md) cuando haya Docker (Q-06). Hasta entonces el estado es `REQUIRES_REVIEW` y no se prepara el handoff a desarrollo.
+Revisión humana de LDM-001 y PDM-001 y ejecución de [TST-001](tests/TST-001-pruebas-de-restricciones.md) cuando Docker Desktop esté en marcha (D28). Hasta entonces el estado es `REQUIRES_REVIEW` y no se prepara el handoff a desarrollo.

@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, catalogo, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 sources:
   - id: us-001
     resource: /knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md
@@ -21,7 +21,7 @@ sources:
 ## Trazabilidad
 
 - **Historia:** [US-001](../../requirement/user-stories/US-001-definir-catalogo-de-competencias.md), criterios AC-1 a AC-9.
-- **Reglas:** BR-CAT-01 a BR-CAT-04, BR-CAT-07 a BR-CAT-19, BR-ACR-07 a BR-ACR-09, BR-ACR-12.
+- **Reglas:** BR-CAT-01 a BR-CAT-04, BR-CAT-07 a BR-CAT-21, BR-ACR-07 a BR-ACR-09, BR-ACR-12, BR-ACR-13, BR-TRA-02.
 - **Conceptos (IMD-001):** Rol, Nivel de rol, Competencia, Nivel requerido, Rúbrica, Requisito de evidencia.
 - **Actor:** [Jefe de Ingeniería](../../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md).
 - **Transversal:** [UXR-000](UXR-000-requisitos-ux-transversales.md).
@@ -55,33 +55,37 @@ Mantener un catálogo único y confiable, que proyectos, formación y certificac
 ## Reglas que la interfaz debe hacer visibles
 
 - Una competencia asignada a un Rol-Nivel no se puede guardar sin nivel L1–L4 esperado (BR-CAT-03). La interfaz lo impide y explica por qué.
+- Un rol no se puede guardar sin al menos una competencia (BR-CAT-20, respuesta a US1-Q1, 2026-09-27). Una misma competencia, por ejemplo una general como la comunicación oral o escrita, sí puede estar en varios roles.
+- Una competencia no se repite dentro de un rol (BR-CAT-21, respuesta a US1-Q1, 2026-09-27). La interfaz impide agregar dos veces la misma competencia a un Rol-Nivel. **Interpretación a confirmar (BR-CAT-21):** aparece una sola vez en cada Rol-Nivel, con un solo nivel L1–L4 esperado, y en los niveles superiores del rol puede exigirse con un L mayor (BR-CAT-14); por eso no se bloquea que la misma competencia esté en otro Rol-Nivel del mismo rol.
+- No se puede exigir en un Rol-Nivel un nivel de una competencia que no tiene requisitos de evidencia definidos (BR-ACR-13, respuesta a P-39, 2026-09-27). La interfaz lo **bloquea** al asignarlo y explica que primero hay que definir cómo se evidencia ese nivel. **Inferencia a confirmar (BR-ACR-13):** al menos uno de los requisitos debe ser requerido.
 - El nivel L1–L4 se elige solo dentro de la escala (BR-CAT-02).
 - Una competencia es la misma en todos los roles que la usan (BR-CAT-07). Por eso, cambiar su rúbrica o sus requisitos afecta a todos esos roles.
   - **Inferencia:** conviene que la interfaz muestre ese impacto antes de guardar. Confirmar con UX.
 - Solo el Jefe de Ingeniería edita el catálogo, define los requisitos de evidencia y define y aprueba las rúbricas (BR-CAT-04, BR-CAT-16, BR-CAT-19). El resto no ve las acciones de edición (UXR-000.2).
 - Un requisito de evidencia no se guarda sin marcarlo como "requerida" o "deseada" (BR-ACR-12). La interfaz explica la diferencia: las requeridas son obligatorias para certificar y las deseadas, opcionales (BR-ACR-09).
-- La interfaz no pide escala salarial, responsabilidades (MOF) ni criterios de nivel como los años de experiencia: están fuera de alcance (BR-CAT-18; P-40).
+- La interfaz no pide escala salarial, responsabilidades (MOF) ni criterios de nivel como los años de experiencia: están fuera de alcance: son parte del MOF (BR-CAT-18; P-40 respondida el 2026-09-27).
+- Cualquier colaborador puede consultar el catálogo en modo lectura, sin restricción (BR-TRA-02, respuesta a UXR-001-Q1, 2026-09-27). Solo quien puede editar ve las acciones de edición.
 
 ## Estados
 
 - **Vacío:** no hay roles ni competencias.
-- **Error de validación:** competencia sin nivel esperado; requisito de evidencia sin marcar como requerida o deseada.
-- **Parcial:** competencia con niveles aún sin requisitos de evidencia (BR-CAT-17). No es un error; qué implica para certificar está abierto (P-39).
-- **Sin permiso:** solo lectura.
+- **Error de validación:** competencia sin nivel esperado; requisito de evidencia sin marcar como requerida o deseada; rol sin competencias (BR-CAT-20); competencia repetida en un Rol-Nivel (BR-CAT-21); nivel de competencia sin requisitos de evidencia asignado a un Rol-Nivel (BR-ACR-13).
+- **Parcial:** competencia con niveles aún sin requisitos de evidencia (BR-CAT-17). Mientras se define el catálogo no es un error, pero ese nivel no se puede certificar ni exigir en un Rol-Nivel o requerimiento hasta tener requisitos (BR-ACR-13, P-39 respondida). La interfaz debe mostrarlo como no utilizable.
+- **Solo lectura:** cualquier colaborador que no edita el catálogo lo consulta sin acciones de edición (BR-TRA-02).
 - **Carga y error:** según UXR-000.
 
 ## Supuestos
 
-- La edición se hace sobre el catálogo vigente. No se sabe si hay versionado (P-02), así que no se diseña ninguna función de versiones.
+- La edición se hace sobre el catálogo vigente. P-02 se respondió en parte el 2026-09-27: se versionan los **cursos** (BR-FOR-06 a BR-FOR-10), pero el versionado del **catálogo** sigue abierto (P-50), así que no se diseña ninguna función de versiones del catálogo.
 
 ## Preguntas abiertas
 
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
 | ~~P-36~~ | ~~¿Cómo se combinan Junior y Senior con los Rol-Nivel 1 a 4?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse (BR-CAT-09). La vista de niveles debe admitir una cantidad variable | Jefe de Ingeniería | — |
-| P-39 | ¿Se puede exigir en un Rol-Nivel un nivel de competencia sin requisitos de evidencia definidos? Define si la interfaz avisa o bloquea al asignarlo | Jefe de Ingeniería | Alta |
-| P-40 | ¿Se registran criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media |
+| ~~P-39~~ | ~~¿Se puede exigir en un Rol-Nivel un nivel de competencia sin requisitos de evidencia definidos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no; siempre debe haber forma de evidenciar (BR-ACR-13). La interfaz bloquea la asignación | Jefe de Ingeniería | — |
+| ~~P-40~~ | ~~¿Se registran criterios de cada nivel de rol (años de experiencia, formación técnica)?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) | Jefe de Ingeniería | — |
 | P-37 | ¿La rúbrica contiene los requisitos de evidencia, o son cosas distintas? Define si se editan en la misma vista. Respondida (ianache (Jefe de Ingeniería), 2026-09-27): la rúbrica describe el logro verificable y la define y aprueba el Jefe de Ingeniería (BR-CAT-15, BR-CAT-19); que sean cosas distintas es una inferencia a confirmar | Jefe de Ingeniería | Media |
-| P-02 | ¿Se versiona el catálogo? | Jefe de Ingeniería | Media |
-| US1-Q1 | ¿Se permite un rol sin competencias o una competencia repetida? | Jefe de Ingeniería | Baja |
-| UXR-001-Q1 | ¿Otros roles (por ejemplo, el Jefe de proyecto) pueden consultar el catálogo en modo lectura? | Jefe de Ingeniería | Media |
+| P-02 / P-50 | ¿Se versiona el catálogo? Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto en P-50 | Jefe de Ingeniería | Alta (P-50) |
+| ~~US1-Q1~~ | ~~¿Se permite un rol sin competencias o una competencia repetida?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): un rol debe tener al menos una competencia, y una competencia puede repetirse en varios roles (BR-CAT-20) pero no dentro de un rol (BR-CAT-21; interpretación a confirmar: una vez por Rol-Nivel) | Jefe de Ingeniería | — |
+| ~~UXR-001-Q1~~ | ~~¿Otros roles (por ejemplo, el Jefe de proyecto) pueden consultar el catálogo en modo lectura?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): todos los colaboradores, sin restricción (BR-TRA-02) | Jefe de Ingeniería | — |

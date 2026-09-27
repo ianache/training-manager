@@ -6,7 +6,7 @@ tags: [data-model, physical, ddl, mysql, postgresql, party, anonimizacion, dtc]
 status: draft
 generated:
   by: "data-model-designer/1.0"
-  at: "2026-09-27T09:40:00-05:00"
+  at: "2026-09-27T16:40:00-05:00"
 sources:
   - id: ldm-001
     resource: /knowledge-base/architecture/data-model/LDM-001-modelo-logico-de-partes.md
@@ -20,14 +20,14 @@ sources:
 
 # PDM-001 — Modelo físico de partes
 
-- **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Pruebas en motores: **PENDIENTE** (Q-06, [TST-001](tests/TST-001-pruebas-de-restricciones.md)).
+- **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Pruebas en motores: **PENDIENTE**; hay Docker (D28), pero Docker Desktop no está en marcha ([TST-001](tests/TST-001-pruebas-de-restricciones.md)).
 - **Implementa:** [LDM-001](LDM-001-modelo-logico-de-partes.md). **Decisión de persistencia:** [ADR-003](../adrs/ADR-003-persistencia-mysql-y-postgresql.md) y [SPEC-001 §6.2](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) (D12).
 
 ## 1. Archivos
 
 | Archivo | Qué es |
 |---|---|
-| [ddl/party-portable.sql](ddl/party-portable.sql) | DDL canónico, mínimo común denominador: corre sin cambios en MySQL 8.0.16+ y PostgreSQL 12+ |
+| [ddl/party-portable.sql](ddl/party-portable.sql) | DDL canónico, mínimo común denominador: corre sin cambios en MySQL 8.0.16+ y PostgreSQL 12+. Versión de PostgreSQL adoptada: la estable más reciente (D30) |
 | [ddl/party-mysql.sql](ddl/party-mysql.sql) | Script de despliegue para MySQL. Diferencias en el [anexo MySQL](PDM-001-anexo-mysql.md) |
 | [ddl/party-postgresql.sql](ddl/party-postgresql.sql) | Script de despliegue para PostgreSQL. Diferencias en el [anexo PostgreSQL](PDM-001-anexo-postgresql.md) |
 | [tests/](tests/TST-001-pruebas-de-restricciones.md) | Pruebas de restricciones y su ejecución (TST-001) |
@@ -39,7 +39,7 @@ Los dos scripts por motor se derivan del portable y deben mantenerse en sincron�
 | Tema | Convención | Base |
 |---|---|---|
 | Nombres | Tablas y columnas en `snake_case`, en inglés y en singular. Restricciones con prefijo: `pk_`, `fk_`, `uq_`, `ck_`, `ix_`, `ux_` (índice único) | Propuesta |
-| Identificadores | UUID como `CHAR(36)`, generado por la aplicación | SPEC-001 §6.2 (DM-Q-05) |
+| Identificadores | UUID como `CHAR(36)`, generado por la aplicación. El código de colaborador (`employee_code`) sigue la misma convención: GUID generado por el microservicio de partes al registrar la persona (LDM-001 DM-12) | SPEC-001 §6.2 (DM-Q-05), D25 |
 | Tipos | Catálogos con clave natural `code VARCHAR(40)` | DM-06 |
 | Vigencias | `from_date DATE NOT NULL`, `thru_date DATE NULL`; vigente = `thru_date IS NULL`; CHECK `thru_date >= from_date` | DM-04, DM-11 |
 | Instantes | UTC. Portable: `TIMESTAMP(6)`. MySQL: `DATETIME(6)`. PostgreSQL: `TIMESTAMP(6)` | SPEC-001 §6.2 |
@@ -58,7 +58,7 @@ Los dos scripts por motor se derivan del portable y deben mantenerse en sincron�
 | `fk_party_role_type` (tipo, clase) | party_role | BR-PTY-03 | Indirecta (T06.2 usa un tipo válido); sin caso negativo |
 | `ck_party_role_dates`, `ck_party_role_thru_rec` | party_role | BR-PTY-12, BR-PTY-13, D17 | T05.1 |
 | `ck_party_rel_distinct`, `ck_party_rel_dates` | party_relationship | BR-PTY-04 | — |
-| `uq_person_employee_code_key` / `ux_person_employee_code_active` | person | BR-PTY-06, BR-PTY-14, D9 | T03.1, T05.6, T05.7 |
+| `uq_person_employee_code` (UNIQUE simple, incluye anonimizadas; igual en los tres scripts) | person | BR-PTY-06, D9, D16, D25 (DM-Q-02 resuelta) | T03.1, T05.7 |
 | `employee_code NOT NULL` | person | BR-PTY-06 | T03.2 |
 | `ck_person_pii`, `ck_person_anon_by` | person | BR-PTY-14, D14, D16 | T05.2, T05.4 |
 | `uq_party_ident` / `ux_party_ident_active` | party_identification | BR-PTY-07, BR-PTY-14 | T02.2–T02.4, T05.6 |
@@ -78,7 +78,7 @@ Los dos scripts por motor se derivan del portable y deben mantenerse en sincron�
 
 ## 4. Lo que la base no garantiza
 
-Lo aplica el microservicio de partes; queda fuera del DDL: BR-PTY-05 (derivado), la obligatoriedad y el dominio del correo laboral (BR-PTY-08, D13), la contratación vigente del contratista (BR-PTY-10), los pares de roles por tipo de relación (A-10), vigencias solapadas (DM-Q-06), no editar a un anonimizado y anonimizar solo tras la baja (BR-PTY-14), el envío del correo (BR-PTY-15, D19, D22), los permisos (BR-PTY-17) y el aviso de BR-PTY-18.
+Lo aplica el microservicio de partes; queda fuera del DDL: la generación del GUID del código de colaborador (D25), que un contratista no tenga relación de reporte (BR-PTY-19, D26), la visibilidad de los datos para cualquier colaborador (BR-PTY-20, alcance en P-52), BR-PTY-05 (derivado), la obligatoriedad y el dominio del correo laboral (BR-PTY-08, D13), la contratación vigente del contratista (BR-PTY-10), los pares de roles por tipo de relación (A-10), vigencias solapadas (DM-Q-06), no editar a un anonimizado y anonimizar solo tras la baja (BR-PTY-14), el envío del correo (BR-PTY-15, D19, D22), los permisos (BR-PTY-17) y el aviso de BR-PTY-18.
 
 ## 5. Procedimiento de referencia de anonimización
 

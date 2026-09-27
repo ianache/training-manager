@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c2, contactos]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T11:45:00-05:00"
+  at: "2026-09-27T16:40:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -143,7 +143,7 @@ Escenario: Intentar cambiar mi correo laboral
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** contactos y perfiles son PII; los perfiles los ven la propia persona y los roles de gestión hasta resolver P-08 (SPEC-001:L132).
+- **Privacidad y datos personales:** contactos y perfiles son PII. Los datos de las personas, incluidos los perfiles profesionales, los ve cualquier colaborador que ingrese a la plataforma (BR-PTY-20, D27); si ese alcance incluye el teléfono laboral y las identificaciones se confirma en P-52. No cambia quién edita (BR-PTY-17).
 - **Otros:** auditoría de cada cambio (BR-PTY-12).
 
 ## 10. Consideraciones de UX
@@ -164,7 +164,8 @@ Escenario: Intentar cambiar mi correo laboral
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
 | US-016-Q1 | ¿Se valida el formato de la URL de un perfil profesional o del teléfono? | Jefe de Ingeniería | Baja | No | Abierta |
-| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles? (P-08) | Responsable de producto | Alta | No (esta historia es de edición) | Abierta |
+| Q-05 | ¿Quién ve los datos de otras personas, incluidos los perfiles? (P-08) | Responsable de producto | Alta | No (esta historia es de edición) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27, SPEC-001 D27): cualquier colaborador que ingrese (data abierta, BR-PTY-20). El alcance sigue abierto en P-52 |
+| P-52 | ¿"Data abierta" incluye identificaciones, teléfono laboral y datos de personas anonimizadas? | Jefe de Ingeniería + Legal | Alta | No (esta historia es de edición) | Nueva |
 
 ## 13. Evidencia y trazabilidad
 

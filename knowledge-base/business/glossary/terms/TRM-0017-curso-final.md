@@ -6,7 +6,7 @@ tags: [glossary, business-term, concepto]
 status: approved
 generated:
   by: "af-business-glossary-curator/1.1"
-  at: "2026-09-26T19:51:17-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 verified:
   by: "ianache (Jefe de Ingeniería)"
   at: "2026-09-26T20:02:28-05:00"
@@ -32,4 +32,4 @@ sources:
 - **Confianza:** medium
 - **Responsable:** Responsable de producto
 - **Relacionados:** [Certificado de curso](TRM-0008-certificado.md) · [Ruta de formación](TRM-0057-ruta-de-formacion.md)
-- **Notas:** Las fuentes no dicen de qué es "final" (programa, ruta o curso individual) (GQ-06).
+- **Notas:** Las fuentes no dicen de qué es "final" (programa, ruta o curso individual) (GQ-06). Decisión del 2026-09-27 (ianache, Jefe de Ingeniería, respuesta a P-47; BRC-001 BR-CER-06 precisada, BR-FOR-03 y BR-FOR-04, EVD-2026-0112, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L133, L250, L254-L255): la plataforma propone aprobar un curso cuando se cumplen los requisitos de evidencia **requeridos** de las competencias que desarrolla; sus objetivos se alinean con esas competencias en los niveles de los roles designados, y las evidencias salen de evaluaciones y de artefactos de proyectos. La definición aprobada ("según el cumplimiento de sus objetivos") no se cambia; si debe precisarse queda en GQ-34. Quién concluye la aprobación sigue abierto (BRC-001 P-49). Decisión del 2026-09-27 (respuesta a P-02, EVD-2026-0116, BR-FOR-06 a BR-FOR-10, /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md:L137, L257-L261): los cursos tienen [versiones](TRM-0104-version-de-curso.md) y el colaborador se [inscribe](TRM-0103-inscripcion.md) en una [edición](TRM-0102-edicion-de-curso.md) y termina el curso en ella. Si "final" se refiere a esto sigue en GQ-06.

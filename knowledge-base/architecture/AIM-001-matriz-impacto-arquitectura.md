@@ -6,7 +6,7 @@ tags: [architecture, impact-analysis, integraciones, as-is]
 status: draft
 generated:
   by: "architecture-impact-analyzer/1.0"
-  at: "2026-09-27T14:10:00-05:00"
+  at: "2026-09-27T15:40:00-05:00"
 sources:
   - id: adb-001
     resource: /knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md
@@ -40,7 +40,7 @@ sources:
 |---|---|---|---|---|---|---|---|---|
 | US-009 | 5. Rutas de formación | E-CLS Classroom | Integration | INDIRECT: requiere acceso de lectura a los cursos; Classroom no cambia | VIS-001:L79, L93; BR-INT-01 | Media | Acceso a la API no confirmado (KG-05) | Por validar |
 | US-009 | 5. Rutas de formación | E-DRV Drive | Integration | INDIRECT: enlace y lectura del material; Drive no cambia | VIS-001:L79, L94 | Media | Permisos de compartición no confirmados | Por validar |
-| US-010 | 8. Certificados de curso | E-CLS Classroom | Data | UNKNOWN: aprobar el curso final depende de calificaciones de Classroom, pero el criterio de aprobación no está definido. P-19 quedó respondida en parte el 2026-09-27: la plataforma propone la aprobación cuando se cumplen los requisitos requeridos y el evaluador concluye (BR-CER-06, BR-CER-07); qué son esos requisitos y de dónde sale su evidencia sigue abierto (P-47) | VIS-001:L82, L93; P-19, P-47 | Baja | Sin criterio, no se puede saber qué dato leer | Abierto |
+| US-010 | 8. Certificados de curso | E-CLS Classroom | Data | UNKNOWN: aprobar el curso final depende de calificaciones de Classroom, pero el criterio de aprobación no está definido. P-19 quedó respondida en parte el 2026-09-27: la plataforma propone la aprobación cuando se cumplen los requisitos requeridos y el evaluador concluye (BR-CER-06, BR-CER-07); P-47 se respondió el mismo día: los requisitos son los requisitos de evidencia requeridos de las competencias que el curso desarrolla (BR-ACR-12), y la evidencia sale de evaluaciones y de artefactos producidos en los proyectos (BR-FOR-04). **Nota:** esto puede reducir la dependencia de las calificaciones de Classroom, porque el criterio ya no se formula sobre ellas; se mantiene UNKNOWN porque no está dicho si esas "evaluaciones" se leen de Classroom ni cómo se registran los artefactos | VIS-001:L82, L93; P-19, P-47; EVD-2026-0112 | Baja | Se sabe qué se exige, pero no de qué sistema se lee la evidencia | Abierto |
 | US-010 | 8. Certificados de curso | E-DOC docsuite | Integration | INDIRECT: consumo de su API REST para generar el PDF | VIS-001:L82, L96 (EVD-2026-0019) | Alta | Contrato de la API desconocido (KG-05) | Por validar |
 | US-010 | 8. Certificados de curso | E-DOC docsuite | Data | POTENTIAL: puede requerir una plantilla de certificado de curso final en docsuite | VIS-001:L34 (diseña plantillas) | Baja | — | Investigar |
 | US-011, US-012 | 7. Evidencia de GitLab con IA | E-GLB GitLab | Integration | INDIRECT: lectura de issues, MRs y milestones; GitLab no cambia | VIS-001:L81, L95 (EVD-2026-0013, 0014) | Alta | Volumen y permisos desconocidos (KG-05, KG-07) | Por validar |
@@ -65,7 +65,7 @@ La expansión se limita a las dependencias que las fuentes nombran. No se agrega
 | Origin | Dependency | Target | Why relevant | Evidence |
 |---|---|---|---|---|
 | E-NEW (rutas) | lee cursos | E-CLS | Base de US-009 | VIS-001:L79, L93 |
-| E-NEW (certificados de curso) | podría leer calificaciones para saber si se aprobó el curso final | E-CLS | US-010; depende de P-19 (en parte respondida) y P-47 | VIS-001:L82, L93 (UNKNOWN) |
+| E-NEW (certificados de curso) | podría leer calificaciones para saber si se aprobó el curso final; tras P-47 el criterio son los requisitos de evidencia requeridos de las competencias, con evidencia de evaluaciones y artefactos de proyectos (BR-FOR-04), así que la lectura de calificaciones puede no ser necesaria | E-CLS | US-010; P-19 y P-47 respondidas; falta de qué sistema sale la evidencia | VIS-001:L82, L93 (UNKNOWN) |
 | E-NEW (rutas) | enlaza y lee material | E-DRV | US-009 | VIS-001:L94 |
 | E-NEW (certificados de curso) | genera el PDF y guarda la referencia | E-DOC | US-010 | VIS-001:L82, L96 |
 | E-NEW (IA) | lee issues, MRs y milestones | E-GLB | US-011, US-012 | VIS-001:L81, L95 |
@@ -81,7 +81,7 @@ La expansión se limita a las dependencias que las fuentes nombran. No se agrega
 | RG-02 | Posible conflicto entre "uso interno" de GitLab y un servicio de IA externo | US-011, US-012 | Alta | CF-01; EVD-2026-0050 | Consultar la política de IA y seguridad |
 | RG-03 | Identidad y datos maestros de personas sin origen | Todas | Alta | KG-03; VIS-001:L153 | Identificar el proveedor de identidad y el sistema de RR. HH. |
 | RG-04 | Acceso a las API de Classroom, Drive, GitLab y docsuite sin confirmar | US-009 a US-012 | Media | KG-05 | Pruebas de acceso y documentación de las API |
-| RG-05 | Criterio de aprobación del curso final sin definir. P-19 respondida en parte (2026-09-27): propuesta automática y conclusión del evaluador con sustento si difiere (BR-CER-06, BR-CER-07); falta qué son los requisitos requeridos y su fuente (P-47) | US-010 | Media | P-19, P-47, GQ-06 | Respuesta de Gestión de formación |
+| RG-05 | Criterio de aprobación del curso final sin definir. P-19 respondida en parte (2026-09-27): propuesta automática y conclusión del evaluador con sustento si difiere (BR-CER-06, BR-CER-07); P-47 respondida (2026-09-27): los requisitos son los requisitos de evidencia requeridos de las competencias y la evidencia sale de evaluaciones y artefactos de proyectos (BR-FOR-03, BR-FOR-04). Siguen abiertos el sistema de origen de esa evidencia y quién concluye (P-49; la propuesta de un Instructor por edición de curso, BR-FOR-05, está solo en consideración) | US-010 | Media | P-49, GQ-06 | Respuesta de Gestión de formación |
 | RG-06 | Fuente de proyectos y Líderes sin definir | US-002 | Media | US2-Q1 | Respuesta del Responsable de producto |
 
 ## Potential ASR candidates

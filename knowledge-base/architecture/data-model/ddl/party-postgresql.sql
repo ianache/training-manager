@@ -1,11 +1,11 @@
 -- =====================================================================
--- PDM-001 · DDL del modelo de partes para PostgreSQL 12+ (anexo PDM-001-anexo-postgresql)
+-- PDM-001 · DDL del modelo de partes para PostgreSQL, versión estable más reciente (D30; anexo PDM-001-anexo-postgresql)
 -- Derivado de party-portable.sql. Diferencias:
 --   * Tiempos TIMESTAMP(6) (sin zona) con valores en UTC (SPEC-001 §6.2).
 --   * DEFAULT (now() AT TIME ZONE 'UTC') en created_at de auditoría.
 --   * Unicidades condicionales con índices únicos PARCIALES, sin columnas
---     generadas (employee_code_key, email_key, current_work_email_key,
---     current_role_id no existen en este motor).
+--     generadas (email_key, current_work_email_key y current_role_id no
+--     existen en este motor). El código de colaborador usa un UNIQUE simple (D25).
 --   * Índice de correo por LOWER(contact_value) (PostgreSQL distingue mayúsculas).
 -- Estado: draft. Generado por data-model-designer/1.0. Ejecución: ver TST-001.
 -- =====================================================================
@@ -78,7 +78,7 @@ CREATE TABLE party (
 CREATE TABLE person (
   party_id           CHAR(36)     NOT NULL,
   party_kind         VARCHAR(12)  NOT NULL DEFAULT 'PERSON',
-  employee_code      VARCHAR(20)  NOT NULL,            -- BR-PTY-06, D9, D16 (no se anonimiza)
+  employee_code      CHAR(36)     NOT NULL,            -- BR-PTY-06, D9, D16, D25: GUID generado por la aplicación; no se anonimiza ni se reutiliza
   given_names        VARCHAR(100) NULL,                -- PII: NULL tras anonimizar
   family_names       VARCHAR(100) NULL,                -- PII
   preferred_name     VARCHAR(100) NULL,                -- PII, opcional
@@ -95,7 +95,10 @@ CREATE TABLE person (
                                    OR (anonymized_at IS NOT NULL AND anonymized_by IS NOT NULL)),
   CONSTRAINT ck_person_pii CHECK (
        (anonymized_at IS NULL AND given_names IS NOT NULL AND family_names IS NOT NULL)
-    OR (anonymized_at IS NOT NULL AND given_names IS NULL AND family_names IS NULL AND preferred_name IS NULL))
+    OR (anonymized_at IS NOT NULL AND given_names IS NULL AND family_names IS NULL AND preferred_name IS NULL)),
+  -- BR-PTY-06 + D25: código único entre TODAS las personas, anonimizadas incluidas
+  -- (un GUID generado no se reutiliza; resuelve DM-Q-02)
+  CONSTRAINT uq_person_employee_code UNIQUE (employee_code)
 );
 
 CREATE TABLE organization (
@@ -361,9 +364,6 @@ INSERT INTO profile_platform (code, name) VALUES
 -- Unicidades condicionales con índices parciales (equivalen a las
 -- columnas generadas + UNIQUE del DDL portable)
 -- ---------------------------------------------------------------------
--- BR-PTY-06 + BR-PTY-14: código único entre personas no anonimizadas
-CREATE UNIQUE INDEX ux_person_employee_code_active
-  ON person (employee_code) WHERE anonymized_at IS NULL;
 -- BR-PTY-07 + BR-PTY-14: identificación única por tipo, número y país, sin anonimizadas
 CREATE UNIQUE INDEX ux_party_ident_active
   ON party_identification (identification_type_code, identification_number, issuing_country_code)

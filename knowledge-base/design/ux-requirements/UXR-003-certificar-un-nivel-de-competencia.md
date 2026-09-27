@@ -6,7 +6,7 @@ tags: [ux-ui, ux-requirement, certificacion, h1]
 status: draft
 generated:
   by: "ux-requirements-analyzer/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 sources:
   - id: us-003
     resource: /knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md
@@ -21,7 +21,7 @@ sources:
 ## Trazabilidad
 
 - **Historia:** [US-003](../../requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md), criterios AC-1 a AC-7.
-- **Reglas:** BR-ACR-01 a BR-ACR-05, BR-ACR-07 a BR-ACR-12, BR-CAT-15, BR-CAT-17.
+- **Reglas:** BR-ACR-01 a BR-ACR-05, BR-ACR-07 a BR-ACR-13, BR-CAT-15, BR-CAT-17.
 - **Conceptos (IMD-001):** Certificación, Evidencia, Requisito de evidencia, Rúbrica, Colaborador, Evaluador.
 - **Actor:** [Evaluador](../../business/glossary/terms/TRM-0021-evaluador.md).
 - **Transversal:** [UXR-000](UXR-000-requisitos-ux-transversales.md).
@@ -58,7 +58,7 @@ Decidir, con fundamento y dejando trazabilidad, si un colaborador alcanza un niv
 
 - **Requisitos requeridos incompletos:** la certificación no está disponible.
 - **Requeridos completos y deseados pendientes:** la certificación está disponible.
-- **Competencia y nivel sin requisitos definidos:** posible porque la definición es progresiva (BR-CAT-17); si se puede certificar está abierto (P-39).
+- **Competencia y nivel sin requisitos definidos:** posible porque la definición es progresiva (BR-CAT-17). La certificación **no está disponible** y la interfaz explica que primero hay que definir cómo se evidencia ese nivel (BR-ACR-13; P-39 respondida el 2026-09-27).
 - **Certificación registrada:** se confirma y la certificación queda en el historial.
 - **Sin permiso** y **error:** según UXR-000.
 
@@ -69,7 +69,7 @@ Decidir, con fundamento y dejando trazabilidad, si un colaborador alcanza un niv
 | UXR-003-Q1 | ¿Cómo se incorpora una evidencia: se sube un archivo, se enlaza a Drive o GitLab, o se describe? No está definido | Jefe de Ingeniería | Alta |
 | RCP-Q1 | ¿Quiénes son los evaluadores y cómo se les asigna una certificación? Define cómo llega el evaluador al caso | Jefe de Ingeniería | Alta |
 | P-23 | ¿Se aceptan evidencias equivalentes? Define si hay una acción de "aceptar como equivalente". Parcialmente respondida el 2026-09-27: requeridas y deseadas (BR-ACR-12); la equivalencia sigue abierta | Jefe de Ingeniería | Media |
-| P-39 | ¿Se puede certificar un nivel sin requisitos de evidencia definidos? Define el estado "sin requisitos" | Jefe de Ingeniería | Alta |
+| ~~P-39~~ | ~~¿Se puede certificar un nivel sin requisitos de evidencia definidos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no (BR-ACR-13). El estado "sin requisitos" bloquea la certificación | Jefe de Ingeniería | — |
 | P-41 | ¿Cómo "refuerza" una evidencia deseada la certificación? Define si la certificación muestra algo distinto cuando las incluye | Jefe de Ingeniería | Media |
 | P-14 | ¿Una certificación vence o se revoca? ¿Se puede recertificar hacia arriba o hacia abajo? | Jefe de Ingeniería | Baja |
 | P-09 | ¿Un evaluador puede certificar a alguien de su equipo? | Responsable de producto | Media |

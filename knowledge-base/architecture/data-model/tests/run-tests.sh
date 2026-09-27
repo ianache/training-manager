@@ -18,7 +18,7 @@ TESTS="00-fixtures.sql t01-un-nivel-vigente-por-rol.sql t02-identificacion-unica
 cleanup() { docker stop "$NAME" >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 
-timeout 20 docker info >/dev/null 2>&1 || { echo "PENDIENTE: el daemon de Docker no responde (Q-06)"; exit 2; }
+timeout 20 docker info >/dev/null 2>&1 || { echo "PENDIENTE: el daemon de Docker no responde (Docker Desktop detenido; D28)"; exit 2; }
 
 if [ "$ENGINE" = mysql ]; then
   DDL="$DDL_DIR/party-mysql.sql"; [ "$VARIANT" = portable ] && DDL="$DDL_DIR/party-portable.sql"
@@ -30,9 +30,12 @@ if [ "$ENGINE" = mysql ]; then
   T06="t06-aviso-plazo.mysql.sql"
 else
   DDL="$DDL_DIR/party-postgresql.sql"; [ "$VARIANT" = portable ] && DDL="$DDL_DIR/party-portable.sql"
-  timeout 300 docker run -d --rm --name "$NAME" -e POSTGRES_PASSWORD=test -e POSTGRES_DB=party postgres:16 >/dev/null || exit 3
+  # D30: versión estable más reciente de PostgreSQL (etiqueta "latest", no fija).
+  # La versión real se imprime abajo y debe registrarse en TST-001 al ejecutar.
+  timeout 300 docker run -d --rm --pull always --name "$NAME" -e POSTGRES_PASSWORD=test -e POSTGRES_DB=party postgres:latest >/dev/null || exit 3
   # por TCP: el servidor temporal de inicialización solo escucha en el socket
   for i in $(seq 1 30); do docker exec "$NAME" pg_isready -h 127.0.0.1 -U postgres >/dev/null 2>&1 && break; sleep 2; done
+  echo "== Versión: $(docker exec "$NAME" psql -X -t -A -U postgres -d party -c 'SHOW server_version;' 2>/dev/null)"
   RUN_STRICT="docker exec -i $NAME psql -X -q -v ON_ERROR_STOP=1 -U postgres -d party"
   RUN_LAX="docker exec -i $NAME psql -X -q -t -A -F ' ' -v ON_ERROR_STOP=0 -U postgres -d party"
   T06="t06-aviso-plazo.postgresql.sql"

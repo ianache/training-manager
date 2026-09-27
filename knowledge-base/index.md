@@ -6,7 +6,7 @@ tags: [ux-ui, knowledge-base, index]
 status: draft
 generated:
   by: "manual/1.0"
-  at: "2026-09-27T15:10:00-05:00"
+  at: "2026-09-27T17:20:00-05:00"
 sources:
   - id: repository-guidelines
     resource: /AGENTS.md
@@ -91,7 +91,7 @@ sources:
 
 ## Negocio — Glosario
 
-- [GLS-001 — Glosario de negocio](business/glossary/GLS-001-glosario-de-negocio.md) — `draft`, 101 términos (59 aprobados)
+- [GLS-001 — Glosario de negocio](business/glossary/GLS-001-glosario-de-negocio.md) — `draft`, 104 términos (59 aprobados)
 
 ## Negocio — Reglas
 

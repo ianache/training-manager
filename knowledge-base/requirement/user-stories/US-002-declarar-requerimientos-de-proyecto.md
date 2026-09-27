@@ -6,7 +6,7 @@ tags: [user-story, h1, requerimientos, proyecto]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -48,7 +48,7 @@ sources:
 - **Negativo:** pedir o agregar una competencia que no pertenece al Rol-Nivel se rechaza; solo se pueden retirar (BR-REQ-09, BR-REQ-10).
 - **Negativo:** un usuario distinto del Jefe de proyecto que registra el requerimiento intenta retirar competencias, y no puede (BR-REQ-10).
 - **Límite sin regla:** retirar todas las competencias del Rol-Nivel. Ninguna fuente lo trata (US2-Q4).
-- **Límite sin regla:** un Rol-Nivel que exige un nivel de competencia sin requisitos de evidencia definidos todavía (BR-CAT-17; P-39).
+- **Negativo:** un requerimiento no puede exigir un nivel de competencia sin requisitos de evidencia definidos (BR-ACR-13, P-39 respondida el 2026-09-27). Como el Rol-Nivel tampoco puede exigirlo (US-001 AC-11), las competencias que el requerimiento hereda ya cumplen esta regla.
 - **Por confirmar (no es criterio):** solo el Líder de ese proyecto declara sus requerimientos. VIS-001:L42 dice "su proyecto", pero no lo establece como regla (US2-Q2).
 - **Límite sin regla:** varios requerimientos del mismo rol en un proyecto (por ejemplo, dos desarrolladores). Ninguna fuente lo trata (US2-Q3).
 
@@ -71,7 +71,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 
 ## Reglas, dependencias e impactos
 
-- **Reglas:** BR-REQ-01, BR-REQ-02, BR-REQ-06 a BR-REQ-10, BR-CAT-08, BR-CAT-14. BR-REQ-03 quedó retirada.
+- **Reglas:** BR-REQ-01, BR-REQ-02, BR-REQ-06 a BR-REQ-10, BR-CAT-08, BR-CAT-14, BR-ACR-13. BR-REQ-03 quedó retirada.
 - **Depende de:** [US-001](US-001-definir-catalogo-de-competencias.md) (catálogo).
 - **Es prerrequisito de:** [US-006](US-006-buscar-candidatos-para-un-requerimiento.md) (búsqueda).
 - **Alimenta:** los KPI 1 (cobertura de roles) y 6 (proyectos con requerimientos registrados), VIS-001:L119, L124.
@@ -90,7 +90,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | P-29 — ¿Un requerimiento puede pedir una competencia que no pertenece a su rol? | Responsable de producto | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): no (BR-REQ-09) |
 | P-38 — La respuesta a P-29 sugiere que un requerimiento pide el Rol-Nivel completo ("las competencias definidas para el rol y nivel son las idóneas"), pero BR-REQ-07 permite pedir solo algunas competencias del rol. ¿Sigue vigente BR-REQ-07? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): sí; por defecto se asumen todas y el Jefe de proyecto puede retirar algunas (BR-REQ-07, BR-REQ-10). AMB-06 resuelta |
 | US2-Q4 — ¿Se puede retirar todas las competencias de un requerimiento, o debe quedar al menos una? | Responsable de producto | Baja | Nueva |
-| P-39 — ¿Se puede exigir en un requerimiento un nivel de competencia sin requisitos de evidencia definidos? | Jefe de Ingeniería | Alta | Nueva (BRC-001); no bloquea el alta, sí la búsqueda de candidatos (US-006) |
+| P-39 — ¿Se puede exigir en un requerimiento un nivel de competencia sin requisitos de evidencia definidos? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no; siempre debe haber forma de evidenciar (BR-ACR-13) |
 
 ## Preparación y entrega
 

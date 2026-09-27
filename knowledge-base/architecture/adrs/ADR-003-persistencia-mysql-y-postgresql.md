@@ -8,7 +8,7 @@ status: draft
 adr_status: Aceptado
 decision: { by: human:ianache, at: 2026-09-27T08:47:13-05:00 }
 related: [ADR-001, ADR-004, SPEC-001, BRC-001, ACP-001, ADB-001]
-generated: { by: architecture-adr-writer/claude-opus-5-5, at: 2026-09-27T09:20:00-05:00 }
+generated: { by: architecture-adr-writer/claude-opus-5-5, at: 2026-09-27T16:40:00-05:00 }
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -86,10 +86,10 @@ Entregables acordados (SPEC-001 §6.2): el DDL portable, un anexo MySQL y un ane
 
 **No se decidió todavía**, y el desarrollo no debe asumirlo:
 - Qué motor se usa en cada entorno (desarrollo, pruebas, producción), o si se despliegan los dos. La decisión dice "soporta", no "se usa". Decide: arquitecto responsable.
-- La versión mínima de PostgreSQL (SPEC-001 Q-08). Decide: arquitecto responsable.
+- La versión mínima de PostgreSQL (SPEC-001 Q-08). Decide: arquitecto responsable. *Resuelto después en SPEC-001 D30: se adopta la versión estable más reciente de PostgreSQL (open source).*
 - Si en MySQL el UUID se guarda como `CHAR(36)` o `BINARY(16)`. SPEC-001 §6.2 deja las dos opciones, según el diccionario de tipos y si se prioriza el rendimiento.
-- Cómo se verifica el DDL en los dos motores: si hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL (SPEC-001 Q-06). Sin eso, la verificación queda pendiente.
-- La correspondencia del modelo con el UDM, que debe verificarse contra *The Data Model Resource Book, Vol. 1* (SPEC-001 Q-07).
+- Cómo se verifica el DDL en los dos motores: si hay Docker u otro medio para ejecutar MySQL 8 y PostgreSQL (SPEC-001 Q-06). Sin eso, la verificación queda pendiente. *Resuelto después en SPEC-001 D28: se dispone de Docker. La ejecución de las pruebas ([TST-001](/knowledge-base/architecture/data-model/tests/TST-001-pruebas-de-restricciones.md)) sigue pendiente mientras Docker Desktop no esté en marcha.*
+- La correspondencia del modelo con el UDM, que debe verificarse contra *The Data Model Resource Book, Vol. 1* (SPEC-001 Q-07). *Resuelto después en SPEC-001 D29: no es necesario verificarla.*
 - Si los demás microservicios (catálogo, certificación, etc.) siguen esta misma regla de portabilidad. D12 se tomó en SPEC-001, sobre el modelo de colaboradores. Decide: arquitecto responsable.
 - Si cada microservicio tiene su propia base de datos o esquema, la herramienta de migraciones, el acceso a datos (ORM u otro) y el alojamiento, la alta disponibilidad, el respaldo y la retención de la base (ADB-001 KG-06).
 
@@ -111,3 +111,10 @@ Entregables acordados (SPEC-001 §6.2): el DDL portable, un anexo MySQL y un ane
 **Impacto en pruebas:**
 - Ejecutar el DDL en MySQL 8 y en PostgreSQL, con pruebas de: un nivel vigente por rol, identificación única, código único, correo laboral único entre vigentes y anonimización (que no quede PII en ninguna tabla ni vigencia, que las unicidades ignoren a los anonimizados y que se conserven el código y la auditoría) (SPEC-001 §7).
 - Pruebas de fechas en UTC en los dos motores.
+
+## Historial
+
+| Fecha | Cambio | Autor |
+|---|---|---|
+| 2026-09-27 | Creación con estado Aceptado (decisión D12 de SPEC-001) | architecture-adr-writer/claude-opus-5-5 |
+| 2026-09-27 | Sin cambiar la decisión: se anotan como resueltos después tres puntos de "No se decidió todavía": Q-06 (SPEC-001 D28, hay Docker; ejecución aún pendiente), Q-07 (D29, no se verifica contra el UDM) y Q-08 (D30, la versión estable más reciente de PostgreSQL). Nota: por D25 el código de colaborador es un GUID generado que no se reutiliza, así que [PDM-001](/knowledge-base/architecture/data-model/PDM-001-modelo-fisico-de-partes.md) aplica al código un UNIQUE simple que incluye a los anonimizados; el lineamiento de anonimización citado arriba sigue vigente para la identificación y el correo | data-model-designer/1.0 |

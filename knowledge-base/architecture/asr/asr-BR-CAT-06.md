@@ -6,7 +6,7 @@ tags: [asr, modificabilidad, integridad-de-datos, catalogo]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-26T21:14:12-05:00"
+  at: "2026-09-27T17:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -34,7 +34,7 @@ El catálogo de roles, competencias y niveles cambiará. Hay que decidir si esos
 | Estímulo | Cambia el nivel requerido de una competencia, o retira una competencia de un rol |
 | Entorno | Hay requerimientos y certificaciones vigentes contra la versión anterior |
 | Artefacto | Catálogo, requerimientos, certificaciones, brechas, KPI |
-| Respuesta | **UNKNOWN**: depende de P-02 |
+| Respuesta | **UNKNOWN**: depende de P-50 (antes P-02). P-02 quedó respondida el 2026-09-27 solo para los **cursos** (BR-FOR-06 a BR-FOR-10); el versionado del catálogo sigue abierto como **P-50** |
 | Medida de respuesta | **UNKNOWN** |
 
 ## Por qué puede ser significativo
@@ -57,7 +57,7 @@ Evidencia compartida: `source_type: document`, `freshness: current`, `status: si
 
 ## Evidencia faltante
 
-- La respuesta a P-02: versionado y efecto sobre los datos vigentes.
+- La respuesta a P-50 (resto de P-02): versionado del catálogo y efecto sobre los datos vigentes. Los cursos ya se versionan (BR-FOR-06 a BR-FOR-10), lo que muestra el patrón DRAFT → APPROVED → DEPRECATED que el decisor usa.
 - La frecuencia esperada de cambios del catálogo.
 
 ## Preguntas para el arquitecto

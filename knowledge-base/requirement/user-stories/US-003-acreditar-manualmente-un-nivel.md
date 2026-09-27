@@ -6,7 +6,7 @@ tags: [user-story, h1, certificacion, evidencia]
 status: draft
 generated:
   by: "af-user-story-refiner/1.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 sources:
   - id: rcp-001
     resource: /knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md
@@ -50,7 +50,7 @@ sources:
 - **Negativo:** nadie que no sea un evaluador humano puede certificar; no hay certificación automática (BR-ACR-02, BR-ACR-04).
 - **Negativo:** si falta la evidencia de alguno de los requisitos "requerida" de esa competencia y nivel, el nivel no se puede certificar, aunque se presenten evidencias deseadas (BR-ACR-09, BR-ACR-12).
 - **Negativo:** una evidencia distinta de la definida no cumple el requisito (BR-ACR-07). Si se admiten equivalencias, está abierto (P-23).
-- **Límite sin regla:** una competencia y nivel sin requisitos de evidencia definidos todavía, posible porque la definición es progresiva (BR-CAT-17): no se sabe si se puede certificar (P-39).
+- **Negativo:** una competencia y nivel sin requisitos de evidencia definidos todavía (posible porque la definición es progresiva, BR-CAT-17) no se puede certificar (BR-ACR-13, P-39 respondida el 2026-09-27). **Inferencia a confirmar (BR-ACR-13):** al menos uno de los requisitos debe ser requerido.
 - **Límite sin regla:** certificar un nivel sobre una competencia que ya tiene uno (subir o bajar), o revocarlo (P-14).
 - **Límite sin regla:** un evaluador que certifica a alguien de su propio equipo (P-09).
 - **Fuera de alcance por ahora:** certificar competencias de un Evaluador o del Jefe de Ingeniería. Son solo gestores del programa y quedan fuera del proceso de evaluación, aunque sus roles tienen competencias definidas (BR-PRG-01, BR-PRG-02, EVD-2026-0105). **Inferencia:** "fuera del proceso de evaluación" se lee como "no son evaluados"; no cambia que el Evaluador certifica.
@@ -82,7 +82,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 
 ## Reglas, dependencias e impactos
 
-- **Reglas:** BR-ACR-01 a BR-ACR-05, BR-ACR-07, BR-ACR-09, BR-ACR-12, BR-CAT-15, BR-CAT-17, BR-PRF-02 y BR-PRG-02.
+- **Reglas:** BR-ACR-01 a BR-ACR-05, BR-ACR-07, BR-ACR-09, BR-ACR-12, BR-ACR-13, BR-CAT-15, BR-CAT-17, BR-PRF-02 y BR-PRG-02.
 - **Contexto (P-28):** la certificación es el medio por el que se evalúa la evolución del colaborador después de su nivel inicial de rol (BR-PRF-02). Cómo se decide el paso al siguiente nivel de rol está abierto (P-42) y no forma parte de esta historia.
 - **Alimenta:** [US-004](US-004-consultar-mi-perfil-de-competencias.md) (perfil), [US-005](US-005-ver-mi-brecha-frente-a-un-rol.md) (brecha) y [US-006](US-006-buscar-candidatos-para-un-requerimiento.md) (búsqueda).
 - **Base de:** US-011 (H3), que reutiliza este flujo de certificación.
@@ -97,7 +97,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | P-22 — ¿"Tipo de evidencia" se refiere a las tres categorías de BR-ACR-01 (formación, práctica evaluada, desempeño en proyecto) o a una evidencia concreta (por ejemplo, un curso o una práctica determinada)? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-26): evidencia concreta dentro de una de las tres categorías (BR-ACR-08); confirmada (ianache (Jefe de Ingeniería), 2026-09-27) |
 | P-23 — ¿El evaluador puede aceptar una evidencia equivalente a la definida? | Jefe de Ingeniería | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada requisito se declara requerida o deseada; se exigen todas las requeridas y las deseadas refuerzan la certificación (BR-ACR-09, BR-ACR-12). Las equivalencias siguen abiertas |
 | P-24 — ¿Hay que definir el tipo de evidencia para los cuatro niveles de cada competencia? | Jefe de Ingeniería | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): se definen de forma progresiva (BR-CAT-17). Ver P-39 |
-| P-39 — ¿Se puede certificar un nivel de una competencia que aún no tiene requisitos de evidencia definidos? | Jefe de Ingeniería | Alta | Nueva (BRC-001, derivada de P-24) |
+| P-39 — ¿Se puede certificar un nivel de una competencia que aún no tiene requisitos de evidencia definidos? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no; siempre debe haber forma de evidenciar (BR-ACR-13) |
 | P-41 — ¿Cómo "refuerza" una evidencia deseada la certificación? ¿Solo queda registrada o cambia algo? | Jefe de Ingeniería | Media | Nueva (BRC-001, derivada de P-23) |
 | P-31 — ¿El Evaluador y el Jefe de Ingeniería tienen perfil de competencias? | Jefe de Ingeniería | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): son solo gestores del programa y por ahora quedan fuera de la evaluación (BR-PRG-01, BR-PRG-02) |
 | P-42 — ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? | Jefe de Ingeniería | Alta | Nueva (BRC-001, derivada de P-28); no bloquea esta historia |
@@ -110,9 +110,9 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 ## Preparación y entrega
 
 - **Estado:** CONDITIONAL
-- **Motivo:** el flujo de certificación, su trazabilidad y la exigencia de evidencias están sostenidos (AC-1 a AC-7): el requisito es una evidencia concreta (P-22, confirmada) y se exigen todas las requeridas, no las deseadas (BR-ACR-09, BR-ACR-12). Siguen abiertos quién puede certificar (RCP-Q1) y si se puede certificar un nivel sin requisitos definidos (P-39), las dos de prioridad alta; también las equivalencias (P-23) y el efecto de una evidencia deseada (P-41).
+- **Motivo:** el flujo de certificación, su trazabilidad y la exigencia de evidencias están sostenidos (AC-1 a AC-7): el requisito es una evidencia concreta (P-22, confirmada) y se exigen todas las requeridas, no las deseadas (BR-ACR-09, BR-ACR-12). P-39 quedó respondida el 2026-09-27: un nivel sin requisitos definidos no se certifica (BR-ACR-13). Sigue abierto quién puede certificar (RCP-Q1, prioridad alta); también las equivalencias (P-23) y el efecto de una evidencia deseada (P-41).
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde RCP-Q1 y P-39.
+- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde RCP-Q1, y confirma la inferencia de BR-ACR-13 (al menos un requisito requerido).
 
 ## Lista de calidad
 

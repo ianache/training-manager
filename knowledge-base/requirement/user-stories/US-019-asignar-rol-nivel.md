@@ -6,7 +6,7 @@ tags: [user-story, colaboradores, party, c5, rol-nivel]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T13:30:00-05:00"
+  at: "2026-09-27T16:10:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -98,6 +98,18 @@ Escenario: Conservar asignaciones anteriores
 
 - **Regla / fuente:** BR-PTY-12
 
+### AC-5 — Escalar exige las competencias de los niveles inferiores
+
+```gherkin
+Escenario: Subir de nivel sin haber cumplido los niveles inferiores
+  Dado una persona con Developer Junior 2 vigente que no ha cumplido todas las competencias de Developer Junior 1 y Developer Junior 2
+  Cuando intento asignarle Developer Junior 3
+  Entonces la asignación no se permite y se indican las competencias de niveles inferiores pendientes
+```
+
+- **Regla / fuente:** BR-PRF-03 (EVD-2026-0125, respuesta a US1-Q1, 2026-09-27)
+- **Inferencia a confirmar:** "haber cumplido" una competencia se interpreta como tenerla certificada al menos en el nivel L1–L4 que exige el Rol-Nivel inferior (BR-CAT-14). Quién decide el paso y si basta con los niveles inferiores sigue abierto (P-42).
+
 ## 6. Casos negativos y límite
 
 | Caso | Comportamiento esperado | Fuente o pregunta |
@@ -107,7 +119,8 @@ Escenario: Conservar asignaciones anteriores
 | Nivel que el rol no define (por ejemplo, un Nivel 4 en un rol registrado con tres niveles) | Se rechaza: cada rol define sus propios niveles al registrarse | BR-CAT-09; EVD-2026-0100, EVD-2026-0101 |
 | Asignar a una persona sin rol vigente de Empleado o Contratista | Sin regla | US-019-Q1 |
 | Asignar el nivel inicial sin competencias certificadas | Se permite: el nivel inicial se asigna al registrar y la evolución se evalúa después | BR-PRF-02; EVD-2026-0103 |
-| Cambiar a un nivel superior sin competencias certificadas que lo respalden | Sin regla: no está definido cómo se decide el paso al siguiente nivel | P-42 |
+| Cambiar a un nivel superior sin haber cumplido las competencias de los niveles inferiores | No se permite (AC-5) | BR-PRF-03; P-42 (parcialmente respondida) |
+| Cambiar a un nivel superior habiendo cumplido los inferiores pero no las competencias del nivel destino | Sin regla: no está dicho si basta con los inferiores | P-42 |
 | Persona anonimizada | No se edita | BR-PTY-14 |
 | Usuario que no es Jefe de Ingeniería | No puede | BR-PTY-17 |
 
@@ -122,6 +135,7 @@ Escenario: Conservar asignaciones anteriores
 | BR-CAT-09 | Cada rol define sus niveles al registrarse; no hay una cantidad general (revisada el 2026-09-27) | BRC-001 §Catálogo |
 | BR-CAT-14 | Cada Rol-Nivel fija el nivel L1–L4 esperado de sus competencias (revisada el 2026-09-27: ya no "niveles 1 a 4") | BRC-001 §Catálogo |
 | BR-CAT-18 | Escala salarial, MOF y criterios de nivel (años de experiencia, formación técnica) fuera de alcance | BRC-001 §Catálogo |
+| BR-PRF-03 | Para escalar a un nivel superior de su rol, el colaborador debe haber cumplido las competencias de los niveles inferiores (2026-09-27) | BRC-001 §Transparencia |
 | BR-PTY-12 | Vigencias y auditoría | BRC-001 |
 | BR-PTY-17 | Permiso | BRC-001 |
 
@@ -157,9 +171,9 @@ Escenario: Conservar asignaciones anteriores
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
 | P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Jefe de Ingeniería | Alta | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el nivel inicial se asigna al registrar, sin certificaciones previas, y la evolución se evalúa después (BR-PRF-02). Ver P-42 |
-| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Jefe de Ingeniería | Alta | Sí (si el cambio de nivel exige validación o se deduce) | Nueva (BRC-001, derivada de P-28) |
+| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Jefe de Ingeniería | Alta | Sí (quién decide y si basta con los niveles inferiores) | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27, en US1-Q1): para escalar debe haber cumplido las competencias de los niveles inferiores (BR-PRF-03, AC-5). Siguen abiertos quién decide el paso y si hace falta cumplir también las del nivel destino |
 | P-36 | ¿Cómo se combinan Junior/Senior con 1 a 4? | Jefe de Ingeniería | Alta | No (lo resuelve el catálogo, US-001) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse, por ejemplo Developer Junior (Nivel 1) a (Nivel 3) (BR-CAT-09) |
-| P-40 | ¿La plataforma registra los criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | No (la asignación no valida esos criterios) | Nueva (BRC-001) |
+| P-40 | ¿La plataforma registra los criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | No (la asignación no valida esos criterios) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) |
 | US-019-Q1 | ¿Se puede asignar Rol-Nivel a una persona que no es colaborador vigente? | Jefe de Ingeniería | Media | No | Abierta |
 
 ## 13. Evidencia y trazabilidad
@@ -185,7 +199,7 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 | Independiente | Parcial | Necesita el catálogo (US-001) y personas (US-015) |
 | Negociable | Sí | Justificación con certificaciones abierta |
 | Valiosa | Sí | Habilita perfil y brecha |
-| Estimable | Parcial | P-42 puede agregar validaciones al cambiar de nivel |
+| Estimable | Parcial | BR-PRF-03 agrega una validación al cambiar de nivel (AC-5); el resto de P-42 puede agregar otras |
 | Pequeña (Small) | Sí | Asignar y cambiar nivel |
 | Testeable | Sí | Criterios verificables |
 
@@ -211,9 +225,9 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** CONDITIONAL
-- **Motivo:** asignación y cambio de nivel sostenidos por BR-PTY-11 y BR-PRF-02 (P-28 respondida el 2026-09-27). Sigue CONDITIONAL porque P-42 (cómo se decide el paso al siguiente nivel) puede agregar una condición al cambiar de nivel.
+- **Motivo:** asignación y cambio de nivel sostenidos por BR-PTY-11 y BR-PRF-02 (P-28 respondida el 2026-09-27). El 2026-09-27 se agregó AC-5: para escalar, el colaborador debe haber cumplido las competencias de los niveles inferiores (BR-PRF-03, P-42 en parte). Sigue CONDITIONAL porque falta el resto de P-42 (quién decide el paso y si basta con los niveles inferiores) y confirmar qué significa "haber cumplido" (inferencia de AC-5: certificadas en el nivel esperado).
 - **Bloqueos de entrega:** US-001 y US-015.
 - **Propuesta de división (si no es pequeña):** No aplica.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería responde P-42 y valida la historia.
+- **Decisión humana requerida:** el Jefe de Ingeniería responde el resto de P-42, confirma la inferencia de AC-5 y valida la historia.
 - **Validación:** Pendiente · Responsable: Jefe de Ingeniería · Fecha: —

@@ -6,7 +6,7 @@ tags: [asr, architecture, catalog, quality-attributes]
 status: draft
 generated:
   by: "asr-discovery/1.0"
-  at: "2026-09-26T22:27:48-05:00"
+  at: "2026-09-27T17:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -84,7 +84,7 @@ El agente los consideró y **no** los propone como candidatos. El arquitecto pue
 | ASR-KG-05 | Volúmenes: colaboradores, proyectos, competencias, actividad de GitLab (EVD-2026-0042) | asr-BR-IA-01; US-006 (descartado) | Negocio | Media |
 | ASR-KG-06 | Disponibilidad, recuperación (RTO/RPO), retención y respaldo: ninguna fuente los fija. **No se inventaron metas.** | asr-BR-ACR-03; general | Arquitecto + Negocio | Media |
 | ASR-KG-07 | Acceso y límites de las API de Classroom, Drive, GitLab y docsuite | asr-BR-INT-02, asr-BR-IA-01 | Arquitecto | Media |
-| ASR-KG-08 | Versionado del catálogo (P-02) y evento de asignación (P-05) | asr-BR-CAT-06, asr-US-014 | Jefe de Ingeniería / Responsable de producto | Media |
+| ASR-KG-08 | Versionado del catálogo (P-50, resto de P-02; los cursos ya se versionan, BR-FOR-06 a BR-FOR-10) y evento de asignación (P-05) | asr-BR-CAT-06, asr-US-014 | Jefe de Ingeniería / Responsable de producto | Media |
 
 Evidencia nueva de este catálogo (sin archivo de candidato propio): EVD-2026-0042 (no hay volúmenes documentados; UNKNOWN), EVD-2026-0043 (uso interno, VIS-001:L29; FACT) y EVD-2026-0046 (WCAG 2.2 AA, AGENTS.md:L71; FACT).
 
