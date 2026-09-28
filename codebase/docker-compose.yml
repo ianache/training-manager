@@ -27,23 +27,24 @@ services:
       - gestion-formacion
 
   # =====================================================================
-  # PostgreSQL 12+ (Party model, alternative database)
+  # PostgreSQL 15+ (Party model + Keycloak)
+  # Un solo PostgreSQL para ambas bases de datos (desarrollo local optimizado)
   # =====================================================================
   postgres:
     image: postgres:15-alpine
     container_name: gestion-formacion-postgres
     environment:
-      POSTGRES_DB: gestion_formacion
-      POSTGRES_USER: gestion_user
-      POSTGRES_PASSWORD: gestion_password
+      POSTGRES_INITDB_ARGS: >
+        -c shared_preload_libraries=pg_stat_statements
       PGTZ: UTC
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./knowledge-base/architecture/data-model/ddl/party-postgresql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
+      - ./codebase/postgres-init.sh:/docker-entrypoint-initdb.d/02-init-keycloak.sh:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U gestion_user -d gestion_formacion"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -53,6 +54,7 @@ services:
   # =====================================================================
   # Keycloak 22+ (Authentication & Identity Management)
   # Configuración para DESARROLLO LOCAL
+  # Usa el mismo PostgreSQL que la app (optimizado para dev)
   # =====================================================================
   keycloak:
     image: quay.io/keycloak/keycloak:22.0.5
@@ -73,40 +75,16 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    volumes:
-      - keycloak_data:/opt/keycloak/data
-    command:
-      - start-dev
-      - --import-realm
-      - --db-url-properties=currentSchema=keycloak
     networks:
       - gestion-formacion
+    command:
+      - start-dev
+      - --db-url-properties=currentSchema=keycloak
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 15s
       timeout: 5s
       retries: 5
-
-  # PostgreSQL para Keycloak (separado de app DB)
-  postgres-keycloak:
-    image: postgres:15-alpine
-    container_name: gestion-formacion-keycloak-db
-    environment:
-      POSTGRES_DB: keycloak
-      POSTGRES_USER: keycloak_user
-      POSTGRES_PASSWORD: keycloak_password
-      PGTZ: UTC
-    ports:
-      - "5433:5432"
-    volumes:
-      - postgres_keycloak_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U keycloak_user -d keycloak"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - gestion-formacion
 
   # =====================================================================
   # Redis (Session cache, job queue)
@@ -186,10 +164,6 @@ volumes:
   mysql_data:
     driver: local
   postgres_data:
-    driver: local
-  postgres_keycloak_data:
-    driver: local
-  keycloak_data:
     driver: local
   redis_data:
     driver: local

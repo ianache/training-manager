@@ -3,7 +3,7 @@
 Configuración de desarrollo local con los servicios básicos requeridos por la arquitectura:
 
 - **MySQL 8.0.16+** — Base de datos principal (Party model)
-- **PostgreSQL 12+** — Base de datos alternativa (testing portabilidad)
+- **PostgreSQL 15+** — Base de datos compartida (app + Keycloak, optimizado para dev local)
 - **Keycloak 22+** — Autenticación e identidad (ADR-002)
 - **Redis 7.2** — Cache de sesiones y colas de trabajos
 - **HashiCorp Vault** — Gestión de secretos y parámetros (ADR-004, D22)
@@ -51,6 +51,8 @@ vault          vault:1.15.6                       Up (healthy)     0.0.0.0:8200-
 adminer        adminer:latest                     Up (running)     0.0.0.0:8081->8080/tcp
 ```
 
+**Nota:** Keycloak ahora usa el mismo PostgreSQL que la app (puerto 5432), en vez de un servicio separado en puerto 5433. Esto optimiza recursos locales.
+
 ---
 
 ## Conexiones y Credenciales
@@ -73,13 +75,21 @@ const connection = await mysql.createConnection({
 });
 ```
 
-### PostgreSQL
+### PostgreSQL (App + Keycloak compartido)
+Un solo PostgreSQL contiene ambas bases de datos:
+
+**Base de datos para la app:**
 - **URL:** `localhost:5432`
 - **Database:** `gestion_formacion`
 - **User:** `gestion_user`
 - **Password:** `gestion_password`
 
-**Conexión desde Node.js:**
+**Base de datos para Keycloak (automática):**
+- **Database:** `keycloak`
+- **User:** `keycloak_user`
+- **Password:** `keycloak_password`
+
+**Conexión desde Node.js (app):**
 ```javascript
 const pg = require('pg');
 const client = new pg.Client({
@@ -91,21 +101,29 @@ const client = new pg.Client({
 });
 ```
 
+**Por qué compartido:** optimiza recursos en desarrollo local (una instancia PostgreSQL para ambas aplicaciones)
+
 ### Keycloak (Autenticación PKCE)
 - **Admin URL:** http://localhost:8080/admin
 - **Realm URL:** http://localhost:8080/realms/gestion-formacion
 - **Admin User:** `admin`
 - **Admin Password:** `admin`
+- **Base de datos:** `keycloak` en PostgreSQL (compartida, automáticamente creada)
 
-**Inicialización (primera vez):**
-1. Abrir http://localhost:8080/admin
-2. Login con admin/admin
-3. Crear realm: `gestion-formacion`
-4. Crear client: `bff-app`
+**Inicialización automática:**
+- La base de datos `keycloak` se crea automáticamente en PostgreSQL cuando el contenedor inicia (via `postgres-init.sh`)
+- Usuario `keycloak_user` se crea con permisos suficientes
+
+**Inicialización del realm (primera vez):**
+1. Esperar a que Keycloak esté healthy: `docker-compose ps | grep keycloak`
+2. Abrir http://localhost:8080/admin
+3. Login con admin/admin
+4. Crear realm: `gestion-formacion`
+5. Crear client: `bff-app`
    - Enable PKCE
    - Redirect URIs: `http://localhost:4200/*` (Angular shell)
    - Post Logout Redirect URIs: `http://localhost:4200/login`
-5. Crear usuarios de prueba (opcional)
+6. Crear usuarios de prueba (opcional)
 
 **Integración con BFF (Node.js, ADR-002):**
 ```javascript
@@ -326,15 +344,18 @@ docker-compose exec mysql mysql \
 
 ### 7. Conectar desde BFF (Node.js)
 ```javascript
-// environment variables
-process.env.DB_HOST = 'mysql';      // 'localhost' si está en otra container
-process.env.DB_PORT = 3306;
+// Environment variables para BFF Node.js dentro de docker-compose
+process.env.DB_HOST = 'postgres';      // Ahora PostgreSQL es la app DB
+process.env.DB_PORT = 5432;
 process.env.DB_USER = 'gestion_user';
 process.env.DB_PASSWORD = 'gestion_password';
 process.env.DB_NAME = 'gestion_formacion';
 
 process.env.KEYCLOAK_URL = 'http://keycloak:8080';
+process.env.KEYCLOAK_REALM = 'gestion-formacion';
 process.env.REDIS_HOST = 'redis';
+process.env.REDIS_PORT = 6379;
+process.env.REDIS_PASSWORD = 'redis_password';
 process.env.VAULT_ADDR = 'http://vault:8200';
 ```
 
