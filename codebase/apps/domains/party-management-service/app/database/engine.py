@@ -4,12 +4,18 @@ from app.config import config
 from app.models.base import Base
 
 
+# SQLite doesn't support pool_size/pool_timeout
+engine_kwargs = {
+    "echo": False,
+    "pool_pre_ping": True,
+}
+if "sqlite" not in config.DATABASE_URL:
+    engine_kwargs["pool_size"] = config.DATABASE_POOL_SIZE
+    engine_kwargs["pool_timeout"] = config.DATABASE_POOL_TIMEOUT
+
 engine = create_async_engine(
     config.DATABASE_URL,
-    echo=False,
-    pool_size=config.DATABASE_POOL_SIZE,
-    pool_timeout=config.DATABASE_POOL_TIMEOUT,
-    pool_pre_ping=True,
+    **engine_kwargs
 )
 
 async_session = sessionmaker(
