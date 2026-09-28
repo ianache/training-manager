@@ -3,6 +3,7 @@ version: "3.9"
 services:
   postgres:
     image: postgres:15-alpine
+    container_name: party-db
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -11,9 +12,15 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   api:
     build: .
+    container_name: party-api
     ports:
       - "8000:8000"
     environment:
@@ -24,8 +31,19 @@ services:
       KEYCLOAK_CLIENT_SECRET: secret
       KEYCLOAK_PUBLIC_KEY_URL: http://host.docker.internal:8080/realms/gestion-formacion/protocol/openid-connect/certs
       API_ENVIRONMENT: development
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      LOG_LEVEL: INFO
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
 volumes:
   postgres_data:
+    driver: local

@@ -1,0 +1,540 @@
+{
+  "info": {
+    "name": "Party Management Service - Phase 1a Testing",
+    "description": "Complete test collection for PARTY endpoints (POST, GET, GET/{id}, PATCH)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Happy Path - Create Party",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "pm.test('Response has party ID', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.id).to.exist;",
+              "    pm.environment.set('party_id', jsonData.id);",
+              "});",
+              "pm.test('Response has all required fields', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.first_names).to.equal('Juan');",
+              "    pm.expect(jsonData.last_names).to.equal('Pérez');",
+              "    pm.expect(jsonData.email_work).to.equal('juan.perez@company.com');",
+              "    pm.expect(jsonData.party_type).to.equal('Employee');",
+              "    pm.expect(jsonData.status).to.equal('active');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Juan\",\n  \"last_names\": \"Pérez\",\n  \"preferred_name\": \"Juan Carlos\",\n  \"identification_type\": \"DNI\",\n  \"identification_number\": \"12345678\",\n  \"identification_country\": \"CO\",\n  \"email_work\": \"juan.perez@company.com\",\n  \"phone_work\": \"+57301234567\",\n  \"party_type\": \"Employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "2. Error - Duplicate Email (409 Conflict)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 409 Conflict', function () {",
+              "    pm.response.to.have.status(409);",
+              "});",
+              "pm.test('Error message mentions email', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.detail).to.include('Email');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Juan\",\n  \"last_names\": \"Pérez\",\n  \"identification_type\": \"DNI\",\n  \"identification_number\": \"87654321\",\n  \"identification_country\": \"CO\",\n  \"email_work\": \"juan.perez@company.com\",\n  \"phone_work\": \"+57301234567\",\n  \"party_type\": \"Employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "3. Error - Invalid Email (422 Validation)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 422 Unprocessable Entity', function () {",
+              "    pm.response.to.have.status(422);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Maria\",\n  \"last_names\": \"García\",\n  \"identification_type\": \"DNI\",\n  \"identification_number\": \"11111111\",\n  \"identification_country\": \"CO\",\n  \"email_work\": \"not-an-email\",\n  \"party_type\": \"Employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "4. Error - SQL Injection Attempt (422)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 422 - SQL injection blocked', function () {",
+              "    pm.response.to.have.status(422);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Attacker\",\n  \"last_names\": \"Hacker\",\n  \"identification_type\": \"DNI'; DROP TABLE tb_party; --\",\n  \"identification_number\": \"99999999\",\n  \"identification_country\": \"CO\",\n  \"email_work\": \"attacker@evil.com\",\n  \"party_type\": \"Employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "5. Error - Authorization Denied (403 Colaborador)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 403 Forbidden', function () {",
+              "    pm.response.to.have.status(403);",
+              "});",
+              "pm.test('Error mentions authorization', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.detail).to.include('Jefe de Ingeniería');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=dev.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Carlos\",\n  \"last_names\": \"López\",\n  \"identification_type\": \"CE\",\n  \"identification_number\": \"22222222\",\n  \"identification_country\": \"CO\",\n  \"email_work\": \"carlos@company.com\",\n  \"party_type\": \"Employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "6. List Parties (Pagination)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test('Response is array', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(Array.isArray(jsonData)).to.be.true;",
+              "});",
+              "pm.test('Contains parties', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.length).to.be.greaterThan(0);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties?skip=0&limit=20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"],
+          "query": [
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "20"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. Get Party by ID (Happy Path)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test('Party has correct ID', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.id).to.equal(pm.environment.get('party_id'));",
+              "});",
+              "pm.test('Party data is complete', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.first_names).to.exist;",
+              "    pm.expect(jsonData.email_work).to.exist;",
+              "    pm.expect(jsonData.status).to.equal('active');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties/{{party_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties", "{{party_id}}"]
+        }
+      }
+    },
+    {
+      "name": "8. Get Party - Not Found (404)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 404 Not Found', function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties", "00000000-0000-0000-0000-000000000000"]
+        }
+      }
+    },
+    {
+      "name": "9. IDOR - Get Other Party (403 Colaborador)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 403 Forbidden (IDOR protected)', function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "session=dev.valid.token"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties/{{party_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties", "{{party_id}}"]
+        }
+      }
+    },
+    {
+      "name": "10. Update Party (PATCH)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test('Party updated with new values', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.preferred_name).to.equal('JCP');",
+              "    pm.expect(jsonData.phone_work).to.equal('+57309876543');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"preferred_name\": \"JCP\",\n  \"phone_work\": \"+57309876543\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties/{{party_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties", "{{party_id}}"]
+        }
+      }
+    },
+    {
+      "name": "11. Response Filter - Colaborador Sees Limited Data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test('Colaborador response omits identification', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.identification_number).to.be.undefined;",
+              "    pm.expect(jsonData.phone_work).to.be.undefined;",
+              "    pm.expect(jsonData.email_work).to.exist;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "session=dev.valid.token"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties?skip=0&limit=5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"],
+          "query": [
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "12. Missing Required Fields (422)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 422', function () {",
+              "    pm.response.to.have.status(422);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "session=jefe.valid.token"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_names\": \"Incomplete\",\n  \"email_work\": \"incomplete@company.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/parties",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "parties"]
+        }
+      }
+    },
+    {
+      "name": "Health - Liveness",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/health/live",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["health", "live"]
+        }
+      }
+    },
+    {
+      "name": "Health - Readiness",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/health/ready",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["health", "ready"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "party_id",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
