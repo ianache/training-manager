@@ -117,7 +117,7 @@ services:
   # Configuración para DESARROLLO LOCAL
   # =====================================================================
   vault:
-    image: vault:1.15.6
+    image: hashicorp/vault:1.15.6
     container_name: gestion-formacion-vault
     environment:
       VAULT_ADDR: http://0.0.0.0:8200
