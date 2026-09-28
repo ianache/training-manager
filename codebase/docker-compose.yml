@@ -34,6 +34,9 @@ services:
     image: postgres:15-alpine
     container_name: gestion-formacion-postgres
     environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: gestion_formacion
       POSTGRES_INITDB_ARGS: >
         -c shared_preload_libraries=pg_stat_statements
       PGTZ: UTC
