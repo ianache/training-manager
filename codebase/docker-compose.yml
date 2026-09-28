@@ -1,0 +1,230 @@
+version: '3.8'
+
+services:
+  # =====================================================================
+  # MySQL 8.0.16+ (Party model, main application database)
+  # =====================================================================
+  mysql:
+    image: mysql:8.0.35
+    container_name: gestion-formacion-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: gestion_formacion
+      MYSQL_USER: gestion_user
+      MYSQL_PASSWORD: gestion_password
+      TZ: UTC
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./knowledge-base/architecture/data-model/ddl/party-mysql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "gestion_user", "-pgestion_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gestion-formacion
+
+  # =====================================================================
+  # PostgreSQL 12+ (Party model, alternative database)
+  # =====================================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: gestion-formacion-postgres
+    environment:
+      POSTGRES_DB: gestion_formacion
+      POSTGRES_USER: gestion_user
+      POSTGRES_PASSWORD: gestion_password
+      PGTZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./knowledge-base/architecture/data-model/ddl/party-postgresql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gestion_user -d gestion_formacion"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gestion-formacion
+
+  # =====================================================================
+  # Keycloak 22+ (Authentication & Identity Management)
+  # Configuración para DESARROLLO LOCAL
+  # =====================================================================
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.5
+    container_name: gestion-formacion-keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: keycloak_password
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_PROXY: edge
+      KC_LOG_LEVEL: INFO
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+    command:
+      - start-dev
+      - --import-realm
+      - --db-url-properties=currentSchema=keycloak
+    networks:
+      - gestion-formacion
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # PostgreSQL para Keycloak (separado de app DB)
+  postgres-keycloak:
+    image: postgres:15-alpine
+    container_name: gestion-formacion-keycloak-db
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak_user
+      POSTGRES_PASSWORD: keycloak_password
+      PGTZ: UTC
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_keycloak_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak_user -d keycloak"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gestion-formacion
+
+  # =====================================================================
+  # Redis (Session cache, job queue)
+  # =====================================================================
+  redis:
+    image: redis:7.2-alpine
+    container_name: gestion-formacion-redis
+    environment:
+      TZ: UTC
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command:
+      - redis-server
+      - "--appendonly"
+      - "yes"
+      - "--requirepass"
+      - "redis_password"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gestion-formacion
+
+  # =====================================================================
+  # HashiCorp Vault (Secrets & Parameters Management)
+  # Configuración para DESARROLLO LOCAL
+  # =====================================================================
+  vault:
+    image: vault:1.15.6
+    container_name: gestion-formacion-vault
+    environment:
+      VAULT_ADDR: http://0.0.0.0:8200
+      VAULT_API_ADDR: http://vault:8200
+    ports:
+      - "8200:8200"
+    volumes:
+      - vault_data:/vault/data
+      - vault_config:/vault/config
+      - ./vault-dev-config.hcl:/vault/config/dev-config.hcl:ro
+    cap_add:
+      - IPC_LOCK
+    command:
+      - server
+      - -config=/vault/config/dev-config.hcl
+    networks:
+      - gestion-formacion
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:8200/v1/sys/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =====================================================================
+  # Adminer (Web UI for MySQL/PostgreSQL browsing)
+  # Optional: for development convenience
+  # =====================================================================
+  adminer:
+    image: adminer:latest
+    container_name: gestion-formacion-adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysql
+      - postgres
+    networks:
+      - gestion-formacion
+
+networks:
+  gestion-formacion:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
+  postgres_data:
+    driver: local
+  postgres_keycloak_data:
+    driver: local
+  keycloak_data:
+    driver: local
+  redis_data:
+    driver: local
+  vault_data:
+    driver: local
+  vault_config:
+    driver: local
+
+# =====================================================================
+# Quick Start
+# =====================================================================
+# docker-compose up -d               # Start all services
+# docker-compose logs -f             # Follow logs
+# docker-compose ps                  # Show running services
+# docker-compose down -v             # Stop and remove volumes
+#
+# Service URLs (development):
+#   MySQL:       localhost:3306 (user: gestion_user, pass: gestion_password)
+#   PostgreSQL:  localhost:5432 (user: gestion_user, pass: gestion_password)
+#   Keycloak:    http://localhost:8080 (admin: admin / admin)
+#   Redis:       localhost:6379 (password: redis_password)
+#   Vault:       http://localhost:8200 (dev mode, unsealed)
+#   Adminer:     http://localhost:8081
+#
+# To initialize Keycloak realm:
+#   1. Visit http://localhost:8080/admin
+#   2. Login with admin/admin
+#   3. Create realm "gestion-formacion"
+#   4. Create client "bff-app" with PKCE enabled
+#   5. Configure redirect URIs: http://localhost:4200/* (Angular app)
+#
+# To initialize Vault:
+#   docker-compose exec vault vault login (use root token from startup)
+#   vault kv put secret/gestion/gmail email=your-gmail password=your-password
+#   vault kv put secret/gestion/bff-secret key=your-secret
+#
+# Database migration (after MySQL is running):
+#   docker-compose exec mysql mysql -u gestion_user -pgestion_password gestion_formacion < migrations/portable/V001__init.sql
