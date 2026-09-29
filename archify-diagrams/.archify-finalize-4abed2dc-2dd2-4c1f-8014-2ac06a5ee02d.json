@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "running",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-09-29T17:00:36.824Z",
+  "specification": {
+    "path": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\.archify\\01-architecture-general.json",
+    "sha256": "c3093b6b34b1698874248cd951947806079f3ce87889ae1fe6b15ceb3aaf1f2f",
+    "bytes": 9200
+  },
+  "artifact": {
+    "path": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\01-architecture-general.html"
+  },
+  "stages": {},
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\01-architecture-general.finalize.json",
+    "summaryReceipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\01-architecture-general.finalize-summary.json"
+  },
+  "visualReview": "not-requested"
+}

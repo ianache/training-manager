@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "running",
+  "type": "dataflow",
+  "quality": "showcase",
+  "startedAt": "2026-09-29T18:10:30.954Z",
+  "specification": {
+    "path": "C:\\temp\\archify\\02-data-model-flow.json",
+    "sha256": "767b7e7a078159d07b017e005fa5ba418faaa7b6507ee4cbe7af3676bd02ea55",
+    "bytes": 7464
+  },
+  "artifact": {
+    "path": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\02-data-model-flow.html"
+  },
+  "stages": {},
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\02-data-model-flow.finalize.json",
+    "summaryReceipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\02-data-model-flow.finalize-summary.json"
+  },
+  "visualReview": "not-requested"
+}

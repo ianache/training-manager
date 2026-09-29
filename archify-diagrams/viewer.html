@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador Archify - Plataforma de Gestión de Formación</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #f0f0f0;
+            background: #f9f9f9;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .diagram-info {
+            background: #f5f7ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .diagram-info h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .diagram-info p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .diagram-info ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .diagram-info li {
+            margin-bottom: 8px;
+        }
+
+        .ascii-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: 1px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .button.primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .button.primary:hover {
+            background: #764ba2;
+        }
+
+        footer {
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 24px; }
+            .tabs { flex-direction: column; }
+            .tab-button { border-bottom: 1px solid #eee; border-right: 3px solid transparent; }
+            .tab-button.active { border-right-color: #667eea; border-bottom: none; }
+            .tab-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Diagramas Archify</h1>
+            <p>Plataforma de Gestión de Formación - Especificaciones Visuales</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'arquitectura')">
+                🏗️ Arquitectura
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'datos')">
+                📊 Modelo de Datos
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'flujos')">
+                🔄 Flujos de Procesos
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'cache-miss')">
+                ⚡ Cache Miss (Secuencia)
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'instrucciones')">
+                ℹ️ Instrucciones
+            </button>
+        </div>
+
+        <!-- Arquitectura -->
+        <div id="arquitectura" class="tab-content active">
+            <div class="diagram-info">
+                <h2>🏗️ Arquitectura General</h2>
+                <p>Vista general del sistema: componentes, capas, integraciones (H1-H3)</p>
+            </div>
+
+            <div class="ascii-box">
+Usuarios (Jefe Ing., PM, Evaluador, Colaborador)
+   │ HTTPS
+   ├─────────────────────────────────────┐
+   │                                     │
+   ▼                                     ▼
+Shell Angular (SPA)                  Keycloak
+├─ MicroUI: Catálogo                 (Auth)
+├─ MicroUI: Búsqueda                 OAuth 2.0 PKCE
+├─ MicroUI: Certificación
+└─ MicroUI: Perfil
+   │ REST + JWT
+   ▼
+BFF Node.js (Express)
+├─ Catalog Service ────────────────> MySQL 8.0+
+├─ Collaborators Service ──────────> PostgreSQL
+├─ Certification Service ──────────> PostgreSQL
+└─ AI Service (H3) ────────────────> PostgreSQL
+
+Integraciones Externas:
+├─ Google Classroom (Solo lectura, H2)
+├─ Google Drive (Enlaces a material, H2)
+├─ GitLab (Issues, MRs, H3)
+└─ docsuite (Certificados PDF, H2)
+
+Seguridad:
+├─ Keycloak: Autenticación OAuth 2.0 PKCE
+└─ Vault: Secretos &amp; Parametría
+
+Horizontes:
+├─ H1: Catálogo + Certificación manual + Búsqueda
+├─ H2: Rutas de formación + Integraciones
+└─ H3: Propuestas IA + Tablero de capacidad
+            </div>
+
+            <div class="button-group">
+                <a href="../.archify/01-architecture-general.json" class="button">📄 Ver JSON</a>
+                <a href="INDEX.md#1-arquitectura-general-architecture" class="button">📖 Ver Especificación</a>
+            </div>
+        </div>
+
+        <!-- Modelo de Datos -->
+        <div id="datos" class="tab-content">
+            <div class="diagram-info">
+                <h2>📊 Modelo de Datos Conceptual</h2>
+                <p>Party Model: Entidades, relaciones, flujo de datos</p>
+            </div>
+
+            <div class="ascii-box">
+Parte (Persona u Organización)
+   ├─ Persona
+   │  ├─ Identificación
+   │  └─ Medios de Contacto
+   └─ Organización
+
+Rol de Parte
+   ├─ Empleado
+   ├─ Contratista
+   ├─ Jefe de Proyecto
+   └─ Jefe de Ingeniería
+
+Colaborador (Persona + Rol Vigente)
+   ├─ Rol-Nivel Asignado
+   │  └─ Developer Junior Lvl 2
+   └─ Certificación (Competencia + Nivel L1-L4)
+      ├─ Respaldada por Evidencia
+      │  ├─ Formación (Curso aprobado)
+      │  ├─ Práctica (Evaluación)
+      │  └─ Desempeño (GitLab - H3)
+      ├─ Evaluador (Quién certificó)
+      └─ Auditoría (Cambios históricos)
+
+Catálogo (Único, Común a 4 Productos)
+   ├─ Rol (Developer, PM, QA, etc.)
+   ├─ Competencia (Skill con L1-L4)
+   ├─ Rol-Nivel (Developer Junior Lvl 1, 2, 3)
+   └─ Requisitos de Evidencia (por Competencia/Nivel)
+
+Proyecto → Requerimiento (Rol-Nivel + Competencias)
+   ├─ Calcula Brecha (Nivel Requerido − Nivel Certificado)
+   └─ Asignación (Colaborador → Requerimiento)
+
+Propuesta IA (H3)
+   ├─ Analiza Evidencia de GitLab
+   ├─ Propone Nivel
+   └─ Justificación Trazable
+            </div>
+
+            <div class="button-group">
+                <a href="../.archify/02-data-model-flow.json" class="button">📄 Ver JSON</a>
+                <a href="INDEX.md#2-modelo-de-datos-conceptual-dataflow" class="button">📖 Ver Especificación</a>
+            </div>
+        </div>
+
+        <!-- Flujos de Procesos -->
+        <div id="flujos" class="tab-content">
+            <div class="diagram-info">
+                <h2>🔄 Flujos de Procesos Principales</h2>
+                <p>Certificación, Búsqueda de Candidatos, Asignación (H1-H3)</p>
+            </div>
+
+            <div class="ascii-box">
+FLUJO 1: CERTIFICACIÓN (BO-003, H1-H3)
+Evaluador
+   ├─ Abre pantalla de certificación
+   ├─ Sistema carga: Colaborador + Competencia + Evidencias
+   ├─ Revisa evidencias (formación, práctica, GitLab)
+   ├─ Decisión: ¿Evidencia válida?
+   │  ├─ SÍ → Aprueba nivel
+   │  └─ NO → Rechaza + registra motivo
+   ├─ Sistema registra certificación (auditable)
+   └─ Notifica a colaborador
+
+FLUJO 2: BÚSQUEDA DE CANDIDATOS (BO-002, H1-H3)
+PM (Jefe de Proyecto)
+   ├─ Abre búsqueda de candidatos
+   ├─ Declara requerimiento: Rol-Nivel + Competencias
+   ├─ Sistema calcula brecha para cada colaborador
+   ├─ Muestra candidatos ordenados por menor brecha
+   ├─ Valida candidatos
+   └─ Recomienda al Jefe de Ingeniería
+
+FLUJO 3: ASIGNACIÓN (BO-002, H1-H3)
+Jefe de Ingeniería
+   ├─ Recibe recomendación de PM
+   ├─ Valida candidatos
+   ├─ Asigna uno o varios colaboradores
+   │  └─ Puede asignar incluso bajo nivel (con advertencia)
+   ├─ Sistema registra asignación (auditable)
+   └─ Asignación completada
+
+PRINCIPIOS:
+✓ Human-in-the-loop: evaluador o Jefe de Ing. decide
+✓ Trazabilidad: cada acción registrada + auditable
+✓ Transparencia: colaborador ve su perfil y propuestas
+✓ Evidencia: todas las decisiones respaldadas por datos
+            </div>
+
+            <div class="button-group">
+                <a href="../.archify/03-workflow-procesos.json" class="button">📄 Ver JSON</a>
+                <a href="INDEX.md#3-flujos-de-procesos-principales-workflow" class="button">📖 Ver Especificación</a>
+            </div>
+        </div>
+
+        <!-- Cache Miss Sequence -->
+        <div id="cache-miss" class="tab-content">
+            <div class="diagram-info">
+                <h2>⚡ Web Request with Cache Miss Flow</h2>
+                <p>Secuencia: Browser → API → Redis (check) → PostgreSQL (query) → Redis (fill) → Response</p>
+            </div>
+
+            <div class="ascii-box">
+Browser                        API Server                Redis              PostgreSQL
+   │                             │                         │                   │
+   │  HTTP GET /api/data        │                         │                   │
+   ├────────────────────────────>│                         │                   │
+   │                             │                         │                   │
+   │                             │  GET cache_key         │                   │
+   │                             ├────────────────────────>│                   │
+   │                             │                         │                   │
+   │                             │    nil (cache miss)    │                   │
+   │                             │<────────────────────────┤                   │
+   │                             │                         │                   │
+   │                             │  SELECT * FROM users   │                   │
+   │                             ├─────────────────────────────────────────────>│
+   │                             │                         │                   │
+   │                             │                    rows (user data)         │
+   │                             │<─────────────────────────────────────────────┤
+   │                             │                         │                   │
+   │                             │  SET cache_key (TTL 3600s)                 │
+   │                             ├────────────────────────>│                   │
+   │                             │                         │                   │
+   │      200 JSON response      │                         │                   │
+   │<────────────────────────────┤                         │                   │
+   │                             │                         │                   │
+
+FASES:
+1. Request: Browser enviía HTTP GET
+2. Cache Check: API consulta Redis, resultado = nil (cache miss)
+3. Database Query: API consulta PostgreSQL en fallback
+4. Cache Replenish: API llena Redis con TTL de 3600s (1 hora)
+5. Response: API retorna 200 JSON al Browser
+
+RENDIMIENTO:
+- Cache Hit (próximas requests): ~5ms (Redis only)
+- Cache Miss (primera request): ~500ms (Database query)
+- Cache Fill: Asincrónico, no bloquea la respuesta
+
+GARANTÍAS:
+✓ Source of Truth: PostgreSQL es la autoridad
+✓ TTL: Cache expira automáticamente después de 1 hora
+✓ Transparencia: API controla cache, cliente no conoce implementación
+            </div>
+
+            <div class="button-group">
+                <a href="../.archify/04-cache-miss-sequence.json" class="button">📄 Ver JSON</a>
+                <a href="INDEX.md#4-cache-miss-request-sequence" class="button">📖 Ver Especificación</a>
+            </div>
+        </div>
+
+        <!-- Instrucciones -->
+        <div id="instrucciones" class="tab-content">
+            <div class="diagram-info">
+                <h2>ℹ️ Cómo Generar los Diagramas HTML Interactivos</h2>
+                <p>Opciones para convertir los JSONs a HTMLs visuales</p>
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 20px;">Opción 1: Archify Web UI (Recomendado)</h3>
+            <div class="ascii-box">
+1. Instalar Archify:
+   npm install -g archify
+
+2. Iniciar servidor:
+   npx archify serve
+
+3. Abrir en navegador:
+   http://localhost:3000
+
+4. Cargar JSONs:
+   - .archify/01-architecture-general.json
+   - .archify/02-data-model-flow.json
+   - .archify/03-workflow-procesos.json
+
+5. Visualizar y exportar a PNG/SVG
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 20px;">Opción 2: Script Automático (PowerShell)</h3>
+            <div class="ascii-box">
+.\.claude\scripts\generate-archify-diagrams.ps1
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 20px;">Opción 3: Especificaciones Markdown</h3>
+            <div class="ascii-box">
+Abre: archify-diagrams/INDEX.md
+(Contiene todas las especificaciones visuales)
+            </div>
+
+            <div class="button-group">
+                <a href="INDEX.md" class="button primary">📖 Ver INDEX.md Completo</a>
+                <a href="ARCHIFY-TROUBLESHOOTING.md" class="button">🔧 Troubleshooting</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Generado: 2026-09-29 | Plataforma de Gestión de Formación | Estado: Draft</p>
+            <p>JSONs candidates listos para Archify finalize o Web UI</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

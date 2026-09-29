@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Web Request with Cache Miss Flow",
+    "subtitle": "Browser → API → Redis → PostgreSQL → Cache Fill → Response",
+    "output": "archify-diagrams/04-cache-miss-sequence.html",
+    "viewBox": [1000, 550],
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "locale": "es"
+  },
+  "participants": [
+    {
+      "id": "browser",
+      "type": "external",
+      "label": "Browser",
+      "sublabel": "User session"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "API Server",
+      "sublabel": "Express.js"
+    },
+    {
+      "id": "redis",
+      "type": "database",
+      "label": "Redis",
+      "sublabel": "In-memory cache"
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Source of truth"
+    }
+  ],
+  "segments": [
+    {
+      "from": 100,
+      "to": 180,
+      "label": "Request"
+    },
+    {
+      "from": 190,
+      "to": 280,
+      "label": "Cache Check & Miss"
+    },
+    {
+      "from": 290,
+      "to": 380,
+      "label": "Database Query"
+    },
+    {
+      "from": 390,
+      "to": 450,
+      "label": "Cache Fill & Response"
+    }
+  ],
+  "messages": [
+    {
+      "id": "http-request",
+      "from": "browser",
+      "to": "api",
+      "y": 110,
+      "label": "HTTP GET /api/data",
+      "variant": "emphasis"
+    },
+    {
+      "id": "redis-check",
+      "from": "api",
+      "to": "redis",
+      "y": 200,
+      "label": "GET cache_key",
+      "variant": "default"
+    },
+    {
+      "id": "cache-miss",
+      "from": "redis",
+      "to": "api",
+      "y": 230,
+      "label": "nil (cache miss)",
+      "variant": "return"
+    },
+    {
+      "id": "db-query",
+      "from": "api",
+      "to": "postgres",
+      "y": 300,
+      "label": "SELECT * FROM users",
+      "variant": "emphasis"
+    },
+    {
+      "id": "db-result",
+      "from": "postgres",
+      "to": "api",
+      "y": 340,
+      "label": "rows (user data)",
+      "variant": "return"
+    },
+    {
+      "id": "cache-fill",
+      "from": "api",
+      "to": "redis",
+      "y": 400,
+      "label": "SET cache_key (TTL 3600s)",
+      "variant": "dashed"
+    },
+    {
+      "id": "http-response",
+      "from": "api",
+      "to": "browser",
+      "y": 430,
+      "label": "200 JSON response",
+      "variant": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "browser",
+      "from": 105,
+      "to": 440,
+      "type": "external"
+    },
+    {
+      "participant": "api",
+      "from": 110,
+      "to": 435,
+      "type": "backend"
+    },
+    {
+      "participant": "redis",
+      "from": 195,
+      "to": 240,
+      "type": "database"
+    },
+    {
+      "participant": "redis",
+      "from": 395,
+      "to": 410,
+      "type": "database"
+    },
+    {
+      "participant": "postgres",
+      "from": 295,
+      "to": 345,
+      "type": "database"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Cache Check Phase",
+      "items": [
+        "API receives HTTP request from browser",
+        "First check is always Redis (fast)",
+        "Cache miss (nil response) triggers fallback to database"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Database Query Phase",
+      "items": [
+        "On cache miss, API queries PostgreSQL",
+        "Full query latency incurred here",
+        "Database is the source of truth"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Cache Replenish Phase",
+      "items": [
+        "After data retrieved, API fills Redis cache",
+        "Set operation is dashed (non-critical path)",
+        "TTL of 3600s (1 hour) keeps cache fresh"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Performance Impact",
+      "items": [
+        "Cache hit: milliseconds (Redis only)",
+        "Cache miss: seconds (full database query)",
+        "Next identical request will hit cache"
+      ]
+    }
+  ]
+}

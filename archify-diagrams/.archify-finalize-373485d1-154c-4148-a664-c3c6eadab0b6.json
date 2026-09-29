@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "running",
+  "type": "workflow",
+  "quality": "showcase",
+  "startedAt": "2026-09-29T17:34:44.228Z",
+  "specification": {
+    "path": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\.archify\\03-workflow-procesos.json",
+    "sha256": "77ccc0b3ba31a08609ec525a43f137416b46cd6eba378d996dbe58672112eb33",
+    "bytes": 6276
+  },
+  "artifact": {
+    "path": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\03-workflow-procesos.html"
+  },
+  "stages": {},
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\03-workflow-procesos.finalize.json",
+    "summaryReceipt": "C:\\Users\\ianache\\Desktop\\DATA\\01-DOCUMENTOS\\00-GESTION\\01-Capacitacion\\ai-competencies-2026\\ux-ui\\UX_UI_agentic\\archify-diagrams\\03-workflow-procesos.finalize-summary.json"
+  },
+  "visualReview": "not-requested"
+}
