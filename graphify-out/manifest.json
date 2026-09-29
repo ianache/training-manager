@@ -1121,78 +1121,6 @@
     "ast_hash": "8ea1db0f5e9007463601e2516d3f22a2",
     "semantic_hash": ""
   },
-  "archify-diagrams/.archify-finalize-00072f68-d730-4ab6-9acd-131f5601f816.json": {
-    "mtime": 1790701195.7797658,
-    "seen": 1790707615.8730063,
-    "ast_hash": "52855e6c85e29e849e4f4fdfb3000e76",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-373485d1-154c-4148-a664-c3c6eadab0b6.json": {
-    "mtime": 1790703284.4058828,
-    "seen": 1790707615.8730063,
-    "ast_hash": "0de8b1b432cc25d126e8c6d09dfe9c11",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-4abed2dc-2dd2-4c1f-8014-2ac06a5ee02d.json": {
-    "mtime": 1790701237.016786,
-    "seen": 1790707615.8730063,
-    "ast_hash": "4e34623bbb03b3efd08c64a05108120f",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-57ed2b30-d957-449f-93c9-bffa49e775b9.json": {
-    "mtime": 1790703283.705294,
-    "seen": 1790707615.8730063,
-    "ast_hash": "e2c3093692c4dbf06564992183823101",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-856ff7bb-21d7-4abe-b5db-b7ed5b2a9a63.json": {
-    "mtime": 1790705431.437468,
-    "seen": 1790707615.8730063,
-    "ast_hash": "0a96b2a74f14008376eebc04c579eb3e",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-928cdc97-79cf-4f49-a133-736206455d2a.json": {
-    "mtime": 1790705430.7790968,
-    "seen": 1790707615.8730063,
-    "ast_hash": "d17086179e9f302d50fab48e05275497",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-ca97b659-7aa3-4918-93b0-314b2929c864.json": {
-    "mtime": 1790705431.1230009,
-    "seen": 1790707615.8730063,
-    "ast_hash": "137452e61bb3beee0b18e01c62bcc4a1",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-d27f4332-96ac-489f-8fc7-85ac4aefba5c.json": {
-    "mtime": 1790701195.4223757,
-    "seen": 1790707615.8730063,
-    "ast_hash": "516c06dcc3ea585f60f0b560fd508109",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-e2865921-6642-4fdf-9d2d-2bb98affa350.json": {
-    "mtime": 1790701195.0570002,
-    "seen": 1790707615.8730063,
-    "ast_hash": "290ea2b1737aeeedbf9352802b16f538",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/.archify-finalize-fba0377a-61e3-4560-a9e9-dea26697aa1f.json": {
-    "mtime": 1790703284.0240624,
-    "seen": 1790707615.8730063,
-    "ast_hash": "d03bafe3fa845066e49de6140672c68d",
-    "semantic_hash": ""
-  },
-  "archify/.archify-finalize-036ce4ab-fb52-42e9-9fa4-e47121fb512b.json": {
-    "mtime": 1790633184.632192,
-    "seen": 1790707615.8730063,
-    "ast_hash": "ab92303fd36e2f84838c6af84326d31c",
-    "semantic_hash": ""
-  },
-  "archify/system-architecture.json": {
-    "mtime": 1790624846.1948626,
-    "seen": 1790707615.8730063,
-    "ast_hash": "ac75ed04095ba3245d6bb9484643c5ba",
-    "semantic_hash": ""
-  },
   "codebase/apps/domains/party-management-service/Party-Management-Service.postman_collection.json": {
     "mtime": 1790570582.1780734,
     "seen": 1790707615.8730063,
@@ -1386,9 +1314,9 @@
     "semantic_hash": ""
   },
   "ARCHIFY-TROUBLESHOOTING.md": {
-    "mtime": 1790705458.7753243,
-    "seen": 1790707615.8740067,
-    "ast_hash": "a4617f73e615c31d243bfd02f5399acd",
+    "mtime": 1790708330.4298542,
+    "seen": 1790708363.4814093,
+    "ast_hash": "ba3fba6c54e669e5ac11847f7b5cac69",
     "semantic_hash": ""
   },
   "DOCKER_SETUP.md": {
@@ -1407,18 +1335,6 @@
     "mtime": 1790553458.6858585,
     "seen": 1790707615.8740067,
     "ast_hash": "dcac07a2d451c2caf7f96ae2fa2fd4f4",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/INDEX.md": {
-    "mtime": 1790707557.103853,
-    "seen": 1790707615.8740067,
-    "ast_hash": "9250b4d839b7e39fafb5b2743bc67637",
-    "semantic_hash": ""
-  },
-  "archify-diagrams/viewer.html": {
-    "mtime": 1790707522.3463953,
-    "seen": 1790707615.8740067,
-    "ast_hash": "79fa61786ac0ba8fac1542500c6c62e1",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/README.md": {

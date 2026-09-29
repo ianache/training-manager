@@ -1,22 +1,22 @@
 # Graph Report - UX_UI_agentic  (2026-09-29)
 
 ## Corpus Check
-- 273 files · ~260,729 words
+- 260 files · ~256,982 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 4, .pptx 1, .example 1)
 
 ## Summary
-- 2009 nodes · 2704 edges · 144 communities (126 shown, 18 thin omitted)
+- 1997 nodes · 2693 edges · 148 communities (128 shown, 20 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 45 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e08e31f0`
+- Built from commit: `e073371a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- TRM-0019-docsuite.md
+- GLS-001-glosario-de-negocio.md
 - Índice
 - SPEC-001 — Gestión de colaboradores
 - AGENTS.md — UX/UI Potenciado por IA (Pack V2)
@@ -26,7 +26,7 @@
 - TRM-0037-kpi.md
 - VIS-001 — Plataforma de Gestión de Formación del Recurso Humano
 - USC-001 — User Stories de la Plataforma de Gestión de Formación
-- GLS-001-glosario-de-negocio.md
+- IMD-002-modelo-conceptual-de-partes.md
 - US-001 — Definir el catálogo de roles y competencias
 - Índice de la base de conocimiento
 - Registro de cambios
@@ -40,7 +40,7 @@
 - ASR candidato — Explicabilidad de las propuestas de la IA
 - ACP-001 — Architecture Context Pack
 - ASR candidato — Trazabilidad auditable de las certificaciones
-- index.md
+- ADB-001-descubrimiento-arquitectura-plataforma.md
 - ADB-001 — Descubrimiento de arquitectura
 - IMD-001 — Modelo de información conceptual
 - ASR candidato — Identidad y autorización por rol
@@ -65,7 +65,7 @@
 - STD-DB-001 — Estándar de base de datos
 - UXR-001 — Gestionar el catálogo de roles y competencias
 - US-019 — Asignar un Rol-Nivel a una persona
-- USC-001-user-stories-plataforma-gestion-formacion.md
+- RCP-001-h1-idioma-comun.md
 - ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE
 - US-023 — Consultar la ficha y su historial
 - UXR-000 — Requisitos UX transversales
@@ -88,7 +88,7 @@
 - 3. Prefijos obligatorios
 - 4. Plan de alineación (fase por fase)
 - 6. Ejemplos completos
-- TRM-0029-google-classroom.md
+- USC-001-user-stories-plataforma-gestion-formacion.md
 - 5. Mapeo de cambios (referencia rápida)
 - 4. Convenciones de estructura
 - SRC-001 — Revisión de Seguridad: API-SPEC-001
@@ -109,7 +109,7 @@
 - Troubleshooting: Archify Diagrams Generation
 - Tasks
 - Party Management Service — Implementation Design Spec
-- Archify Diagrams — Plataforma de Gestión de Formación
+- index.md
 - test_parties_api.py
 - ADR-005 — Implementación de PKCE: Tokens, Identidad y Sesiones
 - ADR-006 — Criterios y Actores para Upgrade de Rol-Nivel
@@ -136,18 +136,22 @@
 - ADR-003 — Persistencia compatible con MySQL y PostgreSQL
 - AIM-001 — Matriz de impacto de arquitectura
 - Catálogo de candidatos ASR
-- PDM-001 — Modelo físico de partes
+- ADR-003-persistencia-mysql-y-postgresql.md
 - BCON-001 — Aprobación Humana Obligatoria para Certificación
 - BRISK-001 — Catálogo Desactualizado o Falta de Consenso
 - test_authorization_idor_access
 - 3. Core Components
 - .graphify_ast_extract.py
 - 2. Architecture
-- TRM-0059-sistema-de-rr-hh.md
+- TRM-0001-acreditacion.md
 - Config
 - SDD ledger — plan: docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md
 - postgres-init.sh
 - party-management-service
+- TRM-0015-comsatel.md
+- TRM-0055-rol.md
+- TRM-0028-gitlab.md
+- TST-001 — Pruebas de restricciones del modelo de partes
 
 ## God Nodes (most connected - your core abstractions)
 1. `ACP-001 — Architecture Context Pack` - 26 edges
@@ -176,11 +180,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (144 total, 18 thin omitted)
+## Communities (148 total, 20 thin omitted)
 
-### Community 0 - "TRM-0019-docsuite.md"
-Cohesion: 0.40
-Nodes (3): API REST, docsuite, PDF
+### Community 0 - "GLS-001-glosario-de-negocio.md"
+Cohesion: 0.11
+Nodes (11): API REST, Cierre de brechas, CLocator, CLocator v2, docsuite, PDF, RR. HH., SIGO (+3 more)
 
 ### Community 1 - "Índice"
 Cohesion: 0.07
@@ -207,8 +211,8 @@ Cohesion: 0.10
 Nodes (20): BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación, Brechas, Catálogo de competencias, Certificación, Certificados de curso (H2), Colaboradores e información maestra (Party), Contradicciones y ambigüedades, Dependencias (+12 more)
 
 ### Community 7 - "TRM-0037-kpi.md"
-Cohesion: 0.11
-Nodes (9): Adopción, Cierre de brechas, Cobertura de roles, Horizonte, KPI, Proyecto activo, Tablero de capacidad, Tiempo a competencia (+1 more)
+Cohesion: 0.14
+Nodes (8): Adopción, Cobertura de roles, Dirección, KPI, Proyecto activo, Riesgo de cobertura, Tablero de capacidad, Tiempo de asignación
 
 ### Community 8 - "VIS-001 — Plataforma de Gestión de Formación del Recurso Humano"
 Cohesion: 0.13
@@ -218,9 +222,9 @@ Nodes (15): 10. Riesgos, 11. Preguntas abiertas, 12. Preguntas resueltas, 1. Dec
 Cohesion: 0.08
 Nodes (26): Evidencias y trazabilidad, Gestión de colaboradores (SPEC-001), H1 — El idioma común, H2 — Formación integrada, H3 — Evidencia real con IA, Lista de calidad, Objetivo y alcance, Preparación y entrega (+18 more)
 
-### Community 10 - "GLS-001-glosario-de-negocio.md"
-Cohesion: 0.09
-Nodes (29): Parte, Persona, Organización, Rol de la parte, Relación entre partes, Empleado, Contratista, Proveedor (+21 more)
+### Community 10 - "IMD-002-modelo-conceptual-de-partes.md"
+Cohesion: 0.08
+Nodes (25): Parte, Persona, Rol de la parte, Relación entre partes, Empleado, Contratista, Proveedor, Jefe directo (+17 more)
 
 ### Community 11 - "US-001 — Definir el catálogo de roles y competencias"
 Cohesion: 0.20
@@ -269,10 +273,6 @@ Nodes (26): ACP-001 — Architecture Context Pack, Application landscape, Archit
 ### Community 23 - "ASR candidato — Trazabilidad auditable de las certificaciones"
 Cohesion: 0.22
 Nodes (9): ASR candidato — Trazabilidad auditable de las certificaciones, Disposición humana, Enunciado, Escenario de atributo de calidad, Evidencia, Evidencia faltante, Perspectivas afectadas, Por qué puede ser significativo (+1 more)
-
-### Community 24 - "index.md"
-Cohesion: 0.09
-Nodes (12): PDM-001 — Anexo MySQL 8, PDM-001 — Anexo PostgreSQL, Casos, Cómo ejecutarlas, Fuera de estas pruebas, Para ejecutarlas (Q-06 respondida por D28), Resultado, TST-001 — Pruebas de restricciones del modelo de partes (+4 more)
 
 ### Community 25 - "ADB-001 — Descubrimiento de arquitectura"
 Cohesion: 0.13
@@ -370,9 +370,9 @@ Nodes (9): Acciones, Estados, Necesidades de información, Objetivo del usuario,
 Cohesion: 0.09
 Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
-### Community 49 - "USC-001-user-stories-plataforma-gestion-formacion.md"
-Cohesion: 0.11
-Nodes (18): Certificación, Asignación, Brecha, Búsqueda de personal, Certificado de curso, Colaborador, Dirección, Evaluador (+10 more)
+### Community 49 - "RCP-001-h1-idioma-comun.md"
+Cohesion: 0.17
+Nodes (9): Asignación, Búsqueda de personal, Catálogo de competencias, Gestión de formación, Jefe de proyecto, Producto, Proyecto, Requerimiento de proyecto (+1 more)
 
 ### Community 50 - "ADR-002 — Autenticación en el BFF de Node.js con Keycloak y PKCE"
 Cohesion: 0.33
@@ -435,12 +435,12 @@ Cohesion: 0.05
 Nodes (37): 10. Decisiones aprobadas y validación humana, 11. Knowledge Candidates para crear/actualizar, 12. Handoff para el siguiente rol, 13. Conclusiones, 14. Referencias, 1. Pregunta de trabajo y objetivo, 2. Alcance, 3. Resumen ejecutivo del contexto (+29 more)
 
 ### Community 66 - "TRM-0049-propuesta-de-nivel.md"
-Cohesion: 0.12
-Nodes (11): Evidencia de GitLab asistida por IA, Evidencia real, Evidencia sobre volumen, GitLab, Human-in-the-loop, IA, Issue, Milestone (+3 more)
+Cohesion: 0.14
+Nodes (9): Evidencia de GitLab asistida por IA, Evidencia sobre volumen, Firma humana, Horizonte, Human-in-the-loop, IA, Perfil de competencias del colaborador, Propuesta de nivel (+1 more)
 
 ### Community 67 - "IMD-001-modelo-de-informacion-conceptual.md"
-Cohesion: 0.08
-Nodes (23): Catálogo de competencias, CLocator, CLocator v2, Competencia, Curso final, Escala de niveles de dominio, Nivel requerido, Producto (+15 more)
+Cohesion: 0.10
+Nodes (16): Brecha, Certificado de curso, Contingencia, Curso final, Escala de niveles de dominio, Google Classroom, Google Drive, Integrar, no hospedar (+8 more)
 
 ### Community 68 - "2. Auditoría: Desviaciones encontradas"
 Cohesion: 0.29
@@ -457,10 +457,6 @@ Nodes (5): 4. Plan de alineación (fase por fase), Fase 1: Preparación ✅ (com
 ### Community 71 - "6. Ejemplos completos"
 Cohesion: 0.40
 Nodes (5): 6.1 Tabla simple: Rol, 6.2 Tabla con FK: Colaborador, 6.3 Vista: Colaborador vigente, 6.4 Stored Procedure: Crear Colaborador, 6. Ejemplos completos
-
-### Community 72 - "TRM-0029-google-classroom.md"
-Cohesion: 0.21
-Nodes (6): Contingencia, Google Classroom, Google Drive, Integrar, no hospedar, LMS, Ruta de formación
 
 ### Community 73 - "5. Mapeo de cambios (referencia rápida)"
 Cohesion: 0.50
@@ -531,8 +527,8 @@ Cohesion: 0.12
 Nodes (15): Preguntas abiertas que bloquean delivery, Próximos pasos, Resumen de 11 User Stories, US-015 a US-025: Gestión de Data Maestra de Party — Consolidated Stories, US-015: Registrar un colaborador, US-016: Actualizar datos y medios de contacto, US-017: Gestionar la estructura organizacional, US-018: Gestionar proveedores y contratistas (+7 more)
 
 ### Community 90 - "Troubleshooting: Archify Diagrams Generation"
-Cohesion: 0.13
-Nodes (14): Archivos Disponibles Ahora, Documentación Actualizada, Especificaciones Visuales (Markdown), Formato de Archivos Generados (Cuando funcione), JSON Candidates (Listos para usar), ✅ Opción 1: Usar Archify Web UI (Recomendado), ✅ Opción 2: Usar Visualización Markdown Directa, ✅ Opción 3: Ejecutar Archify desde Docker (+6 more)
+Cohesion: 0.12
+Nodes (16): Archivos Disponibles Ahora, Documentación Actualizada, Especificaciones Visuales (Markdown), Formato de Archivos Generados (Cuando funcione), JSON Candidates (Listos para Archify CLI), ✅ Opción 1: Visualizador HTML Interactivo (✅ Funciona Ahora), ⚠️ Opción 2: Archify Web UI (Falla: npm issue), ✅ Opción 4: Especificaciones Markdown Detalladas (+8 more)
 
 ### Community 91 - "Tasks"
 Cohesion: 0.13
@@ -541,10 +537,6 @@ Nodes (14): File Structure, Global Constraints, Next Steps After Phase 1b, Perfo
 ### Community 92 - "Party Management Service — Implementation Design Spec"
 Cohesion: 0.13
 Nodes (14): 10. Deliverables & Handoff, 1. Overview, 4.1 Remediation of SRC-001 Findings, 4.2 OWASP Top 10 Coverage, 4. Security & Compliance (SRC-001), 5.1 Test Pyramid (Phase 1a: PARTY), 5.2 Test Fixtures (conftest.py), 5. Testing Strategy (+6 more)
-
-### Community 93 - "Archify Diagrams — Plataforma de Gestión de Formación"
-Cohesion: 0.14
-Nodes (13): 1. Arquitectura General (Architecture), 2. Modelo de Datos Conceptual (Dataflow), 3. Flujos de Procesos Principales (Workflow), 4. Cache Miss Request Sequence (Sequence), Archify Diagrams — Plataforma de Gestión de Formación, 📊 Cobertura de Horizontes, 📊 Diagramas Generados, Flujo 1: Certificación (BO-003, H1-H3) (+5 more)
 
 ### Community 94 - "test_parties_api.py"
 Cohesion: 0.23
@@ -650,9 +642,9 @@ Nodes (7): AIM-001 — Matriz de impacto de arquitectura, Dependency expansion, 
 Cohesion: 0.29
 Nodes (7): Candidates, Catálogo de candidatos ASR, Constraints, Human Validation, Knowledge Gaps, Metadata, Rejected Candidates
 
-### Community 120 - "PDM-001 — Modelo físico de partes"
-Cohesion: 0.29
-Nodes (7): 1. Archivos, 2. Convenciones, 3. Trazabilidad de restricciones, 4. Lo que la base no garantiza, 5. Procedimiento de referencia de anonimización, 6. Operación, PDM-001 — Modelo físico de partes
+### Community 120 - "ADR-003-persistencia-mysql-y-postgresql.md"
+Cohesion: 0.17
+Nodes (9): PDM-001 — Anexo MySQL 8, PDM-001 — Anexo PostgreSQL, 1. Archivos, 2. Convenciones, 3. Trazabilidad de restricciones, 4. Lo que la base no garantiza, 5. Procedimiento de referencia de anonimización, 6. Operación (+1 more)
 
 ### Community 121 - "BCON-001 — Aprobación Humana Obligatoria para Certificación"
 Cohesion: 0.29
@@ -678,29 +670,49 @@ Nodes (4): graphify_extract, json, pathlib, sys
 Cohesion: 0.50
 Nodes (4): 2.1 Topology, 2.2 Stack (Python/FastAPI — ADR-008), 2.3 Directory Structure, 2. Architecture
 
+### Community 127 - "TRM-0001-acreditacion.md"
+Cohesion: 0.23
+Nodes (7): Certificación, Evidencia, Trazabilidad, Requisito de evidencia, Rúbrica, Evidencia requerida, Evidencia deseada
+
 ### Community 128 - "Config"
 Cohesion: 0.67
 Nodes (3): BaseSettings, Config, Application configuration from environment variables
 
+### Community 144 - "TRM-0015-comsatel.md"
+Cohesion: 0.20
+Nodes (6): COMSATEL, Programa de Formación de Competencias, Organización, Organización interna, Unidad organizacional, RUC
+
+### Community 145 - "TRM-0055-rol.md"
+Cohesion: 0.27
+Nodes (5): Competencia, Rol, Nivel de rol, Competencia transversal, MOF
+
+### Community 146 - "TRM-0028-gitlab.md"
+Cohesion: 0.27
+Nodes (5): Evidencia real, GitLab, Issue, Milestone, MR
+
+### Community 147 - "TST-001 — Pruebas de restricciones del modelo de partes"
+Cohesion: 0.33
+Nodes (6): Casos, Cómo ejecutarlas, Fuera de estas pruebas, Para ejecutarlas (Q-06 respondida por D28), Resultado, TST-001 — Pruebas de restricciones del modelo de partes
+
 ## Knowledge Gaps
-- **1376 isolated node(s):** `party-management-service`, `postgres-init.sh script`, `run-tests.sh script`, `Pre-flight Scan`, `Contexto` (+1371 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1466 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1368 isolated node(s):** `party-management-service`, `postgres-init.sh script`, `run-tests.sh script`, `Pre-flight Scan`, `Contexto` (+1363 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1457 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ACP-001 — Architecture Context Pack` connect `ACP-001 — Architecture Context Pack` to `index.md`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
-- **Why does `DMD-001 — Alineación de DDL a STD-DB-001` connect `DMD-001 — Alineación de DDL a STD-DB-001` to `5. Mapeo de cambios (referencia rápida)`, `4. Plan de alineación (fase por fase)`, `2. Auditoría: Desviaciones encontradas`, `STD-DB-001 — Estándar de base de datos`?**
+- **Why does `ACP-001 — Architecture Context Pack` connect `ACP-001 — Architecture Context Pack` to `ADB-001-descubrimiento-arquitectura-plataforma.md`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Why does `USC-001 — User Stories de la Plataforma de Gestión de Formación` connect `USC-001 — User Stories de la Plataforma de Gestión de Formación` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Why does `LDM-001 — Modelo lógico de partes` connect `LDM-001 — Modelo lógico de partes` to `ADR-003-persistencia-mysql-y-postgresql.md`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `RCP-002 — Gestión de colaboradores` connect `RCP-002 — Gestión de colaboradores` to `USC-001-user-stories-plataforma-gestion-formacion.md`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Are the 11 inferred relationships involving `PartyService` (e.g. with `create_party()` and `get_party()`) actually correct?**
   _`PartyService` has 11 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `party-management-service`, `postgres-init.sh script`, `run-tests.sh script` to the rest of the system?**
-  _1376 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1368 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `GLS-001-glosario-de-negocio.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.1067193675889328 - nodes in this community are weakly interconnected._
 - **Should `Índice` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
-- **Should `AGENTS.md — UX/UI Potenciado por IA (Pack V2)` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
