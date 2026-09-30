@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Optional
 
 
-def resolve_kb_urls(kb_project_id: str, base_url: str = "https://gitlab.comsatel.com.pe") -> dict:
+def resolve_kb_urls(kb_project_id: str, base_url: str = "https://project.comsatel.com.pe") -> dict:
     """Build knowledge base URLs from kb_project_id.
 
     Args:
@@ -13,7 +13,7 @@ def resolve_kb_urls(kb_project_id: str, base_url: str = "https://gitlab.comsatel
     Returns:
         Dict with repository_url and a builder for path-specific URLs
     """
-    repository_url = f"{base_url}/knowledge/{kb_project_id}"
+    repository_url = f"{base_url}/{kb_project_id}"
 
     def build_url(path: str, ref: str = "main") -> str:
         """Build a GitLab blob URL for a knowledge base file."""
@@ -42,7 +42,7 @@ def build_kb_references(
     context_pack_id: str,
     context_pack_path: str,
     source_concept_path: str,
-    base_url: str = "https://gitlab.comsatel.com.pe",
+    base_url: str = "https://project.comsatel.com.pe",
     ref: str = "main"
 ) -> dict:
     """Build complete knowledge base reference section for OKF.
