@@ -1,4 +1,17 @@
 {
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ianache/AppData/Local/Temp/claude/c--Users-ianache-Desktop-DATA-01-DOCUMENTOS-00-GESTION-01-Capacitacion-ai-competencies-2026-ux-ui-UX_UI_agentic/d336cc6a-b21f-4ec9-a5df-95955b682fb1/tasks/**)",
+      "Read(//c/Users/ianache/.claude/skills/archify/schemas/**)",
+      "Read(//c/Users/ianache/.agents/skills/archify/schemas/**)",
+      "Read(//c/Users/ianache/.claude/skills/archify/examples/**)",
+      "Read(//c/Users/ianache/.agents/skills/archify/examples/**)",
+      "Read(//c/Users/ianache/.claude/skills/archify/references/**)",
+      "Read(//c/Users/ianache/.agents/skills/archify/references/**)",
+      "PowerShell($dir = \"C:\\\\Users\\\\ianache\\\\Desktop\\\\DATA\\\\01-DOCUMENTOS\\\\00-GESTION\\\\01-Capacitacion\\\\ai-competencies-2026\\\\ux-ui\\\\UX_UI_agentic\\\\archify\"; if \\(-not \\(Test-Path $dir\\)\\) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }; ls $dir)",
+      "PowerShell($workDir = \"C:\\\\Users\\\\ianache\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\archify-gen\"; if \\(-not \\(Test-Path $workDir\\)\\) { New-Item -ItemType Directory -Path $workDir -Force | Out-Null }; cd $workDir; Write-Host \"Working in: $\\(Get-Location\\)\")"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

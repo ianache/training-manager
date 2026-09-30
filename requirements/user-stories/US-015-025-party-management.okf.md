@@ -18,14 +18,15 @@ knowledge_base:
   repository_url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic"
   ref: "main"
   name: "kb-uxui-agentic"
+  kb_project_id: "comsatel/development/training/dev-juniors/knowledge-base"
   context_pack:
     id: "RCP-003"
-    path: "context-packs/RCP-003-gestion-data-maestra-party.md"
-    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/context-packs/RCP-003-gestion-data-maestra-party.md"
+    path: "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md"
+    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md"
   source_concept:
     id: "US-015-025"
-    path: "user-stories/US-015-025-party-management.okf.md"
-    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/user-stories/US-015-025-party-management.okf.md"
+    path: "knowledge-base/requirement/user-stories/US-015-025-party-management.okf.md"
+    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/knowledge-base/requirement/user-stories/US-015-025-party-management.okf.md"
 provenance:
   created_by: "af-user-story-refiner"
   method: "consolidated-from-spec-001"

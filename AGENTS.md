@@ -96,3 +96,45 @@ Rules:
 - For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
 - Before every commit (`git commit`, including commits made by agents or skills): run `graphify update .` so the graph reflects the staged changes, then stage the refreshed `graphify-out/` (`git add graphify-out/`) and include it in the same commit. If `graphify update .` fails, stop and report the error instead of committing a stale graph.
+
+## archify
+
+**Cuándo usar Archify:**
+- Generar diagramas interactivos (HTML + temas, zoom, exportación) de arquitectura
+- Visualizar flujos de procesos, modelos de datos, topología de componentes
+- Crear candidatos JSON con especificaciones completas y luego ejecutar `finalize`
+
+**Flujo de trabajo automatizado:**
+
+1. **Generar candidatos JSON** con especificaciones completas:
+   - `architecture.json` — Componentes, capas, relaciones, integraciones
+   - `dataflow.json` — Entidades, relaciones, flujos de datos (Party Model)
+   - `workflow.json` — Procesos, actores, transiciones, decisiones
+
+2. **Usar ruta corta para evitar errores de finalize en Windows:**
+   ```powershell
+   mkdir "C:\temp\archify" -Force | Out-Null
+   copy ".archify\*.json" "C:\temp\archify\" -Force
+   cd "C:\temp\archify"
+   ```
+
+3. **Ejecutar finalize en paralelo (PowerShell):**
+   ```powershell
+   node "C:\Users\ianache\.claude\skills\archify\bin\archify.mjs" finalize architecture 01-architecture-general.json 01-architecture-general.html --quality showcase
+   node "C:\Users\ianache\.claude\skills\archify\bin\archify.mjs" finalize dataflow 02-data-model-flow.json 02-data-model-flow.html --quality showcase
+   node "C:\Users\ianache\.claude\skills\archify\bin\archify.mjs" finalize workflow 03-workflow-procesos.json 03-workflow-procesos.html --quality showcase
+   ```
+
+4. **Copiar resultados a proyecto:**
+   ```powershell
+   copy "*.html" "[project-root]\archify-diagrams\" -Force
+   ```
+
+5. **Reportar rutas finales al usuario** para visualización en navegador
+
+**Guardrails:**
+- Usar calidad "showcase" (no "standard") para arquitectura y workflows
+- JSONs deben cumplir schemas: `schemas/architecture.schema.json`, `dataflow.schema.json`, `workflow.schema.json`
+- Evitar rutas largas en Windows (máx ~100 caracteres en paths)
+- Si finalize falla, usar ruta corta `C:\temp\archify\` como alternativa
+- No inventar información en diagramas; basarse en documentación y especificaciones
