@@ -1,13 +1,34 @@
 ---
-okf_version: "0.2"
+artifact: "user-story"
+okf: "google-okf-v0.2"
 id: "US-015-025"
+title: "US-015 a US-025: Gestión de Data Maestra de Party — Consolidated Stories"
+generated: "2026-09-29"
+verified: false
+human-reviewed: true
+status: "REQUIREMENTS_READY"
 type: "user-story"
-product: null
+product: "devqa-juniors"
 gate: "REQUIREMENTS_READY"
-knowledge_base: "kb-uxui-agentic"
-knowledge_base_uri: "kb://kb-uxui-agentic"
-context_pack_id: "RCP-003"
-context_pack_uri: "kb://kb-uxui-agentic/context-packs/RCP-003"
+sources:
+  - "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/context-packs/RCP-003-gestion-data-maestra-party.md"
+  - "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/business/BRC-001-reglas-de-negocio.md"
+knowledge_base:
+  provider: "gitlab"
+  repository_url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic"
+  ref: "main"
+  name: "kb-uxui-agentic"
+  context_pack:
+    id: "RCP-003"
+    path: "context-packs/RCP-003-gestion-data-maestra-party.md"
+    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/context-packs/RCP-003-gestion-data-maestra-party.md"
+  source_concept:
+    id: "US-015-025"
+    path: "user-stories/US-015-025-party-management.okf.md"
+    url: "https://gitlab.comsatel.com.pe/knowledge/kb-uxui-agentic/-/blob/main/user-stories/US-015-025-party-management.okf.md"
+provenance:
+  created_by: "af-user-story-refiner"
+  method: "consolidated-from-spec-001"
 ---
 
 # US-015 a US-025: Gestión de Data Maestra de Party — Consolidated Stories
