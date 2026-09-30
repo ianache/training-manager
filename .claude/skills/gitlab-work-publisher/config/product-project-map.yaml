@@ -1,0 +1,25 @@
+version: "1.0"
+# Product mapping: project_id (for GitLab issue publishing) + kb_project_id (for knowledge base URL generation)
+# kb_project_id format: 'organization/group/subgroup/knowledge-base'
+# URLs will be auto-generated as: https://gitlab.comsatel.com.pe/knowledge/{kb_project_id}
+products:
+  CLocator:
+    project_id: null
+    enabled: false
+    kb_project_id: null
+  CLocator2:
+    project_id: null
+    enabled: false
+    kb_project_id: null
+  SmartSuite:
+    project_id: null
+    enabled: false
+    kb_project_id: null
+  SIGO:
+    project_id: null
+    enabled: false
+    kb_project_id: null
+  devqa-juniors:
+    project_id: 605
+    enabled: true
+    kb_project_id: 'comsatel/development/training/dev-juniors/knowledge-base'

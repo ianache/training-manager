@@ -1,0 +1,6 @@
+version: "1.0"
+base_url: "https://project.comsatel.com.pe"
+api_path: "/api/v4"
+pat_env: "GITLAB_PAT"
+timeout_seconds: 30
+retry_count: 2

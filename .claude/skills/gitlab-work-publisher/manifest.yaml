@@ -1,0 +1,8 @@
+name: gitlab-work-publisher
+version: 0.1.1
+description: Publish OKF v0.2 User Stories as idempotent GitLab Issue projections.
+entrypoint: scripts/publish_issue.py
+supported_modes: [dry-run, create, update, sync]
+secret_environment_variable: GITLAB_PAT
+gitlab_base_url: https://project.comsatel.com.pe
+api_version: v4
