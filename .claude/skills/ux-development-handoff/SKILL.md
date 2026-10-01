@@ -42,5 +42,60 @@ UX-106
 - Output is reproducible from recorded context.
 - Human verification remains pending unless supplied by a human workflow.
 
+## Implementation Requirements Section (REQUIRED OUTPUT)
+
+After producing Handoff Pack, MUST generate and include:
+
+### Component Inventory & Implementation Checklist
+
+Extract all components from UX specs and enumerate:
+
+```markdown
+## Implementation Requirements (for development-handoff-builder)
+
+### Component Inventory (Auto-extracted)
+
+| Component | Type | Library | Props | Validators | States | A11y | Design Ref |
+|-----------|------|---------|-------|------------|--------|------|------------|
+| nombres | text-input | @gf/ui | label, placeholder, required | required, minLength(2) | normal, error | aria-required | GEN-015-02 |
+
+### Handoff Instructions for development-handoff-builder
+
+**Next Step:** Pass this Handoff Pack + GEN-XXX to `development-handoff-builder`
+
+**development-handoff-builder MUST:**
+1. Read this Component Inventory
+2. Extract from GEN-XXX all design specifications
+3. Generate DCP with Implementation Contract
+4. Bind components to development tasks
+
+**What NOT to do:**
+- Do NOT pass to writing-plans without DCP
+- Do NOT create development tasks without component mapping
+- Do NOT accept implementations that deviate from inventory
+```
+
+### Pre-Handoff Quality Gate
+
+```markdown
+## Gate Before Handoff: Design Complete?
+
+MUST answer:
+- [ ] All screens in SCR have corresponding GEN design?
+- [ ] All components in GEN have properties enumerated?
+- [ ] All validators specified (sync + async)?
+- [ ] All states covered (normal, error, loading, success)?
+- [ ] Accessibility (aria-*, role) defined for each?
+- [ ] Ready for development-handoff-builder consumption?
+
+If ANY is NO → Stop. Complete design first.
+If ALL are YES → Ready to hand off.
+```
+
 ## Definition of Done
-The skill output is ready for human review, is traceable to its sources, and can be added to the UX/UI OKF bundle without losing provenance.
+The skill output includes:
+- ✅ Handoff Pack with traceability
+- ✅ Component Inventory extracted from design
+- ✅ Implementation instructions for next phase
+- ✅ Ready for development-handoff-builder to consume
+- ✅ All artifacts (SCR, GEN, FLW) available for developers

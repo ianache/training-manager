@@ -42,5 +42,69 @@ UX-102
 - Output is reproducible from recorded context.
 - Human verification remains pending unless supplied by a human workflow.
 
+## Implementation Requirements Section (REQUIRED OUTPUT)
+
+After producing SCR, MUST generate and include:
+
+### Component Inventory
+
+For each screen, extract all components with:
+- Component name (mapped to @gf/ui library)
+- Type (text-input, select, button, etc.)
+- Props (label, placeholder, required, etc.)
+- Validators (sync + async)
+- States (normal, focused, filled, error, loading, success)
+- Accessibility (aria-*, role)
+- Cross-reference to SCR section
+
+**Format:**
+```markdown
+### SCR-015-02: Datos de Persona — Component Inventory
+
+| Component | Type | Props | Validators | States | A11y |
+|-----------|------|-------|------------|--------|------|
+| nombres | text-input | label, placeholder, aria-required | required, minLength(2) | normal, focused, error | aria-required, aria-invalid, aria-label |
+```
+
+### Implementation Checklist
+
+```markdown
+### Implementation Prerequisites
+
+- [ ] All components in inventory mapped to @gf/ui v1.1.0
+- [ ] All validators enumerated (sync: required, email, etc. + async: duplicate-check)
+- [ ] All states covered in design (normal, error, loading, success, etc.)
+- [ ] Accessibility attributes specified (aria-*, role, keyboard nav)
+- [ ] Ready for development-handoff-builder consumption
+```
+
+### Handoff Instructions for Developers
+
+```markdown
+## Handoff to Development
+
+**Framework & Dependencies:**
+- Framework: Angular 22 (Standalone components)
+- UI Library: @gf/ui v1.1.0
+- Design System: Material Design 3
+- Accessibility Standard: WCAG 2.2 AA (0 violations required)
+
+**Implementation Binding:**
+ALL components listed in Component Inventory above MUST be implemented.
+NO SUBSTITUTIONS without UX review and approval.
+
+**Design Verification:**
+Post-implementation, code reviewer MUST verify against:
+- GEN-XXX design specification (visual match)
+- Component Inventory (all components present)
+- States (all variations implemented)
+- Accessibility (WCAG 2.2 AA verified via axe/WAVE)
+
+**Cross-References:**
+- Visual design: GEN-XXX
+- Acceptance criteria: SCR-XXX (this document)
+- Flow context: FLW-XXX
+```
+
 ## Definition of Done
-The skill output is ready for human review, is traceable to its sources, and can be added to the UX/UI OKF bundle without losing provenance.
+The skill output is ready for human review, is traceable to its sources, includes Implementation Requirements section with Component Inventory, and can be handed to development-handoff-builder without rework.
