@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790824424.717157,
-    "seen": 1790826046.7729309,
-    "ast_hash": "70728de4f4b1e3ffb7f4f17e72b05956",
+    "mtime": 1790832346.686148,
+    "seen": 1790832490.680678,
+    "ast_hash": "f13f9dfb546809f0a01f951ea1d0581a",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790824424.0923982,
-    "seen": 1790826046.7828608,
-    "ast_hash": "149c2acdb136a89fe508ed49e54e9111",
+    "mtime": 1790832347.5693207,
+    "seen": 1790832490.7042723,
+    "ast_hash": "0a866754b903a8106d7cac1e5e4139e2",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -600,9 +600,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
-    "mtime": 1790824423.557586,
-    "seen": 1790826046.5868156,
-    "ast_hash": "fb51c132918b065f1865782608808870",
+    "mtime": 1790832344.8711703,
+    "seen": 1790832490.5437152,
+    "ast_hash": "da9edf59df9114202c8bf449c7892d82",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md": {
@@ -1242,9 +1242,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/pyproject.toml": {
-    "mtime": 1790824045.7993977,
-    "seen": 1790826046.447443,
-    "ast_hash": "73ae19ba188e48376198cf7a47d31025",
+    "mtime": 1790832332.6479225,
+    "seen": 1790832490.4352982,
+    "ast_hash": "89d3c3042e95410f05b175def16b2523",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/__init__.py": {
@@ -1254,9 +1254,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/conftest.py": {
-    "mtime": 1790824055.52467,
-    "seen": 1790826046.447443,
-    "ast_hash": "c8169abb524cc5acfe25d521a1b9151b",
+    "mtime": 1790832333.6458054,
+    "seen": 1790832490.4358978,
+    "ast_hash": "3bb5f703202276ba3dff3408e796bb5c",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/__init__.py": {
@@ -1266,9 +1266,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_parties_api.py": {
-    "mtime": 1790824056.0852087,
-    "seen": 1790826046.447443,
-    "ast_hash": "e6f3a0c4ff1bb09ea0ccd85ff3a52cba",
+    "mtime": 1790832334.6799922,
+    "seen": 1790832490.4371507,
+    "ast_hash": "a7c79765c293e91dcb03914b86599a21",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/security/__init__.py": {
@@ -1278,14 +1278,14 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/security/test_authorization.py": {
-    "mtime": 1790824056.632634,
-    "seen": 1790826046.447443,
-    "ast_hash": "d0479977e52eecc69600c24b90c492ba",
+    "mtime": 1790832337.283626,
+    "seen": 1790832490.437671,
+    "ast_hash": "c761400d052223620036f752c6514928",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/security/test_sql_injection.py": {
-    "mtime": 1790824057.7868288,
-    "seen": 1790826046.447443,
+    "mtime": 1790832339.2146869,
+    "seen": 1790832490.437671,
     "ast_hash": "24bc2fb857e01d2b64ccf85bba9d4237",
     "semantic_hash": ""
   },
@@ -1296,9 +1296,9 @@
     "semantic_hash": ""
   },
   "codebase/postgres-init.sh": {
-    "mtime": 1790821539.3927157,
-    "seen": 1790821762.728323,
-    "ast_hash": "18188261a93021bef61310cdd3a7b6a1",
+    "mtime": 1790832340.3110716,
+    "seen": 1790832490.5162704,
+    "ast_hash": "64812d2dbe3c3e647bb6dd13a343b972",
     "semantic_hash": ""
   },
   "generate-diagrams.ps1": {
@@ -1356,15 +1356,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/requirements.txt": {
-    "mtime": 1790824046.3145294,
-    "seen": 1790826046.562886,
-    "ast_hash": "a6488a330de3987ee8f54f284586fa98",
+    "mtime": 1790832333.1482048,
+    "seen": 1790832490.5303414,
+    "ast_hash": "42b43d86bd945a26a9d6862dc5cc57a3",
     "semantic_hash": ""
   },
   "codebase/docker-compose.yml": {
-    "mtime": 1790824064.4676166,
-    "seen": 1790826046.5747387,
-    "ast_hash": "60a9deef4e32a3061cc6a7717a96889d",
+    "mtime": 1790832339.8244572,
+    "seen": 1790832490.5374618,
+    "ast_hash": "7b6748b03ce3db661e191995a3571409",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md": {
@@ -1410,9 +1410,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-008-python-fastapi-como-estandar-api.md": {
-    "mtime": 1790563713.7148426,
-    "seen": 1790707615.877006,
-    "ast_hash": "15a5c0e4ff5608bd3d8f063652c07f29",
+    "mtime": 1790832345.4358268,
+    "seen": 1790832490.5462742,
+    "ast_hash": "46fb56ec6effdb976df2aa750095e0f8",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-001-gestion-data-maestra-party.md": {
@@ -2316,45 +2316,45 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/README.md": {
-    "mtime": 1790825971.8268197,
-    "seen": 1790826046.5847986,
-    "ast_hash": "aef4bbb4c01514e7cd9c56c0e80e12b9",
+    "mtime": 1790832340.8417943,
+    "seen": 1790832490.5437152,
+    "ast_hash": "c1040b92a2e1da6335c83b8dbf6bf866",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/development-context-pack.md": {
-    "mtime": 1790821234.035102,
-    "seen": 1790821762.734786,
-    "ast_hash": "9e639f2b7fb0993e03c246962c288229",
+    "mtime": 1790832341.5306547,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f990d1b531b9b461b05a665bb719d3ef",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/handoff-report.md": {
-    "mtime": 1790821479.7684863,
-    "seen": 1790821762.734786,
-    "ast_hash": "b7e70777b25c885d075dc71ca2b8330e",
+    "mtime": 1790832342.0622993,
+    "seen": 1790832490.5437152,
+    "ast_hash": "b7e7a8ef448cf6a628e7a8aff0300dfd",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/pack.yaml": {
-    "mtime": 1790825959.1539676,
-    "seen": 1790826046.5868156,
-    "ast_hash": "72ba3dc3190498632dbbc22067fbd048",
+    "mtime": 1790832342.7367396,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f481611fcd516f3614f092146e0b9c67",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/ready-for-dev.md": {
-    "mtime": 1790825953.3033085,
-    "seen": 1790826046.5868156,
-    "ast_hash": "4a1878a1dd667647c7935d33d529646d",
+    "mtime": 1790832343.2893202,
+    "seen": 1790832490.5437152,
+    "ast_hash": "7e7cc5124f5b09552dce4f088dd29991",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/traceability-map.md": {
-    "mtime": 1790821340.3426332,
-    "seen": 1790821762.734786,
-    "ast_hash": "7445d46a9f392aabd1518c11d6689bb7",
+    "mtime": 1790832343.8830183,
+    "seen": 1790832490.5437152,
+    "ast_hash": "a01eee32570e2b6b6421231134bea37a",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/INDEX.md": {
-    "mtime": 1790821684.7166038,
-    "seen": 1790821762.734786,
-    "ast_hash": "f5220998b699460f25cd3c986ad6ac74",
+    "mtime": 1790832344.3832588,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f211e407b047a8b85e9e1e6e242df3e9",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
@@ -2394,8 +2394,8 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/security/test_service_auth.py": {
-    "mtime": 1790824057.2287643,
-    "seen": 1790826046.447443,
+    "mtime": 1790832338.4971886,
+    "seen": 1790832490.437671,
     "ast_hash": "72d551d3aa7d7b3633ca761fd9d904dc",
     "semantic_hash": ""
   },
@@ -2499,6 +2499,78 @@
     "mtime": 1790832274.5406644,
     "seen": 1790832319.4659252,
     "ast_hash": "c41ff038fc8ac2d02a088f7746fdc2a2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/sql_runner.py": {
+    "mtime": 1790832330.4957166,
+    "seen": 1790832490.4352982,
+    "ast_hash": "99f9aa723bc39cdb1f8135ce6b6b930a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0001_pdm001_baseline.py": {
+    "mtime": 1790832331.0296204,
+    "seen": 1790832490.4352982,
+    "ast_hash": "d7f66a2930098ab4ae93e5e981b832e8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0002_std_db_001_alignment.py": {
+    "mtime": 1790832331.5808148,
+    "seen": 1790832490.4352982,
+    "ast_hash": "bdbdf55956c5ea67002c2f1396c1e0d3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/__init__.py": {
+    "mtime": 1790832332.1635864,
+    "seen": 1790832490.4352982,
+    "ast_hash": "78bbf39c90508c4f1272c7985de47d4a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_health.py": {
+    "mtime": 1790832334.1887357,
+    "seen": 1790832490.4371507,
+    "ast_hash": "94e65a6acc5d6ef4d6995754f558bd11",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_physical_model.py": {
+    "mtime": 1790832335.2232041,
+    "seen": 1790832490.4371507,
+    "ast_hash": "8fae17b8f8b92062d712b21e204a3e5f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/__init__.py": {
+    "mtime": 1790832335.7318792,
+    "seen": 1790832490.4371507,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
+    "mtime": 1790832336.2892997,
+    "seen": 1790832490.4371507,
+    "ast_hash": "aeaf7abc5c213161b60fd6188aa877f0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
+    "mtime": 1790832336.7948418,
+    "seen": 1790832490.4371507,
+    "ast_hash": "f54c79399994d36bac32b7cbdf074151",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_rate_limit.py": {
+    "mtime": 1790832337.86169,
+    "seen": 1790832490.437671,
+    "ast_hash": "e1876b18717210b804218592b3525605",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md": {
+    "mtime": 1790832346.023281,
+    "seen": 1790832490.5462742,
+    "ast_hash": "26e2893de9f9b6c12261ddad4b796ae9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/CODEBASE-ANALYSIS-015-alineacion-arch-ui.md": {
+    "mtime": 1790832424.1711025,
+    "seen": 1790832490.7033331,
+    "ast_hash": "e03de36585c55b05501aaddd0178df59",
     "semantic_hash": ""
   }
 }
