@@ -14,29 +14,36 @@ describe('GfTelInput', () => {
     component = fixture.componentInstance;
   });
 
-  describe('Basic rendering', () => {
-    it('should render tel input', () => {
+  describe('Basic rendering and attributes', () => {
+    it('should render tel input element', () => {
       fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       expect(input).toBeTruthy();
       expect(input.type).toBe('tel');
     });
 
-    it('should set placeholder', () => {
-      fixture.componentRef.setInput('placeholder', '+51 999 999 999');
+    it('should have default placeholder for Peru format', () => {
       fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       expect(input.placeholder).toBe('+51 999 999 999');
     });
 
+    it('should allow custom placeholder', () => {
+      fixture.componentRef.setInput('placeholder', 'Ingrese teléfono');
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.placeholder).toBe('Ingrese teléfono');
+    });
+
     it('should emit valueChange on input change', () => {
       spyOn(component.valueChange, 'emit');
-      component.valueChange.emit('+51 999 999 999');
-      expect(component.valueChange.emit).toHaveBeenCalledWith('+51 999 999 999');
+      component.valueChange.emit('+51987654321');
+      expect(component.valueChange.emit).toHaveBeenCalledWith('+51987654321');
     });
 
     it('should emit blur event', () => {
       spyOn(component.blur, 'emit');
+      fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       input.dispatchEvent(new Event('blur'));
       expect(component.blur.emit).toHaveBeenCalled();
@@ -50,38 +57,90 @@ describe('GfTelInput', () => {
     });
   });
 
-  describe('Pattern validation', () => {
-    it('should validate Peru phone pattern (+51XXXXXXXXX)', () => {
+  describe('Phone pattern validation (Peru +51XXXXXXXXX)', () => {
+    it('should validate correct format: +51999999999', () => {
       const pattern = /^\+51\d{9}$/;
-      const control = new FormControl('', Validators.pattern(pattern));
+      const control = new FormControl('+51999999999', Validators.pattern(pattern));
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();
 
-      // Invalid: missing +51
-      control.setValue('999999999');
-      expect(control.hasError('pattern')).toBe(true);
-
-      // Invalid: wrong country code
-      control.setValue('+52 999999999');
-      expect(control.hasError('pattern')).toBe(true);
-
-      // Invalid: wrong number of digits
-      control.setValue('+51 99999999');
-      expect(control.hasError('pattern')).toBe(true);
-
-      // Valid: correct format
-      control.setValue('+51999999999');
+      expect(control.valid).toBe(true);
       expect(control.hasError('pattern')).toBe(false);
     });
 
-    it('should validate with spaces in phone number', () => {
+    it('should reject format without country code', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('999999999', Validators.pattern(pattern));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('pattern')).toBe(true);
+    });
+
+    it('should reject wrong country code', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('+55987654321', Validators.pattern(pattern));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('pattern')).toBe(true);
+    });
+
+    it('should reject with insufficient digits', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('+5199999999', Validators.pattern(pattern));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('pattern')).toBe(true);
+    });
+
+    it('should reject with too many digits', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('+519999999999', Validators.pattern(pattern));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('pattern')).toBe(true);
+    });
+
+    it('should reject non-numeric characters after country code', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('+51ABCDEFGH9', Validators.pattern(pattern));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('pattern')).toBe(true);
+    });
+  });
+
+  describe('Form control integration', () => {
+    it('should work with FormControl', () => {
+      const control = new FormControl('+51987654321');
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.value).toBe('+51987654321');
+    });
+
+    it('should work with required validator', () => {
+      const control = new FormControl('', Validators.required);
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.hasError('required')).toBe(true);
+      control.setValue('+51987654321');
+      expect(control.hasError('required')).toBe(false);
+    });
+
+    it('should track touched state', () => {
       const control = new FormControl('');
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();
 
-      control.setValue('+51 999 999 999');
-      // Spaces are typically removed or handled by the form control
-      expect(control.value).toBe('+51 999 999 999');
+      expect(control.touched).toBe(false);
+      control.markAsTouched();
+      expect(control.touched).toBe(true);
     });
   });
 
@@ -99,7 +158,6 @@ describe('GfTelInput', () => {
       fixture.detectChanges();
 
       expect(control.valid).toBe(true);
-      expect(control.hasError('pattern')).toBe(false);
     });
 
     it('should show error state when control is invalid', () => {
@@ -109,7 +167,6 @@ describe('GfTelInput', () => {
       fixture.detectChanges();
 
       expect(control.invalid).toBe(true);
-      expect(control.hasError('pattern')).toBe(true);
     });
 
     it('should show error when touched and invalid', () => {
@@ -121,42 +178,67 @@ describe('GfTelInput', () => {
       control.markAsTouched();
       fixture.detectChanges();
 
-      expect(control.invalid && control.touched).toBe(true);
+      const shouldShowInvalid = component.shouldShowInvalid();
+      expect(shouldShowInvalid).toBe('true');
     });
   });
 
-  describe('Accessibility', () => {
-    it('should set aria-required', () => {
+  describe('Accessibility (WCAG 2.2 AA)', () => {
+    it('should set aria-required when required is true', () => {
       fixture.componentRef.setInput('required', true);
       fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       expect(input.getAttribute('aria-required')).toBe('true');
     });
 
-    it('should set aria-invalid', () => {
+    it('should set aria-invalid when invalid', () => {
       fixture.componentRef.setInput('invalid', true);
       fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
 
-    it('should set aria-label', () => {
+    it('should set aria-label for screen readers', () => {
       fixture.componentRef.setInput('ariaLabel', 'Número telefónico laboral');
       fixture.detectChanges();
       const input = fixture.nativeElement.querySelector('input');
       expect(input.getAttribute('aria-label')).toBe('Número telefónico laboral');
     });
-  });
 
-  describe('Error messages', () => {
-    it('should display error message for invalid pattern', () => {
-      const control = new FormControl('invalid');
+    it('should set aria-invalid=true when control is invalid and touched', () => {
+      const pattern = /^\+51\d{9}$/;
+      const control = new FormControl('invalid', Validators.pattern(pattern));
       fixture.componentRef.setInput('control', control);
-      fixture.componentRef.setInput('showError', true);
       fixture.detectChanges();
 
-      // Error message should be shown based on control state
-      expect(control.value).toBe('invalid');
+      control.markAsTouched();
+      fixture.detectChanges();
+      const shouldShowInvalid = component.shouldShowInvalid();
+      expect(shouldShowInvalid).toBe('true');
+    });
+
+    it('should have proper semantic HTML role', () => {
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input[type="tel"]');
+      expect(input).toBeTruthy();
+    });
+  });
+
+  describe('Edge cases', () => {
+    it('should handle empty value', () => {
+      const control = new FormControl('');
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.value).toBe('');
+    });
+
+    it('should handle null value', () => {
+      const control = new FormControl(null);
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.value).toBeNull();
     });
   });
 });

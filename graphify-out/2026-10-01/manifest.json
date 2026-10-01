@@ -2016,9 +2016,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/routes.ts": {
-    "mtime": 1790820632.3083434,
-    "seen": 1790821762.728323,
-    "ast_hash": "19778eaa4525910617cf9bd0caa16764",
+    "mtime": 1790894496.6721296,
+    "seen": 1790894628.8761156,
+    "ast_hash": "e6035575612069e83dc91137662473b8",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/bootstrap.ts": {
@@ -2040,9 +2040,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/tsconfig.federation.json": {
-    "mtime": 1790820636.0407162,
-    "seen": 1790821762.728323,
-    "ast_hash": "860569b9cf296fc5c32cf2eb3e78abee",
+    "mtime": 1790835719.7574384,
+    "seen": 1790894628.8787737,
+    "ast_hash": "ae609040f0bd9c136b5b95967e5a0376",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/tsconfig.spec.json": {
@@ -2202,9 +2202,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/public-api.ts": {
-    "mtime": 1790820698.711549,
-    "seen": 1790821762.728323,
-    "ast_hash": "37db73795871923f88550dcbef9e9172",
+    "mtime": 1790893887.7732534,
+    "seen": 1790894628.9058194,
+    "ast_hash": "1c9299b608c9d0cb20ebd220404e1e63",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/tsconfig.lib.json": {
@@ -2286,9 +2286,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-list/party-list.page.html": {
-    "mtime": 1790824063.345055,
-    "seen": 1790826046.562886,
-    "ast_hash": "a93e17ec0f8344b47fe007d14569ac09",
+    "mtime": 1790891395.6139293,
+    "seen": 1790894628.9358044,
+    "ast_hash": "c6d02dfe706c549060b394354cc970f8",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/index.html": {
@@ -2574,9 +2574,417 @@
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-015-handoff-desarrollo.md": {
-    "mtime": 1790832581.939051,
-    "seen": 1790832627.382715,
-    "ast_hash": "32676c8abe50c6000013e25edc68ceba",
+    "mtime": 1790832851.022306,
+    "seen": 1790832892.820489,
+    "ast_hash": "190723a919b0c6177ca34ebfae7a549e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/register-collaborador.cy.ts": {
+    "mtime": 1790836052.0363784,
+    "seen": 1790894628.8706017,
+    "ast_hash": "9321aa1d4d60b227db749564434ed4a8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/commands/command.interface.ts": {
+    "mtime": 1790835746.8676457,
+    "seen": 1790894628.8726041,
+    "ast_hash": "124d1c8816239fd28e9cef6cbb251cca",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/commands/register-collaborator.command.spec.ts": {
+    "mtime": 1790835994.4478207,
+    "seen": 1790894628.8726041,
+    "ast_hash": "5bb4c300e8e7f677999a3d491758b02f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/commands/register-collaborator.command.ts": {
+    "mtime": 1790835750.5805712,
+    "seen": 1790894628.8726041,
+    "ast_hash": "0b720b3a1fc6abba89adad8a78223cd6",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/commands/search.commands.ts": {
+    "mtime": 1790835859.431281,
+    "seen": 1790894628.8726041,
+    "ast_hash": "fd9c733fc1d10e32b4a5a906d2f8429c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/services/error-mapper.service.ts": {
+    "mtime": 1790835855.4692698,
+    "seen": 1790894628.8726041,
+    "ast_hash": "44337f5314cd240dfba74f9048c52771",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/core/services/register-collaborator.service.ts": {
+    "mtime": 1790835861.8705447,
+    "seen": 1790894628.8726041,
+    "ast_hash": "ad83563cfc2477be8745ac35af6cdb79",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/colaborador-perfiles.service.ts": {
+    "mtime": 1790894461.7401273,
+    "seen": 1790894628.8726041,
+    "ast_hash": "8db923c6c01935bf16c92cc2dc7d645e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-contactos.service.ts": {
+    "mtime": 1790894375.8994634,
+    "seen": 1790894628.8726041,
+    "ast_hash": "741554b51e5c0b4fe6ca23b4d614588b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-datos.service.ts": {
+    "mtime": 1790894229.482113,
+    "seen": 1790894628.8726041,
+    "ast_hash": "f1774a7817d7d5b893ac3644a98d0108",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/colaborador-perfiles-edit/colaborador-perfiles-edit.page.spec.ts": {
+    "mtime": 1790894487.6450667,
+    "seen": 1790894628.8741136,
+    "ast_hash": "fc80fa14d1e6dd619b36b4796676c4e9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/colaborador-perfiles-edit/colaborador-perfiles-edit.page.ts": {
+    "mtime": 1790894452.565993,
+    "seen": 1790894628.8741136,
+    "ast_hash": "50091aed3efe9de4e5f98fcd5c34b972",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-contactos-edit/jefe-contactos-edit.page.spec.ts": {
+    "mtime": 1790894409.6640656,
+    "seen": 1790894628.8741136,
+    "ast_hash": "0f020afeff1a672c591b02beb5b21c04",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-contactos-edit/jefe-contactos-edit.page.ts": {
+    "mtime": 1790894363.3346648,
+    "seen": 1790894628.8741136,
+    "ast_hash": "9bcb50d65433df7575b21ca80e4b8afd",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-datos-edit/jefe-datos-edit.page.spec.ts": {
+    "mtime": 1790894327.8435972,
+    "seen": 1790894628.8741136,
+    "ast_hash": "56c1158e129f659a3bfe1ceb4161eee9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-datos-edit/jefe-datos-edit.page.ts": {
+    "mtime": 1790894299.99097,
+    "seen": 1790894628.8741136,
+    "ast_hash": "01b8d1f66f6019a0979d682a91d3a849",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.spec.ts": {
+    "mtime": 1790836043.4703681,
+    "seen": 1790894628.8761156,
+    "ast_hash": "b63815ed9ed8fbf4b06852835add8a17",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.ts": {
+    "mtime": 1790836568.551464,
+    "seen": 1790894628.8761156,
+    "ast_hash": "71587f83710335eaff0e3232185c8bdc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/shells/form-step/form-step.ts": {
+    "mtime": 1790836564.197606,
+    "seen": 1790894628.8761156,
+    "ast_hash": "1d31ab5544fb1b90cb96275eceb5648a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/shells/modal/modal.ts": {
+    "mtime": 1790835745.3722048,
+    "seen": 1790894628.8761156,
+    "ast_hash": "1d2261ac6733df7ca239e795ced6c72e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/validators/duplicate-email.validator.ts": {
+    "mtime": 1790835757.1498718,
+    "seen": 1790894628.8761156,
+    "ast_hash": "df3cf521e7607b71e1dcbce8a4e01712",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/validators/duplicate-id.validator.spec.ts": {
+    "mtime": 1790835998.144781,
+    "seen": 1790894628.8761156,
+    "ast_hash": "41971d7726a87e46e7eed47bc0b9fb1e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/validators/duplicate-id.validator.ts": {
+    "mtime": 1790835753.8215518,
+    "seen": 1790894628.8761156,
+    "ast_hash": "0fafb3af0e14b0a95e8f49a2428d7948",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/validators/url.validator.ts": {
+    "mtime": 1790894466.132119,
+    "seen": 1790894628.8761156,
+    "ast_hash": "8669b24e505f8b0cbbc0b397061feaf0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/atoms.barrel.ts": {
+    "mtime": 1790893880.4233482,
+    "seen": 1790894628.8987448,
+    "ast_hash": "55ec32767974b55fa598e0f903933306",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/date-input.spec.ts": {
+    "mtime": 1790835493.4614096,
+    "seen": 1790894628.9007437,
+    "ast_hash": "bea225b7b6f2ef50ac79efc27e9ac4f1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/date-input.ts": {
+    "mtime": 1790835496.9097736,
+    "seen": 1790894628.9007437,
+    "ast_hash": "78a122f05f085636eaa84e29f1561339",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/email-input/email-input.spec.ts": {
+    "mtime": 1790893791.870414,
+    "seen": 1790894628.9007437,
+    "ast_hash": "803119e296df58f9e3dcef46e51a4422",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/email-input/email-input.ts": {
+    "mtime": 1790893806.562175,
+    "seen": 1790894628.9007437,
+    "ast_hash": "0fcdea35c55578e1b5f2fd2a5a5fdc74",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/error-message.spec.ts": {
+    "mtime": 1790835476.1374762,
+    "seen": 1790894628.9007437,
+    "ast_hash": "9d1e2d673b136a0af3ad4ec367054a23",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/error-message.ts": {
+    "mtime": 1790835478.266312,
+    "seen": 1790894628.9007437,
+    "ast_hash": "be519657ee1b132b7c0cba92ca3493b2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/icon/icon.spec.ts": {
+    "mtime": 1790835483.007953,
+    "seen": 1790894628.9007437,
+    "ast_hash": "b0520e0bfe18c1d4fc1018dbf5109060",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/icon/icon.ts": {
+    "mtime": 1790835485.3888648,
+    "seen": 1790894628.9007437,
+    "ast_hash": "f5aad49eea9d57322286a23cd2561ee4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/label.spec.ts": {
+    "mtime": 1790835422.1153898,
+    "seen": 1790894628.9007437,
+    "ast_hash": "037fe1eaf010db10e9775d12ca1ed0fb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/label.ts": {
+    "mtime": 1790835426.6555412,
+    "seen": 1790894628.9007437,
+    "ast_hash": "a5879f4aa4da6fcb2767e9dd0ac2074a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.spec.ts": {
+    "mtime": 1790893848.83158,
+    "seen": 1790894628.90175,
+    "ast_hash": "ef154453d6589b0c4c76bd04f8e676b4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.ts": {
+    "mtime": 1790893875.7161229,
+    "seen": 1790894628.90175,
+    "ast_hash": "db98fa5103260db6105191997edfa1a0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.spec.ts": {
+    "mtime": 1790893822.5817177,
+    "seen": 1790894628.9032607,
+    "ast_hash": "6fc7c36d27fe8bf0e5de3142744f219b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.ts": {
+    "mtime": 1790893832.4680517,
+    "seen": 1790894628.9032607,
+    "ast_hash": "8169505afa9ddf2ff3d13625bc73376a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/text-input.spec.ts": {
+    "mtime": 1790893736.998798,
+    "seen": 1790894628.9032607,
+    "ast_hash": "e4800eeb880f605d1f0881c3dfe50bc5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/text-input.ts": {
+    "mtime": 1790893772.387554,
+    "seen": 1790894628.9032607,
+    "ast_hash": "e8ec8810c8797d2d85282f4cedb4878a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/autocomplete/autocomplete.spec.ts": {
+    "mtime": 1790835577.4578726,
+    "seen": 1790894628.9032607,
+    "ast_hash": "2f21f917a00bb05399f84d82d4fc09c5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/autocomplete/autocomplete.ts": {
+    "mtime": 1790835585.607511,
+    "seen": 1790894628.9032607,
+    "ast_hash": "3a54f0413c7152e1d46dba687b4efa3f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/form-field/form-field.spec.ts": {
+    "mtime": 1790835566.180672,
+    "seen": 1790894628.9048085,
+    "ast_hash": "b093582660f6066dd0b0c9061c5e6875",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/form-field/form-field.ts": {
+    "mtime": 1790835571.73863,
+    "seen": 1790894628.9048085,
+    "ast_hash": "7190cc9b678cb9040f235691ba78624a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/molecules.barrel.ts": {
+    "mtime": 1790835604.4200208,
+    "seen": 1790894628.9048085,
+    "ast_hash": "515038f1b6fab6f37adfe983e0a2e16a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/radio-card/radio-card.spec.ts": {
+    "mtime": 1790835591.3103416,
+    "seen": 1790894628.9048085,
+    "ast_hash": "462dc9ae48cd1c82a7e49f2b4c85a090",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/radio-card/radio-card.ts": {
+    "mtime": 1790835595.9110832,
+    "seen": 1790894628.9048085,
+    "ast_hash": "c21ebdaa316f2c898555a697c43efd42",
+    "semantic_hash": ""
+  },
+  "test-verification.ts": {
+    "mtime": 1790893945.731343,
+    "seen": 1790894628.9145262,
+    "ast_hash": "6b5cf3bf0de1826ab4fb77b57dd9d7c0",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-015/progress.md": {
+    "mtime": 1790836093.252654,
+    "seen": 1790894628.9155405,
+    "ast_hash": "5dd730535582aba5dfd07924e7cc1ff9",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-a-report.md": {
+    "mtime": 1790893980.3835845,
+    "seen": 1790894628.9155405,
+    "ast_hash": "96381593e9e1e6b8d13298befb068a6c",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-b-report.md": {
+    "mtime": 1790894521.7871318,
+    "seen": 1790894628.9155405,
+    "ast_hash": "cd7ad192cd61c8b92f03edda957b576a",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/progress.md": {
+    "mtime": 1790893631.8946867,
+    "seen": 1790894628.9155405,
+    "ast_hash": "64745d781073b9075409f0642ce2280e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/README.md": {
+    "mtime": 1790835499.192566,
+    "seen": 1790894628.939323,
+    "ast_hash": "82c0ad2398f0676d2ad56575d4c078dc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/README.md": {
+    "mtime": 1790835480.0617876,
+    "seen": 1790894628.939323,
+    "ast_hash": "0f57b162a705f1d60340cca63d93ec6b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/icon/README.md": {
+    "mtime": 1790835487.2537231,
+    "seen": 1790894628.939323,
+    "ast_hash": "4d5ddfec6d2b95df971c09d1808e2ac7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/README.md": {
+    "mtime": 1790835428.6780279,
+    "seen": 1790894628.939323,
+    "ast_hash": "c6496e94b0933b0652243484f9d656fc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/README.md": {
+    "mtime": 1790835506.7888086,
+    "seen": 1790894628.939323,
+    "ast_hash": "16385c5d0a9ef2883a9e242a5f7343c8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/README.md": {
+    "mtime": 1790835384.2897837,
+    "seen": 1790894628.939323,
+    "ast_hash": "74d9d0c5a2045dc69ed1b52a9e21278a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/autocomplete/README.md": {
+    "mtime": 1790835587.8550777,
+    "seen": 1790894628.939323,
+    "ast_hash": "8063a7009a291256ddccb4949b01bddb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/form-field/README.md": {
+    "mtime": 1790835574.280974,
+    "seen": 1790894628.939323,
+    "ast_hash": "fedeb2500311af61419bc58f3e1a3b57",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/radio-card/README.md": {
+    "mtime": 1790835597.589925,
+    "seen": 1790894628.939323,
+    "ast_hash": "b2c09c13b67fd3fe1d8be575f1a17d6d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-016-actualizar-datos-y-contactos.md": {
+    "mtime": 1790893411.0235386,
+    "seen": 1790894629.1112823,
+    "ast_hash": "f1953e28f6832dd4649cc815d46ae396",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md": {
+    "mtime": 1790893379.718946,
+    "seen": 1790894629.1183586,
+    "ast_hash": "94f5dc95d52b84e49ff6ffb45849a146",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DCP-016-complete-pack.md": {
+    "mtime": 1790893476.4209516,
+    "seen": 1790894629.1193588,
+    "ast_hash": "4adc339194a87ebc0e6e75580f21ac04",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/PLAN-015-implementacion-detallado.md": {
+    "mtime": 1790833601.7209582,
+    "seen": 1790894629.1203594,
+    "ast_hash": "0a40cf491af0a681f34a6786bba65130",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/PLAN-016-aplicar-alignment-gates.md": {
+    "mtime": 1790893069.8334913,
+    "seen": 1790894629.1203594,
+    "ast_hash": "6ca6aba732c13e2b013c4f36c5a14960",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/SPEC-015-implementacion-dise\u00f1o.md": {
+    "mtime": 1790833411.1472886,
+    "seen": 1790894629.1203594,
+    "ast_hash": "72a1881cff17268ecb1798334baf4985",
     "semantic_hash": ""
   }
 }
