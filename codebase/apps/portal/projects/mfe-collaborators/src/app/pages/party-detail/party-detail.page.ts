@@ -23,9 +23,9 @@ import { PARTY_ROLE_LABEL, PartyDetail, displayName } from '../../data-access/pa
         <div class="header">
           <h1>{{ displayName(p) }}</h1>
           <div class="actions">
-            <button [routerLink]="[partyId(), 'datos', 'editar']">Editar datos</button>
-            <button [routerLink]="[partyId(), 'contactos', 'editar']">Editar contactos</button>
-            <button [routerLink]="[partyId(), 'perfiles', 'editar']">Editar perfiles</button>
+            <button [routerLink]="['datos', 'editar']">Editar datos</button>
+            <button [routerLink]="['contactos', 'editar']">Editar contactos</button>
+            <button [routerLink]="['perfiles', 'editar']">Editar perfiles</button>
           </div>
         </div>
         <dl class="facts">
