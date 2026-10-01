@@ -1,17 +1,14 @@
-version: "3.9"
-
+# Ejecución aislada del servicio. Para la plataforma completa usar codebase/docker-compose.yml.
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: party-db
     environment:
       POSTGRES_USER: user
+      # Sin DDL en initdb: el esquema lo crea Alembic al arrancar la API
       POSTGRES_PASSWORD: password
       POSTGRES_DB: gestion_formacion
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U user"]
       interval: 10s
@@ -20,30 +17,16 @@ services:
 
   api:
     build: .
-    container_name: party-api
     ports:
       - "8000:8000"
     environment:
       DATABASE_URL: postgresql+asyncpg://user:password@postgres:5432/gestion_formacion
-      KEYCLOAK_URL: http://host.docker.internal:8080
-      KEYCLOAK_REALM: gestion-formacion
-      KEYCLOAK_CLIENT_ID: party-management-service
-      KEYCLOAK_CLIENT_SECRET: secret
-      KEYCLOAK_PUBLIC_KEY_URL: http://host.docker.internal:8080/realms/gestion-formacion/protocol/openid-connect/certs
+      # Requiere un Keycloak accesible; el issuer debe coincidir con el `iss` de los tokens del BFF.
+      KEYCLOAK_ISSUER: http://localhost:8080/realms/gestion-formacion
+      KEYCLOAK_JWKS_URL: http://host.docker.internal:8080/realms/gestion-formacion/protocol/openid-connect/certs
+      KEYCLOAK_ALLOWED_CLIENTS: bff-app
       API_ENVIRONMENT: development
-      API_HOST: 0.0.0.0
-      API_PORT: 8000
-      LOG_LEVEL: INFO
+      SEED_DEMO_DATA: "true"
     depends_on:
       postgres:
         condition: service_healthy
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health/live"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-
-volumes:
-  postgres_data:
-    driver: local

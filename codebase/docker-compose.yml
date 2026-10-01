@@ -1,163 +1,267 @@
-version: '3.8'
+# =====================================================================
+# Plataforma de Gestión de Formación — entorno local completo
+#
+#   docker compose up -d --build        → levanta todo como una unidad
+#   http://localhost:4200               → portal (inicia sesión con un usuario de prueba)
+#
+# Orden de arranque (depends_on + healthchecks):
+#   postgres, mysql, redis, vault
+#     → vault-init (siembra secretos, ADR-004)   → keycloak (importa realm, ADR-002)
+#     → party-service (FastAPI, ADR-008)          → bff (Node.js, ADR-001/005)
+#     → portal (nginx: shell + microUIs Native Federation)
+#
+# SOLO DESARROLLO: credenciales de ejemplo. Se pueden sobrescribir con un archivo
+# codebase/.env (ver .env.example). En QA/PROD los secretos viven en Vault.
+# =====================================================================
+# Nombre de proyecto fijo: contenedores gestion-formacion-<servicio>-1, volúmenes gestion-formacion_<volumen>.
+# Si antes levantaste la versión anterior (proyecto "codebase"), bájala primero:
+#   docker compose -p codebase down -v --remove-orphans
+name: gestion-formacion
+
+x-healthcheck-defaults: &hc
+  interval: 10s
+  timeout: 5s
+  retries: 10
 
 services:
-  # =====================================================================
-  # MySQL 8.0.16+ (Party model, main application database)
-  # =====================================================================
+  # ===================================================================
+  # Datos
+  # ===================================================================
+
+  # MySQL 8.0.16+ — segundo motor soportado por el DDL portable (ADR-003).
+  # Ningún servicio de la app lo usa en desarrollo (ADR-007); queda para probar portabilidad.
   mysql:
     image: mysql:8.0.35
-    container_name: gestion-formacion-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
       MYSQL_DATABASE: gestion_formacion
       MYSQL_USER: gestion_user
-      MYSQL_PASSWORD: gestion_password
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gestion_password}
       TZ: UTC
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./knowledge-base/architecture/data-model/ddl/party-mysql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
+      - ../knowledge-base/architecture/data-model/ddl/party-mysql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "gestion_user", "-pgestion_password"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - gestion-formacion
+      <<: *hc
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "gestion_user", "-p${MYSQL_PASSWORD:-gestion_password}"]
+    networks: [gestion-formacion]
 
-  # =====================================================================
-  # PostgreSQL 15+ (Party model + Keycloak)
-  # Un solo PostgreSQL para ambas bases de datos (desarrollo local optimizado)
-  # =====================================================================
+  # PostgreSQL 15 — app (gestion_formacion) + Keycloak (keycloak) en una instancia (ADR-007)
   postgres:
     image: postgres:15-alpine
-    container_name: gestion-formacion-postgres
     environment:
-      POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: gestion_formacion
-      POSTGRES_INITDB_ARGS: >
-        -c shared_preload_libraries=pg_stat_statements
       PGTZ: UTC
+      # Usuarios que crea postgres-init.sh
+      APP_DB_USER: gestion_user
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:-gestion_password}
+      KEYCLOAK_DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD:-keycloak_password}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./knowledge-base/architecture/data-model/ddl/party-postgresql.sql:/docker-entrypoint-initdb.d/01-party-model.sql:ro
-      - ./codebase/postgres-init.sh:/docker-entrypoint-initdb.d/02-init-keycloak.sh:ro
+      # Solo usuarios y bases. El esquema de partes lo crea Alembic al arrancar party-service
+      # (migrations/: PDM-001 + alineación STD-DB-001); ya no se monta el DDL en initdb.
+      - ./postgres-init.sh:/docker-entrypoint-initdb.d/01-init-users.sh:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - gestion-formacion
+      <<: *hc
+      test: ["CMD-SHELL", "pg_isready -U postgres -d gestion_formacion"]
+    networks: [gestion-formacion]
 
-  # =====================================================================
-  # Keycloak 22+ (Authentication & Identity Management)
-  # Configuración para DESARROLLO LOCAL
-  # Usa el mismo PostgreSQL que la app (optimizado para dev)
-  # =====================================================================
-  keycloak:
-    image: quay.io/keycloak/keycloak:22.0.5
-    container_name: gestion-formacion-keycloak
-    environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
-      KC_DB_USERNAME: keycloak_user
-      KC_DB_PASSWORD: keycloak_password
-      KC_HOSTNAME: localhost
-      KC_HOSTNAME_PORT: 8080
-      KC_PROXY: edge
-      KC_LOG_LEVEL: INFO
-    ports:
-      - "8080:8080"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - gestion-formacion
-    command:
-      - start-dev
-      - --db-url-properties=currentSchema=keycloak
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
-      interval: 15s
-      timeout: 5s
-      retries: 5
-
-  # =====================================================================
-  # Redis (Session cache, job queue)
-  # =====================================================================
+  # Redis — almacén de sesiones del BFF (tokens del lado servidor, ADR-005)
   redis:
     image: redis:7.2-alpine
-    container_name: gestion-formacion-redis
-    environment:
-      TZ: UTC
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:-redis_password}"]
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
-    command:
-      - redis-server
-      - "--appendonly"
-      - "yes"
-      - "--requirepass"
-      - "redis_password"
     healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - gestion-formacion
+      <<: *hc
+      start_period: 5s
+      # redis-cli devuelve 0 aunque la autenticación falle: por eso se exige PONG.
+      # La contraseña la interpola compose al leer el archivo (sin variables del contenedor).
+      test: ["CMD-SHELL", "redis-cli -a '${REDIS_PASSWORD:-redis_password}' --no-auth-warning ping | grep -q PONG"]
+    networks: [gestion-formacion]
 
-  # =====================================================================
-  # HashiCorp Vault (Secrets & Parameters Management)
-  # Configuración para DESARROLLO LOCAL
-  # =====================================================================
+  # ===================================================================
+  # Seguridad
+  # ===================================================================
+
+  # HashiCorp Vault en modo dev (desellado, KV v2 en secret/, token raíz fijo). ADR-004.
+  # Es en memoria: vault-init vuelve a sembrar los secretos en cada arranque.
   vault:
     image: hashicorp/vault:1.15.6
-    container_name: gestion-formacion-vault
+    command: ["server", "-dev", "-dev-listen-address=0.0.0.0:8200"]
     environment:
-      VAULT_ADDR: http://0.0.0.0:8200
-      VAULT_API_ADDR: http://vault:8200
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN:-dev-root-token}
+    cap_add: [IPC_LOCK]
     ports:
       - "8200:8200"
-    volumes:
-      - vault_data:/vault/data
-      - vault_config:/vault/config
-      - ./vault-dev-config.hcl:/vault/config/dev-config.hcl:ro
-    cap_add:
-      - IPC_LOCK
-    command:
-      - server
-      - -config=/vault/config/dev-config.hcl
-    networks:
-      - gestion-formacion
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O-", "http://localhost:8200/v1/sys/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      <<: *hc
+      test: ["CMD", "wget", "-q", "-O-", "http://127.0.0.1:8200/v1/sys/health"]
+    networks: [gestion-formacion]
 
-  # =====================================================================
-  # Adminer (Web UI for MySQL/PostgreSQL browsing)
-  # Optional: for development convenience
-  # =====================================================================
+  # Siembra los secretos que leen los servicios (rutas de ACP-002 §2 / ADR-004) y termina.
+  vault-init:
+    image: hashicorp/vault:1.15.6
+    entrypoint: ["/bin/sh", "/seed-secrets.sh"]
+    environment:
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: ${VAULT_DEV_ROOT_TOKEN:-dev-root-token}
+      BFF_OIDC_CLIENT_SECRET: ${BFF_OIDC_CLIENT_SECRET:-bff-dev-secret-change-me}
+      BFF_SESSION_SECRET: ${BFF_SESSION_SECRET:-dev-session-secret-please-change-0123456789}
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redis_password}@redis:6379
+      APP_DB_USER: gestion_user
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:-gestion_password}
+    volumes:
+      - ./infra/vault/seed-secrets.sh:/seed-secrets.sh:ro
+    depends_on:
+      vault: { condition: service_healthy }
+    restart: "no"
+    networks: [gestion-formacion]
+
+  # Keycloak 22 — proveedor de identidad (ADR-002). Importa el realm de desarrollo al arrancar.
+  # Issuer público http://localhost:8080 (el que usa el navegador). Los servicios llegan por la red
+  # interna (http://keycloak:8080); el BFF reescribe el origen con OIDC_INTERNAL_URL.
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.5
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD:-keycloak_password}
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+      KC_HTTP_ENABLED: "true"
+      KC_HEALTH_ENABLED: "true"
+      KC_LOG_LEVEL: INFO
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./infra/keycloak/realm-gestion-formacion.json:/opt/keycloak/data/import/realm-gestion-formacion.json:ro
+    depends_on:
+      postgres: { condition: service_healthy }
+    healthcheck:
+      <<: *hc
+      retries: 30
+      start_period: 30s
+      # La imagen no trae curl: se consulta /health/ready con bash /dev/tcp
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /health/ready HTTP/1.1\\r\\nHost: localhost\\r\\nConnection: close\\r\\n\\r\\n' >&3 && grep -q '\"UP\"' <&3"]
+    networks: [gestion-formacion]
+
+  # ===================================================================
+  # Aplicación
+  # ===================================================================
+
+  # Microservicio de data maestra de Party (FastAPI, ADR-008)
+  party-service:
+    build:
+      context: ./apps/domains/party-management-service
+    image: gestion-formacion/party-service:dev
+    environment:
+      DATABASE_URL: postgresql+asyncpg://gestion_user:${APP_DB_PASSWORD:-gestion_password}@postgres:5432/gestion_formacion
+      # Solo acepta el token de servicio del BFF (ADR-005 §2): issuer público + JWKS por red interna
+      KEYCLOAK_ISSUER: http://localhost:8080/realms/gestion-formacion
+      KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/gestion-formacion/protocol/openid-connect/certs
+      KEYCLOAK_ALLOWED_CLIENTS: bff-app
+      SEED_DEMO_DATA: "true"         # 5 colaboradores de ejemplo si no hay personas (solo dev)
+      # Límite por usuario (API-SPEC-001 §4.5): 1000/h lectura en dev; en producción 10000
+      RATE_LIMIT_READ_PER_HOUR: "1000"
+      RATE_LIMIT_CREATE_PER_HOUR: "100"
+      RATE_LIMIT_UPDATE_PER_HOUR: "500"
+      API_ENVIRONMENT: development
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      LOG_LEVEL: INFO
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+    healthcheck:
+      <<: *hc
+      start_period: 30s              # incluye `alembic upgrade head` en el primer arranque
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"]
+    networks: [gestion-formacion]
+
+  # BFF Node.js — único punto de entrada del portal (ADR-001), OIDC + PKCE (ADR-002/005).
+  # Toma client_secret, session_secret y redis_url de Vault (ADR-004).
+  bff:
+    build:
+      context: ./apps/bff
+    image: gestion-formacion/bff:dev
+    environment:
+      NODE_ENV: development           # cookies sin Secure porque el entorno local es HTTP
+      PORT: 3000
+      LOG_LEVEL: info
+      PUBLIC_ORIGIN: http://localhost:4200
+      # Issuer público (el que ve el navegador) + origen interno para las llamadas BFF→Keycloak.
+      OIDC_ISSUER: http://localhost:8080/realms/gestion-formacion
+      OIDC_INTERNAL_URL: http://keycloak:8080
+      OIDC_CLIENT_ID: bff-app
+      OIDC_REDIRECT_URI: http://localhost:4200/auth/callback
+      SESSION_TTL_SECONDS: 1800
+      PARTY_SERVICE_URL: http://party-service:8000
+      CATALOG_SERVICE_URL: ""        # catalog-service todavía no existe → 503 controlado
+      DOWNSTREAM_TIMEOUT_MS: 5000
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: ${VAULT_DEV_ROOT_TOKEN:-dev-root-token}
+      VAULT_KV_MOUNT: secret
+      VAULT_BASE_PATH: gestion-formacion
+    ports:
+      - "3000:3000"
+    depends_on:
+      vault-init: { condition: service_completed_successfully }
+      redis: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      party-service: { condition: service_healthy }
+    restart: on-failure
+    healthcheck:
+      <<: *hc
+      retries: 30
+      start_period: 60s
+      # 503 con el detalle (keycloak / redis) mientras alguna dependencia no esté lista:
+      #   docker compose exec bff wget -qO- http://127.0.0.1:3000/health/ready
+      test: ["CMD", "wget", "-q", "-O-", "http://127.0.0.1:3000/health/ready"]
+    networks: [gestion-formacion]
+
+  # Portal: shell + microUIs (Native Federation) servidos por nginx.
+  # nginx reenvía /api y /auth al BFF: mismo origen, la cookie de sesión viaja sola.
+  portal:
+    build:
+      context: ./apps/portal
+    image: gestion-formacion/portal:dev
+    environment:
+      PORTAL_PUBLIC_ORIGIN: http://localhost:4200
+      BFF_UPSTREAM: http://bff:3000
+    ports:
+      - "4200:80"
+    depends_on:
+      bff: { condition: service_healthy }
+    healthcheck:
+      <<: *hc
+      test: ["CMD", "wget", "-q", "-O-", "http://127.0.0.1/healthz"]
+    networks: [gestion-formacion]
+
+  # ===================================================================
+  # Herramientas
+  # ===================================================================
   adminer:
     image: adminer:latest
-    container_name: gestion-formacion-adminer
     ports:
       - "8081:8080"
-    depends_on:
-      - mysql
-      - postgres
-    networks:
-      - gestion-formacion
+    depends_on: [mysql, postgres]
+    networks: [gestion-formacion]
 
 networks:
   gestion-formacion:
@@ -165,43 +269,20 @@ networks:
 
 volumes:
   mysql_data:
-    driver: local
   postgres_data:
-    driver: local
   redis_data:
-    driver: local
-  vault_data:
-    driver: local
-  vault_config:
-    driver: local
 
 # =====================================================================
-# Quick Start
+# URLs (desarrollo)
+#   Portal:        http://localhost:4200
+#   BFF:           http://localhost:3000/health/ready
+#   Party service: http://localhost:8000/docs
+#   Keycloak:      http://localhost:8080/admin              (admin / admin)
+#   Vault:         http://localhost:8200                    (token: dev-root-token)
+#   Adminer:       http://localhost:8081
+#
+# Usuarios de prueba (realm gestion-formacion):
+#   ana.colaboradora / Colaborador.2026   → colaborador
+#   jefe.ingenieria  / Jefe.2026          → colaborador, jefe_ingenieria
+#   admin.plataforma / Admin.2026         → colaborador, admin
 # =====================================================================
-# docker-compose up -d               # Start all services
-# docker-compose logs -f             # Follow logs
-# docker-compose ps                  # Show running services
-# docker-compose down -v             # Stop and remove volumes
-#
-# Service URLs (development):
-#   MySQL:       localhost:3306 (user: gestion_user, pass: gestion_password)
-#   PostgreSQL:  localhost:5432 (user: gestion_user, pass: gestion_password)
-#   Keycloak:    http://localhost:8080 (admin: admin / admin)
-#   Redis:       localhost:6379 (password: redis_password)
-#   Vault:       http://localhost:8200 (dev mode, unsealed)
-#   Adminer:     http://localhost:8081
-#
-# To initialize Keycloak realm:
-#   1. Visit http://localhost:8080/admin
-#   2. Login with admin/admin
-#   3. Create realm "gestion-formacion"
-#   4. Create client "bff-app" with PKCE enabled
-#   5. Configure redirect URIs: http://localhost:4200/* (Angular app)
-#
-# To initialize Vault:
-#   docker-compose exec vault vault login (use root token from startup)
-#   vault kv put secret/gestion/gmail email=your-gmail password=your-password
-#   vault kv put secret/gestion/bff-secret key=your-secret
-#
-# Database migration (after MySQL is running):
-#   docker-compose exec mysql mysql -u gestion_user -pgestion_password gestion_formacion < migrations/portable/V001__init.sql

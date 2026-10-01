@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Modelo de Datos Conceptual - Gestión de Formación",
+    "subtitle": "Party Model: Roles, Competencias, Certificaciones, Colaboradores",
+    "output": "archify-diagrams/02-data-model-flow.html",
+    "quality_profile": "showcase",
+    "locale": "es"
+  },
+  "sources": [
+    {
+      "id": "parte",
+      "label": "Parte",
+      "sublabel": "Persona u Organización",
+      "kind": "entity",
+      "pos": [50, 250]
+    },
+    {
+      "id": "persona",
+      "label": "Persona",
+      "sublabel": "Identificación, Contacto",
+      "kind": "entity",
+      "pos": [250, 150]
+    },
+    {
+      "id": "organizacion",
+      "label": "Organización",
+      "sublabel": "Empresa, Proveedor",
+      "kind": "entity",
+      "pos": [250, 350]
+    },
+    {
+      "id": "rol-parte",
+      "label": "Rol de Parte",
+      "sublabel": "Empleado, Contratista, PM, Jefe Ing.",
+      "kind": "entity",
+      "pos": [450, 250]
+    },
+    {
+      "id": "colaborador",
+      "label": "Colaborador",
+      "sublabel": "Persona + Rol vigente",
+      "kind": "entity",
+      "pos": [650, 250],
+      "tag": "Party model"
+    },
+    {
+      "id": "catalogo-rol",
+      "label": "Catálogo: Rol",
+      "sublabel": "Developer, PM, QA, etc.",
+      "kind": "entity",
+      "pos": [650, 50],
+      "tag": "Único, Común"
+    },
+    {
+      "id": "rol-nivel-asig",
+      "label": "Rol-Nivel Asignado",
+      "sublabel": "Developer Junior Lvl 2",
+      "kind": "entity",
+      "pos": [850, 150]
+    },
+    {
+      "id": "competencia-catalogo",
+      "label": "Catálogo: Competencia",
+      "sublabel": "L1-L4, Rúbrica",
+      "kind": "entity",
+      "pos": [850, 50],
+      "tag": "Requisitos por Nivel"
+    },
+    {
+      "id": "certificacion",
+      "label": "Certificación",
+      "sublabel": "Colaborador + Competencia + Nivel",
+      "kind": "entity",
+      "pos": [850, 350],
+      "tag": "Auditable"
+    },
+    {
+      "id": "evidencia",
+      "label": "Evidencia",
+      "sublabel": "Formación, Práctica, GitLab",
+      "kind": "entity",
+      "pos": [1050, 350]
+    },
+    {
+      "id": "proyecto",
+      "label": "Proyecto",
+      "sublabel": "Instancia de trabajo",
+      "kind": "entity",
+      "pos": [450, 450]
+    },
+    {
+      "id": "requerimiento",
+      "label": "Requerimiento",
+      "sublabel": "Rol-Nivel + Competencias",
+      "kind": "entity",
+      "pos": [650, 450],
+      "tag": "Demanda"
+    },
+    {
+      "id": "asignacion",
+      "label": "Asignación",
+      "sublabel": "Colaborador → Requerimiento",
+      "kind": "entity",
+      "pos": [850, 450]
+    },
+    {
+      "id": "brecha",
+      "label": "Brecha (Calculada)",
+      "sublabel": "Nivel Requerido − Nivel Certificado",
+      "kind": "entity",
+      "pos": [1050, 450]
+    },
+    {
+      "id": "proposal-ia",
+      "label": "Propuesta IA (H3)",
+      "sublabel": "GitLab → Nivel propuesto",
+      "kind": "entity",
+      "pos": [1050, 150],
+      "tag": "Justificable"
+    }
+  ],
+  "flows": [
+    {
+      "id": "parte-to-persona",
+      "from": "parte",
+      "to": "persona",
+      "label": "especializa"
+    },
+    {
+      "id": "parte-to-org",
+      "from": "parte",
+      "to": "organizacion",
+      "label": "especializa"
+    },
+    {
+      "id": "persona-to-rol-parte",
+      "from": "persona",
+      "to": "rol-parte",
+      "label": "tiene",
+      "variant": "emphasis"
+    },
+    {
+      "id": "rol-parte-to-colaborador",
+      "from": "rol-parte",
+      "to": "colaborador",
+      "label": "forma",
+      "variant": "emphasis"
+    },
+    {
+      "id": "colaborador-to-rol-nivel",
+      "from": "colaborador",
+      "to": "rol-nivel-asig",
+      "label": "asignado a",
+      "variant": "emphasis"
+    },
+    {
+      "id": "catalogo-rol-to-rol-nivel",
+      "from": "catalogo-rol",
+      "to": "rol-nivel-asig",
+      "label": "define",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "competencia-catalogo-to-rol-nivel",
+      "from": "competencia-catalogo",
+      "to": "rol-nivel-asig",
+      "label": "exige",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "competencia-catalogo-to-certificacion",
+      "from": "competencia-catalogo",
+      "to": "certificacion",
+      "label": "certifica",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "colaborador-to-certificacion",
+      "from": "colaborador",
+      "to": "certificacion",
+      "label": "obtiene",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "certificacion-to-evidencia",
+      "from": "certificacion",
+      "to": "evidencia",
+      "label": "respaldada por",
+      "variant": "emphasis"
+    },
+    {
+      "id": "proyecto-to-requerimiento",
+      "from": "proyecto",
+      "to": "requerimiento",
+      "label": "declara"
+    },
+    {
+      "id": "catalogo-rol-to-requerimiento",
+      "from": "catalogo-rol",
+      "to": "requerimiento",
+      "label": "necesita",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "requerimiento-to-asignacion",
+      "from": "requerimiento",
+      "to": "asignacion",
+      "label": "asigna",
+      "variant": "emphasis"
+    },
+    {
+      "id": "colaborador-to-asignacion",
+      "from": "colaborador",
+      "to": "asignacion",
+      "label": "participa",
+      "fromSide": "bottom",
+      "toSide": "left"
+    },
+    {
+      "id": "requerimiento-to-brecha",
+      "from": "requerimiento",
+      "to": "brecha",
+      "label": "calcula",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "certificacion-to-brecha",
+      "from": "certificacion",
+      "to": "brecha",
+      "label": "vs.",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "evidencia-to-proposal",
+      "from": "evidencia",
+      "to": "proposal-ia",
+      "label": "analiza (H3)",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "proposal-to-certificacion",
+      "from": "proposal-ia",
+      "to": "certificacion",
+      "label": "propone (H3)",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Party Model",
+      "items": [
+        "Parte (Persona u Organización)",
+        "Rol de Parte (Empleado, Contratista, PM)",
+        "Colaborador = Persona + Rol vigente",
+        "Siguiendo Universal Data Model"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Catálogo (Único, Común)",
+      "items": [
+        "Rol (Developer, QA, PM, etc.)",
+        "Competencia (Skill con L1-L4)",
+        "Rol-Nivel (Developer Junior Lvl 1, 2, 3)",
+        "Requisitos de Evidencia (por Competencia/Nivel)"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Operacional (Transaccional)",
+      "items": [
+        "Certificación (Colaborador + Competencia + Nivel)",
+        "Auditable (quién, cuándo, evidencia)",
+        "Respaldada por Evidencia (formación, práctica, GitLab)",
+        "Firma humana obligatoria"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Demanda-Oferta (Matching)",
+      "items": [
+        "Proyecto declara Requerimiento (Rol-Nivel + Competencias)",
+        "Brecha = Nivel Requerido − Nivel Certificado",
+        "Asignación = Colaborador → Requerimiento",
+        "Propuesta IA (H3): Analiza evidencia, propone nivel"
+      ]
+    }
+  ]
+}

@@ -1,461 +1,179 @@
-# Docker Compose Setup — Gestion de Formacion
+# Docker Compose — Plataforma de Gestión de Formación (entorno local completo)
 
-Configuración de desarrollo local con los servicios básicos requeridos por la arquitectura:
+Un solo `docker compose up` levanta **toda la plataforma**: infraestructura, microservicio, BFF y portal.
+El archivo es `codebase/docker-compose.yml`. La arquitectura está en `codebase/apps/ARCHITECTURE.md`.
 
-- **MySQL 8.0.16+** — Base de datos principal (Party model)
-- **PostgreSQL 15+** — Base de datos compartida (app + Keycloak, optimizado para dev local)
-- **Keycloak 22+** — Autenticación e identidad (ADR-002)
-- **Redis 7.2** — Cache de sesiones y colas de trabajos
-- **HashiCorp Vault** — Gestión de secretos y parámetros (ADR-004, D22)
-- **Adminer** — UI web para explorar MySQL/PostgreSQL (opcional)
+| Servicio | Imagen / build | Puerto host | Rol | ADR |
+|---|---|---|---|---|
+| `portal` | build `apps/portal` (nginx) | **4200** | Shell + microUIs (Native Federation); proxy `/api` y `/auth` al BFF | ADR-001 |
+| `bff` | build `apps/bff` (Node 24) | 3000 | Único punto de entrada; OIDC + PKCE; sesión en Redis | ADR-001, 002, 005 |
+| `party-service` | build `apps/domains/party-management-service` (FastAPI) | 8000 | Data maestra de Party | ADR-008 |
+| `keycloak` | quay.io/keycloak/keycloak:22.0.5 | 8080 | Proveedor de identidad; importa el realm de desarrollo | ADR-002 |
+| `vault` | hashicorp/vault:1.15.6 (modo dev) | 8200 | Secretos (KV v2 en `secret/`) | ADR-004 |
+| `vault-init` | hashicorp/vault:1.15.6 | — | Siembra los secretos de desarrollo y termina | ADR-004 |
+| `postgres` | postgres:15-alpine | 5432 | Bases `gestion_formacion` (app) y `keycloak` | ADR-003, 007 |
+| `mysql` | mysql:8.0.35 | 3306 | Segundo motor del DDL portable (no lo usa la app en dev) | ADR-003 |
+| `redis` | redis:7.2-alpine | 6379 | Sesiones del BFF (tokens del lado servidor) | ADR-005 |
+| `adminer` | adminer | 8081 | UI para explorar las bases | — |
 
 ---
 
 ## Requisitos
 
-- **Docker** ≥ 20.10
-- **Docker Compose** ≥ 2.0
-- **Espacio en disco** ≥ 10 GB (para volúmenes de datos)
+- Docker Desktop (Windows/macOS) o Docker Engine ≥ 24 con Compose v2.
+- ~6 GB de RAM libres para Docker y ~10 GB de disco.
+- Puertos libres en el host: 4200, 3000, 8000, 8080, 5432, 3306, 6379, 8200, 8081.
+  Keycloak se publica en `http://localhost:8080` (issuer público); los servicios lo llaman por la red
+  interna (`http://keycloak:8080`). No hace falta editar el archivo `hosts`.
 
-Verificar:
+---
+
+## Inicio rápido
+
 ```bash
-docker --version
-docker-compose --version
+cd UX_UI_agentic/codebase
+docker compose -p codebase down -v --remove-orphans   # SOLO si alguna vez levantaste la versión anterior del compose
+cp .env.example .env            # opcional: sobrescribe credenciales de desarrollo
+docker compose up -d --build    # la primera vez compila portal, BFF y party-service (varios minutos)
+docker compose ps               # esperar a que todo quede "healthy"; vault-init queda "exited (0)"
+```
+
+Abrir **http://localhost:4200** → redirige al login de Keycloak → iniciar sesión con un usuario de prueba:
+
+| Usuario | Contraseña | Roles | Ve en el portal |
+|---|---|---|---|
+| `ana.colaboradora` | `Colaborador.2026` | colaborador | Mi desarrollo |
+| `jefe.ingenieria` | `Jefe.2026` | colaborador, jefe_ingenieria | Mi desarrollo, Catálogo, Colaboradores |
+| `admin.plataforma` | `Admin.2026` | colaborador, admin | Mi desarrollo, Colaboradores |
+
+### Orden de arranque
+
+```
+postgres ─┬─> keycloak ─────────────┐
+          └─> party-service ────────┤
+redis ──────────────────────────────┼─> bff ──> portal
+vault ──> vault-init (exit 0) ──────┘
+mysql, adminer (independientes)
+```
+
+Cada flecha es un `depends_on` con `condition: service_healthy` (o `service_completed_successfully`
+para `vault-init`). El BFF abre su puerto de inmediato y conecta Redis y Keycloak en segundo plano con
+reintentos; `/health/ready` explica qué falta. nginx re-resuelve el DNS del BFF cada 10 s, así que un
+reinicio del BFF no deja el portal en 502, y mientras el BFF no responde muestra "La plataforma está iniciando".
+
+---
+
+## Qué se configura automáticamente
+
+| Qué | Dónde | Detalle |
+|---|---|---|
+| Esquema de Party en PostgreSQL | `apps/domains/party-management-service/migrations/` (Alembic) | `party-service` ejecuta `alembic upgrade head` al arrancar: PDM-001 + alineación STD-DB-001 (tablas `tb_*`). Postgres ya no carga DDL en initdb |
+| DDL del modelo Party en MySQL | `knowledge-base/architecture/data-model/ddl/party-mysql.sql` | Se ejecuta al crear el volumen de MySQL (segundo motor; la app no lo usa en dev) |
+| Usuarios de base | `codebase/postgres-init.sh` | `gestion_user` (app, sin superusuario) sobre `gestion_formacion`; `keycloak_user` dueño de la base `keycloak`. Idempotente |
+| Realm de Keycloak | `codebase/infra/keycloak/realm-gestion-formacion.json` | Realm `gestion-formacion`, roles de la plataforma, cliente confidencial `bff-app` con PKCE S256 y service account, usuarios de prueba. Se importa solo si el realm no existe |
+| Secretos en Vault | `codebase/infra/vault/seed-secrets.sh` | `secret/gestion-formacion/auth/keycloak` (`client_id`, `client_secret`), `secret/gestion-formacion/bff` (`session_secret`, `redis_url`), `secret/gestion-formacion/db/postgres` |
+| Colaboradores de ejemplo | `party-service` con `SEED_DEMO_DATA=true` | 5 personas si no hay ninguna (solo desarrollo) |
+| Manifiesto de federación | `apps/portal/docker/40-federation-manifest.sh` | Se genera al iniciar nginx con `PORTAL_PUBLIC_ORIGIN`; la misma imagen sirve en cualquier entorno |
+
+El BFF **lee sus secretos de Vault** (`VAULT_ADDR=http://vault:8200`), no de variables de entorno: el
+entorno local ejercita el mismo camino que QA/PROD (ADR-004).
+
+---
+
+## URLs y credenciales (solo desarrollo)
+
+| Servicio | URL / conexión | Credenciales |
+|---|---|---|
+| Portal | http://localhost:4200 | usuarios de prueba |
+| BFF | http://localhost:3000/health/ready | — |
+| Party service | http://localhost:8000/docs | — |
+| Keycloak admin | http://localhost:8080/admin | `admin` / `admin` |
+| Vault UI | http://localhost:8200 | token `dev-root-token` |
+| PostgreSQL | `localhost:5432` | app: `gestion_user` / `gestion_password` · admin: `postgres` / `postgres` |
+| MySQL | `localhost:3306` | `gestion_user` / `gestion_password` · root: `rootpassword` |
+| Redis | `localhost:6379` | `redis_password` |
+| Adminer | http://localhost:8081 | las de cada base |
+
+Todas se pueden cambiar en `codebase/.env` (ver `.env.example`). Si cambias `BFF_OIDC_CLIENT_SECRET`,
+cambia también el `secret` del cliente `bff-app` en el realm (o en la consola de Keycloak).
+
+---
+
+## Trabajo diario
+
+```bash
+docker compose up -d --build bff            # recompilar y reiniciar solo el BFF
+docker compose up -d --build portal         # idem para el portal
+docker compose logs -f bff party-service    # seguir logs
+docker compose stop                         # detener conservando datos
+docker compose down                         # borrar contenedores (conserva volúmenes)
+docker compose down -v                      # borrar TODO, incluidos los datos (vuelve a importar DDL y realm)
+```
+
+**Desarrollo con recarga en caliente:** levantar solo la infraestructura y correr portal/BFF desde el código:
+
+```bash
+docker compose up -d postgres redis vault vault-init keycloak party-service
+cd apps/bff    && cp .env.example .env && npm run dev        # OIDC_ISSUER=http://localhost:8080/realms/gestion-formacion
+cd apps/portal && npm run build:libs && npm run start:all    # proxy de /api y /auth a localhost:3000
 ```
 
 ---
 
-## Quick Start
+## Datos y migraciones (ADR-003)
 
-### 1. Iniciar todos los servicios
-
-```bash
-cd /path/to/UX_UI_agentic/codebase
-docker-compose up -d
-```
-
-Verificar que todos estén corriendo:
-```bash
-docker-compose ps
-```
-
-**Esperado:**
-```
-CONTAINER ID   IMAGE                              STATUS           PORTS
-...
-mysql          mysql:8.0.35                       Up (healthy)     0.0.0.0:3306->3306/tcp
-postgres       postgres:15-alpine                 Up (healthy)     0.0.0.0:5432->5432/tcp
-keycloak       quay.io/keycloak/keycloak:22.0.5  Up (healthy)     0.0.0.0:8080->8080/tcp
-redis          redis:7.2-alpine                   Up (healthy)     0.0.0.0:6379->6379/tcp
-vault          vault:1.15.6                       Up (healthy)     0.0.0.0:8200->8200/tcp
-adminer        adminer:latest                     Up (running)     0.0.0.0:8081->8080/tcp
-```
-
-**Nota:** Keycloak ahora usa el mismo PostgreSQL que la app (puerto 5432), en vez de un servicio separado en puerto 5433. Esto optimiza recursos locales.
-
----
-
-## Conexiones y Credenciales
-
-### MySQL
-- **URL:** `localhost:3306`
-- **Database:** `gestion_formacion`
-- **User:** `gestion_user`
-- **Password:** `gestion_password`
-- **Root password:** `rootpassword`
-
-**Conexión desde Node.js (BFF):**
-```javascript
-const mysql = require('mysql2/promise');
-const connection = await mysql.createConnection({
-  host: 'mysql',      // dentro de docker-compose
-  user: 'gestion_user',
-  password: 'gestion_password',
-  database: 'gestion_formacion'
-});
-```
-
-### PostgreSQL (App + Keycloak compartido)
-Un solo PostgreSQL contiene ambas bases de datos:
-
-**Base de datos para la app:**
-- **URL:** `localhost:5432`
-- **Database:** `gestion_formacion`
-- **User:** `gestion_user`
-- **Password:** `gestion_password`
-
-**Base de datos para Keycloak (automática):**
-- **Database:** `keycloak`
-- **User:** `keycloak_user`
-- **Password:** `keycloak_password`
-
-**Conexión desde Node.js (app):**
-```javascript
-const pg = require('pg');
-const client = new pg.Client({
-  host: 'postgres',   // dentro de docker-compose
-  port: 5432,
-  database: 'gestion_formacion',
-  user: 'gestion_user',
-  password: 'gestion_password'
-});
-```
-
-**Por qué compartido:** optimiza recursos en desarrollo local (una instancia PostgreSQL para ambas aplicaciones)
-
-### Keycloak (Autenticación PKCE)
-- **Admin URL:** http://localhost:8080/admin
-- **Realm URL:** http://localhost:8080/realms/gestion-formacion
-- **Admin User:** `admin`
-- **Admin Password:** `admin`
-- **Base de datos:** `keycloak` en PostgreSQL (compartida, automáticamente creada)
-
-**Inicialización automática:**
-- La base de datos `keycloak` se crea automáticamente en PostgreSQL cuando el contenedor inicia (via `postgres-init.sh`)
-- Usuario `keycloak_user` se crea con permisos suficientes
-
-**Inicialización del realm (primera vez):**
-1. Esperar a que Keycloak esté healthy: `docker-compose ps | grep keycloak`
-2. Abrir http://localhost:8080/admin
-3. Login con admin/admin
-4. Crear realm: `gestion-formacion`
-5. Crear client: `bff-app`
-   - Enable PKCE
-   - Redirect URIs: `http://localhost:4200/*` (Angular shell)
-   - Post Logout Redirect URIs: `http://localhost:4200/login`
-6. Crear usuarios de prueba (opcional)
-
-**Integración con BFF (Node.js, ADR-002):**
-```javascript
-// BFF obtiene JWT con su propia cuenta de servicio
-const axios = require('axios');
-const token = await axios.post(
-  'http://keycloak:8080/realms/gestion-formacion/protocol/openid-connect/token',
-  new URLSearchParams({
-    client_id: 'bff-app',
-    client_secret: 'your-client-secret',
-    grant_type: 'client_credentials'
-  })
-);
-```
-
-### Redis (Session Cache)
-- **URL:** `localhost:6379`
-- **Password:** `redis_password`
-- **Database:** 0 (default)
-
-**Conexión desde Node.js (BFF):**
-```javascript
-const redis = require('redis');
-const client = redis.createClient({
-  host: 'redis',
-  port: 6379,
-  password: 'redis_password'
-});
-```
-
-### HashiCorp Vault (Secrets Management)
-- **URL:** http://localhost:8200
-- **Dev mode:** Automáticamente unsealed
-- **Root token:** Impreso en logs
+**PostgreSQL (lo que usa la app):** el esquema lo crea y versiona Alembic dentro de `party-service`
+(revisiones `0001_pdm001_baseline` y `0002_std_db_001_alignment`). No ejecutes V003/V004 a mano
+sobre PostgreSQL: no corren tal cual (ver `apps/domains/party-management-service/README.md` y Q-13).
 
 ```bash
-docker-compose logs vault | grep "Root Token"
+docker compose exec party-service alembic current     # revisión aplicada
+docker compose exec party-service alembic history     # revisiones disponibles
 ```
 
-**Integración (ADR-004, D22):**
+**MySQL (segundo motor, sin uso en dev):** el DDL se carga al crear su volumen. Para probar las
+migraciones portables:
+
 ```bash
-# Login
-vault login <root-token>
-
-# Guardar secretos
-vault kv put secret/gestion/gmail \
-  email=your-email@gmail.com \
-  password=your-app-password
-
-vault kv put secret/gestion/bff-service-account \
-  client_id=bff-app \
-  client_secret=your-secret
-```
-
-**Desde Node.js:**
-```javascript
-const VaultClient = require('node-vault');
-const vault = new VaultClient({
-  endpoint: 'http://vault:8200',
-  token: process.env.VAULT_TOKEN
-});
-
-const secret = await vault.read('secret/data/gestion/gmail');
-```
-
-### Adminer (Web UI)
-- **URL:** http://localhost:8081
-- Permite explorar MySQL y PostgreSQL desde navegador
-- Select database, enter credentials, browse tables
-
----
-
-## Datos Iniciales
-
-### Cargar DDL (Modelo Party)
-
-**MySQL:**
-```bash
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/party-mysql.sql
-```
-
-**PostgreSQL:**
-```bash
-docker-compose exec postgres psql \
-  -U gestion_user -d gestion_formacion \
-  -f /docker-entrypoint-initdb.d/01-party-model.sql
-```
-
-El DDL se carga automáticamente al iniciar el contenedor (en `docker-entrypoint-initdb.d/`).
-
----
-
-## Testing de Migraciones
-
-Las migraciones V003 y V004 (alineación STD-DB-001) pueden ser testeadas en ambos motores:
-
-**MySQL:**
-```bash
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/migrations/portable/V003__align-std-db-001-tablas.sql
-
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/migrations/portable/V004__align-std-db-001-constraints.sql
-```
-
-**PostgreSQL:**
-```bash
-docker-compose exec postgres psql \
-  -U gestion_user -d gestion_formacion \
-  -f knowledge-base/architecture/data-model/ddl/migrations/portable/V003__align-std-db-001-tablas.sql
-
-docker-compose exec postgres psql \
-  -U gestion_user -d gestion_formacion \
-  -f knowledge-base/architecture/data-model/ddl/migrations/portable/V004__align-std-db-001-constraints.sql
+docker compose exec -T mysql mysql -u gestion_user -pgestion_password gestion_formacion \
+  < ../knowledge-base/architecture/data-model/ddl/migrations/portable/V003__align-std-db-001-tablas.sql
+docker compose exec -T mysql mysql -u gestion_user -pgestion_password gestion_formacion \
+  < ../knowledge-base/architecture/data-model/ddl/migrations/portable/V004__align-std-db-001-constraints.sql
 ```
 
 ---
 
-## Validación de Servicios
+## Solución de problemas
 
-### Health Checks
+| Síntoma | Causa probable | Qué hacer |
+|---|---|---|
+| El login redirige a una URL inaccesible | Keycloak con un hostname distinto de `localhost` (versión anterior del compose) | `docker compose up -d keycloak bff` con el compose actual (`KC_HOSTNAME=localhost`) |
+| `bff` queda *unhealthy* y el portal da **502 / "La plataforma está iniciando"** | El BFF no logra el discovery de Keycloak, no conecta a Redis o no lee Vault | Ver el motivo exacto: `docker compose exec bff wget -qO- http://127.0.0.1:3000/health/ready` (muestra `keycloak`/`redis` con su error) y `docker compose logs bff`. El BFF reintenta solo; al corregir la causa pasa a *healthy* sin reiniciar |
+| Error de *issuer* en los logs del BFF | El issuer que publica Keycloak no coincide con `OIDC_ISSUER` | Deben ser iguales a `http://localhost:8080/realms/gestion-formacion` (`KC_HOSTNAME`/`KC_HOSTNAME_PORT` en Keycloak) |
+| "Invalid redirect uri" en Keycloak | Se cambió el puerto del portal | Ajustar `redirectUris` del cliente `bff-app` y `PUBLIC_ORIGIN`/`OIDC_REDIRECT_URI` del BFF |
+| Colaboradores muestra "rechazó la credencial de la plataforma" (502) | `party-service` rechazó el token del BFF: `KEYCLOAK_ISSUER` no coincide con el `iss` de Keycloak, o el JWKS no es accesible | `docker compose logs party-service`; el issuer debe ser `http://localhost:8080/realms/gestion-formacion` |
+| Catálogo muestra "todavía no está disponible" (503) | `catalog-service` no existe aún | Esperado |
+| `postgres` no crea usuarios | El volumen ya existía | `docker compose down -v` y volver a subir |
+| `party-service` no arranca: *"volumen anterior a las migraciones con Alembic"* | El volumen de Postgres se creó cuando el DDL se cargaba en initdb (o con la tabla `tb_party` antigua) | `docker compose -p codebase down -v` y `docker compose up -d --build`. Borra los datos locales |
+| Colaboradores muestra "Superaste el límite de … solicitudes" (429) | Límite por usuario de `party-service` (API-SPEC-001 §4.5) | Esperar el `Retry-After` o subir `RATE_LIMIT_READ_PER_HOUR` en el compose |
+| `redis` (u otro servicio) no inicia: *container name already in use* o *port is already allocated* | Siguen vivos los contenedores de la versión anterior del compose (proyecto `codebase`, mismos puertos) o un Redis local en 6379 | `docker compose -p codebase down -v --remove-orphans` y volver a `docker compose up -d`. Si es un Redis local, detenerlo o cambiar el puerto host |
+| `redis` queda *unhealthy* | Contraseña distinta entre `command` y healthcheck, o volumen viejo | `docker compose logs redis`; `docker compose exec redis redis-cli -a redis_password ping` debe responder `PONG` |
+| Puerto ocupado | Otro proceso usa 4200/3000/8000/8080/5432/3306/6379/8200/8081 | Cambiar el puerto host en el compose |
 
-Todos los servicios tienen health checks configurados:
-
-```bash
-# Ver estado de health
-docker-compose ps
-
-# Ver logs de un servicio
-docker-compose logs <service-name>
-
-# Ejemplos:
-docker-compose logs mysql
-docker-compose logs keycloak
-docker-compose logs vault
-```
-
-### Verificar conectividad
-
-**Desde host:**
-```bash
-# MySQL
-mysql -h localhost -P 3306 -u gestion_user -pgestion_password gestion_formacion -e "SELECT 1;"
-
-# PostgreSQL
-psql -h localhost -p 5432 -U gestion_user -d gestion_formacion -c "SELECT 1;"
-
-# Keycloak
-curl http://localhost:8080/health
-
-# Redis
-redis-cli -h localhost -p 6379 -a redis_password ping
-
-# Vault
-curl http://localhost:8200/v1/sys/health
-```
+> Si tienes carpetas vacías `codebase/codebase/postgres-init.sh/` o
+> `codebase/knowledge-base/architecture/data-model/ddl/*.sql/`, las creó Docker por rutas de volumen
+> incorrectas de la versión anterior del compose. Ya no se usan y se pueden borrar.
 
 ---
 
-## Development Workflow
+## Producción (NO es esta configuración)
 
-### 1. Iniciar entorno
-```bash
-docker-compose up -d
-```
-
-### 2. Esperar health checks
-```bash
-# Esperar a que todos estén healthy (5-30 segundos)
-docker-compose ps
-
-# Ver logs si algo no inicia
-docker-compose logs
-```
-
-### 3. Configurar Keycloak (primera vez)
-```bash
-# Admin console
-open http://localhost:8080/admin
-# Login: admin / admin
-# Create realm, client, users
-```
-
-### 4. Inicializar Vault (primera vez)
-```bash
-# Ver root token
-docker-compose logs vault | grep "Root Token"
-
-# Login
-vault login <root-token>
-
-# Guardar credenciales necesarias
-vault kv put secret/gestion/gmail email=... password=...
-```
-
-### 5. Cargar DDL
-```bash
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/party-mysql.sql
-```
-
-### 6. Ejecutar migraciones de testing
-```bash
-# Alineación STD-DB-001
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/migrations/portable/V003__align-std-db-001-tablas.sql
-
-docker-compose exec mysql mysql \
-  -u gestion_user -pgestion_password \
-  gestion_formacion < knowledge-base/architecture/data-model/ddl/migrations/portable/V004__align-std-db-001-constraints.sql
-```
-
-### 7. Conectar desde BFF (Node.js)
-```javascript
-// Environment variables para BFF Node.js dentro de docker-compose
-process.env.DB_HOST = 'postgres';      // Ahora PostgreSQL es la app DB
-process.env.DB_PORT = 5432;
-process.env.DB_USER = 'gestion_user';
-process.env.DB_PASSWORD = 'gestion_password';
-process.env.DB_NAME = 'gestion_formacion';
-
-process.env.KEYCLOAK_URL = 'http://keycloak:8080';
-process.env.KEYCLOAK_REALM = 'gestion-formacion';
-process.env.REDIS_HOST = 'redis';
-process.env.REDIS_PORT = 6379;
-process.env.REDIS_PASSWORD = 'redis_password';
-process.env.VAULT_ADDR = 'http://vault:8200';
-```
+Este compose es **solo para desarrollo**: Vault en modo dev (en memoria, token raíz fijo), HTTP sin TLS,
+credenciales de ejemplo y Keycloak `start-dev`. En QA/PROD: Keycloak corporativo
+(`oauth2.qa|prod.comsatel.com.pe`, ADR-005), Vault en alta disponibilidad con autenticación por
+servicio (pendiente, ADR-004), TLS en todos los saltos, cookies `Secure` (`NODE_ENV=production`),
+bases administradas con respaldo.
 
 ---
 
-## Parar y Limpiar
-
-```bash
-# Parar servicios (conservar volúmenes)
-docker-compose stop
-
-# Reiniciar
-docker-compose start
-
-# Parar y remover containers (conservar volúmenes)
-docker-compose down
-
-# Parar, remover containers y volúmenes (CUIDADO: borra datos)
-docker-compose down -v
-
-# Remover imágenes también
-docker-compose down -v --rmi all
-```
-
----
-
-## Troubleshooting
-
-### Servicio no inicia
-
-```bash
-# Ver logs completos
-docker-compose logs <service-name>
-
-# Ver últimas 50 líneas
-docker-compose logs --tail=50 <service-name>
-
-# Seguir logs en vivo
-docker-compose logs -f <service-name>
-```
-
-### Puerto ya en uso
-
-Si Puerto 3306, 5432, 8080, 6379, 8200, 8081 ya está en uso, editar `docker-compose.yml`:
-
-```yaml
-mysql:
-  ports:
-    - "3307:3306"  # cambiar puerto host
-```
-
-### Keycloak no inicia
-
-Keycloak necesita PostgreSQL. Esperar a que postgres esté healthy:
-
-```bash
-docker-compose logs postgres
-docker-compose logs keycloak
-```
-
-Reintentar:
-```bash
-docker-compose restart keycloak
-```
-
-### Base de datos corrupta
-
-Limpiar todo y reiniciar:
-```bash
-docker-compose down -v
-docker-compose up -d
-```
-
----
-
-## Producción (NOT THIS SETUP)
-
-⚠️ Esta configuración es SOLO PARA DESARROLLO.
-
-Para producción:
-- Usar managed databases (AWS RDS, Azure Database, Google Cloud SQL)
-- Keycloak: Desplegar en Kubernetes o VM con TLS, respaldo de BD
-- Redis: Usar managed Redis (AWS ElastiCache, Azure Cache)
-- Vault: Usar Vault en Alta Disponibilidad con Raft o Consul backend
-- No usar volúmenes locales; usar persistent storage
-- Configurar backups automáticos
-- Monitoreo y alertas
-
----
-
-## Referencias
-
-- [Docker Compose Docs](https://docs.docker.com/compose/)
-- [MySQL 8.0 Docs](https://dev.mysql.com/doc/)
-- [PostgreSQL 15 Docs](https://www.postgresql.org/docs/15/)
-- [Keycloak Admin Guide](https://www.keycloak.org/docs/latest/server_admin/)
-- [Redis Docs](https://redis.io/documentation)
-- [HashiCorp Vault Docs](https://www.vaultproject.io/docs)
-
----
-
-**Última actualización:** 2026-09-27
-**Generado por:** Docker setup automation
+**Última actualización:** 2026-09-30 — compose unificado con portal, BFF y party-service.

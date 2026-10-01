@@ -5,9 +5,9 @@ title: Python + FastAPI como estándar para implementar APIs REST
 description: Decisión arquitectónica de usar Python 3.11+ con FastAPI para todas las API REST (BFF, microservicios). Estándar vinculante para futuros desarrollos.
 tags: [architecture, adr, api, python, fastapi, rest, standard, binding-rule]
 status: draft
-adr_status: Aceptado
+adr_status: "Reemplazado en parte por ADR-010: lenguaje del BFF"
 decision: { by: "human:ianache", at: "2026-09-28T00:00:00-05:00" }
-related: [API-SPEC-001, DCP-001, ADR-001, ADR-002, ADR-005]
+related: [API-SPEC-001, DCP-001, ADR-001, ADR-002, ADR-005, ADR-010]
 generated: { by: "api-designer/claude-haiku-4-5", at: "2026-09-28T00:01:00-05:00" }
 sources:
   - id: api-spec-001
@@ -20,11 +20,13 @@ sources:
 
 # ADR-008 — Python + FastAPI como Estándar para APIs REST
 
+> **Reemplazado en parte por [ADR-010](/knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md)** (`human:ianache`, 2026-09-30). El BFF se mantiene en Node.js. Este ADR sigue vigente para los microservicios de dominio. Las menciones al BFF en Python que siguen abajo ya no aplican.
+
 - **Estado:** Aceptado
 - **Fecha:** 2026-09-28
 - **Decisor:** ianache (Jefe de Ingeniería)
 - **Redacción:** api-designer/claude-haiku-4-5, decisión del 2026-09-28
-- **Actualización a ADR-001:** Cambia BFF de Node.js a Python/FastAPI
+- **Actualización a ADR-001:** ~~Cambia BFF de Node.js a Python/FastAPI~~. Revertido por ADR-010: el BFF sigue en Node.js.
 
 ## Contexto
 

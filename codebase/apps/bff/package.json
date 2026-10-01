@@ -1,0 +1,41 @@
+{
+  "name": "@gf/bff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BFF de la Plataforma de Gestión de Formación: único punto de entrada del portal Angular hacia los microservicios (ADR-001), autenticación OIDC + PKCE con Keycloak (ADR-002, ADR-005).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "connect-redis": "^10.0.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0",
+    "openid-client": "^6.8.8",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "redis": "^6.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.19.0",
+    "@types/node": "^22.10.0",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vitest": "^5.0.3"
+  }
+}

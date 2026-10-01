@@ -1,0 +1,35 @@
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+<header class="topbar">
+  <span class="topbar__brand">Plataforma de Gestión de Formación</span>
+  @if (session.session(); as user) {
+    <div class="topbar__user">
+      <span>{{ user.displayName }}</span>
+      <gf-button variant="secondary" (pressed)="logout()">Cerrar sesión</gf-button>
+    </div>
+  }
+</header>
+
+<div class="body">
+  <nav class="sidebar" aria-label="Navegación principal">
+    @for (section of sections(); track section.label) {
+      <h2 class="sidebar__section">{{ section.label }}</h2>
+      <ul>
+        @for (item of section.items; track item.path) {
+          <li>
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="is-active"
+              ariaCurrentWhenActive="page"
+              >{{ item.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    }
+  </nav>
+
+  <main id="main-content" class="content" tabindex="-1">
+    <router-outlet />
+  </main>
+</div>

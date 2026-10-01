@@ -48,6 +48,10 @@ sources:
     resource: /knowledge-base/architecture/data-model/LDM-001-modelo-logico-de-partes.md
   - id: pdm-001
     resource: /knowledge-base/architecture/data-model/PDM-001-modelo-fisico-de-partes.md
+  - id: adr-009
+    resource: /knowledge-base/architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md
+  - id: adr-010
+    resource: /knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md
 ---
 
 # Índice de la base de conocimiento
@@ -58,6 +62,8 @@ sources:
 - [ADR-002 — Autenticación en el BFF con Keycloak y PKCE](architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md) — Aceptado (`human:ianache`), `draft`
 - [ADR-003 — Persistencia compatible con MySQL y PostgreSQL](architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md) — Aceptado (`human:ianache`), `draft`
 - [ADR-004 — Secretos y parametría en HashiCorp Vault](architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md) — Aceptado (`human:ianache`), `draft`
+- [ADR-009 — Composición de microUIs con Native Federation](architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md) — **Rechazado** (`human:ianache`, 2026-09-30), `draft`
+- [ADR-010 — Lenguaje del BFF: Node.js](architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md) — Aceptado (`human:ianache`, 2026-09-30), `draft`. Reemplaza en parte a ADR-008
 - [ACP-001 — Architecture Context Pack](architecture/ACP-001-architecture-context-pack.md) — DRAFT, no READY_FOR_ARQ_102
 - [AIM-001 — Matriz de impacto de arquitectura](architecture/AIM-001-matriz-impacto-arquitectura.md) — `draft`
 - [ADB-001 — Descubrimiento de arquitectura](architecture/ADB-001-descubrimiento-arquitectura-plataforma.md) — Architecture Discovery Brief, `draft`

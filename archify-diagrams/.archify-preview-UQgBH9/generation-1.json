@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Plataforma de Gestión de Formación - Arquitectura General",
+    "subtitle": "Shell Angular + BFF Node.js + Microservicios (H1-H3)",
+    "output": "archify-diagrams/01-architecture-general.html",
+    "quality_profile": "showcase",
+    "locale": "es",
+    "viewBox": [1280, 900]
+  },
+  "components": [
+    {
+      "id": "users",
+      "type": "external",
+      "label": "Usuarios",
+      "sublabel": "Jefe Ing., PM, Evaluador, Colaborador",
+      "pos": [40, 350],
+      "size": [140, 90]
+    },
+    {
+      "id": "shell",
+      "type": "frontend",
+      "label": "Shell Angular",
+      "sublabel": "SPA global",
+      "tag": "Navegación, Auth",
+      "pos": [250, 350],
+      "size": [140, 90]
+    },
+    {
+      "id": "microui-catalog",
+      "type": "frontend",
+      "label": "MicroUI: Catálogo",
+      "sublabel": "Roles, Competencias",
+      "tag": "BO-001",
+      "pos": [450, 150],
+      "size": [130, 80]
+    },
+    {
+      "id": "microui-search",
+      "type": "frontend",
+      "label": "MicroUI: Búsqueda",
+      "sublabel": "Candidatos, Brechas",
+      "tag": "BO-002",
+      "pos": [450, 250],
+      "size": [130, 80]
+    },
+    {
+      "id": "microui-cert",
+      "type": "frontend",
+      "label": "MicroUI: Certificación",
+      "sublabel": "Evaluar, Registrar",
+      "tag": "BO-003",
+      "pos": [450, 350],
+      "size": [130, 80]
+    },
+    {
+      "id": "microui-profile",
+      "type": "frontend",
+      "label": "MicroUI: Perfil",
+      "sublabel": "Mi competencias",
+      "pos": [450, 450],
+      "size": [130, 80]
+    },
+    {
+      "id": "bff",
+      "type": "backend",
+      "label": "BFF Node.js",
+      "sublabel": "Express, Orquestación",
+      "tag": "ADR-001",
+      "pos": [670, 300],
+      "size": [140, 90]
+    },
+    {
+      "id": "catalog-service",
+      "type": "backend",
+      "label": "Catalog Service",
+      "sublabel": "Roles, Competencias",
+      "pos": [880, 100],
+      "size": [130, 80]
+    },
+    {
+      "id": "collaborator-service",
+      "type": "backend",
+      "label": "Collaborators Service",
+      "sublabel": "Party, Asignaciones",
+      "pos": [880, 200],
+      "size": [130, 80]
+    },
+    {
+      "id": "certification-service",
+      "type": "backend",
+      "label": "Certification Service",
+      "sublabel": "Registrar, Auditar",
+      "pos": [880, 300],
+      "size": [130, 80]
+    },
+    {
+      "id": "ai-service",
+      "type": "backend",
+      "label": "AI Service (H3)",
+      "sublabel": "Análisis GitLab",
+      "tag": "Propuestas",
+      "pos": [880, 400],
+      "size": [130, 80]
+    },
+    {
+      "id": "keycloak",
+      "type": "security",
+      "label": "Keycloak",
+      "sublabel": "OAuth 2.0 PKCE",
+      "tag": "ADR-002",
+      "pos": [1090, 100],
+      "size": [130, 80]
+    },
+    {
+      "id": "vault",
+      "type": "security",
+      "label": "Vault",
+      "sublabel": "Secretos & Parametría",
+      "tag": "ADR-004",
+      "pos": [1090, 200],
+      "size": [130, 80]
+    },
+    {
+      "id": "mysql",
+      "type": "database",
+      "label": "MySQL 8.0+",
+      "sublabel": "Catálogo (maestros)",
+      "tag": "ADR-003",
+      "pos": [1090, 320],
+      "size": [130, 80]
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Operacional, Auditoría",
+      "tag": "ADR-003",
+      "pos": [1090, 420],
+      "size": [130, 80]
+    },
+    {
+      "id": "classroom",
+      "type": "external",
+      "label": "Google Classroom",
+      "sublabel": "Cursos (H2)",
+      "tag": "Solo lectura",
+      "pos": [40, 150],
+      "size": [140, 70]
+    },
+    {
+      "id": "gitlab",
+      "type": "external",
+      "label": "GitLab",
+      "sublabel": "Evidencia (H3)",
+      "tag": "Issues, MRs",
+      "pos": [40, 550],
+      "size": [140, 70]
+    },
+    {
+      "id": "docsuite",
+      "type": "external",
+      "label": "docsuite",
+      "sublabel": "Certificados (H2)",
+      "tag": "API REST",
+      "pos": [250, 600],
+      "size": [140, 70]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Frontend (Angular)",
+      "wraps": ["shell", "microui-catalog", "microui-search", "microui-cert", "microui-profile"]
+    },
+    {
+      "kind": "region",
+      "label": "Backend (Node.js)",
+      "wraps": ["bff", "catalog-service", "collaborator-service", "certification-service", "ai-service"]
+    },
+    {
+      "kind": "region",
+      "label": "Data Layer",
+      "wraps": ["mysql", "postgres"]
+    },
+    {
+      "kind": "security-group",
+      "label": "Security & Secrets",
+      "wraps": ["keycloak", "vault"]
+    },
+    {
+      "kind": "boundary",
+      "label": "External Integrations",
+      "wraps": ["classroom", "gitlab", "docsuite"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "users-to-shell",
+      "from": "users",
+      "to": "shell",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "users-to-keycloak",
+      "from": "users",
+      "to": "keycloak",
+      "label": "OAuth 2.0",
+      "variant": "security",
+      "fromSide": "right",
+      "toSide": "bottom"
+    },
+    {
+      "id": "shell-to-bff",
+      "from": "shell",
+      "to": "bff",
+      "label": "REST + JWT",
+      "variant": "emphasis"
+    },
+    {
+      "id": "shell-catalog",
+      "from": "shell",
+      "to": "microui-catalog",
+      "label": "renderiza",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "shell-search",
+      "from": "shell",
+      "to": "microui-search",
+      "label": "renderiza",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "shell-cert",
+      "from": "shell",
+      "to": "microui-cert",
+      "label": "renderiza",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "shell-profile",
+      "from": "shell",
+      "to": "microui-profile",
+      "label": "renderiza",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "bff-catalog",
+      "from": "bff",
+      "to": "catalog-service",
+      "label": "orquestra"
+    },
+    {
+      "id": "bff-collaborator",
+      "from": "bff",
+      "to": "collaborator-service",
+      "label": "orquestra"
+    },
+    {
+      "id": "bff-cert",
+      "from": "bff",
+      "to": "certification-service",
+      "label": "orquestra"
+    },
+    {
+      "id": "bff-ai",
+      "from": "bff",
+      "to": "ai-service",
+      "label": "orquestra (H3)",
+      "variant": "dashed"
+    },
+    {
+      "id": "bff-keycloak",
+      "from": "bff",
+      "to": "keycloak",
+      "label": "valida JWT",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "bff-vault",
+      "from": "bff",
+      "to": "vault",
+      "label": "obtiene secretos",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "catalog-mysql",
+      "from": "catalog-service",
+      "to": "mysql",
+      "label": "SQL"
+    },
+    {
+      "id": "collaborator-postgres",
+      "from": "collaborator-service",
+      "to": "postgres",
+      "label": "SQL"
+    },
+    {
+      "id": "cert-postgres",
+      "from": "certification-service",
+      "to": "postgres",
+      "label": "SQL"
+    },
+    {
+      "id": "ai-postgres",
+      "from": "ai-service",
+      "to": "postgres",
+      "label": "lectura"
+    },
+    {
+      "id": "classroom-bff",
+      "from": "classroom",
+      "to": "bff",
+      "label": "API lectura (H2)",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "gitlab-ai",
+      "from": "gitlab",
+      "to": "ai-service",
+      "label": "GraphQL + API (H3)",
+      "variant": "dashed"
+    },
+    {
+      "id": "docsuite-bff",
+      "from": "docsuite",
+      "to": "bff",
+      "label": "REST API (H2)",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "H1 — El Idioma Común",
+      "items": [
+        "Catálogo de roles y competencias (único, común)",
+        "Certificación manual (firma humana obligatoria)",
+        "Búsqueda de candidatos y cálculo de brechas",
+        "Perfiles de competencias trazables"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "H2 — Formación Integrada",
+      "items": [
+        "Rutas de formación automáticas",
+        "Integración con Google Classroom (lectura)",
+        "Certificados de curso vía docsuite",
+        "Material en Google Drive (enlaces)"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "H3 — Evidencia Real con IA",
+      "items": [
+        "Agente sobre GitLab: analiza issues, MRs, milestones",
+        "Propone niveles con justificación",
+        "Evaluador aprueba/rechaza (firma humana)",
+        "Tablero de capacidad vs. demanda"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Decisiones Arquitectónicas",
+      "items": [
+        "ADR-001: Shell + MicroUIs + BFF + Microservicios",
+        "ADR-002: Keycloak (OAuth 2.0 PKCE)",
+        "ADR-003: MySQL + PostgreSQL (portable)",
+        "ADR-004: HashiCorp Vault (secretos)"
+      ]
+    }
+  ]
+}

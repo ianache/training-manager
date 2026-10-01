@@ -3,7 +3,8 @@ type: READY_FOR_DEV Assessment
 id: RFD-001
 title: Handoff Readiness Validation — Party Management Service API
 generated: "2026-09-30T00:00:00-05:00"
-assessment_version: 1.0
+assessment_version: "1.1"
+revised: "2026-10-01T00:00:00-05:00"
 ---
 
 # READY_FOR_DEV Assessment
@@ -16,9 +17,38 @@ assessment_version: 1.0
 
 ---
 
+## 0. Revisión v1.1 (2026-10-01)
+
+**Resultado del gate humano: `READY_FOR_DEV`**, firmado por `human:ianache` como Solution
+Architect y como Tech Lead (Backend) el 2026-09-30 (ver §12). La misma persona firma ambos roles
+por decisión explícita; no hubo revisión independiente.
+
+v1.0 tenía inconsistencias que esta revisión corrige. Las secciones de abajo ya las reflejan donde
+se indica; en el resto prevalece [`pack.yaml`](pack.yaml) v1.1.
+
+| # | v1.0 decía | v1.1 | Evidencia |
+|---|---|---|---|
+| 1 | Estado `APPROVED_FOR_DEV` con el gate en `PENDING` | `READY_FOR_DEV` con el gate firmado | §12 |
+| 2 | CON-001: "sin conflicto" entre ADR-001 y ADR-008 | ADR-008 sí llevaba el BFF a Python. Resuelto por ADR-010: BFF en Node.js | [ADR-010](../../adrs/ADR-010-lenguaje-del-bff-nodejs.md) |
+| 3 | ADR-001..004 del 2026-09-20; ADR-008 del 2026-09-26 | ADR-001..005 y 007: 2026-09-27; ADR-008: 2026-09-28; ADR-010: 2026-09-30 | `decision.at` de cada ADR |
+| 4 | ADR-006 "Criterios de upgrade Rol-Nivel" ACCEPTED | No existe en el repositorio | `knowledge-base/architecture/adrs/` |
+| 5 | Rol `JEFE_INGENIERA`; el colaborador solo lee su ficha | Roles del realm `jefe_ingenieria`, `colaborador`, `admin`; otros colaboradores ven la vista limitada (P-08, UXR-000.5) | realm `gestion-formacion`, USC-001 |
+| 6 | 5 tablas propias (`tb_party_role_assignment`, `tb_party_program_role`, `tb_party_keycloak_link`…) | PDM-001 alineado a STD-DB-001, versionado con Alembic (§4) | `ddl/party-postgresql.sql`, V003/V004 |
+| 7 | 19 endpoints; el desglose por fase suma 20 | API-SPEC-001 §3 lista 23 operaciones distintas; US-025 no tiene endpoint | API-SPEC-001 §3 |
+| 8 | API-SPEC-001 "signed off" | Sigue en `draft`, sin firma | frontmatter de API-SPEC-001 |
+| 9 | STD-DB-001 en `standards/STD-DB-001-...md` | `knowledge-base/architecture/standards/database.md` | repositorio |
+| 10 | `pack.yaml` | No era YAML válido (dos valores con `:` sin comillas); corregido | parser YAML |
+
+**Avance desde v1.0 (party-management-service 1.2.0):** SRC-001-001 (límite de solicitudes por
+usuario, 429) implementado; Q-11 (ORM sobre las tablas de PDM-001) implementado; ASM-002 verificado
+(`alembic upgrade head` antes de uvicorn). V003 y V004 no corrían tal cual sobre PostgreSQL; la
+migración `0002` del servicio documenta las correcciones.
+
+---
+
 ## Executive Summary
 
-✅ **RECOMMENDATION: READY_FOR_DEV_REVIEW** (pending human decision gate)
+✅ **RECOMMENDATION: READY_FOR_DEV_REVIEW** (pending human decision gate) — *v1.0. El gate ya se decidió: ver §0 y §12.*
 
 The handoff package contains sufficient, traceable, bounded context for the implementation team to begin development with high confidence. All required architectural inputs are present, security findings are documented with remediation plans, and success criteria are measurable.
 
@@ -27,7 +57,7 @@ The handoff package contains sufficient, traceable, bounded context for the impl
 - 3 UNKNOWNs (ASM-001, UNK-003) have documented contingencies
 - 2 CONFLICTs (ADR precedence) are resolved
 
-**Approval Status:** ⏳ Awaiting Solution Architect & Tech Lead sign-off
+**Approval Status:** ✅ READY_FOR_DEV, firmado por `human:ianache` (Solution Architect y Tech Lead backend), 2026-09-30
 
 ---
 
@@ -76,9 +106,10 @@ The handoff package contains sufficient, traceable, bounded context for the impl
 | **ADR-003** | MySQL ↔ PostgreSQL portability | ACCEPTED | ORM-only queries (SQLAlchemy) | ✅ |
 | **ADR-004** | HashiCorp Vault secrets | ACCEPTED | No hardcoded secrets, env vars | ✅ |
 | **ADR-005** | PKCE implementation | ACCEPTED | X-Token + X-User-Name headers | ✅ |
-| **ADR-006** | Role upgrade criteria | ACCEPTED | Authorization matrix (Jefe vs Colaborador) | ✅ |
-| **ADR-007** | PostgreSQL consolidation (dev/test/prod) | ACCEPTED (2026-09-28) | DB strategy for this service | ✅ |
-| **ADR-008** | Python + FastAPI standard | ACCEPTED (2026-09-26) | Technology stack decision | ✅ |
+| ~~ADR-006~~ | ~~Role upgrade criteria~~ | **No existe** (v1.1) | — | ❌ |
+| **ADR-007** | PostgreSQL consolidation (desarrollo local) | ACCEPTED (2026-09-27) | Una instancia PostgreSQL en dev | ✅ |
+| **ADR-008** | Python + FastAPI standard | Reemplazado en parte por ADR-010 (2026-09-28) | Stack de los microservicios | ✅ |
+| **ADR-010** | BFF en Node.js | ACCEPTED (2026-09-30) | Resuelve CON-001 | ✅ |
 
 **Verdict:** ✅ **All 8 ADRs documented, no conflicts**
 
@@ -117,7 +148,7 @@ GET    /api/v1/organizations/{id}   → 200/401/403/404
 PATCH  /api/v1/organizations/{id}   → 200/400/401/403/404
 ```
 
-**Verdict:** ✅ **19/19 endpoints specified with request/response contracts**
+**Verdict (v1.1):** las operaciones de API-SPEC-001 §3 son 23, no 19; US-025 no tiene endpoint. API-SPEC-001 sigue en draft.
 
 ---
 
@@ -150,15 +181,25 @@ PATCH  /api/v1/organizations/{id}   → 200/400/401/403/404
 
 ## 4. Data Model Validation
 
-### ✅ Database Schema Designed (STD-DB-001 Compliant)
+### ✅ Database Schema = PDM-001 alineado a STD-DB-001 (v1.1)
 
-| Table | Columns | Vigencies | Audit | Constraints |
-|-------|---------|-----------|-------|-----------|
-| **tb_party** | first_names, last_names, email_work, phone_work, status, etc. | status enum | created_by, created_at, updated_by, updated_at, anonymized_at, anonymized_by | UNIQUE(email_work), UNIQUE(identification_number), FK(unit_id), FK(direct_manager_id) |
-| **tb_organization** | code, name, type, parent_id | — | created_by, created_at | UNIQUE(code), FK(parent_id) |
-| **tb_party_role_assignment** | party_id, role_code, level, from_date, thru_date | thru_date | created_by, created_at | UNIQUE(party_id, role_code, from_date), FK(party_id) |
-| **tb_party_program_role** | party_id, program_code, role, from_date, thru_date | thru_date | created_by, created_at | FK(party_id) |
-| **tb_party_keycloak_link** | party_id, keycloak_uuid | — | linked_by, linked_at | UNIQUE(party_id), UNIQUE(keycloak_uuid) |
+El esquema lo crea Alembic en `party-management-service`: `0001_pdm001_baseline` (copia exacta de
+`ddl/party-postgresql.sql`) y `0002_std_db_001_alignment` (V003 + V004 corregidos para PostgreSQL).
+
+| Tabla | Uso | Vigencia | Estado |
+|---|---|---|---|
+| `tb_party`, `tb_person` | Parte, nombres, código de colaborador (GUID), anonimización | — | En uso |
+| `tb_party_role` | Empleado / Contratista | `from_date`/`thru_date` | En uso (deriva `status`) |
+| `tb_party_identification` | DNI / CE / PASSPORT + país | — | En uso |
+| `tb_contact_mechanism`, `tb_party_contact_mechanism` | Correo y teléfono laborales | `from_date`/`thru_date` | En uso |
+| `tb_organization`, `tb_party_relationship` | Unidades, proveedores, jefe directo (US-017, US-018) | `from_date`/`thru_date` | Pendiente |
+| `tb_role_level_assignment` | Rol-Nivel (US-019) | `from_date`/`thru_date` | Pendiente |
+| `tb_access_identity` | Vínculo con Keycloak (US-022) | — | Pendiente |
+| `tb_anonymization_*` | Plazo y avisos (US-024, US-025) | — | Pendiente |
+
+**Brechas del modelo:** roles del programa (US-020) e historial de cambios
+(`GET /parties/{id}/history`) no tienen tabla en PDM-001; `identification_number` es VARCHAR(20)
+en PDM-001 y VARCHAR(30) en API-SPEC-001 §7.
 
 **Verdict:** ✅ **Schema normalized, audit fields present, vigencies pattern clear**
 
@@ -288,8 +329,8 @@ async def assign_role(party_id, role_code, level, user_name):
 
 | ID | Conflict | Resolution | Impact |
 |----|----------|-----------|--------|
-| **CON-001** | ADR-001 (BFF Node.js) vs ADR-008 (Python APIs) | BFF + FastAPI coexist; no conflict | No breaking change |
-| **CON-002** | ADR-003 (MySQL+PG) vs ADR-007 (PG only) | ADR-007 supersedes ADR-003 (later approval 2026-09-28) | Use PostgreSQL; ORM remains portable |
+| **CON-001** | ADR-001 (BFF Node.js) vs ADR-008 (Python APIs, incluido el BFF) | **v1.1:** resuelto por ADR-010; el BFF sigue en Node.js | Sin cambios en el BFF |
+| **CON-002** | ADR-003 (MySQL+PG) vs ADR-007 (PG en dev) | **v1.1:** ADR-007 (2026-09-27) consolida PostgreSQL en desarrollo; no reemplaza ADR-003 | PostgreSQL hoy; migraciones solo PostgreSQL (brecha MySQL) |
 
 **Verdict:** ✅ **Conflicts resolved, no blockers**
 
@@ -329,17 +370,17 @@ US-019 (Assign role-level)
 | Item | Status | Evidence |
 |------|--------|----------|
 | ✅ All 11 US mapped to endpoints | COMPLETE | API-SPEC-001, Section 3 |
-| ✅ API spec signed off (19 endpoints) | COMPLETE | API-SPEC-001, Draft status (awaiting approval) |
-| ✅ All 8 ADRs approved | COMPLETE | ADRs 001–008, ACCEPTED status |
+| ⚠️ API spec revisado (23 operaciones) | DRAFT | API-SPEC-001 sigue en draft, sin firma (v1.1) |
+| ✅ ADRs aceptados | COMPLETE | ADR-001..005, 007, 008 (en parte), 010; ADR-006 no existe (v1.1) |
 | ✅ Security review (SRC-001) completed | COMPLETE | 5 findings, 3 MEDIUM remediation plans |
-| ✅ Data model designed (STD-DB-001 compliant) | COMPLETE | 5 tables, audit fields, vigencies, constraints |
+| ✅ Data model = PDM-001 alineado (STD-DB-001) | COMPLETE | Alembic 0001 + 0002 (v1.1) |
 | ✅ Authorization matrix (RBAC) defined | COMPLETE | DCP-002, Section 5.1, access control table |
 | ✅ Vigencies pattern documented | COMPLETE | DCP-002, Section 4.2, code example |
 | ✅ Assumptions, unknowns, conflicts identified | COMPLETE | DCP-002, Section 9 + this assessment, Section 7 |
 | ✅ NFRs (performance, auditability, compatibility) stated | COMPLETE | DCP-002, Section 7, NFR table |
-| ⏳ Human Decision Gate: READY_FOR_DEV approval | PENDING | Awaiting Solution Architect + Tech Lead sign-off |
+| ✅ Human Decision Gate: READY_FOR_DEV approval | DECIDED | `human:ianache`, Solution Architect y Tech Lead backend, 2026-09-30 |
 
-**Verdict:** ✅ **9/10 items COMPLETE; 1 pending human approval**
+**Verdict (v1.1):** ✅ **Gate decidido: READY_FOR_DEV.** API-SPEC-001 sigue en draft.
 
 ---
 
@@ -349,7 +390,7 @@ US-019 (Assign role-level)
 |-----------|-----------|-------|----------|--------|
 | **Scope** | 100% of US mapped | 11/11 | DCP-002, TRACE-001 | ✅ PASS |
 | **Architecture** | All ADRs documented & understood | 8/8 | pack.yaml, DCP-002 | ✅ PASS |
-| **Contracts** | API endpoints fully specified | 19/19 | API-SPEC-001 | ✅ PASS |
+| **Contracts** | API endpoints fully specified | 23 (v1.1) | API-SPEC-001 (draft) | ⚠️ DRAFT |
 | **Data Model** | Schema designed, STD-DB-001 compliant | 5/5 tables | DCP-002, Section 4 | ✅ PASS |
 | **Security** | SRC-001 findings documented with remediation | 5/5 findings | DCP-002, Section 6 | ✅ PASS |
 | **Authorization** | RBAC matrix defined | 2 roles × 8 endpoints | DCP-002, Section 5 | ✅ PASS |
@@ -366,7 +407,7 @@ US-019 (Assign role-level)
 
 ### ✅ Strong Readiness Signals
 
-1. **Bounded scope:** 11 user stories, 19 endpoints, clear "out of scope" boundary
+1. **Bounded scope:** 11 user stories, 23 operaciones (v1.1), clear "out of scope" boundary
 2. **Architecture approved:** 8 ADRs all ACCEPTED, no architectural decisions pending
 3. **Security planned:** 5 findings with Phase 1 remediation strategies (no showstoppers)
 4. **Data integrity protected:** Vigencies pattern clear, tested approach documented
@@ -394,28 +435,30 @@ US-019 (Assign role-level)
 
 ## 12. Sign-Off
 
-### Required Approvals (Human Decision Gate)
+### Required Approvals (Human Decision Gate) — v1.1
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│ DECISION GATE: READY_FOR_DEV                            │
+│ DECISION GATE: READY_FOR_DEV                    DECIDED │
 │                                                         │
-│ Role: Solution Architect                                │
-│ Name: ianache (Project Lead)                            │
-│ Decision: [X] READY_FOR_DEV [ ] RETURN_TO_ARCHITECTURE │
-│ Date: 2026-09-30                                        │
+│ Role:     Solution Architect                            │
+│ Name:     human:ianache                                 │
+│ Decision: [X] READY_FOR_DEV [ ] RETURN_TO_ARCHITECTURE  │
+│ Date:     2026-09-30                                    │
 │                                                         │
-│ Role: Tech Lead (Backend)                               │
-│ Name: ianache (Backend Lead)                            │
+│ Role:     Tech Lead (Backend)                           │
+│ Name:     human:ianache                                 │
 │ Decision: [X] READY_FOR_DEV [ ] REQUEST_EVIDENCE        │
-│ Date: 2026-09-30                                        │
-│                                                         │
-│ Role: QA Lead (Optional)                                │
-│ Name: ianache (QA/Verification)                         │
-│ Feedback: Package is complete and ready for development │
-│ Date: 2026-09-30                                        │
+│ Date:     2026-09-30                                    │
 └─────────────────────────────────────────────────────────┘
 ```
+
+- **Observación:** la misma persona firma ambos roles, por decisión explícita del decisor. No hubo
+  revisión independiente. v1.0 también listaba a ianache como QA Lead; esa firma no era requerida y
+  no se registró como decisión.
+- **Puntos abiertos con los que se firmó** (no bloquean la fase 1): SRC-001-002 a 005, UNK-001 a
+  003, ADR-006 inexistente, roles del programa e historial sin tabla, API-SPEC-001 y SRC-001 en
+  draft, límite de solicitudes en memoria (no compartido entre réplicas).
 
 ### Approval Outcomes
 
@@ -431,11 +474,13 @@ US-019 (Assign role-level)
 | Document | Type | Version | Path |
 |----------|------|---------|------|
 | development-context-pack.md | Implementation Guide | 1.0 | Project root |
-| pack.yaml | Structured Metadata | 1.0 | Project root |
+| pack.yaml | Structured Metadata | 1.1 | Project root |
 | traceability-map.md | Traceability Matrix | 1.0 | Project root |
 | API-SPEC-001 | Technical Spec | Draft | knowledge-base/architecture/api/ |
 | SRC-001 | Security Review | Draft | knowledge-base/architecture/api/ |
-| ADR-001 to ADR-008 | Architecture Decisions | Approved | knowledge-base/architecture/adrs/ |
+| ADR-001 to ADR-010 | Architecture Decisions | Aceptados (ADR-009 rechazado; ADR-006 no existe) | knowledge-base/architecture/adrs/ |
+| PDM-001 | Physical Data Model | draft | knowledge-base/architecture/data-model/ |
+| STD-DB-001 | Database Standard | approved | knowledge-base/architecture/standards/database.md |
 
 ---
 

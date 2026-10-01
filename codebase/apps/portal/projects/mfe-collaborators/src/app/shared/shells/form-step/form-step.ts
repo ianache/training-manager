@@ -1,44 +1,53 @@
-import { Component, input, output, CommonModule } from '@angular/core';
-import { MatStepperModule } from '@angular/material/stepper';
+import { Component, input, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GfButton } from '@gf/ui';
 
 @Component({
   selector: 'app-shell-form-step',
   standalone: true,
-  imports: [CommonModule, MatStepperModule, GfButton],
+  imports: [CommonModule, GfButton],
   template: `
-    <mat-stepper [selectedIndex]="currentStep()" linear>
-      <mat-step *ngFor="let step of steps(); let i = index" [completed]="i < currentStep()">
-        <ng-template matStepLabel>{{ step.label }}</ng-template>
-        <div class="step-content">
-          <h2>{{ step.title }}</h2>
-          <ng-content></ng-content>
-        </div>
-        <div class="step-actions">
-          <gf-button
-            *ngIf="i > 0"
-            label="Atrás"
-            (click)="previousStep.emit()"
-          ></gf-button>
-          <gf-button
-            *ngIf="i < steps().length - 1"
-            label="Siguiente"
-            [disabled]="!isStepValid()"
-            (click)="nextStep.emit()"
-          ></gf-button>
-          <gf-button
-            *ngIf="i === steps().length - 1"
-            label="Guardar"
-            [isLoading]="isSubmitting()"
-            (click)="submit.emit()"
-          ></gf-button>
-        </div>
-      </mat-step>
-    </mat-stepper>
+    <div class="form-stepper">
+      <div class="step-indicator">Step {{ currentStep() + 1 }} of {{ steps().length }}</div>
+      <div *ngFor="let step of steps(); let i = index" [hidden]="i !== currentStep()" class="step-content">
+        <h2>{{ step.title }}</h2>
+        <ng-content></ng-content>
+      </div>
+      <div class="step-actions">
+        <gf-button
+          *ngIf="currentStep() > 0"
+          label="Atrás"
+          (click)="previousStep.emit()"
+        ></gf-button>
+        <gf-button
+          *ngIf="currentStep() < steps().length - 1"
+          label="Siguiente"
+          [disabled]="!isStepValid()"
+          (click)="nextStep.emit()"
+        ></gf-button>
+        <gf-button
+          *ngIf="currentStep() === steps().length - 1"
+          label="Guardar"
+          [disabled]="!isStepValid()"
+          (click)="submit.emit()"
+        ></gf-button>
+      </div>
+    </div>
   `,
   styles: [`
+    .form-stepper {
+      padding: var(--gf-space-4);
+    }
+    .step-indicator {
+      font-size: 0.875rem;
+      color: var(--gf-color-text-secondary);
+      margin-bottom: var(--gf-space-4);
+    }
     .step-content {
       padding: var(--gf-space-4);
+      border: 1px solid var(--gf-color-border);
+      border-radius: var(--gf-radius-md);
+      margin-bottom: var(--gf-space-4);
     }
     .step-actions {
       display: flex;

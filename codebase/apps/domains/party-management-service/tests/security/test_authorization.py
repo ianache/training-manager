@@ -1,39 +1,51 @@
+"""RBAC y visibilidad (US-015, US-016, UXR-000.5 / P-08)."""
 import pytest
-from httpx import AsyncClient
-from unittest.mock import patch
+
+
+async def _create(client, jefe, payload):
+    r = await client.post("/api/v1/parties", json=payload, headers=jefe)
+    assert r.status_code == 201, r.text
+    return r.json()
 
 
 @pytest.mark.asyncio
-async def test_authorization_403_no_jefe_role(async_client: AsyncClient, colaborador_token):
-    """POST /parties without Jefe role should return 403"""
-    payload = {
-        "first_names": "Juan",
-        "last_names": "Pérez",
-        "email_work": "juan@company.com",
-        "identification_type": "DNI",
-        "identification_number": "12345678",
-        "identification_country": "CO",
-        "party_type": "Employee",
-    }
-
-    async_client.cookies.set("session", colaborador_token)
-
-    with patch("app.core.authorization.get_user_roles") as mock_roles:
-        mock_roles.return_value = ["developer"]
-
-        response = await async_client.post("/api/v1/parties", json=payload)
-        assert response.status_code == 403
+async def test_colaborador_no_registra_403(async_client, colaborador, party_payload):
+    r = await async_client.post("/api/v1/parties", json=party_payload, headers=colaborador)
+    assert r.status_code == 403
+    assert r.json()["error"]["code"] == "AUTHORIZATION_FAILED"
 
 
 @pytest.mark.asyncio
-async def test_authorization_idor_access(async_client: AsyncClient, colaborador_token):
-    """GET /parties/{other_id} as Colaborador should return 403 (IDOR check)"""
-    async_client.cookies.set("session", colaborador_token)
+async def test_colaborador_no_modifica_403(async_client, jefe, colaborador, party_payload):
+    p = await _create(async_client, jefe, party_payload)
+    r = await async_client.patch(
+        f"/api/v1/parties/{p['id']}", json={"phone_work": "+51 999 888 777"}, headers=colaborador
+    )
+    assert r.status_code == 403
 
-    other_party_id = "00000000-0000-0000-0000-000000000000"
 
-    with patch("app.core.authorization.get_user_roles") as mock_roles:
-        mock_roles.return_value = ["developer"]
+@pytest.mark.asyncio
+async def test_colaborador_ve_ficha_ajena_limitada(async_client, jefe, colaborador, party_payload):
+    p = await _create(async_client, jefe, party_payload)
+    r = await async_client.get(f"/api/v1/parties/{p['id']}", headers=colaborador)
+    assert r.status_code == 200
+    body = r.json()
+    assert body["first_names"] == "Juan" and body["contact"] == {"email_work": "juan.perez@example.com"}
+    for oculto in ("identification", "created_by", "role_assignments"):
+        assert oculto not in body
+    assert "phone_work" not in body["contact"]
 
-        response = await async_client.get(f"/api/v1/parties/{other_party_id}")
-        assert response.status_code == 403
+
+@pytest.mark.asyncio
+async def test_jefe_ve_ficha_completa(async_client, jefe, party_payload):
+    p = await _create(async_client, jefe, party_payload)
+    body = (await async_client.get(f"/api/v1/parties/{p['id']}", headers=jefe)).json()
+    assert body["identification"] == {"type": "DNI", "number": "12345678", "country": "PE"}
+    assert body["created_by"] == "jefe.ingenieria"
+
+
+@pytest.mark.asyncio
+async def test_lista_limitada_para_colaborador(async_client, jefe, colaborador, party_payload):
+    await _create(async_client, jefe, party_payload)
+    item = (await async_client.get("/api/v1/parties", headers=colaborador)).json()["data"][0]
+    assert "identification" not in item

@@ -7,7 +7,7 @@ tags: [architecture, adr, frontend, microui, micro-frontends, angular, bff, node
 status: draft
 adr_status: Aceptado
 decision: { by: human:ianache, at: 2026-09-27T00:29:16-05:00 }
-related: [ADR-002, ACP-001, ADB-001, AIM-001, asr-BR-INT-02, asr-BR-ACR-04]
+related: [ADR-002, ADR-009, ADR-010, ACP-001, ADB-001, AIM-001, asr-BR-INT-02, asr-BR-ACR-04]
 generated: { by: architecture-adr-writer/claude-opus-5-5, at: 2026-09-27T00:29:16-05:00 }
 sources:
   - id: acp-001
@@ -40,7 +40,7 @@ sources:
 - **Decisor:** ianache (`human:ianache`)
 - **Redacción:** architecture-adr-writer/claude-opus-5-5, a partir de la decisión del decisor en la sesión del 2026-09-27. Falta que un humano revise el texto: no hay `verified`.
 - **ASR relacionados:** [asr-BR-INT-02](/knowledge-base/architecture/asr/asr-BR-INT-02.md) y [asr-BR-ACR-04](/knowledge-base/architecture/asr/asr-BR-ACR-04.md), ambos candidatos sin disposición. Ninguno está aprobado.
-- **Depende de / Reemplaza a:** —. Se complementa con [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md) (seguridad).
+- **Depende de / Reemplaza a:** —. Se complementa con [ADR-002](/knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md) (seguridad). La propuesta [ADR-009](/knowledge-base/architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md) (Native Federation) fue **rechazada** el 2026-09-30: la técnica de composición sigue abierta. [ADR-010](/knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md) (2026-09-30) confirma el BFF en Node.js frente a [ADR-008](/knowledge-base/architecture/adrs/ADR-008-python-fastapi-como-estandar-api.md).
 
 ## Contexto
 

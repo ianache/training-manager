@@ -1,0 +1,137 @@
+{
+  "realm": "gestion-formacion",
+  "displayName": "Plataforma de Gestión de Formación (DEV)",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "es"
+  ],
+  "defaultLocale": "es",
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "roles": {
+    "realm": [
+      {
+        "name": "colaborador",
+        "description": "Colaborador de la organización (ve su perfil y datos permitidos de otros)"
+      },
+      {
+        "name": "jefe_proyecto",
+        "description": "Jefe/Líder de proyecto (declara requerimientos, ve brechas individuales)"
+      },
+      {
+        "name": "evaluador",
+        "description": "Evaluador de competencias"
+      },
+      {
+        "name": "jefe_ingenieria",
+        "description": "Jefe de Ingeniería (gestiona catálogo y data maestra)"
+      },
+      {
+        "name": "direccion",
+        "description": "Dirección"
+      },
+      {
+        "name": "gerencia",
+        "description": "Gerencia"
+      },
+      {
+        "name": "admin",
+        "description": "Administrador de la plataforma — alcance pendiente (P-45)"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "bff-app",
+      "name": "BFF de la plataforma (cliente confidencial)",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "bff-dev-secret-change-me",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "redirectUris": [
+        "http://localhost:4200/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:4200"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:4200/*"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "ana.colaboradora",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Ana",
+      "lastName": "Colaboradora",
+      "email": "ana.colaboradora@comsatel.test",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Colaborador.2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "colaborador"
+      ]
+    },
+    {
+      "username": "jefe.ingenieria",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Jefe",
+      "lastName": "Ingeniería",
+      "email": "jefe.ingenieria@comsatel.test",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Jefe.2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "colaborador",
+        "jefe_ingenieria"
+      ]
+    },
+    {
+      "username": "admin.plataforma",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "Plataforma",
+      "email": "admin.plataforma@comsatel.test",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Admin.2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "colaborador",
+        "admin"
+      ]
+    },
+    {
+      "username": "service-account-bff-app",
+      "enabled": true,
+      "serviceAccountClientId": "bff-app",
+      "realmRoles": []
+    }
+  ]
+}

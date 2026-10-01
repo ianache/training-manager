@@ -1,0 +1,94 @@
+:host {
+  display: grid;
+  grid-template-rows: var(--gf-header-height) 1fr;
+  min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gf-space-2);
+  top: -100px;
+  padding: var(--gf-space-2) var(--gf-space-4);
+  background: var(--gf-color-primary);
+  color: var(--gf-color-on-primary);
+  z-index: 10;
+  &:focus {
+    top: var(--gf-space-2);
+  }
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gf-space-6);
+  background: var(--gf-color-primary);
+  color: var(--gf-color-on-primary);
+  &__brand {
+    font-weight: var(--gf-font-weight-semibold);
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: var(--gf-space-4);
+  }
+}
+
+.body {
+  display: grid;
+  grid-template-columns: var(--gf-sidebar-width) 1fr;
+}
+
+.sidebar {
+  border-right: 1px solid var(--gf-color-border);
+  padding: var(--gf-space-4);
+  &__section {
+    margin: var(--gf-space-4) 0 var(--gf-space-2);
+    font-size: var(--gf-font-size-sm);
+    text-transform: uppercase;
+    color: var(--gf-color-text-muted);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    min-height: var(--gf-touch-target);
+    padding: 0 var(--gf-space-3);
+    border-radius: var(--gf-radius-sm);
+    color: var(--gf-color-text);
+    text-decoration: none;
+    &:hover {
+      background: var(--gf-color-surface-container);
+    }
+    &.is-active {
+      background: var(--gf-color-surface-selected);
+      border-left: 3px solid var(--gf-color-primary-hover);
+      font-weight: var(--gf-font-weight-semibold);
+    }
+  }
+}
+
+.content {
+  padding: var(--gf-space-6);
+  outline: none;
+}
+
+/* Tablet: navegación más angosta. Móvil: apilada (UXR-Q2 abierta: solo escritorio validado). */
+@media (max-width: 1279px) {
+  .body {
+    grid-template-columns: 200px 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--gf-color-border);
+  }
+}

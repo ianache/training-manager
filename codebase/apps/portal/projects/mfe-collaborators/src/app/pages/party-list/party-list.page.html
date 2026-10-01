@@ -1,0 +1,59 @@
+<header class="page-header">
+  <h1>Colaboradores</h1>
+</header>
+
+<div class="toolbar" role="search">
+  <label for="party-search">Buscar por nombre, correo o código</label>
+  <input
+    id="party-search"
+    type="search"
+    [value]="search()"
+    (input)="onSearch($any($event.target).value)"
+  />
+</div>
+
+<gf-view-state
+  [state]="state()"
+  (retry)="retry()"
+  emptyTitle="No hay colaboradores que coincidan con la búsqueda"
+  loadingLabel="Cargando colaboradores"
+>
+  <ng-template #success let-result>
+    <table class="table">
+      <caption class="gf-visually-hidden">Colaboradores registrados</caption>
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo laboral</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (p of result.data; track p.id) {
+          <tr>
+            <td>{{ p.code }}</td>
+            <th scope="row"><a [routerLink]="[p.id]">{{ displayName(p) }}</a></th>
+            <td>{{ p.contact.email_work }}</td>
+            <td>{{ roleLabel(p.role) }}</td>
+            <td>
+              @let st = statusOf(p.status);
+              <gf-badge [tone]="st.tone">{{ st.label }}</gf-badge>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <nav class="pager" aria-label="Paginación">
+      <gf-button variant="secondary" [disabled]="!result.pagination.has_prev" (pressed)="goTo(page() - 1)">
+        Anterior
+      </gf-button>
+      <span aria-live="polite">Página {{ result.pagination.page }} de {{ result.pagination.total_pages }}</span>
+      <gf-button variant="secondary" [disabled]="!result.pagination.has_next" (pressed)="goTo(page() + 1)">
+        Siguiente
+      </gf-button>
+    </nav>
+  </ng-template>
+</gf-view-state>

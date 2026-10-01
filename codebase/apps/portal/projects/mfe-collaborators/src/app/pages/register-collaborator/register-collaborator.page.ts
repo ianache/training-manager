@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { RegisterCollaboratorService } from '../../core/services/register-collaborator.service';
 import { DuplicateIdValidator } from '../../shared/validators/duplicate-id.validator';
 import { DuplicateEmailValidator } from '../../shared/validators/duplicate-email.validator';
@@ -8,7 +9,7 @@ import { DuplicateEmailValidator } from '../../shared/validators/duplicate-email
 @Component({
   selector: 'app-register-collaborator',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   template: `
     <div class="container">
       <h1>Registrar Colaborador</h1>

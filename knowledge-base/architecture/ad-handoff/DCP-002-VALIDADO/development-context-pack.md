@@ -20,6 +20,19 @@ provenance:
 
 # Development Context Pack — Party Management Service API
 
+> **v1.1 (2026-10-01) — fe de erratas.** Este documento se conserva como v1.0. Donde difiera de
+> [`pack.yaml`](pack.yaml) v1.1 o de [`ready-for-dev.md`](ready-for-dev.md) §0, **prevalecen
+> estos**. Correcciones principales: gate firmado `READY_FOR_DEV` por `human:ianache`
+> (Solution Architect y Tech Lead backend); CON-001 resuelto por
+> [ADR-010](../../adrs/ADR-010-lenguaje-del-bff-nodejs.md) (BFF en Node.js); ADR-006 no existe;
+> fechas reales de los ADR (2026-09-27 a 2026-09-30); roles `jefe_ingenieria`, `colaborador`,
+> `admin` con vista limitada para otros colaboradores (P-08); modelo de datos = PDM-001 alineado
+> (`tb_party`, `tb_person`, `tb_party_role`, `tb_party_identification`, `tb_contact_mechanism`,
+> `tb_party_contact_mechanism`…), no las tablas `tb_party_role_assignment`,
+> `tb_party_program_role` ni `tb_party_keycloak_link`; API-SPEC-001 tiene 23 operaciones y sigue
+> en draft; STD-DB-001 está en `knowledge-base/architecture/standards/database.md`.
+
+
 **For:** Developers implementing Party management microservice (Python/FastAPI)  
 **Duration:** 6 weeks (30 days) / 5 phases  
 **Approval Gate:** Human decision: READY_FOR_DEV or RETURN_TO_ARCHITECTURE

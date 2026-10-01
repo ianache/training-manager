@@ -1,0 +1,100 @@
+/*
+ * Design tokens semánticos de la plataforma.
+ * Fuente: UI-INV-001 §3 (valores tomados del design system que Stitch generó en GEN-001).
+ * NO es un design system corporativo: UXR-Q4 sigue abierta. Las vistas usan solo
+ * variables semánticas (--gf-*), nunca valores crudos (AGENTS.md, "Diseño").
+ */
+:root {
+  /* Color — marca y acción */
+  --gf-color-primary: #0f2942;
+  --gf-color-primary-hover: #1e3a8a;
+  --gf-color-primary-active: #0b1e30;
+  --gf-color-on-primary: #ffffff;
+  --gf-color-focus-ring: #1e3a8a;
+
+  /* Color — superficies y texto */
+  --gf-color-surface: #ffffff;
+  --gf-color-surface-container: #f1f5f9;
+  --gf-color-surface-selected: #eff6ff;
+  --gf-color-border: #cbd5e1;
+  --gf-color-border-strong: #94a3b8;
+  --gf-color-text: #0f172a;
+  --gf-color-text-muted: #43474d;
+
+  /* Color — estado (siempre acompañado de icono + texto, UI-INV-001 §6) */
+  --gf-color-success-bg: #dcfce7;
+  --gf-color-success-fg: #065f46;
+  --gf-color-warning-bg: #fef3c7;
+  --gf-color-warning-fg: #92400e;
+  --gf-color-danger-bg: #fee2e2;
+  --gf-color-danger-fg: #991b1b;
+  --gf-color-neutral-bg: #e8eaef;
+  --gf-color-neutral-fg: #43474d;
+  --gf-color-info-bg: #eff6ff;
+  --gf-color-info-fg: #1e3a8a;
+
+  /* Tipografía (GEN-002 F-01: unificar en Inter) */
+  --gf-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gf-font-size-sm: 0.875rem;
+  --gf-font-size-md: 1rem;
+  --gf-font-size-lg: 1.25rem;
+  --gf-font-size-xl: 1.5rem;
+  --gf-font-weight-regular: 400;
+  --gf-font-weight-semibold: 600;
+
+  /* Espaciado (escala de 4 px) */
+  --gf-space-1: 0.25rem;
+  --gf-space-2: 0.5rem;
+  --gf-space-3: 0.75rem;
+  --gf-space-4: 1rem;
+  --gf-space-6: 1.5rem;
+  --gf-space-8: 2rem;
+
+  /* Forma y layout */
+  --gf-radius-sm: 4px;
+  --gf-radius-md: 8px;
+  --gf-touch-target: 44px;
+  --gf-header-height: 56px;
+  --gf-sidebar-width: 264px;
+  --gf-row-height: 44px;
+}
+
+/* Breakpoints de referencia (UI-INV-001 §4): mobile ≤767, tablet 768–1279, desktop ≥1280. */
+
+html {
+  font-family: var(--gf-font-family);
+  color: var(--gf-color-text);
+  background: var(--gf-color-surface);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Foco visible en todo elemento interactivo (WCAG 2.2 AA, 2.4.7 / 2.4.11). */
+:focus-visible {
+  outline: 3px solid var(--gf-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.gf-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

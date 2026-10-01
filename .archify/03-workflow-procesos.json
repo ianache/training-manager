@@ -1,0 +1,271 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Flujos de Procesos Principales - Gestión de Formación",
+    "subtitle": "Certificación, Búsqueda de Candidatos, Asignación (H1-H3)",
+    "output": "archify-diagrams/03-workflow-procesos.html",
+    "quality_profile": "showcase",
+    "locale": "es"
+  },
+  "lanes": [
+    {
+      "id": "evaluador",
+      "label": "Evaluador",
+      "order": 0
+    },
+    {
+      "id": "sistema",
+      "label": "Sistema",
+      "order": 1
+    },
+    {
+      "id": "pm",
+      "label": "Jefe de Proyecto",
+      "order": 2
+    },
+    {
+      "id": "jefe-ing",
+      "label": "Jefe de Ingeniería",
+      "order": 3
+    }
+  ],
+  "steps": [
+    {
+      "id": "s01-cert-inicio",
+      "label": "Evaluador abre pantalla de certificación",
+      "lane": "evaluador",
+      "col": 0
+    },
+    {
+      "id": "s02-sistema-carga",
+      "label": "Sistema carga colaborador + competencia + evidencias",
+      "lane": "sistema",
+      "col": 0
+    },
+    {
+      "id": "s03-evalua-evidencia",
+      "label": "Evaluador revisa evidencias",
+      "lane": "evaluador",
+      "col": 1
+    },
+    {
+      "id": "s04-decision",
+      "label": "¿Evidencia válida?",
+      "lane": "sistema",
+      "col": 2,
+      "kind": "decision"
+    },
+    {
+      "id": "s05-aprueba",
+      "label": "Evaluador aprueba nivel",
+      "lane": "evaluador",
+      "col": 3
+    },
+    {
+      "id": "s06-rechaza",
+      "label": "Evaluador rechaza + registra motivo",
+      "lane": "evaluador",
+      "col": 3
+    },
+    {
+      "id": "s07-registra-cert",
+      "label": "Sistema registra certificación (auditable)",
+      "lane": "sistema",
+      "col": 4
+    },
+    {
+      "id": "s08-notifica",
+      "label": "Notifica a colaborador",
+      "lane": "sistema",
+      "col": 5
+    },
+    {
+      "id": "s09-cert-end",
+      "label": "Certificación completada",
+      "lane": "evaluador",
+      "col": 6,
+      "kind": "terminal"
+    },
+    {
+      "id": "s10-pm-abre",
+      "label": "PM abre búsqueda de candidatos",
+      "lane": "pm",
+      "col": 0
+    },
+    {
+      "id": "s11-pm-declara",
+      "label": "PM declara requerimiento (Rol-Nivel + Competencias)",
+      "lane": "pm",
+      "col": 1
+    },
+    {
+      "id": "s12-sistema-busca",
+      "label": "Sistema calcula brecha para cada colaborador",
+      "lane": "sistema",
+      "col": 2
+    },
+    {
+      "id": "s13-muestra-candidatos",
+      "label": "Sistema muestra candidatos ordenados por brecha",
+      "lane": "sistema",
+      "col": 3
+    },
+    {
+      "id": "s14-pm-valida",
+      "label": "PM valida candidatos (puede ver brecha)",
+      "lane": "pm",
+      "col": 4
+    },
+    {
+      "id": "s15-recomienda",
+      "label": "PM recomienda candidatos al Jefe de Ingeniería",
+      "lane": "pm",
+      "col": 5
+    },
+    {
+      "id": "s16-busqueda-end",
+      "label": "Búsqueda completada",
+      "lane": "pm",
+      "col": 6,
+      "kind": "terminal"
+    },
+    {
+      "id": "s17-jefe-asigna",
+      "label": "Jefe de Ingeniería valida + asigna colaborador(es)",
+      "lane": "jefe-ing",
+      "col": 5
+    },
+    {
+      "id": "s18-asignacion-registra",
+      "label": "Sistema registra asignación (auditable)",
+      "lane": "sistema",
+      "col": 6
+    },
+    {
+      "id": "s19-asignacion-end",
+      "label": "Asignación completada",
+      "lane": "jefe-ing",
+      "col": 7,
+      "kind": "terminal"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "s01-cert-inicio",
+      "to": "s02-sistema-carga"
+    },
+    {
+      "from": "s02-sistema-carga",
+      "to": "s03-evalua-evidencia"
+    },
+    {
+      "from": "s03-evalua-evidencia",
+      "to": "s04-decision"
+    },
+    {
+      "from": "s04-decision",
+      "to": "s05-aprueba",
+      "label": "SÍ"
+    },
+    {
+      "from": "s04-decision",
+      "to": "s06-rechaza",
+      "label": "NO"
+    },
+    {
+      "from": "s05-aprueba",
+      "to": "s07-registra-cert"
+    },
+    {
+      "from": "s06-rechaza",
+      "to": "s07-registra-cert"
+    },
+    {
+      "from": "s07-registra-cert",
+      "to": "s08-notifica"
+    },
+    {
+      "from": "s08-notifica",
+      "to": "s09-cert-end"
+    },
+    {
+      "from": "s10-pm-abre",
+      "to": "s11-pm-declara"
+    },
+    {
+      "from": "s11-pm-declara",
+      "to": "s12-sistema-busca"
+    },
+    {
+      "from": "s12-sistema-busca",
+      "to": "s13-muestra-candidatos"
+    },
+    {
+      "from": "s13-muestra-candidatos",
+      "to": "s14-pm-valida"
+    },
+    {
+      "from": "s14-pm-valida",
+      "to": "s15-recomienda"
+    },
+    {
+      "from": "s15-recomienda",
+      "to": "s17-jefe-asigna"
+    },
+    {
+      "from": "s17-jefe-asigna",
+      "to": "s18-asignacion-registra"
+    },
+    {
+      "from": "s18-asignacion-registra",
+      "to": "s19-asignacion-end"
+    },
+    {
+      "from": "s15-recomienda",
+      "to": "s16-busqueda-end"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Flujo 1: Certificación (BO-003)",
+      "items": [
+        "Evaluador revisa evidencias de colaborador",
+        "Aprueba o rechaza (con motivo si rechaza)",
+        "Sistema registra auditable: quién, cuándo, evidencia",
+        "Firma humana obligatoria (BCON-001)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Flujo 2: Búsqueda de Candidatos (BO-002)",
+      "items": [
+        "PM declara requerimiento (Rol-Nivel + Competencias)",
+        "Sistema calcula brecha para cada colaborador",
+        "Muestra candidatos ordenados por menor brecha",
+        "PM puede ver brechas y detalles de candidatos"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Flujo 3: Asignación (BO-002)",
+      "items": [
+        "PM recomienda candidatos al Jefe de Ingeniería",
+        "Jefe de Ingeniería valida + asigna (decisión final)",
+        "Se puede asignar incluso bajo nivel (con aviso)",
+        "Sistema registra asignación de forma auditable"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Principios",
+      "items": [
+        "Human-in-the-loop: evaluador o Jefe de Ing. decide",
+        "Trazabilidad: cada acción registrada + auditable",
+        "Transparencia: colaborador ve su perfil y propuestas",
+        "Evidencia: todas las decisiones respaldadas por datos"
+      ]
+    }
+  ]
+}

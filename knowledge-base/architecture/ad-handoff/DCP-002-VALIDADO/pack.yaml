@@ -1,16 +1,29 @@
 ---
 # Development Context Pack — Structured Metadata
 # For: Party Management Service API (Python/FastAPI)
-# Generated: 2026-09-30
+# Generated: 2026-09-30 · v1.1: 2026-10-01 (correcciones + gate humano firmado)
 
 metadata:
   id: DCP-002-VALIDADO
   type: development_context_pack
   title: Development Context Pack — Party Management Service API
-  version: 1.0
-  status: APPROVED_FOR_DEV
+  version: "1.1"
+  status: READY_FOR_DEV          # resultado del human_decision_gate (abajo); v1.0 decía APPROVED_FOR_DEV con el gate en PENDING
   approved_at: "2026-09-30T00:00:00-05:00"
-  approved_by: [ianache]
+  approved_by: ["human:ianache"]
+  revised_at: "2026-10-01T00:00:00-05:00"
+  revised_by: architecture-development-handoff/claude-opus-5-5
+  changes_v1_1:
+    - "Estado coherente con el gate: READY_FOR_DEV firmado por human:ianache (Solution Architect y Tech Lead backend)"
+    - "CON-001 resuelto por ADR-010 (BFF en Node.js; ADR-008 rige los microservicios)"
+    - "ADR: fechas reales de decisión; ADR-006 no existe en el repositorio; se agregan ADR-009 (rechazado) y ADR-010"
+    - "Roles con los nombres reales del realm (jefe_ingenieria, colaborador, admin) y vista limitada de otros colaboradores (P-08, UXR-000.5)"
+    - "Modelo de datos = PDM-001 alineado a STD-DB-001 (tablas tb_* reales), en lugar de tablas inventadas"
+    - "Recuento de endpoints: API-SPEC-001 §3 lista 23 operaciones distintas (v1.0: 19 en total y 20 por fase)"
+    - "API-SPEC-001 y SRC-001 siguen en draft (v1.0 los daba por firmados)"
+    - "Ruta real de STD-DB-001: knowledge-base/architecture/standards/database.md"
+    - "pack.yaml es YAML válido (v1.0 no se podía leer con un parser: dos valores con ':' sin comillas)"
+    - "SRC-001-001 (límite de solicitudes), Q-11 (ORM sobre PDM-001) y ASM-002 (Alembic) implementados en party-management-service 1.2.0"
   generated_at: "2026-09-30T00:00:00-05:00"
   generated_by: architecture-development-handoff/claude-haiku-4-5
   project_id: UX_UI_agentic
@@ -19,7 +32,7 @@ metadata:
 implementation_scope:
   initiative: Plataforma de Gestión de Formación
   bounded_context: Party Management (Collaborators)
-  phase: 1a (Phase 1: Core PARTY + ORGANIZATION)
+  phase: "1a (Phase 1: Core PARTY + ORGANIZATION)"
   duration_weeks: 6
   duration_days: 30
   user_stories:
@@ -65,56 +78,65 @@ implementation_scope:
       - Keycloak realm setup (ops responsibility)
 
 architecture_constraints:
-  approved_adrs:
+  approved_adrs:            # fechas = decision.at de cada ADR
     - id: ADR-001
-      title: Estructura de la plataforma
-      status: ACCEPTED
-      approved_date: "2026-09-20"
-      impact: shell/microservices isolation
+      title: Estructura de la plataforma (shell + microUIs Angular, BFF Node.js)
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: el servicio solo lo llama el BFF; sin CORS
     - id: ADR-002
-      title: Autenticación Keycloak + PKCE
-      status: ACCEPTED
-      approved_date: "2026-09-20"
-      impact: MUST validate X-Token + X-User-Name
+      title: Autenticación Keycloak + PKCE en el BFF
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: el servicio valida el token de servicio del BFF (no tokens de usuario)
     - id: ADR-003
       title: Persistencia MySQL ↔ PostgreSQL
-      status: ACCEPTED
-      approved_date: "2026-09-20"
-      impact: ORM portable, no raw SQL
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: ORM portable; las migraciones actuales son solo PostgreSQL (brecha para MySQL)
     - id: ADR-004
       title: Secretos en HashiCorp Vault
-      status: ACCEPTED
-      approved_date: "2026-09-20"
-      impact: no secrets in code
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: sin secretos en el código
     - id: ADR-005
-      title: Implementación PKCE
-      status: ACCEPTED
-      approved_date: "2026-09-22"
-      impact: token handling via BFF
-    - id: ADR-006
-      title: Criterios de upgrade Rol-Nivel
-      status: ACCEPTED
-      approved_date: "2026-09-22"
-      impact: authorization matrix
+      title: Implementación PKCE, tokens y sesiones
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: "Authorization: Bearer <token de servicio del BFF> + X-User-Name (+ X-User-Roles, D-07)"
     - id: ADR-007
-      title: Consolidación PostgreSQL local
-      status: ACCEPTED
-      approved_date: "2026-09-28"
-      impact: PostgreSQL-only for this service
+      title: Consolidación PostgreSQL en desarrollo local
+      status: Aceptado
+      approved_date: "2026-09-27"
+      impact: una instancia PostgreSQL con bases gestion_formacion y keycloak en dev
     - id: ADR-008
-      title: Python + FastAPI para APIs
-      status: ACCEPTED
-      approved_date: "2026-09-26"
-      impact: technology stack decision
+      title: Python + FastAPI para APIs REST
+      status: "Reemplazado en parte por ADR-010"
+      approved_date: "2026-09-28"
+      impact: stack del microservicio (sigue vigente para microservicios de dominio)
+    - id: ADR-010
+      title: Lenguaje del BFF — Node.js
+      status: Aceptado
+      approved_date: "2026-09-30"
+      impact: resuelve CON-001
+  rejected_adrs:
+    - id: ADR-009
+      title: Composición de microUIs con Native Federation
+      status: Rechazado
+      decided_date: "2026-09-30"
+      impact: ninguno sobre este servicio
+  missing_adrs:
+    - id: ADR-006
+      note: "v1.0 lo citaba como 'Criterios de upgrade Rol-Nivel', ACCEPTED. No existe en knowledge-base/architecture/adrs/. Si se necesita para US-019, hay que redactarlo."
 
 technology_stack:
   framework: FastAPI (Python)
   orm: SQLAlchemy 2.0+ (async)
   validation: Pydantic v2
   database: PostgreSQL 12+
-  authentication: Keycloak (OAuth 2.0 PKCE)
+  authentication: "Token de servicio del BFF (Keycloak client_credentials) validado con JWKS; identidad del usuario por X-User-Name"
   secrets_management: HashiCorp Vault
-  migration: Alembic
+  migration: "Alembic (dueño del esquema; docker-entrypoint.sh corre `alembic upgrade head`)"
   testing: pytest + pytest-asyncio
   api_documentation: OpenAPI (auto-generated)
   logging: structlog (JSON)
@@ -124,69 +146,91 @@ api_contract:
   base_path: /api/v1
   version: v1
   style: REST (resource-oriented)
-  endpoints_total: 19
+  endpoints_total: 23   # operaciones distintas en API-SPEC-001 §3 (PATCH /parties/{id}/keycloak-link aparece dos veces)
+  endpoints_count_note: "El encabezado de API-SPEC-001 dice 19 y el desglose por fase de v1.0 sumaba 20. US-025 (configurar plazo) no tiene endpoint en la especificación."
   endpoints_by_phase:
-    phase_1: 8  # PARTY + ORGANIZATION
-    phase_2: 6  # ROLE-ASSIGNMENT + PROGRAM-ROLE
-    phase_3: 3  # KEYCLOAK-LINK
-    phase_4: 3  # ANONYMIZATION
-    phase_5: 0  # Observability (not new endpoints)
+    phase_1: 10  # PARTY núcleo (4) + ORGANIZATION (6)
+    phase_2: 6   # ROLE-ASSIGNMENT (3) + PROGRAM-ROLE (3)
+    phase_3: 5   # status/baja, history, keycloak-link (PATCH, GET, DELETE)
+    phase_4: 2   # GET anonymization, POST anonymize (+ US-025 sin endpoint)
+    phase_5: 0   # observabilidad
+  implemented:   # party-management-service 1.2.0
+    - "GET /api/v1/parties"
+    - "GET /api/v1/parties/{id}"
+    - "POST /api/v1/parties"
+    - "PATCH /api/v1/parties/{id}"
 
 data_model:
-  entities:
+  source: "PDM-001 (knowledge-base/architecture/data-model/ddl/party-postgresql.sql) + alineación STD-DB-001 (V003/V004)"
+  schema_owner: "Alembic: 0001_pdm001_baseline + 0002_std_db_001_alignment (V003/V004 corregidos para PostgreSQL)"
+  id_type: "CHAR(36) con GUID en texto"
+  vigencies: "from_date / thru_date (NULL = vigente) en roles, relaciones, medios de contacto y rol-nivel"
+  entities_in_use:   # las que usa la API de partes hoy
     - table: tb_party
-      rows_estimate: 10000
-      primary_key: pk_party_id (UUID)
-      audit_fields: [created_by, created_at, updated_by, updated_at, anonymized_at, anonymized_by]
-      vigencies: status (active|inactive|anonymized)
-    - table: tb_organization
-      rows_estimate: 500
-      primary_key: pk_organization_id (UUID)
-      audit_fields: [created_by, created_at]
-    - table: tb_party_role_assignment
-      rows_estimate: 50000
-      primary_key: pk_assignment_id (UUID)
-      audit_fields: [created_by, created_at]
-      vigencies: thru_date (NULL = active)
-    - table: tb_party_program_role
-      rows_estimate: 5000
-      primary_key: pk_program_role_id (UUID)
-      audit_fields: [created_by, created_at]
-      vigencies: thru_date (NULL = active)
-    - table: tb_party_keycloak_link
-      rows_estimate: 10000
-      primary_key: pk_link_id (UUID)
-      audit_fields: [linked_by, linked_at]
+      primary_key: pk_party_id
+    - table: tb_person
+      primary_key: pk_party_id
+      notes: "employee_code (GUID), given_names, family_names, preferred_name, anonymized_at/by"
+    - table: tb_party_role
+      primary_key: pk_party_role_id
+      notes: "EMPLOYEE / CONTRACTOR con vigencia; el estado active/inactive se deriva de aquí"
+    - table: tb_party_identification
+      primary_key: pk_party_identification_id
+      notes: "DNI / CE / PASSPORT + issuing_country_code; único entre no anonimizadas"
+    - table: tb_contact_mechanism
+      primary_key: pk_contact_mechanism_id
+      notes: "EMAIL / PHONE; correo único sin distinguir mayúsculas"
+    - table: tb_party_contact_mechanism
+      primary_key: pk_party_contact_mechanism_id
+      notes: "WORK_EMAIL / WORK_PHONE con vigencia; un correo laboral vigente por parte"
+  entities_pending:  # existen en la base; el servicio aún no las expone
+    - tb_organization            # US-017, US-018
+    - tb_party_relationship      # unidad, jefe directo, empleo, contratación
+    - tb_role_level_assignment   # US-019
+    - tb_access_identity         # US-022 (v1.0 lo llamaba tb_party_keycloak_link)
+    - tb_anonymization_setting   # US-025
+    - tb_anonymization_notice    # US-024
+    - tb_anonymization_notice_recipient
+  open_gaps:
+    - "Roles del programa (US-020): PDM-001 no tiene tabla; v1.0 inventaba tb_party_program_role"
+    - "Historial de cambios (GET /parties/{id}/history): PDM-001 no tiene tabla de auditoría de cambios"
+    - "identification_number: VARCHAR(20) en PDM-001 vs VARCHAR(30) en API-SPEC-001 §7 (el servicio valida 20)"
 
 authorization:
-  pattern: RBAC (Role-Based Access Control)
+  pattern: "RBAC con roles de realm de Keycloak, recibidos del BFF en X-User-Roles (ARCHITECTURE.md D-07)"
   roles:
-    - id: JEFE_INGENIERA
+    - id: jefe_ingenieria
       title: Jefe de Ingeniería
       permissions:
         - create_party: true
-        - read_all_parties: true
+        - read_all_parties: full_view
         - update_all_parties: true
         - assign_roles: true
         - anonymize: true
-    - id: COLABORADOR
+    - id: admin
+      title: Administrador de la plataforma
+      permissions:
+        - read_all_parties: full_view
+    - id: colaborador
       title: Colaborador
       permissions:
         - create_party: false
-        - read_all_parties: false
-        - read_self_party: true
-        - update_self_party_partial: true  # phone, preferred_name only
+        - read_all_parties: limited_view   # P-08 / UXR-000.5: nombre, correo laboral, unidad, rol y estado; no 403
+        - read_self_party: full_view_pending_US-022   # requiere tb_access_identity
+        - update_self_party_partial: pending_US-022   # phone, preferred_name
         - assign_roles: false
         - anonymize: false
+  note: "v1.0 usaba JEFE_INGENIERA y negaba la lectura de otros colaboradores; el realm usa jefe_ingenieria y P-08 permite la vista limitada."
 
 security:
   findings:
     - id: SRC-001-001
       title: Rate Limiting No Vinculante
       severity: MEDIUM
-      status: OPEN_REMEDIATION
+      status: IMPLEMENTED
       phase: 1
-      remediation: Implement FastAPI middleware (slowapi), per-user rate limits
+      remediation: "Dependencia FastAPI propia (sin slowapi), por usuario (X-User-Name) y por operación: lectura 1000/h (10000/h prod), alta 100/h, actualización 500/h; 429 RATE_LIMIT_EXCEEDED con Retry-After y X-RateLimit-*. Contadores en memoria: pasar a Redis antes de escalar"
+      evidence: "tests/security/test_rate_limit.py"
     - id: SRC-001-002
       title: SQL Injection Protection No Explícita
       severity: MEDIUM
@@ -286,13 +330,13 @@ assumptions:
 
   - id: ASM-002
     statement: Database migrations run before service startup
-    verified: false
+    verified: true   # docker-entrypoint.sh: preflight + `alembic upgrade head` + uvicorn (probado 2026-10-01)
     contingency: Docker entrypoint runs `alembic upgrade head` before uvicorn
 
   - id: ASM-003
     statement: UUID v4 acceptable for all primary keys (performance impact <10ms)
     verified: false
-    contingency: Benchmark test: 1000 inserts should complete in <10 seconds
+    contingency: "Benchmark test: 1000 inserts should complete in <10 seconds"
 
 unknowns:
   - id: UNK-001
@@ -315,14 +359,14 @@ unknowns:
 
 conflicts:
   - id: CON-001
-    description: ADR-001 (BFF Node.js) vs ADR-008 (Python APIs)
-    resolution: "BFF remains Node.js; Party Service is Python/FastAPI. No conflict; both exist."
+    description: ADR-001 (BFF Node.js) vs ADR-008 (Python APIs, incluido el BFF)
+    resolution: "Resuelto por ADR-010 (human:ianache, 2026-09-30): el BFF sigue en Node.js; ADR-008 rige los microservicios de dominio. v1.0 decía 'sin conflicto', pero ADR-008 sí cambiaba el BFF."
     impact: "BFF routes POST /api/v1/parties → FastAPI at http://party-service:8000"
 
   - id: CON-002
     description: ADR-003 (MySQL + PostgreSQL) vs ADR-007 (PostgreSQL only)
-    resolution: "ADR-007 (later, approved 2026-09-28) supersedes ADR-003 for this service"
-    impact: "Implement PostgreSQL-only; keep ORM portable for future"
+    resolution: "ADR-007 (2026-09-27) consolida PostgreSQL en desarrollo local; no reemplaza a ADR-003. El servicio es PostgreSQL hoy y mantiene el ORM portable."
+    impact: "Las migraciones Alembic son solo PostgreSQL; para MySQL hará falta una rama propia"
 
 implementation_phases:
   phase_1:
@@ -387,10 +431,10 @@ implementation_phases:
 
 definition_of_ready:
   - "All 11 US mapped to endpoints"
-  - "API-SPEC-001 signed off (19 endpoints)"
-  - "ADRs 001-008 approved"
+  - "API-SPEC-001 revisado (23 operaciones; sigue en draft, sin firma)"
+  - "ADR-001..005, 007, 008 (en parte) y 010 aceptados; ADR-006 no existe"
   - "SRC-001 completed (3 MEDIUM findings)"
-  - "Data model designed (STD-DB-001 compliant)"
+  - "Data model = PDM-001 alineado a STD-DB-001, versionado con Alembic"
   - "Authorization matrix defined (RBAC)"
   - "Vigencies pattern documented + tested"
   - "Assumptions, unknowns, conflicts identified"
@@ -472,25 +516,40 @@ references:
 
   - id: STD-DB-001
     type: Data Standard
-    path: knowledge-base/architecture/standards/STD-DB-001-standard-de-base-de-datos.md
-    version: Approved
+    path: knowledge-base/architecture/standards/database.md
+    version: approved
 
-  - id: ADR-001 to ADR-008
+  - id: ADR-001..ADR-010
     type: Architecture Decisions
     path: knowledge-base/architecture/adrs/
-    version: Approved (2026-09-20 to 2026-09-28)
+    version: "Aceptados 2026-09-27 a 2026-09-30 (ADR-009 rechazado; ADR-006 inexistente)"
+
+  - id: PDM-001
+    type: Physical Data Model
+    path: knowledge-base/architecture/data-model/PDM-001-modelo-fisico-de-partes.md
+    version: draft
+
+  - id: ADR-010
+    type: Architecture Decision
+    path: knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md
+    version: Aceptado
 
 human_decision_gate:
-  status: PENDING
+  status: DECIDED
+  outcome: READY_FOR_DEV
+  decided_at: "2026-09-30"
   required_approvals:
     - role: "Solution Architect"
-      name: null
-      decision: null
-      date: null
+      name: "human:ianache"
+      decision: READY_FOR_DEV
+      date: "2026-09-30"
     - role: "Tech Lead (Backend)"
-      name: null
-      decision: null
-      date: null
+      name: "human:ianache"
+      decision: READY_FOR_DEV
+      date: "2026-09-30"
+  observations:
+    - "La misma persona firma ambos roles, por decisión explícita del decisor. No hubo revisión independiente."
+    - "El gate se firmó con estos puntos abiertos, que no bloquean la fase 1: SRC-001-002..005, UNK-001..003, ADR-006 inexistente, roles del programa e historial sin modelo de datos, API-SPEC-001 y SRC-001 en draft."
   possible_outcomes:
     - READY_FOR_DEV
     - RETURN_TO_ARCHITECTURE
@@ -498,7 +557,7 @@ human_decision_gate:
     - REQUEST_DECISION
 
 prepared_by:
-  name: Claude Haiku 4.5
+  name: "Claude Haiku 4.5 (v1.0); Claude Opus 5.5 (v1.1)"
   role: Architecture Development Handoff Skill
   email: noreply@anthropic.com
   date: "2026-09-30T00:00:00-05:00"

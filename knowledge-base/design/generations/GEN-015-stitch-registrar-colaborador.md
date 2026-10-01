@@ -1,0 +1,777 @@
+---
+type: Stitch Generation
+title: "GEN-015 — Diseño Stitch: Registrar un colaborador"
+description: "Prompts y variantes para generar UI en Google Stitch basado en SCR-015."
+tags: [ux-ui, stitch, generation, party, h1, administracion]
+status: draft
+generated:
+  by: "stitch-ui-generator/1.0"
+  at: "2026-09-30T00:00:00-05:00"
+sources:
+  - id: scr-015
+    resource: /knowledge-base/design/screens/SCR-015-registrar-un-colaborador.md
+  - id: flw-015
+    resource: /knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md
+  - id: uxr-015
+    resource: /knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md
+  - id: uxr-000
+    resource: /knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md
+---
+
+# GEN-015 — Diseño Stitch: Registrar un colaborador
+
+## Trazabilidad
+
+- **Especificación de pantallas:** [SCR-015](../screens/SCR-015-registrar-un-colaborador.md) (10 pantallas)
+- **Flujo de usuario:** [FLW-015](../user-flows/FLW-015-registrar-un-colaborador.md)
+- **Requisitos UX:** [UXR-015](../ux-requirements/UXR-015-registrar-un-colaborador.md)
+- **Estándares:** UXR-000 (accesibilidad WCAG 2.2 AA, estados de interfaz)
+- **Accesibilidad:** WCAG 2.2 AA (teclado, foco, contraste, nombres accesibles)
+
+## Decisiones de diseño
+
+### Design System (Referencia)
+
+- **Plataforma:** Google Stitch
+- **Framework frontend:** Angular 22 (shell + microUIs, ADR-001)
+- **Colores:** Por definir (usar paleta neutra de Material Design 3 como base)
+- **Tipografía:** Material Design 3 (Roboto para cuerpo, Roboto Flex para headings)
+- **Espaciado:** 8px base (multiples: 8, 16, 24, 32, 48, 64)
+- **Componentes base:** Material Angular (mat-form-field, mat-select, mat-input, mat-button, mat-radio-group, mat-datepicker)
+- **Iconografía:** Material Icons (Google)
+- **Breakpoints:** Desktop (1920, 1440), Tablet (768), Mobile (375)
+- **A11y:** Material Angular incluye accesibilidad nativa (aria-*, role, keyboard)
+
+### Variantes de pantalla
+
+**Contexto:** 
+- Actor: Jefe de Ingeniería
+- Flujo: Empleado (5 pasos + revisar + éxito) vs. Contratista (4 pasos + revisar + éxito)
+- Estados: normal, loading, error, success
+
+---
+
+## Especificación por pantalla
+
+### 1. SCR-015-01: Seleccionar tipo de colaborador
+
+**Propósito:** Elegir Empleado o Contratista
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "¿Qué tipo de colaborador deseas registrar?"
+
+Layout: Single column, centered
+
+Components:
+  - Radio Group (name="tipoColaborador")
+    - Option 1:
+      - Label: "Empleado"
+      - Description: "Trabajador de COMSATEL con: • Unidad organizacional • Jefe directo • Correo @comsatel.com.pe"
+      - Value: "empleado"
+    - Option 2:
+      - Label: "Contratista"
+      - Description: "Trabajador externo con: • Relación de contratación • Proveedor • Correo del proveedor"
+      - Value: "contratista"
+    - State: Unselected (initial), Selected (after interaction)
+
+Actions:
+  - [Siguiente] (enabled after selection, primary button)
+  - [Cancelar] (always enabled, secondary button)
+
+Accessibility:
+  - <fieldset> + <legend> for radio group
+  - aria-describedby on legend pointing to description
+  - Keyboard: Tab to group, Arrow keys to select, Enter to confirm
+  - Focus outline visible (2px, high contrast)
+  - Color contrast: 4.5:1 (text), 3:1 (graphics)
+```
+
+**Variantes:**
+- `tipo-sin-seleccionar`: state inicial, botón Siguiente disabled
+- `tipo-empleado-seleccionado`: empleado seleccionado
+- `tipo-contratista-seleccionado`: contratista seleccionado
+
+---
+
+### 2. SCR-015-02 & 03: Datos persona + Identificación
+
+**Propósito:** Capturar nombres, apellidos, nombre preferido, identificación
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "Paso 1 de 5: Datos de la persona"
+
+Layout: Single column, form
+
+Components:
+  Form Section 1: Datos de la persona
+    - Text Input (name="nombres", required=true)
+      - Label: "Nombres *"
+      - Placeholder: "ej. Juan Carlos"
+      - aria-required="true"
+      - State: normal, focused, filled, error (red border + message)
+    
+    - Text Input (name="apellidos", required=true)
+      - Label: "Apellidos *"
+      - Placeholder: "ej. Pérez García"
+      - aria-required="true"
+      - State: normal, focused, filled, error
+    
+    - Text Input (name="nombrePreferido", required=false)
+      - Label: "Nombre preferido (opcional)"
+      - Placeholder: "ej. J.C."
+      - Help text: "Si el usuario prefiere un nombre corto o un apodo, indícalo."
+      - State: normal, focused, filled
+
+  Form Section 2: Identificación
+    - Select Dropdown (name="tipoIdentificacion", required=true)
+      - Label: "Tipo de identificación *"
+      - Options: ["DNI", "Carné de extranjería", "Pasaporte"]
+      - aria-required="true"
+      - State: normal, focused, open, error
+    
+    - Text Input (name="numeroIdentificacion", required=true)
+      - Label: "Número *"
+      - aria-required="true"
+      - Pattern validation for number format
+      - State: normal, focused, filled, validating, valid (✓), error (✗)
+    
+    - Select Dropdown (name="paisIdentificacion", required=true)
+      - Label: "País emisor *"
+      - Options: ["Perú", "Colombia", "Argentina", ...] (alphabetical)
+      - aria-required="true"
+      - State: normal, focused, open
+    
+    - Validation Message (real-time)
+      - When user leaves "numeroIdentificacion" field:
+      - If not duplicate: "✓ Identificación válida"
+      - If duplicate: "✗ La identificación {tipo} {número} ({país}) ya está registrada."
+      - aria-live="polite", role="status"
+
+Actions:
+  - [Siguiente] (primary button, enabled when required fields filled)
+  - [Atrás] (secondary button)
+
+Accessibility:
+  - Tab order: nombres → apellidos → nombrePreferido → tipoIdentificacion → numeroIdentificacion → paisIdentificacion
+  - Error messages in <fieldset> with aria-invalid="true"
+  - Focus management on error: focus returns to first invalid field
+  - Keyboard only: Select dropdown uses Arrow keys to navigate, Enter to select
+```
+
+**Variantes:**
+- `persona-form-vacio`: estado inicial
+- `persona-form-llenando`: algunos campos completos
+- `persona-form-id-validando`: esperando validación de duplicados
+- `persona-form-id-valida`: identificación única confirmada
+- `persona-form-id-duplicada`: error de identificación duplicada (AC-5)
+- `persona-form-error-falta-datos`: faltan campos obligatorios (E9)
+
+---
+
+### 3. SCR-015-04: Correo laboral
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "Paso 2/3 de 5: Correo laboral"
+
+Layout: Single column, form
+
+Components:
+  - Text Input (name="correoLaboral", type="email", required=true)
+    - Label: "Correo laboral *"
+    - Placeholder: "ejemplo@comsatel.com.pe"
+    - aria-required="true"
+    - aria-describedby="ayuda-correo"
+    
+  - Help text (id="ayuda-correo")
+    - "Para empleados de COMSATEL, usa tu correo corporativo (@comsatel.com.pe).
+      Para contratistas, usa el correo del proveedor."
+    - Small text, secondary color
+  
+  - Validation Message (real-time, as user types)
+    - Valid format: HTML5 <input type="email"> validates
+    - Valid & not duplicate: "✓ Correo válido"
+    - Duplicate (among active collaborators): "✗ El correo {correo} ya está en uso por otro colaborador vigente." (E6)
+    - aria-live="polite"
+
+Actions:
+  - [Siguiente] (enabled when valid email & not duplicate)
+  - [Atrás]
+
+Accessibility:
+  - aria-describedby linking to help text
+  - aria-invalid="true" on error
+  - Focus outline
+  - High contrast in error message
+```
+
+**Variantes:**
+- `correo-form-vacio`
+- `correo-form-llenando`
+- `correo-form-validando`
+- `correo-form-valido`
+- `correo-form-duplicado`: error AC-6 (E6)
+- `correo-form-formato-invalido`
+
+---
+
+### 4. SCR-015-05: Unidad (Empleado) o Proveedor (Contratista)
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle (Empleado): "Paso 3 de 5: Unidad organizacional"
+Subtitle (Contratista): "Paso 3 de 4: Proveedor"
+
+Layout: Single column, form
+
+Components (EMPLEADO → UNIDAD):
+  - Combobox (name="unidad", required=true)
+    - Label: "Unidad *"
+    - Placeholder: "Buscar unidad..."
+    - aria-required="true"
+    - aria-autocomplete="list"
+    - aria-expanded="false" (then "true" when open)
+    - aria-controls="unidad-listbox"
+    - aria-owns="unidad-listbox"
+    
+    - List items (role="listbox", id="unidad-listbox")
+      - When empty: "No hay unidades registradas. Crea una primero (US-017)." (E2)
+      - When loading: Spinner + "Buscando unidades..."
+      - When results: 
+        - Item 1: "Ingeniería (COMSATEL > Ing)" (role="option")
+        - Item 2: "Operaciones (COMSATEL > Op)"
+        - Item 3: "Finanzas (COMSATEL > Fin)"
+      - Keyboard: Arrow keys navigate, Enter selects, Escape closes
+    
+    - Selected value display below:
+      - "[Seleccionada: Ingeniería]" (gray text, smaller font)
+
+Components (CONTRATISTA → PROVEEDOR):
+  - Combobox (name="proveedor", required=true)
+    - Label: "Proveedor *"
+    - Placeholder: "Buscar proveedor..."
+    - Same structure as Unidad but with:
+      - When empty: "No hay proveedores registrados. Crea uno primero (US-018)." (E3)
+      - Items: "Accenture Perú", "Telefónica Tech", "IBM Latinoamérica"
+
+Actions:
+  - [Siguiente] (enabled when unit/provider selected)
+  - [Atrás]
+
+Accessibility:
+  - ARIA Combobox pattern (APG)
+  - aria-invalid on error
+  - aria-live="polite" for results
+  - Focus management: focus stays in input while list open
+  - Keyboard: Ctrl+A to focus list (after typing), Escape to close
+```
+
+**Variantes:**
+- `unidad-form-vacio`: sin buscar
+- `unidad-form-buscando`: loading state
+- `unidad-form-resultados`: lista de unidades (3 opciones)
+- `unidad-form-seleccionada`: una unidad elegida
+- `unidad-form-sin-opciones`: E2 (no hay unidades)
+- `proveedor-form-*`: idénticas variantes para contratista
+
+---
+
+### 5. SCR-015-06: Jefe directo (Empleado solo)
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador (Empleado)"
+Subtitle: "Paso 4 de 5: Jefe directo"
+
+Layout: Single column, form
+
+Components:
+  - Combobox (name="jefeDirecto", required=true)
+    - Label: "Jefe directo *"
+    - Placeholder: "Buscar colaborador..."
+    - aria-required="true"
+    - Filters: only active collaborators (vigentes)
+    
+    - List items (when results):
+      - "Juan Pérez (Jefe de Proyecto)"
+      - "María García (Gerente Ingeniería)"
+      - "Carlos López (Director)"
+    
+    - Help text: "Solo colaboradores vigentes pueden ser jefe directo."
+  
+  - Selected value:
+    - "[Seleccionado: Juan Pérez]"
+
+Actions:
+  - [Siguiente]
+  - [Atrás]
+
+Accessibility:
+  - ARIA Combobox pattern
+  - aria-describedby on help text
+  - aria-invalid on error (E7 if manager not active)
+```
+
+**Variantes:**
+- `jefe-form-vacio`
+- `jefe-form-buscando`
+- `jefe-form-resultados`
+- `jefe-form-seleccionado`
+- `jefe-form-no-vigente`: E7 (manager no longer active)
+
+---
+
+### 6. SCR-015-07: Rol-Nivel inicial (ambos tipos)
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "Paso 5/4 de 5: Rol-Nivel inicial"
+
+Layout: Single column, form
+
+Components:
+  - Select Dropdown (name="rol", required=true)
+    - Label: "Rol *"
+    - Placeholder: "Selecciona rol..."
+    - aria-required="true"
+    - aria-controls="nivel-select" (linked to nivel dropdown)
+    - Options: ["Developer", "QA", "Product Manager", "Designer UX", ...]
+    - State: normal, focused, open, error (E4 if empty)
+    - When empty catalog: Message "No hay roles vigentes en el catálogo. Crea el catálogo primero (US-001)." (E4)
+    - On change: Reset nivel dropdown + filter nivel options by selected rol
+  
+  - Select Dropdown (name="nivel", required=true, id="nivel-select")
+    - Label: "Nivel inicial *"
+    - Placeholder: "Selecciona nivel..."
+    - aria-required="true"
+    - aria-describedby="info-nivel"
+    - Options: Dynamic, filtered by rol
+      - (Example for Developer): ["Developer Junior (Nivel 1)", "Developer Mid (Nivel 2)", "Developer Senior (Nivel 3)"]
+    - Only levels with evidence requirements are shown (BR-ACR-13)
+    - State: normal, focused, open, error (E8 if invalid)
+  
+  - Info text (id="info-nivel")
+    - "ⓘ Solo niveles con requisitos de evidencia definidos están disponibles."
+    - Small text, secondary color, info icon
+  
+  - Date Input (name="fechaDesde", type="date", required=true)
+    - Label: "Vigente desde *"
+    - Default value: Today (editable)
+    - aria-required="true"
+    - Picker or text input (YYYY-MM-DD format)
+  
+  - Validation:
+    - If nivel selected but has no evidence requirements (BR-ACR-13):
+      - Show error: "El nivel seleccionado no tiene requisitos de evidencia definidos. Elige otro." (E8)
+    - If rol changed: Reset nivel (warn if nivel was already selected)
+
+Actions:
+  - [Siguiente] (enabled when rol + nivel + fecha valid)
+  - [Atrás]
+
+Accessibility:
+  - aria-controls linking rol → nivel
+  - aria-describedby on nivel input
+  - aria-invalid on error
+  - Keyboard: Tab through, Arrow keys in dropdowns
+  - Focus management: If rol changes, focus moves to nivel dropdown after filtering
+```
+
+**Variantes:**
+- `rol-nivel-form-vacio`: initial state
+- `rol-nivel-form-rol-seleccionado`: rol chosen, nivel options filtered
+- `rol-nivel-form-nivel-seleccionado`: both rol and nivel chosen
+- `rol-nivel-form-sin-roles`: E4 (empty catalog)
+- `rol-nivel-form-nivel-invalido`: E8 (no evidence requirements)
+- `rol-nivel-form-completo`: all fields valid
+
+---
+
+### 7. SCR-015-08: Revisar y confirmar
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "Paso Final: Revisar y confirmar"
+
+Layout: Two column (left: summary, right: actions)
+
+Components:
+  Summary Section (read-only):
+    - "Revisa los datos antes de registrar:"
+    
+    - Row 1: Label "Tipo de colaborador:" Value "Empleado"
+    - Row 2: Label "Datos de la persona:" Value "Juan Carlos Pérez García (Nombre preferido: J.C.)"
+    - Row 3: Label "Identificación:" Value "DNI 12345678 (Perú)"
+    - Row 4: Label "Correo laboral:" Value "juan.perez@comsatel.com.pe"
+    - Row 5: Label "Unidad:" Value "Ingeniería" [for empleado]
+           OR Label "Proveedor:" Value "Accenture Perú" [for contratista]
+    - Row 6: Label "Jefe directo:" Value "María García Sánchez" [empleado only]
+    - Row 7: Label "Rol-Nivel inicial:" Value "Developer Junior (Nivel 1)"
+    - Row 8: Label "Vigente desde:" Value "2026-09-30"
+    
+    - Layout: Definition list (<dl>, <dt>, <dd>) for accessibility
+    
+  Edit Link:
+    - "[Editar] (vuelve a paso anterior)" (small link, editable=true)
+  
+Actions Section:
+  - [Guardar] (primary button, full width, large)
+    - On click: Show loading spinner
+    - Validate all fields again
+    - On error: Show E5-E10 error states (from FLW-015)
+    - On success: Navigate to SCR-015-09 (éxito)
+  
+  - [Cancelar] (secondary button, full width)
+    - Confirm: "¿Descartar los cambios?"
+    - If yes: Return to inicio (clear form)
+
+Accessibility:
+  - <dl> semantic structure for summary
+  - aria-label on [Guardar] button: "Registrar colaborador"
+  - Loading state: aria-busy="true", aria-label="Guardando..."
+  - Focus management: Focus moves to [Guardar] after user enters review screen
+```
+
+**Variantes:**
+- `revisar-form-empleado`: all employee fields
+- `revisar-form-contratista`: contratista fields (no jefe directo)
+- `revisar-form-guardando`: loading state (spinner, buttons disabled)
+- `revisar-form-error`: error message shown (E5-E10)
+
+---
+
+### 8. SCR-015-09: Éxito
+
+**Prompt para Stitch:**
+
+```
+Title: "Registrar un colaborador"
+Subtitle: "✓ ¡Colaborador registrado!"
+
+Layout: Centered, success state
+
+Components:
+  Success Icon:
+    - Large checkmark (✓) icon, green color (semantic success)
+    - aria-label="Éxito"
+  
+  Title:
+    - "¡Colaborador registrado!" (h2, large)
+  
+  Code Section:
+    - Label: "Código de colaborador (único):"
+    - Code Display (monospace, read-only field):
+      - "a3b2c5d4-e7f1-4a2b-8c3d-9e4f5a6b7c8d" (GUID generated)
+      - Background: light gray
+      - Padding: 16px
+      - Border: 1px solid gray
+    
+    - [Copiar] button (right side of code field)
+      - On click: Copy to clipboard, show toast "Copiado" (2s timeout)
+      - aria-label="Copiar código de colaborador"
+  
+  Help text:
+    - "Puedes usar este código para referencia o comunicación."
+  
+  Next Actions Section:
+    - "¿Qué deseas hacer ahora?"
+    - Three options (buttons):
+      - [Registrar otro colaborador] (primary)
+        - On click: Reset form, go to SCR-015-01
+      - [Volver a la lista] (secondary)
+        - On click: Navigate to party-list view (US-016)
+      - [Ir al dashboard] (tertiary)
+        - On click: Navigate to home/dashboard
+
+Audit:
+  - System logs: user (current), timestamp (now), action "registrar-colaborador"
+  - (Not visible in UI, but logged)
+
+Accessibility:
+  - Success announced with role="status" aria-live="assertive"
+  - Code field is focusable, selectable (for copy)
+  - [Copiar] button keyboard accessible
+  - Focus moves to code field after success
+  - Toast notification: aria-live="polite"
+```
+
+**Variantes:**
+- `exito-form-codigo-mostrado`: initial state (code visible, ready to copy)
+- `exito-form-codigo-copiado`: after [Copiar] click (button shows "✓ Copiado" 2s)
+
+---
+
+### 9. Error States (SCR-015-10)
+
+**Prompt para Stitch (Por excepción):**
+
+```
+# Error States (E1-E11)
+
+E1: Sin permisos
+  Container: Full page overlay
+  Message: "No tienes permiso para registrar colaboradores. Solo el Jefe de Ingeniería puede hacerlo."
+  Icon: Lock icon
+  Action: [Volver]
+  aria-label="Error: sin permisos"
+
+E2: Sin unidades (Empleado)
+  Container: SCR-015-05 (Unidad field)
+  Message: "No hay unidades registradas. Crea una primero (US-017)."
+  Style: Empty state with icon
+  Action: [Crear unidad] or [Volver]
+
+E3: Sin proveedores (Contratista)
+  Container: SCR-015-05 (Proveedor field)
+  Message: "No hay proveedores registrados. Crea uno primero (US-018)."
+  Action: [Crear proveedor] or [Volver]
+
+E4: Sin roles en catálogo
+  Container: SCR-015-07 (Rol dropdown)
+  Message: "No hay roles vigentes en el catálogo. Crea el catálogo primero (US-001)."
+  Action: [Crear catálogo] or [Volver]
+
+E5: Identificación duplicada (AC-5)
+  Container: SCR-015-03 (Identificación field)
+  Message: "La identificación {tipo} {número} ({país}) ya está registrada."
+  Icon: ✗ (red X)
+  Color: Red border on field
+  aria-invalid="true"
+  aria-describedby pointing to error message
+  On blur: Validation triggered (real-time)
+
+E6: Correo duplicado entre vigentes (AC-6)
+  Container: SCR-015-04 (Correo field)
+  Message: "El correo {correo} ya está en uso por otro colaborador vigente."
+  Icon: ✗ (red X)
+  aria-invalid="true"
+  On blur: Validation triggered
+
+E7: Unidad/Proveedor no vigente
+  Container: SCR-015-05
+  Message: "La unidad/proveedor ya no está vigente. Elige otra."
+  Icon: ⚠️ (warning)
+  Color: Orange/amber
+  Action: [Seleccionar otra]
+
+E8: Rol/Nivel inválido (no evidence requirements)
+  Container: SCR-015-07 (Nivel dropdown)
+  Message: "El nivel seleccionado no tiene requisitos de evidencia definidos. Elige otro."
+  aria-invalid="true"
+
+E9: Faltan datos obligatorios (E9)
+  Container: SCR-015-08 (Review screen)
+  Message: Summary list "Por favor completa los campos requeridos:"
+    - [] Nombres
+    - [] Apellidos
+    - [] Identificación
+    - [] Correo
+    - [] Unidad / Proveedor
+    - [] Jefe directo (if empleado)
+    - [] Rol-Nivel
+  Action: [Volver al formulario] → focus on first invalid field
+  role="alert" aria-live="assertive"
+
+E10: Error de base de datos
+  Container: Modal dialog
+  Title: "Error al registrar"
+  Message: "Hubo un problema al registrar el colaborador. Por favor intenta nuevamente. Código de error: {transaction-id}"
+  Actions: [Reintentar] [Volver y empezar de nuevo]
+  role="alertdialog"
+  aria-labelledby on title
+  aria-describedby on message
+
+E11: Sesión vencida
+  Container: Full page overlay
+  Message: "Tu sesión ha expirado. Por favor inicia sesión nuevamente."
+  Action: [Ir a login] (redirects to ADR-002 login flow)
+  aria-label="Error: sesión vencida"
+```
+
+**Variantes:**
+- `error-sin-permisos`
+- `error-sin-unidades`
+- `error-sin-proveedores`
+- `error-sin-roles`
+- `error-id-duplicada`
+- `error-correo-duplicado`
+- `error-unidad-no-vigente`
+- `error-nivel-invalido`
+- `error-faltan-datos`
+- `error-base-datos`
+- `error-sesion-vencida`
+
+---
+
+## Prompts para reproducir en Stitch
+
+### Prompt 1: Flujo Empleado (SCR-015-01 → SCR-015-08 → SCR-015-09)
+
+```
+Crea un formulario de registro de colaborador (Empleado) en Google Stitch 
+con los siguientes elementos:
+
+Paso 1: Seleccionar tipo
+  - Radio button group (Empleado / Contratista)
+  - Descripción breve de cada tipo
+  - Botones: [Siguiente] [Cancelar]
+
+Paso 2: Datos de la persona
+  - Nombres (text, required)
+  - Apellidos (text, required)
+  - Nombre preferido (text, optional)
+  - Botones: [Siguiente] [Atrás]
+
+Paso 3: Identificación
+  - Tipo (dropdown: DNI, Carné, Pasaporte)
+  - Número (text, required, pattern validation)
+  - País (dropdown, alphabetical)
+  - Real-time validation: ✓ valid, ✗ duplicate (AC-5)
+  - Botones: [Siguiente] [Atrás]
+
+Paso 4: Correo laboral
+  - Correo (text email, required)
+  - Help text: diferencia empleado/contratista
+  - Real-time validation: ✓ valid, ✗ duplicate (AC-6)
+  - Botones: [Siguiente] [Atrás]
+
+Paso 5: Unidad organizacional
+  - Combobox con búsqueda
+  - Opciones: Ingeniería, Operaciones, Finanzas, ...
+  - Mostrar selección actual
+  - Botones: [Siguiente] [Atrás]
+
+Paso 6: Jefe directo
+  - Combobox con búsqueda de colaboradores vigentes
+  - Mostrar nombre + rol/título
+  - Botones: [Siguiente] [Atrás]
+
+Paso 7: Rol-Nivel inicial
+  - Rol (dropdown, dinámico)
+  - Nivel (dropdown, filtrado por rol, solo con evidence requirements)
+  - Fecha desde (date picker, default=today)
+  - Help text: "Solo niveles con requisitos de evidencia definidos"
+  - Botones: [Siguiente] [Atrás]
+
+Paso 8: Revisar y confirmar
+  - Summary en format definition list
+  - [Editar] link
+  - [Guardar] (primary) [Cancelar] (secondary)
+
+Paso 9: Éxito
+  - Checkmark icon + "¡Colaborador registrado!"
+  - Código (GUID) con botón [Copiar]
+  - Opciones: [Registrar otro] [Volver a la lista] [Ir al dashboard]
+
+Accesibilidad: WCAG 2.2 AA (teclado, foco, contraste, aria-*, roles)
+Responsive: Desktop (1440px), Tablet (768px), Mobile (375px)
+```
+
+### Prompt 2: Flujo Contratista (simplificado, sin jefe)
+
+```
+Crea un formulario de registro de colaborador (Contratista) similar al flujo 
+Empleado pero con:
+- Paso 5: Proveedor (combobox, no unidad)
+- Omitir paso 6 (sin jefe directo para contratista, BR-PTY-19)
+- Total 4 pasos (sin jefe)
+
+Resto idéntico: Tipo → Persona → ID → Correo → Proveedor → Rol-Nivel → Revisar → Éxito
+```
+
+### Prompt 3: Estados de error
+
+```
+Crea variantes de error para cada pantalla:
+- E2/E3: Sin unidades/proveedores (empty state en SCR-015-05)
+- E4: Sin roles (empty state en SCR-015-07)
+- E5: ID duplicada (inline error en SCR-015-03)
+- E6: Correo duplicado (inline error en SCR-015-04)
+- E7: Unidad/Proveedor no vigente (warning state)
+- E8: Nivel sin evidence requirements (invalid state)
+- E9: Faltan datos (summary error)
+- E10: Error BD (modal dialog)
+```
+
+---
+
+## Variantes de pantalla
+
+**Matriz de variantes por flujo:**
+
+| Pantalla | Empleado | Contratista | Estados |
+|---|---|---|---|
+| SCR-015-01 | ○ tipo-sin-seleccionar, tipo-empleado-sel, tipo-contratista-sel | (idéntica) | 3 |
+| SCR-015-02/03 | Personas + ID | (idéntica) | 6: vacio, llenando, validando, válida, duplicada, error |
+| SCR-015-04 | Correo | (idéntica) | 6: vacio, llenando, validando, válido, duplicado, formato-inválido |
+| SCR-015-05 | Unidad (combobox) | Proveedor (combobox) | 6: vacio, buscando, resultados, seleccionado, sin-opciones (E2/E3) |
+| SCR-015-06 | Jefe directo | **OMITIDO** | 5: vacio, buscando, resultados, seleccionado, no-vigente |
+| SCR-015-07 | Rol-Nivel | (idéntica) | 7: vacio, rol-sel, nivel-sel, sin-roles (E4), nivel-inválido (E8) |
+| SCR-015-08 | Revisar (con jefe) | Revisar (sin jefe) | 4: empleado, contratista, guardando, error |
+| SCR-015-09 | Éxito (empleado) | Éxito (contratista) | 2: codigo-mostrado, codigo-copiado |
+
+**Total variantes:** ~50 pantallas/estados
+
+---
+
+## Decisiones de implementación
+
+### Componentes Material Angular
+
+- `<mat-radio-group>`: para selector de tipo
+- `<mat-form-field>`: para agrupar labels + inputs + help text + errors
+- `<mat-input>`: para text, email, date inputs
+- `<mat-select>`: para dropdowns (rol, nivel, tipo ID, país)
+- `<mat-datepicker>`: para date picker (fecha desde)
+- `<mat-button>`: para botones primarios/secundarios
+- `<mat-error>`: para mensajes de error (dinámicos)
+- `<mat-hint>`: para help text
+- `<mat-spinner>`: para estados de carga
+
+### Validación (Angular Reactive Forms)
+
+- `Validators.required`: campos obligatorios
+- `Validators.email`: correo
+- `pattern`: número de identificación (regex)
+- `asyncValidator`: verificar duplicados (API call a backend)
+- Real-time feedback: `valueChanges.pipe(debounceTime(300), distinctUntilChanged())`
+
+### Accesibilidad nativa
+
+- Material Angular incluye aria-* automáticamente
+- Keyboard navigation con Tab, Arrow keys (built-in)
+- Focus management con `cdkTrapFocus` (modal-like)
+- `aria-describedby` linking labels → help text
+- `aria-invalid` en campos con error
+- `aria-live="polite"` en mensajes de validación
+
+### Breakpoints (responsive)
+
+- Desktop: 1440px (1 column, full width form)
+- Tablet: 768px (1 column, reduced padding)
+- Mobile: 375px (1 column, stacked fields, full-width buttons)
+
+---
+
+## Próximos pasos
+
+1. **Implementación en Angular:** Crear componentes reutilizables (form-field, form-step, form-review)
+2. **Integración con API:** Backend endpoints para validación de duplicados, obtener unidades/proveedores/roles
+3. **Pruebas de aceptación (AC-015):** Validar cada pantalla/estado contra requisitos UX
+4. **Pruebas de accesibilidad:** Auditoría WCAG 2.2 AA con herramientas (axe, WAVE)
+5. **User testing:** Validar flujo con 3-5 Jefes de Ingeniería (si presupuesto permite)

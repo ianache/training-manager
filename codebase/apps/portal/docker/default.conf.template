@@ -1,0 +1,68 @@
+# Plantilla procesada por el entrypoint de nginx (envsubst): ${BFF_UPSTREAM}
+server {
+  listen 80;
+  server_name _;
+  root /usr/share/nginx/html;
+
+  # DNS interno de Docker, re-resuelto cada 10 s: si el contenedor del BFF se reinicia y
+  # cambia de IP, nginx lo sigue encontrando (con un upstream fijo quedaría en 502 para siempre).
+  resolver 127.0.0.11 valid=10s ipv6=off;
+  set $bff_upstream ${BFF_UPSTREAM};
+
+  server_tokens off;
+  add_header X-Content-Type-Options nosniff always;
+  add_header Referrer-Policy strict-origin-when-cross-origin always;
+
+  location = /healthz {
+    access_log off;
+    default_type text/plain;
+    return 200 "ok";
+  }
+
+  # BFF: autenticación (PKCE, sesión) y API. Mismo origen → la cookie HTTP-only viaja sola.
+  location /auth/ {
+    proxy_pass $bff_upstream;
+    include /etc/nginx/conf.d/proxy-headers.inc;
+    # Navegación del usuario: si el BFF no responde, página amigable que se recarga sola.
+    proxy_intercept_errors on;
+    error_page 502 503 504 =503 /starting.html;
+  }
+  location /api/ {
+    proxy_pass $bff_upstream;
+    include /etc/nginx/conf.d/proxy-headers.inc;
+    # Llamadas XHR: si el BFF no responde, error JSON con el formato estándar (API-SPEC-001 §4.2).
+    error_page 502 504 = @bff_unavailable;
+  }
+  location @bff_unavailable {
+    default_type application/json;
+    add_header Cache-Control "no-store" always;
+    return 503 '{"error":{"code":"UPSTREAM_UNAVAILABLE","message":"La plataforma no está disponible en este momento. Intenta en unos segundos.","status":503,"details":{"service":"bff"}}}';
+  }
+  location = /starting.html {
+    internal;
+    add_header Cache-Control "no-store" always;
+    add_header Retry-After 5 always;
+  }
+
+  # Metadatos de federación: nunca en caché, para que un despliegue nuevo se vea al instante.
+  location ~* (federation\.manifest\.json|remoteEntry\.json)$ {
+    add_header Cache-Control "no-store" always;
+    try_files $uri =404;
+  }
+
+  # MicroUIs: solo archivos estáticos (sin fallback a index.html).
+  location /mfe/ {
+    try_files $uri =404;
+    location ~* \.(js|mjs|css|woff2?)$ {
+      add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+  }
+
+  # Shell (SPA): cualquier ruta del cliente vuelve a index.html.
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+  location = /index.html {
+    add_header Cache-Control "no-store" always;
+  }
+}

@@ -1,56 +1,30 @@
-import logging
-from fastapi import HTTPException, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
-from app.core.auth import get_current_user
+"""
+Autorización por rol del usuario final (roles de realm de Keycloak, alineados con el BFF y el portal).
 
-logger = logging.getLogger(__name__)
+Visibilidad de datos maestros (UXR-000.5, decisión P-08 del 2026-09-27; API-SPEC-001 "visibility"):
+- Jefe de Ingeniería y ADMIN: ficha completa.
+- Cualquier otro colaborador: solo nombre, correo laboral, unidad, rol y estado.
 
+Pendiente (no se infiere): reconocer "su propia ficha" requiere el vínculo con Keycloak (US-022),
+que este servicio todavía no modela. Hasta entonces el colaborador ve su ficha en vista limitada.
+"""
+from fastapi import Depends
 
-async def get_user_roles(username: str) -> list[str]:
-    """
-    Fetch user roles from Keycloak.
-    TODO: Implement real Keycloak integration.
-    For now, hardcode roles for testing.
-    """
-    # Placeholder: in production, query Keycloak
-    if username == "admin":
-        return ["jefe_ingeniera", "developer"]
-    return ["developer"]
+from app.core.auth import Caller, get_caller
+from app.core.errors import authorization_failed
 
-
-async def check_jefe_ingeniera(
-    current_user: str = Depends(get_current_user)
-) -> str:
-    """
-    Verify user has jefe_ingeniera role.
-    Raises: HTTPException 403 if unauthorized
-    """
-    roles = await get_user_roles(current_user)
-    if "jefe_ingeniera" not in roles:
-        raise HTTPException(
-            status_code=403,
-            detail="Only Jefe de Ingeniería can perform this action"
-        )
-    return current_user
+JEFE_INGENIERIA = "jefe_ingenieria"
+ADMIN = "admin"
+FULL_VIEW_ROLES = (JEFE_INGENIERIA, ADMIN)
+WRITE_ROLES = (JEFE_INGENIERIA,)
 
 
-async def check_party_access(
-    party_id: str,
-    current_user: str = Depends(get_current_user),
-) -> None:
-    """
-    Verify user can access party (early auth check, before DB query).
-    Raises: HTTPException 403 if unauthorized
-    """
-    roles = await get_user_roles(current_user)
+def can_see_full(caller: Caller) -> bool:
+    return caller.has_any_role(*FULL_VIEW_ROLES)
 
-    # Jefe de Ingeniería can access all parties
-    if "jefe_ingeniera" in roles:
-        return
 
-    # Colaborador can only access their own party
-    # TODO: Implement actual party lookup
-    raise HTTPException(
-        status_code=403,
-        detail="Cannot access other party's data"
-    )
+async def require_jefe_ingenieria(caller: Caller = Depends(get_caller)) -> Caller:
+    """US-015 / US-016: solo el Jefe de Ingeniería registra y modifica colaboradores."""
+    if not caller.has_any_role(*WRITE_ROLES):
+        raise authorization_failed("Solo el Jefe de Ingeniería puede realizar esta acción.")
+    return caller
