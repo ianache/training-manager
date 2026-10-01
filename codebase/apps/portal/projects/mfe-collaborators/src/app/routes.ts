@@ -20,6 +20,30 @@ export const ROUTES: Routes = [
     title: 'Colaboradores',
   },
   {
+    path: ':partyId/datos/editar',
+    loadComponent: () =>
+      import('./pages/jefe-datos-edit/jefe-datos-edit.page').then(
+        (m) => m.JefeDatosEditPage
+      ),
+    title: 'Editar datos personales',
+  },
+  {
+    path: ':partyId/contactos/editar',
+    loadComponent: () =>
+      import('./pages/jefe-contactos-edit/jefe-contactos-edit.page').then(
+        (m) => m.JefeContactosEditPage
+      ),
+    title: 'Editar medios de contacto',
+  },
+  {
+    path: ':partyId/perfiles/editar',
+    loadComponent: () =>
+      import('./pages/colaborador-perfiles-edit/colaborador-perfiles-edit.page').then(
+        (m) => m.ColaboradorPerfilesEditPage
+      ),
+    title: 'Editar perfiles profesionales',
+  },
+  {
     path: ':partyId',
     loadComponent: () =>
       import('./pages/party-detail/party-detail.page').then((m) => m.PartyDetailPage),
