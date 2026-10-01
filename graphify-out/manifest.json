@@ -2410,5 +2410,53 @@
     "seen": 1790826046.5965524,
     "ast_hash": "cd76217c2eb2d21bdf4d8d70ca0266ff",
     "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md": {
+    "mtime": 1790831187.9662285,
+    "seen": 1790831530.762566,
+    "ast_hash": "5fd54d308231bc3146406c7dfdd16fd9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md": {
+    "mtime": 1790827791.5515997,
+    "seen": 1790827837.151936,
+    "ast_hash": "de19c006759e13f6d35423cd47fa383a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-015-registrar-un-colaborador.md": {
+    "mtime": 1790827932.956498,
+    "seen": 1790827977.0614307,
+    "ast_hash": "68bb640a2ea46221436f6a8019da4238",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-015-stitch-registrar-colaborador.md": {
+    "mtime": 1790828360.816936,
+    "seen": 1790828398.161198,
+    "ast_hash": "6fcfad3b832d6335164ef6f40e67e0e5",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/MEMORY.md": {
+    "mtime": 1790831459.759423,
+    "seen": 1790831530.7480648,
+    "ast_hash": "254cc54f46bc494955f3e8a717c82bab",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/acceptance-criteria/AC-015-registrar-un-colaborador.md": {
+    "mtime": 1790831326.7494922,
+    "seen": 1790831530.7480648,
+    "ast_hash": "2d50aeabffa5261fa2e74201036ba93b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/CMP-015-componentes-registrar-colaborador.md": {
+    "mtime": 1790831383.5299633,
+    "seen": 1790831530.7480648,
+    "ast_hash": "c48e88127cecad29fb982358f451a88e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/IMPL-015-plan-registrar-colaborador.md": {
+    "mtime": 1790831628.1657252,
+    "seen": 1790831671.2985828,
+    "ast_hash": "70f95f7ca115e6ba465773afb698b588",
+    "semantic_hash": ""
   }
 }
