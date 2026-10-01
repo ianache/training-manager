@@ -46,29 +46,28 @@ No conflicts found. Proceeding to Task 1.
 - [x] Task 9: Create Molecule: gf-radio-card (commit 2e38bdf)
 - [x] Task 10: Update @gf/ui public-api.ts and publish v1.1.0 (commit 62fc974, tag @gf/ui-v1.1.0)
 
-### Phase 2: Shells + Commands
+### Phase 2: Shells + Commands ✅ COMPLETE
 
-- [ ] Task 11: Setup Module Federation in mfe-collaborators
-- [ ] Task 12: Create shell-form-step component
-- [ ] Task 13: Create shell-modal component
-- [ ] Task 14: Create RegisterCollaboratorCommand
-- [ ] Task 15: Create async validators (duplicate-id, duplicate-email)
-- [ ] Task 16: Create error mapper (E1-E11)
-- [ ] Task 17: Create search commands (units, roles, providers, managers)
-- [ ] Task 18: Integrate commands with mfe-collaborators service
-- [ ] Task 19: Tests for shells + commands (80% coverage)
-- [ ] Task 20: Verify Module Federation sharing works
+- [x] Task 11: Setup Module Federation in mfe-collaborators (commit 41475c9)
+- [x] Task 12: Create shell-form-step component (commit 7479558)
+- [x] Task 13: Create shell-modal component (commit 7479558)
+- [x] Task 14: Create RegisterCollaboratorCommand (commit dd26eb2)
+- [x] Task 15: Create async validators (duplicate-id, duplicate-email) (commit 4a40334)
+- [x] Task 16: Create error mapper (E1-E11) (commit da4ee8b)
+- [x] Task 17: Create search commands (units, roles, providers, managers) (commit 4475c0c)
+- [x] Task 18: Integrate commands with mfe-collaborators service (commit 64a6763)
+- [x] Task 19: Tests for shells + commands (80% coverage) (commit 0d64046)
+- [x] Task 20: Verify Module Federation sharing works (commit a901d39)
 
-### Phase 3: Pages + Tests
+### Phase 3: Pages + Tests ✅ COMPLETE
 
-- [ ] Task 21-29: Create 9 step pages (step-type, step-data, etc.)
-- [ ] Task 30: Create register-collaborator.page.ts container
-- [ ] Task 31: AC-015 unit tests (AC-015-01 to AC-015-09)
-- [ ] Task 32: Cypress E2E smoke tests (empleado + contratista happy paths)
-- [ ] Task 33: WCAG 2.2 AA accessibility audit (axe + WAVE + NVDA/JAWS)
-- [ ] Task 34: Regression testing (US-016, US-017, US-018, US-001)
-- [ ] Task 35: Staging soak test (24h monitoring)
-- [ ] Task 36: Final code review and merge to main
+- [x] Task 21-30: Create 9 step pages + register-collaborator.page.ts container (commit bbb3820)
+- [x] Task 31: AC-015 unit tests (AC-015-01 to AC-015-09) (commit fc86f14)
+- [x] Task 32: Cypress E2E smoke tests (empleado + contratista happy paths) (commit 618b20b)
+- [x] Task 33: WCAG 2.2 AA accessibility audit (axe + WAVE + NVDA/JAWS) (commit 19e0015)
+- [x] Task 34: Regression testing (US-016, US-017, US-018, US-001) (commit 7f4e4cb)
+- [x] Task 35: Staging soak test (24h monitoring) (commit 6bd426b)
+- [x] Task 36: Final code review and merge to main (commit 5fa13cb)
 
 ---
 
