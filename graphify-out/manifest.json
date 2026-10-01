@@ -1134,9 +1134,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/config.py": {
-    "mtime": 1790824046.8225062,
-    "seen": 1790826046.4379416,
-    "ast_hash": "af5ade22ae1436aa93782cf7068f75bc",
+    "mtime": 1790832272.4478123,
+    "seen": 1790832319.3073866,
+    "ast_hash": "3eeda3b3dea6e3d3952c0523d93a0d9c",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/__init__.py": {
@@ -1146,27 +1146,27 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/auth.py": {
-    "mtime": 1790824048.001638,
-    "seen": 1790826046.4379416,
-    "ast_hash": "6d1ef67f119c9e7e1031faafe916fdf8",
+    "mtime": 1790832272.9930754,
+    "seen": 1790832319.3083866,
+    "ast_hash": "65eb66e577e13a456db12d9f6acf1d23",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/authorization.py": {
-    "mtime": 1790824048.5670097,
-    "seen": 1790826046.4379416,
+    "mtime": 1790832273.5703752,
+    "seen": 1790832319.3083866,
     "ast_hash": "9339ef7976443f5bf08dfd7077a21ec0",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/exceptions.py": {
-    "mtime": 1790824049.778693,
-    "seen": 1790826046.4379416,
+    "mtime": 1790832274.698764,
+    "seen": 1790832319.3083866,
     "ast_hash": "b905d787ace9b7f5918eb68dad36d611",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/logging.py": {
-    "mtime": 1790824050.4973173,
-    "seen": 1790826046.4379416,
-    "ast_hash": "3b10f310b55e8b2a141434f52295d7ce",
+    "mtime": 1790832275.2098536,
+    "seen": 1790832319.3083866,
+    "ast_hash": "027796865b88128a0ff93cfc1bbd2b80",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/database/__init__.py": {
@@ -1176,15 +1176,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/database/engine.py": {
-    "mtime": 1790824051.154529,
-    "seen": 1790826046.4429226,
-    "ast_hash": "be36b6f2cb4de416121c1231a5d168d2",
+    "mtime": 1790832276.328847,
+    "seen": 1790832319.3083866,
+    "ast_hash": "b085316fe6bfcdc1c73d9d65f1936694",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/main.py": {
-    "mtime": 1790824047.328671,
-    "seen": 1790826046.4429226,
-    "ast_hash": "072e99d825c23b21ee20afad45c2cd83",
+    "mtime": 1790832278.048288,
+    "seen": 1790832319.3083866,
+    "ast_hash": "7bb20de956cf72ab521c8ee35a7fe629",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/__init__.py": {
@@ -1194,15 +1194,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/base.py": {
-    "mtime": 1790824052.3873396,
-    "seen": 1790826046.4446216,
+    "mtime": 1790832278.6280458,
+    "seen": 1790832319.3083866,
     "ast_hash": "f9ce77713f2a3c4312568d2f1de24402",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/party.py": {
-    "mtime": 1790824053.0970645,
-    "seen": 1790826046.4446216,
-    "ast_hash": "b0771979ad541e710a6ac0f9eb67676d",
+    "mtime": 1790832279.1762366,
+    "seen": 1790832319.3083866,
+    "ast_hash": "ee2b3816e6fea09fc55c880a6e6f7b4d",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/__init__.py": {
@@ -1212,9 +1212,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/parties.py": {
-    "mtime": 1790824053.786615,
-    "seen": 1790826046.4446216,
-    "ast_hash": "6814f389eb612d949259ffe31be551c3",
+    "mtime": 1790832279.713901,
+    "seen": 1790832319.309384,
+    "ast_hash": "91ced8adde6ccc375e755e541238be7f",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/schemas/__init__.py": {
@@ -1224,9 +1224,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/schemas/party.py": {
-    "mtime": 1790824054.4019678,
-    "seen": 1790826046.447443,
-    "ast_hash": "c235ca91f9eb173255c74899df1eb3d6",
+    "mtime": 1790832280.2943249,
+    "seen": 1790832319.309384,
+    "ast_hash": "00ee0c97813351da72b4cd531830d9ad",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/__init__.py": {
@@ -1236,9 +1236,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/party_service.py": {
-    "mtime": 1790824054.9607182,
-    "seen": 1790826046.447443,
-    "ast_hash": "30ccb319c60a3f99e6f187a531b25f27",
+    "mtime": 1790832280.8327732,
+    "seen": 1790832319.310392,
+    "ast_hash": "800058e0b2ff1551b3105618668d67bb",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/pyproject.toml": {
@@ -1320,9 +1320,9 @@
     "semantic_hash": ""
   },
   "DOCKER_SETUP.md": {
-    "mtime": 1790824065.0686612,
-    "seen": 1790826046.5593474,
-    "ast_hash": "cf85e966289309bf14277e7210cfe0ce",
+    "mtime": 1790832266.0726967,
+    "seen": 1790832319.36504,
+    "ast_hash": "2edf9f3b1f826e71b3a31709cc2c2275",
     "semantic_hash": ""
   },
   "GENERACION-COMPLETADA.md": {
@@ -1338,21 +1338,21 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/README.md": {
-    "mtime": 1790824043.9522777,
-    "seen": 1790826046.562886,
-    "ast_hash": "931066cbda8265983c79f6823a6bafd2",
+    "mtime": 1790832270.7643104,
+    "seen": 1790832319.3668187,
+    "ast_hash": "22ac380d013f72e7c6b6741071f85536",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/TESTING.md": {
-    "mtime": 1790824044.5715292,
-    "seen": 1790826046.562886,
-    "ast_hash": "954d883adb4a4ee518f572e5947af7fb",
+    "mtime": 1790832271.3139215,
+    "seen": 1790832319.3668187,
+    "ast_hash": "96aad494c4da45c3eb52983aad524183",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/docker-compose.yml": {
-    "mtime": 1790824045.0698712,
-    "seen": 1790826046.562886,
-    "ast_hash": "6e950b3f332e73e6f811f46d95db2986",
+    "mtime": 1790832281.408626,
+    "seen": 1790832319.3668187,
+    "ast_hash": "85b03d0fca73ef4ddb4a82223ea7e719",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/requirements.txt": {
@@ -1668,9 +1668,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/downstream/service-client.ts": {
-    "mtime": 1790824058.3155339,
-    "seen": 1790826046.4296908,
-    "ast_hash": "0dd1538a694ed5a8a95a82e60d4c99a6",
+    "mtime": 1790832267.5992396,
+    "seen": 1790832319.3015163,
+    "ast_hash": "214c404370ea57a1cdf6073c138808cd",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/downstream/service-token.ts": {
@@ -1710,15 +1710,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/catalog/catalog.router.ts": {
-    "mtime": 1790824060.2260642,
-    "seen": 1790826046.432729,
-    "ast_hash": "c5a47e9de13caaba55b2215875cce64a",
+    "mtime": 1790832268.130365,
+    "seen": 1790832319.3035176,
+    "ast_hash": "1792c2a71bbfa0c9bb4a42c26567a977",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/parties/parties.router.ts": {
-    "mtime": 1790824059.7264369,
-    "seen": 1790826046.432729,
-    "ast_hash": "13e799852f2a54abc74e69a30641051e",
+    "mtime": 1790832268.6712172,
+    "seen": 1790832319.3035176,
+    "ast_hash": "55942388e8c20c3c31a2a37f5a6c94d5",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/observability/logger.ts": {
@@ -1746,9 +1746,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/app.test.ts": {
-    "mtime": 1790824060.8525567,
-    "seen": 1790826046.4353049,
-    "ast_hash": "30bf8401b553b86c5967ed65b1fd485c",
+    "mtime": 1790832269.1988108,
+    "seen": 1790832319.304517,
+    "ast_hash": "cd74d47f0d0ad2ba2716a140319044aa",
     "semantic_hash": ""
   },
   "codebase/apps/bff/tsconfig.build.json": {
@@ -2250,9 +2250,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/ARCHITECTURE.md": {
-    "mtime": 1790824425.2971416,
-    "seen": 1790826046.562886,
-    "ast_hash": "de26c124a2fe1d19508d8fd275ba9db0",
+    "mtime": 1790832266.5797281,
+    "seen": 1790832319.3668187,
+    "ast_hash": "a77c1cea76cbc8d3ea0c3ddb18b5f84c",
     "semantic_hash": ""
   },
   "codebase/apps/bff/README.md": {
@@ -2382,15 +2382,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/errors.py": {
-    "mtime": 1790824049.2320304,
-    "seen": 1790826046.4379416,
-    "ast_hash": "6605cdbb180baed4257feb606b208399",
+    "mtime": 1790832274.1239278,
+    "seen": 1790832319.3083866,
+    "ast_hash": "00963ce7b0d792cb8407d4e408430eb3",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/database/seed.py": {
-    "mtime": 1790824051.6745605,
-    "seen": 1790826046.4429226,
-    "ast_hash": "35c3b571f4ff70e157e085a7f2abaaad",
+    "mtime": 1790832277.464585,
+    "seen": 1790832319.3083866,
+    "ast_hash": "22e97b57ad81ab2366f2739d3a70262c",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/security/test_service_auth.py": {
@@ -2457,6 +2457,48 @@
     "mtime": 1790831628.1657252,
     "seen": 1790831671.2985828,
     "ast_hash": "70f95f7ca115e6ba465773afb698b588",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/downstream/relay.ts": {
+    "mtime": 1790832267.0821517,
+    "seen": 1790832319.3015163,
+    "ast_hash": "7dbad0e8346d38ebed181ab86e4b495a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/rate_limit.py": {
+    "mtime": 1790832275.7690885,
+    "seen": 1790832319.3083866,
+    "ast_hash": "27994d93ec73c1badf4df37020053f13",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/database/preflight.py": {
+    "mtime": 1790832276.8878512,
+    "seen": 1790832319.3083866,
+    "ast_hash": "555b404a2cfe14666c7a62938259e086",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/docker-entrypoint.sh": {
+    "mtime": 1790832281.9289923,
+    "seen": 1790832319.310392,
+    "ast_hash": "f47004769ea5cab1ebd374d422912a6f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/__init__.py": {
+    "mtime": 1790832282.3853178,
+    "seen": 1790832319.310392,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/env.py": {
+    "mtime": 1790832282.9203568,
+    "seen": 1790832319.310392,
+    "ast_hash": "e47c8eb6409363f07de862c4eab8c061",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/architecture/ARCH-CMP-015-libreria-componentes-shell-microui.md": {
+    "mtime": 1790832274.5406644,
+    "seen": 1790832319.4659252,
+    "ast_hash": "c41ff038fc8ac2d02a088f7746fdc2a2",
     "semantic_hash": ""
   }
 }

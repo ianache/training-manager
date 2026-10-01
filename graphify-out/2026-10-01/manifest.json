@@ -2452,5 +2452,11 @@
     "seen": 1790831530.7480648,
     "ast_hash": "c48e88127cecad29fb982358f451a88e",
     "semantic_hash": ""
+  },
+  "knowledge-base/implementation/IMPL-015-plan-registrar-colaborador.md": {
+    "mtime": 1790831628.1657252,
+    "seen": 1790831671.2985828,
+    "ast_hash": "70f95f7ca115e6ba465773afb698b588",
+    "semantic_hash": ""
   }
 }
