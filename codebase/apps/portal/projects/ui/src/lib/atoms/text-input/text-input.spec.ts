@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { GfTextInput } from './text-input';
 
 describe('GfTextInput', () => {
@@ -7,43 +8,137 @@ describe('GfTextInput', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GfTextInput]
+      imports: [GfTextInput, ReactiveFormsModule]
     }).compileComponents();
     fixture = TestBed.createComponent(GfTextInput);
     component = fixture.componentInstance;
   });
 
-  it('should emit valueChange when input value changes', () => {
-    spyOn(component.valueChange, 'emit');
-    component.valueChange.emit('test');
-    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+  describe('Basic rendering and signals', () => {
+    it('should emit valueChange when input value changes', () => {
+      spyOn(component.valueChange, 'emit');
+      component.valueChange.emit('test');
+      expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+    });
+
+    it('should have aria-required attribute when required is true', () => {
+      fixture.componentRef.setInput('required', true);
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.getAttribute('aria-required')).toBe('true');
+    });
+
+    it('should have aria-invalid attribute when invalid is true', () => {
+      fixture.componentRef.setInput('invalid', true);
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+    });
+
+    it('should be disabled when disabled is true', () => {
+      fixture.componentRef.setInput('disabled', true);
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.disabled).toBe(true);
+    });
+
+    it('should emit blur event on input blur', () => {
+      spyOn(component.blur, 'emit');
+      const input = fixture.nativeElement.querySelector('input');
+      input.dispatchEvent(new Event('blur'));
+      expect(component.blur.emit).toHaveBeenCalled();
+    });
+
+    it('should support different input types', () => {
+      fixture.componentRef.setInput('type', 'email');
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.type).toBe('email');
+    });
+
+    it('should set aria-label when provided', () => {
+      fixture.componentRef.setInput('ariaLabel', 'Nombres, campo obligatorio');
+      fixture.detectChanges();
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.getAttribute('aria-label')).toBe('Nombres, campo obligatorio');
+    });
   });
 
-  it('should have aria-required attribute when required is true', () => {
-    component.required = true;
-    fixture.detectChanges();
-    const input = fixture.nativeElement.querySelector('input');
-    expect(input.getAttribute('aria-required')).toBe('true');
+  describe('Form control integration', () => {
+    it('should work with FormControl and required validator', () => {
+      const control = new FormControl('', Validators.required);
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.valid).toBe(false);
+      control.setValue('test');
+      expect(control.valid).toBe(true);
+    });
+
+    it('should work with minLength validator', () => {
+      const control = new FormControl('', Validators.minLength(2));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      control.setValue('a');
+      expect(control.hasError('minlength')).toBe(true);
+      control.setValue('ab');
+      expect(control.hasError('minlength')).toBe(false);
+    });
+
+    it('should work with maxLength validator', () => {
+      const control = new FormControl('', Validators.maxLength(50));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      control.setValue('a'.repeat(51));
+      expect(control.hasError('maxlength')).toBe(true);
+      control.setValue('a'.repeat(50));
+      expect(control.hasError('maxlength')).toBe(false);
+    });
+
+    it('should work with pattern validator', () => {
+      const control = new FormControl('', Validators.pattern(/^[a-zA-Z\s]*$/));
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      control.setValue('test123');
+      expect(control.hasError('pattern')).toBe(true);
+      control.setValue('test');
+      expect(control.hasError('pattern')).toBe(false);
+    });
+
+    it('should display error state when control is invalid and touched', () => {
+      const control = new FormControl('', Validators.required);
+      fixture.componentRef.setInput('control', control);
+      fixture.detectChanges();
+
+      expect(control.invalid && control.touched).toBe(false);
+      control.markAsTouched();
+      fixture.detectChanges();
+      expect(control.invalid && control.touched).toBe(true);
+    });
   });
 
-  it('should have aria-invalid attribute when invalid is true', () => {
-    component.invalid = true;
-    fixture.detectChanges();
-    const input = fixture.nativeElement.querySelector('input');
-    expect(input.getAttribute('aria-invalid')).toBe('true');
-  });
+  describe('Accessibility', () => {
+    it('should have proper aria attributes for required field', () => {
+      fixture.componentRef.setInput('required', true);
+      fixture.componentRef.setInput('ariaLabel', 'Nombres, campo obligatorio');
+      fixture.detectChanges();
 
-  it('should be disabled when disabled is true', () => {
-    component.disabled = true;
-    fixture.detectChanges();
-    const input = fixture.nativeElement.querySelector('input');
-    expect(input.disabled).toBe(true);
-  });
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.getAttribute('aria-required')).toBe('true');
+      expect(input.getAttribute('aria-label')).toBe('Nombres, campo obligatorio');
+    });
 
-  it('should emit blur event on input blur', () => {
-    spyOn(component.blur, 'emit');
-    const input = fixture.nativeElement.querySelector('input');
-    input.dispatchEvent(new Event('blur'));
-    expect(component.blur.emit).toHaveBeenCalled();
+    it('should indicate invalid state with aria-invalid', () => {
+      const control = new FormControl('', Validators.required);
+      fixture.componentRef.setInput('control', control);
+      fixture.componentRef.setInput('invalid', true);
+      fixture.detectChanges();
+
+      const input = fixture.nativeElement.querySelector('input');
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+    });
   });
 });

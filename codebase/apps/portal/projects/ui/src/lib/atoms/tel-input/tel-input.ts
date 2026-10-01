@@ -1,70 +1,77 @@
-import { ChangeDetectionStrategy, Component, input, output, computed } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+  computed,
+} from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'gf-select',
+  selector: 'gf-tel-input',
   standalone: true,
   imports: [ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (control()) {
-      <select
+      <input
+        type="tel"
         [disabled]="disabled()"
         [formControl]="control()!"
+        [placeholder]="placeholder()"
         [attr.aria-label]="ariaLabel() || null"
         [attr.aria-required]="required() || null"
         [attr.aria-invalid]="shouldShowInvalid()"
-        [attr.aria-expanded]="ariaExpanded()"
-        (change)="onChangeWithControl($event)"
-      >
-        <ng-content></ng-content>
-      </select>
+        (change)="valueChange.emit($event.target.value)"
+        (blur)="blur.emit()"
+      />
     } @else {
-      <select
+      <input
+        type="tel"
         [value]="value()"
+        [placeholder]="placeholder()"
         [disabled]="disabled()"
         [attr.aria-label]="ariaLabel() || null"
         [attr.aria-required]="required() || null"
         [attr.aria-invalid]="invalid() ? 'true' : null"
-        [attr.aria-expanded]="ariaExpanded()"
-        (change)="onChangeWithoutControl($event)"
-      >
-        <ng-content></ng-content>
-      </select>
+        (change)="valueChange.emit($event.target.value)"
+        (blur)="blur.emit()"
+      />
     }
   `,
   styles: [`
-    select {
+    input {
       padding: var(--gf-space-2) var(--gf-space-3);
       border: 1px solid var(--gf-color-border);
       border-radius: var(--gf-radius-sm);
       font: inherit;
       font-size: 1rem;
-      cursor: pointer;
+      line-height: 1.5;
       width: 100%;
       box-sizing: border-box;
     }
-    select:focus {
+    input:focus {
       outline: 2px solid var(--gf-color-primary);
       outline-offset: 2px;
     }
-    select:disabled {
+    input:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-    select[aria-invalid="true"] {
+    input[aria-invalid="true"] {
       border-color: var(--gf-color-danger-fg);
     }
-  `]
+  `],
 })
-export class GfSelect {
+export class GfTelInput {
+  readonly placeholder = input('+51 999 999 999');
   readonly value = input('');
-  readonly disabled = input(false);
-  readonly ariaLabel = input('');
   readonly required = input(false);
   readonly invalid = input(false);
+  readonly disabled = input(false);
+  readonly ariaLabel = input('');
   readonly control = input<FormControl | null>(null);
-  readonly ariaExpanded = input('false');
+  readonly showError = input(false);
 
   readonly shouldShowInvalid = computed(() => {
     const ctrl = this.control();
@@ -72,14 +79,12 @@ export class GfSelect {
   });
 
   readonly valueChange = output<string>();
+  readonly blur = output<void>();
 
-  onChangeWithControl(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    this.valueChange.emit(target.value);
-  }
-
-  onChangeWithoutControl(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    this.valueChange.emit(target.value);
-  }
+  /**
+   * Pattern validator for Peru phone numbers: +51 followed by 9 digits
+   * Pattern: ^\\+51\\d{9}$
+   * Example: +51999999999 or +51 999 999 999
+   */
+  readonly peruPhonePattern = /^\+51\d{9}$/;
 }

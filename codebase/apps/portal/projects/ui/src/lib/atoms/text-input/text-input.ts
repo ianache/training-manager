@@ -1,20 +1,35 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, computed } from '@angular/core';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'gf-text-input',
   standalone: true,
+  imports: [ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <input
-      [type]="type()"
-      [value]="value()"
-      [disabled]="disabled()"
-      [attr.aria-label]="ariaLabel() || null"
-      [attr.aria-required]="required() || null"
-      [attr.aria-invalid]="invalid() || null"
-      (change)="valueChange.emit($event.target.value)"
-      (blur)="blur.emit()"
-    />
+    @if (control()) {
+      <input
+        [type]="type()"
+        [disabled]="disabled()"
+        [formControl]="control()!"
+        [attr.aria-label]="ariaLabel() || null"
+        [attr.aria-required]="required() || null"
+        [attr.aria-invalid]="shouldShowInvalid()"
+        (change)="valueChange.emit($event.target.value)"
+        (blur)="blur.emit()"
+      />
+    } @else {
+      <input
+        [type]="type()"
+        [value]="value()"
+        [disabled]="disabled()"
+        [attr.aria-label]="ariaLabel() || null"
+        [attr.aria-required]="required() || null"
+        [attr.aria-invalid]="invalid() ? 'true' : null"
+        (change)="valueChange.emit($event.target.value)"
+        (blur)="blur.emit()"
+      />
+    }
   `,
   styles: [`
     input {
@@ -45,6 +60,12 @@ export class GfTextInput {
   readonly invalid = input(false);
   readonly disabled = input(false);
   readonly ariaLabel = input('');
+  readonly control = input<FormControl | null>(null);
+
+  readonly shouldShowInvalid = computed(() => {
+    const ctrl = this.control();
+    return (ctrl?.invalid && ctrl?.touched) ? 'true' : null;
+  });
 
   readonly valueChange = output<string>();
   readonly blur = output<void>();
