@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "target": "ES2022"
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
+  "extends": "./tsconfig.app.json",
+  "include": ["src/**/*.d.ts"],
+  "federation": {
+    "name": "mfe-collaborators",
+    "filename": "remoteEntry.js",
+    "exposes": {
+      "./Module": "src/app/app.module.ts"
+    },
+    "shared": {
+      "@angular/animations": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^22.0.0"
+      },
+      "@angular/common": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^22.0.0"
+      },
+      "@angular/compiler": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^22.0.0"
+      },
+      "@angular/core": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^22.0.0"
+      },
+      "@gf/ui": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^1.1.0"
+      },
+      "@gf/core": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^1.0.0"
+      },
+      "rxjs": {
+        "singleton": true,
+        "strictVersion": true,
+        "requiredVersion": "^7.0.0"
+      }
+    }
+  }
+}
