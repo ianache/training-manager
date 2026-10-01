@@ -1,0 +1,504 @@
+---
+# Development Context Pack — Structured Metadata
+# For: Party Management Service API (Python/FastAPI)
+# Generated: 2026-09-30
+
+metadata:
+  id: DCP-002-VALIDADO
+  type: development_context_pack
+  title: Development Context Pack — Party Management Service API
+  version: 1.0
+  status: APPROVED_FOR_DEV
+  approved_at: "2026-09-30T00:00:00-05:00"
+  approved_by: [ianache]
+  generated_at: "2026-09-30T00:00:00-05:00"
+  generated_by: architecture-development-handoff/claude-haiku-4-5
+  project_id: UX_UI_agentic
+  initiative: Plataforma de Gestión de Formación del RH
+
+implementation_scope:
+  initiative: Plataforma de Gestión de Formación
+  bounded_context: Party Management (Collaborators)
+  phase: 1a (Phase 1: Core PARTY + ORGANIZATION)
+  duration_weeks: 6
+  duration_days: 30
+  user_stories:
+    in_scope:
+      - id: US-015
+        title: Registrar un colaborador
+        phase: 1
+      - id: US-016
+        title: Actualizar datos y medios de contacto
+        phase: 1
+      - id: US-017
+        title: Gestionar estructura organizacional
+        phase: 1
+      - id: US-018
+        title: Gestionar proveedores y contratistas
+        phase: 1
+      - id: US-019
+        title: Asignar Rol-Nivel a una persona
+        phase: 2
+      - id: US-020
+        title: Asignar roles del programa
+        phase: 2
+      - id: US-021
+        title: Dar de baja a un colaborador
+        phase: 3
+      - id: US-022
+        title: Vincular identidad de acceso
+        phase: 3
+      - id: US-023
+        title: Consultar ficha y historial
+        phase: 1-3
+      - id: US-024
+        title: Anonimizar datos personales
+        phase: 4
+      - id: US-025
+        title: Configurar plazo de anonimización
+        phase: 4
+    out_of_scope:
+      - Certification Service (separate microservice)
+      - AI/Evidence analysis (H3 capability)
+      - Google Classroom integration (H2 capability)
+      - Frontend UI (Angular shell team)
+      - Keycloak realm setup (ops responsibility)
+
+architecture_constraints:
+  approved_adrs:
+    - id: ADR-001
+      title: Estructura de la plataforma
+      status: ACCEPTED
+      approved_date: "2026-09-20"
+      impact: shell/microservices isolation
+    - id: ADR-002
+      title: Autenticación Keycloak + PKCE
+      status: ACCEPTED
+      approved_date: "2026-09-20"
+      impact: MUST validate X-Token + X-User-Name
+    - id: ADR-003
+      title: Persistencia MySQL ↔ PostgreSQL
+      status: ACCEPTED
+      approved_date: "2026-09-20"
+      impact: ORM portable, no raw SQL
+    - id: ADR-004
+      title: Secretos en HashiCorp Vault
+      status: ACCEPTED
+      approved_date: "2026-09-20"
+      impact: no secrets in code
+    - id: ADR-005
+      title: Implementación PKCE
+      status: ACCEPTED
+      approved_date: "2026-09-22"
+      impact: token handling via BFF
+    - id: ADR-006
+      title: Criterios de upgrade Rol-Nivel
+      status: ACCEPTED
+      approved_date: "2026-09-22"
+      impact: authorization matrix
+    - id: ADR-007
+      title: Consolidación PostgreSQL local
+      status: ACCEPTED
+      approved_date: "2026-09-28"
+      impact: PostgreSQL-only for this service
+    - id: ADR-008
+      title: Python + FastAPI para APIs
+      status: ACCEPTED
+      approved_date: "2026-09-26"
+      impact: technology stack decision
+
+technology_stack:
+  framework: FastAPI (Python)
+  orm: SQLAlchemy 2.0+ (async)
+  validation: Pydantic v2
+  database: PostgreSQL 12+
+  authentication: Keycloak (OAuth 2.0 PKCE)
+  secrets_management: HashiCorp Vault
+  migration: Alembic
+  testing: pytest + pytest-asyncio
+  api_documentation: OpenAPI (auto-generated)
+  logging: structlog (JSON)
+  monitoring: Prometheus + health endpoint
+
+api_contract:
+  base_path: /api/v1
+  version: v1
+  style: REST (resource-oriented)
+  endpoints_total: 19
+  endpoints_by_phase:
+    phase_1: 8  # PARTY + ORGANIZATION
+    phase_2: 6  # ROLE-ASSIGNMENT + PROGRAM-ROLE
+    phase_3: 3  # KEYCLOAK-LINK
+    phase_4: 3  # ANONYMIZATION
+    phase_5: 0  # Observability (not new endpoints)
+
+data_model:
+  entities:
+    - table: tb_party
+      rows_estimate: 10000
+      primary_key: pk_party_id (UUID)
+      audit_fields: [created_by, created_at, updated_by, updated_at, anonymized_at, anonymized_by]
+      vigencies: status (active|inactive|anonymized)
+    - table: tb_organization
+      rows_estimate: 500
+      primary_key: pk_organization_id (UUID)
+      audit_fields: [created_by, created_at]
+    - table: tb_party_role_assignment
+      rows_estimate: 50000
+      primary_key: pk_assignment_id (UUID)
+      audit_fields: [created_by, created_at]
+      vigencies: thru_date (NULL = active)
+    - table: tb_party_program_role
+      rows_estimate: 5000
+      primary_key: pk_program_role_id (UUID)
+      audit_fields: [created_by, created_at]
+      vigencies: thru_date (NULL = active)
+    - table: tb_party_keycloak_link
+      rows_estimate: 10000
+      primary_key: pk_link_id (UUID)
+      audit_fields: [linked_by, linked_at]
+
+authorization:
+  pattern: RBAC (Role-Based Access Control)
+  roles:
+    - id: JEFE_INGENIERA
+      title: Jefe de Ingeniería
+      permissions:
+        - create_party: true
+        - read_all_parties: true
+        - update_all_parties: true
+        - assign_roles: true
+        - anonymize: true
+    - id: COLABORADOR
+      title: Colaborador
+      permissions:
+        - create_party: false
+        - read_all_parties: false
+        - read_self_party: true
+        - update_self_party_partial: true  # phone, preferred_name only
+        - assign_roles: false
+        - anonymize: false
+
+security:
+  findings:
+    - id: SRC-001-001
+      title: Rate Limiting No Vinculante
+      severity: MEDIUM
+      status: OPEN_REMEDIATION
+      phase: 1
+      remediation: Implement FastAPI middleware (slowapi), per-user rate limits
+    - id: SRC-001-002
+      title: SQL Injection Protection No Explícita
+      severity: MEDIUM
+      status: OPEN_REMEDIATION
+      phase: 1
+      remediation: Enforce enum validation for filters, SQLAlchemy ORM only
+    - id: SRC-001-003
+      title: Authorization Bypass via Direct Object Reference
+      severity: MEDIUM
+      status: OPEN_REMEDIATION
+      phase: 1
+      remediation: Early auth validation in middleware, before DB query
+    - id: SRC-001-004
+      title: PII Visibility Not Enforced
+      severity: LOW
+      status: OPEN_REMEDIATION
+      phase: 1
+      remediation: Redact emails/phone from error responses + logs
+    - id: SRC-001-005
+      title: API Error Messages Too Verbose
+      severity: LOW
+      status: OPEN_REMEDIATION
+      phase: 1
+      remediation: Use generic error messages in production
+  owasp_coverage:
+    - A01 Broken Access Control: IMPLEMENTED (early auth checks)
+    - A03 Injection: IMPLEMENTED (SQLAlchemy ORM, enum validation)
+    - A04 Insecure Design: IMPLEMENTED (vigencies pattern prevents overwrites)
+    - A05 Broken Authentication: IMPLEMENTED (token validation mandatory)
+
+fitness_criteria:
+  critical_paths:
+    - path: "US-015 → POST /parties"
+      criteria:
+        - status: "status_code == 201"
+        - audit: "created_by == X-User-Name, created_at == NOW()"
+        - authorization: "only Jefe can create"
+      test: test_jefe_can_create_party
+
+    - path: "US-019 → PATCH /role-assignments (vigencies)"
+      criteria:
+        - atomicity: "close + open in single transaction"
+        - no_overwrites: "old assignment.thru_date == new assignment.from_date"
+        - audit: "both assignments logged"
+      test: test_vigencia_pattern_no_overwrite
+
+    - path: "US-024 → POST /anonymize"
+      criteria:
+        - irreversibility: "first_names NULL, last_names NULL, email_work NULL"
+        - precondition: "status == inactive AND (now - thru_date) >= 90 days"
+        - audit: "anonymized_by, anonymized_at recorded"
+      test: test_anonymization_irreversible
+
+nfrs:
+  performance:
+    - attribute: response_time_get
+      target: "<500ms (p95)"
+      measurement: K6 load test (100 concurrent users)
+    - attribute: response_time_post
+      target: "<1000ms (p95)"
+      measurement: K6 load test
+    - attribute: throughput_read
+      target: "10000 requests/second"
+      measurement: K6
+    - attribute: throughput_write
+      target: "1000 requests/second"
+      measurement: K6
+
+  availability:
+    - attribute: uptime
+      target: "99.5%"
+      measurement: Health endpoint monitoring
+
+  scalability:
+    - attribute: max_parties
+      target: "1 million"
+      measurement: DB index validation
+    - attribute: concurrent_users
+      target: "500"
+      measurement: Load test
+
+  auditability:
+    - attribute: mutation_logging
+      target: "100% of CREATE/UPDATE/DELETE"
+      measurement: application.log audit trail verification
+
+  backwards_compatibility:
+    - attribute: api_stability
+      target: "v1 stable for 18 months"
+      measurement: No breaking changes without v2
+
+assumptions:
+  - id: ASM-001
+    statement: Keycloak realm and client credentials available at deployment
+    verified: false
+    contingency: Mock Keycloak in dev/test; production requires real realm
+
+  - id: ASM-002
+    statement: Database migrations run before service startup
+    verified: false
+    contingency: Docker entrypoint runs `alembic upgrade head` before uvicorn
+
+  - id: ASM-003
+    statement: UUID v4 acceptable for all primary keys (performance impact <10ms)
+    verified: false
+    contingency: Benchmark test: 1000 inserts should complete in <10 seconds
+
+unknowns:
+  - id: UNK-001
+    question: Should anonymization be synchronous or async job?
+    recommendation: Sync v1; async v2
+    decision_owner: Tech Lead
+    decision_date: null
+
+  - id: UNK-002
+    question: Should historical role assignments be queryable per role type?
+    recommendation: Yes; add filter in Phase 2
+    decision_owner: Product Manager
+    decision_date: null
+
+  - id: UNK-003
+    question: How frequently should anonymization scheduler run?
+    recommendation: Daily 2am UTC
+    decision_owner: Ops Lead
+    decision_date: null
+
+conflicts:
+  - id: CON-001
+    description: ADR-001 (BFF Node.js) vs ADR-008 (Python APIs)
+    resolution: "BFF remains Node.js; Party Service is Python/FastAPI. No conflict; both exist."
+    impact: "BFF routes POST /api/v1/parties → FastAPI at http://party-service:8000"
+
+  - id: CON-002
+    description: ADR-003 (MySQL + PostgreSQL) vs ADR-007 (PostgreSQL only)
+    resolution: "ADR-007 (later, approved 2026-09-28) supersedes ADR-003 for this service"
+    impact: "Implement PostgreSQL-only; keep ORM portable for future"
+
+implementation_phases:
+  phase_1:
+    name: "Core PARTY + ORGANIZATION"
+    duration_weeks: 2
+    tasks:
+      - "Task 1a: SQLAlchemy models (Party, Organization)"
+      - "Task 1b: Auth middleware (X-Token, X-User-Name)"
+      - "Task 1c: PARTY endpoints (POST, GET, PATCH)"
+      - "Task 1d: ORGANIZATION endpoints"
+      - "Task 1e: Unit + integration tests"
+    exit_criteria:
+      - "All Phase 1 tests passing"
+      - "SRC-001 findings documented"
+
+  phase_2:
+    name: "ROLE-ASSIGNMENT + PROGRAM-ROLE"
+    duration_weeks: 1
+    dependencies: ["phase_1"]
+    tasks:
+      - "Task 2a: role_assignment endpoints"
+      - "Task 2b: close-then-open vigencies (transaction test)"
+      - "Task 2c: program_role endpoints"
+    exit_criteria:
+      - "Vigencies tests passing"
+      - "No data loss on concurrent assigns"
+
+  phase_3:
+    name: "KEYCLOAK-LINK + Integration Tests"
+    duration_weeks: 1
+    dependencies: ["phase_2"]
+    tasks:
+      - "Task 3a: keycloak_link endpoints"
+      - "Task 3b: E2E workflow test"
+    exit_criteria:
+      - "E2E test passing"
+      - "Cross-module integration validated"
+
+  phase_4:
+    name: "ANONYMIZATION + Scheduler"
+    duration_weeks: 1
+    dependencies: ["phase_3"]
+    tasks:
+      - "Task 4a: Anonymization logic (irreversible NULL)"
+      - "Task 4b: Scheduler (daily check)"
+    exit_criteria:
+      - "Anonymization irreversible"
+      - "Scheduler runs without errors"
+
+  phase_5:
+    name: "Observability"
+    duration_weeks: 1
+    dependencies: ["phase_4"]
+    tasks:
+      - "Task 5a: Prometheus metrics + health endpoint"
+      - "Task 5b: Structured logging (JSON)"
+      - "Task 5c: Documentation + deployment guide"
+    exit_criteria:
+      - "Metrics exposed"
+      - "Logs searchable"
+      - "README complete"
+
+definition_of_ready:
+  - "All 11 US mapped to endpoints"
+  - "API-SPEC-001 signed off (19 endpoints)"
+  - "ADRs 001-008 approved"
+  - "SRC-001 completed (3 MEDIUM findings)"
+  - "Data model designed (STD-DB-001 compliant)"
+  - "Authorization matrix defined (RBAC)"
+  - "Vigencies pattern documented + tested"
+  - "Assumptions, unknowns, conflicts identified"
+  - "NFRs stated (performance, auditability, compatibility)"
+
+definition_of_done:
+  - "100% endpoints passing smoke tests"
+  - "100% security findings resolved"
+  - "≥80% code coverage"
+  - "All ACCEPTANCE CRITERIA met"
+  - "Performance tests passing"
+  - "Audit trail validated"
+  - "Vigencies pattern validated"
+  - "Documentation complete"
+  - "MR reviewed + approved"
+  - "QA environment deployment passing"
+
+success_metrics:
+  - metric: "Endpoint Coverage"
+    target: "19/19 (100%)"
+    evidence: "Postman collection passing"
+
+  - metric: "Test Coverage"
+    target: "≥80% lines, 100% critical paths"
+    evidence: "pytest report"
+
+  - metric: "Security Findings"
+    target: "SRC-001 3 MEDIUM → resolved"
+    evidence: "test_rate_limiting_429, test_sql_injection, test_authorization"
+
+  - metric: "Performance (p95)"
+    target: "<500ms GET, <1000ms POST"
+    evidence: "K6 load test report"
+
+  - metric: "Auditability"
+    target: "100% mutations logged"
+    evidence: "application.log contains created_by, created_at"
+
+dependencies:
+  internal:
+    - "BFF Node.js (routes requests to FastAPI)"
+    - "Keycloak realm (authentication)"
+    - "PostgreSQL server (data persistence)"
+    - "HashiCorp Vault (secrets)"
+
+  external:
+    - "Optional: Google Classroom (H2, future)"
+    - "Optional: GitLab API (H3 AI evidence, future)"
+
+deliverables:
+  - path: "codebase/apps/domains/party-management-service/"
+    description: "FastAPI service source code"
+
+  - path: "codebase/apps/domains/party-management-service/app/models/"
+    description: "SQLAlchemy models (Party, Organization, etc.)"
+
+  - path: "codebase/apps/domains/party-management-service/app/routers/"
+    description: "FastAPI endpoint handlers"
+
+  - path: "codebase/apps/domains/party-management-service/tests/"
+    description: "Unit, integration, E2E tests"
+
+  - path: "docs/api/party-management-service.md"
+    description: "API documentation (OpenAPI + examples)"
+
+  - path: "docs/deployment/party-management-deployment.md"
+    description: "Deployment guide (Docker, Kubernetes, env vars)"
+
+references:
+  - id: API-SPEC-001
+    type: Technical Specification
+    path: knowledge-base/architecture/api/API-SPEC-001-gestion-data-maestra-party.md
+    version: Draft
+
+  - id: SRC-001
+    type: Security Review
+    path: knowledge-base/architecture/api/SRC-001-security-review-api-spec-001.md
+    version: Draft
+
+  - id: STD-DB-001
+    type: Data Standard
+    path: knowledge-base/architecture/standards/STD-DB-001-standard-de-base-de-datos.md
+    version: Approved
+
+  - id: ADR-001 to ADR-008
+    type: Architecture Decisions
+    path: knowledge-base/architecture/adrs/
+    version: Approved (2026-09-20 to 2026-09-28)
+
+human_decision_gate:
+  status: PENDING
+  required_approvals:
+    - role: "Solution Architect"
+      name: null
+      decision: null
+      date: null
+    - role: "Tech Lead (Backend)"
+      name: null
+      decision: null
+      date: null
+  possible_outcomes:
+    - READY_FOR_DEV
+    - RETURN_TO_ARCHITECTURE
+    - REQUEST_EVIDENCE
+    - REQUEST_DECISION
+
+prepared_by:
+  name: Claude Haiku 4.5
+  role: Architecture Development Handoff Skill
+  email: noreply@anthropic.com
+  date: "2026-09-30T00:00:00-05:00"
