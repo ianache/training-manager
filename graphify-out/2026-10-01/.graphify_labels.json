@@ -224,6 +224,17 @@
   "222": "**AC-015-07: SCR-015-07 — Rol-Nivel inicial**",
   "223": "**AC-015-08: SCR-015-08 — Revisar y confirmar**",
   "224": "schema/__init__.py",
+  "225": "DTC-015 — Development Context Pack",
+  "226": "Decisiones Arquitectónicas",
+  "227": "Checklist de Implementación",
   "228": "docker-entrypoint.sh",
-  "229": "migrations/__init__.py"
+  "229": "migrations/__init__.py",
+  "230": "Mapeo: ARCH-CMP-015 → Codebase Actual",
+  "231": "Plan de Implementación: Alineación + CMP-015",
+  "232": "10. Handoff & Verification",
+  "233": "12. Next Actions for Developers",
+  "234": "1. Qué se implementa",
+  "235": "2. Arquitectura",
+  "236": "5. Checklist de Implementación",
+  "237": "7. Testing Strategy"
 }

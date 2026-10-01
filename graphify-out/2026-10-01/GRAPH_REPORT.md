@@ -1,17 +1,17 @@
 # Graph Report - UX_UI_agentic  (2026-10-01)
 
 ## Corpus Check
-- 426 files · ~331,833 words
+- 427 files · ~334,759 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 28 file(s) not represented in the graph (top: (none) 12, .scss 6, .example 3)
 
 ## Summary
-- 3306 nodes · 4767 edges · 227 communities (197 shown, 30 thin omitted)
+- 3344 nodes · 4805 edges · 238 communities (208 shown, 30 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 114 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4c70c980`
+- Built from commit: `ef8d69b4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -228,7 +228,18 @@
 - TST-001 — Pruebas de restricciones del modelo de partes
 - **AC-015-07: SCR-015-07 — Rol-Nivel inicial**
 - **AC-015-08: SCR-015-08 — Revisar y confirmar**
+- DTC-015 — Development Context Pack
+- Decisiones Arquitectónicas
+- Checklist de Implementación
 - docker-entrypoint.sh
+- Mapeo: ARCH-CMP-015 → Codebase Actual
+- Plan de Implementación: Alineación + CMP-015
+- 10. Handoff & Verification
+- 12. Next Actions for Developers
+- 1. Qué se implementa
+- 2. Arquitectura
+- 5. Checklist de Implementación
+- 7. Testing Strategy
 
 ## God Nodes (most connected - your core abstractions)
 1. `PartyService` - 31 edges
@@ -257,7 +268,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (227 total, 30 thin omitted)
+## Communities (238 total, 30 thin omitted)
 
 ### Community 0 - "TRM-0008-certificado.md"
 Cohesion: 0.18
@@ -768,8 +779,8 @@ Cohesion: 0.09
 Nodes (22): **AC-015-01: SCR-015-01 — Seleccionar tipo**, **AC-015-02/03: SCR-015-02/03 — Datos persona + Identificación**, **AC-015-04: SCR-015-04 — Correo laboral**, **AC-015-05A/05B: SCR-015-05A/05B — Unidad / Proveedor**, **AC-015-06: SCR-015-06 — Jefe directo (Empleado)**, **AC-015-09: SCR-015-09 — Éxito**, Matriz de Test Cases por Pantalla, Test: Campos obligatorios validados (+14 more)
 
 ### Community 133 - "CODEBASE-ANALYSIS-015 — Alineación Arquitectónica"
-Cohesion: 0.06
-Nodes (30): 1. Module Federation Boundaries, 2. Reactive Forms + Async Validators, 3. State Management: Commands vs NgRx, 4. API Error Mapping, Atoms Existentes, Checklist de Implementación, CODEBASE-ANALYSIS-015 — Alineación Arquitectónica, Contexto (+22 more)
+Cohesion: 0.15
+Nodes (11): Atoms Existentes, CODEBASE-ANALYSIS-015 — Alineación Arquitectónica, Contexto, Estructura de Carpetas Post-Implementación, Librería UI Actual (`@gf/ui`), Molecules Existentes, Próximos Pasos, Referencias (+3 more)
 
 ### Community 144 - "Archify Diagrams — Plataforma de Gestión de Formación"
 Cohesion: 0.14
@@ -1047,24 +1058,68 @@ Nodes (4): **AC-015-07: SCR-015-07 — Rol-Nivel inicial**, Test: Fecha desde ed
 Cohesion: 0.50
 Nodes (4): **AC-015-08: SCR-015-08 — Revisar y confirmar**, Test: Error de validación (E5, E6, E7, E8, E10), Test: Guardar con loading, Test: Summary correcta
 
+### Community 225 - "DTC-015 — Development Context Pack"
+Cohesion: 0.15
+Nodes (13): 11. Propiedades de Definición Completa (OKF), 13. Contactos & Escalación, 3.1 Extender @gf/ui (librería compartida), 3.2 Implementar en mfe-collaborators, 3. Estructura de código, 4. API Contracts, 6. Criterios de Aceptación (AC-015), 8. Dependencias Externas (+5 more)
+
+### Community 226 - "Decisiones Arquitectónicas"
+Cohesion: 0.40
+Nodes (5): 1. Module Federation Boundaries, 2. Reactive Forms + Async Validators, 3. State Management: Commands vs NgRx, 4. API Error Mapping, Decisiones Arquitectónicas
+
+### Community 227 - "Checklist de Implementación"
+Cohesion: 0.40
+Nodes (5): Checklist de Implementación, Phase 1: Extender @gf/ui, Phase 2: Crear infrastructure en mfe-collaborators, Phase 3: Implementar páginas US-015, QA & Release
+
+### Community 230 - "Mapeo: ARCH-CMP-015 → Codebase Actual"
+Cohesion: 0.40
+Nodes (5): Layer 1: ATOMS, Layer 2: MOLECULES, Layer 3: SHELLS, Layer 4: COMMANDS, Mapeo: ARCH-CMP-015 → Codebase Actual
+
+### Community 231 - "Plan de Implementación: Alineación + CMP-015"
+Cohesion: 0.50
+Nodes (4): Phase 1: Extender @gf/ui (2 semanas), Phase 2: Crear Shells + Commands en mfe-collaborators (2 semanas), Phase 3: Implementar páginas US-015 en mfe-collaborators (2 semanas), Plan de Implementación: Alineación + CMP-015
+
+### Community 232 - "10. Handoff & Verification"
+Cohesion: 0.50
+Nodes (4): 10. Handoff & Verification, Desarrollo, QA, Sign-off
+
+### Community 233 - "12. Next Actions for Developers"
+Cohesion: 0.50
+Nodes (4): 12. Next Actions for Developers, Equipo Backend, Equipo Frontend, Equipo QA
+
+### Community 234 - "1. Qué se implementa"
+Cohesion: 0.50
+Nodes (4): 1. Qué se implementa, Excepciones manejadas (E1-E11), Flujo de usuario, Validaciones críticas (tiempo real)
+
+### Community 235 - "2. Arquitectura"
+Cohesion: 0.50
+Nodes (4): 2. Arquitectura, Decisiones clave, Module Federation (Shared), Reactive Forms + Async Validators
+
+### Community 236 - "5. Checklist de Implementación"
+Cohesion: 0.50
+Nodes (4): 5. Checklist de Implementación, Phase 1: Extender @gf/ui (Semana 1-2), Phase 2: Shells + Commands (Semana 3-4), Phase 3: Páginas US-015 (Semana 5-6)
+
+### Community 237 - "7. Testing Strategy"
+Cohesion: 0.50
+Nodes (4): 7. Testing Strategy, Accessibility Audit (WCAG 2.2 AA), Integration Tests (Cypress E2E), Unit Tests (@gf/ui + mfe-collaborators)
+
 ## Knowledge Gaps
-- **2001 isolated node(s):** `name`, `version`, `private`, `description`, `type` (+1996 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2191 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **2029 isolated node(s):** `name`, `version`, `private`, `description`, `type` (+2024 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2218 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `colaborador()` connect `conftest.py` to `Handoff Report`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `Development Context Pack — Party Management Service API`?**
-  _High betweenness centrality (0.290) - this node is a cross-community bridge._
+  _High betweenness centrality (0.283) - this node is a cross-community bridge._
 - **Why does `10. Preguntas abiertas y discrepancias encontradas` connect `conftest.py` to `Arquitectura de la aplicación web — Plataforma de Gestión de Formación`, `party-list.page.ts`?**
-  _High betweenness centrality (0.176) - this node is a cross-community bridge._
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **Why does `Arquitectura de la aplicación web — Plataforma de Gestión de Formación` connect `Arquitectura de la aplicación web — Plataforma de Gestión de Formación` to `OidcPort`, `requireSession`, `conftest.py`?**
-  _High betweenness centrality (0.150) - this node is a cross-community bridge._
+  _High betweenness centrality (0.145) - this node is a cross-community bridge._
 - **Are the 15 inferred relationships involving `PartyService` (e.g. with `create_party()` and `get_party()`) actually correct?**
   _`PartyService` has 15 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _2001 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2029 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Índice` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `RCP-001 — H1 El idioma común` be split into smaller, more focused modules?**

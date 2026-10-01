@@ -156,6 +156,82 @@ sources:
 
 **Ventaja:** @gf/ui se carga una sola vez, se comparte entre todos los MFEs.
 
+### Arquitectura de Endpoints (BFF Node.js + Party Management Service)
+
+**Alineado con ADR-001 & ADR-010: BFF Node.js es el único intermediario**
+
+```
+Angular Portal (mfe-collaborators)
+    │
+    ├─ POST /api/v1/parties
+    │  (body: RegisterCollaboratorRequest)
+    │
+    ↓ (fetch to BFF)
+    │
+BFF Node.js (/codebase/apps/bff/src/modules/parties/parties.router.ts)
+    │
+    ├─ Line 39: r.post('/', requireAnyRole(Role.JefeIngenieria), ...)
+    │ • Guard: Validar que usuario es "Jefe de Ingeniería" (E1)
+    │ • Capturar: userName, userRoles, requestId
+    │
+    ├─ party.call({
+    │   method: 'POST',
+    │   path: '/api/v1/parties',
+    │   body: req.body,
+    │   userName,
+    │   userRoles,
+    │   requestId
+    │ })
+    │
+    ↓ (relay to Party Management Service)
+    │
+Party Management Service (FastAPI/Python)
+    │
+    ├─ POST /api/v1/parties (DCP-002)
+    │ • Recibe: body + headers (X-User-Name, X-Request-ID)
+    │ • Validaciones:
+    │   - E5: ID duplicada (compound key: número, tipo, país)
+    │   - E6: Correo duplicado (solo vigentes)
+    │   - E7: Unidad/proveedor no vigente
+    │   - E8: Nivel sin evidence requirements
+    │   - E9: Faltan datos (HTTP 400)
+    │   - E10: Error BD (HTTP 500, txn-id)
+    │ • Genera: GUID código de colaborador
+    │ • Auditoría: registra quién (X-User-Name) + cuándo
+    │ • Response: 201 {id, codigo, ...} o 409/400/500 {code, message}
+    │
+    └─ ↑ Response (vía BFF relay)
+        │
+        └─ BFF retorna exactamente lo que Party Management Service retorna
+            (relay() no modifica, solo traduce HTTP status + headers)
+```
+
+**Responsabilidades por capa:**
+
+| Capa | Responsabilidad | Tecnología |
+|------|-----------------|------------|
+| **Angular (mfe-collaborators)** | UI: formulario + validaciones locales | Angular 22 + Reactive Forms |
+| **BFF Node.js** | RBAC grueso (Jefe de Ingeniería), relay, manejo de sesión/CSRF | Express.js, middleware |
+| **Party Management Service** | Lógica de negocio: validaciones BD, duplicados, auditoría | FastAPI + Python + PostgreSQL |
+
+**Headers compartidos (BFF ↔ Party Management Service):**
+
+```
+X-User-Name: "ianache"              ← userName(req)
+X-User-Roles: "Jefe-Ingenieria"    ← userRoles(req)
+X-Request-ID: "req-uuid-12345"      ← requestIdOf(req)
+```
+
+El Party Management Service usa estos headers para:
+- Auditoría (quién hizo la acción)
+- Control de acceso fino (visibilidad de datos por rol, P-08, BR-TRA-03)
+- Trazabilidad (X-Request-ID)
+
+**Estado actual del BFF:**
+- ✅ `parties.router.ts` ya tiene POST /api/v1/parties con guard `requireAnyRole(Role.JefeIngenieria)`
+- ✅ Relay configurado para pasar body + headers
+- 🔲 Búsqueda endpoints (GET /unidades, /roles, etc.) — aún por completar
+
 ### Reactive Forms + Async Validators
 
 ```typescript
@@ -443,7 +519,20 @@ export class RegisterCollaboratorPage implements OnInit {
 
 ## 4. API Contracts
 
-### POST /api/v1/parties (Crear colaborador)
+### Cliente-Facing: POST /api/v1/parties (BFF Node.js)
+
+**El endpoint que el Angular frontend llama.**
+
+```
+Frontend → POST http://localhost:3000/api/v1/parties
+           (con sesión Keycloak via BFF)
+           ↓
+BFF Node.js (codebase/apps/bff/src/modules/parties/parties.router.ts:39)
+  - Guard: requireAnyRole(Role.JefeIngenieria) — E1 si sin permisos
+  - Relay: pasar body + headers (X-User-Name, X-User-Roles, X-Request-ID)
+           al Party Management Service
+  - Response: 201, 409, 400, 500 (exacto del microservicio)
+```
 
 **Request:**
 
@@ -744,10 +833,26 @@ describe('Register Collaborator - Happy Path', () => {
 
 ### Equipo Backend
 
+**BFF Node.js (codebase/apps/bff):**
+1. ✅ POST /api/v1/parties ya está implementado (parties.router.ts:39)
+2. 🔲 Completar GET endpoints para búsqueda real-time:
+   - GET /api/v1/unidades?q=ing (search units)
+   - GET /api/v1/roles (list roles)
+   - GET /api/v1/proveedores?q=acme (search providers)
+   - GET /api/v1/jefes?q=maria (search managers — solo vigentes)
+3. Revisar CSRF middleware + OIDC session
+
+**Party Management Service (codebase/apps/domains/party-management-service - FastAPI/Python):**
 1. Lee [API-SPEC-001](../../apis/API-SPEC-001.md) completamente
 2. Revisa [DCP-002](../../apis/DCP-002.md) para endpoints existentes
-3. Implementa Phase 1 (endpoints POST/GET) con validadores async
-4. Ejecuta tests: `pytest tests/ -v --cov=90`
+3. Verifica/completa validadores async:
+   - E5: ID duplicada (compound key: número, tipo, país)
+   - E6: Correo duplicado (solo vigentes)
+   - E7: Unidad/proveedor no vigente
+   - E8: Nivel sin evidence requirements
+4. Implementa auditoría (quién + cuándo) usando X-User-Name header
+5. Genera GUID único para código de colaborador (D25)
+6. Ejecuta tests: `pytest tests/ -v --cov=90`
 
 ### Equipo Frontend
 
