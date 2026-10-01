@@ -20,7 +20,14 @@ import { PARTY_ROLE_LABEL, PartyDetail, displayName } from '../../data-access/pa
     <a routerLink="..">← Colaboradores</a>
     <gf-view-state [state]="state()" (retry)="reload.update((n) => n + 1)" loadingLabel="Cargando ficha">
       <ng-template #success let-p>
-        <h1>{{ displayName(p) }}</h1>
+        <div class="header">
+          <h1>{{ displayName(p) }}</h1>
+          <div class="actions">
+            <button [routerLink]="[partyId() + '/datos/editar']">Editar datos</button>
+            <button [routerLink]="[partyId() + '/contactos/editar']">Editar contactos</button>
+            <button [routerLink]="[partyId() + '/perfiles/editar']">Editar perfiles</button>
+          </div>
+        </div>
         <dl class="facts">
           <dt>Código</dt><dd>{{ p.code }}</dd>
           <dt>Correo laboral</dt><dd>{{ p.contact.email_work }}</dd>
@@ -49,7 +56,11 @@ import { PARTY_ROLE_LABEL, PartyDetail, displayName } from '../../data-access/pa
       </ng-template>
     </gf-view-state>
   `,
-  styles: `.facts { display: grid; grid-template-columns: max-content 1fr; gap: var(--gf-space-2) var(--gf-space-6); }
+  styles: `.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--gf-space-6); }
+           .actions { display: flex; gap: var(--gf-space-3); }
+           button { padding: var(--gf-space-2) var(--gf-space-4); background: var(--gf-color-primary); color: white; border: none; border-radius: var(--gf-radius-sm); cursor: pointer; }
+           button:hover { background: var(--gf-color-primary-dark); }
+           .facts { display: grid; grid-template-columns: max-content 1fr; gap: var(--gf-space-2) var(--gf-space-6); }
            dt { color: var(--gf-color-text-muted); }  dd { margin: 0; }`,
 })
 export class PartyDetailPage {
