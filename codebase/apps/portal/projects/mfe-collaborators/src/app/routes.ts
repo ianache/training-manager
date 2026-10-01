@@ -6,6 +6,14 @@ import { Routes } from '@angular/router';
  */
 export const ROUTES: Routes = [
   {
+    path: 'nuevo',
+    loadComponent: () =>
+      import('./pages/register-collaborator/register-collaborator.page').then(
+        (m) => m.RegisterCollaboratorPage
+      ),
+    title: 'Registrar colaborador',
+  },
+  {
     path: '',
     loadComponent: () =>
       import('./pages/party-list/party-list.page').then((m) => m.PartyListPage),
