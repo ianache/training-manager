@@ -77,7 +77,7 @@ import {
     }
   `],
 })
-export class GfEmailInput implements AsyncValidator {
+export class GfEmailInput {
   readonly placeholder = input('ej. juan@comsatel.com.pe');
   readonly required = input(false);
   readonly invalid = input(false);
@@ -85,7 +85,7 @@ export class GfEmailInput implements AsyncValidator {
   readonly ariaLabel = input('');
   readonly ariaDescribedBy = input('');
   readonly control = input<FormControl | null>(null);
-  readonly emailCheckFn = input<() => Observable<{ available: boolean; person?: string }> | null>(
+  readonly emailCheckFn = input<(() => Observable<{ available: boolean; person?: string }>) | null>(
     null
   );
 
@@ -103,7 +103,7 @@ export class GfEmailInput implements AsyncValidator {
    */
   createUniqueActiveValidator(
     checkFn: () => Observable<{ available: boolean; person?: string }>
-  ): AsyncValidator | null {
+  ): ((control: AbstractControl) => Observable<ValidationErrors | null>) | null {
     if (!checkFn) return null;
 
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
@@ -142,7 +142,7 @@ export class GfEmailInput implements AsyncValidator {
     }
 
     return timer(300).pipe(
-      switchMap(() => checkFn),
+      switchMap(() => checkFn()),
       timeout(5000),
       map((result) => {
         if (result.available) {
