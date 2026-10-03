@@ -77,3 +77,7 @@ Los prompts con requisitos semánticos corrigieron en Stitch casi todos los `fai
 ## Resultado
 
 `inconclusive` global, con 2 `fail` (SCR-029-01, SCR-029-03 D–F) y 14 `inconclusive`. `DESIGN_READY_FOR_DEV` exige `pass` por SCR; no se cumple. Revisión humana pendiente.
+
+## Actualización (v3, 2026-10-03)
+
+Se regeneraron SCR-029-01 (formulario vacío) y SCR-029-03 (E y F) y se revisó su HTML: sin «Soporte»/«Ajustes», todos los campos con `label for`, todas las `nav` con nombre y sin el verde `#059669`. **Los dos `fail` de este informe quedan corregidos en esas hojas** y pasan a `inconclusive` (foco y teclado sin evaluar). Siguen con su defecto las hojas anteriores de SCR-029-01 A–D y E–H, que se conservan por sus estados de validación, y no hay hoja nueva del resumen D de SCR-029-03. Resultado global: 0 `pass`.

@@ -161,3 +161,14 @@ Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design 
 **Pendiente:** SCR-029-02 (editar nombre) no se regeneró: dos llamadas dieron timeout; sigue vigente su artefacto anterior (`f497a2997e144bd29856800143c8fd1d`). **Defectos abiertos** (ARP-UNIDADES-V2): SCR-029-01 incluye «Soporte» y «Ajustes» en la barra lateral; SCR-029-03 (D–F) tiene campos sin etiqueta y un verde fuera del design system.
 
 Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.
+
+## Correcciones v3 (2026-10-03)
+
+Dos hojas de una sola variante, generadas en serie, corrigen los defectos del ARP-UNIDADES-V2:
+
+| Pantalla | Resource name (Stitch) | Corrige |
+|---|---|---|
+| SCR-029-01 (formulario vacío) | `projects/13050549605434273903/screens/12e3390b33c04a3e999434240a947ab2` | Sin «Soporte» ni «Ajustes» (solo queda un comentario HTML); 3 de 3 controles con `label for`; todas las `nav` con nombre. **Registrada en el DTM** (`version: v3-clean-shell`). |
+| SCR-029-03 (E error al guardar, F éxito) | `projects/13050549605434273903/screens/1a449427811041479e3a60465018472f` | 2 de 2 campos con `label for`; iconos con `aria-hidden`; sin el verde `#059669`. No está en el DTM (que apunta a la hoja A–C). |
+
+Las hojas de SCR-029-01 (A–D, E–H) y SCR-029-03 (D–F) anteriores quedan **reemplazadas** en lo que toca a esos defectos, pero conservan los estados de validación (SCR-029-01 B a D) y el resumen previo D de SCR-029-03, que no se regeneraron. **Pendientes:** el resumen D de SCR-029-03, SCR-029-02 y los estados C y E de SCR-028-01.

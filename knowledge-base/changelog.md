@@ -264,3 +264,6 @@ sources:
 
 - Catalog-service diseñado, sin implementar: ADR-011 (`Propuesto`, sin decisor) y API-SPEC-003 (`REQUIRES_REVIEW`) para US-001 y US-019. La forma de `GET /catalog/roles` que ya usa el asistente de alta se mantiene. Supuestos marcados: la versión anterior pasa a DEPRECATED al aprobar; se desactiva, no se elimina. Bloqueo hallado: el realm de Keycloak y el BFF no tienen el rol «Responsable de producto» (EVD-2026-0147).
 - Artefactos afectados: `knowledge-base/architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md`, `knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
+
+- Correcciones v3 en Stitch: SCR-029-01 (formulario vacío, registrada en el DTM como `v3-clean-shell`) y SCR-029-03 E/F corrigen los dos `fail` del ARP-UNIDADES-V2, verificado sobre el HTML. Pendientes por timeouts: resumen D de SCR-029-03, SCR-029-02 y estados C y E de SCR-028-01.
+- Artefactos afectados: `knowledge-base/design/generations/GEN-029-*.md`, `knowledge-base/design/handoff/ARP-UNIDADES-REGENERACION-v2.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`, `knowledge-base/changelog.md`.
