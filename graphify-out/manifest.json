@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791050682.31952,
-    "seen": 1791050723.3055267,
-    "ast_hash": "a53e8bdb9f1df555f3124f8faeca01fe",
+    "mtime": 1791054142.9469583,
+    "seen": 1791054214.4917147,
+    "ast_hash": "24475f199e67ffebca35ade765ebd3fa",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791050682.2975876,
-    "seen": 1791050723.3277588,
-    "ast_hash": "12e21f10bb7dee783c8599031831a3b7",
+    "mtime": 1791054141.390627,
+    "seen": 1791054214.523921,
+    "ast_hash": "a7cc4ad42b174d4cff3879061562028b",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -654,15 +654,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-005-ver-mi-brecha-frente-a-un-rol-nivel.md": {
-    "mtime": 1790526657.1187468,
-    "seen": 1790536370.7001495,
-    "ast_hash": "74f19345d769bec72ca2da090ccb5354",
+    "mtime": 1791053755.649505,
+    "seen": 1791054214.5213475,
+    "ast_hash": "a43ad246e853b9880268e7bfa8485199",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-006-buscar-candidatos-para-un-requerimiento.md": {
-    "mtime": 1790526714.193452,
-    "seen": 1790536370.7001495,
-    "ast_hash": "c4139b6bda5fca8e80c2721a4fff9b5f",
+    "mtime": 1791053760.5881612,
+    "seen": 1791054214.5213475,
+    "ast_hash": "d2a27bcd2875a182d9f09913e77c50de",
     "semantic_hash": ""
   },
   "knowledge-base/design/stitch/GEN-001/scr1-catalogo-de-roles.png": {
@@ -3287,12 +3287,6 @@
     "ast_hash": "d85a3bc53704a24aed88c92ba850e2ce",
     "semantic_hash": ""
   },
-  "knowledge-base/architecture/api/API-SPEC-002-organizations-read.md": {
-    "mtime": 1791050257.2149057,
-    "seen": 1791050487.070075,
-    "ast_hash": "03245a497b4e00b11beb66a9986280f7",
-    "semantic_hash": ""
-  },
   "knowledge-base/requirement/user-stories/US-028-listar-y-buscar-unidades-organizacionales.md": {
     "mtime": 1791050428.2969716,
     "seen": 1791050487.1783583,
@@ -3333,6 +3327,72 @@
     "mtime": 1791050668.1048114,
     "seen": 1791050723.3252451,
     "ast_hash": "44393a96227f035992cd4cba6eafefe9",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-03-organizations-api.md": {
+    "mtime": 1791053511.9434452,
+    "seen": 1791054214.42609,
+    "ast_hash": "8cca76d9d7f7d7538a5e6091ead0104b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-002-organizations.md": {
+    "mtime": 1791053280.7606986,
+    "seen": 1791054214.4358041,
+    "ast_hash": "de4028f964629140fd74d860e45242a3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {
+    "mtime": 1791053979.3551486,
+    "seen": 1791054214.508993,
+    "ast_hash": "dd64bf44e84c0dc59a40880ef83cba88",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-028-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791054029.8709388,
+    "seen": 1791054214.508993,
+    "ast_hash": "ebeaf7ae933b0e8d1320ce0f5e20f10f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-029-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791054042.1106913,
+    "seen": 1791054214.508993,
+    "ast_hash": "8fac0dec4c9cf0bbd644e2457bc5c579",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-030-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791054043.4426472,
+    "seen": 1791054214.508993,
+    "ast_hash": "f3fb7ba7aba882eae14b479da88800b3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/specs/UXS-001-gestion-de-unidades-organizacionales.md": {
+    "mtime": 1791054139.753698,
+    "seen": 1791054214.508993,
+    "ast_hash": "1ebfd10291ed848e68b7cd1595512ba2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-017-registrar-la-organizacion-interna.md": {
+    "mtime": 1791053883.0240061,
+    "seen": 1791054214.5169792,
+    "ast_hash": "7a0032dcce5d3e875b917da4253de05a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-028-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791053872.4427707,
+    "seen": 1791054214.5169792,
+    "ast_hash": "ffdcfc2ead82234e79803daa745766a8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-029-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791053872.08148,
+    "seen": 1791054214.5169792,
+    "ast_hash": "8d6311fb441ef3c02ee55f30a89408ed",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-030-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791053882.956916,
+    "seen": 1791054214.5169792,
+    "ast_hash": "fc448d2ba6ea3b5b6aa62b6ccd716990",
     "semantic_hash": ""
   }
 }

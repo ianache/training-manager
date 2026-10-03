@@ -108,6 +108,15 @@ sources:
 - [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-029 — Registrar y editar unidades organizacionales](design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-030 — Desactivar y reactivar unidades organizacionales](design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md) — UX Requirement, `draft`
+- [FLW-017 — Registrar la organización interna](design/user-flows/FLW-017-registrar-la-organizacion-interna.md) — User Flow, `draft`; SCR-017-01..03; 5 preguntas abiertas
+- [FLW-028 — Listar y buscar unidades organizacionales](design/user-flows/FLW-028-listar-y-buscar-unidades-organizacionales.md) — User Flow, `draft`; SCR-028-01; 6 preguntas abiertas
+- [FLW-029 — Registrar y editar unidades organizacionales](design/user-flows/FLW-029-registrar-y-editar-unidades-organizacionales.md) — User Flow, `draft`; SCR-029-01..04; 7 preguntas abiertas
+- [FLW-030 — Desactivar y reactivar unidades organizacionales](design/user-flows/FLW-030-desactivar-y-reactivar-unidades-organizacionales.md) — User Flow, `draft`; SCR-030-01..04; 6 preguntas abiertas
+- [SCR-017 — Registrar la organización interna](design/screens/SCR-017-registrar-la-organizacion-interna.md) — Screen (3 pantallas), `draft`; preflight READY; 8 preguntas abiertas
+- [SCR-028 — Listar y buscar unidades organizacionales](design/screens/SCR-028-listar-y-buscar-unidades-organizacionales.md) — Screen (1 pantalla), `draft`; preflight READY; 5 preguntas abiertas
+- [SCR-029 — Registrar y editar unidades organizacionales](design/screens/SCR-029-registrar-y-editar-unidades-organizacionales.md) — Screen (4 pantallas), `draft`; preflight READY; 15 preguntas abiertas
+- [SCR-030 — Desactivar y reactivar unidades organizacionales](design/screens/SCR-030-desactivar-y-reactivar-unidades-organizacionales.md) — Screen (4 pantallas), `draft`; preflight READY; 8 preguntas abiertas
+- [UXS-001 — Gestión de la estructura organizacional](design/specs/UXS-001-gestion-de-unidades-organizacionales.md) — UX Design Specification, `draft`; Stitch y QA CONDITIONAL, Figma y Desarrollo NOT READY
 - [FLW-016 — Actualizar datos y medios de contacto](design/user-flows/FLW-016-actualizar-datos-y-contactos.md) — User Flow, `draft`
 - [SCR-016 — Actualizar datos y medios de contacto](design/screens/SCR-016-actualizar-datos-y-contactos.md) — Screen (6 pantallas), `draft`; preguntas Q1, Q2, Q5, Q6, Q12 y Q15 decididas; Q16 a Q18 nuevas
 - [IB-016 — Intent Brief: Actualizar datos y medios de contacto](design/explorations/IB-016-actualizar-datos-y-contactos.md) — Intent Brief, `draft`; alternativas pendientes (Claude Design sin conexión)

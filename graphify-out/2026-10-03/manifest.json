@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791050437.4488554,
-    "seen": 1791050487.1455789,
-    "ast_hash": "7f185ca773ec16635fc89cf81ef27aa9",
+    "mtime": 1791050682.31952,
+    "seen": 1791050723.3055267,
+    "ast_hash": "a53e8bdb9f1df555f3124f8faeca01fe",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791050437.4301076,
-    "seen": 1791050487.1610522,
-    "ast_hash": "f947d4f6697abb14d9fd5fe2602ac3f5",
+    "mtime": 1791050682.2975876,
+    "seen": 1791050723.3277588,
+    "ast_hash": "12e21f10bb7dee783c8599031831a3b7",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3309,6 +3309,30 @@
     "mtime": 1791050428.3178878,
     "seen": 1791050487.1783583,
     "ast_hash": "675d8d1150af1d0063cb915d97b473fa",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-017-registrar-la-organizacion-interna.md": {
+    "mtime": 1791050663.191536,
+    "seen": 1791050723.3252451,
+    "ast_hash": "5a98a962ae23bb113c7ba1693de04c69",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791050664.8948696,
+    "seen": 1791050723.3252451,
+    "ast_hash": "fca54f5dfccad07dd2f7ce41c2bc68a0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791050666.561419,
+    "seen": 1791050723.3252451,
+    "ast_hash": "0eb78752783fca33820f81f5bd28721b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791050668.1048114,
+    "seen": 1791050723.3252451,
+    "ast_hash": "44393a96227f035992cd4cba6eafefe9",
     "semantic_hash": ""
   }
 }
