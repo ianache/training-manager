@@ -102,33 +102,47 @@ describe('RegisterCollaboratorApi', () => {
     req.flush(summary());
   });
 
-  describe('catálogos (paths supuestos)', () => {
-    it('searchUnits: GET /units?search&limit=10 y mapea nombre y ubicación', () => {
+  describe('organizaciones (API-SPEC-002)', () => {
+    it('searchUnits: GET /organizations?type=internal_unit y mapea nombre y ubicaciÃ³n (o cÃ³digo)', () => {
       let out: unknown;
       api.searchUnits('ing').subscribe((o) => (out = o));
-      const req = http.expectOne((r) => r.url === '/api/v1/units');
+      const req = http.expectOne((r) => r.url === '/api/v1/organizations');
+      expect(req.request.params.get('type')).toBe('internal_unit');
       expect(req.request.params.get('search')).toBe('ing');
       expect(req.request.params.get('limit')).toBe('10');
-      req.flush(page([{ id: 'u-1', name: 'Ingeniería', location: 'Sede Central' }]));
-      expect(out).toEqual([{ id: 'u-1', label: 'Ingeniería', sublabel: 'Sede Central' }]);
+      req.flush(
+        page([
+          { id: 'u-1', name: 'IngenierÃ­a', location: 'Sede Central', code: 'ING' },
+          { id: 'u-2', name: 'Operaciones', location: null, code: 'OP' },
+          { id: 'u-3', name: 'Finanzas', location: null, code: null },
+        ]),
+      );
+      expect(out).toEqual([
+        { id: 'u-1', label: 'IngenierÃ­a', sublabel: 'Sede Central' },
+        { id: 'u-2', label: 'Operaciones', sublabel: 'OP' },
+        { id: 'u-3', label: 'Finanzas', sublabel: undefined },
+      ]);
     });
 
-    it('searchUnits acepta también un arreglo plano y cae al código si no hay ubicación', () => {
-      let out: unknown;
-      api.searchUnits('').subscribe((o) => (out = o));
-      http.expectOne((r) => r.url === '/api/v1/units').flush([{ id: 'u-2', label: 'Operaciones', code: 'OP' }]);
-      expect(out).toEqual([{ id: 'u-2', label: 'Operaciones', sublabel: 'OP' }]);
-    });
-
-    it('searchProviders: GET /providers y muestra el RUC como detalle', () => {
+    it('searchProviders: GET /organizations?type=external_provider y muestra el RUC', () => {
       let out: unknown;
       api.searchProviders('seg').subscribe((o) => (out = o));
-      const req = http.expectOne((r) => r.url === '/api/v1/providers');
+      const req = http.expectOne((r) => r.url === '/api/v1/organizations');
+      expect(req.request.params.get('type')).toBe('external_provider');
       expect(req.request.params.get('search')).toBe('seg');
       req.flush(page([{ id: 'v-1', name: 'Seguridad Sur', ruc: '20123456789' }]));
       expect(out).toEqual([{ id: 'v-1', label: 'Seguridad Sur', sublabel: 'RUC: 20123456789' }]);
     });
 
+    it('un error del servicio de organizaciones se propaga (la UI lo trata como E2/E3)', () => {
+      let failed = false;
+      api.searchUnits('').subscribe({ error: () => (failed = true) });
+      http.expectOne((r) => r.url === '/api/v1/organizations').flush('x', { status: 503, statusText: 'Unavailable' });
+      expect(failed).toBe(true);
+    });
+  });
+
+  describe('catÃ¡logo de roles (path supuesto)', () => {
     it('roles: GET /catalog/roles vigentes (límite 100) y cuenta los requisitos de evidencia por nivel', () => {
       let out: unknown;
       api.roles().subscribe((o) => (out = o));

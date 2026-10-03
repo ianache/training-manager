@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791055097.5488532,
-    "seen": 1791055209.3238726,
-    "ast_hash": "660bc0d2a9defe72efd93ee6f98eef94",
+    "mtime": 1791056367.4011352,
+    "seen": 1791056485.6213462,
+    "ast_hash": "3bcebf939c0fa59d7ff0eac07112f39b",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791055079.7234461,
-    "seen": 1791055086.0677016,
-    "ast_hash": "22f7249d51c1c29b1649e0234954da22",
+    "mtime": 1791056364.7843864,
+    "seen": 1791056485.6935914,
+    "ast_hash": "2529dd189dad4c8b4a3d0e6374d30a00",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1620,9 +1620,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/app.ts": {
-    "mtime": 1790823209.7962697,
-    "seen": 1790826046.4246597,
-    "ast_hash": "c3a7168faa14d4077e859b7ce6d745c0",
+    "mtime": 1791055879.4920757,
+    "seen": 1791056009.211578,
+    "ast_hash": "32a45e99430bc17b29ef7868765896b4",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/auth/auth.router.ts": {
@@ -1740,15 +1740,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/adr-compliance.test.ts": {
-    "mtime": 1790824061.474929,
-    "seen": 1790826046.4353049,
-    "ast_hash": "11d5b0bff6b0b8590e59b20fa6c3c2a8",
+    "mtime": 1791055935.8680387,
+    "seen": 1791056009.225682,
+    "ast_hash": "d16c201c52479296103752b1e38f1516",
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/app.test.ts": {
-    "mtime": 1790832269.1988108,
-    "seen": 1790832319.304517,
-    "ast_hash": "cd74d47f0d0ad2ba2716a140319044aa",
+    "mtime": 1791055935.859996,
+    "seen": 1791056009.225682,
+    "ast_hash": "d1e06c259642cc645f05381124bcee52",
     "semantic_hash": ""
   },
   "codebase/apps/bff/tsconfig.build.json": {
@@ -3054,9 +3054,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.ts": {
-    "mtime": 1791037170.2879696,
-    "seen": 1791038398.965928,
-    "ast_hash": "bb61a71252781ae6ebaebec360189fa3",
+    "mtime": 1791056208.8644178,
+    "seen": 1791056485.3581786,
+    "ast_hash": "3ec93974d63f3342426fedc20012c9aa",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.spec.ts": {
-    "mtime": 1791036762.4322028,
-    "seen": 1791038398.965928,
-    "ast_hash": "8702cfdd7450985438b2470ca2de929b",
+    "mtime": 1791056102.698814,
+    "seen": 1791056485.3581786,
+    "ast_hash": "65aeec903940196a1aa3e2f8f96daf55",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.spec.ts": {
@@ -3366,9 +3366,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/specs/UXS-001-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791055116.7752357,
-    "seen": 1791055209.3352227,
-    "ast_hash": "ba73d079dfa20fda911b7a17e25f6d1b",
+    "mtime": 1791056396.8288257,
+    "seen": 1791056485.6607878,
+    "ast_hash": "e251e41d7869da3980aadbd67128c22a",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-017-registrar-la-organizacion-interna.md": {
@@ -3408,9 +3408,9 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-10-03-organizations-api/progress.md": {
-    "mtime": 1791055311.4221735,
-    "seen": 1791055803.939539,
-    "ast_hash": "8a1df98f8ee6057202ebedb69ff8d2e7",
+    "mtime": 1791056012.2028415,
+    "seen": 1791056485.419365,
+    "ast_hash": "2abfebce12b6b7c0c6c8bfcb2ec328e2",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
@@ -3465,6 +3465,60 @@
     "mtime": 1791055639.9688947,
     "seen": 1791055803.8862128,
     "ast_hash": "6130adb9009f3abbe0ee01660154f5f9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/modules/organizations/organizations.router.ts": {
+    "mtime": 1791055877.3765967,
+    "seen": 1791056009.221638,
+    "ast_hash": "f11ca7f5f9a4f79a5e84df92d5b200db",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-017-01-organizacion-interna.md": {
+    "mtime": 1791056259.5203576,
+    "seen": 1791056485.6563501,
+    "ast_hash": "943c28a56ea53c88eb8da29e9c2939cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-017-02-registrar-la-organizacion-interna.md": {
+    "mtime": 1791056262.5964973,
+    "seen": 1791056485.6563501,
+    "ast_hash": "b8cbca2e0038c0b5deb0ceb9a1b25201",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-017-03-acceso-no-autorizado.md": {
+    "mtime": 1791056257.516726,
+    "seen": 1791056485.6563501,
+    "ast_hash": "b35ce7267452345cdc8532c18777cff9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-028-029-scr-028-01-lista-y-jerarquia.md": {
+    "mtime": 1791056223.237875,
+    "seen": 1791056485.6563501,
+    "ast_hash": "9533cdf0aec163e9d7f9c012bf40dea8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-028-029-scr-029-01-registrar-unidad.md": {
+    "mtime": 1791056284.6196132,
+    "seen": 1791056485.6563501,
+    "ast_hash": "2fff8b4fba98ee444f541e32c7e8e635",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-028-029-scr-029-02-editar-nombre.md": {
+    "mtime": 1791056286.6650453,
+    "seen": 1791056485.6563501,
+    "ast_hash": "58515cd711f8d10ecc3e0b0a793d7b3c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-030-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791056223.0220692,
+    "seen": 1791056485.6563501,
+    "ast_hash": "5f93baecb8e4ff36dec0f025a6e89da8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/specs/UXS-001-anexo-preguntas-por-responsable.md": {
+    "mtime": 1791056175.7352319,
+    "seen": 1791056485.6607878,
+    "ast_hash": "c63a8f1b512a7fd1e9091309969f593a",
     "semantic_hash": ""
   }
 }

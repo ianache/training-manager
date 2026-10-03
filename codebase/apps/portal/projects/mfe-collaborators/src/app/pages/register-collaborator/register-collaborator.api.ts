@@ -11,9 +11,9 @@ interface CatalogRow {
   id: string;
   name?: string;
   label?: string;
-  code?: string;
-  location?: string;
-  ruc?: string;
+  code?: string | null;
+  location?: string | null;
+  ruc?: string | null;
   levels?: Array<{ id: string; name?: string; label?: string; evidence_requirements?: number; evidence_count?: number }>;
 }
 
@@ -62,16 +62,23 @@ export class RegisterCollaboratorApi {
     return this.parties.get(id);
   }
 
-  searchUnits(q: string): Observable<Option[]> {
+  /** GET /organizations (API-SPEC-002): una sola ruta para unidades y proveedores, distinguidos por `type`. */
+  private organizations(type: 'internal_unit' | 'external_provider', q: string): Observable<CatalogRow[]> {
     return this.http
-      .get<Page<CatalogRow> | CatalogRow[]>(`${this.base}/units`, { params: { search: q, limit: 10 } })
-      .pipe(map((b) => rows(b).map((r) => ({ id: r.id, label: r.name ?? r.label ?? r.id, sublabel: r.location ?? r.code }))));
+      .get<Page<CatalogRow> | CatalogRow[]>(`${this.base}/organizations`, { params: { type, search: q, limit: 10 } })
+      .pipe(map((b) => rows(b)));
+  }
+
+  searchUnits(q: string): Observable<Option[]> {
+    return this.organizations('internal_unit', q).pipe(
+      map((rs) => rs.map((r) => ({ id: r.id, label: r.name ?? r.id, sublabel: r.location ?? r.code ?? undefined }))),
+    );
   }
 
   searchProviders(q: string): Observable<Option[]> {
-    return this.http
-      .get<Page<CatalogRow> | CatalogRow[]>(`${this.base}/providers`, { params: { search: q, limit: 10 } })
-      .pipe(map((b) => rows(b).map((r) => ({ id: r.id, label: r.name ?? r.label ?? r.id, sublabel: r.ruc ? `RUC: ${r.ruc}` : r.code }))));
+    return this.organizations('external_provider', q).pipe(
+      map((rs) => rs.map((r) => ({ id: r.id, label: r.name ?? r.id, sublabel: r.ruc ? `RUC: ${r.ruc}` : undefined }))),
+    );
   }
 
   roles(): Observable<RoleOption[]> {

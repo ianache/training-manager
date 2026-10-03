@@ -73,6 +73,8 @@ sources:
 - [ADB-001 — Descubrimiento de arquitectura](architecture/ADB-001-descubrimiento-arquitectura-plataforma.md) — Architecture Discovery Brief, `draft`
 - [Catálogo de candidatos ASR](architecture/asr/asr-catalog.md) — 9 candidatos pendientes de disposición del arquitecto, `draft`
 
+- [API-SPEC-002 — Organizaciones (unidades y proveedores): consulta y alta](architecture/api/API-SPEC-002-organizations.md) — Technical Design, `draft`; implementado
+
 ## Arquitectura — Modelo de datos
 
 - [LDM-001 — Modelo lógico de partes](architecture/data-model/LDM-001-modelo-logico-de-partes.md) — `draft`, REQUIRES_REVIEW
@@ -116,6 +118,14 @@ sources:
 - [SCR-028 — Listar y buscar unidades organizacionales](design/screens/SCR-028-listar-y-buscar-unidades-organizacionales.md) — Screen (1 pantalla), `draft`; preflight READY; 5 preguntas abiertas
 - [SCR-029 — Registrar y editar unidades organizacionales](design/screens/SCR-029-registrar-y-editar-unidades-organizacionales.md) — Screen (4 pantallas), `draft`; preflight READY; 15 preguntas abiertas
 - [SCR-030 — Desactivar y reactivar unidades organizacionales](design/screens/SCR-030-desactivar-y-reactivar-unidades-organizacionales.md) — Screen (4 pantallas), `draft`; preflight READY; 8 preguntas abiertas
+- [GEN-017 — Diseño Stitch: Registrar la organización interna](design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md) — Stitch Generation, `draft`; SCR-017-01..03 registradas en DTM-PPM-001; 13 hallazgos de revisión
+- [GEN-028 — Diseño Stitch: Listar y buscar unidades organizacionales](design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md) — Stitch Generation, `draft`; SCR-028-01 registrada en DTM-PPM-001; 12 hallazgos de revisión
+- [GEN-029 — Diseño Stitch: Registrar y editar unidades organizacionales](design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md) — Stitch Generation, `draft`; **incompleta**: SCR-029-01 y 02 registradas; SCR-029-03 y 04 sin localizar
+- [GEN-030 — Diseño Stitch: Desactivar y reactivar unidades organizacionales](design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md) — Stitch Generation, `draft`; **incompleta**: SCR-030-01..03 registradas; SCR-030-04 sin localizar
+- [ARP-SCR-017-01](design/handoff/ARP-SCR-017-01-organizacion-interna.md), [ARP-SCR-017-02](design/handoff/ARP-SCR-017-02-registrar-la-organizacion-interna.md), [ARP-SCR-017-03](design/handoff/ARP-SCR-017-03-acceso-no-autorizado.md) — Accessibility Report (HTML exploratorio de Stitch, revisión estática), `draft`; las tres `fail` (14/4/3, 12/8/7, 15/1/4 en pass/fail/inconclusive)
+- [ARP-SCR-028-01](design/handoff/ARP-SCR-028-029-scr-028-01-lista-y-jerarquia.md), [ARP-SCR-029-01](design/handoff/ARP-SCR-028-029-scr-029-01-registrar-unidad.md), [ARP-SCR-029-02](design/handoff/ARP-SCR-028-029-scr-029-02-editar-nombre.md) — Accessibility Report, `draft`; las tres `fail` (9, 10 y 6 hallazgos)
+- [ARP-SCR-030](design/handoff/ARP-SCR-030-desactivar-y-reactivar-unidades-organizacionales.md) — Accessibility Report de SCR-030-01..03, `draft`; las tres `fail`; SCR-030-04 sin exploración
+- [UXS-001 anexo — Preguntas abiertas por responsable](design/specs/UXS-001-anexo-preguntas-por-responsable.md) — UX Open Questions Digest, `draft`; 77 preguntas fusionadas en 44, 21 de negocio para `af-requirements-orchestrator`
 - [UXS-001 — Gestión de la estructura organizacional](design/specs/UXS-001-gestion-de-unidades-organizacionales.md) — UX Design Specification, `draft`; Stitch y QA CONDITIONAL, Figma y Desarrollo NOT READY
 - [FLW-016 — Actualizar datos y medios de contacto](design/user-flows/FLW-016-actualizar-datos-y-contactos.md) — User Flow, `draft`
 - [SCR-016 — Actualizar datos y medios de contacto](design/screens/SCR-016-actualizar-datos-y-contactos.md) — Screen (6 pantallas), `draft`; preguntas Q1, Q2, Q5, Q6, Q12 y Q15 decididas; Q16 a Q18 nuevas
