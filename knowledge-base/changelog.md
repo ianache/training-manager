@@ -305,3 +305,6 @@ sources:
 
 - Respuestas de `human:ianache` 2026-10-03 a FLW-001-Q1, FLW-019-Q3 y Q4: ADMIN también edita roles y requisitos de evidencia (EVD-2026-0168), el paso de nivel exige también las competencias del nivel destino (0169, interpretación a confirmar) y ADMIN no puede saltarse el bloqueo AC-5 (0170). Las respuestas a eliminar o desactivar y a la versión con rúbrica y requisitos ya estaban en EVD-2026-0152 a 0156 (otra sesión). **Corrección:** mis EVD-2026-0152 a 0156 colisionaban con esas; se renumeraron a EVD-2026-0163 a 0167 en BRC-001 y en todas las referencias de UXR, FLW, SCR, US-019, API-SPEC-003, GEN-019 y DCP-003.
 - Artefactos afectados: `BRC-001`, `US-019`, `UXR-001`, `UXR-019`, `FLW-001`, `FLW-019`, `SCR-001`, `SCR-019`, `API-SPEC-003`, `GEN-019`, `DCP-003`, `changelog.md`.
+
+- Respuesta de `human:ianache` 2026-10-03: ADMIN también edita rúbricas (EVD-2026-0171, BR-CAT-19). Actualizados BRC-001, API-SPEC-003 y DCP-003.
+- Artefactos afectados: `BRC-001`, `API-SPEC-003`, `DCP-003`, `changelog.md`.

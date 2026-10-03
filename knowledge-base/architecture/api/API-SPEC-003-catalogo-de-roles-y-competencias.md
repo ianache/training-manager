@@ -103,7 +103,7 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 |---|---|---|
 | Leer | Cualquier sesión autenticada | AC-12, EVD-2026-0118 |
 | Alta y edición de roles | `jefe_ingenieria`, `product_owner` (sin límite por producto) y `admin` | BR-CAT-04/05, EVD-2026-0147/0150/0168 |
-| Alta de competencia y requisitos de evidencia | `jefe_ingenieria` y `admin` (EVD-2026-0168); la rúbrica solo `jefe_ingenieria` (BR-CAT-19; si ADMIN también la edita, por confirmar) | BR-CAT-16, BR-CAT-19 |
+| Alta de competencia, rúbrica y requisitos de evidencia | `jefe_ingenieria` y `admin` (EVD-2026-0168, 0171) | BR-CAT-16, BR-CAT-19 |
 | Aprobar una versión | `jefe_ingenieria` o `admin` | EVD-2026-0144 |
 | Desactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0159 |
 | Reactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0161 |

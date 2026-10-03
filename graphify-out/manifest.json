@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791068492.2760875,
-    "seen": 1791068567.7639325,
-    "ast_hash": "abcc36c8530b8d1bd672edb2698af4b7",
+    "mtime": 1791068942.5360236,
+    "seen": 1791068992.555441,
+    "ast_hash": "c77431a7cd40a83f983dd9e755ff726d",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791068468.5827682,
-    "seen": 1791068567.7639325,
-    "ast_hash": "fa55081f38fc25fb4f2e448aa4d04971",
+    "mtime": 1791068942.5190458,
+    "seen": 1791068992.555441,
+    "ast_hash": "d8ea607229993124e8c7f74d36fb6223",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -3582,9 +3582,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791068492.193244,
-    "seen": 1791068567.6182294,
-    "ast_hash": "17b9cf2e35d845933c4fe8c3b79c44df",
+    "mtime": 1791068942.5259762,
+    "seen": 1791068992.4985054,
+    "ast_hash": "56d646015611677664531b2409aaf76b",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {
@@ -3630,9 +3630,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791068492.267668,
-    "seen": 1791068567.6102989,
-    "ast_hash": "f009fcb3c24119075088a84bf61bdc20",
+    "mtime": 1791068948.4325838,
+    "seen": 1791068992.491778,
+    "ast_hash": "239f8bd1f52c7574f69ab08a2fa6f5c9",
     "semantic_hash": ""
   }
 }

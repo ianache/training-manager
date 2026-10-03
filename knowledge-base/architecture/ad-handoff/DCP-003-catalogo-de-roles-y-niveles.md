@@ -62,7 +62,7 @@ Que el Jefe de Ingeniería defina roles, Rol-Nivel y competencias versionadas en
 - Una versión nueva de competencia no altera las relaciones vigentes y es la vigente para nuevas asignaciones; la aprueba el Jefe de Ingeniería o ADMIN (EVD-2026-0143, 0144).
 - Rol-Nivel apunta a una **versión** de competencia (LDM-002 CM-02); una competencia, una vez por Rol-Nivel, con L mayor en niveles superiores (EVD-2026-0148).
 - Al menos un requisito de evidencia «requerido» por nivel L exigido (EVD-2026-0149); un rol necesita al menos una competencia (BR-CAT-20).
-- Permisos: editan roles Jefe de Ingeniería, `product_owner` y ADMIN; requisitos de evidencia, Jefe y ADMIN; rúbricas, solo Jefe (si ADMIN también, por confirmar); aprobar versiones y desactivar o reactivar competencias, Jefe o ADMIN (EVD-2026-0144, 0159, 0168); asignar y cambiar Rol-Nivel, Jefe o ADMIN (EVD-2026-0163). Lectura abierta (EVD-2026-0118).
+- Permisos: editan roles Jefe de Ingeniería, `product_owner` y ADMIN; requisitos de evidencia y rúbricas, Jefe y ADMIN (EVD-2026-0168, 0171); aprobar versiones y desactivar o reactivar competencias, Jefe o ADMIN (EVD-2026-0144, 0159, 0168); asignar y cambiar Rol-Nivel, Jefe o ADMIN (EVD-2026-0163). Lectura abierta (EVD-2026-0118).
 - «Cumplida» = competencia certificada en el L que exige el Rol-Nivel inferior (EVD-2026-0164); se exigen también las del nivel destino (EVD-2026-0169, interpretación a confirmar: cómo se evalúan antes de asignar) y ADMIN no puede saltarse el bloqueo (EVD-2026-0170); solo se sube de nivel (0166); solo colaboradores vigentes (0146).
 - Pila: Python 3.11+ y FastAPI (ADR-008), PostgreSQL (ADR-007); UI Angular con `@gf/ui`, sin Material (decisión de `human:ianache` para DTC-015); solo escritorio (supuesto).
 - Las reglas entre filas CHK-A a CHK-D de LDM-002 §5 las aplica el servicio; la base no puede.
@@ -76,7 +76,7 @@ Supuestos del agente, marcados en las fuentes y **sin confirmar**:
 - Un nivel con personas asignadas no se puede quitar de un rol (AQ-5).
 - Un solo borrador por competencia; nombres de rol y competencia únicos sin distinguir mayúsculas (CM-04, CM-10).
 
-Preguntas abiertas: cómo se evalúan las competencias del nivel destino antes de asignar el nivel (interpretación de EVD-2026-0169), si ADMIN también edita rúbricas, el significado de `levels[].evidence_requirements` (AQ-2), quitar un nivel con personas asignadas (AQ-5), SCR-001-Q1 a Q4 y SCR-019-Q1 a Q3 (textos sin fuente, fecha «desde», responsive).
+Preguntas abiertas: cómo se evalúan las competencias del nivel destino antes de asignar el nivel (interpretación de EVD-2026-0169), el significado de `levels[].evidence_requirements` (AQ-2), quitar un nivel con personas asignadas (AQ-5), SCR-001-Q1 a Q4 y SCR-019-Q1 a Q3 (textos sin fuente, fecha «desde», responsive).
 
 ### Risks and dependencies
 
@@ -134,5 +134,5 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir ADR-011; (2) responder las preguntas abiertas de «Assumptions» (nivel destino, rúbrica de ADMIN, AQ-2, AQ-5); (3) diseñar la API de asignación de Rol-Nivel en party; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
+- Action: (1) decidir ADR-011; (2) responder las preguntas abiertas de «Assumptions» (nivel destino, AQ-2, AQ-5); (3) diseñar la API de asignación de Rol-Nivel en party; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
 - Gate: pasar a `READY_FOR_DEV` exige ADR-011 aceptado, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.
