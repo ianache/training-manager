@@ -1,7 +1,7 @@
 # Graph Report - UX_UI_agentic  (2026-10-03)
 
 ## Corpus Check
-- 583 files · ~482,557 words
+- 583 files · ~482,846 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 29 file(s) not represented in the graph (top: (none) 12, .scss 6, .example 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `72f9c601`
+- Built from commit: `f252bc63`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1569,11 +1569,9 @@ Nodes (3): 12. Lessons Learned & Future Improvements, 🔄 Improvements for Next
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `colaborador()` connect `conftest.py` to `register-collaborator.api.ts`, `test_organizations_api.py`, `READY_FOR_DEV Assessment`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `main.py`, `Development Context Pack — Party Management Service API`, `DCP-002-VALIDADO: Party Management Service API`, `Handoff Report`?**
-  _High betweenness centrality (0.103) - this node is a cross-community bridge._
+  _High betweenness centrality (0.106) - this node is a cross-community bridge._
 - **Why does `API-SPEC-002 — Organizaciones: consulta, búsqueda y alta` connect `API-SPEC-002 — Organizaciones: consulta, búsqueda y alta` to `IMD-002-modelo-conceptual-de-partes.md`, `party_service.py`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
-- **Why does `4. Seguridad y privacidad` connect `API-SPEC-002 — Organizaciones: consulta, búsqueda y alta` to `catalog.router.ts`, `party_service.py`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
 - **Are the 21 inferred relationships involving `OrganizationService` (e.g. with `create_organization()` and `get_organization()`) actually correct?**
   _`OrganizationService` has 21 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 15 inferred relationships involving `PartyService` (e.g. with `create_party()` and `get_party()`) actually correct?**
@@ -1582,3 +1580,5 @@ _Questions this graph is uniquely positioned to answer:_
   _2884 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `OrganizationService` be split into smaller, more focused modules?**
   _Cohesion score 0.07955596669750231 - nodes in this community are weakly interconnected._
+- **Should `Índice` be split into smaller, more focused modules?**
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

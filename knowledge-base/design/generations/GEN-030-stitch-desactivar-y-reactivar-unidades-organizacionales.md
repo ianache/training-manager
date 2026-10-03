@@ -44,7 +44,7 @@ screens: [SCR-030-01, SCR-030-02, SCR-030-03, SCR-030-04]
 | SCR-030-01 | `projects/13050549605434273903/screens/06e62932b2a94c80a345ff0267378fef` | SCR-030-01 — Confirmar desactivación de la unidad (Estados A, B, C y D) |
 | SCR-030-02 | `projects/13050549605434273903/screens/ab28fe4f0b4d4d99a9c4eaee30b8cc18` | SCR-030-02 — Desactivación bloqueada por dependencias (Estados A, B y C) |
 | SCR-030-03 | `projects/13050549605434273903/screens/6e368fd66d0f4d5caff850faf7f9dd2e` | SCR-030-03 — Reactivar la unidad (fecha desde) (Estados A, B, C y D) |
-| SCR-030-04 | **sin localizar** (ver más abajo) | — |
+| SCR-030-04 | `projects/13050549605434273903/screens/c647294ecb764bada0bb6a6ec1d5cd61` | SCR-030-04 — Reactivación bloqueada por padre Inactivo (Estados A y B) |
 
 Stitch no expone una versión de cada artefacto. Los IDs de 01, 02 y 03 se tomaron de la respuesta de cada generación. 01 y 02 aparecen además en `list_screens`; 03 **no** apareció en ninguna de las cinco consultas (mismo comportamiento que GEN-016: `list_screens` no siempre muestra las pantallas nuevas), pero su HTML se descargó con éxito.
 
@@ -109,3 +109,7 @@ Método: se descargó el HTML de SCR-030-01, 02 y 03 (SCR-030-04 no existe aún)
 - Los textos de consecuencia, éxito, error y bloqueo (SCR-030-Q4), la fecha por defecto (SCR-030-Q2) y el destino de «ir a resolverlas» (FLW-030-Q3) siguen sin decisión; las pantallas muestran solo marcadores.
 - FLW-030-Q1: ¿diálogos sobre el listado o pantallas propias?
 - El diseño gobernado (Figma, `figma-design-validator`) y el informe de `accessibility-reviewer` siguen pendientes; esta exploración no los sustituye.
+
+## Actualización 2026-10-03 (SCR-030-04)
+
+Se volvió a generar SCR-030-04 con el mismo prompt (una sola llamada, sin reintentos). Esta vez Stitch respondió con la pantalla y el ID `c647294ecb764bada0bb6a6ec1d5cd61`, verificado con `get_screen` (título «SCR-030-04 — Reactivación bloqueada por padre Inactivo (Estados A y B)»). **Sigue sin aparecer en `list_screens` ni en `screenInstances` de `get_project`**; el ID solo se conoce por la respuesta de la generación. Registrada en `DTM-PPM-001` con `register-exploration` (`version: not-exposed-by-stitch`). Cierra R-10 en cuanto a la existencia de la pantalla. **No se hizo la revisión crítica contra AC-4 y BR-PTY-24** (no se descargó su HTML): sigue pendiente, igual que la revisión humana. Es exploración, no diseño gobernado.

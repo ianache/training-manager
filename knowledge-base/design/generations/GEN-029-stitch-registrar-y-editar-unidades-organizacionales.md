@@ -104,3 +104,7 @@ Método: se descargó el HTML de SCR-029-01 y SCR-029-02 y se compararon sus tex
 - ¿Se registran 01 y 02 en `DTM-PPM-001` (`register-exploration`) antes de completar 03 y 04?
 - Se mantienen abiertas SCR-029-Q1 a Q15 (en particular Q3, Q8 y Q10); esta exploración no las resuelve.
 - El diseño gobernado (Figma, `figma-design-validator`) y el informe de `accessibility-reviewer` siguen pendientes.
+
+## Actualización 2026-10-03 (SCR-029-03 y SCR-029-04)
+
+Segundo intento de generación de SCR-029-03 y SCR-029-04 con los mismos prompts: ambas llamadas dieron de nuevo `The operation timed out` y no se reintentaron. `list_screens` y `get_project` no muestran pantallas con esos títulos, y sin su ID no se puede consultar con `get_screen`. **Siguen sin artefacto y sin registrar en `DTM-PPM-001`.** Antes de un tercer intento conviene decidir cómo evitar el duplicado (p. ej. generar una pantalla por llamada con un prompt más corto, o dividir las variantes en varias pantallas).

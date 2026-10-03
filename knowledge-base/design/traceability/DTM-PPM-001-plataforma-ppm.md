@@ -934,6 +934,39 @@ traceability:
     status: current
     captured_at: '2026-10-03T14:17:35-05:00'
     latest_known_version: not-exposed-by-stitch
+- screen: SCR-030-04
+  flow: FLW-030
+  requirements:
+    us:
+    - US-030
+    ac: []
+    uxr:
+    - UXR-030
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/c647294ecb764bada0bb6a6ec1d5cd61
+    version: not-exposed-by-stitch
+    status: current
+    captured_at: '2026-10-03T15:32:07-05:00'
+    latest_known_version: not-exposed-by-stitch
 ---
 
 # DTM-PPM-001 — Design Traceability Map

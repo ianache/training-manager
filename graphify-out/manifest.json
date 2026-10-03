@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791058727.6262925,
-    "seen": 1791058793.8300607,
-    "ast_hash": "9986ec904a2906a43019cdede9701605",
+    "mtime": 1791059542.8112812,
+    "seen": 1791059625.464574,
+    "ast_hash": "0b0381f8966a42e25eb45bc5f67236a0",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -2544,9 +2544,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
-    "mtime": 1791058097.4591815,
-    "seen": 1791058203.600531,
-    "ast_hash": "5125e5a06d0012349f2ca1b9bdf75ded",
+    "mtime": 1791059350.2771206,
+    "seen": 1791059625.1559534,
+    "ast_hash": "260e5e14a097cbd0ed856cf90923f4db",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791055055.7721083,
-    "seen": 1791055086.038902,
-    "ast_hash": "faaf469118c708bab69c2a44e8dbb8d7",
+    "mtime": 1791059527.7946553,
+    "seen": 1791059625.5115235,
+    "ast_hash": "1825195b426934e47189222505a4cca9",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3426,15 +3426,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791054874.1910877,
-    "seen": 1791055086.0204139,
-    "ast_hash": "4376de9a8ceed917425f4464dc3d4248",
+    "mtime": 1791059542.784971,
+    "seen": 1791059625.488547,
+    "ast_hash": "5f53f3b9c6a338a4930e994f8c28b020",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
-    "mtime": 1791054832.1769469,
-    "seen": 1791055086.0204139,
-    "ast_hash": "ad72af67f0dadad1574186a2fb455fc0",
+    "mtime": 1791059542.784971,
+    "seen": 1791059625.488547,
+    "ast_hash": "7540cb2b727080cb5fcd0f4c510e9ffe",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
@@ -3522,9 +3522,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/migrations/versions/0004_organization_contact_purposes.py": {
-    "mtime": 1791058097.436851,
-    "seen": 1791058203.5866187,
-    "ast_hash": "3d1d64bee2fee98d8f9642210969c8af",
+    "mtime": 1791059350.267409,
+    "seen": 1791059625.147506,
+    "ast_hash": "dd37fc0f5909ba98410aa0ddbb0addfe",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-organization-contact.md": {
