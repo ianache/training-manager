@@ -52,6 +52,10 @@ sources:
     resource: /knowledge-base/architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md
   - id: adr-010
     resource: /knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md
+  - id: rcp-004
+    resource: /knowledge-base/requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md
+  - id: rqs-001
+    resource: /knowledge-base/requirement/specs/RQS-001-catalogo-de-cursos-con-filtros.md
 ---
 
 # Índice de la base de conocimiento
@@ -102,25 +106,28 @@ sources:
 
 ## Negocio — Modelo de información
 
-- [IMD-001 — Modelo de información conceptual](business/information-model/IMD-001-modelo-de-informacion-conceptual.md) — `draft`
+- [IMD-001 — Modelo de información conceptual](business/information-model/IMD-001-modelo-de-informacion-conceptual.md) — `draft`; 2026-10-03: enlaza TRM-0106, el catálogo de cursos es una vista (RCP-004), IM-Q13 nueva
 - [IMD-002 — Modelo conceptual de partes](business/information-model/IMD-002-modelo-conceptual-de-partes.md) — `draft`, CONDITIONAL
 
 ## Negocio — Glosario
 
-- [GLS-001 — Glosario de negocio](business/glossary/GLS-001-glosario-de-negocio.md) — `draft`, 104 términos (59 aprobados)
+- [GLS-001 — Glosario de negocio](business/glossary/GLS-001-glosario-de-negocio.md) — `draft`, 106 términos (59 aprobados); TRM-0106 Curso y GQ-38 añadidos el 2026-10-03 (RCP-004)
 
 ## Negocio — Reglas
 
-- [BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación](business/rules/BRC-001-reglas-plataforma-gestion-formacion.md) — `draft`
+- [BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación](business/rules/BRC-001-reglas-plataforma-gestion-formacion.md) — `draft`; 2026-10-03: BR-FOR-11 a 17 (2 propuestas sin validar y 5 vacíos), P-55 a P-60, EVD-2026-0133 a 0135 (RCP-004)
 
 ## Requerimientos
 
 - [SPEC-001 — Gestión de colaboradores (Party UDM)](requirement/specs/SPEC-001-gestion-de-colaboradores.md) — especificación de feature, `draft`, en revisión; registrada en todos los artefactos de la base
+- [RQS-001 — Catálogo de cursos con filtros](requirement/specs/RQS-001-catalogo-de-cursos-con-filtros.md) — Requirements Specification, `draft`; CONDITIONAL; preparación por rol: Arquitecto, QA y UX/UI CONDITIONAL, Developer NOT READY
 - [USC-001 — User Stories de la Plataforma de Gestión de Formación](requirement/USC-001-user-stories-plataforma-gestion-formacion.md) — `draft`
 - [RCP-001 — H1 El idioma común](requirement/context-packs/RCP-001-h1-idioma-comun.md) — Requirement Context Pack, `draft`
 - [RCP-002 — Gestión de colaboradores](requirement/context-packs/RCP-002-gestion-de-colaboradores.md) — Requirement Context Pack, `draft`
+- [RCP-004 — Catálogo de cursos con filtros](requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md) — Requirement Context Pack, `draft`, NOT READY para historias (15 vacíos)
 - User Stories refinadas de H1 (`draft`): [US-001](requirement/user-stories/US-001-definir-catalogo-de-competencias.md) · [US-002](requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md) · [US-003](requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md) · [US-004](requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md) · [US-005](requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md) · [US-006](requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md)
 - User Stories de gestión de colaboradores (SPEC-001, `draft`; 4 READY, 7 CONDITIONAL): [US-015](requirement/user-stories/US-015-registrar-un-colaborador.md) · [US-016](requirement/user-stories/US-016-actualizar-datos-y-contactos.md) · [US-017](requirement/user-stories/US-017-gestionar-estructura-organizacional.md) · [US-018](requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md) · [US-019](requirement/user-stories/US-019-asignar-rol-nivel.md) · [US-020](requirement/user-stories/US-020-asignar-roles-del-programa.md) · [US-021](requirement/user-stories/US-021-dar-de-baja-a-un-colaborador.md) · [US-022](requirement/user-stories/US-022-vincular-identidad-de-acceso.md) · [US-023](requirement/user-stories/US-023-consultar-ficha-e-historial.md) · [US-024](requirement/user-stories/US-024-anonimizar-datos-personales.md) · [US-025](requirement/user-stories/US-025-configurar-plazo-y-aviso.md)
+- User Stories del catálogo de cursos (RCP-004, `draft`, 2 CONDITIONAL): [US-026](requirement/user-stories/US-026-explorar-el-catalogo-de-cursos.md) · [US-027](requirement/user-stories/US-027-ubicar-cursos-con-filtros.md)
 
 ## Visión
 

@@ -1,0 +1,3140 @@
+{
+  "AGENTS.md": {
+    "mtime": 1790915736.7416182,
+    "seen": 1790915830.675552,
+    "ast_hash": "22e30da796b3f2ddb70a761c3494ac57",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1790703380.7589939,
+    "seen": 1790707615.8740067,
+    "ast_hash": "162d97b99ba440485c3ff820fd6f6b62",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790707569.9469728,
+    "seen": 1790707615.8740067,
+    "ast_hash": "58026d338cb2d8bfafe4140355fc2ee8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/changelog.md": {
+    "mtime": 1790997627.160153,
+    "seen": 1790997664.7267973,
+    "ast_hash": "b1c66404fe901c2cad04ce1d40ee25c4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/index.md": {
+    "mtime": 1790919308.7673342,
+    "seen": 1790997664.736537,
+    "ast_hash": "872003bd3a551429954a21dfc6a51d9a",
+    "semantic_hash": ""
+  },
+  ".codex/hooks.json": {
+    "mtime": 1790457516.1137822,
+    "seen": 1790471487.4247468,
+    "ast_hash": "ae2e15b63276ccc0489e48ad56fc5229",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md": {
+    "mtime": 1790527235.9618435,
+    "seen": 1790536370.679802,
+    "ast_hash": "31c16d2ae1454032e0aaa49f1f6b6aee",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0001-acreditacion.md": {
+    "mtime": 1790526935.3145068,
+    "seen": 1790536370.679802,
+    "ast_hash": "a6930795b0b219a613e987d1d64c291b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0002-adopcion.md": {
+    "mtime": 1790470949.8238406,
+    "seen": 1790471487.4247468,
+    "ast_hash": "faaf883e1cce4b93c0f115c356151535",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0003-api-rest.md": {
+    "mtime": 1790483626.4234784,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1bb2b6a54270c80bf53cd9626ac9325e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0004-asignacion.md": {
+    "mtime": 1790526929.8048608,
+    "seen": 1790536370.679802,
+    "ast_hash": "9a487c27bb3d4d339da2aa483490e3fd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0005-brecha.md": {
+    "mtime": 1790483626.4305704,
+    "seen": 1790484293.4250352,
+    "ast_hash": "82909e0a7200f431422617929c1a45a9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0006-busqueda-de-personal.md": {
+    "mtime": 1790527144.9728558,
+    "seen": 1790536370.679802,
+    "ast_hash": "845dd9f1b6c7b22c0e2e27f223ed68b7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0007-catalogo-de-competencias.md": {
+    "mtime": 1790526974.6269631,
+    "seen": 1790536370.679802,
+    "ast_hash": "253518c81eb3eebd0e64f3d9114ff6ba",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0008-certificado.md": {
+    "mtime": 1790526941.9366727,
+    "seen": 1790536370.679802,
+    "ast_hash": "25b90872a7d92ec7acdc182893e7c416",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0009-cierre-de-brechas.md": {
+    "mtime": 1790483626.4463217,
+    "seen": 1790484293.4250352,
+    "ast_hash": "2a54a4dad3fedd6c0319338a2df33793",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0010-clocator.md": {
+    "mtime": 1790470949.8647978,
+    "seen": 1790471487.4247468,
+    "ast_hash": "90f493238482745c6e565148449eb6a4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0011-clocator-v2.md": {
+    "mtime": 1790470949.873126,
+    "seen": 1790471487.4247468,
+    "ast_hash": "f06e07925b91a5349e7c7d66b4b0935d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0012-cobertura-de-roles.md": {
+    "mtime": 1790483626.4545977,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a716c5e63ec62f50f217a8daa963527a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0013-colaborador.md": {
+    "mtime": 1790519460.852105,
+    "seen": 1790520178.6673548,
+    "ast_hash": "b29b732a032611f0d54c8bb6722260e1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0014-competencia.md": {
+    "mtime": 1790526980.2750726,
+    "seen": 1790536370.6807961,
+    "ast_hash": "63ef1dae583086feaf240b366dd2c6ae",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0015-comsatel.md": {
+    "mtime": 1790519460.9447217,
+    "seen": 1790520178.6673548,
+    "ast_hash": "feade13a78d2ecfbe9893a506b724112",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0016-contingencia.md": {
+    "mtime": 1790470949.909749,
+    "seen": 1790471487.4247468,
+    "ast_hash": "f7f2d5a4a1fbd9427c008582f1c2acc2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0017-curso-final.md": {
+    "mtime": 1790526993.5373194,
+    "seen": 1790536370.6817951,
+    "ast_hash": "a794b4d048c71a9f0690ff0b042f352a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0018-direccion.md": {
+    "mtime": 1790526998.9388523,
+    "seen": 1790536370.6817951,
+    "ast_hash": "b04fd4e7ea8f970ffcf3a2c34ce86fd3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0019-docsuite.md": {
+    "mtime": 1790483626.489027,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a56f3b27849a6d285b40834f62299085",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0020-escala-de-niveles-de-dominio.md": {
+    "mtime": 1790483626.4936275,
+    "seen": 1790484293.4250352,
+    "ast_hash": "4422b63c4ea9a19524ea5a21eaf42000",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0021-evaluador.md": {
+    "mtime": 1790527036.435566,
+    "seen": 1790536370.6817951,
+    "ast_hash": "56a6216462a6168c597715de5dee28f2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0022-evidencia.md": {
+    "mtime": 1790527041.794727,
+    "seen": 1790536370.6817951,
+    "ast_hash": "73ff139d560b2d20561cc7459a7a9388",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0023-evidencia-de-gitlab-asistida-por-ia.md": {
+    "mtime": 1790470949.9461584,
+    "seen": 1790471487.4247468,
+    "ast_hash": "f0eb24cdddb8cbdb3bc65700e5b8bd08",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0024-evidencia-real.md": {
+    "mtime": 1790483626.4989085,
+    "seen": 1790484293.4250352,
+    "ast_hash": "3abbe82e2a05673d0ca97118a2bf7ec1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0025-evidencia-sobre-volumen.md": {
+    "mtime": 1790470949.9549644,
+    "seen": 1790471487.4247468,
+    "ast_hash": "3bd1a5f758f0ce483cdc3df1f69bd0f1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0026-firma-humana.md": {
+    "mtime": 1790483626.5197134,
+    "seen": 1790484293.4250352,
+    "ast_hash": "b1d937548258db972a8bc9fa0fa3eb43",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0027-gestion-de-formacion.md": {
+    "mtime": 1790483626.5252354,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c4f2c528493d494e8c0b94d1dd0c6e46",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0028-gitlab.md": {
+    "mtime": 1790470949.9737685,
+    "seen": 1790471487.4247468,
+    "ast_hash": "9f0b7a612acfaefc9681e96565c9c115",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0029-google-classroom.md": {
+    "mtime": 1790470949.9737685,
+    "seen": 1790471487.4247468,
+    "ast_hash": "bf6a44666997e180038830eb263686b8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0030-google-drive.md": {
+    "mtime": 1790470949.9791374,
+    "seen": 1790471487.4247468,
+    "ast_hash": "d0e3f975fe6e08751df011c2d04bb9b7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0031-horizonte.md": {
+    "mtime": 1790483626.5351777,
+    "seen": 1790484293.4250352,
+    "ast_hash": "6f4f596229d9ec23b0d5e4d946a3eab4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0032-human-in-the-loop.md": {
+    "mtime": 1790483626.540925,
+    "seen": 1790484293.4250352,
+    "ast_hash": "1d907f739a1d20b15c962d18cef79ec4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0033-ia.md": {
+    "mtime": 1790483626.5469244,
+    "seen": 1790484293.4250352,
+    "ast_hash": "a58ce8ef4949f5b4d2ca407586b0f816",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0034-integrar-no-hospedar.md": {
+    "mtime": 1790470949.9957666,
+    "seen": 1790471487.4247468,
+    "ast_hash": "0e588da4212177f25a2de71f48917e46",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0035-issue.md": {
+    "mtime": 1790470949.9957666,
+    "seen": 1790471487.4247468,
+    "ast_hash": "c3fe7027531e24eca26abf96697f3d5d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0036-jefe-de-ingenieria.md": {
+    "mtime": 1790520927.1195939,
+    "seen": 1790522690.4904227,
+    "ast_hash": "666d355980c3b1697d9055b84744b6bb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0037-kpi.md": {
+    "mtime": 1790470950.011755,
+    "seen": 1790471487.4247468,
+    "ast_hash": "aec3dd244785ae9282c60ebfa41a049d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0038-lider-de-proyecto.md": {
+    "mtime": 1790527050.4596145,
+    "seen": 1790536370.6857953,
+    "ast_hash": "d40f7dbcc4c8cec26d5b00f4f207718c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0039-lms.md": {
+    "mtime": 1790470950.029668,
+    "seen": 1790471487.4247468,
+    "ast_hash": "e92451975ed14e2f935d73a2f6648953",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0040-milestone.md": {
+    "mtime": 1790470950.0356238,
+    "seen": 1790471487.4247468,
+    "ast_hash": "b76741b06b9c9bd9cf8ab4e7a00aa921",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0041-mr.md": {
+    "mtime": 1790470950.0379417,
+    "seen": 1790471487.4247468,
+    "ast_hash": "b6a344627a1513c4d32045f16c5cdaab",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0042-nivel-acreditado.md": {
+    "mtime": 1790483685.0989797,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7ee1f35897c2ccdbbcbb5338fd9dfd4c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0043-nivel-requerido.md": {
+    "mtime": 1790520850.5787222,
+    "seen": 1790522690.4919348,
+    "ast_hash": "eb994765f829fc1de16b7e9ccde38a47",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0044-pdf.md": {
+    "mtime": 1790483626.579963,
+    "seen": 1790484293.4250352,
+    "ast_hash": "64cc376633d06d94466f4fbf81c65d7a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0045-perfil-de-competencias-del-colaborador.md": {
+    "mtime": 1790527054.6852612,
+    "seen": 1790536370.687795,
+    "ast_hash": "1f41d6a7bfad4b87ae3773e116e66bf8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0046-plataforma-de-gestion-de-formacion-del-recurso-humano.md": {
+    "mtime": 1790483626.5935698,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7173d485ae635af52c4b3b252eba99c5",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0047-producto.md": {
+    "mtime": 1790482085.0306032,
+    "seen": 1790484293.4250352,
+    "ast_hash": "306aee764e9b6f3a1d14c174f8f6692a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0048-programa-de-formacion-de-competencias.md": {
+    "mtime": 1790470950.0756433,
+    "seen": 1790471487.4247468,
+    "ast_hash": "f4b3d87636439224fb5ea61edc2d49bb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0049-propuesta-de-nivel.md": {
+    "mtime": 1790527067.5274532,
+    "seen": 1790536370.687795,
+    "ast_hash": "a6df36894c3ce4b230f157d487ed8b49",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0050-proyecto.md": {
+    "mtime": 1790470950.087986,
+    "seen": 1790471487.4247468,
+    "ast_hash": "a25f49a528e7438accb2390995f8fa0d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0051-proyecto-activo.md": {
+    "mtime": 1790470324.1801412,
+    "seen": 1790471487.4247468,
+    "ast_hash": "b5996bbc9cad6354093d79117b986d41",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0052-requerimiento-de-proyecto.md": {
+    "mtime": 1790520927.1334503,
+    "seen": 1790522690.4939551,
+    "ast_hash": "4a83a4e83ad1ed34f2389871b45f5c4f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0053-responsable-de-producto.md": {
+    "mtime": 1790470324.1969874,
+    "seen": 1790471487.4247468,
+    "ast_hash": "e767311dfd650129f10273787993fa8a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0054-riesgo-de-cobertura.md": {
+    "mtime": 1790470324.2065837,
+    "seen": 1790471487.4247468,
+    "ast_hash": "636fa69e16ea3ddd7a2e1c4f2dff4b5d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0055-rol.md": {
+    "mtime": 1790526987.7646163,
+    "seen": 1790536370.6897953,
+    "ast_hash": "02f4a4df566fe698b86c2b811ffd32cc",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0056-rr-hh.md": {
+    "mtime": 1790470950.1093013,
+    "seen": 1790471487.4247468,
+    "ast_hash": "fbe08292939047a5302bd3420f58b7df",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0057-ruta-de-formacion.md": {
+    "mtime": 1790470950.1093013,
+    "seen": 1790471487.4247468,
+    "ast_hash": "ec6ad7f55e55058e6c78b774edb58b0d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0058-sigo.md": {
+    "mtime": 1790470324.2315385,
+    "seen": 1790471487.4247468,
+    "ast_hash": "c1337f7e52c02423f3892f7bd7fcdbb6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0059-sistema-de-rr-hh.md": {
+    "mtime": 1790519460.9936237,
+    "seen": 1790520178.6822274,
+    "ast_hash": "cdc62eea6f29b1789a8a2b877e89a36f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0060-smartsuite.md": {
+    "mtime": 1790470950.1208649,
+    "seen": 1790471487.4247468,
+    "ast_hash": "2a867e0e01dc1f18cff15eb35771077a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0061-tablero-de-capacidad.md": {
+    "mtime": 1790470950.1254878,
+    "seen": 1790471487.4247468,
+    "ast_hash": "bc74c7993e1ba144a09b11b95a3d2a8c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0062-tiempo-a-competencia.md": {
+    "mtime": 1790470950.1309,
+    "seen": 1790471487.4247468,
+    "ast_hash": "fb1ca16539c2917edc9f23df45f32a50",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0063-tiempo-de-asignacion.md": {
+    "mtime": 1790470950.1309,
+    "seen": 1790471487.4247468,
+    "ast_hash": "567fffd4de0f30a98943b6fd12c83fae",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0064-transparencia-para-el-colaborador.md": {
+    "mtime": 1790470950.139844,
+    "seen": 1790471487.4247468,
+    "ast_hash": "63338a9671fdbf1d4d0f9adb91e74122",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0065-trazabilidad.md": {
+    "mtime": 1790483626.6294966,
+    "seen": 1790484293.4250352,
+    "ast_hash": "f71e041313b303f8074f02687f9371ea",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
+    "mtime": 1790525814.2513802,
+    "seen": 1790536370.7001495,
+    "ast_hash": "afcaee7dcc73132fdba4ef87ead74ac9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
+    "mtime": 1790483685.074752,
+    "seen": 1790484293.4250352,
+    "ast_hash": "6f7755eb3d3a2e6c70ff8a1c3a8c30c1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/USC-001-user-stories-plataforma-gestion-formacion.md": {
+    "mtime": 1790526319.7362058,
+    "seen": 1790536370.7001495,
+    "ast_hash": "c57cd54ae156a71aebecdb44de643a49",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md": {
+    "mtime": 1790526442.6912901,
+    "seen": 1790536370.7001495,
+    "ast_hash": "0ed6f9a148a85db05475d60b2c60d315",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
+    "mtime": 1790526139.058929,
+    "seen": 1790536370.7001495,
+    "ast_hash": "c6a153823f0768b259eeb231ca726889",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md": {
+    "mtime": 1790525714.1506243,
+    "seen": 1790536370.7001495,
+    "ast_hash": "da4b41e73e2eb3a0d67e2a322c791af9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
+    "mtime": 1790525900.031193,
+    "seen": 1790536370.7001495,
+    "ast_hash": "4a2395d69fe69770f56990e065a84884",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1790525804.210161,
+    "seen": 1790536370.7001495,
+    "ast_hash": "e9e24b181ee9353e2cbc37785f24949a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-005-ver-mi-brecha-frente-a-un-rol.md": {
+    "mtime": 1790525813.297789,
+    "seen": 1790536370.7001495,
+    "ast_hash": "2d26e069bc12c9f4889fe4d6587b1a22",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md": {
+    "mtime": 1790525865.8163888,
+    "seen": 1790536370.7001495,
+    "ast_hash": "05ee6579fd2727477fe2cc8aaf7240d6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ACP-001-architecture-context-pack.md": {
+    "mtime": 1790527668.6408393,
+    "seen": 1790536370.6767964,
+    "ast_hash": "f3fe3e25f6b1f214f8de03731f4d7b0a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ADB-001-descubrimiento-arquitectura-plataforma.md": {
+    "mtime": 1790527689.359556,
+    "seen": 1790536370.6767964,
+    "ast_hash": "391fe3cdfa947adfc5b07a56eec883c6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/AIM-001-matriz-impacto-arquitectura.md": {
+    "mtime": 1790527656.4226856,
+    "seen": 1790536370.6767964,
+    "ast_hash": "fb442c994e55fbad7dd435abd3cf19ac",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-02.md": {
+    "mtime": 1790527726.3621738,
+    "seen": 1790536370.677797,
+    "ast_hash": "29cd00f3a3e8e3f1b2c610cfa8baf52b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-03.md": {
+    "mtime": 1790483626.353057,
+    "seen": 1790484293.4250352,
+    "ast_hash": "7bb4935c38eaa1df60764939bf76b2cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-ACR-04.md": {
+    "mtime": 1790483626.3678567,
+    "seen": 1790484293.4250352,
+    "ast_hash": "11797867676acd4a263da6eb3138f502",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-CAT-06.md": {
+    "mtime": 1790527744.760199,
+    "seen": 1790536370.677797,
+    "ast_hash": "a979a6521f85925ffaa7a54d921ff7cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-IA-01.md": {
+    "mtime": 1790475454.2240283,
+    "seen": 1790484293.4250352,
+    "ast_hash": "b43277e4221cf5cb7ce26dc5a77138e8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-IA-02.md": {
+    "mtime": 1790475457.4944816,
+    "seen": 1790484293.4250352,
+    "ast_hash": "8e7ae54f609cd2a05cb44cff41fb04e0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-INT-02.md": {
+    "mtime": 1790483626.3821256,
+    "seen": 1790484293.4250352,
+    "ast_hash": "c5e896bd8771ce1abe45a3cfa99867f4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-BR-TRA-01.md": {
+    "mtime": 1790527715.8698244,
+    "seen": 1790536370.6787953,
+    "ast_hash": "cd9add91afa4546455d30d8a2d515188",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-US-014.md": {
+    "mtime": 1790527721.0335698,
+    "seen": 1790536370.6787953,
+    "ast_hash": "ecf8cb2d9a0adff68b0109ef5ec3eba6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/asr-catalog.md": {
+    "mtime": 1790524596.241657,
+    "seen": 1790525177.6118371,
+    "ast_hash": "4ee66b14bdac8042fa25da8a29ca26f0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0066-nivel-de-rol.md": {
+    "mtime": 1790524497.307962,
+    "seen": 1790525177.6401806,
+    "ast_hash": "48ac24c895501c7c36a071d64e648bba",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0067-competencia-transversal.md": {
+    "mtime": 1790483171.5389595,
+    "seen": 1790484293.4250352,
+    "ast_hash": "d642d7fb03b25a43fd87f192a3385d2a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0068-requisito-de-evidencia.md": {
+    "mtime": 1790523948.722137,
+    "seen": 1790525177.6411803,
+    "ast_hash": "a51e77146945dc73e7c4208dfb084d74",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0069-rubrica.md": {
+    "mtime": 1790520957.4756992,
+    "seen": 1790522690.500104,
+    "ast_hash": "d0f338909c8ebb34edfdc43afee3b7e3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
+    "mtime": 1790527449.0341065,
+    "seen": 1790536370.7001495,
+    "ast_hash": "25d9db088bbe6988b3f546274cc21f77",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
+    "mtime": 1790832344.8711703,
+    "seen": 1790832490.5437152,
+    "ast_hash": "da9edf59df9114202c8bf449c7892d82",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-002-autenticacion-keycloak-pkce-en-bff.md": {
+    "mtime": 1790487157.2982864,
+    "seen": 1790490169.5727413,
+    "ast_hash": "c5cb1ae6dba138cf14cd8ed39ac7c89a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1790526737.7892785,
+    "seen": 1790536370.7001495,
+    "ast_hash": "30285fb1d7635bf2f70ac821edc6a680",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002-shell-y-estados-transversales.md": {
+    "mtime": 1790526743.2761638,
+    "seen": 1790536370.7001495,
+    "ast_hash": "2abed15c2c13832b56e0aa0d9aa41138",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md": {
+    "mtime": 1790526564.3609724,
+    "seen": 1790536370.7001495,
+    "ast_hash": "7b826726a1de072f5ee94a3123263db0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1790526581.064504,
+    "seen": 1790536370.7001495,
+    "ast_hash": "44a3ecfcede65a805e35a0a98974ab2a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-002-declarar-requerimiento-de-proyecto.md": {
+    "mtime": 1790526599.58069,
+    "seen": 1790536370.7001495,
+    "ast_hash": "ac9fa399b86c0651200db5d3f3bfa83e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-003-certificar-un-nivel-de-competencia.md": {
+    "mtime": 1790526639.293376,
+    "seen": 1790536370.7001495,
+    "ast_hash": "bc54241814de473ccdbd792e78aa1759",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-004-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1790526649.9852738,
+    "seen": 1790536370.7001495,
+    "ast_hash": "515c12979cff29bcce125de8109cebd0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-005-ver-mi-brecha-frente-a-un-rol-nivel.md": {
+    "mtime": 1790526657.1187468,
+    "seen": 1790536370.7001495,
+    "ast_hash": "74f19345d769bec72ca2da090ccb5354",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-006-buscar-candidatos-para-un-requerimiento.md": {
+    "mtime": 1790526714.193452,
+    "seen": 1790536370.7001495,
+    "ast_hash": "c4139b6bda5fca8e80c2721a4fff9b5f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr1-catalogo-de-roles.png": {
+    "mtime": 1790488817.1190925,
+    "seen": 1790490169.5727413,
+    "ast_hash": "a50f2057c2112461bf9b47e7528883c7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr2-detalle-de-rol.png": {
+    "mtime": 1790488817.2348588,
+    "seen": 1790490169.5727413,
+    "ast_hash": "61bafddcd24e15b81ac80677d5fb2984",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/scr3-detalle-de-competencia.png": {
+    "mtime": 1790488817.6001613,
+    "seen": 1790490169.5727413,
+    "ast_hash": "6168351b6248c804f2f48837febbae93",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/s0-estados.png": {
+    "mtime": 1790489297.6758814,
+    "seen": 1790490169.5727413,
+    "ast_hash": "3eea2e8b9c5e3c149a3d0d491f72c927",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/s0-shell.png": {
+    "mtime": 1790489297.6416206,
+    "seen": 1790490169.5727413,
+    "ast_hash": "0e98ba4e49389da8909679933d9c1f18",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-001/design.html": {
+    "mtime": 1790490319.1813695,
+    "seen": 1790516832.3073132,
+    "ast_hash": "c407b61ba006693c524a1eb79758a241",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002/design.html": {
+    "mtime": 1790490256.496625,
+    "seen": 1790516832.3073132,
+    "ast_hash": "831a649db277604903de81b3fe161da2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md": {
+    "mtime": 1790526530.4260802,
+    "seen": 1790536370.7001495,
+    "ast_hash": "ede9d178e0c7e57dcb399b26c3934842",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/tests/run-tests.sh": {
+    "mtime": 1790524105.0564096,
+    "seen": 1790525177.6053214,
+    "ast_hash": "e1954a10c983c802bc55f128a0bd421d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-003-persistencia-mysql-y-postgresql.md": {
+    "mtime": 1790524365.4223351,
+    "seen": 1790525177.6073196,
+    "ast_hash": "170a03602dd7f3a0fbe503a8cc298155",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md": {
+    "mtime": 1790519218.6834576,
+    "seen": 1790520178.6623027,
+    "ast_hash": "1e63af21c27bd30bb2842bf307d8dad8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/LDM-001-modelo-logico-de-partes.md": {
+    "mtime": 1790527615.62029,
+    "seen": 1790536370.6787953,
+    "ast_hash": "10d7e16950ff42819247c42fe0f8e486",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/PDM-001-anexo-mysql.md": {
+    "mtime": 1790524305.028436,
+    "seen": 1790525177.6118371,
+    "ast_hash": "acc849e09828acff108cd0510422718b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/PDM-001-anexo-postgresql.md": {
+    "mtime": 1790524319.469071,
+    "seen": 1790525177.6118371,
+    "ast_hash": "bc9955ad767dcfeacafe94a04d5800ae",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/PDM-001-modelo-fisico-de-partes.md": {
+    "mtime": 1790527624.5398874,
+    "seen": 1790536370.6787953,
+    "ast_hash": "6e3c5f81aeb08ae3320fb38733350b99",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/tests/TST-001-pruebas-de-restricciones.md": {
+    "mtime": 1790524339.684302,
+    "seen": 1790525177.6118371,
+    "ast_hash": "c89af87076520d8dd2ce8fd47832d6c1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0070-parte.md": {
+    "mtime": 1790519510.8970819,
+    "seen": 1790520178.6853318,
+    "ast_hash": "58599e4486afb761057f69c8f751cc67",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0071-persona.md": {
+    "mtime": 1790519510.902632,
+    "seen": 1790520178.6853318,
+    "ast_hash": "2cb8f82a2b065d234e6c3d87b4913dc7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0072-organizacion.md": {
+    "mtime": 1790519510.9072025,
+    "seen": 1790520178.6853318,
+    "ast_hash": "7d14e024a523b2845e0bc3ea9212748b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0073-rol-de-la-parte.md": {
+    "mtime": 1790519510.9125564,
+    "seen": 1790520178.6853318,
+    "ast_hash": "f1133e3bcc1d73cf8a87515a81b864f4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0074-relacion-entre-partes.md": {
+    "mtime": 1790519510.9180818,
+    "seen": 1790520178.6853318,
+    "ast_hash": "3b5c6b37168f376989da51c1acf89eef",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0075-empleado.md": {
+    "mtime": 1790519510.9246418,
+    "seen": 1790520178.6853318,
+    "ast_hash": "e20cc373a74c920607f0496be4bf63dd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0076-contratista.md": {
+    "mtime": 1790519510.9298272,
+    "seen": 1790520178.6853318,
+    "ast_hash": "bae92ddff71882398082392fd2d25c06",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0077-proveedor.md": {
+    "mtime": 1790519510.932969,
+    "seen": 1790520178.6853318,
+    "ast_hash": "c8491ae5d32c58610189b08e258be68f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0078-organizacion-interna.md": {
+    "mtime": 1790519510.9372516,
+    "seen": 1790520178.6853318,
+    "ast_hash": "aa9196321fbe19b6771a2c0b1f366052",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0079-unidad-organizacional.md": {
+    "mtime": 1790519510.9392607,
+    "seen": 1790520178.6853318,
+    "ast_hash": "8f2898a4fcfa2dca097c8f4573b66bad",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0080-jefe-directo.md": {
+    "mtime": 1790524650.7182467,
+    "seen": 1790525177.645182,
+    "ast_hash": "e01b35d3687cfbf67b7849de37834399",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0081-identificacion.md": {
+    "mtime": 1790519510.9518669,
+    "seen": 1790520178.6853318,
+    "ast_hash": "1b754e5f3ce5aa3a06495836b5605fe7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0082-dni.md": {
+    "mtime": 1790519510.9518669,
+    "seen": 1790520178.6853318,
+    "ast_hash": "62c09b631c3111a901dad6a04737e6d6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0083-ruc.md": {
+    "mtime": 1790519510.9571917,
+    "seen": 1790520178.6853318,
+    "ast_hash": "9045351929ee16938358f5af7ce051e6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0084-medio-de-contacto.md": {
+    "mtime": 1790519510.9571917,
+    "seen": 1790520178.6853318,
+    "ast_hash": "6f99c65bbfee49d096a85bf1b04474e1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0085-correo-laboral.md": {
+    "mtime": 1790519510.965996,
+    "seen": 1790520178.6853318,
+    "ast_hash": "d9ee425c1935c32b42eb91cb8a7ffc31",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0086-perfil-profesional-en-linea.md": {
+    "mtime": 1790527076.5782807,
+    "seen": 1790536370.6971478,
+    "ast_hash": "cbfa25826a51ffcaacaf67e41504803a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0087-codigo-de-colaborador.md": {
+    "mtime": 1790524652.2760851,
+    "seen": 1790525177.6496956,
+    "ast_hash": "2d62a0c6d63809814ab62e08b044380c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0088-asignacion-de-rol-nivel.md": {
+    "mtime": 1790520957.4837174,
+    "seen": 1790522690.5089078,
+    "ast_hash": "7e49c0607eeca2230013ae672d41bb57",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0089-identidad-de-acceso.md": {
+    "mtime": 1790519510.988948,
+    "seen": 1790520178.6853318,
+    "ast_hash": "aa5f480ede9913c9df0750c3d9c99eaf",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0090-keycloak.md": {
+    "mtime": 1790519510.988948,
+    "seen": 1790520178.6853318,
+    "ast_hash": "74d541bff70bb0321aa3ea68436f58fd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0091-informacion-maestra.md": {
+    "mtime": 1790519510.9971251,
+    "seen": 1790520178.6853318,
+    "ast_hash": "17b8275cc7e793507360e6a4ef919762",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0092-vigencia.md": {
+    "mtime": 1790519511.0003695,
+    "seen": 1790520178.6853318,
+    "ast_hash": "786a13801104423ed014c8b8bad6d9f7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0093-alta.md": {
+    "mtime": 1790519511.0051844,
+    "seen": 1790520178.6853318,
+    "ast_hash": "be750063f062e0331cd00325570a2116",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0094-baja.md": {
+    "mtime": 1790519511.0071464,
+    "seen": 1790520178.6853318,
+    "ast_hash": "675edc944fe20a9a4865581e53a85fc1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0095-datos-personales.md": {
+    "mtime": 1790519511.010885,
+    "seen": 1790520178.6853318,
+    "ast_hash": "6e2437cb1200e1a480be9cf2894635f8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0096-anonimizacion.md": {
+    "mtime": 1790519511.0148258,
+    "seen": 1790520178.6853318,
+    "ast_hash": "481bb483c2052850035dc8fffedf9029",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0097-plazo-de-anonimizacion.md": {
+    "mtime": 1790519511.0187302,
+    "seen": 1790520178.6853318,
+    "ast_hash": "4ae4769a1e1320df6e6e7b10b763d358",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0098-aviso-de-anonimizacion.md": {
+    "mtime": 1790519511.0216625,
+    "seen": 1790520178.6853318,
+    "ast_hash": "67986c7206cdb61ef1e8da57726fc570",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md": {
+    "mtime": 1790527604.487012,
+    "seen": 1790536370.7001495,
+    "ast_hash": "e5ed6fcd9cec46a786747236e4b84a3c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md": {
+    "mtime": 1790526489.7967627,
+    "seen": 1790536370.7001495,
+    "ast_hash": "30293db7457b8959f2ed1f07f549ab0b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-015-registrar-un-colaborador.md": {
+    "mtime": 1790524514.9165797,
+    "seen": 1790525177.6784112,
+    "ast_hash": "5239ca03dd661c2d6cc7600e0209acfb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-016-actualizar-datos-y-contactos.md": {
+    "mtime": 1790526047.6553679,
+    "seen": 1790536370.7001495,
+    "ast_hash": "9abb04cdd55e6bbcd8d6e45819c75191",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
+    "mtime": 1790519374.4999323,
+    "seen": 1790520178.6853318,
+    "ast_hash": "5ee76d1840aa16e4373f68043c79201a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
+    "mtime": 1790526053.8119984,
+    "seen": 1790536370.7011495,
+    "ast_hash": "9264a826ee90d8ff005e7c0814eef7af",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-019-asignar-rol-nivel.md": {
+    "mtime": 1790526061.139807,
+    "seen": 1790536370.7011495,
+    "ast_hash": "8d20df5bd4ef6ab9fc6bc440220bc78d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-020-asignar-roles-del-programa.md": {
+    "mtime": 1790521238.3426044,
+    "seen": 1790522690.5177565,
+    "ast_hash": "06fb175ad297feb866d38dabc5a65aeb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-021-dar-de-baja-a-un-colaborador.md": {
+    "mtime": 1790526069.3355405,
+    "seen": 1790536370.7011495,
+    "ast_hash": "d053e26b929650f996bbb69a50b013fd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-022-vincular-identidad-de-acceso.md": {
+    "mtime": 1790519557.5336385,
+    "seen": 1790520178.6853318,
+    "ast_hash": "0c7050afb49daa9f83d50f7bb9d15c7e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-023-consultar-ficha-e-historial.md": {
+    "mtime": 1790526005.2097723,
+    "seen": 1790536370.7011495,
+    "ast_hash": "82c526a762b050d8f2f4fc914b80eb0c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-024-anonimizar-datos-personales.md": {
+    "mtime": 1790526099.7106764,
+    "seen": 1790536370.7011495,
+    "ast_hash": "9c4c2d413b3760121c5a7209c8fe93e2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-025-configurar-plazo-y-aviso.md": {
+    "mtime": 1790519682.9322152,
+    "seen": 1790520178.6853318,
+    "ast_hash": "e41cf3c1f7be5d7572f6ee3d41525fac",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0099-evidencia-requerida.md": {
+    "mtime": 1790523952.963169,
+    "seen": 1790525177.6614654,
+    "ast_hash": "aa9180d740a3c105f06ef05ee6f952de",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0100-evidencia-deseada.md": {
+    "mtime": 1790520850.643559,
+    "seen": 1790522690.5109148,
+    "ast_hash": "c5618ed99cc79756d5b529c5649b5829",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0101-mof.md": {
+    "mtime": 1790520850.6510863,
+    "seen": 1790522690.5109148,
+    "ast_hash": "c62242a173275e62af1387cd9c367646",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0102-edicion-de-curso.md": {
+    "mtime": 1790527111.9379883,
+    "seen": 1790536370.7001495,
+    "ast_hash": "4b269b60fef7938bc4684396a806c1ff",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0103-inscripcion.md": {
+    "mtime": 1790527125.752475,
+    "seen": 1790536370.7001495,
+    "ast_hash": "d1d59aa99f1f0227c5e547c72fe4ac74",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0104-version-de-curso.md": {
+    "mtime": 1790527119.3365407,
+    "seen": 1790536370.7001495,
+    "ast_hash": "40fc5b217790618a8821ce71252ca631",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0105-instructor-edicion-de-curso.md": {
+    "mtime": 1790527235.784017,
+    "seen": 1790536370.7001495,
+    "ast_hash": "65e4685b0e93d1792f8f00686066bd71",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ACP-001-contexto-arquitectonico-uxui.md": {
+    "mtime": 1790552092.5393307,
+    "seen": 1790552817.01159,
+    "ast_hash": "ce17bc3626e8dde6d037934e6e1caa2f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/DMD-001-alineacion-std-db-001.md": {
+    "mtime": 1790552799.3978658,
+    "seen": 1790552817.0302782,
+    "ast_hash": "81e575e3fbf08121ebc1a9276580c8d4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/standards/database.md": {
+    "mtime": 1790552452.8526294,
+    "seen": 1790552817.0315359,
+    "ast_hash": "327740432753677fd81e679ff29d569b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/components/ui-inventory.md": {
+    "mtime": 1790552139.0716188,
+    "seen": 1790552817.0780723,
+    "ast_hash": "82ec9c8d37b7778510c248f0bf750b01",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/stitch/GEN-002-dise\u00f1o-consolidado-uxr-001-a-006.md": {
+    "mtime": 1790551163.9417648,
+    "seen": 1790552817.0780723,
+    "ast_hash": "149447ac421eb488705397c06e2fd5cd",
+    "semantic_hash": ""
+  },
+  ".archify/01-architecture-general.json": {
+    "mtime": 1790701135.5626242,
+    "seen": 1790707615.872006,
+    "ast_hash": "cf7d0f47901590c3c18959cf9113a364",
+    "semantic_hash": ""
+  },
+  ".archify/02-data-model-flow.json": {
+    "mtime": 1790701160.815406,
+    "seen": 1790707615.872006,
+    "ast_hash": "8bca89282be07b2a05f96c810051803b",
+    "semantic_hash": ""
+  },
+  ".archify/03-workflow-procesos.json": {
+    "mtime": 1790701183.0156932,
+    "seen": 1790707615.872006,
+    "ast_hash": "2c0ddb2d7d0406bc5ce6e5e585d03f1c",
+    "semantic_hash": ""
+  },
+  ".archify/04-cache-miss-sequence.json": {
+    "mtime": 1790707142.354353,
+    "seen": 1790707615.872006,
+    "ast_hash": "4722f06f190b9c80dc54f6202596ef54",
+    "semantic_hash": ""
+  },
+  ".graphify_ast_extract.py": {
+    "mtime": 1790560096.8079517,
+    "seen": 1790707615.8730063,
+    "ast_hash": "de3bd9173d081128dc6a395a4187080e",
+    "semantic_hash": ""
+  },
+  ".graphify_detect.json": {
+    "mtime": 1790560064.857996,
+    "seen": 1790707615.8730063,
+    "ast_hash": "8ea1db0f5e9007463601e2516d3f22a2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/Party-Management-Service.postman_collection.json": {
+    "mtime": 1790570582.1780734,
+    "seen": 1790707615.8730063,
+    "ast_hash": "a4148374200f26320253fef0801ef33c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/__init__.py": {
+    "mtime": 1790565182.7523446,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/config.py": {
+    "mtime": 1790832272.4478123,
+    "seen": 1790832319.3073866,
+    "ast_hash": "3eeda3b3dea6e3d3952c0523d93a0d9c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/__init__.py": {
+    "mtime": 1790565182.8323886,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/auth.py": {
+    "mtime": 1790832272.9930754,
+    "seen": 1790832319.3083866,
+    "ast_hash": "65eb66e577e13a456db12d9f6acf1d23",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/authorization.py": {
+    "mtime": 1790832273.5703752,
+    "seen": 1790832319.3083866,
+    "ast_hash": "9339ef7976443f5bf08dfd7077a21ec0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/exceptions.py": {
+    "mtime": 1790832274.698764,
+    "seen": 1790832319.3083866,
+    "ast_hash": "b905d787ace9b7f5918eb68dad36d611",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/logging.py": {
+    "mtime": 1790832275.2098536,
+    "seen": 1790832319.3083866,
+    "ast_hash": "027796865b88128a0ff93cfc1bbd2b80",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/database/__init__.py": {
+    "mtime": 1790565183.4515636,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/database/engine.py": {
+    "mtime": 1790832276.328847,
+    "seen": 1790832319.3083866,
+    "ast_hash": "b085316fe6bfcdc1c73d9d65f1936694",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/main.py": {
+    "mtime": 1790832278.048288,
+    "seen": 1790832319.3083866,
+    "ast_hash": "7bb20de956cf72ab521c8ee35a7fe629",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/models/__init__.py": {
+    "mtime": 1790565182.9379995,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/models/base.py": {
+    "mtime": 1790832278.6280458,
+    "seen": 1790832319.3083866,
+    "ast_hash": "f9ce77713f2a3c4312568d2f1de24402",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/models/party.py": {
+    "mtime": 1790832279.1762366,
+    "seen": 1790832319.3083866,
+    "ast_hash": "ee2b3816e6fea09fc55c880a6e6f7b4d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/routers/__init__.py": {
+    "mtime": 1790565183.3319397,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/routers/parties.py": {
+    "mtime": 1790832279.713901,
+    "seen": 1790832319.309384,
+    "ast_hash": "91ced8adde6ccc375e755e541238be7f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/schemas/__init__.py": {
+    "mtime": 1790565183.0396125,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/schemas/party.py": {
+    "mtime": 1790832280.2943249,
+    "seen": 1790832319.309384,
+    "ast_hash": "00ee0c97813351da72b4cd531830d9ad",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/services/__init__.py": {
+    "mtime": 1790565183.1615856,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/services/party_service.py": {
+    "mtime": 1790832280.8327732,
+    "seen": 1790832319.310392,
+    "ast_hash": "800058e0b2ff1551b3105618668d67bb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/pyproject.toml": {
+    "mtime": 1790832332.6479225,
+    "seen": 1790832490.4352982,
+    "ast_hash": "89d3c3042e95410f05b175def16b2523",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/__init__.py": {
+    "mtime": 1790565183.5805485,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/conftest.py": {
+    "mtime": 1790832333.6458054,
+    "seen": 1790832490.4358978,
+    "ast_hash": "3bb5f703202276ba3dff3408e796bb5c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/__init__.py": {
+    "mtime": 1790565184.3525982,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_parties_api.py": {
+    "mtime": 1790832334.6799922,
+    "seen": 1790832490.4371507,
+    "ast_hash": "a7c79765c293e91dcb03914b86599a21",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/__init__.py": {
+    "mtime": 1790565184.5885787,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_authorization.py": {
+    "mtime": 1790832337.283626,
+    "seen": 1790832490.437671,
+    "ast_hash": "c761400d052223620036f752c6514928",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_sql_injection.py": {
+    "mtime": 1790832339.2146869,
+    "seen": 1790832490.437671,
+    "ast_hash": "24bc2fb857e01d2b64ccf85bba9d4237",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/unit/__init__.py": {
+    "mtime": 1790565183.9479299,
+    "seen": 1790707615.8730063,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/postgres-init.sh": {
+    "mtime": 1790832340.3110716,
+    "seen": 1790832490.5162704,
+    "ast_hash": "64812d2dbe3c3e647bb6dd13a343b972",
+    "semantic_hash": ""
+  },
+  "generate-diagrams.ps1": {
+    "mtime": 1790703279.2016547,
+    "seen": 1790707615.8730063,
+    "ast_hash": "ea9f1e6d204d6736cbe3d29e2999b566",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/2026-09-28-phase-1a-party-endpoints/progress.md": {
+    "mtime": 1790565145.6999533,
+    "seen": 1790707615.8740067,
+    "ast_hash": "274c86ab67d985f3d2a6a8be2ff9ff2d",
+    "semantic_hash": ""
+  },
+  "ARCHIFY-TROUBLESHOOTING.md": {
+    "mtime": 1790708330.4298542,
+    "seen": 1790708363.4814093,
+    "ast_hash": "ba3fba6c54e669e5ac11847f7b5cac69",
+    "semantic_hash": ""
+  },
+  "DOCKER_SETUP.md": {
+    "mtime": 1790832266.0726967,
+    "seen": 1790832319.36504,
+    "ast_hash": "2edf9f3b1f826e71b3a31709cc2c2275",
+    "semantic_hash": ""
+  },
+  "GENERACION-COMPLETADA.md": {
+    "mtime": 1790701312.9164536,
+    "seen": 1790707615.8740067,
+    "ast_hash": "37d4897e2a4502f0a77e95235a443299",
+    "semantic_hash": ""
+  },
+  "SKILLS_DEPENDENCY_MAP.md": {
+    "mtime": 1790553458.6858585,
+    "seen": 1790707615.8740067,
+    "ast_hash": "dcac07a2d451c2caf7f96ae2fa2fd4f4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/README.md": {
+    "mtime": 1790832270.7643104,
+    "seen": 1790832319.3668187,
+    "ast_hash": "22ac380d013f72e7c6b6741071f85536",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/TESTING.md": {
+    "mtime": 1790832271.3139215,
+    "seen": 1790832319.3668187,
+    "ast_hash": "96aad494c4da45c3eb52983aad524183",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/docker-compose.yml": {
+    "mtime": 1790832281.408626,
+    "seen": 1790832319.3668187,
+    "ast_hash": "85b03d0fca73ef4ddb4a82223ea7e719",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/requirements.txt": {
+    "mtime": 1790832333.1482048,
+    "seen": 1790832490.5303414,
+    "ast_hash": "42b43d86bd945a26a9d6862dc5cc57a3",
+    "semantic_hash": ""
+  },
+  "codebase/docker-compose.yml": {
+    "mtime": 1790832339.8244572,
+    "seen": 1790832490.5374618,
+    "ast_hash": "7b6748b03ce3db661e191995a3571409",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md": {
+    "mtime": 1790565099.5567844,
+    "seen": 1790707615.8740067,
+    "ast_hash": "cf46c4a1d226c977aa3a32ebb0e6eb3c",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-09-29-phase-1b-organization-endpoints.md": {
+    "mtime": 1790612837.6154585,
+    "seen": 1790707615.8740067,
+    "ast_hash": "3d0f4a11ab3a12e8eba4cae73cba8c47",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-28-party-management-service-design.md": {
+    "mtime": 1790564587.8145707,
+    "seen": 1790707615.8740067,
+    "ast_hash": "6f5ded11748da26e6367c29f59d1f5d8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ACP-002-context-pack-general.md": {
+    "mtime": 1790701103.4183831,
+    "seen": 1790707615.8750057,
+    "ast_hash": "b1883e39b84e7a53fc05c2e01343918e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-005-implementacion-pkce-tokens-y-sesiones.md": {
+    "mtime": 1790557285.8988352,
+    "seen": 1790707615.877006,
+    "ast_hash": "0119c20505395c76dbbcb03fc96474ce",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-006-criterios-upgrade-rol-nivel.md": {
+    "mtime": 1790557485.4738092,
+    "seen": 1790707615.877006,
+    "ast_hash": "86958842345617288bf8d7e572dd0d1e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-007-consolidacion-postgresql-desarrollo.md": {
+    "mtime": 1790560194.3514879,
+    "seen": 1790707615.877006,
+    "ast_hash": "ac0e88f09551a9acf4fd6f566994d85f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-008-python-fastapi-como-estandar-api.md": {
+    "mtime": 1790832345.4358268,
+    "seen": 1790832490.5462742,
+    "ast_hash": "46fb56ec6effdb976df2aa750095e0f8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-001-gestion-data-maestra-party.md": {
+    "mtime": 1790563311.1380053,
+    "seen": 1790707615.877006,
+    "ast_hash": "8de5670a7ba32fd910ce63e44d50ca08",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/DCP-001-desarrollo-api-party.md": {
+    "mtime": 1790563666.1870074,
+    "seen": 1790707615.877006,
+    "ast_hash": "38519ec119149bc2dc363cb2c411317b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/SRC-001-security-review-api-spec-001.md": {
+    "mtime": 1790563905.237264,
+    "seen": 1790707615.877006,
+    "ast_hash": "5b6e3bd7b17497468988dd993e26b9c1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/asr/ASR-007-optimizacion-recursos-desarrollo.md": {
+    "mtime": 1790560168.0791528,
+    "seen": 1790707615.877006,
+    "ast_hash": "80317b7129397ffad44ec673b8bc5b66",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/standards/restfull-api-design.md": {
+    "mtime": 1790277709.7755895,
+    "seen": 1790707615.8845513,
+    "ast_hash": "1f38df75075d0dae74e12bdf5713dbcd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/BCP-001-business-context-pack.md": {
+    "mtime": 1790699929.9406946,
+    "seen": 1790707615.8845513,
+    "ast_hash": "dd844f5d944f2911534a7d2abbd485d0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/OKF-CONCEPTS-INDEX.md": {
+    "mtime": 1790700865.3993275,
+    "seen": 1790707615.8845513,
+    "ast_hash": "bfe30dca3c276bffa16d577e7c75d33f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/assumptions/BAS-001-no-common-catalog.md": {
+    "mtime": 1790700814.1917684,
+    "seen": 1790707615.8845513,
+    "ast_hash": "0bcc60d60a20ca8467e505e13dbc3c9d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/constraints/BCON-001-human-approval.md": {
+    "mtime": 1790700799.0372455,
+    "seen": 1790707615.8845513,
+    "ast_hash": "029b9658e471ae175b72b4004eec75cf",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/objectives/BO-001-catalog-governance.md": {
+    "mtime": 1790700739.6140623,
+    "seen": 1790707615.9249103,
+    "ast_hash": "e27fff47a3590f3c99b70dbd65dbfa6d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/objectives/BO-002-demand-supply-matching.md": {
+    "mtime": 1790700748.573573,
+    "seen": 1790707615.9249103,
+    "ast_hash": "40b9bcfcc11e63a73e34d02d577822fd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/objectives/BO-003-transparent-certification.md": {
+    "mtime": 1790700759.0918057,
+    "seen": 1790707615.9249103,
+    "ast_hash": "8d178ebe0904fcf04aaed3d4701a1a72",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/open-questions/BOQ-001-catalog-versioning.md": {
+    "mtime": 1790700821.8926053,
+    "seen": 1790707615.9249103,
+    "ast_hash": "b96b8d8780118d362022436cbd4088eb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/open-questions/BOQ-002-evaluators.md": {
+    "mtime": 1790700831.9290266,
+    "seen": 1790707615.9249103,
+    "ast_hash": "d6a1e4208c2e1fabd60b36d0969033a9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/risks/BRISK-001-catalog-drift.md": {
+    "mtime": 1790700806.7570982,
+    "seen": 1790707615.9249103,
+    "ast_hash": "825667bb08ce91a7ee80e70b04278b03",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/stakeholders/STK-001-chief-engineering.md": {
+    "mtime": 1790700769.7762575,
+    "seen": 1790707615.9249103,
+    "ast_hash": "ca3ddb0c1af807321d941da18a4a3650",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/stakeholders/STK-002-project-manager.md": {
+    "mtime": 1790700779.561395,
+    "seen": 1790707615.9249103,
+    "ast_hash": "ce643c4bab1bde58916b0792cff7a0c6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/stakeholders/STK-003-collaborator.md": {
+    "mtime": 1790700790.6850836,
+    "seen": 1790707615.9249103,
+    "ast_hash": "7eef65eac905642527a54c4e199816a1",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-00072f68-d730-4ab6-9acd-131f5601f816.json": {
+    "mtime": 1790709027.446345,
+    "seen": 1790736811.9340541,
+    "ast_hash": "319a789d06e0074f97b24c5627288892",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-373485d1-154c-4148-a664-c3c6eadab0b6.json": {
+    "mtime": 1790709027.446345,
+    "seen": 1790736811.9340541,
+    "ast_hash": "0c1fd99c88127c0e9a10e7a28e00b927",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-4abed2dc-2dd2-4c1f-8014-2ac06a5ee02d.json": {
+    "mtime": 1790709027.4609413,
+    "seen": 1790736811.9340541,
+    "ast_hash": "41f499634ed21311e778d17651dc793b",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-57ed2b30-d957-449f-93c9-bffa49e775b9.json": {
+    "mtime": 1790709027.4664512,
+    "seen": 1790736811.9340541,
+    "ast_hash": "c2ac5d1381e4ac42e76db95980c085ac",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-856ff7bb-21d7-4abe-b5db-b7ed5b2a9a63.json": {
+    "mtime": 1790709027.4694498,
+    "seen": 1790736811.9340541,
+    "ast_hash": "29b3886bd09f7805d3343f7b163550b8",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-928cdc97-79cf-4f49-a133-736206455d2a.json": {
+    "mtime": 1790709027.4724572,
+    "seen": 1790736811.9340541,
+    "ast_hash": "504f98d877b6631cc406972c5c438314",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-ca97b659-7aa3-4918-93b0-314b2929c864.json": {
+    "mtime": 1790709027.4758348,
+    "seen": 1790736811.9340541,
+    "ast_hash": "e996723e76a511af644589ed724954cb",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-d27f4332-96ac-489f-8fc7-85ac4aefba5c.json": {
+    "mtime": 1790709027.479573,
+    "seen": 1790736811.9340541,
+    "ast_hash": "77346396edd18b34d7f2ec0006655867",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-e2865921-6642-4fdf-9d2d-2bb98affa350.json": {
+    "mtime": 1790709027.483581,
+    "seen": 1790736811.9340541,
+    "ast_hash": "aa5d13483932154210ba43469961643a",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-finalize-fba0377a-61e3-4560-a9e9-dea26697aa1f.json": {
+    "mtime": 1790709027.4869432,
+    "seen": 1790736811.9340541,
+    "ast_hash": "f1d31f158134cda1623f93d9f068df8b",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-preview-UQgBH9/.archify-delivery-lock.json": {
+    "mtime": 1790709408.9555955,
+    "seen": 1790736811.9340541,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/.archify-preview-UQgBH9/generation-1.json": {
+    "mtime": 1790709408.6450107,
+    "seen": 1790736811.9340541,
+    "ast_hash": "cf7d0f47901590c3c18959cf9113a364",
+    "semantic_hash": ""
+  },
+  "PUBLICATION-REPORT.md": {
+    "mtime": 1790736767.00502,
+    "seen": 1790736811.9615731,
+    "ast_hash": "4060c75c95244ebcc5c46130bbe10674",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/INDEX.md": {
+    "mtime": 1790709027.4903772,
+    "seen": 1790736811.9615731,
+    "ast_hash": "f6701f0f44515b8509ac1419521a399f",
+    "semantic_hash": ""
+  },
+  "archify-diagrams/viewer.html": {
+    "mtime": 1790709027.4950185,
+    "seen": 1790736811.9615731,
+    "ast_hash": "68ca860a15a62fdb6f31eac3c387c30d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/package.json": {
+    "mtime": 1790820518.6768944,
+    "seen": 1790821762.7171571,
+    "ast_hash": "75a99c5faf199752d8fbe99a3269b3c3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/app.ts": {
+    "mtime": 1790823209.7962697,
+    "seen": 1790826046.4246597,
+    "ast_hash": "c3a7168faa14d4077e859b7ce6d745c0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/auth.router.ts": {
+    "mtime": 1790820519.836876,
+    "seen": 1790821762.7171571,
+    "ast_hash": "4f6b4b6e041173b99bb927fb22935285",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/guards.ts": {
+    "mtime": 1790820520.36514,
+    "seen": 1790821762.7171571,
+    "ast_hash": "24dc0243547077acc1171c49a5036709",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/oidc.ts": {
+    "mtime": 1790823210.316792,
+    "seen": 1790826046.4271245,
+    "ast_hash": "7b2a6cad36e4af2c0962891ed9f5cb19",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/roles.ts": {
+    "mtime": 1790820521.474744,
+    "seen": 1790821762.7171571,
+    "ast_hash": "a9a9cbcea70dc350ce3d88b47398f5da",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/session.ts": {
+    "mtime": 1790820522.1552079,
+    "seen": 1790821762.7171571,
+    "ast_hash": "fa2ccff2dd1aced98e87487ba7878fae",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/config/env.ts": {
+    "mtime": 1790823211.8519835,
+    "seen": 1790826046.4296908,
+    "ast_hash": "cbb032df6b163c42c447cfa4dcf3f973",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/config/secrets.ts": {
+    "mtime": 1790823212.4567602,
+    "seen": 1790826046.4296908,
+    "ast_hash": "035c7c38bc0d5eba1d3450efa941badb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/downstream/service-client.ts": {
+    "mtime": 1790832267.5992396,
+    "seen": 1790832319.3015163,
+    "ast_hash": "214c404370ea57a1cdf6073c138808cd",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/downstream/service-token.ts": {
+    "mtime": 1790820524.6177418,
+    "seen": 1790821762.7171571,
+    "ast_hash": "fbd4a419c114929de0936b58a628ca91",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/health/health.router.ts": {
+    "mtime": 1790823211.2811925,
+    "seen": 1790826046.4296908,
+    "ast_hash": "cd3f6c2139a7212b264f6c494bb580d0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/main.ts": {
+    "mtime": 1790823209.186124,
+    "seen": 1790826046.4296908,
+    "ast_hash": "8a513fcc1916f014495ea57c1d23447c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/middleware/csrf.ts": {
+    "mtime": 1790820526.499752,
+    "seen": 1790821762.7171571,
+    "ast_hash": "761fa8defb46601f778eb78bb2dcb431",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/middleware/error-handler.ts": {
+    "mtime": 1790823213.0673656,
+    "seen": 1790826046.4296908,
+    "ast_hash": "0630f5d8279ab54ead1c31727c753432",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/middleware/request-id.ts": {
+    "mtime": 1790820527.901682,
+    "seen": 1790821762.7171571,
+    "ast_hash": "72033dd30a2b8eb074ac5fed77e6e415",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/modules/catalog/catalog.router.ts": {
+    "mtime": 1790832268.130365,
+    "seen": 1790832319.3035176,
+    "ast_hash": "1792c2a71bbfa0c9bb4a42c26567a977",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/modules/parties/parties.router.ts": {
+    "mtime": 1790832268.6712172,
+    "seen": 1790832319.3035176,
+    "ast_hash": "55942388e8c20c3c31a2a37f5a6c94d5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/observability/logger.ts": {
+    "mtime": 1790820529.4832556,
+    "seen": 1790821762.7171571,
+    "ast_hash": "a207599b8c22573452ea86543f94dfd0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/shared/api-error.ts": {
+    "mtime": 1790821547.8699615,
+    "seen": 1790821762.7171571,
+    "ast_hash": "813c6581c9d1c6065846a0c481389546",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/shared/http.ts": {
+    "mtime": 1790824058.8924146,
+    "seen": 1790826046.4353049,
+    "ast_hash": "45dde1a0c16e92cf88cf88803c5916bc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/test/adr-compliance.test.ts": {
+    "mtime": 1790824061.474929,
+    "seen": 1790826046.4353049,
+    "ast_hash": "11d5b0bff6b0b8590e59b20fa6c3c2a8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/test/app.test.ts": {
+    "mtime": 1790832269.1988108,
+    "seen": 1790832319.304517,
+    "ast_hash": "cd74d47f0d0ad2ba2716a140319044aa",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/tsconfig.build.json": {
+    "mtime": 1790820531.8997705,
+    "seen": 1790821762.7171571,
+    "ast_hash": "7455df839cc0be5f87ae6c941884f899",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/tsconfig.json": {
+    "mtime": 1790820532.6146936,
+    "seen": 1790821762.7171571,
+    "ast_hash": "895a55af0102ad1b5f56f72fd7e7b4dc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/vitest.config.ts": {
+    "mtime": 1790820533.2234135,
+    "seen": 1790821762.7171571,
+    "ast_hash": "3f066e43a2b746a7acd0aa04d31b2f41",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/angular.json": {
+    "mtime": 1790820537.1071193,
+    "seen": 1790821762.728323,
+    "ast_hash": "dd53218b7397899cdf568b695fbebc2e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/docker/40-federation-manifest.sh": {
+    "mtime": 1790821544.7777462,
+    "seen": 1790821762.728323,
+    "ast_hash": "94dcbaa0275e818596095c1dc84322e3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/docker/proxy-headers.inc": {
+    "mtime": 1790821545.342923,
+    "seen": 1790821762.728323,
+    "ast_hash": "d6223bba049455aeb14e8e06bdaddfb0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/package.json": {
+    "mtime": 1790820865.7100215,
+    "seen": 1790821762.728323,
+    "ast_hash": "e2b3b2d85d4c13227e3ef7f480286df1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/ng-package.json": {
+    "mtime": 1790820539.7696252,
+    "seen": 1790821762.728323,
+    "ast_hash": "0fd2fd0b26f3798b5e9e34f311ed9ae1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/package.json": {
+    "mtime": 1790820540.2709587,
+    "seen": 1790821762.728323,
+    "ast_hash": "ca1ec2844dfd6813d48b44feff43faa0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/auth/auth.guards.spec.ts": {
+    "mtime": 1790821546.481612,
+    "seen": 1790821762.728323,
+    "ast_hash": "30c0c17df5e46116265432424dcf579b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/auth/auth.guards.ts": {
+    "mtime": 1790821545.940622,
+    "seen": 1790821762.728323,
+    "ast_hash": "d5c90fbd1b581269e71b21e2a26a2217",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/auth/roles.ts": {
+    "mtime": 1790820541.3587477,
+    "seen": 1790821762.728323,
+    "ast_hash": "e547908fa9ec95cc9a8d28a17f4711e0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/auth/session.model.ts": {
+    "mtime": 1790820542.0652435,
+    "seen": 1790821762.728323,
+    "ast_hash": "9dd7318ae9000cd0157b61918c2393c7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/auth/session.service.ts": {
+    "mtime": 1790820542.758178,
+    "seen": 1790821762.728323,
+    "ast_hash": "1a8cb7d9995340f5bb59aeda2b5cb1d7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/config/app-config.ts": {
+    "mtime": 1790820543.3360124,
+    "seen": 1790821762.728323,
+    "ast_hash": "caf1222eda8667714142a6e4cfb69361",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/http/api-error.ts": {
+    "mtime": 1790820610.0608723,
+    "seen": 1790821762.728323,
+    "ast_hash": "ef6079c3e6ea672c9acb136208d55c37",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/http/interceptors.ts": {
+    "mtime": 1790820610.5766783,
+    "seen": 1790821762.728323,
+    "ast_hash": "bda00194a4cd7969a0259fdafa1bd86e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/providers.ts": {
+    "mtime": 1790820611.2367783,
+    "seen": 1790821762.728323,
+    "ast_hash": "1d3a4e6372814837334a92f4ea58faf3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/state/view-state.spec.ts": {
+    "mtime": 1790820611.781017,
+    "seen": 1790821762.728323,
+    "ast_hash": "12811da910a180e4882de52518b4c6c7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/lib/state/view-state.ts": {
+    "mtime": 1790820612.4382143,
+    "seen": 1790821762.728323,
+    "ast_hash": "8eb7c8902c07ea653f521401c70be24f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/src/public-api.ts": {
+    "mtime": 1790820612.9913867,
+    "seen": 1790821762.728323,
+    "ast_hash": "f8fad22900d80af019e475bc07b8710c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/tsconfig.lib.json": {
+    "mtime": 1790820613.611656,
+    "seen": 1790821762.728323,
+    "ast_hash": "3b334de7313301c855da6fbf980eae8d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/tsconfig.lib.prod.json": {
+    "mtime": 1790820614.3258617,
+    "seen": 1790821762.728323,
+    "ast_hash": "61b63c5f48a92f8a26089298d8067528",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/tsconfig.spec.json": {
+    "mtime": 1790820614.9354613,
+    "seen": 1790821762.728323,
+    "ast_hash": "eb9143a84a3b93834d5fbe2fbbc2deb2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/federation.config.mjs": {
+    "mtime": 1790820615.5457852,
+    "seen": 1790821762.728323,
+    "ast_hash": "38058d4e91950648a18cea19671b92f9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/app.config.ts": {
+    "mtime": 1790820616.7060838,
+    "seen": 1790821762.728323,
+    "ast_hash": "648ca92f76bc3f5149913eeaaead2694",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/app.ts": {
+    "mtime": 1790820617.2769501,
+    "seen": 1790821762.728323,
+    "ast_hash": "ce02703453f204eb81949c434d76ea30",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.api.ts": {
+    "mtime": 1790820617.7959821,
+    "seen": 1790821762.728323,
+    "ast_hash": "e972c6330f67d3726c9052cff7d046e9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.models.ts": {
+    "mtime": 1790820618.3438885,
+    "seen": 1790821762.728323,
+    "ast_hash": "1e83adf5695160ae7dc491939cf91246",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-detail/role-detail.page.ts": {
+    "mtime": 1790820619.045845,
+    "seen": 1790821762.728323,
+    "ast_hash": "fb903987356c8f336b5eaaf5f5e3c82a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.ts": {
+    "mtime": 1790820620.8852997,
+    "seen": 1790821762.728323,
+    "ast_hash": "0f604e4d960b70000cbba24b93371f6d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/routes.ts": {
+    "mtime": 1790820621.4978828,
+    "seen": 1790821762.728323,
+    "ast_hash": "291eb8bcb662a30362ad7b9668866232",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/bootstrap.ts": {
+    "mtime": 1790820622.1148381,
+    "seen": 1790821762.728323,
+    "ast_hash": "f3983daa46dc263bf3c8d0dd448a5a01",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/main.ts": {
+    "mtime": 1790820623.3927107,
+    "seen": 1790821762.728323,
+    "ast_hash": "4a2a63f92963913ed849e7770dd3b253",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/tsconfig.app.json": {
+    "mtime": 1790820624.5557184,
+    "seen": 1790821762.728323,
+    "ast_hash": "949e575787d836d9bfc16fb8e8c29a4a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/tsconfig.federation.json": {
+    "mtime": 1790820625.0677507,
+    "seen": 1790821762.728323,
+    "ast_hash": "860569b9cf296fc5c32cf2eb3e78abee",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/tsconfig.spec.json": {
+    "mtime": 1790820625.683783,
+    "seen": 1790821762.728323,
+    "ast_hash": "34cd9e5d44400eface1ca48143692591",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/federation.config.mjs": {
+    "mtime": 1790820626.2100163,
+    "seen": 1790821762.728323,
+    "ast_hash": "c966b3d00dc966521d83a90a8d7e293f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/app.config.ts": {
+    "mtime": 1790820627.4346144,
+    "seen": 1790821762.728323,
+    "ast_hash": "648ca92f76bc3f5149913eeaaead2694",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/app.ts": {
+    "mtime": 1790820628.0504904,
+    "seen": 1790821762.728323,
+    "ast_hash": "ce02703453f204eb81949c434d76ea30",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/parties.api.ts": {
+    "mtime": 1790820628.6666543,
+    "seen": 1790821762.728323,
+    "ast_hash": "b3ae50ce6b691eee185a9b896ba98c6d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/party.models.ts": {
+    "mtime": 1790824062.1234462,
+    "seen": 1790826046.4992359,
+    "ast_hash": "b78f1e32b7aa03c6750b3c2f724d2dc4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-detail/party-detail.page.ts": {
+    "mtime": 1790919115.9246836,
+    "seen": 1790997664.662798,
+    "ast_hash": "c126b00c5bd36390e39355da309d0474",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-list/party-list.page.ts": {
+    "mtime": 1790824062.7395465,
+    "seen": 1790826046.4992359,
+    "ast_hash": "62cdc9bc2abbe8e1e442882e86bb06f2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/routes.ts": {
+    "mtime": 1790894496.6721296,
+    "seen": 1790894628.8761156,
+    "ast_hash": "e6035575612069e83dc91137662473b8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/bootstrap.ts": {
+    "mtime": 1790820632.9621422,
+    "seen": 1790821762.728323,
+    "ast_hash": "f3983daa46dc263bf3c8d0dd448a5a01",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/main.ts": {
+    "mtime": 1790820634.3086078,
+    "seen": 1790821762.728323,
+    "ast_hash": "4a2a63f92963913ed849e7770dd3b253",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/tsconfig.app.json": {
+    "mtime": 1790820635.3339677,
+    "seen": 1790821762.728323,
+    "ast_hash": "949e575787d836d9bfc16fb8e8c29a4a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/tsconfig.federation.json": {
+    "mtime": 1790835719.7574384,
+    "seen": 1790894628.8787737,
+    "ast_hash": "ae609040f0bd9c136b5b95967e5a0376",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/tsconfig.spec.json": {
+    "mtime": 1790820636.5633762,
+    "seen": 1790821762.728323,
+    "ast_hash": "34cd9e5d44400eface1ca48143692591",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/federation.config.mjs": {
+    "mtime": 1790820637.0833294,
+    "seen": 1790821762.728323,
+    "ast_hash": "9ed2eacf0ac1d96c11ff6e9a223ad4fe",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/proxy.conf.json": {
+    "mtime": 1790820637.6706913,
+    "seen": 1790821762.728323,
+    "ast_hash": "e6a6342dc00a9c43821735db025fc44b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/public/federation.manifest.json": {
+    "mtime": 1790820638.7014585,
+    "seen": 1790821762.728323,
+    "ast_hash": "3774c4431105e75e5e1771b1a246088d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/app.config.ts": {
+    "mtime": 1790820639.275642,
+    "seen": 1790821762.728323,
+    "ast_hash": "75688297ab65a601a2d30c1d59d7928a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/app.routes.ts": {
+    "mtime": 1790820682.117874,
+    "seen": 1790821762.728323,
+    "ast_hash": "2c0e29c6b4cb7524e29deabe46e0c4b4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/app.ts": {
+    "mtime": 1790820682.6318357,
+    "seen": 1790821762.728323,
+    "ast_hash": "523a6b3de0bb3ff2fc4a8065712d1660",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/federation/remotes.ts": {
+    "mtime": 1790820683.3423393,
+    "seen": 1790821762.728323,
+    "ast_hash": "50bdc3783fc3268815db5d3f7142d25a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/layout/navigation.ts": {
+    "mtime": 1790820683.9504633,
+    "seen": 1790821762.728323,
+    "ast_hash": "36050f1b846277f4093ad0b990362147",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/layout/shell-layout.spec.ts": {
+    "mtime": 1790820686.0109897,
+    "seen": 1790821762.728323,
+    "ast_hash": "94f2df0a88ba430b5d8f05759e681191",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/layout/shell-layout.ts": {
+    "mtime": 1790820686.61516,
+    "seen": 1790821762.728323,
+    "ast_hash": "b8c550125cf11e096f812ee597593c64",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/pages/status-pages.ts": {
+    "mtime": 1790820687.4080217,
+    "seen": 1790821762.728323,
+    "ast_hash": "e2e4a19c0dcc5e4ac8bf487c9702db57",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/bootstrap.ts": {
+    "mtime": 1790820688.036823,
+    "seen": 1790821762.728323,
+    "ast_hash": "f3983daa46dc263bf3c8d0dd448a5a01",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/main.ts": {
+    "mtime": 1790820689.8119936,
+    "seen": 1790821762.728323,
+    "ast_hash": "95d063ffa08a9124a3877c698b30148e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/tsconfig.app.json": {
+    "mtime": 1790820690.9190154,
+    "seen": 1790821762.728323,
+    "ast_hash": "949e575787d836d9bfc16fb8e8c29a4a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/tsconfig.federation.json": {
+    "mtime": 1790820691.4258766,
+    "seen": 1790821762.728323,
+    "ast_hash": "860569b9cf296fc5c32cf2eb3e78abee",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/tsconfig.spec.json": {
+    "mtime": 1790820692.179372,
+    "seen": 1790821762.728323,
+    "ast_hash": "34cd9e5d44400eface1ca48143692591",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/ng-package.json": {
+    "mtime": 1790820693.289424,
+    "seen": 1790821762.728323,
+    "ast_hash": "1ee829c3df3aa7609d3e1ce3374a43fa",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/package.json": {
+    "mtime": 1790919384.0934207,
+    "seen": 1790997664.6687493,
+    "ast_hash": "8d24982d23d9f7a6410b0ebea2b61f14",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/badge/badge.ts": {
+    "mtime": 1790820694.6290102,
+    "seen": 1790821762.728323,
+    "ast_hash": "55ee75b63cf25ba7901305ac1e9ac9fe",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/button/button.ts": {
+    "mtime": 1790922372.0656748,
+    "seen": 1790997664.6687493,
+    "ast_hash": "4e1fc144c025f10a77cfeed2122f31fd",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/level-badge/level-badge.ts": {
+    "mtime": 1790820695.8775094,
+    "seen": 1790821762.728323,
+    "ast_hash": "d7c88661cc8f14e2e417fb471d649c9d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/spinner/spinner.ts": {
+    "mtime": 1790820696.443074,
+    "seen": 1790821762.728323,
+    "ast_hash": "c698adffa8eb2a3df07b56a48784ad1a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/alert/alert.ts": {
+    "mtime": 1790922376.365159,
+    "seen": 1790997664.6728263,
+    "ast_hash": "53d555765e6ea09caad56fb59569f001",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/empty-state/empty-state.ts": {
+    "mtime": 1790820697.5198796,
+    "seen": 1790821762.728323,
+    "ast_hash": "79c33b02c3213b85ffc18b885f5a5fa7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/view-state/view-state.ts": {
+    "mtime": 1790820698.200539,
+    "seen": 1790821762.728323,
+    "ast_hash": "e92f44e333da27ab02263fbdbc8bf117",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/public-api.ts": {
+    "mtime": 1790922581.0224068,
+    "seen": 1790997664.6728263,
+    "ast_hash": "fcb27a9364ac25f70d072a7f0aaf43b2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/tsconfig.lib.json": {
+    "mtime": 1790820699.9306262,
+    "seen": 1790821762.728323,
+    "ast_hash": "038f11a4c252a93297b0371baf3e2e5c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/tsconfig.lib.prod.json": {
+    "mtime": 1790820700.549436,
+    "seen": 1790821762.728323,
+    "ast_hash": "61b63c5f48a92f8a26089298d8067528",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/tsconfig.spec.json": {
+    "mtime": 1790820701.0920658,
+    "seen": 1790821762.728323,
+    "ast_hash": "eb9143a84a3b93834d5fbe2fbbc2deb2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/tools/check-architecture.mjs": {
+    "mtime": 1790820866.227235,
+    "seen": 1790821762.728323,
+    "ast_hash": "6c8675763e6c35a90fb5182484283e32",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/tsconfig.json": {
+    "mtime": 1790820701.7160687,
+    "seen": 1790821762.728323,
+    "ast_hash": "dae8c788346615925c477e7a729210c9",
+    "semantic_hash": ""
+  },
+  "codebase/infra/keycloak/realm-gestion-formacion.json": {
+    "mtime": 1790821540.5270145,
+    "seen": 1790821762.728323,
+    "ast_hash": "7416dd1b533ded216a606ccf0c8fb7e1",
+    "semantic_hash": ""
+  },
+  "codebase/infra/vault/seed-secrets.sh": {
+    "mtime": 1790821541.0282166,
+    "seen": 1790821762.728323,
+    "ast_hash": "e6d57845c7c8e09dddb87c850150bc7a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/ARCHITECTURE.md": {
+    "mtime": 1790832266.5797281,
+    "seen": 1790832319.3668187,
+    "ast_hash": "a77c1cea76cbc8d3ea0c3ddb18b5f84c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/README.md": {
+    "mtime": 1790820865.1213484,
+    "seen": 1790821762.7323947,
+    "ast_hash": "3e6d67ae3616f2d9dab513b2af7d7469",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/README.md": {
+    "mtime": 1790821543.5890627,
+    "seen": 1790821762.734786,
+    "ast_hash": "b2e8df5442a96f625605b8b30314d642",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/core/README.md": {
+    "mtime": 1790820539.063301,
+    "seen": 1790821762.734786,
+    "ast_hash": "07e4f819fafa013f4e42e52e09a82a64",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.html": {
+    "mtime": 1790820619.6283824,
+    "seen": 1790821762.734786,
+    "ast_hash": "50136361eb027568b4aab565080514de",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/index.html": {
+    "mtime": 1790820622.620463,
+    "seen": 1790821762.734786,
+    "ast_hash": "c2e3e7295a8af1639a044b32ad2de546",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-list/party-list.page.html": {
+    "mtime": 1790891395.6139293,
+    "seen": 1790894628.9358044,
+    "ast_hash": "c6d02dfe706c549060b394354cc970f8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/index.html": {
+    "mtime": 1790820633.56118,
+    "seen": 1790821762.734786,
+    "ast_hash": "0679b707f601688196587fc4cc3d1f99",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/app/layout/shell-layout.html": {
+    "mtime": 1790820684.5748813,
+    "seen": 1790821762.734786,
+    "ast_hash": "03e31b4ec09fdbe68119fffdf881b45e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/shell/src/index.html": {
+    "mtime": 1790820689.0713208,
+    "seen": 1790821762.734786,
+    "ast_hash": "f3cb290e22c7d95154943f6b9a0bcb85",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/README.md": {
+    "mtime": 1790820692.744821,
+    "seen": 1790821762.734786,
+    "ast_hash": "d9c52907ac36c228acd8cdbf651f539f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/README.md": {
+    "mtime": 1790832340.8417943,
+    "seen": 1790832490.5437152,
+    "ast_hash": "c1040b92a2e1da6335c83b8dbf6bf866",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/development-context-pack.md": {
+    "mtime": 1790832341.5306547,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f990d1b531b9b461b05a665bb719d3ef",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/handoff-report.md": {
+    "mtime": 1790832342.0622993,
+    "seen": 1790832490.5437152,
+    "ast_hash": "b7e7a8ef448cf6a628e7a8aff0300dfd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/pack.yaml": {
+    "mtime": 1790832342.7367396,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f481611fcd516f3614f092146e0b9c67",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/ready-for-dev.md": {
+    "mtime": 1790832343.2893202,
+    "seen": 1790832490.5437152,
+    "ast_hash": "7e7cc5124f5b09552dce4f088dd29991",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-002-VALIDADO/traceability-map.md": {
+    "mtime": 1790832343.8830183,
+    "seen": 1790832490.5437152,
+    "ast_hash": "a01eee32570e2b6b6421231134bea37a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/INDEX.md": {
+    "mtime": 1790832344.3832588,
+    "seen": 1790832490.5437152,
+    "ast_hash": "f211e407b047a8b85e9e1e6e242df3e9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
+    "mtime": 1790738084.6063755,
+    "seen": 1790821762.790021,
+    "ast_hash": "a1839fc6d01b3713210594b12dd761e2",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-015-025-gestion-data-maestra-party-consolidated.md": {
+    "mtime": 1790738084.614716,
+    "seen": 1790821762.790021,
+    "ast_hash": "2f8dafbc8def7eeff33fc5e985ecdd45",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-015-025-party-management.okf.md": {
+    "mtime": 1790747495.677575,
+    "seen": 1790821762.790021,
+    "ast_hash": "02b7dd43302aa09839c9be3122819585",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/auth/deferred-oidc.ts": {
+    "mtime": 1790823210.809775,
+    "seen": 1790826046.4259305,
+    "ast_hash": "568c9ef135173d68d843b1b8341a7b66",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/errors.py": {
+    "mtime": 1790832274.1239278,
+    "seen": 1790832319.3083866,
+    "ast_hash": "00963ce7b0d792cb8407d4e408430eb3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/database/seed.py": {
+    "mtime": 1790832277.464585,
+    "seen": 1790832319.3083866,
+    "ast_hash": "22e97b57ad81ab2366f2739d3a70262c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_service_auth.py": {
+    "mtime": 1790832338.4971886,
+    "seen": 1790832490.437671,
+    "ast_hash": "72d551d3aa7d7b3633ca761fd9d904dc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/docker/starting.html": {
+    "mtime": 1790823214.8477948,
+    "seen": 1790826046.562886,
+    "ast_hash": "e042d299ec82e07a8df46ba37615512e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md": {
+    "mtime": 1790825942.6470208,
+    "seen": 1790826046.5965524,
+    "ast_hash": "cd76217c2eb2d21bdf4d8d70ca0266ff",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md": {
+    "mtime": 1790911875.9982214,
+    "seen": 1790914002.4232068,
+    "ast_hash": "9ece2f30c760caa8eebaa4dc0c0a905c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md": {
+    "mtime": 1790912681.6898434,
+    "seen": 1790914002.416141,
+    "ast_hash": "921cd12ec4d6566a32895d2b198b34c7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-015-registrar-un-colaborador.md": {
+    "mtime": 1790915023.2130444,
+    "seen": 1790915149.5976133,
+    "ast_hash": "11b63b43cea702320ed4a49e66c85162",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-015-stitch-registrar-colaborador.md": {
+    "mtime": 1790997627.143941,
+    "seen": 1790997664.729974,
+    "ast_hash": "4a856da7a2d1c7bc4ff210297b38951a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/MEMORY.md": {
+    "mtime": 1790831459.759423,
+    "seen": 1790831530.7480648,
+    "ast_hash": "254cc54f46bc494955f3e8a717c82bab",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/acceptance-criteria/AC-015-registrar-un-colaborador.md": {
+    "mtime": 1790831326.7494922,
+    "seen": 1790831530.7480648,
+    "ast_hash": "2d50aeabffa5261fa2e74201036ba93b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/CMP-015-componentes-registrar-colaborador.md": {
+    "mtime": 1790997627.1337533,
+    "seen": 1790997664.7267973,
+    "ast_hash": "591194b2ada62b6accdb4ba887a6c99c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/IMPL-015-plan-registrar-colaborador.md": {
+    "mtime": 1790831628.1657252,
+    "seen": 1790831671.2985828,
+    "ast_hash": "70f95f7ca115e6ba465773afb698b588",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/downstream/relay.ts": {
+    "mtime": 1790832267.0821517,
+    "seen": 1790832319.3015163,
+    "ast_hash": "7dbad0e8346d38ebed181ab86e4b495a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/core/rate_limit.py": {
+    "mtime": 1790832275.7690885,
+    "seen": 1790832319.3083866,
+    "ast_hash": "27994d93ec73c1badf4df37020053f13",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/database/preflight.py": {
+    "mtime": 1790832276.8878512,
+    "seen": 1790832319.3083866,
+    "ast_hash": "555b404a2cfe14666c7a62938259e086",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/docker-entrypoint.sh": {
+    "mtime": 1790832281.9289923,
+    "seen": 1790832319.310392,
+    "ast_hash": "f47004769ea5cab1ebd374d422912a6f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/__init__.py": {
+    "mtime": 1790832282.3853178,
+    "seen": 1790832319.310392,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/env.py": {
+    "mtime": 1790832282.9203568,
+    "seen": 1790832319.310392,
+    "ast_hash": "e47c8eb6409363f07de862c4eab8c061",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/architecture/ARCH-CMP-015-libreria-componentes-shell-microui.md": {
+    "mtime": 1790832274.5406644,
+    "seen": 1790832319.4659252,
+    "ast_hash": "c41ff038fc8ac2d02a088f7746fdc2a2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/sql_runner.py": {
+    "mtime": 1790832330.4957166,
+    "seen": 1790832490.4352982,
+    "ast_hash": "99f9aa723bc39cdb1f8135ce6b6b930a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0001_pdm001_baseline.py": {
+    "mtime": 1790832331.0296204,
+    "seen": 1790832490.4352982,
+    "ast_hash": "d7f66a2930098ab4ae93e5e981b832e8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0002_std_db_001_alignment.py": {
+    "mtime": 1790832331.5808148,
+    "seen": 1790832490.4352982,
+    "ast_hash": "bdbdf55956c5ea67002c2f1396c1e0d3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/__init__.py": {
+    "mtime": 1790832332.1635864,
+    "seen": 1790832490.4352982,
+    "ast_hash": "78bbf39c90508c4f1272c7985de47d4a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_health.py": {
+    "mtime": 1790832334.1887357,
+    "seen": 1790832490.4371507,
+    "ast_hash": "94e65a6acc5d6ef4d6995754f558bd11",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_physical_model.py": {
+    "mtime": 1790832335.2232041,
+    "seen": 1790832490.4371507,
+    "ast_hash": "8fae17b8f8b92062d712b21e204a3e5f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/__init__.py": {
+    "mtime": 1790832335.7318792,
+    "seen": 1790832490.4371507,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
+    "mtime": 1790832336.2892997,
+    "seen": 1790832490.4371507,
+    "ast_hash": "aeaf7abc5c213161b60fd6188aa877f0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
+    "mtime": 1790832336.7948418,
+    "seen": 1790832490.4371507,
+    "ast_hash": "f54c79399994d36bac32b7cbdf074151",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_rate_limit.py": {
+    "mtime": 1790832337.86169,
+    "seen": 1790832490.437671,
+    "ast_hash": "e1876b18717210b804218592b3525605",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md": {
+    "mtime": 1790832346.023281,
+    "seen": 1790832490.5462742,
+    "ast_hash": "26e2893de9f9b6c12261ddad4b796ae9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/CODEBASE-ANALYSIS-015-alineacion-arch-ui.md": {
+    "mtime": 1790832424.1711025,
+    "seen": 1790832490.7033331,
+    "ast_hash": "e03de36585c55b05501aaddd0178df59",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DTC-015-handoff-desarrollo.md": {
+    "mtime": 1790832851.022306,
+    "seen": 1790832892.820489,
+    "ast_hash": "190723a919b0c6177ca34ebfae7a549e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/register-collaborador.cy.ts": {
+    "mtime": 1790836052.0363784,
+    "seen": 1790894628.8706017,
+    "ast_hash": "9321aa1d4d60b227db749564434ed4a8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/colaborador-perfiles.service.ts": {
+    "mtime": 1790894461.7401273,
+    "seen": 1790894628.8726041,
+    "ast_hash": "8db923c6c01935bf16c92cc2dc7d645e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-contactos.service.ts": {
+    "mtime": 1790894375.8994634,
+    "seen": 1790894628.8726041,
+    "ast_hash": "741554b51e5c0b4fe6ca23b4d614588b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-datos.service.ts": {
+    "mtime": 1790894229.482113,
+    "seen": 1790894628.8726041,
+    "ast_hash": "f1774a7817d7d5b893ac3644a98d0108",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/colaborador-perfiles-edit/colaborador-perfiles-edit.page.spec.ts": {
+    "mtime": 1790894487.6450667,
+    "seen": 1790894628.8741136,
+    "ast_hash": "fc80fa14d1e6dd619b36b4796676c4e9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/colaborador-perfiles-edit/colaborador-perfiles-edit.page.ts": {
+    "mtime": 1790894452.565993,
+    "seen": 1790894628.8741136,
+    "ast_hash": "50091aed3efe9de4e5f98fcd5c34b972",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-contactos-edit/jefe-contactos-edit.page.spec.ts": {
+    "mtime": 1790894409.6640656,
+    "seen": 1790894628.8741136,
+    "ast_hash": "0f020afeff1a672c591b02beb5b21c04",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-contactos-edit/jefe-contactos-edit.page.ts": {
+    "mtime": 1790894363.3346648,
+    "seen": 1790894628.8741136,
+    "ast_hash": "9bcb50d65433df7575b21ca80e4b8afd",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-datos-edit/jefe-datos-edit.page.spec.ts": {
+    "mtime": 1790894327.8435972,
+    "seen": 1790894628.8741136,
+    "ast_hash": "56c1158e129f659a3bfe1ceb4161eee9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/jefe-datos-edit/jefe-datos-edit.page.ts": {
+    "mtime": 1790894299.99097,
+    "seen": 1790894628.8741136,
+    "ast_hash": "01b8d1f66f6019a0979d682a91d3a849",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.ts": {
+    "mtime": 1790923198.9623928,
+    "seen": 1790997664.6648028,
+    "ast_hash": "4bea250b60b5682fa909076e9ef20bcc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/validators/url.validator.ts": {
+    "mtime": 1790894466.132119,
+    "seen": 1790894628.8761156,
+    "ast_hash": "8669b24e505f8b0cbbc0b397061feaf0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/atoms.barrel.ts": {
+    "mtime": 1790893880.4233482,
+    "seen": 1790894628.8987448,
+    "ast_hash": "55ec32767974b55fa598e0f903933306",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/date-input.spec.ts": {
+    "mtime": 1790835493.4614096,
+    "seen": 1790894628.9007437,
+    "ast_hash": "bea225b7b6f2ef50ac79efc27e9ac4f1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/date-input.ts": {
+    "mtime": 1790922367.4876046,
+    "seen": 1790997664.6687493,
+    "ast_hash": "659eb0713c5a7085417bc82b2d45d085",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/email-input/email-input.spec.ts": {
+    "mtime": 1790893791.870414,
+    "seen": 1790894628.9007437,
+    "ast_hash": "803119e296df58f9e3dcef46e51a4422",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/email-input/email-input.ts": {
+    "mtime": 1790895495.4128904,
+    "seen": 1790911447.262707,
+    "ast_hash": "364d90674b554d4bcc232bdf6a652fae",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/error-message.spec.ts": {
+    "mtime": 1790835476.1374762,
+    "seen": 1790894628.9007437,
+    "ast_hash": "9d1e2d673b136a0af3ad4ec367054a23",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/error-message.ts": {
+    "mtime": 1790835478.266312,
+    "seen": 1790894628.9007437,
+    "ast_hash": "be519657ee1b132b7c0cba92ca3493b2",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/icon/icon.ts": {
+    "mtime": 1790922350.2451682,
+    "seen": 1790997664.6708217,
+    "ast_hash": "0f97bca531fada639ac77dd2daf819a3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/label.spec.ts": {
+    "mtime": 1790835422.1153898,
+    "seen": 1790894628.9007437,
+    "ast_hash": "037fe1eaf010db10e9775d12ca1ed0fb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/label.ts": {
+    "mtime": 1790835426.6555412,
+    "seen": 1790894628.9007437,
+    "ast_hash": "a5879f4aa4da6fcb2767e9dd0ac2074a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.spec.ts": {
+    "mtime": 1790894814.5838132,
+    "seen": 1790895032.0902655,
+    "ast_hash": "adab390abd7f721ffe2973422a775bd3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.ts": {
+    "mtime": 1790922363.4110632,
+    "seen": 1790997664.6708217,
+    "ast_hash": "a6f33d723276ce509b5b233b9a283064",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.spec.ts": {
+    "mtime": 1790894780.3011587,
+    "seen": 1790895032.092799,
+    "ast_hash": "77dc1180784b8f75cd2bcb6a7b18878d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.ts": {
+    "mtime": 1790893832.4680517,
+    "seen": 1790894628.9032607,
+    "ast_hash": "8169505afa9ddf2ff3d13625bc73376a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/text-input.spec.ts": {
+    "mtime": 1790893736.998798,
+    "seen": 1790894628.9032607,
+    "ast_hash": "e4800eeb880f605d1f0881c3dfe50bc5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/text-input.ts": {
+    "mtime": 1790922357.5742056,
+    "seen": 1790997664.6728263,
+    "ast_hash": "712e484ca70702698cf7a36d1b781724",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/autocomplete/autocomplete.ts": {
+    "mtime": 1790922417.1679606,
+    "seen": 1790997664.6728263,
+    "ast_hash": "b716730d86aca4a4532170843c6e7bc0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/form-field/form-field.ts": {
+    "mtime": 1790922392.4391577,
+    "seen": 1790997664.6728263,
+    "ast_hash": "ea1229861ada96568da3b444c26e4ad3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/molecules.barrel.ts": {
+    "mtime": 1790835604.4200208,
+    "seen": 1790894628.9048085,
+    "ast_hash": "515038f1b6fab6f37adfe983e0a2e16a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/radio-card/radio-card.ts": {
+    "mtime": 1790922397.8565774,
+    "seen": 1790997664.6728263,
+    "ast_hash": "56f1a6f5764b3776053c37ab485e30d2",
+    "semantic_hash": ""
+  },
+  "test-verification.ts": {
+    "mtime": 1790893945.731343,
+    "seen": 1790894628.9145262,
+    "ast_hash": "6b5cf3bf0de1826ab4fb77b57dd9d7c0",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-015/progress.md": {
+    "mtime": 1790836093.252654,
+    "seen": 1790894628.9155405,
+    "ast_hash": "5dd730535582aba5dfd07924e7cc1ff9",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-a-report.md": {
+    "mtime": 1790893980.3835845,
+    "seen": 1790894628.9155405,
+    "ast_hash": "96381593e9e1e6b8d13298befb068a6c",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-b-report.md": {
+    "mtime": 1790894521.7871318,
+    "seen": 1790894628.9155405,
+    "ast_hash": "cd7ad192cd61c8b92f03edda957b576a",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/progress.md": {
+    "mtime": 1790893631.8946867,
+    "seen": 1790894628.9155405,
+    "ast_hash": "64745d781073b9075409f0642ce2280e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/date-input/README.md": {
+    "mtime": 1790835499.192566,
+    "seen": 1790894628.939323,
+    "ast_hash": "82c0ad2398f0676d2ad56575d4c078dc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/README.md": {
+    "mtime": 1790835480.0617876,
+    "seen": 1790894628.939323,
+    "ast_hash": "0f57b162a705f1d60340cca63d93ec6b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/icon/README.md": {
+    "mtime": 1790835487.2537231,
+    "seen": 1790894628.939323,
+    "ast_hash": "4d5ddfec6d2b95df971c09d1808e2ac7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/label/README.md": {
+    "mtime": 1790835428.6780279,
+    "seen": 1790894628.939323,
+    "ast_hash": "c6496e94b0933b0652243484f9d656fc",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/select/README.md": {
+    "mtime": 1790835506.7888086,
+    "seen": 1790894628.939323,
+    "ast_hash": "16385c5d0a9ef2883a9e242a5f7343c8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/atoms/text-input/README.md": {
+    "mtime": 1790835384.2897837,
+    "seen": 1790894628.939323,
+    "ast_hash": "74d9d0c5a2045dc69ed1b52a9e21278a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/autocomplete/README.md": {
+    "mtime": 1790835587.8550777,
+    "seen": 1790894628.939323,
+    "ast_hash": "8063a7009a291256ddccb4949b01bddb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/form-field/README.md": {
+    "mtime": 1790835574.280974,
+    "seen": 1790894628.939323,
+    "ast_hash": "fedeb2500311af61419bc58f3e1a3b57",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/radio-card/README.md": {
+    "mtime": 1790835597.589925,
+    "seen": 1790894628.939323,
+    "ast_hash": "b2c09c13b67fd3fe1d8be575f1a17d6d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-016-actualizar-datos-y-contactos.md": {
+    "mtime": 1790893411.0235386,
+    "seen": 1790894629.1112823,
+    "ast_hash": "f1953e28f6832dd4649cc815d46ae396",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md": {
+    "mtime": 1790893379.718946,
+    "seen": 1790894629.1183586,
+    "ast_hash": "94f5dc95d52b84e49ff6ffb45849a146",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DCP-016-complete-pack.md": {
+    "mtime": 1790893476.4209516,
+    "seen": 1790894629.1193588,
+    "ast_hash": "4adc339194a87ebc0e6e75580f21ac04",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/PLAN-015-implementacion-detallado.md": {
+    "mtime": 1790833601.7209582,
+    "seen": 1790894629.1203594,
+    "ast_hash": "0a40cf491af0a681f34a6786bba65130",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/PLAN-016-aplicar-alignment-gates.md": {
+    "mtime": 1790893069.8334913,
+    "seen": 1790894629.1203594,
+    "ast_hash": "6ca6aba732c13e2b013c4f36c5a14960",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/SPEC-015-implementacion-dise\u00f1o.md": {
+    "mtime": 1790833411.1472886,
+    "seen": 1790894629.1203594,
+    "ast_hash": "72a1881cff17268ecb1798334baf4985",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/colaborador-perfiles.cy.ts": {
+    "mtime": 1790894916.6316254,
+    "seen": 1790895032.0165567,
+    "ast_hash": "5f5f12d2206ff4cfa37956290014ded1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/colaborador-phone-edit.cy.ts": {
+    "mtime": 1790894943.199446,
+    "seen": 1790895032.0165567,
+    "ast_hash": "1f345c3a3c6fececdddd31e19f0c8133",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/jefe-contactos-edit.cy.ts": {
+    "mtime": 1790894892.879499,
+    "seen": 1790895032.0165567,
+    "ast_hash": "30d50e9766f23e80108467bd9c7e8e69",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/jefe-datos-edit.cy.ts": {
+    "mtime": 1790894866.8103247,
+    "seen": 1790895032.0165567,
+    "ast_hash": "95e67b5d51966bac197c5f8e916fe4af",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-datos.service.spec.ts": {
+    "mtime": 1790894842.4720826,
+    "seen": 1790895032.032687,
+    "ast_hash": "7d080acbf8d290d44f22373c13be0b6c",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-c-report.md": {
+    "mtime": 1790895065.3025868,
+    "seen": 1790911447.3180604,
+    "ast_hash": "3383c9327a1a60438fca4c5769c7eafd",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/01-INVENTORY.md": {
+    "mtime": 1790905577.8603404,
+    "seen": 1790911447.3703892,
+    "ast_hash": "ab3d28929357d9b0abe19601ddc61a86",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/02-IMPACT-MATRIX.md": {
+    "mtime": 1790910737.0360026,
+    "seen": 1790911447.3703892,
+    "ast_hash": "da47f28f7f1d18b4fd00275d0dd37ca8",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/03-CHANGE-DESIGN.md": {
+    "mtime": 1790910737.0186152,
+    "seen": 1790911447.3703892,
+    "ast_hash": "9b82fdec9f48a16a46058f4624e22633",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/CHANGELOG.md": {
+    "mtime": 1790910066.2186415,
+    "seen": 1790911447.3703892,
+    "ast_hash": "11dcbb869a6d941732c6b2a34ccf7bfb",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/DESIGN-READY-FOR-DEV-GATE.md": {
+    "mtime": 1790910047.693826,
+    "seen": 1790911447.3703892,
+    "ast_hash": "46f59e28fda58716d7b8f338c4710381",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/DESIGN-TRACEABILITY-SCHEMA.md": {
+    "mtime": 1790910035.6723099,
+    "seen": 1790911447.3703892,
+    "ast_hash": "fd169bf8dcfd84f7fc7e3cd00ed44472",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/MIGRATION-GUIDE.md": {
+    "mtime": 1790910060.086898,
+    "seen": 1790911447.3703892,
+    "ast_hash": "fe6713441d5d40d1cb8ff3771a059f3f",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/TEST-REPORT.md": {
+    "mtime": 1790910791.7767477,
+    "seen": 1790911447.3703892,
+    "ast_hash": "2f2b04392423e9c7e3f4a746e5a07455",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/VALIDATION-REPORT.md": {
+    "mtime": 1790911468.678726,
+    "seen": 1790914002.10057,
+    "ast_hash": "12953cc32c1d474219b049704e32d0f3",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/baseline-red-contracts.txt": {
+    "mtime": 1790906681.5246587,
+    "seen": 1790911447.3703892,
+    "ast_hash": "a7c9ca7b6371261ff28be915b269309a",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/baseline-red-summary.txt": {
+    "mtime": 1790905803.8374326,
+    "seen": 1790911447.3703892,
+    "ast_hash": "5235dc1f5b71ca480bc4d3fae92573ef",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/green-pytest-verbose.txt": {
+    "mtime": 1790910017.2102633,
+    "seen": 1790911447.3703892,
+    "ast_hash": "2e896aa345cb8a88cf471657f2b159a1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/projects/STP-PPM-001-plataforma-ppm.md": {
+    "mtime": 1790915023.2385693,
+    "seen": 1790915149.5976133,
+    "ast_hash": "a0c8145726c73267b4ecb3417042d844",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
+    "mtime": 1790915027.8927958,
+    "seen": 1790915149.6081288,
+    "ast_hash": "cbc15710d05cb63c6d15dd18549161b0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
+    "mtime": 1790919143.0270731,
+    "seen": 1790997664.7319787,
+    "ast_hash": "715038d5e0b07fbf7c5229c0b7a8a271",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/HOF-PPM-001-registrar-colaborador.md": {
+    "mtime": 1790915511.085503,
+    "seen": 1790915830.7949471,
+    "ast_hash": "c9edcc3a7583a327301b5eb0500d183d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/dtc-015/atomic-component-catalog.md": {
+    "mtime": 1790916464.971936,
+    "seen": 1790916578.699835,
+    "ast_hash": "1a9fe10883c1f256b7a4c814943276c3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/dtc-015/micro-ui-boundary-analysis.md": {
+    "mtime": 1790997627.155185,
+    "seen": 1790997664.729974,
+    "ast_hash": "8a00eb8d0c4270a2df6630736f4193c4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/dtc-015/npm-package-contract.md": {
+    "mtime": 1790916489.01739,
+    "seen": 1790916578.699835,
+    "ast_hash": "27a30450f97f1be6954e9571537d6552",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/dtc-015/technical-design-review.md": {
+    "mtime": 1790997627.152037,
+    "seen": 1790997664.729974,
+    "ast_hash": "db757d94b84f5ceb6c416b35a3d4ffd9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/dtc-015/ui-inventory.md": {
+    "mtime": 1790916473.5160787,
+    "seen": 1790916578.699835,
+    "ast_hash": "5878f571ef63659d80815d8c65a4a3f7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.ts": {
+    "mtime": 1790922639.211085,
+    "seen": 1790997664.6648028,
+    "ast_hash": "bb61a71252781ae6ebaebec360189fa3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts": {
+    "mtime": 1790922793.8987703,
+    "seen": 1790997664.6648028,
+    "ast_hash": "fe481f958b9ba2f76e89894141405066",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.store.ts": {
+    "mtime": 1790922793.9100492,
+    "seen": 1790997664.6648028,
+    "ast_hash": "5b5836e1f084f95440cb2aa6eebfa970",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-correo.ts": {
+    "mtime": 1790922833.1142902,
+    "seen": 1790997664.6648028,
+    "ast_hash": "300c567d9b4014ec105a58adc87be77a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-datos.ts": {
+    "mtime": 1790922815.9386969,
+    "seen": 1790997664.6648028,
+    "ast_hash": "4083963add77f178e41753c6ead5ded5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-identificacion.ts": {
+    "mtime": 1790922824.8627348,
+    "seen": 1790997664.6648028,
+    "ast_hash": "55f375b620a8e0a56e413a5d15c20ebb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-jefe.ts": {
+    "mtime": 1790923198.9999962,
+    "seen": 1790997664.6648028,
+    "ast_hash": "6dd6a8293b0f6811d2061d6054c15bb0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-organizacion.ts": {
+    "mtime": 1790923198.979249,
+    "seen": 1790997664.6648028,
+    "ast_hash": "ffcbfa7f724310bb4727c3ef438311d7",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-revisar.ts": {
+    "mtime": 1790922892.8615339,
+    "seen": 1790997664.6648028,
+    "ast_hash": "5d19e1770d8f3bad6256bc349e88dbce",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-rol.ts": {
+    "mtime": 1790922880.6454039,
+    "seen": 1790997664.6648028,
+    "ast_hash": "9da2ad0b052da80ce072d2f6a9f3a60e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-tipo.ts": {
+    "mtime": 1790922809.973577,
+    "seen": 1790997664.6648028,
+    "ast_hash": "15f0ffd2d2adc4036c9551a8c2ddc28c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/wizard.styles.ts": {
+    "mtime": 1790923199.0173378,
+    "seen": 1790997664.6648028,
+    "ast_hash": "757e50b3fabe5e2ad2ecc009bf5ee3f9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/tools/check-ui-library.mjs": {
+    "mtime": 1790919611.4053245,
+    "seen": 1790997664.6728263,
+    "ast_hash": "6b1f6e2f844f420441d2d72f8e43284e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/tokens/TKN-SET-002-comsatel-styled.md": {
+    "mtime": 1790919641.8731656,
+    "seen": 1790997664.7319787,
+    "ast_hash": "f938c4faa7ec9cb440f13793da840572",
+    "semantic_hash": ""
+  }
+}
