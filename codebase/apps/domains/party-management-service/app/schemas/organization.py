@@ -4,7 +4,7 @@ from enum import Enum
 from typing import Optional, Self
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator, model_validator
 
 RUC_RE = re.compile(r"^\d{11}$")
 
@@ -19,6 +19,13 @@ class OrganizationStatus(str, Enum):
     inactive = "inactive"
 
 
+class OrganizationContact(BaseModel):
+    """Contacto vigente de la organización (IMD-002 R-31): 1..N correos y 0..N teléfonos."""
+
+    emails: list[str] = Field(default_factory=list)
+    phones: list[str] = Field(default_factory=list)
+
+
 class OrganizationOut(BaseModel):
     id: str
     name: str
@@ -28,6 +35,14 @@ class OrganizationOut(BaseModel):
     code: Optional[str] = None
     location: Optional[str] = None
     ruc: Optional[str] = None
+    contact: OrganizationContact = Field(default_factory=OrganizationContact)
+
+
+class OrganizationContactIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    email_work: EmailStr
+    phone_work: Optional[str] = Field(None, max_length=20, pattern=r"^\+?[0-9 ()-]{6,20}$")
 
 
 class OrganizationCreateRequest(BaseModel):
@@ -39,6 +54,7 @@ class OrganizationCreateRequest(BaseModel):
     code: Optional[str] = Field(None, max_length=40)
     location: Optional[str] = Field(None, max_length=120)
     ruc: Optional[str] = None
+    contact: OrganizationContactIn
 
     @field_validator("ruc")
     @classmethod

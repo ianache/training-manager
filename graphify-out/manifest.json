@@ -3438,9 +3438,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
-    "mtime": 1791055639.97058,
-    "seen": 1791055803.8862128,
-    "ast_hash": "2a85b3e5424365f945e08fcb3f23b430",
+    "mtime": 1791058248.7377427,
+    "seen": 1791058664.4239378,
+    "ast_hash": "4a045964309a199477cf03cd0e2f06a2",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/organizations.py": {
@@ -3450,21 +3450,21 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/schemas/organization.py": {
-    "mtime": 1791055390.22021,
-    "seen": 1791055803.880299,
-    "ast_hash": "0d9c35e4d73e059bb2bfba26f78f4afb",
+    "mtime": 1791058335.0431893,
+    "seen": 1791058664.413158,
+    "ast_hash": "18aac1b9d4998481df545354421a19ec",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
-    "mtime": 1791055755.60001,
-    "seen": 1791055803.8812394,
-    "ast_hash": "929cc99dea9f62be10b1f9585a43f096",
+    "mtime": 1791058585.0110006,
+    "seen": 1791058664.413158,
+    "ast_hash": "12fc54762d49fd86c21aae56eae92164",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_create.py": {
-    "mtime": 1791055639.9688947,
-    "seen": 1791055803.8862128,
-    "ast_hash": "6130adb9009f3abbe0ee01660154f5f9",
+    "mtime": 1791058453.732601,
+    "seen": 1791058664.4239378,
+    "ast_hash": "a4cab5bc598fdc92ce2551253538a5cf",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/organizations/organizations.router.ts": {

@@ -4,10 +4,12 @@ URL = "/api/v1/organizations"
 UNIT = {"name": "Ingeniería", "type": "internal_unit"}
 PROVIDER = {"name": "Seguridad Sur", "type": "external_provider", "ruc": "20123456789"}
 GHOST = "6f1c2a3e-8d4b-4c7a-9e1f-0a2b3c4d5e6f"
+CONTACT = {"email_work": "contacto@example.com", "phone_work": "+51 987654321"}
 
 
 async def post(c, h, body):
-    return await c.post(URL, json=body, headers=h)
+    """Alta con contacto por defecto (obligatorio); los tests de contacto usan c.post directo."""
+    return await c.post(URL, json={"contact": CONTACT, **body}, headers=h)
 
 
 @pytest.mark.asyncio
@@ -135,3 +137,93 @@ async def test_inactive_unit_cannot_be_a_parent(async_client, engine, jefe):
 
     pid, _ = await seed(engine, "Disuelta", thru=date.today() - timedelta(days=1))
     assert (await post(async_client, jefe, {**UNIT, "parent_id": pid})).status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_contact_is_returned_on_create_get_and_list(async_client, jefe):
+    b = (await post(async_client, jefe, UNIT)).json()
+    expected = {"emails": ["contacto@example.com"], "phones": ["+51 987654321"]}
+    assert b["contact"] == expected
+    assert (await async_client.get(f"{URL}/{b['id']}", headers=jefe)).json()["contact"] == expected
+    assert (await async_client.get(URL, headers=jefe)).json()["data"][0]["contact"] == expected
+
+
+@pytest.mark.asyncio
+async def test_phone_is_optional(async_client, jefe):
+    r = await async_client.post(URL, json={**UNIT, "contact": {"email_work": "solo@example.com"}}, headers=jefe)
+    assert r.status_code == 201 and r.json()["contact"] == {"emails": ["solo@example.com"], "phones": []}
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "contact",
+    [None, {}, {"phone_work": "+51 987654321"}, {"email_work": "no-es-correo"}, {"email_work": ""},
+     {"email_work": "a@example.com", "phone_work": "abc"}, {"email_work": "a@example.com", "phone_work": "1" * 21},
+     {"email_work": "a@example.com", "extra": "x"}],
+)
+async def test_contact_validation_400(async_client, jefe, contact):
+    body = dict(UNIT) if contact is None else {**UNIT, "contact": contact}
+    r = await async_client.post(URL, json=body, headers=jefe)
+    assert r.status_code == 400 and r.json()["error"]["code"] == "VALIDATION_ERROR"
+
+
+@pytest.mark.asyncio
+async def test_organization_email_may_match_a_collaborators_and_br_pty_08_still_holds(async_client, jefe, party_payload):
+    shared = party_payload["email_work"]
+    c1 = await async_client.post("/api/v1/parties", json=party_payload, headers=jefe)
+    assert c1.status_code == 201
+    org = await async_client.post(URL, json={**UNIT, "contact": {"email_work": shared}}, headers=jefe)
+    assert org.status_code == 201 and org.json()["contact"]["emails"] == [shared]
+    other = {**party_payload, "identification_number": "87654321"}
+    dup = await async_client.post("/api/v1/parties", json=other, headers=jefe)
+    assert dup.status_code == 409 and dup.json()["error"]["code"] == "EMAIL_DUPLICATE"  # BR-PTY-08 intacta
+
+
+@pytest.mark.asyncio
+async def test_collaborator_can_use_an_email_an_organization_already_has(async_client, jefe, party_payload):
+    org = await async_client.post(URL, json={**UNIT, "contact": {"email_work": party_payload["email_work"]}}, headers=jefe)
+    assert org.status_code == 201
+    assert (await async_client.post("/api/v1/parties", json=party_payload, headers=jefe)).status_code == 201
+
+
+@pytest.mark.asyncio
+async def test_two_organizations_may_share_an_email(async_client, jefe):
+    assert (await post(async_client, jefe, UNIT)).status_code == 201
+    r = await post(async_client, jefe, PROVIDER)
+    assert r.status_code == 201 and r.json()["contact"]["emails"] == ["contacto@example.com"]
+
+
+@pytest.mark.asyncio
+async def test_race_on_the_email_row_is_409_never_500(async_client, jefe, monkeypatch):
+    from app.services.organization_service import OrganizationService
+
+    assert (await post(async_client, jefe, UNIT)).status_code == 201
+
+    async def not_found(self, email):
+        return None  # simula que otra alta creó la fila entre la consulta y el commit
+
+    monkeypatch.setattr(OrganizationService, "_email_row", not_found)
+    r = await post(async_client, jefe, {**PROVIDER, "name": "Otra"})
+    assert r.status_code == 409 and r.json()["error"]["details"]["field"] == "email"
+
+
+@pytest.mark.asyncio
+async def test_closed_contact_links_are_not_returned(async_client, engine, jefe):
+    from datetime import date, timedelta
+
+    from sqlalchemy import update
+    from sqlalchemy.ext.asyncio import AsyncSession
+    from sqlalchemy.orm import sessionmaker
+
+    from app.models.party import PartyContactMechanism
+
+    org = (await post(async_client, jefe, UNIT)).json()
+    async with sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)() as db:
+        await db.execute(
+            update(PartyContactMechanism)
+            .where(PartyContactMechanism.fk_party_id == org["id"], PartyContactMechanism.fk_contact_purpose_type_code == "ORGANIZATION_PHONE")
+            .values(thru_date=date.today() - timedelta(days=1))
+        )
+        await db.commit()
+    got = (await async_client.get(f"{URL}/{org['id']}", headers=jefe)).json()
+    assert got["contact"] == {"emails": ["contacto@example.com"], "phones": []}

@@ -10,18 +10,24 @@ from sqlalchemy.orm import aliased
 from app.core.errors import ApiError, not_found
 from app.models.party import (
     ID_RUC,
+    MECH_EMAIL,
+    MECH_PHONE,
     ORGANIZATION,
     ORG_ROLES,
+    PURPOSE_ORG_EMAIL,
+    PURPOSE_ORG_PHONE,
     REL_ORG_STRUCTURE,
     ROLE_SUPPLIER,
     ROLE_UNIT,
+    ContactMechanism,
     Organization,
     Party,
+    PartyContactMechanism,
     PartyIdentification,
     PartyRelationship,
     PartyRole,
 )
-from app.schemas.organization import OrganizationOut, OrganizationStatus, OrganizationType
+from app.schemas.organization import OrganizationContact, OrganizationOut, OrganizationStatus, OrganizationType
 from app.services.party_service import total_pages  # noqa: F401  (se reexporta para el router)
 
 SORTS = {"name": Organization.organization_name, "created_at": Organization.created_at}
@@ -56,6 +62,7 @@ class OrganizationService:
         to_role = aliased(PartyRole)
         parents: dict[str, str] = {}
         rucs: dict[str, str] = {}
+        contacts: dict[str, OrganizationContact] = {}
         if role_ids:
             parents = dict(
                 (
@@ -81,6 +88,29 @@ class OrganizationService:
                     )
                 ).all()
             )
+            links = (
+                await self.db.execute(
+                    select(
+                        PartyContactMechanism.fk_party_id,
+                        PartyContactMechanism.fk_contact_purpose_type_code,
+                        ContactMechanism.contact_value,
+                    )
+                    .join(
+                        ContactMechanism,
+                        ContactMechanism.pk_contact_mechanism_id == PartyContactMechanism.fk_contact_mechanism_id,
+                    )
+                    .where(
+                        PartyContactMechanism.fk_party_id.in_(party_ids),
+                        PartyContactMechanism.fk_contact_purpose_type_code.in_((PURPOSE_ORG_EMAIL, PURPOSE_ORG_PHONE)),
+                        PartyContactMechanism.thru_date.is_(None),
+                        ContactMechanism.anonymized_at.is_(None),
+                    )
+                    .order_by(PartyContactMechanism.created_at)
+                )
+            ).all()
+            for party_id, purpose, value in links:
+                c = contacts.setdefault(party_id, OrganizationContact())
+                (c.emails if purpose == PURPOSE_ORG_EMAIL else c.phones).append(value)
         out = []
         for org, role in rows:
             kind = TYPE_OF[role.fk_party_role_type_code]
@@ -96,6 +126,7 @@ class OrganizationService:
                     code=org.code if unit else None,
                     location=org.location if unit else None,
                     ruc=None if unit else rucs.get(org.pk_party_id),
+                    contact=contacts.get(org.pk_party_id, OrganizationContact()),
                 )
             )
         return out
@@ -154,6 +185,29 @@ class OrganizationService:
         ).all()
         return any(o.parent_id == parent_id for o in await self._build(rows))
 
+    async def _email_row(self, email: str) -> str | None:
+        """Fila de correo ya existente (una por valor: ux_contact_mechanism_email_active)."""
+        return await self.db.scalar(
+            select(ContactMechanism.pk_contact_mechanism_id).where(
+                ContactMechanism.fk_contact_mechanism_type_code == MECH_EMAIL,
+                ContactMechanism.anonymized_at.is_(None),
+                func.lower(ContactMechanism.contact_value) == email.lower(),
+            )
+        )
+
+    def _contact(self, party_id: str, mechanism_id: str, mech_type: str, purpose: str, actor: str, today: date) -> None:
+        self.db.add(
+            PartyContactMechanism(
+                pk_party_contact_mechanism_id=str(uuid4()),
+                fk_party_id=party_id,
+                fk_contact_mechanism_id=mechanism_id,
+                fk_contact_mechanism_type_code=mech_type,
+                fk_contact_purpose_type_code=purpose,
+                from_date=today,
+                created_by=actor,
+            )
+        )
+
     async def _ruc_taken(self, ruc: str) -> bool:
         row = (
             await self.db.execute(
@@ -186,6 +240,10 @@ class OrganizationService:
             raise _duplicate("name")
         if payload.ruc and await self._ruc_taken(payload.ruc):
             raise _duplicate("ruc")
+        email = str(payload.contact.email_work)
+        # toda consulta va antes de añadir filas: una consulta con filas pendientes las vuelca (autoflush)
+        # y un conflicto de unicidad saltaría fuera del manejo de _commit
+        email_row = await self._email_row(email)
         pid, rid, today = str(uuid4()), str(uuid4()), date.today()
         self.db.add(Party(pk_party_id=pid, party_kind=ORGANIZATION, created_by=actor))
         self.db.add(
@@ -226,6 +284,25 @@ class OrganizationService:
                     created_by=actor,
                 )
             )
+        if email_row is None:
+            email_row = str(uuid4())
+            self.db.add(
+                ContactMechanism(
+                    pk_contact_mechanism_id=email_row, fk_contact_mechanism_type_code=MECH_EMAIL, contact_value=email, created_by=actor
+                )
+            )
+        self._contact(pid, email_row, MECH_EMAIL, PURPOSE_ORG_EMAIL, actor, today)
+        if payload.contact.phone_work:
+            phone_row = str(uuid4())
+            self.db.add(
+                ContactMechanism(
+                    pk_contact_mechanism_id=phone_row,
+                    fk_contact_mechanism_type_code=MECH_PHONE,
+                    contact_value=payload.contact.phone_work,
+                    created_by=actor,
+                )
+            )
+            self._contact(pid, phone_row, MECH_PHONE, PURPOSE_ORG_PHONE, actor, today)
         await self._commit()
         self.db.expunge_all()
         return await self.get(pid)
@@ -236,8 +313,12 @@ class OrganizationService:
         except IntegrityError as exc:
             # carrera entre dos altas: el índice único parcial del RUC (PDM-001) tiene la última palabra
             await self.db.rollback()
-            if "identification" in str(exc.orig).lower():
+            message = str(exc.orig).lower()
+            if "identification" in message:
                 raise _duplicate("ruc") from exc
+            if "email" in message:
+                # otra alta creó la fila de ese correo entre la consulta y el commit: se reintenta
+                raise _duplicate("email") from exc
             raise
 
     async def get(self, org_id: UUID | str) -> OrganizationOut:

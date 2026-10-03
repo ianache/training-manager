@@ -153,3 +153,10 @@ async def test_sort_direction_is_honoured(async_client, engine, colaborador):
         await seed(engine, n)
     r = await async_client.get(URL, params={"sort": "name:desc"}, headers=colaborador)
     assert [o["name"] for o in r.json()["data"]] == ["C", "B", "A"]
+
+
+@pytest.mark.asyncio
+async def test_organization_without_contact_returns_empty_lists(async_client, engine, colaborador):
+    pid, _ = await seed(engine, "Heredada")
+    r = await async_client.get(f"{URL}/{pid}", headers=colaborador)
+    assert r.status_code == 200 and r.json()["contact"] == {"emails": [], "phones": []}
