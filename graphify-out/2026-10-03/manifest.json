@@ -3442,5 +3442,23 @@
     "seen": 1791055209.1516867,
     "ast_hash": "d34bb3881110fcfc4013c4161a93e902",
     "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/routers/organizations.py": {
+    "mtime": 1791055165.8390298,
+    "seen": 1791055307.8277948,
+    "ast_hash": "ef25e567155759f2123a90ed7cab435b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/schemas/organization.py": {
+    "mtime": 1791055160.726879,
+    "seen": 1791055307.8277948,
+    "ast_hash": "f177775de43d040412b7f1702637a3ba",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
+    "mtime": 1791055163.6759918,
+    "seen": 1791055307.835826,
+    "ast_hash": "1fa0402928d1a6d2fd9ed0f891009fdc",
+    "semantic_hash": ""
   }
 }

@@ -2,13 +2,14 @@
 from typing import Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.auth import Caller, get_caller
+from app.core.authorization import require_jefe_ingenieria
 from app.core.rate_limit import rate_limited
 from app.database.engine import get_db
-from app.schemas.organization import OrganizationOut, OrganizationStatus, OrganizationType
+from app.schemas.organization import OrganizationCreateRequest, OrganizationOut, OrganizationStatus, OrganizationType
 from app.schemas.party import Page, Pagination
 from app.services.organization_service import OrganizationService, total_pages
 
@@ -41,3 +42,16 @@ async def list_organizations(
 @router.get("/{org_id}", dependencies=[Depends(rate_limited("read"))], response_model=OrganizationOut)
 async def get_organization(org_id: UUID, caller: Caller = Depends(get_caller), db: AsyncSession = Depends(get_db)):
     return await OrganizationService(db).get(org_id)
+
+
+@router.post("", status_code=201, dependencies=[Depends(rate_limited("create"))], response_model=OrganizationOut)
+async def create_organization(
+    payload: OrganizationCreateRequest,
+    response: Response,
+    caller: Caller = Depends(require_jefe_ingenieria),
+    db: AsyncSession = Depends(get_db),
+):
+    """US-017 / US-018: alta de unidad o proveedor (solo Jefe de Ingeniería)."""
+    org = await OrganizationService(db).create(payload, caller.username)
+    response.headers["Location"] = f"/api/v1/organizations/{org.id}"
+    return org

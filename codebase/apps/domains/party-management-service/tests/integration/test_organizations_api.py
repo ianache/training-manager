@@ -145,3 +145,11 @@ async def test_get_by_id_404_and_400(async_client, engine, colaborador):
 @pytest.mark.asyncio
 async def test_requires_service_token(async_client):
     assert (await async_client.get(URL)).status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_sort_direction_is_honoured(async_client, engine, colaborador):
+    for n in ("B", "A", "C"):
+        await seed(engine, n)
+    r = await async_client.get(URL, params={"sort": "name:desc"}, headers=colaborador)
+    assert [o["name"] for o in r.json()["data"]] == ["C", "B", "A"]
