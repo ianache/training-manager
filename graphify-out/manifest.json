@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791040359.7488496,
-    "seen": 1791045405.095134,
-    "ast_hash": "45b91dc8f9ca9804ec1548213f8bc88b",
+    "mtime": 1791045885.8959908,
+    "seen": 1791045927.164189,
+    "ast_hash": "14e4f22fe099c818261b0d6ee5f482dc",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791040359.6118226,
-    "seen": 1791045405.094134,
-    "ast_hash": "2d9131901e70a8be30922932a1cedc3e",
+    "mtime": 1791045856.1315372,
+    "seen": 1791045927.164189,
+    "ast_hash": "6d8a0800ef32f2c4f7bfbac4b6dbd5ee",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
-    "mtime": 1791040010.695556,
-    "seen": 1791040077.528303,
-    "ast_hash": "e6630780abec1fac522145069ba8bc5d",
+    "mtime": 1791045880.4985886,
+    "seen": 1791045927.1853223,
+    "ast_hash": "496dc9176c38fb18de7385755c6ca292",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
