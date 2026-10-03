@@ -47,7 +47,10 @@ sources:
 | Screen | SCR-028-01 | [SCR-028](../screens/SCR-028-listar-y-buscar-unidades-organizacionales.md) | draft |
 | Screen | SCR-029-01..04 | [SCR-029](../screens/SCR-029-registrar-y-editar-unidades-organizacionales.md) | draft |
 | Screen | SCR-030-01..04 | [SCR-030](../screens/SCR-030-desactivar-y-reactivar-unidades-organizacionales.md) | draft |
-| Exploración, ARP, DD, HOF, DTM | — | no existen aún para este alcance | — |
+| Exploración | GEN-017, GEN-028, GEN-029, GEN-030 | [GEN-017](../generations/GEN-017-stitch-registrar-la-organizacion-interna.md), [GEN-028](../generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md), [GEN-029](../generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md), [GEN-030](../generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md) | draft; 9 de 12 pantallas registradas en DTM-PPM-001 |
+| Accessibility Report | ARP-SCR-017-01..03, ARP-SCR-028-01, ARP-SCR-029-01..02, ARP-SCR-030 | [handoff/](../handoff/) (7 archivos) | draft; 9 pantallas, todas `fail` |
+| Anexo de preguntas | — | [UXS-001 anexo](UXS-001-anexo-preguntas-por-responsable.md) | draft; 77 preguntas en 44 |
+| DD, HOF | — | no existen aún para este alcance | — |
 
 ## 3. Resultado de la auditoría
 
@@ -64,17 +67,20 @@ sources:
 | Q-UXS-4 | Textos de error, vacío, consecuencia y éxito "sin fuente" en las 12 pantallas | Mayor | SCR-017-Q4, 028-Q5, 029-Q8, 030-Q4 | Responsable de producto / UX writing | Abierto |
 | Q-UXS-5 | SCR-030 especifica 4 pantallas pero el flujo duda si son variantes de un diálogo; SCR-028 decide una sola pantalla con alternador de forma propuesta | Menor | FLW-030-Q1, SCR-028-Q3 | Jefe de Ingeniería / UX | Abierto |
 | Q-UXS-6 | No existe AC-017 como artefacto de diseño | Menor | SCR-017-Q8 | `ui-spec-writer` | Abierto |
+| Q-UXS-7 | Las 9 pantallas exploradas dan `fail` de accesibilidad (revisión estática del HTML de Stitch): iconos sin `aria-hidden`, estados sin `role=status/alert`, errores sin `aria-describedby`, nombres sin la unidad, foco de bajo contraste, reflow a 320 px; SCR-028-01 sin `aria-sort` ni roles de árbol; SCR-030-03 con diálogo sin `role=dialog`. Foco, teclado y zoom `inconclusive` (requieren navegador) | Bloqueante para el gate | ARP-SCR-017-01..03, 028-01, 029-01..02, 030 | `figma-design-validator` (el diseño gobernado debe corregirlos) y `accessibility-reviewer` (revisar el Figma) | Abierto |
 
 ## 4. Matriz de trazabilidad por pantalla
 
 | SCR | US | UXR | FLW | Exploración | Diseño gobernado | ARP |
 |---|---|---|---|---|---|---|
-| SCR-017-01, -02, -03 | US-017 | UXR-017 | FLW-017 | — | — | — |
-| SCR-028-01 | US-028 | UXR-028 | FLW-028 | — | — | — |
-| SCR-029-01..04 | US-029 | UXR-029 | FLW-029 | — | — | — |
-| SCR-030-01..04 | US-030 | UXR-030 | FLW-030 | — | — | — |
+| SCR-017-01, -02, -03 | US-017 | UXR-017 | FLW-017 | STP-PPM-001 (3 de 3) | — | fail ×3 |
+| SCR-028-01 | US-028 | UXR-028 | FLW-028 | STP-PPM-001 (1 de 1) | — | fail |
+| SCR-029-01, -02 | US-029 | UXR-029 | FLW-029 | STP-PPM-001 | — | fail ×2 |
+| SCR-029-03, -04 | US-029 | UXR-029 | FLW-029 | **sin localizar** | — | — |
+| SCR-030-01, -02, -03 | US-030 | UXR-030 | FLW-030 | STP-PPM-001 | — | fail ×3 |
+| SCR-030-04 | US-030 | UXR-030 | FLW-030 | **sin localizar** | — | — |
 
-Huérfanos detectados: ninguno entre US→UXR→FLW→SCR. Sin DTM, ARP ni HOF para las 12 pantallas (pendiente de las fases 4 a 7).
+Huérfanos detectados: ninguno entre US→UXR→FLW→SCR. Tres pantallas (SCR-029-03, SCR-029-04, SCR-030-04) sin exploración ni ARP. Ninguna pantalla tiene diseño gobernado (pendiente de las fases 6 y 7).
 
 ## 5. Preguntas abiertas y decisiones humanas pendientes
 
@@ -93,8 +99,8 @@ Ninguna bloquea el preflight. Abiertas en total: 17 de UXR, 24 de FLW (Q1..Q5 + 
 
 | Consumidor | Veredicto | Razón y bloqueos | Skill siguiente |
 |---|---|---|---|
-| Stitch | CONDITIONAL | Preflight READY y `STP-PPM-001` activo. Pospone: componentes faltantes (Q-UXS-1) que Stitch resolvería con diseño propio, y el alcance solo desktop (Q-UXS-2). Hay que verificar en vivo el `project_ref` antes de usarlo. | `stitch-ui-generator` |
-| Figma | NOT READY | Sin exploración registrada, sin ARP y sin acceso verificado a Figma | `figma-design-validator` (después de las fases 4 y 5) |
+| Stitch | CONDITIONAL | Ejecutado: 9 de 12 pantallas exploradas y registradas. Faltan SCR-029-03, SCR-029-04 y SCR-030-04 (timeout, sin localizar; regenerar solo tras buscarlas por título en Stitch para no duplicar). Stitch inventó contenido que prejuzga preguntas abiertas (ver GEN-017/028/029/030). | `stitch-ui-generator` (completar las 3) |
+| Figma | NOT READY | Falta acceso a Figma verificado. La exploración existe para 9 de 12 pantallas y su ARP da `fail`: el diseño en Figma debe nacer corrigiendo esos fallos, no copiando Stitch | `figma-design-validator` (con acceso autorizado a Figma) |
 | Desarrollo | NOT READY | Sin `governed_design`, sin HOF, sin accesibilidad; colisión de tokens marcada Gate | `ux-development-handoff` |
 | QA | CONDITIONAL | Hay estados, permisos y criterios con resultado visible; pospone las aserciones de textos sin fuente (Q-UXS-4) | `test-case-generator` |
 
@@ -104,8 +110,10 @@ Ninguna bloquea el preflight. Abiertas en total: 17 de UXR, 24 de FLW (Q1..Q5 + 
 |---|---|---|---|
 | 1 | `user-flow-designer` (4 subagentes en paralelo) | FLW-017, FLW-028, FLW-029, FLW-030 | `audit_ux.py`: los SCR reservados aún no existían (12 errores esperados) |
 | 2 | `ui-spec-writer` (4 subagentes en paralelo) | SCR-017, SCR-028, SCR-029, SCR-030 (12 pantallas) | `audit_ux.py`: 0 errores; preflight production: READY |
+| 3 | `stitch-ui-generator` (4 subagentes en paralelo; REUSE de `STP-PPM-001`) | GEN-017, GEN-028, GEN-029, GEN-030; 9 entradas en DTM-PPM-001 | `get_screen` confirmó los 9 IDs; `register-exploration`: READY ×9; 3 pantallas sin localizar |
+| 4 | `accessibility-reviewer` (3 subagentes) y digest de preguntas (1 subagente) | 7 ARP; anexo de preguntas | Archivos verificados en disco (`draft`, sin `verified`); `audit_ux.py`: 0 errores; conteo de preguntas 77 = 17 + 24 + 36 |
 
-**Aislamiento:** sin worktree, por decisión del usuario: el orquestador y otros cambios estaban sin commitear en el checkout principal. **Efectos externos:** ninguno (no se llamó a Stitch ni a Figma).
+**Aislamiento:** sin worktree, por decisión del usuario: el orquestador y otros cambios estaban sin commitear en el checkout principal. **Efectos externos:** 9 pantallas exploratorias creadas en el proyecto Stitch `STP-PPM-001` (visibilidad PUBLIC, aceptada por ianache el 2026-10-01) y hasta 3 generaciones con timeout cuyo resultado se desconoce (pueden existir sin estar listadas). Figma: ninguno.
 
 **Observación del proceso:** el informe del subagente de FLW-029 llegó vacío (solo "placeholder"); el archivo sí existía y se verificó por separado. Ante un informe vacío, comprobar siempre el disco.
 

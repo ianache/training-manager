@@ -60,4 +60,4 @@ Saber qué le falta para un Rol-Nivel.
 | ~~P-15~~ | ~~¿Con qué Rol-Nivel puede compararse el colaborador?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no declara un rol al que aspira; ve sus propias brechas (BR-BRE-04) | Jefe de Ingeniería | — |
 | P-43 | ¿Contra qué Rol-Nivel ve su brecha: el asignado, el siguiente de su rol o ambos? ¿Puede ver brechas de otros roles? Define si hay selector | Jefe de Ingeniería | Alta |
 | P-12 | ¿Cómo se muestra la brecha sin nivel certificado o con nivel superior al esperado? | Jefe de Ingeniería | Media |
-| UXR-005-Q1 | ¿Desde la brecha se ofrece un camino a formación (cursos del nivel)? Es H2 (BR-FOR-01, US-009) y no se diseña en H1 | Responsable de producto | Baja |
+| UXR-005-Q1 | ¿Desde la brecha se ofrece un camino a formación (cursos del nivel)? Es H2 (BR-FOR-01) y no se diseña en H1 | Responsable de producto | Baja |

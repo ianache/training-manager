@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791057252.9766755,
-    "seen": 1791057377.703378,
-    "ast_hash": "b67ae00d5ebc7cd84bbf9d1f637b1ac2",
+    "mtime": 1791057911.2315278,
+    "seen": 1791057932.1204293,
+    "ast_hash": "744e7409a0193bb8f1ae11bc7a59d129",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -936,9 +936,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md": {
-    "mtime": 1791057252.9613235,
-    "seen": 1791057377.6950889,
-    "ast_hash": "752c16379771ab32e1ed002871df6b42",
+    "mtime": 1791057911.2044926,
+    "seen": 1791057932.1117735,
+    "ast_hash": "d8b60bec7bd8f0b3af0d6f14702cd632",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-002-organizations.md": {
-    "mtime": 1791057252.9728768,
-    "seen": 1791057377.517201,
-    "ast_hash": "d36fbc6f1ed46e65fba442de90de9a47",
+    "mtime": 1791057911.2210388,
+    "seen": 1791057931.9286351,
+    "ast_hash": "2c4b2c5dab819fba697817b6a9113b5d",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {

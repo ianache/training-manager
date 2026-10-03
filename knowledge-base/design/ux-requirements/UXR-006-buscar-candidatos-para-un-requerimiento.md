@@ -21,7 +21,7 @@ sources:
 ## Trazabilidad
 
 - **Historia:** [US-006](../../requirement/user-stories/US-006-buscar-candidatos-para-un-requerimiento.md), criterios AC-1 a AC-4.
-- **Reglas:** BR-BRE-01, BR-BRE-05, BR-REQ-06 a BR-REQ-08, BR-REQ-10, BR-TRA-03 a BR-TRA-06, BR-PTY-20; candidatos para US-007: BR-REQ-04, BR-REQ-11, BR-REQ-12.
+- **Reglas:** BR-BRE-01, BR-BRE-05, BR-REQ-06 a BR-REQ-08, BR-REQ-10, BR-TRA-03 a BR-TRA-06, BR-PTY-20; reglas de asignación aún sin historia: BR-REQ-04, BR-REQ-11, BR-REQ-12.
 - **Conceptos (IMD-001):** Requerimiento, Colaborador, Nivel certificado, Nivel requerido.
 - **Actor:** [Jefe de proyecto](../../business/glossary/terms/TRM-0038-lider-de-proyecto.md).
 - **Transversal:** [UXR-000](UXR-000-requisitos-ux-transversales.md).
@@ -43,7 +43,7 @@ Encontrar personas certificadas al nivel que su proyecto necesita.
 
 - **UXR-006.4:** iniciar la búsqueda desde un requerimiento de su proyecto (AC-1).
 - **UXR-006.5:** invertir el orden de la lista: por defecto de menor a mayor brecha (primero el mayor cumplimiento), y de mayor a menor si lo cambia (AC-3, AC-4; BR-BRE-05).
-- La asignación no es una acción del Jefe de proyecto. P-05 quedó respondida el 2026-09-27: la lista es la **recomendación** de la plataforma y asigna el Jefe de Ingeniería o un usuario ADMIN (BR-REQ-04). US-007 pasó a CONDITIONAL, pero aún no está refinada; los requisitos siguientes son **candidatos** para su UXR, trazados a las reglas:
+- La asignación no es una acción del Jefe de proyecto. P-05 quedó respondida el 2026-09-27: la lista es la **recomendación** de la plataforma y asigna el Jefe de Ingeniería o un usuario ADMIN (BR-REQ-04). La historia de asignación aún no está refinada; los requisitos siguientes son **candidatos** para su UXR, trazados a las reglas:
   - **UXR-006.6 (candidato):** para el Jefe de Ingeniería o un ADMIN, una acción "asignar" que permite elegir uno o varios colaboradores de la lista para el requerimiento (BR-REQ-04). Para el Jefe de proyecto la acción no aparece o muestra "sin permiso" (UXR-000; **inferencia**). Si el Jefe de Ingeniería usa esta misma vista está abierto (US6-Q2).
   - **UXR-006.7 (candidato):** al asignar a alguien que no alcanza el nivel, la interfaz lo permite y muestra su brecha; si además pide el curso de cierre o un motivo depende de P-53 (BR-REQ-11).
   - **UXR-006.8 (candidato):** al asignar a alguien ya asignado a otro requerimiento, la interfaz muestra una advertencia no bloqueante y deja confirmar (BR-REQ-12).
@@ -59,7 +59,7 @@ Encontrar personas certificadas al nivel que su proyecto necesita.
 - **Sin colaboradores:** no hay nadie a quien mostrar (**inferencia**: por ejemplo, sin colaboradores registrados con ese rol).
 - **Carga, error y sin permiso:** según UXR-000.
 - **Evidencia de GitLab no accesible:** el candidato tiene evidencias en un repositorio al que el usuario no tiene acceso; se indica sin mostrar el contenido (BR-TRA-05; **inferencia**).
-- **Candidato ya asignado (candidato para US-007):** advertencia no bloqueante (BR-REQ-12).
+- **Candidato ya asignado (candidato de asignación):** advertencia no bloqueante (BR-REQ-12).
 
 ## Preguntas abiertas
 
