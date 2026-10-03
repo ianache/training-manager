@@ -108,7 +108,7 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 ```
 
 - **Regla / fuente:** BR-PRF-03 (EVD-2026-0125, respuesta a US1-Q1, 2026-09-27)
-- **Confirmado el 2026-10-03 (EVD-2026-0153):** "haber cumplido" una competencia se interpreta como tenerla certificada al menos en el nivel L1–L4 que exige el Rol-Nivel inferior (BR-CAT-14). Quién decide el paso y si basta con los niveles inferiores sigue abierto (P-42).
+- **Decidido el 2026-10-03 (EVD-2026-0169, 0170):** además de los niveles inferiores se exigen las competencias del nivel destino y ADMIN no puede saltarse este bloqueo. **Confirmado (EVD-2026-0164):** "haber cumplido" una competencia se interpreta como tenerla certificada al menos en el nivel L1–L4 que exige el Rol-Nivel inferior (BR-CAT-14). Quién decide el paso y si basta con los niveles inferiores sigue abierto (P-42).
 
 ## 6. Casos negativos y límite
 
@@ -122,7 +122,7 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 | Cambiar a un nivel superior sin haber cumplido las competencias de los niveles inferiores | No se permite (AC-5) | BR-PRF-03; P-42 (parcialmente respondida) |
 | Cambiar a un nivel superior habiendo cumplido los inferiores pero no las competencias del nivel destino | Sin regla: no está dicho si basta con los inferiores | P-42 |
 | Persona anonimizada | No se edita | BR-PTY-14 |
-| Usuario que no es Jefe de Ingeniería ni ADMIN | No puede (ADMIN desde el 2026-10-03, EVD-2026-0152) | BR-PTY-17 |
+| Usuario que no es Jefe de Ingeniería ni ADMIN | No puede (ADMIN desde el 2026-10-03, EVD-2026-0163) | BR-PTY-17 |
 
 ## 7. Reglas de negocio aplicables
 

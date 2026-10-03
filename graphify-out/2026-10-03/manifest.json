@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791067935.9211419,
-    "seen": 1791068014.878881,
-    "ast_hash": "ac394f16b667e3a31046c6587c691209",
+    "mtime": 1791068084.6734524,
+    "seen": 1791068165.1320202,
+    "ast_hash": "f432e4a4fa691528b9bdfba65828bf07",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791067935.9141812,
-    "seen": 1791068014.9786048,
-    "ast_hash": "66a04747ff801a15793bd74c8d605fe8",
+    "mtime": 1791068084.6670034,
+    "seen": 1791068165.2352915,
+    "ast_hash": "4765b109918a26bee454d798f8d33bf5",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -2352,9 +2352,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/INDEX.md": {
-    "mtime": 1790832344.3832588,
-    "seen": 1790832490.5437152,
-    "ast_hash": "f211e407b047a8b85e9e1e6e242df3e9",
+    "mtime": 1791068084.657061,
+    "seen": 1791068164.9715855,
+    "ast_hash": "c48395f1a41ba634193ac3653d29d089",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
@@ -3627,6 +3627,12 @@
     "mtime": 1791067924.537697,
     "seen": 1791068014.9082685,
     "ast_hash": "3a30e4602e6a432f160bb4f12a477b39",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
+    "mtime": 1791068067.595295,
+    "seen": 1791068164.9715855,
+    "ast_hash": "f0b60bdffb5552ec89d64f14025615c5",
     "semantic_hash": ""
   }
 }

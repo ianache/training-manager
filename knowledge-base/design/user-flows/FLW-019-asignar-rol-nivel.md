@@ -72,8 +72,8 @@ Cada SCR debe declarar `flow: FLW-019`.
 
 | ID | Pregunta | Responsable | Prioridad | Bloquea |
 |---|---|---|---|---|
-| ~~FLW-019-Q1~~ | ~~¿ADMIN también asigna un Rol-Nivel nuevo, y se ajusta BR-PTY-17? (UXR-019-Q1)~~ Respondida (ianache, 2026-10-03): sí (EVD-2026-0152). | Jefe de Ingeniería | Alta | Permisos de SCR-019-02 |
-| ~~FLW-019-Q2~~ | ~~¿«Haber cumplido» = certificada en el L que exige el Rol-Nivel inferior? (UXR-019-Q2)~~ Respondida (ianache, 2026-10-03): sí (EVD-2026-0153). | Jefe de Ingeniería | Alta | E1 |
-| FLW-019-Q3 | ¿Basta con los niveles inferiores o también el destino? (UXR-019-Q3, P-42) | Jefe de Ingeniería | Media | E1 |
-| FLW-019-Q4 | ¿ADMIN puede saltarse AC-5 al cambiar directamente el nivel? (UXR-019-Q4) | Jefe de Ingeniería | Alta | E1 |
-| ~~FLW-019-Q5~~ | ~~¿Se puede bajar de nivel? US-019 solo describe subir~~ Respondida (ianache, 2026-10-03): no se baja de nivel por ahora (EVD-2026-0155). | Jefe de Ingeniería | Media | SCR-019-02 |
+| ~~FLW-019-Q1~~ | ~~¿ADMIN también asigna un Rol-Nivel nuevo, y se ajusta BR-PTY-17? (UXR-019-Q1)~~ Respondida (ianache, 2026-10-03): sí (EVD-2026-0163). | Jefe de Ingeniería | Alta | Permisos de SCR-019-02 |
+| ~~FLW-019-Q2~~ | ~~¿«Haber cumplido» = certificada en el L que exige el Rol-Nivel inferior? (UXR-019-Q2)~~ Respondida (ianache, 2026-10-03): sí (EVD-2026-0164). | Jefe de Ingeniería | Alta | E1 |
+| ~~FLW-019-Q3~~ | ~~¿Basta con los niveles inferiores o también el destino? (UXR-019-Q3, P-42)~~ Respondida (ianache, 2026-10-03): también las del nivel destino (EVD-2026-0169). | Jefe de Ingeniería | Media | E1 |
+| ~~FLW-019-Q4~~ | ~~¿ADMIN puede saltarse AC-5 al cambiar directamente el nivel? (UXR-019-Q4)~~ Respondida (ianache, 2026-10-03): no (EVD-2026-0170). | Jefe de Ingeniería | Alta | E1 |
+| ~~FLW-019-Q5~~ | ~~¿Se puede bajar de nivel? US-019 solo describe subir~~ Respondida (ianache, 2026-10-03): no se baja de nivel por ahora (EVD-2026-0166). | Jefe de Ingeniería | Media | SCR-019-02 |

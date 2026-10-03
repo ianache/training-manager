@@ -110,7 +110,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 |---|---|---|
 | Cualquier colaborador | SCR-019-01 en solo lectura | Consultar el rol de una persona (BR-PTY-20) |
 | Jefe de Ingeniería | SCR-019-01 a 03 | Asignar y cambiar niveles |
-| ADMIN | SCR-019-01 a 03 | Asignar un rol y cambiar niveles, igual que el Jefe de Ingeniería (EVD-2026-0151, 0152); saltarse el bloqueo AC-5: abierto (UXR-019-Q4) |
+| ADMIN | SCR-019-01 a 03 | Asignar un rol y cambiar niveles, igual que el Jefe de Ingeniería (EVD-2026-0151, 0152); no puede saltarse el bloqueo AC-5 (EVD-2026-0170) |
 
 ## SCR-019-01 — Rol-Nivel de la persona
 
@@ -174,4 +174,4 @@ Biblioteca: `@gf/ui`. Sin `@angular/material` ni `@angular/cdk`. Todo componente
 | SCR-019-Q1 | Reglas de la fecha «desde» (¿se admite pasada?, ¿futura?) | Jefe de Ingeniería | Media |
 | SCR-019-Q2 | Textos exactos de aviso, bloqueo y resultado (los «propuesto» no tienen fuente) | Jefe de Ingeniería | Media |
 | SCR-019-Q3 | Responsive: solo escritorio, supuesto heredado | Jefe de Ingeniería | Baja |
-| FLW-019-Q3, Q4 | Heredadas del flujo, aún abiertas (niveles destino y si ADMIN puede saltar AC-5). Q1, Q2 y Q5 respondidas el 2026-10-03; solo se sube de nivel (EVD-2026-0155) | Jefe de Ingeniería | Alta |
+| FLW-019-Q3, Q4 | Heredadas del flujo, aún abiertas (niveles destino y si ADMIN puede saltar AC-5). Q1, Q2 y Q5 respondidas el 2026-10-03; solo se sube de nivel (EVD-2026-0166) | Jefe de Ingeniería | Alta |

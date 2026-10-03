@@ -102,13 +102,13 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 | Acción | Quién | Regla |
 |---|---|---|
 | Leer | Cualquier sesión autenticada | AC-12, EVD-2026-0118 |
-| Alta y edición de roles | `jefe_ingenieria`; también el Responsable de producto (sin límite por producto) | BR-CAT-04/05, EVD-2026-0147/0150 |
-| Alta de competencia, rúbrica y requisitos de evidencia | `jefe_ingenieria` | BR-CAT-16, BR-CAT-19 |
+| Alta y edición de roles | `jefe_ingenieria`, `product_owner` (sin límite por producto) y `admin` | BR-CAT-04/05, EVD-2026-0147/0150/0168 |
+| Alta de competencia y requisitos de evidencia | `jefe_ingenieria` y `admin` (EVD-2026-0168); la rúbrica solo `jefe_ingenieria` (BR-CAT-19; si ADMIN también la edita, por confirmar) | BR-CAT-16, BR-CAT-19 |
 | Aprobar una versión | `jefe_ingenieria` o `admin` | EVD-2026-0144 |
 | Desactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0159 |
 | Reactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0161 |
 
-**Resuelto el 2026-10-03:** el rol `product_owner` (Responsable de producto) existe en el realm y en `roles.ts` del BFF y del portal (EVD-2026-0154). Edita roles; no se asume que edite competencias.
+**Resuelto el 2026-10-03:** el rol `product_owner` (Responsable de producto) existe en el realm y en `roles.ts` del BFF y del portal (EVD-2026-0165). Edita roles; no se asume que edite competencias.
 
 No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites de longitud de LDM-002, y consultas parametrizadas. Rate limit como `/parties` (lectura 1000/h, escritura 100/h en desarrollo).
 
@@ -131,7 +131,7 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 
 | ID | Pregunta | Efecto |
 |---|---|---|
-| ~~AQ-1~~ | ~~¿Qué rol de Keycloak es el Responsable de producto y puede editar competencias o solo roles?~~ Respondida (ianache, 2026-10-03): `product_owner` creado en Keycloak y en `roles.ts` (EVD-2026-0154); edita roles. | Bloquea el permiso de EVD-2026-0147 |
+| ~~AQ-1~~ | ~~¿Qué rol de Keycloak es el Responsable de producto y puede editar competencias o solo roles?~~ Respondida (ianache, 2026-10-03): `product_owner` creado en Keycloak y en `roles.ts` (EVD-2026-0165); edita roles. | Bloquea el permiso de EVD-2026-0147 |
 | AQ-2 | Significado de `levels[].evidence_requirements` (§2) | Texto del asistente de alta |
 | AQ-3 | **Resuelta (2026-10-03):** la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT (DM-Q-02) | Contrato de `approve` (confirmado) |
 | AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). `deactivate` de competencias añadido arriba | `deactivate` |

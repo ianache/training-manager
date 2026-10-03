@@ -43,7 +43,7 @@ sources:
 
 ## Prompts (reproducibles)
 
-Mismo prefijo y cierre que GEN-001-G. SCR-019-01: vigentes, historial, sin asignaciones, carga, error y solo lectura. SCR-019-02: formulario Rol, Nivel y «Vigente desde», aviso de cierre, errores, bloqueo AC-5 con las competencias pendientes, guardado y variante «Asignar rol»; el prompt indica expresamente que **no hay opción de bajar de nivel** (EVD-2026-0155). SCR-019-03: éxito, persona no vigente, nivel no disponible y sin permiso. Stitch reescribe el prompt; la reproducción exacta no está garantizada.
+Mismo prefijo y cierre que GEN-001-G. SCR-019-01: vigentes, historial, sin asignaciones, carga, error y solo lectura. SCR-019-02: formulario Rol, Nivel y «Vigente desde», aviso de cierre, errores, bloqueo AC-5 con las competencias pendientes, guardado y variante «Asignar rol»; el prompt indica expresamente que **no hay opción de bajar de nivel** (EVD-2026-0166). SCR-019-03: éxito, persona no vigente, nivel no disponible y sin permiso. Stitch reescribe el prompt; la reproducción exacta no está garantizada.
 
 ## Revisión crítica
 

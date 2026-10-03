@@ -1,7 +1,7 @@
 # Graph Report - UX_UI_agentic  (2026-10-03)
 
 ## Corpus Check
-- 601 files · ~505,843 words
+- 601 files · ~506,277 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 12, .scss 6, .example 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9298ca41`
+- Built from commit: `5cd39e14`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1607,7 +1607,7 @@ Nodes (3): 1. Implementation Scope Validation, ✅ Out-of-Scope Clearly Defined,
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `colaborador()` connect `conftest.py` to `register-collaborator.api.ts`, `parties.py`, `OrganizationService`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `Development Context Pack — Party Management Service API`, `Handoff Report`?**
-  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+  _High betweenness centrality (0.091) - this node is a cross-community bridge._
 - **Why does `sources()` connect `AGENTS.md — UX/UI Potenciado por IA (Pack V2)` to `check-ui-library.mjs`?**
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Are the 21 inferred relationships involving `OrganizationService` (e.g. with `create_organization()` and `get_organization()`) actually correct?**
