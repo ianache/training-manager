@@ -16,7 +16,7 @@ pytestmark = pytest.mark.skipif(not TEST_DATABASE_URL, reason="requiere TEST_DAT
 
 def test_version_en_head(migrated_postgres):
     with migrated_postgres.connect() as conn:
-        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0003_organization_code_location"
+        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0004_organization_contact_purposes"
 
 
 def test_orm_coincide_con_la_base(migrated_postgres):
@@ -62,3 +62,11 @@ def test_correo_unico_sin_distinguir_mayusculas(migrated_postgres):
         with migrated_postgres.begin() as conn:
             conn.execute(insert, {"id": "00000000-0000-0000-0000-0000000000a1", "v": "dup@example.com"})
             conn.execute(insert, {"id": "00000000-0000-0000-0000-0000000000a2", "v": "DUP@example.com"})
+
+
+def test_propositos_de_contacto_de_la_organizacion(migrated_postgres):
+    with migrated_postgres.connect() as conn:
+        rows = dict(conn.execute(text(
+            "SELECT pk_code, fk_contact_mechanism_type_code FROM tb_contact_purpose_type "
+            "WHERE pk_code IN ('ORGANIZATION_EMAIL', 'ORGANIZATION_PHONE')")).all())
+    assert rows == {"ORGANIZATION_EMAIL": "EMAIL", "ORGANIZATION_PHONE": "PHONE"}
