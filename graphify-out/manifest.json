@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791054142.9469583,
-    "seen": 1791054214.4917147,
-    "ast_hash": "24475f199e67ffebca35ade765ebd3fa",
+    "mtime": 1791055097.5488532,
+    "seen": 1791055209.3238726,
+    "ast_hash": "660bc0d2a9defe72efd93ee6f98eef94",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -1182,9 +1182,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/main.py": {
-    "mtime": 1790832278.048288,
-    "seen": 1790832319.3083866,
-    "ast_hash": "7bb20de956cf72ab521c8ee35a7fe629",
+    "mtime": 1791055181.2191896,
+    "seen": 1791055209.1461432,
+    "ast_hash": "aee8aaa4de8b7c4f2f26c07ea6fe7d61",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/__init__.py": {
@@ -3366,9 +3366,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/specs/UXS-001-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791055084.5578406,
-    "seen": 1791055086.0326743,
-    "ast_hash": "fc5c70369310dfb390d644c73015136c",
+    "mtime": 1791055116.7752357,
+    "seen": 1791055209.3352227,
+    "ast_hash": "ba73d079dfa20fda911b7a17e25f6d1b",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-017-registrar-la-organizacion-interna.md": {
@@ -3408,9 +3408,9 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-10-03-organizations-api/progress.md": {
-    "mtime": 1791054856.6587684,
-    "seen": 1791055085.7247956,
-    "ast_hash": "3ee55493b99e17b5b276eee87feb789b",
+    "mtime": 1791055089.1388476,
+    "seen": 1791055209.2112696,
+    "ast_hash": "b1ba3d7d5ad9d4824c6f59cb17f7e77b",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
@@ -3435,6 +3435,30 @@
     "mtime": 1791054832.1769469,
     "seen": 1791055086.0204139,
     "ast_hash": "ad72af67f0dadad1574186a2fb455fc0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
+    "mtime": 1791055104.252426,
+    "seen": 1791055209.1516867,
+    "ast_hash": "d34bb3881110fcfc4013c4161a93e902",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/routers/organizations.py": {
+    "mtime": 1791055165.8390298,
+    "seen": 1791055307.8277948,
+    "ast_hash": "ef25e567155759f2123a90ed7cab435b",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/schemas/organization.py": {
+    "mtime": 1791055160.726879,
+    "seen": 1791055307.8277948,
+    "ast_hash": "f177775de43d040412b7f1702637a3ba",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
+    "mtime": 1791055163.6759918,
+    "seen": 1791055307.835826,
+    "ast_hash": "1fa0402928d1a6d2fd9ed0f891009fdc",
     "semantic_hash": ""
   }
 }

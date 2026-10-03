@@ -9,6 +9,7 @@ from app.config import config
 from app.core.errors import register_error_handlers
 from app.core.logging import logger, setup_logging
 from app.database.engine import async_session
+from app.routers.organizations import router as organizations_router
 from app.routers.parties import router as parties_router
 
 setup_logging()
@@ -56,6 +57,7 @@ async def request_context(request: Request, call_next):
 
 register_error_handlers(app)
 app.include_router(parties_router)
+app.include_router(organizations_router)
 
 
 @app.get("/health/live", include_in_schema=False)

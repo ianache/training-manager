@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791054142.9469583,
-    "seen": 1791054214.4917147,
-    "ast_hash": "24475f199e67ffebca35ade765ebd3fa",
+    "mtime": 1791055097.5488532,
+    "seen": 1791055209.3238726,
+    "ast_hash": "660bc0d2a9defe72efd93ee6f98eef94",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791054141.390627,
-    "seen": 1791054214.523921,
-    "ast_hash": "a7cc4ad42b174d4cff3879061562028b",
+    "mtime": 1791055079.7234461,
+    "seen": 1791055086.0677016,
+    "ast_hash": "22f7249d51c1c29b1649e0234954da22",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1182,9 +1182,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/main.py": {
-    "mtime": 1790832278.048288,
-    "seen": 1790832319.3083866,
-    "ast_hash": "7bb20de956cf72ab521c8ee35a7fe629",
+    "mtime": 1791055181.2191896,
+    "seen": 1791055209.1461432,
+    "ast_hash": "aee8aaa4de8b7c4f2f26c07ea6fe7d61",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/__init__.py": {
@@ -1200,9 +1200,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/party.py": {
-    "mtime": 1790832279.1762366,
-    "seen": 1790832319.3083866,
-    "ast_hash": "ee2b3816e6fea09fc55c880a6e6f7b4d",
+    "mtime": 1791054976.4290514,
+    "seen": 1791055085.5386758,
+    "ast_hash": "3335ecc6be6ca863563863dd50cc37f0",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/__init__.py": {
@@ -2544,9 +2544,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
-    "mtime": 1790832336.2892997,
-    "seen": 1790832490.4371507,
-    "ast_hash": "aeaf7abc5c213161b60fd6188aa877f0",
+    "mtime": 1791055009.3575642,
+    "seen": 1791055085.5541658,
+    "ast_hash": "624a1fc86407b18702cd77f08cb12a98",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791037747.2112517,
-    "seen": 1791038399.2992425,
-    "ast_hash": "63670efa8b7f873bf16fe7cc590e8496",
+    "mtime": 1791055055.7721083,
+    "seen": 1791055086.038902,
+    "ast_hash": "faaf469118c708bab69c2a44e8dbb8d7",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3366,9 +3366,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/specs/UXS-001-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791054139.753698,
-    "seen": 1791054214.508993,
-    "ast_hash": "1ebfd10291ed848e68b7cd1595512ba2",
+    "mtime": 1791055116.7752357,
+    "seen": 1791055209.3352227,
+    "ast_hash": "ba73d079dfa20fda911b7a17e25f6d1b",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-017-registrar-la-organizacion-interna.md": {
@@ -3393,6 +3393,54 @@
     "mtime": 1791053882.956916,
     "seen": 1791054214.5169792,
     "ast_hash": "fc448d2ba6ea3b5b6aa62b6ccd716990",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0003_organization_code_location.py": {
+    "mtime": 1791054976.4372241,
+    "seen": 1791055085.5476174,
+    "ast_hash": "cdaeb8e07c5a511ad4d4d565fcaa26c6",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_organization_models.py": {
+    "mtime": 1791054905.503088,
+    "seen": 1791055085.5521464,
+    "ast_hash": "c264334930b8710cea6427722d5f19e3",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/2026-10-03-organizations-api/progress.md": {
+    "mtime": 1791055089.1388476,
+    "seen": 1791055209.2112696,
+    "ast_hash": "b1ba3d7d5ad9d4824c6f59cb17f7e77b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
+    "mtime": 1791054702.9229774,
+    "seen": 1791055086.0204139,
+    "ast_hash": "1774bb4a2c7ed6932116c6d0abd0f27f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791054627.3704822,
+    "seen": 1791055086.0204139,
+    "ast_hash": "f8ec1ec45dc4654d507b434aa21b14a3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791054874.1910877,
+    "seen": 1791055086.0204139,
+    "ast_hash": "4376de9a8ceed917425f4464dc3d4248",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791054832.1769469,
+    "seen": 1791055086.0204139,
+    "ast_hash": "ad72af67f0dadad1574186a2fb455fc0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
+    "mtime": 1791055104.252426,
+    "seen": 1791055209.1516867,
+    "ast_hash": "d34bb3881110fcfc4013c4161a93e902",
     "semantic_hash": ""
   }
 }
