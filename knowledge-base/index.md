@@ -104,6 +104,10 @@ sources:
 - [TKN-SET-002 — Tokens «Comsatel Styled»](design/tokens/TKN-SET-002-comsatel-styled.md) — Design Tokens, `draft`; base vigente de toda la plataforma, sustituye a TKN-SET-001
 - [GEN-015 — Diseño Stitch: Registrar un colaborador](design/generations/GEN-015-stitch-registrar-colaborador.md) — Stitch Generation, `draft` (ejecución 2026-10-01 añadida)
 - [UXR-016 — Actualizar datos y medios de contacto](design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md) — UX Requirement, `draft`
+- [UXR-017 — Registrar la organización interna](design/ux-requirements/UXR-017-registrar-la-organizacion-interna.md) — UX Requirement, `draft`
+- [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
+- [UXR-029 — Registrar y editar unidades organizacionales](design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md) — UX Requirement, `draft`
+- [UXR-030 — Desactivar y reactivar unidades organizacionales](design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [FLW-016 — Actualizar datos y medios de contacto](design/user-flows/FLW-016-actualizar-datos-y-contactos.md) — User Flow, `draft`
 - [SCR-016 — Actualizar datos y medios de contacto](design/screens/SCR-016-actualizar-datos-y-contactos.md) — Screen (6 pantallas), `draft`; preguntas Q1, Q2, Q5, Q6, Q12 y Q15 decididas; Q16 a Q18 nuevas
 - [IB-016 — Intent Brief: Actualizar datos y medios de contacto](design/explorations/IB-016-actualizar-datos-y-contactos.md) — Intent Brief, `draft`; alternativas pendientes (Claude Design sin conexión)

@@ -220,3 +220,6 @@ sources:
 
 - US-017 se dividió en cuatro historias por paso del flujo, todas READY y `draft`: US-017 (registrar la organización interna, conserva el ID), US-028 (listar y buscar unidades), US-029 (registrar y editar unidades) y US-030 (desactivar y reactivar unidades). Los 18 criterios originales se repartieron sin cambiar su contenido. La validación del PO es heredada de US-017 (2026-10-03).
 - Artefactos afectados: `knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md`, `US-028-listar-y-buscar-unidades-organizacionales.md`, `US-029-registrar-y-editar-unidades-organizacionales.md`, `US-030-desactivar-y-reactivar-unidades-organizacionales.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
+
+- Se generaron UXR-017, UXR-028, UXR-029 y UXR-030 con `ux-requirements-analyzer` a partir de las cuatro historias de la gestión de unidades organizacionales, en `draft` y con 17 preguntas abiertas de UX (ninguna bloquea). Siguiente skill: `user-flow-designer`.
+- Artefactos afectados: `knowledge-base/design/ux-requirements/UXR-017-registrar-la-organizacion-interna.md`, `UXR-028-listar-y-buscar-unidades-organizacionales.md`, `UXR-029-registrar-y-editar-unidades-organizacionales.md`, `UXR-030-desactivar-y-reactivar-unidades-organizacionales.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
