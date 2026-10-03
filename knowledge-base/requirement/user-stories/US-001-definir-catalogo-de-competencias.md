@@ -47,7 +47,7 @@ sources:
 | AC-7 | que soy el Jefe de Ingeniería y una competencia del catálogo | defino y apruebo su rúbrica | la rúbrica describe, para cada nivel L1–L4, el comportamiento y el logro visible y verificable que se espera, que se verifica con evidencias | BR-CAT-15, BR-CAT-19 |
 | AC-10 | un rol en edición | intento guardarlo sin ninguna competencia | no se guarda: un rol debe tener al menos una competencia | BR-CAT-20 |
 | AC-11 | un Rol-Nivel en edición y una competencia cuyo nivel L1–L4 elegido no tiene requisitos de evidencia definidos | intento exigirla en ese nivel | no se permite: primero hay que definir cómo se evidencia ese nivel | BR-ACR-13 |
-| AC-13 | un Rol-Nivel en edición que ya exige una competencia | intento agregar otra vez esa misma competencia | no se permite: una competencia no se repite dentro de un rol. **Interpretación a confirmar:** en otro Rol-Nivel superior del mismo rol sí puede exigirse, con un nivel L mayor (BR-CAT-14) | BR-CAT-21 |
+| AC-13 | un Rol-Nivel en edición que ya exige una competencia | intento agregar otra vez esa misma competencia | no se permite: una competencia no se repite dentro de un rol. **Interpretación confirmada (EVD-2026-0148):** en otro Rol-Nivel superior del mismo rol sí puede exigirse, con un nivel L mayor (BR-CAT-14) | BR-CAT-21 |
 | AC-12 | que soy un colaborador sin permiso de edición | consulto el catálogo | veo roles, niveles, competencias, rúbricas y requisitos en modo lectura, sin acciones de edición | BR-TRA-02, BR-CAT-04 |
 
 ### Casos negativos y límite
@@ -58,7 +58,7 @@ sources:
 - **Negativo:** un usuario que no es el Jefe de Ingeniería intenta definir o aprobar una rúbrica, y no puede (BR-CAT-19).
 - **Negativo:** un rol sin competencias no se puede guardar (BR-CAT-20, US1-Q1 respondida). Una misma competencia sí puede estar en varios roles (por ejemplo, comunicación oral o escrita).
 - **Negativo:** la misma competencia no se puede agregar dos veces a un Rol-Nivel; no se repite dentro de un rol (BR-CAT-21). **Interpretación a confirmar:** que en los niveles superiores del mismo rol pueda exigirse con un L mayor no es repetirla.
-- **Negativo:** no se puede exigir en un Rol-Nivel un nivel de competencia sin requisitos de evidencia definidos (BR-ACR-13, P-39 respondida). **Inferencia a confirmar (BR-ACR-13):** al menos uno de esos requisitos debe ser requerido; hasta confirmarlo no se usa como criterio.
+- **Negativo:** no se puede exigir en un Rol-Nivel un nivel de competencia sin requisitos de evidencia definidos (BR-ACR-13, P-39 respondida). **Confirmado (EVD-2026-0149):** al menos uno de esos requisitos debe ser requerido; hasta confirmarlo no se usa como criterio.
 - **Negativo:** no se registran criterios de nivel de rol (años de experiencia en el rol, formación técnica): son parte del MOF, fuera de alcance (BR-CAT-18, P-40 respondida).
 
 ## Evidencias y trazabilidad
@@ -102,7 +102,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 - **Reglas:** BR-CAT-01 a BR-CAT-04, BR-CAT-07 a BR-CAT-21, BR-ACR-07 a BR-ACR-09, BR-ACR-12, BR-ACR-13 y BR-TRA-02 ([BRC-001](../../business/rules/BRC-001-reglas-plataforma-gestion-formacion.md)).
 - **Decisión (antes hipótesis):** los requisitos de evidencia los define el Jefe de Ingeniería, responsable de las capacitaciones (BR-CAT-16, EVD-2026-0096; responde P-21).
 - **Es prerrequisito de:** [US-002](US-002-declarar-requerimientos-de-proyecto.md), [US-005](US-005-ver-mi-brecha-frente-a-un-rol.md) y [US-006](US-006-buscar-candidatos-para-un-requerimiento.md). Sin catálogo no hay requerimientos, brechas ni búsqueda (VIS-001:L136).
-- **Impacto:** todo cambio posterior del catálogo afecta a requerimientos y certificaciones vigentes; cómo se trata ese impacto está abierto. P-02 se respondió solo para los cursos (BR-FOR-06 a BR-FOR-10). P-50 se respondió en parte el 2026-09-27 (EVD-2026-0132): se versionan las competencias, no los roles (BR-CAT-22). **Inferencia a confirmar:** una versión de competencia sigue DRAFT, APPROVED y DEPRECATED, como los cursos, e incluye su rúbrica y sus requisitos de evidencia. Qué pasa con Rol-Nivel, requerimientos y certificaciones al aprobarse una versión nueva sigue abierto (P-50.1), igual que quién la aprueba (P-50.2).
+- **Impacto:** todo cambio posterior del catálogo afecta a requerimientos y certificaciones vigentes; cómo se trata ese impacto está abierto. P-02 se respondió solo para los cursos (BR-FOR-06 a BR-FOR-10). P-50 se respondió en parte el 2026-09-27 (EVD-2026-0132): se versionan las competencias, no los roles (BR-CAT-22). **Inferencia a confirmar:** una versión de competencia sigue DRAFT, APPROVED y DEPRECATED, como los cursos, e incluye su rúbrica y sus requisitos de evidencia. Qué pasa con Rol-Nivel, requerimientos y certificaciones al aprobarse una versión nueva sigue abierto (P-50.1), igual que quién la aprueba (P-50.2). **Decidido el 2026-10-03:** P-50.1 (EVD-2026-0143) y P-50.2 (EVD-2026-0144) respondidas; ver BR-CAT-22.
 - **Riesgo:** catálogo sin consenso entre productos (VIS-001:L142).
 
 ## Vacíos y preguntas abiertas
@@ -110,7 +110,7 @@ Evidencia compartida: `source_type: document`, `observed_at: 2026-09-26T20:55:58
 | Pregunta | Responsable | Prioridad | Estado |
 |---|---|---|---|
 | P-02 — ¿Cómo se versiona el catálogo y qué pasa con requerimientos y certificaciones vigentes al cambiarlo? | Jefe de Ingeniería | Media | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27): se versionan los cursos (BR-FOR-06 a BR-FOR-10). El versionado del catálogo sigue abierto en P-50 (Alta) |
-| P-06 — ¿El Responsable de producto puede proponer o editar roles de su producto? | Jefe de Ingeniería | Media | Abierta (BRC-001) |
+| P-06 — ¿El Responsable de producto puede proponer o editar roles de su producto? | Jefe de Ingeniería | Media | Abierta (BRC-001) → Respondida (ianache (Jefe de Ingeniería), 2026-10-03): también edita sus roles; sin límite por producto, pues los roles son comunes (EVD-2026-0150, interpretación a confirmar) |
 | US1-Q1 — ¿Se permite un rol sin competencias, o una competencia repetida en un rol? | Jefe de Ingeniería | Baja | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): un rol debe tener al menos una competencia, y una competencia puede repetirse en varios roles (BR-CAT-20) pero no dentro de un rol (BR-CAT-21). Interpretación a confirmar: una vez por Rol-Nivel, con un L mayor en niveles superiores |
 | P-26 — ¿Cuántos niveles de rol hay y cómo se relacionan con L1–L4? | Jefe de Ingeniería | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no hay una cantidad general; cada rol define sus niveles al registrarse (BR-CAT-09), y cada Rol-Nivel fija el nivel L1–L4 esperado (BR-CAT-14). Escala salarial y MOF, fuera de alcance (BR-CAT-18) |
 | P-27 — ¿Una competencia transversal aplica automáticamente o se asigna? | Jefe de Ingeniería | Media | Respondida: se asigna a los roles (BR-CAT-11) |

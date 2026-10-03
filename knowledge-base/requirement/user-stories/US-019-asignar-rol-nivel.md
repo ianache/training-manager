@@ -164,17 +164,17 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 - **Depende de:** US-001 (Rol-Nivel en el catálogo), US-015.
 - **Es prerrequisito de:** US-005 (brecha), US-004 (perfil).
 - **Supuestos:** ninguno.
-- **Hipótesis del agente:** H-1: la asignación se hace a colaboradores vigentes; SPEC-001 dice "persona" (US-019-Q1).
+- **Hipótesis del agente:** H-1: la asignación se hace a colaboradores vigentes; SPEC-001 dice "persona" (US-019-Q1). **Confirmada el 2026-10-03 (EVD-2026-0146).**
 
 ## 12. Preguntas abiertas
 
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
 | P-28 | ¿La asignación de Rol-Nivel debe justificarse con competencias certificadas? | Jefe de Ingeniería | Alta | No | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): el nivel inicial se asigna al registrar, sin certificaciones previas, y la evolución se evalúa después (BR-PRF-02). Ver P-42 |
-| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Jefe de Ingeniería | Alta | Sí (quién decide y si basta con los niveles inferiores) | Parcialmente respondida (ianache (Jefe de Ingeniería), 2026-09-27, en US1-Q1): para escalar debe haber cumplido las competencias de los niveles inferiores (BR-PRF-03, AC-5). Siguen abiertos quién decide el paso y si hace falta cumplir también las del nivel destino |
+| P-42 | ¿Cómo se decide el paso de un colaborador al siguiente nivel de su rol? ¿Lo decide una persona a partir de las competencias certificadas, o se deduce de los niveles L1–L4 alcanzados? | Jefe de Ingeniería | Alta | Sí (quién decide y si basta con los niveles inferiores) | Respondida (ianache (Jefe de Ingeniería), 2026-10-03): decide el Jefe de Ingeniería o ADMIN (EVD-2026-0145). ADMIN cambia el nivel directamente (EVD-2026-0151) |
 | P-36 | ¿Cómo se combinan Junior/Senior con 1 a 4? | Jefe de Ingeniería | Alta | No (lo resuelve el catálogo, US-001) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse, por ejemplo Developer Junior (Nivel 1) a (Nivel 3) (BR-CAT-09) |
 | P-40 | ¿La plataforma registra los criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | No (la asignación no valida esos criterios) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) |
-| US-019-Q1 | ¿Se puede asignar Rol-Nivel a una persona que no es colaborador vigente? | Jefe de Ingeniería | Media | No | Abierta |
+| US-019-Q1 | ¿Se puede asignar Rol-Nivel a una persona que no es colaborador vigente? | Jefe de Ingeniería | Media | No | Respondida (ianache (Jefe de Ingeniería), 2026-10-03): solo colaboradores vigentes (EVD-2026-0146) |
 
 ## 13. Evidencia y trazabilidad
 
