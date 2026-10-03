@@ -32,6 +32,7 @@ El BFF ya expone `/api/v1/catalog/roles[/:id]` (`catalog.router.ts`, hoy 503) y 
 | `GET /api/v1/catalog/roles` · `/roles/{id}` | `/api/v1/roles` | Asistente de alta (lista con niveles) y consulta |
 | `POST /catalog/roles` · `PUT /catalog/roles/{id}` · `POST /catalog/roles/{id}/deactivate` | ídem | Gestionar roles (US-001) |
 | `GET /catalog/competencies` · `/competencies/{id}` | `/api/v1/competencies` | Consulta |
+| `POST /catalog/competencies/{id}/deactivate` | ídem | Desactivar una competencia (BR-CAT-25) |
 | `POST /catalog/competencies` | ídem | Alta con versión 1 en DRAFT |
 | `POST /catalog/competencies/{id}/versions` | ídem | Nueva versión DRAFT copiada de la vigente |
 | `PUT /catalog/competencies/{id}/versions/{versionId}` | ídem | Editar rúbrica y requisitos de un DRAFT |
@@ -90,6 +91,7 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
         "description": "Aprobar el curso X", "is_required": true, "course_ref": "uuid|null" } ] }
   ```
   La definición es progresiva (BR-CAT-17): no exige los cuatro niveles. Cada requisito declara `is_required` (BR-ACR-12) y `course_ref` solo con `FORMACION` (LDM-002 CM-08).
+- `POST /competencies/{id}/deactivate` pasa la competencia de `ACTIVE` a `INACTIVE` (decisión DM-Q-03, BR-CAT-25). No se elimina: sus versiones, rúbricas y requisitos se conservan y los ids siguen válidos para certificaciones y Rol-Nivel existentes. Requiere `If-Match: <row_version>`; ya `INACTIVE` → `COMPETENCY_ALREADY_INACTIVE` 409. `GET /competencies` y `/competencies/{id}` devuelven `status` (`ACTIVE`|`INACTIVE`) y `GET /competencies` admite `status` como filtro. **No hay `reactivate`**: la decisión solo habla de desactivar (DM-Q-07 abierta). Un Rol-Nivel nuevo que incluya una competencia `INACTIVE` y el efecto en los existentes están por decidir (DM-Q-07); hasta entonces el servicio no los rechaza.
 - `POST …/approve`: pasa DRAFT a APPROVED y la APPROVED anterior a DEPRECATED, en una transacción (decisión DM-Q-02, BR-CAT-24; solo se aprueba desde DRAFT). Registra `approved_by` y `approved_at`. Las relaciones vigentes no cambian (EVD-2026-0143). Respuesta `200` con la versión y `previous_version_id`.
 
 ## 3. Seguridad y privacidad
@@ -102,6 +104,7 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 | Alta y edición de roles | `jefe_ingenieria`; también el Responsable de producto (sin límite por producto) | BR-CAT-04/05, EVD-2026-0147/0150 |
 | Alta de competencia, rúbrica y requisitos de evidencia | `jefe_ingenieria` | BR-CAT-16, BR-CAT-19 |
 | Aprobar una versión | `jefe_ingenieria` o `admin` | EVD-2026-0144 |
+| Desactivar una competencia | `jefe_ingenieria` (**supuesto**: igual que su alta y edición, BR-CAT-16/19; la decisión DM-Q-03 no nombra al actor) | BR-CAT-25 |
 
 **Bloqueo:** el realm de Keycloak y `roles.ts` del BFF **no tienen el rol «Responsable de producto»** (solo `colaborador`, `jefe_proyecto`, `evaluador`, `jefe_ingenieria`, `direccion`, `gerencia`, `admin`). Hasta definirlo, solo `jefe_ingenieria` edita roles y la ampliación de EVD-2026-0147 no puede aplicarse. No se asume que equivalga a `jefe_proyecto`.
 
@@ -115,6 +118,7 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 
 ## 5. Verificación propuesta
 
+- `deactivate` de una competencia: éxito, doble desactivación (409), `If-Match` desactualizado (412) y que sus versiones y ids siguen consultables.
 - Contrato BFF ↔ servicio, y por cada fila de la tabla de §2 un caso (400, 409, 412, 422) con su código.
 - Integración con **PostgreSQL real** (no solo SQLite): el DDL de LDM-002 ya cubre los casos de base; el servicio debe cubrir CHK-A a CHK-D.
 - Concurrencia: dos `approve` y dos `PUT` simultáneos; una sola gana.
@@ -128,7 +132,8 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 | AQ-1 | ¿Qué rol de Keycloak es el Responsable de producto y puede editar competencias o solo roles? | Bloquea el permiso de EVD-2026-0147 |
 | AQ-2 | Significado de `levels[].evidence_requirements` (§2) | Texto del asistente de alta |
 | AQ-3 | **Resuelta (2026-10-03):** la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT (DM-Q-02) | Contrato de `approve` (confirmado) |
-| AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). Falta añadir `deactivate` para competencias | `deactivate` |
+| AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). `deactivate` de competencias añadido arriba | `deactivate` |
+| AQ-7 | ¿Se puede reactivar una competencia y qué pasa con los Rol-Nivel que la usan? (DM-Q-07). ¿Quién desactiva una competencia? (se supone `jefe_ingenieria`) | `deactivate`, CHK-A/CHK-B |
 | AQ-5 | ¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019 | `PUT /roles` |
 | AQ-6 | **Resuelta (2026-10-03):** el rol ADMIN es correcto (DM-Q-04, BR-CAT-26) | Asignación de niveles (US-019), fuera de este contrato |
 

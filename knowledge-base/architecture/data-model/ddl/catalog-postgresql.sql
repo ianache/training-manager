@@ -6,11 +6,14 @@ CREATE TABLE tb_competency (
     pk_competency_id CHAR(36)     PRIMARY KEY,
     name             VARCHAR(120) NOT NULL,
     description      VARCHAR(500),
+    -- BR-CAT-25 (DM-Q-03): no se elimina, solo se desactiva. Estado propio de la competencia, distinto del de sus versiones.
+    status           VARCHAR(8)   NOT NULL DEFAULT 'ACTIVE',
     row_version      INTEGER      NOT NULL DEFAULT 1,
     created_at       TIMESTAMPTZ  NOT NULL DEFAULT now(),
     created_by       VARCHAR(100) NOT NULL,
     updated_at       TIMESTAMPTZ,
     updated_by       VARCHAR(100),
+    CONSTRAINT ck_competency_status CHECK (status IN ('ACTIVE', 'INACTIVE')),
     CONSTRAINT ck_competency_name CHECK (btrim(name) <> '')
 );
 -- BR-CAT-07: cada competencia existe una sola vez (unicidad por nombre, sin distinguir mayúsculas)

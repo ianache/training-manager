@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791065952.5973182,
-    "seen": 1791066001.1157956,
-    "ast_hash": "0739208d7291cbac43d600446254af21",
+    "mtime": 1791066037.885916,
+    "seen": 1791066093.6269088,
+    "ast_hash": "2cb83a9c0d782a1b7f5c6eea76de4260",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791065629.7493105,
-    "seen": 1791065676.9583242,
-    "ast_hash": "51dc76fe6230de0b6c7d8aba1d944ac1",
+    "mtime": 1791066037.8763175,
+    "seen": 1791066093.7181106,
+    "ast_hash": "6cca30a64c9cf3d0ee7336b434827bc3",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3585,6 +3585,12 @@
     "mtime": 1791065932.4878635,
     "seen": 1791066001.046822,
     "ast_hash": "f8828fc8fa78160a19aebbe572378666",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {
+    "mtime": 1791066016.960744,
+    "seen": 1791066093.7039819,
+    "ast_hash": "9cb4a87b6fcb9ff37a26347efc19be2e",
     "semantic_hash": ""
   }
 }

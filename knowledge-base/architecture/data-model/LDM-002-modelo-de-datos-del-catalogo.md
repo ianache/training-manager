@@ -45,7 +45,7 @@ erDiagram
 
 | Entidad (tabla) | Qué guarda | Clave | IMD / reglas |
 |---|---|---|---|
-| COMPETENCY (`tb_competency`) | La competencia, única en el catálogo | `pk_competency_id` | BR-CAT-07 |
+| COMPETENCY (`tb_competency`) | La competencia, única en el catálogo, con estado `ACTIVE`/`INACTIVE` (no se elimina) | `pk_competency_id` | BR-CAT-07, BR-CAT-25 |
 | COMPETENCY_VERSION | Una versión: DRAFT, APPROVED o DEPRECATED; quién y cuándo la aprobó | `pk_competency_version_id`; único (competencia, nº de versión) | R-44, BR-CAT-22, EVD-2026-0143/0144 |
 | COMPETENCY_RUBRIC_LEVEL | Comportamiento y logro verificable de cada nivel L1–L4 de una versión | (versión, nivel) | R-45 (inferencia), BR-CAT-15/19 |
 | EVIDENCE_REQUIREMENT | Requisito de evidencia por versión y nivel: categoría, descripción, requerido o deseado, curso opcional | `pk_evidence_requirement_id` | R-04, R-21, BR-ACR-07/08/12/17 |
@@ -110,6 +110,9 @@ Ejecutado en el PostgreSQL del compose (base temporal, eliminada después):
 | Curso en una categoría distinta de formación | falla | falla (`ck_evidence_course`) |
 | Curso en formación | pasa | pasa |
 | Dos Rol-Nivel con el mismo orden | falla | falla (`ux_role_level_ordinal`) |
+| Competencia con estado fuera de ACTIVE/INACTIVE | falla | falla (`ck_competency_status`) |
+| Competencia nueva sin indicar estado | queda ACTIVE | queda ACTIVE (comprobado el 2026-10-03 en PostgreSQL 15 temporal) |
+| Desactivar una competencia | pasa | pasa |
 
 No se probaron CHK-A a CHK-D (son del servicio, que no existe) ni la carga.
 
@@ -122,8 +125,10 @@ No se probaron CHK-A a CHK-D (son del servicio, que no existe) ni la carga.
 | DM-Q-03 | Solo se desactiva; no hay eliminaciones. Las competencias tienen estado ACTIVE o INACTIVE. | BR-CAT-25 |
 | DM-Q-04 | Es correcto el rol ADMIN añadido en ADR-006: es una nueva decisión. | BR-CAT-26 |
 | DM-Q-05 | Los requisitos de evidencia se versionan con la competencia. | BR-CAT-23 |
+| DM-Q-06 | **Abierta:** `tb_role` usa `'active'`/`'inactive'` y `tb_competency` `'ACTIVE'`/`'INACTIVE'`; ¿se unifica el formato y cuál? | — |
+| DM-Q-07 | **Abierta:** ¿se puede reactivar una competencia INACTIVE? ¿Qué pasa con los Rol-Nivel que ya la usan y con los nuevos que quieran incluirla? | — |
 
-**Efecto en el modelo:** la competencia necesita un estado ACTIVE/INACTIVE propio (hoy solo existe el estado de versión) y la operación de aprobar exige que la versión esté en DRAFT. Ambos puntos quedan **pendientes de reflejar en el DDL** (`ddl/catalog-postgresql.sql`), que no se modificó. Hoy `tb_competency` no tiene columna de estado, y `tb_role` usa `'active'`/`'inactive'` en minúsculas mientras la decisión habla de ACTIVE/INACTIVE: conviene unificar el formato.
+**Efecto en el modelo (aplicado el 2026-10-03):** `tb_competency` tiene la columna `status` (`ACTIVE`/`INACTIVE`, por defecto `ACTIVE`, `ck_competency_status`) en `ddl/catalog-postgresql.sql`; «aprobar solo desde DRAFT» es una regla entre filas y la aplica el servicio. `tb_role` usa `'active'`/`'inactive'` en minúsculas y la competencia `'ACTIVE'`/`'INACTIVE'` por la decisión: queda por unificar el formato (DM-Q-06). La reactivación y el efecto sobre los Rol-Nivel están sin decidir (DM-Q-07).
 
 ## 9. Siguiente paso
 
