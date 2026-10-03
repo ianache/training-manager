@@ -194,6 +194,14 @@ services:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"]
     networks: [gestion-formacion]
 
+  # SOLO DESARROLLO: catalog-service simulado (roles y niveles fijos) para probar el paso Rol-Nivel.
+  catalog-stub:
+    image: nginx:alpine
+    volumes:
+      - ./dev/catalog-stub/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./dev/catalog-stub/roles.json:/srv/roles.json:ro
+    networks: [gestion-formacion]
+
   # BFF Node.js — único punto de entrada del portal (ADR-001), OIDC + PKCE (ADR-002/005).
   # Toma client_secret, session_secret y redis_url de Vault (ADR-004).
   bff:
@@ -212,7 +220,7 @@ services:
       OIDC_REDIRECT_URI: http://localhost:4200/auth/callback
       SESSION_TTL_SECONDS: 1800
       PARTY_SERVICE_URL: http://party-service:8000
-      CATALOG_SERVICE_URL: ""        # catalog-service todavía no existe → 503 controlado
+      CATALOG_SERVICE_URL: http://catalog-stub   # SIMULADO (dev/catalog-stub); poner "" para el 503 controlado
       DOWNSTREAM_TIMEOUT_MS: 5000
       VAULT_ADDR: http://vault:8200
       VAULT_TOKEN: ${VAULT_DEV_ROOT_TOKEN:-dev-root-token}
