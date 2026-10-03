@@ -39,7 +39,7 @@ describe('ADR-001 — el BFF es intermediario, no dueño de datos', () => {
 
   it('solo llama microservicios a través de ServiceClient', () => {
     const offenders = allSource
-      .filter(({ p }) => !p.includes('downstream') && !p.includes('config/secrets') && !p.includes('auth/oidc'))
+      .filter(({ p }) => !p.replaceAll('\\', '/').match(/downstream|config\/secrets|auth\/oidc/))
       .filter(({ code }) => /\bfetch\(/.test(code))
       .map(({ p }) => p);
     expect(offenders).toEqual([]);

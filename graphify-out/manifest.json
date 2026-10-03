@@ -1620,9 +1620,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/app.ts": {
-    "mtime": 1790823209.7962697,
-    "seen": 1790826046.4246597,
-    "ast_hash": "c3a7168faa14d4077e859b7ce6d745c0",
+    "mtime": 1791055879.4920757,
+    "seen": 1791056009.211578,
+    "ast_hash": "32a45e99430bc17b29ef7868765896b4",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/auth/auth.router.ts": {
@@ -1740,15 +1740,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/adr-compliance.test.ts": {
-    "mtime": 1790824061.474929,
-    "seen": 1790826046.4353049,
-    "ast_hash": "11d5b0bff6b0b8590e59b20fa6c3c2a8",
+    "mtime": 1791055935.8680387,
+    "seen": 1791056009.225682,
+    "ast_hash": "d16c201c52479296103752b1e38f1516",
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/app.test.ts": {
-    "mtime": 1790832269.1988108,
-    "seen": 1790832319.304517,
-    "ast_hash": "cd74d47f0d0ad2ba2716a140319044aa",
+    "mtime": 1791055935.859996,
+    "seen": 1791056009.225682,
+    "ast_hash": "d1e06c259642cc645f05381124bcee52",
     "semantic_hash": ""
   },
   "codebase/apps/bff/tsconfig.build.json": {
@@ -3408,9 +3408,9 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-10-03-organizations-api/progress.md": {
-    "mtime": 1791055311.4221735,
-    "seen": 1791055803.939539,
-    "ast_hash": "8a1df98f8ee6057202ebedb69ff8d2e7",
+    "mtime": 1791055806.1885886,
+    "seen": 1791056009.3211274,
+    "ast_hash": "77ab87aee2068e6459913bfd24587d2d",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
@@ -3465,6 +3465,12 @@
     "mtime": 1791055639.9688947,
     "seen": 1791055803.8862128,
     "ast_hash": "6130adb9009f3abbe0ee01660154f5f9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/src/modules/organizations/organizations.router.ts": {
+    "mtime": 1791055877.3765967,
+    "seen": 1791056009.221638,
+    "ast_hash": "f11ca7f5f9a4f79a5e84df92d5b200db",
     "semantic_hash": ""
   }
 }

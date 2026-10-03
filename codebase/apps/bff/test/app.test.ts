@@ -124,6 +124,37 @@ describe('BFF', () => {
     expect(res.body.error.code).toBe('AUTHORIZATION_FAILED');
   });
 
+  it('reenvía la lectura de organizaciones con solo los query params permitidos', async () => {
+    const { agent, calls } = setup(['colaborador']);
+    await login(agent);
+    await agent.get('/api/v1/organizations?type=internal_unit&search=ing&limit=10&evil=1').expect(200);
+    expect(calls.at(-1)!.url).toBe('http://party.test/api/v1/organizations?limit=10&type=internal_unit&search=ing');
+  });
+
+  it('lee una organización por id con el id codificado', async () => {
+    const { agent, calls } = setup(['colaborador']);
+    await login(agent);
+    await agent.get('/api/v1/organizations/abc%2F1').expect(200);
+    expect(calls.at(-1)!.url).toBe('http://party.test/api/v1/organizations/abc%2F1');
+  });
+
+  it('aplica RBAC: un colaborador no crea organizaciones y no se llama al servicio', async () => {
+    const { agent, calls } = setup(['colaborador']);
+    const cb = await login(agent);
+    const res = await agent.post('/api/v1/organizations').set('X-XSRF-TOKEN', cb.xsrf).send({ name: 'X', type: 'internal_unit' }).expect(403);
+    expect(res.body.error.code).toBe('AUTHORIZATION_FAILED');
+    expect(calls).toHaveLength(0);
+  });
+
+  it('el Jefe de Ingeniería crea una organización: exige CSRF y reenvía el cuerpo', async () => {
+    const { agent, calls } = setup(['jefe_ingenieria']);
+    const cb = await login(agent);
+    await agent.post('/api/v1/organizations').send({}).expect(403);
+    expect(calls).toHaveLength(0);
+    await agent.post('/api/v1/organizations').set('X-XSRF-TOKEN', cb.xsrf).send({ name: 'Ingeniería', type: 'internal_unit' }).expect(200);
+    expect(calls.at(-1)!.url).toBe('http://party.test/api/v1/organizations');
+  });
+
   it('responde 503 cuando el catálogo aún no existe', async () => {
     const { agent } = setup(['jefe_ingenieria']);
     await login(agent);
