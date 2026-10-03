@@ -60,7 +60,7 @@ sources:
 Escenario: Corregir el apellido
   Dado que soy el Jefe de Ingeniería y existe una persona registrada
   Cuando corrijo su apellido
-  Entonces la persona queda con el apellido corregido y el cambio queda auditado con quién y cuándo
+  Entonces la persona queda con el apellido corregido, el valor anterior se conserva en el historial y el cambio queda auditado con quién, cuándo y los valores anterior y nuevo
 ```
 
 - **Regla / fuente:** SPEC-001:L113; BR-PTY-12
@@ -157,7 +157,7 @@ Escenario: Intentar cambiar mi correo laboral
 - **Depende de:** US-015; para el colaborador, US-022 (identidad de acceso) según la hipótesis H-04 de RCP-002.
 - **Es prerrequisito de:** —
 - **Supuestos:** ninguno.
-- **Hipótesis del agente:** H-1: la corrección de datos simples (nombres, identificación) sobrescribe el valor con auditoría, sin vigencia (SPEC-001:L113 "los datos simples se corrigen").
+- **Hipótesis del agente:** ~~H-1: la corrección de datos simples sobrescribe el valor con auditoría, sin vigencia (SPEC-001:L113)~~ **Reemplazada el 2026-10-02 por decisión de ianache (SCR-016-Q6, Q17):** la corrección de datos simples (nombres, apellidos, nombre preferido, identificaciones) conserva el valor anterior en el historial y queda auditada con quién, cuándo y los valores anterior y nuevo. Queda por alinear SPEC-001:L113.
 
 ## 12. Preguntas abiertas
 

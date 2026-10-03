@@ -10,6 +10,19 @@ generated:
 sources:
   - id: uxr-016
     resource: /knowledge-base/design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md
+  - id: us-016
+    resource: /knowledge-base/requirement/user-stories/US-016-actualizar-datos-y-contactos.md
+id: FLW-016
+requirements:
+  - US-016
+  - UXR-016
+screens:
+  - SCR-016-01
+  - SCR-016-02
+  - SCR-016-03
+  - SCR-016-04
+  - SCR-016-05
+  - SCR-016-06
 ---
 
 # FLW-016 — Actualizar datos y medios de contacto
@@ -53,7 +66,7 @@ END
 EXCEPTIONS:
 E1: No autorizado
   - Error: "No tienes permiso para editar esta persona"
-  - Action: Mostrar botón "Solicitar acceso"
+  - Action: Mostrar botón "Solicitar acceso" (sin fuente: ver SCR-016-Q8)
   
 E2: Datos inválidos
   - Error message en campo rojo (real-time)
@@ -115,8 +128,8 @@ Retorna a ficha (muestra nuevos contactos, historial accesible)
 END
 
 EXCEPTIONS:
-E1: Email/teléfono duplicado
-  - Real-time error: "✗ [Email/Teléfono] ya en uso por [persona]"
+E1: Email duplicado (BR-PTY-08; la unicidad del teléfono no es regla de negocio)
+  - Real-time error: "✗ Ya en uso por [persona]"
   - Submit deshabilitado
   
 E2: Formato inválido
@@ -126,9 +139,8 @@ E2: Formato inválido
 E3: No hay cambios
   - Submitbutton disabled ("Ingresa al menos 1 cambio")
   
-E4: Vigencia incierta (OPEN)
-  - Question: ¿Permitir cambiar fecha_desde/fecha_hasta, o siempre TODAY?
-  - Current: Siempre TODAY (simple)
+E4: Vigencia (resuelta)
+  - Decisión de human:ianache (2026-10-02): el cambio aplica de inmediato; no hay fechas futuras ni fecha editable
 ```
 
 ---
@@ -151,7 +163,8 @@ CURRENT STATE:
 [Click "+ Agregar perfil"]
   ↓
 FORM APPEARS:
-  - Dropdown "Plataforma": [GitHub, LinkedIn, Twitter, Gitlab, Otros]
+  - Dropdown "Plataforma": [LinkedIn, GitHub, Otro] (BR-PTY-09; lista ampliable)
+  - Input "Nombre de la plataforma" (solo si se elige «Otro»): placeholder "ej. Training Portal"
   - Input "URL": [text input con placeholder: "https://github.com/username"]
   ↓
 [Selecciona plataforma]
@@ -261,6 +274,31 @@ E2: Sin cambios
 E3: Acceso denegado
   - Error: "No puedes editar teléfono de otra persona"
   - (Enforce by user_id)
+```
+
+---
+
+## Flow 5: Consultar historial de cambios
+
+**Actor:** Jefe de Ingeniería (cualquier persona) y Colaborador (solo el suyo), por decisión de `human:ianache` (2026-10-02); el ADMIN no accede (SCR-016-Q19)
+**Goal:** Ver qué cambió en la ficha de una persona, con quién y cuándo
+**Pantalla:** SCR-016-06
+
+```
+START
+  ↓
+[Abre ficha de persona]
+  ↓
+[Click en la pestaña «Historial» de la ficha, o en «Ver historial» desde una página de edición o tras guardar]  (propuesta, SCR-016-Q18)
+  ↓
+LISTA DE CAMBIOS: quién, cuándo, campo o medio de contacto, valor anterior, valor nuevo, vigencias
+  ↓
+END
+
+EXCEPTIONS:
+E1: Sin cambios registrados → estado vacío
+E2: Persona anonimizada → valores históricos anonimizados (BR-PTY-14)
+E3: Sin permiso → forbidden
 ```
 
 ---

@@ -817,3 +817,56 @@ Basada en el texto de los prompts que Stitch devolvió y en sus resúmenes. **No
 - ~~**Q-4:**~~ Visibilidad `PUBLIC` aceptada por ianache (2026-10-01).
 - **Q-5:** el proyecto anterior `projects/7424057371727816981` (GEN-001/002) queda sin registrar como activo; archivarlo es decisión humana.
 - **Q-6:** `plataforma-gestion-formacion` (iniciativa) es un identificador asumido.
+
+## Regeneración con «Comsatel Styled» — 2026-10-03
+
+Autorizada por `human:ianache` (2026-10-03, «conforme»): las pantallas de SCR-015 estaban en el azul de «Sovereign Enterprise», que `TKN-SET-002` reemplazó para toda la plataforma. `apply_design_system` no sirvió: creó 14 pantallas nuevas que quedaron vacías. Se regeneró cada pantalla con `generate_screen_from_text` y `designSystem = assets/f23c7efd2fe44bd59183c1c4308d67f1`.
+
+### Método
+
+Un agente delegado regeneró 9 de las 10 pantallas, una a la vez; la décima (SCR-015-07) la generé yo después de dos timeouts del agente. Para cada una se descargó el HTML de la original, se extrajo su texto y se construyó un prompt que reproduce la misma estructura, copia y estados, **excluyendo las invenciones de Stitch** de la generación original (migas «Gestión de Personal >», «REGISTRO DE PERSONAL», campana, avatar, «Operaciones de Formación», códigos de unidad, conmutador «para testing», afirmaciones de accesibilidad). Luego se descargó el HTML nuevo y se comparó con el original.
+
+### Estado vigente (registrado en `DTM-PPM-001`; las azules pasan a `exploration_history`)
+
+| SCR | Artefacto vigente | Anterior (azul) |
+|---|---|---|
+| SCR-015-01 | `screens/88640e9417d246e3b034678b7c5973c7` | `f5b64988…` |
+| SCR-015-02 | `screens/1d9d232d10e5496ab8014c1e06540bc6` | `7247fb71…` |
+| SCR-015-03 | `screens/ff5a651ba54b4c55b8fd02e8f63e8144` | `06800801…` |
+| SCR-015-04 | `screens/6ed6fd69ad0647cf901e7d96f59091b0` | `bff6b7d0…` |
+| SCR-015-05 | `screens/0712677573e94bfbbab46e33a64576db` | `a01ff233…` |
+| SCR-015-06 | `screens/d4f4196947134746bf67b40783934d75` | `613b62fb…` |
+| SCR-015-07 | `screens/4020d7f8ddcc46298ffda4e20aedb745` | `c56f08a0…` |
+| SCR-015-08 | `screens/5af6c7ab36504923b6c64c52a9793c4f` | `6263b835…` |
+| SCR-015-09 | `screens/3b1e5075ba9549b6a645e9307d211b53` | `25b1bbaf…` |
+| SCR-015-10 | `screens/8b485b64f2624e08bcc1734b92ea9505` | `bd6d7454…` |
+
+Los IDs se verificaron con `get_screen` (existen, con alto distinto de cero y el título esperado).
+
+### Verificación (solo texto y estructura del HTML descargado)
+
+- Sin rastro de la paleta azul anterior (`#0f4c81`, `#00355f`, `#1f2937`, `#0284c7`, `#0d3f6b`) en ninguna de las 10; `#bc0100` y `#0059ba` presentes.
+- Sin menciones de WCAG o accesibilidad, códigos «COL-», «Hoy», AM/PM, «Operaciones de Formación», «REGISTRO DE PERSONAL», «ING-HQ» ni migas «Gestión de Personal».
+- **No se inspeccionó ninguna captura**: no se afirma fidelidad visual.
+
+### Diferencias respecto de las originales
+
+- **Datos de ejemplo:** se usaron los de la especificación (Juan Carlos Pérez García, DNI 12345678, `juan.perez@comsatel.com.pe`, 30/09/2026) en lugar de los inventados por Stitch.
+- **Contadores de paso omitidos:** SCR-015 tiene totales incoherentes («Paso 6 de 5»); se conserva solo la insignia «Paso actual».
+- **SCR-015-10:** Stitch cambió el título a «Hoja de referencia de mensajes de error (E1–E11)», que es el de la especificación; se pierde el rótulo pequeño «Registrar un colaborador».
+- **SCR-015-09:** Stitch agregó un texto de retroalimentación «¡Copiado!» en el botón de copiar.
+- **SCR-015-08:** conserva el ejemplo «Código: ERR-REG-8492» tomado de la hoja de errores original (es un código de error de ejemplo, no un identificador de auditoría); conviene sustituirlo por `{ID}`.
+- **SCR-015-06:** Stitch cambió «Campo inicial» por «Campos iniciales».
+- **SCR-015-03 y -04:** se omitieron a propósito los textos «Los datos serán validados automáticamente.», «Disponible para registro nuevo en la plataforma.» e «Información».
+- **SCR-015-05:** son 20 tarjetas de estado (2 grupos de 5), sin el título «Especificación…».
+
+### Residuos en el proyecto Stitch (no se pueden borrar con las herramientas disponibles)
+
+- Las 10 pantallas azules anteriores (siguen en el historial del DTM) y las 4 duplicadas que el proyecto ya tenía (Selección de Tipo, Correo laboral, Identificación y Unidad).
+- Las **14 pantallas vacías** que dejó `apply_design_system` (ver GEN-016).
+- Posibles duplicados por timeouts: el primer intento de SCR-015-03 y los dos de SCR-015-07 pudieron dejar pantallas con IDs desconocidos.
+
+### Preguntas abiertas
+
+- ¿Se vuelve a pasar la implementación del wizard (US-015) contra estas pantallas? La implementación ya usa los tokens de «Comsatel Styled», pero se construyó mirando las pantallas azules.
+- El proyecto sigue con «Sovereign Enterprise» como tema por defecto; no hay herramienta para fijar «Comsatel Styled» sin sobrescribirlo.

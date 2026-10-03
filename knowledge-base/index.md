@@ -99,6 +99,12 @@ sources:
 - [TKN-SET-001 — Tokens «Sovereign Enterprise»](design/tokens/TKN-SET-001-sovereign-enterprise.md) — Design Tokens, `draft`; **reemplazado** por TKN-SET-002 (2026-10-02)
 - [TKN-SET-002 — Tokens «Comsatel Styled»](design/tokens/TKN-SET-002-comsatel-styled.md) — Design Tokens, `draft`; base vigente de toda la plataforma, sustituye a TKN-SET-001
 - [GEN-015 — Diseño Stitch: Registrar un colaborador](design/generations/GEN-015-stitch-registrar-colaborador.md) — Stitch Generation, `draft` (ejecución 2026-10-01 añadida)
+- [UXR-016 — Actualizar datos y medios de contacto](design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md) — UX Requirement, `draft`
+- [FLW-016 — Actualizar datos y medios de contacto](design/user-flows/FLW-016-actualizar-datos-y-contactos.md) — User Flow, `draft`
+- [SCR-016 — Actualizar datos y medios de contacto](design/screens/SCR-016-actualizar-datos-y-contactos.md) — Screen (6 pantallas), `draft`; preguntas Q1, Q2, Q5, Q6, Q12 y Q15 decididas; Q16 a Q18 nuevas
+- [IB-016 — Intent Brief: Actualizar datos y medios de contacto](design/explorations/IB-016-actualizar-datos-y-contactos.md) — Intent Brief, `draft`; alternativas pendientes (Claude Design sin conexión)
+- [CMP-016 — Componentes: Actualizar datos y medios de contacto](design/components/CMP-016-componentes-actualizar-datos-y-contactos.md) — Component (11 especificaciones en `design/components/cmp-016/`), `draft`, `REQUIRES_REVIEW`; 13 preguntas abiertas
+- [GEN-016 — Diseño Stitch: Actualizar datos y medios de contacto](design/generations/GEN-016-stitch-actualizar-datos-y-contactos.md) — Stitch Generation, `draft`; 6 pantallas exploratorias (SCR-016-01..06) registradas en DTM-PPM-001; 13 hallazgos de revisión
 
 ## Negocio — Modelo de información
 
