@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791056367.4011352,
-    "seen": 1791056485.6213462,
-    "ast_hash": "3bcebf939c0fa59d7ff0eac07112f39b",
+    "mtime": 1791056488.8321173,
+    "seen": 1791056553.70598,
+    "ast_hash": "ed216a4288244f218eecd822f9a1345d",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791056364.7843864,
-    "seen": 1791056485.6935914,
-    "ast_hash": "2529dd189dad4c8b4a3d0e6374d30a00",
+    "mtime": 1791056488.8206747,
+    "seen": 1791056553.7849143,
+    "ast_hash": "64b638dbe01887cce06a26fe4fb44e0c",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-002-organizations.md": {
-    "mtime": 1791053280.7606986,
-    "seen": 1791054214.4358041,
-    "ast_hash": "de4028f964629140fd74d860e45242a3",
+    "mtime": 1791056488.812387,
+    "seen": 1791056553.5953739,
+    "ast_hash": "bbfeda07180ae8487215b51ec7e5f46c",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {

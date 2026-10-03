@@ -97,7 +97,7 @@ Pruebas de contrato del servicio (lista, filtros, paginación, 404/400, vigencia
 | ~~Q-1~~ | Resuelta: se diseña el alta (`POST`). | — |
 | ~~Q-2~~ | Resuelta: `code` y `location` se añaden al modelo. Los límites 40/120 son supuestos míos. | — |
 | ~~Q-5~~ | Resuelta (ianache): solo `POST`. | — |
-| Q-6 | Seguimiento (ianache): revisar en el modelo de datos dónde guardar `contact`/`metadata`. Mientras tanto el cuerpo queda reducido | No |
+| ~~Q-6~~ | Resuelta (ianache, 2026-10-03): el contacto de la organización pertenece al **dominio y microservicio Party** (no hay dominio nuevo). Modelo conceptual: IMD-002 R-11 ya cubre medios de contacto de cualquier parte; qué contactos se registran queda en IM-Q8 y `tax_regime`/metadata en IM-Q9 (sin fuente de negocio). El cuerpo del `POST` sigue reducido hasta responderlas; añadir contacto será un cambio aditivo en este mismo servicio. | — |
 | ~~Q-7~~ | Resuelta (ianache): RUC de 11 caracteres; `code` ≤40 y `location` ≤120 aceptados. | — |
 | Q-3 | US-017 y US-018 siguen `draft`; su contrato de lectura puede cambiar al refinarse | No |
 | Q-4 | `type` usa los nombres de API-SPEC-001 (`internal_unit`/`external_provider`), no los códigos de BD | No |

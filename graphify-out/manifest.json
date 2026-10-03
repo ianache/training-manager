@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791056488.8321173,
-    "seen": 1791056553.70598,
-    "ast_hash": "ed216a4288244f218eecd822f9a1345d",
+    "mtime": 1791056809.9537609,
+    "seen": 1791056900.585592,
+    "ast_hash": "36bdff4dba006646e83bf035d32661e5",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -936,9 +936,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md": {
-    "mtime": 1790527604.487012,
-    "seen": 1790536370.7001495,
-    "ast_hash": "e5ed6fcd9cec46a786747236e4b84a3c",
+    "mtime": 1791056778.536494,
+    "seen": 1791056900.5739968,
+    "ast_hash": "1059607b2890150821355c7fd7009959",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-002-organizations.md": {
-    "mtime": 1791056488.812387,
-    "seen": 1791056553.5953739,
-    "ast_hash": "bbfeda07180ae8487215b51ec7e5f46c",
+    "mtime": 1791056809.937624,
+    "seen": 1791056900.4057949,
+    "ast_hash": "3a0746448656764039e1dc684edb2c56",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {
@@ -3408,9 +3408,9 @@
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-10-03-organizations-api/progress.md": {
-    "mtime": 1791056012.2028415,
-    "seen": 1791056485.419365,
-    "ast_hash": "2abfebce12b6b7c0c6c8bfcb2ec328e2",
+    "mtime": 1791056558.1467583,
+    "seen": 1791056900.2998943,
+    "ast_hash": "f637e4627569d9c893c9002855385286",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
