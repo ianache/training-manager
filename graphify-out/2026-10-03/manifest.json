@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791045856.1315372,
-    "seen": 1791045927.164189,
-    "ast_hash": "6d8a0800ef32f2c4f7bfbac4b6dbd5ee",
+    "mtime": 1791064857.9111085,
+    "seen": 1791064931.015502,
+    "ast_hash": "92927a4787334e544e73b7a349ecc0b2",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -456,9 +456,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
-    "mtime": 1790526139.058929,
-    "seen": 1790536370.7001495,
-    "ast_hash": "c6a153823f0768b259eeb231ca726889",
+    "mtime": 1791064857.9392245,
+    "seen": 1791064931.0549717,
+    "ast_hash": "f6ca29fcb827a116d5f5c49c858a6f06",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-002-declarar-requerimientos-de-proyecto.md": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-019-asignar-rol-nivel.md": {
-    "mtime": 1790526061.139807,
-    "seen": 1790536370.7011495,
-    "ast_hash": "8d20df5bd4ef6ab9fc6bc440220bc78d",
+    "mtime": 1791064857.927089,
+    "seen": 1791064931.0579317,
+    "ast_hash": "feb089ab30979517333746f187799b36",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-020-asignar-roles-del-programa.md": {
@@ -3564,9 +3564,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791064043.703611,
-    "seen": 1791064164.2165337,
-    "ast_hash": "114a3a0ee6b6296f64f830d9eb37d2ae",
+    "mtime": 1791064857.9475994,
+    "seen": 1791064931.0482686,
+    "ast_hash": "3639893c35353c416318a2eeaa5f541c",
     "semantic_hash": ""
   }
 }

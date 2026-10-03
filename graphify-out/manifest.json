@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791064119.6236086,
-    "seen": 1791064164.1827502,
-    "ast_hash": "b58f8fbd342c99daf1504081994afd71",
+    "mtime": 1791065348.075048,
+    "seen": 1791065397.1735961,
+    "ast_hash": "c9866f440f10d683e5af9574631624f9",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791064120.1147857,
-    "seen": 1791064164.2165337,
-    "ast_hash": "369730081d95d30d2006553ad92380a1",
+    "mtime": 1791065304.5857878,
+    "seen": 1791065397.270176,
+    "ast_hash": "81dd480f70fa57b7cea4cf3e2edce854",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
-    "mtime": 1791040293.1731033,
-    "seen": 1791045405.0921402,
-    "ast_hash": "d7fdb7a5b19957e6ed5ea16067e336fb",
+    "mtime": 1791065173.443432,
+    "seen": 1791065397.1560533,
+    "ast_hash": "96198e4ef4f14445901bf5ce3189cf39",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
@@ -3420,9 +3420,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md": {
-    "mtime": 1791064119.5740452,
-    "seen": 1791064164.197647,
-    "ast_hash": "4ca73cacc49811cc6e8024821711d434",
+    "mtime": 1791065347.9986901,
+    "seen": 1791065397.1972404,
+    "ast_hash": "15740a39ef23d9e717a1b717b00a4daf",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
@@ -3567,6 +3567,12 @@
     "mtime": 1791064857.9475994,
     "seen": 1791064931.0482686,
     "ast_hash": "3639893c35353c416318a2eeaa5f541c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md": {
+    "mtime": 1791065287.6719072,
+    "seen": 1791065397.0271785,
+    "ast_hash": "af62fe0b7e3992a306126f50e8c392a8",
     "semantic_hash": ""
   }
 }
