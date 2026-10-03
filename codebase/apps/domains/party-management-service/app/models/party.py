@@ -225,3 +225,37 @@ class PartyContactMechanism(Base):
             sqlite_where=text("fk_contact_purpose_type_code = 'WORK_EMAIL' AND thru_date IS NULL"),
         ),
     )
+
+ROLE_UNIT = "ORGANIZATIONAL_UNIT"
+ROLE_SUPPLIER = "SUPPLIER"
+ORG_ROLES = (ROLE_UNIT, ROLE_SUPPLIER)
+REL_ORG_STRUCTURE = "ORG_STRUCTURE"
+ID_RUC = "RUC"
+ORGANIZATION = "ORGANIZATION"
+
+
+class Organization(Base):
+    __tablename__ = "tb_organization"
+
+    pk_party_id: Mapped[str] = mapped_column(CHAR(36), ForeignKey("tb_party.pk_party_id"), primary_key=True)
+    party_kind: Mapped[str] = mapped_column(String(12), default=ORGANIZATION)
+    organization_name: Mapped[str] = mapped_column(String(200))
+    code: Mapped[str | None] = mapped_column(String(40))
+    location: Mapped[str | None] = mapped_column(String(120))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
+    created_by: Mapped[str] = mapped_column(String(36))
+    updated_at: Mapped[datetime | None] = mapped_column(DateTime)
+    updated_by: Mapped[str | None] = mapped_column(String(36))
+
+
+class PartyRelationship(Base):
+    __tablename__ = "tb_party_relationship"
+
+    pk_party_relationship_id: Mapped[str] = mapped_column(CHAR(36), primary_key=True)
+    fk_party_relationship_type_code: Mapped[str] = mapped_column(String(40))
+    fk_party_role_from_id: Mapped[str] = mapped_column(CHAR(36), ForeignKey("tb_party_role.pk_party_role_id"))
+    fk_party_role_to_id: Mapped[str] = mapped_column(CHAR(36), ForeignKey("tb_party_role.pk_party_role_id"))
+    from_date: Mapped[date] = mapped_column(Date)
+    thru_date: Mapped[date | None] = mapped_column(Date)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
+    created_by: Mapped[str] = mapped_column(String(36))

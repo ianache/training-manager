@@ -1,4 +1,4 @@
-"""
+﻿"""
 Esquema creado por `alembic upgrade head` sobre PostgreSQL (solo con TEST_DATABASE_URL).
 
 Comprueba que el ORM coincide con las tablas reales y que las reglas de PDM-001 que la
@@ -16,7 +16,7 @@ pytestmark = pytest.mark.skipif(not TEST_DATABASE_URL, reason="requiere TEST_DAT
 
 def test_version_en_head(migrated_postgres):
     with migrated_postgres.connect() as conn:
-        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0002_std_db_001_alignment"
+        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0003_organization_code_location"
 
 
 def test_orm_coincide_con_la_base(migrated_postgres):
