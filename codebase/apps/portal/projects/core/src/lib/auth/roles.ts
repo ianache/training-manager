@@ -10,6 +10,7 @@ export const AppRole = {
   JefeProyecto: 'jefe_proyecto',
   Evaluador: 'evaluador',
   JefeIngenieria: 'jefe_ingenieria',
+  ProductOwner: 'product_owner',
   Direccion: 'direccion',
   Gerencia: 'gerencia',
   Admin: 'admin',

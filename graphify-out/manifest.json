@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791066539.651266,
-    "seen": 1791066568.7201223,
-    "ast_hash": "b44847b0127fb734e39d33a03c0210a5",
+    "mtime": 1791066705.363145,
+    "seen": 1791066751.7304955,
+    "ast_hash": "078f051ad9194deec7b1cfa441fae9d5",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791066509.7943301,
-    "seen": 1791066568.7159111,
-    "ast_hash": "53cc95266c9273a1417c9094fced56e9",
+    "mtime": 1791066672.7521632,
+    "seen": 1791066751.7299025,
+    "ast_hash": "dc8429b4ead6d7de9c60c633c8660ae7",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -630,9 +630,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791065998.4010053,
-    "seen": 1791066001.1355038,
-    "ast_hash": "78accb4929cfc7e5986c1f46fba8af97",
+    "mtime": 1791066672.7898426,
+    "seen": 1791066751.75399,
+    "ast_hash": "f8ee7febc08bd4bdcd4641a6dc999cb0",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-002-declarar-requerimiento-de-proyecto.md": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-019-asignar-rol-nivel.md": {
-    "mtime": 1791064857.927089,
-    "seen": 1791064931.0579317,
-    "ast_hash": "feb089ab30979517333746f187799b36",
+    "mtime": 1791066672.7642124,
+    "seen": 1791066751.773652,
+    "ast_hash": "c3a336f235c094632b9a071d484fe0bc",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-020-asignar-roles-del-programa.md": {
@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/auth/roles.ts": {
-    "mtime": 1790820521.474744,
-    "seen": 1790821762.7171571,
-    "ast_hash": "a9a9cbcea70dc350ce3d88b47398f5da",
+    "mtime": 1791066633.624401,
+    "seen": 1791066751.5197892,
+    "ast_hash": "9339dffa839fcc285811be8f746ec2fd",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/auth/session.ts": {
@@ -1818,9 +1818,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/core/src/lib/auth/roles.ts": {
-    "mtime": 1790820541.3587477,
-    "seen": 1790821762.728323,
-    "ast_hash": "e547908fa9ec95cc9a8d28a17f4711e0",
+    "mtime": 1791066633.6293783,
+    "seen": 1791066751.5522332,
+    "ast_hash": "f2363e36145f1209c17561c8de4b2185",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/core/src/lib/auth/session.model.ts": {
@@ -2238,9 +2238,9 @@
     "semantic_hash": ""
   },
   "codebase/infra/keycloak/realm-gestion-formacion.json": {
-    "mtime": 1790821540.5270145,
-    "seen": 1790821762.728323,
-    "ast_hash": "7416dd1b533ded216a606ccf0c8fb7e1",
+    "mtime": 1791066633.6185763,
+    "seen": 1791066751.6320524,
+    "ast_hash": "c53179312ef86953f0df69fb8d951724",
     "semantic_hash": ""
   },
   "codebase/infra/vault/seed-secrets.sh": {
@@ -3582,39 +3582,39 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791066509.81146,
-    "seen": 1791066568.6310005,
-    "ast_hash": "4937acc042a6c21a89604ff67678d6da",
+    "mtime": 1791066672.8032105,
+    "seen": 1791066751.664302,
+    "ast_hash": "17229ed5560990aec1d0f4e4f5728e3b",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {
-    "mtime": 1791066016.960744,
-    "seen": 1791066093.7039819,
-    "ast_hash": "9cb4a87b6fcb9ff37a26347efc19be2e",
+    "mtime": 1791066672.7737596,
+    "seen": 1791066751.7567275,
+    "ast_hash": "d3339840018ec0bbf567ab61ba19e1a6",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-001-gestionar-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791066172.5293312,
-    "seen": 1791066230.022511,
-    "ast_hash": "eafdecaec7845fc537ecb7a35e0be041",
+    "mtime": 1791066672.7898426,
+    "seen": 1791066751.7529798,
+    "ast_hash": "1415babd07699ddf3073a1cae8e90857",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-019-asignar-rol-nivel.md": {
-    "mtime": 1791066174.3593347,
-    "seen": 1791066230.022511,
-    "ast_hash": "969d4406a39f15693dd8d27546526add",
+    "mtime": 1791066672.7818165,
+    "seen": 1791066751.75399,
+    "ast_hash": "cbda522bc4e1d5dcf8cd900ca7f47b04",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-001-gestionar-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791066489.5115056,
-    "seen": 1791066568.747897,
-    "ast_hash": "26ba8578fd7f24791bae36ec5541a8bb",
+    "mtime": 1791066683.8755772,
+    "seen": 1791066751.7460155,
+    "ast_hash": "60e245c1183c79932800bcb9a8d2cd04",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-019-asignar-rol-nivel.md": {
-    "mtime": 1791066482.0731945,
-    "seen": 1791066568.7517645,
-    "ast_hash": "dbe9e7fb578ab5dee1df6385cbe5bc75",
+    "mtime": 1791066683.8693419,
+    "seen": 1791066751.7460155,
+    "ast_hash": "fc8f2a7865d66cb8192896725be948d5",
     "semantic_hash": ""
   }
 }

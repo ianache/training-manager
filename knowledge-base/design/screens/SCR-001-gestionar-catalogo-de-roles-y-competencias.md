@@ -136,7 +136,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 | Cualquier colaborador | SCR-001-01 a 03 en solo lectura | Consultar |
 | Jefe de Ingeniería | Todo | Editar roles; definir rúbricas y requisitos; aprobar versiones |
 | ADMIN | Todo | Aprobar versiones; el resto, abierto (FLW-001-Q1) |
-| Responsable de producto | Todo | Editar roles (EVD-2026-0147); rol de Keycloak inexistente (FLW-001-Q2) |
+| Responsable de producto (`product_owner`) | Todo | Editar roles (EVD-2026-0147, 0154) |
 
 ## SCR-001-01 — Catálogo
 
@@ -181,6 +181,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 | Requisitos de evidencia | Por nivel: categoría (formación, práctica evaluada, desempeño en proyecto), descripción, requerido o deseado | UXR-001.4, BR-ACR-08, 12 |
 | Niveles sin requisitos | Marcados «No utilizable hasta definir cómo se evidencia» (texto, no solo color) | BR-CAT-17, BR-ACR-13 |
 | Dónde se usa | Roles y niveles que referencian cada versión, con la advertencia de versión anterior | UXR-001.13 |
+| Transversal | Marca «Transversal» en la competencia (normalmente competencias blandas), editable por quien la define | EVD-2026-0156, BR-CAT-11 |
 | Acciones | «Crear versión nueva» (copia la vigente); «Editar borrador»; solo con permiso | UXR-001.12 |
 
 **Estados:** default; loading; error; no-approved-version (solo borrador); has-draft (ofrece abrir el borrador, no crear otro, E9); partial-levels; read-only.
@@ -232,4 +233,4 @@ Biblioteca: `@gf/ui` (Angular 22, componentes standalone). Sin `@angular/materia
 | SCR-001-Q2 | ¿Se edita un rol y su competencia en la misma pantalla o la competencia se abre aparte? | Jefe de Ingeniería | Media |
 | SCR-001-Q3 | Cómo se elige el curso de un requisito de formación (dominio de cursos) | Jefe de Ingeniería | Baja |
 | SCR-001-Q4 | Responsive: solo escritorio, supuesto heredado | Jefe de Ingeniería | Baja |
-| FLW-001-Q1 a Q4 | Heredadas del flujo (ADMIN, Responsable de producto, eliminar o desactivar, transversal) | Jefe de Ingeniería | Alta |
+| FLW-001-Q1, Q3 | Heredadas del flujo, aún abiertas (ADMIN edita roles y requisitos; eliminar o desactivar). Q2 y Q4 respondidas el 2026-10-03 | Jefe de Ingeniería | Alta |

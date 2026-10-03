@@ -89,7 +89,7 @@ Cada SCR debe declarar `flow: FLW-001`.
 | ID | Pregunta | Responsable | Prioridad | Bloquea |
 |---|---|---|---|---|
 | FLW-001-Q1 | ¿ADMIN puede editar roles, rúbricas y requisitos además de aprobar versiones? | Jefe de Ingeniería | Alta | SCR-001-02..04 (acciones visibles) |
-| FLW-001-Q2 | ¿Qué rol de Keycloak es el Responsable de producto y qué edita? (UXR-001-Q3) | Jefe de Ingeniería | Alta | Permisos |
+| ~~FLW-001-Q2~~ | ~~¿Qué rol de Keycloak es el Responsable de producto y qué edita? (UXR-001-Q3)~~ Respondida (ianache, 2026-10-03): rol `product_owner` creado en Keycloak (EVD-2026-0154); edita roles. | Jefe de Ingeniería | Alta | Permisos |
 | UXR-001-Q2 | ¿La versión incluye rúbrica y requisitos? ¿La anterior pasa a DEPRECATED al aprobar? | Jefe de Ingeniería | Alta | SCR-001-03/04 |
 | FLW-001-Q3 | ¿Un rol o competencia se elimina o solo se desactiva? (DM-Q-03) | Jefe de Ingeniería | Media | Acciones de SCR-001-02 |
-| FLW-001-Q4 | ¿Se marca una competencia como «transversal» (UXR-001.8) o es solo una que está en varios roles? | Jefe de Ingeniería | Baja | SCR-001-03 |
+| ~~FLW-001-Q4~~ | ~~¿Se marca una competencia como «transversal» (UXR-001.8) o es solo una que está en varios roles?~~ Respondida (ianache, 2026-10-03): sí, se marca como transversal (EVD-2026-0156). | Jefe de Ingeniería | Baja | SCR-001-03 |

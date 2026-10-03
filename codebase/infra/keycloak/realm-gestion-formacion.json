@@ -32,6 +32,10 @@
         "description": "Jefe de Ingeniería (gestiona catálogo y data maestra)"
       },
       {
+        "name": "product_owner",
+        "description": "Responsable de producto (edita roles del catálogo; EVD-2026-0147)"
+      },
+      {
         "name": "direccion",
         "description": "Dirección"
       },
