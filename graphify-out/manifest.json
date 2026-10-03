@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791037821.462959,
-    "seen": 1791038399.2786577,
-    "ast_hash": "d66c9592393d2e3e3098ced6635c26cb",
+    "mtime": 1791040010.687448,
+    "seen": 1791040077.4715707,
+    "ast_hash": "9e573389514884472d658ca5a177ec6b",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -36,9 +36,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md": {
-    "mtime": 1790527235.9618435,
-    "seen": 1790536370.679802,
-    "ast_hash": "31c16d2ae1454032e0aaa49f1f6b6aee",
+    "mtime": 1791040010.6616662,
+    "seen": 1791040077.3687408,
+    "ast_hash": "d2c8190d99c78098dd9fec2d7adf09f9",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0001-acreditacion.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791000948.0965059,
-    "seen": 1791038399.2757597,
-    "ast_hash": "320c0a2a59865b3ae27b21307517516b",
+    "mtime": 1791040010.6802955,
+    "seen": 1791040077.4687545,
+    "ast_hash": "24c883351731e96d483901f5e9eaa409",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0079-unidad-organizacional.md": {
-    "mtime": 1790519510.9392607,
-    "seen": 1790520178.6853318,
-    "ast_hash": "8f2898a4fcfa2dca097c8f4573b66bad",
+    "mtime": 1791040010.6716907,
+    "seen": 1791040077.4156132,
+    "ast_hash": "49a222e4d197e162631afa0b8f304d77",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0080-jefe-directo.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
-    "mtime": 1790519374.4999323,
-    "seen": 1790520178.6853318,
-    "ast_hash": "5ee76d1840aa16e4373f68043c79201a",
+    "mtime": 1791040010.695556,
+    "seen": 1791040077.528303,
+    "ast_hash": "e6630780abec1fac522145069ba8bc5d",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
@@ -1788,9 +1788,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/package.json": {
-    "mtime": 1790998429.1145873,
-    "seen": 1791038398.9074473,
-    "ast_hash": "eec25f1a69fef9d0d37076d548e6a684",
+    "mtime": 1791039399.559913,
+    "seen": 1791039938.6435575,
+    "ast_hash": "b6af6405ebdb337ff28ac4bc55c7b26f",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/core/ng-package.json": {
