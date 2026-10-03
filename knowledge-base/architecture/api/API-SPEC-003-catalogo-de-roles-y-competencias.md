@@ -114,7 +114,7 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 
 ## 4. Compatibilidad y versionado
 
-- La forma de `GET /catalog/roles` (`data[].id`, `name`, `levels[].{id,name,evidence_requirements}`) es la que el portal ya consume: **compatible**, **salvo `status`**, que pasa a `ACTIVE`/`INACTIVE` (BR-CAT-27) mientras el stub y el portal usan `active`/`inactive` (AQ-9).
+- La forma de `GET /catalog/roles` (`data[].id`, `name`, `levels[].{id,name,evidence_requirements}`) es la que el portal ya consume: **compatible**, **salvo `status`**, que pasa a `ACTIVE`/`INACTIVE` (BR-CAT-27, AQ-9); el stub y la consulta de roles del portal ya lo usan así.
 - Todo lo demás es **aditivo**. Ids y rutas bajo `/api/v1`; un cambio incompatible exige `/v2`.
 - Cuando el catálogo exista, `CATALOG_SERVICE_URL` deja de estar vacío y se retira el `catalog-stub`.
 
@@ -137,7 +137,7 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 | AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). `deactivate` de competencias añadido arriba | `deactivate` |
 | AQ-7 | **Resuelta (2026-10-03):** desactivan y reactivan el Jefe de Ingeniería y `admin` (BR-CAT-29) | `deactivate`, `reactivate` |
 | AQ-8 | **Resuelta (2026-10-03):** un Rol-Nivel nuevo solo usa una competencia `ACTIVE` (DM-Q-08, BR-CAT-28) | CHK-A/CHK-B |
-| AQ-9 | Los estados del catálogo van en mayúsculas pero las API de party, BFF y portal siguen en minúsculas (EVD-2026-0162). El BFF tendrá que traducir al consumir `/roles` mientras convivan los dos formatos | Compatibilidad del contrato |
+| AQ-9 | **Resuelta (2026-10-03):** el `status` de los roles del catálogo también va en mayúsculas (`ACTIVE`/`INACTIVE`). Aplicado en el stub (`roles.json`) y en la consulta del portal `GET /catalog/roles?status=ACTIVE`; el BFF reenvía `status` sin traducir. Party y sus consumidores no cambian (EVD-2026-0162) | Compatibilidad del contrato |
 | AQ-5 | ¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019 | `PUT /roles` |
 | AQ-6 | **Resuelta (2026-10-03):** el rol ADMIN es correcto (DM-Q-04, BR-CAT-26) | Asignación de niveles (US-019), fuera de este contrato |
 

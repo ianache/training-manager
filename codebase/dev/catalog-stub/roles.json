@@ -1,16 +1,16 @@
 {"data":[
-{"id":"a1000000-0000-4000-8000-000000000001","name":"Desarrollador Backend","status":"active","levels":[
+{"id":"a1000000-0000-4000-8000-000000000001","name":"Desarrollador Backend","status":"ACTIVE","levels":[
  {"id":"a1100000-0000-4000-8000-000000000001","name":"Junior","evidence_requirements":2},
  {"id":"a1100000-0000-4000-8000-000000000002","name":"Semi Senior","evidence_requirements":3},
  {"id":"a1100000-0000-4000-8000-000000000003","name":"Senior","evidence_requirements":4}]},
-{"id":"a1000000-0000-4000-8000-000000000002","name":"Desarrollador Frontend","status":"active","levels":[
+{"id":"a1000000-0000-4000-8000-000000000002","name":"Desarrollador Frontend","status":"ACTIVE","levels":[
  {"id":"a1200000-0000-4000-8000-000000000001","name":"Junior","evidence_requirements":2},
  {"id":"a1200000-0000-4000-8000-000000000002","name":"Semi Senior","evidence_requirements":3},
  {"id":"a1200000-0000-4000-8000-000000000003","name":"Senior","evidence_requirements":4}]},
-{"id":"a1000000-0000-4000-8000-000000000003","name":"QA Engineer","status":"active","levels":[
+{"id":"a1000000-0000-4000-8000-000000000003","name":"QA Engineer","status":"ACTIVE","levels":[
  {"id":"a1300000-0000-4000-8000-000000000001","name":"Junior","evidence_requirements":2},
  {"id":"a1300000-0000-4000-8000-000000000002","name":"Senior","evidence_requirements":3}]},
-{"id":"a1000000-0000-4000-8000-000000000004","name":"Analista de Marketing","status":"active","levels":[
+{"id":"a1000000-0000-4000-8000-000000000004","name":"Analista de Marketing","status":"ACTIVE","levels":[
  {"id":"a1400000-0000-4000-8000-000000000001","name":"Analista","evidence_requirements":2},
  {"id":"a1400000-0000-4000-8000-000000000002","name":"Especialista","evidence_requirements":3}]}
 ],"pagination":{"page":1,"limit":100,"total":4,"total_pages":1}}

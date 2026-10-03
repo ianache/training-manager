@@ -82,7 +82,7 @@ export class RegisterCollaboratorApi {
   }
 
   roles(): Observable<RoleOption[]> {
-    return this.http.get<Page<CatalogRow> | CatalogRow[]>(`${this.base}/catalog/roles`, { params: { status: 'active', limit: 100 } }).pipe(
+    return this.http.get<Page<CatalogRow> | CatalogRow[]>(`${this.base}/catalog/roles`, { params: { status: 'ACTIVE', limit: 100 } }).pipe(
       map((b) =>
         rows(b).map((r) => ({
           id: r.id,

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791066789.275734,
-    "seen": 1791066836.1318257,
-    "ast_hash": "f4fdeb0543fa172417f2f37d1c243950",
+    "mtime": 1791067025.3818543,
+    "seen": 1791067072.416938,
+    "ast_hash": "c9ad44259a1325bb12b485c85e69cea6",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -3054,9 +3054,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.ts": {
-    "mtime": 1791056208.8644178,
-    "seen": 1791056485.3581786,
-    "ast_hash": "3ec93974d63f3342426fedc20012c9aa",
+    "mtime": 1791066978.6025646,
+    "seen": 1791067072.2916915,
+    "ast_hash": "7948ad5fe2634bddabe03378ca41df00",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.spec.ts": {
-    "mtime": 1791056102.698814,
-    "seen": 1791056485.3581786,
-    "ast_hash": "65aeec903940196a1aa3e2f8f96daf55",
+    "mtime": 1791066978.6108713,
+    "seen": 1791067072.2916915,
+    "ast_hash": "b5741b3faba1b6265edd62022b9dfccb",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.spec.ts": {
@@ -3534,9 +3534,9 @@
     "semantic_hash": ""
   },
   "codebase/dev/catalog-stub/roles.json": {
-    "mtime": 1791060379.6076589,
-    "seen": 1791060569.9692757,
-    "ast_hash": "3422e9f71d6853b2672946c77ba18f76",
+    "mtime": 1791066978.5925255,
+    "seen": 1791067072.3150907,
+    "ast_hash": "dbec24a72ab4fb43997f1dca01e1e35e",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md": {
@@ -3582,9 +3582,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791066788.8843672,
-    "seen": 1791066836.0863216,
-    "ast_hash": "d51957187f47d3cbfc1a53fbf1a5b070",
+    "mtime": 1791067025.3655941,
+    "seen": 1791067072.3493855,
+    "ast_hash": "8d1e1ceca0f332efc5925253ac45aeee",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {

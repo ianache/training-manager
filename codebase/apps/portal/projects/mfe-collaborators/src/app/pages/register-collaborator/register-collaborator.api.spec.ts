@@ -147,7 +147,7 @@ describe('RegisterCollaboratorApi', () => {
       let out: unknown;
       api.roles().subscribe((o) => (out = o));
       const req = http.expectOne((r) => r.url === '/api/v1/catalog/roles');
-      expect(req.request.params.get('status')).toBe('active');
+      expect(req.request.params.get('status')).toBe('ACTIVE');
       expect(req.request.params.get('limit')).toBe('100');
       req.flush(
         page([
