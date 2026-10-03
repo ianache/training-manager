@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791066705.363145,
-    "seen": 1791066751.7304955,
-    "ast_hash": "078f051ad9194deec7b1cfa441fae9d5",
+    "mtime": 1791066789.275734,
+    "seen": 1791066836.1318257,
+    "ast_hash": "f4fdeb0543fa172417f2f37d1c243950",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791066672.7521632,
-    "seen": 1791066751.7299025,
-    "ast_hash": "dc8429b4ead6d7de9c60c633c8660ae7",
+    "mtime": 1791066788.8680797,
+    "seen": 1791066836.129806,
+    "ast_hash": "e783a0d033942b1178a3c7c2473b7a0f",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -3570,9 +3570,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md": {
-    "mtime": 1791066509.8066442,
-    "seen": 1791066568.6387486,
-    "ast_hash": "41d353c1f4a6c2668d4ca129a8bb3440",
+    "mtime": 1791066788.8781765,
+    "seen": 1791066836.0903437,
+    "ast_hash": "d58903e8d45f82569e6a253e075de7cc",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md": {
@@ -3582,9 +3582,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791066672.8032105,
-    "seen": 1791066751.664302,
-    "ast_hash": "17229ed5560990aec1d0f4e4f5728e3b",
+    "mtime": 1791066788.8843672,
+    "seen": 1791066836.0863216,
+    "ast_hash": "d51957187f47d3cbfc1a53fbf1a5b070",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {

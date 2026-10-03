@@ -74,6 +74,7 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
 | `required_level` fuera de L1–L4 | `VALIDATION_ERROR` | 400 | BR-CAT-02 |
 | La misma competencia dos veces en un nivel | `COMPETENCY_DUPLICATED` | 409 | BR-CAT-21 |
 | La versión no pertenece a la competencia o no está APPROVED | `VALIDATION_ERROR` | 400 | R-46 |
+| La competencia está `INACTIVE` y no estaba ya en ese Rol-Nivel | `COMPETENCY_INACTIVE` | 409 | BR-CAT-28 (DM-Q-08) |
 | El nivel L exigido no tiene requisitos de evidencia o ninguno es «requerido» | `EVIDENCE_REQUIREMENTS_MISSING` | 422 | BR-ACR-13, EVD-2026-0149 (CHK-B) |
 | Nombre de rol repetido | `ROLE_NAME_DUPLICATE` | 409 | LDM-002 CM-10 (supuesto) |
 | `If-Match` desactualizado | `PRECONDITION_FAILED` | 412 | LDM-002 CM-09 |
@@ -91,7 +92,7 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
         "description": "Aprobar el curso X", "is_required": true, "course_ref": "uuid|null" } ] }
   ```
   La definición es progresiva (BR-CAT-17): no exige los cuatro niveles. Cada requisito declara `is_required` (BR-ACR-12) y `course_ref` solo con `FORMACION` (LDM-002 CM-08).
-- `POST /competencies/{id}/deactivate` pasa la competencia de `ACTIVE` a `INACTIVE` (BR-CAT-25). No se elimina: sus versiones, rúbricas y requisitos se conservan, los ids siguen válidos y **los Rol-Nivel que ya la usan la conservan** (BR-CAT-28). Requiere `If-Match: <row_version>`; ya `INACTIVE` → `COMPETENCY_ALREADY_INACTIVE` 409. `POST /competencies/{id}/reactivate` la devuelve a `ACTIVE` (BR-CAT-28); ya `ACTIVE` → `COMPETENCY_ALREADY_ACTIVE` 409. `GET /competencies` y `/competencies/{id}` devuelven `status` y el listado admite `status` como filtro. Un Rol-Nivel nuevo puede incluir la competencia; si debe estar `ACTIVE` antes es DM-Q-08, y mientras tanto el servicio no lo rechaza.
+- `POST /competencies/{id}/deactivate` pasa la competencia de `ACTIVE` a `INACTIVE` (BR-CAT-25). No se elimina: sus versiones, rúbricas y requisitos se conservan, los ids siguen válidos y **los Rol-Nivel que ya la usan la conservan** (BR-CAT-28). Requiere `If-Match: <row_version>`; ya `INACTIVE` → `COMPETENCY_ALREADY_INACTIVE` 409. `POST /competencies/{id}/reactivate` la devuelve a `ACTIVE` (BR-CAT-28); ya `ACTIVE` → `COMPETENCY_ALREADY_ACTIVE` 409. `GET /competencies` y `/competencies/{id}` devuelven `status` y el listado admite `status` como filtro. Un Rol-Nivel **nuevo** solo puede incluirla si está `ACTIVE` (`COMPETENCY_INACTIVE` 409); en un `PUT /roles/{id}` se acepta que un Rol-Nivel que ya la tenía la conserve aunque esté `INACTIVE` (BR-CAT-28).
 - `POST …/approve`: pasa DRAFT a APPROVED y la APPROVED anterior a DEPRECATED, en una transacción (decisión DM-Q-02, BR-CAT-24; solo se aprueba desde DRAFT). Registra `approved_by` y `approved_at`. Las relaciones vigentes no cambian (EVD-2026-0143). Respuesta `200` con la versión y `previous_version_id`.
 
 ## 3. Seguridad y privacidad
@@ -105,7 +106,7 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 | Alta de competencia, rúbrica y requisitos de evidencia | `jefe_ingenieria` | BR-CAT-16, BR-CAT-19 |
 | Aprobar una versión | `jefe_ingenieria` o `admin` | EVD-2026-0144 |
 | Desactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0159 |
-| Reactivar una competencia | `jefe_ingenieria` o `admin` (**supuesto**: los mismos que desactivan) | BR-CAT-28, 29 |
+| Reactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0161 |
 
 **Resuelto el 2026-10-03:** el rol `product_owner` (Responsable de producto) existe en el realm y en `roles.ts` del BFF y del portal (EVD-2026-0154). Edita roles; no se asume que edite competencias.
 
@@ -113,7 +114,7 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 
 ## 4. Compatibilidad y versionado
 
-- La forma de `GET /catalog/roles` (`data[].id`, `name`, `levels[].{id,name,evidence_requirements}`) es la que el portal ya consume: **compatible**.
+- La forma de `GET /catalog/roles` (`data[].id`, `name`, `levels[].{id,name,evidence_requirements}`) es la que el portal ya consume: **compatible**, **salvo `status`**, que pasa a `ACTIVE`/`INACTIVE` (BR-CAT-27) mientras el stub y el portal usan `active`/`inactive` (AQ-9).
 - Todo lo demás es **aditivo**. Ids y rutas bajo `/api/v1`; un cambio incompatible exige `/v2`.
 - Cuando el catálogo exista, `CATALOG_SERVICE_URL` deja de estar vacío y se retira el `catalog-stub`.
 
@@ -134,8 +135,9 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 | AQ-2 | Significado de `levels[].evidence_requirements` (§2) | Texto del asistente de alta |
 | AQ-3 | **Resuelta (2026-10-03):** la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT (DM-Q-02) | Contrato de `approve` (confirmado) |
 | AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). `deactivate` de competencias añadido arriba | `deactivate` |
-| AQ-7 | **Resuelta (2026-10-03):** desactivan el Jefe de Ingeniería y `admin` (BR-CAT-29). Reactivar: se supone el mismo conjunto | `deactivate`, `reactivate` |
-| AQ-8 | ¿Un Rol-Nivel nuevo puede usar una competencia que sigue INACTIVE o debe reactivarse antes? (DM-Q-08) | CHK-A/CHK-B |
+| AQ-7 | **Resuelta (2026-10-03):** desactivan y reactivan el Jefe de Ingeniería y `admin` (BR-CAT-29) | `deactivate`, `reactivate` |
+| AQ-8 | **Resuelta (2026-10-03):** un Rol-Nivel nuevo solo usa una competencia `ACTIVE` (DM-Q-08, BR-CAT-28) | CHK-A/CHK-B |
+| AQ-9 | Los estados del catálogo van en mayúsculas pero las API de party, BFF y portal siguen en minúsculas (EVD-2026-0162). El BFF tendrá que traducir al consumir `/roles` mientras convivan los dos formatos | Compatibilidad del contrato |
 | AQ-5 | ¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019 | `PUT /roles` |
 | AQ-6 | **Resuelta (2026-10-03):** el rol ADMIN es correcto (DM-Q-04, BR-CAT-26) | Asignación de niveles (US-019), fuera de este contrato |
 

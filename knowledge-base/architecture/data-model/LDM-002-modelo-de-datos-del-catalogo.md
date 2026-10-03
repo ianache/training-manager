@@ -128,9 +128,9 @@ No se probaron CHK-A a CHK-D (son del servicio, que no existe) ni la carga.
 | DM-Q-05 | Los requisitos de evidencia se versionan con la competencia. | BR-CAT-23 |
 | DM-Q-06 | Todos los estados se escriben en mayúsculas. `tb_role.status` pasa a `'ACTIVE'`/`'INACTIVE'` (aplicado en el DDL). | BR-CAT-27 |
 | DM-Q-07 | Una competencia INACTIVE se puede reactivar; los Rol-Nivel que ya la usan la conservan y uno nuevo puede usarla. | BR-CAT-28 |
-| DM-Q-08 | **Abierta:** ¿un Rol-Nivel nuevo puede usar una competencia que sigue INACTIVE, o debe reactivarse antes? ¿Quién reactiva (se supone el Jefe de Ingeniería y ADMIN)? | BR-CAT-28, 29 |
+| DM-Q-08 | Un Rol-Nivel nuevo solo puede usar una competencia después de reactivarla. Reactivan los mismos que desactivan (Jefe de Ingeniería y ADMIN). | BR-CAT-28, 29 |
 
-**Efecto en el modelo (aplicado el 2026-10-03):** `tb_competency` tiene la columna `status` (`ACTIVE`/`INACTIVE`, por defecto `ACTIVE`, `ck_competency_status`) en `ddl/catalog-postgresql.sql`; «aprobar solo desde DRAFT» es una regla entre filas y la aplica el servicio. `tb_role.status` pasa también a `'ACTIVE'`/`'INACTIVE'` (BR-CAT-27, DM-Q-06). Un Rol-Nivel que ya usa una competencia la conserva al desactivarla y al reactivarla, y uno nuevo puede usarla (DM-Q-07); si exige reactivarla antes es DM-Q-08.
+**Efecto en el modelo (aplicado el 2026-10-03):** `tb_competency` tiene la columna `status` (`ACTIVE`/`INACTIVE`, por defecto `ACTIVE`, `ck_competency_status`) en `ddl/catalog-postgresql.sql`; «aprobar solo desde DRAFT» es una regla entre filas y la aplica el servicio. `tb_role.status` pasa también a `'ACTIVE'`/`'INACTIVE'` (BR-CAT-27, DM-Q-06). Un Rol-Nivel que ya usa una competencia la conserva al desactivarla y al reactivarla, y uno nuevo solo puede usarla si está `ACTIVE` (DM-Q-07, DM-Q-08); esa comprobación es del servicio, no del DDL, porque cruza `tb_role_level_competency` y `tb_competency`.
 
 ## 9. Siguiente paso
 
