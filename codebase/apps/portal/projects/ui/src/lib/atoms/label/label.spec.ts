@@ -1,36 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { GfLabel } from './label';
 
 describe('GfLabel', () => {
-  let component: GfLabel;
   let fixture: ComponentFixture<GfLabel>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [GfLabel]
-    }).compileComponents();
+    await TestBed.configureTestingModule({ imports: [GfLabel] }).compileComponents();
     fixture = TestBed.createComponent(GfLabel);
-    component = fixture.componentInstance;
   });
 
-  it('should render label with correct text', () => {
-    component.text = 'Name';
+  const label = () => fixture.nativeElement.querySelector('label') as HTMLLabelElement;
+
+  it('muestra el texto de la etiqueta', () => {
+    fixture.componentRef.setInput('text', 'Name');
     fixture.detectChanges();
-    const label = fixture.nativeElement.querySelector('label');
-    expect(label.textContent.trim()).toContain('Name');
+    expect(label().textContent).toContain('Name');
   });
 
-  it('should link label to input using for attribute', () => {
-    component.inputId = 'email-input';
+  it('asocia la etiqueta al control con el atributo for', () => {
+    fixture.componentRef.setInput('inputId', 'email-input');
     fixture.detectChanges();
-    const label = fixture.nativeElement.querySelector('label');
-    expect(label.getAttribute('for')).toBe('email-input');
+    expect(label().htmlFor).toBe('email-input');
   });
 
-  it('should show asterisk when required is true', () => {
-    component.required = true;
+  it('muestra el asterisco solo cuando es obligatorio', () => {
     fixture.detectChanges();
-    const asterisk = fixture.nativeElement.querySelector('[aria-label="required"]');
-    expect(asterisk).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('[aria-label="required"]')).toBeNull();
+    fixture.componentRef.setInput('required', true);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('[aria-label="required"]')?.textContent).toContain('*');
   });
 });

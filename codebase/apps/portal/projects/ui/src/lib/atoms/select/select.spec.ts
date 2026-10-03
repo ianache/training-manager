@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { GfSelect } from './select';
 
 describe('GfSelect', () => {
@@ -14,6 +15,19 @@ describe('GfSelect', () => {
     component = fixture.componentInstance;
   });
 
+  /** Simula la elección del usuario en el <select> real y devuelve lo que emitió valueChange. */
+  const choose = (...values: string[]): string[] => {
+    const emitted: string[] = [];
+    component.valueChange.subscribe((v: string) => emitted.push(v));
+    const select = fixture.nativeElement.querySelector('select') as HTMLSelectElement;
+    for (const v of values) {
+      if (![...select.options].some((o) => o.value === v)) select.append(new Option(v, v));
+      select.value = v;
+      select.dispatchEvent(new Event('change'));
+    }
+    return emitted;
+  };
+
   describe('Basic rendering and attributes', () => {
     it('should render select element', () => {
       fixture.detectChanges();
@@ -21,10 +35,9 @@ describe('GfSelect', () => {
       expect(select).toBeTruthy();
     });
 
-    it('should emit valueChange on selection', () => {
-      spyOn(component.valueChange, 'emit');
-      component.valueChange.emit('option1');
-      expect(component.valueChange.emit).toHaveBeenCalledWith('option1');
+    it('emite valueChange con la opción elegida', () => {
+      fixture.detectChanges();
+      expect(choose('option1')).toEqual(['option1']);
     });
 
     it('should be enabled by default', () => {
@@ -132,29 +145,20 @@ describe('GfSelect', () => {
       expect(control.value).toBe('option2');
     });
 
-    it('should emit valueChange when using control', () => {
-      spyOn(component.valueChange, 'emit');
+    it('con un FormControl emite valueChange y actualiza el control al elegir', () => {
       const control = new FormControl('option1');
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();
 
-      component.onChangeWithControl({
-        target: { value: 'option2' }
-      } as any);
-
-      expect(component.valueChange.emit).toHaveBeenCalledWith('option2');
+      expect(choose('option2')).toEqual(['option2']);
+      expect(control.value).toBe('option2');
     });
 
-    it('should emit valueChange when not using control', () => {
-      spyOn(component.valueChange, 'emit');
+    it('sin FormControl emite valueChange al elegir', () => {
       fixture.componentRef.setInput('control', null);
       fixture.detectChanges();
 
-      component.onChangeWithoutControl({
-        target: { value: 'option1' }
-      } as any);
-
-      expect(component.valueChange.emit).toHaveBeenCalledWith('option1');
+      expect(choose('option1')).toEqual(['option1']);
     });
 
     it('should work with required validator', () => {
@@ -284,26 +288,33 @@ describe('GfSelect', () => {
   });
 
   describe('Edge cases', () => {
-    it('should handle rapid value changes', () => {
-      spyOn(component.valueChange, 'emit');
+    it('emite una vez por cada cambio rápido y en orden', () => {
       fixture.detectChanges();
-
-      component.onChangeWithControl({ target: { value: 'opt1' } } as any);
-      component.onChangeWithControl({ target: { value: 'opt2' } } as any);
-      component.onChangeWithControl({ target: { value: 'opt3' } } as any);
-
-      expect(component.valueChange.emit).toHaveBeenCalledTimes(3);
+      expect(choose('opt1', 'opt2', 'opt3')).toEqual(['opt1', 'opt2', 'opt3']);
     });
 
-    it('should handle special characters in value', () => {
-      spyOn(component.valueChange, 'emit');
+    it('conserva caracteres especiales en el valor', () => {
       fixture.detectChanges();
-
-      component.onChangeWithControl({
-        target: { value: 'opt-with_special.chars' }
-      } as any);
-
-      expect(component.valueChange.emit).toHaveBeenCalledWith('opt-with_special.chars');
+      expect(choose('opt-with_special.chars')).toEqual(['opt-with_special.chars']);
     });
+  });
+});
+
+
+describe('GfSelect — aria-invalid tras la interacción del usuario', () => {
+  it('pasa a aria-invalid=true cuando el usuario sale de un campo obligatorio vacío', async () => {
+    await TestBed.configureTestingModule({ imports: [GfSelect, ReactiveFormsModule] }).compileComponents();
+    const fixture = TestBed.createComponent(GfSelect);
+    const control = new FormControl('', Validators.required);
+    fixture.componentRef.setInput('control', control);
+    fixture.detectChanges();
+    const el = fixture.nativeElement.querySelector('select') as HTMLElement;
+    expect(el.getAttribute('aria-invalid')).toBeNull();
+
+    el.dispatchEvent(new Event('blur')); // el value accessor del formControl marca el control como tocado
+    fixture.detectChanges();
+
+    expect(control.touched).toBe(true);
+    expect(el.getAttribute('aria-invalid')).toBe('true');
   });
 });

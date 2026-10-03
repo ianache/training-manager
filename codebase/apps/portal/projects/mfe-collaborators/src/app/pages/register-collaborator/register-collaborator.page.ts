@@ -68,7 +68,7 @@ import { StepRevisar } from './steps/step-revisar';
     } @else if (store.submitError()?.kind === 'E1') {
       <!-- E1 · Sin permisos -->
       <main class="page page--narrow">
-        <h1 class="title">Registrar un colaborador</h1>
+        <h1 class="title title--brand">Registrar un colaborador</h1>
         <gf-alert tone="danger" icon="block" heading="Sin permisos">
           <p class="alert-p">{{ store.submitError()?.message }}</p>
           <div class="alert-actions"><gf-button variant="secondary" (pressed)="goList()">Volver</gf-button></div>

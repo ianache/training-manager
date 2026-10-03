@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { GfTextInput } from './text-input';
 
 describe('GfTextInput', () => {
@@ -15,10 +16,14 @@ describe('GfTextInput', () => {
   });
 
   describe('Basic rendering and signals', () => {
-    it('should emit valueChange when input value changes', () => {
-      spyOn(component.valueChange, 'emit');
-      component.valueChange.emit('test');
-      expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+    it('emite valueChange con el texto escrito (sin control de formulario)', () => {
+      fixture.detectChanges();
+      const emitted: string[] = [];
+      component.valueChange.subscribe((v: string) => emitted.push(v));
+      const input = fixture.nativeElement.querySelector('input');
+      input.value = 'test';
+      input.dispatchEvent(new Event('input'));
+      expect(emitted).toEqual(['test']);
     });
 
     it('should have aria-required attribute when required is true', () => {
@@ -42,11 +47,12 @@ describe('GfTextInput', () => {
       expect(input.disabled).toBe(true);
     });
 
-    it('should emit blur event on input blur', () => {
-      spyOn(component.blur, 'emit');
-      const input = fixture.nativeElement.querySelector('input');
-      input.dispatchEvent(new Event('blur'));
-      expect(component.blur.emit).toHaveBeenCalled();
+    it('emite blur al perder el foco', () => {
+      fixture.detectChanges();
+      const spy = vi.fn();
+      component.blur.subscribe(spy);
+      fixture.nativeElement.querySelector('input').dispatchEvent(new Event('blur'));
+      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('should support different input types', () => {
@@ -140,5 +146,24 @@ describe('GfTextInput', () => {
       const input = fixture.nativeElement.querySelector('input');
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
+  });
+});
+
+
+describe('GfTextInput — aria-invalid tras la interacción del usuario', () => {
+  it('pasa a aria-invalid=true cuando el usuario sale de un campo obligatorio vacío', async () => {
+    await TestBed.configureTestingModule({ imports: [GfTextInput, ReactiveFormsModule] }).compileComponents();
+    const fixture = TestBed.createComponent(GfTextInput);
+    const control = new FormControl('', Validators.required);
+    fixture.componentRef.setInput('control', control);
+    fixture.detectChanges();
+    const el = fixture.nativeElement.querySelector('input') as HTMLElement;
+    expect(el.getAttribute('aria-invalid')).toBeNull();
+
+    el.dispatchEvent(new Event('blur')); // el value accessor del formControl marca el control como tocado
+    fixture.detectChanges();
+
+    expect(control.touched).toBe(true);
+    expect(el.getAttribute('aria-invalid')).toBe('true');
   });
 });
