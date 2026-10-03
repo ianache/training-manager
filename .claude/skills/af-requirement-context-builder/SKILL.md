@@ -120,3 +120,12 @@ El trabajo está listo cuando:
 - `references/requirement-context-pack-template.md`
 - `references/evidence-log-template.md`
 - `references/human-validation-checklist.md`
+
+## Aislamiento con git worktree
+
+Cuando la tarea vaya a crear o editar archivos, trabaja en un worktree de git aislado para que la rama principal no reciba nada hasta que una persona lo decida.
+
+- Comprueba primero: si `git rev-parse --git-dir` y `git rev-parse --git-common-dir` difieren, ya estás en un worktree enlazado (por ejemplo, creado por `af-requirements-orchestrator`). Trabaja ahí y no crees otro.
+- En el checkout principal, ofrece un worktree con `superpowers:using-git-worktrees` (rama `req/<slug>`) y respeta la respuesta o la preferencia ya declarada. Un worktree parte del último commit: ejecuta `git status --short` y di al usuario qué archivos sin commitear no tendrá.
+- Si quien te invoca dice que actualizará `knowledge-base/index.md` y `changelog.md`, omite esos pasos y devuelve las entradas.
+- Nunca hagas commit, merge ni elimines el worktree por iniciativa propia. Al terminar, resume `git status --short` y `git diff --stat` y deja que el usuario elija merge, PR, conservar o descartar. Las tareas de solo lectura no necesitan worktree.

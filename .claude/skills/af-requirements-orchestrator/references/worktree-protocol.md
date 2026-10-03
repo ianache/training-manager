@@ -22,7 +22,8 @@ Un worktree separa el trabajo de requerimientos de la rama principal hasta que u
 Delega en `superpowers:using-git-worktrees`: detecta si ya estás en un worktree (no crees otro), pide consentimiento si no hay preferencia declarada y usa la herramienta nativa (`EnterWorktree`) antes que `git worktree add`.
 
 - **Rama:** `req/<slug-del-alcance>` (p. ej. `req/gestion-colaboradores`). Una rama por ejecución del orquestador, no una por skill.
-- Si el orquestador ya creó el worktree, los skills `af-*` que invoca trabajan en él.
+- Si el orquestador ya creó el worktree, los skills `af-*` que invocan trabajan en él.
+- **Nombre corto (Windows):** nombra el worktree con 12 caracteres o menos (p. ej. `req-cursos`). Windows limita las rutas a 260 caracteres y graphify escribe archivos como `<worktree>\graphify-out\cache\ast\v0.9.65-s4\<64 hex>.<sufijo>.tmp`; con un nombre largo, `graphify update .` falla con `No such file or directory`. Antes de empezar, comprueba que `len(<raíz del worktree>) + 118` quede por debajo de 255. Si ya falló, `git worktree move` con un nombre corto conserva los cambios sin commitear.
 
 ## 2. Verificación previa
 
@@ -31,6 +32,8 @@ Un worktree parte del **último commit**. Lo que está sin commitear en el check
 1. Ejecuta `git status --short` en el checkout principal.
 2. Si hay archivos modificados o sin seguimiento que el trabajo necesita (artefactos que se van a actualizar, o los propios skills `af-*`), dilo al usuario y ofrece: commitearlos primero, trabajar en el checkout actual, o continuar sabiendo qué faltará. No los copies al worktree por tu cuenta.
 3. Verifica en el worktree que `.claude/skills/af-*` y `knowledge-base/` existen; los comandos de los skills (`python .claude/skills/...`) usan rutas relativas a la raíz del worktree y se ejecutan desde allí.
+4. Si el worktree no contiene este orquestador (porque está sin commitear), ejecuta `audit_requirements.py` por su ruta absoluta en el checkout principal y pásale `knowledge-base` del worktree. El script solo lee el directorio que recibe.
+5. Compara con la rama base (`git log --oneline HEAD..main`): si `main` avanzó, avísalo en el resumen de integración, porque `index.md`, `changelog.md` y `graphify-out/` son los archivos que suelen chocar.
 
 ## 3. Trabajo dentro del worktree
 

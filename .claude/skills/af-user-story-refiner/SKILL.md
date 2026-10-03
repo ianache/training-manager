@@ -71,3 +71,13 @@ A prerequisite story that does not exist yet does not change readiness, but it b
 ## Output
 
 One file per User Story in `knowledge-base/requirement/user-stories/US-NNN-<slug>.md`, following `templates/output-template.md`. Report to the user: stories created or updated, readiness of each one, blocking questions, and any proposed splits.
+
+## Workspace isolation (git worktree)
+
+When the task will create or edit files, work in an isolated git worktree so the main branch receives nothing until a person decides.
+
+- Check first: if `git rev-parse --git-dir` and `git rev-parse --git-common-dir` differ, you are already in a linked worktree (for example, one created by `af-requirements-orchestrator`). Work there and do not create another.
+- In the main checkout, offer a worktree through `superpowers:using-git-worktrees` (branch `req/<slug>`) and honor the answer or a preference already declared. A worktree starts from the last commit: run `git status --short` and tell the user which uncommitted files it will not contain.
+- If the caller says it will update `knowledge-base/index.md` and `changelog.md`, skip those steps and return the entries to add instead; parallel runs in one worktree would overwrite each other.
+- Never commit, merge or delete the worktree on your own. When done, summarize `git status --short` and `git diff --stat` and let the user choose merge, PR, keep or discard. Read-only tasks need no worktree.
+- Run the commands in this skill from the worktree root.

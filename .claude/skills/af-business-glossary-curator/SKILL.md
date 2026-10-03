@@ -23,7 +23,7 @@ Mantiene el **Glosario de negocio** en `knowledge-base/business/glossary/`. Cada
 4. For each term, look it up in the catalog index by name, sinónimo and forma completa. If it exists, edit its file in `terms/` (add sources, synonyms or notes, and update its `generated.at`). If not, create it with `python .claude/skills/af-business-glossary-curator/scripts/glossary.py new <glossary-dir> "<Nombre>"`, which assigns the next ID and copies `templates/term-template.md`; then fill every `<...>` placeholder.
 5. Assign every source a level from `assets/source-levels.md`. For terms whose meaning is defined outside the organization (estándares, siglas técnicas, productos de terceros), consult the N1 source and record its URL and consultation date.
 6. Record contradictions between sources in the term's **Notas** and in the catalog's open questions (linking the term file). Keep both sources.
-7. Run `python .claude/skills/af-business-glossary-curator/scripts/glossary.py build <glossary-dir>`: it copies each term's **Definición** into its `description`, derives its frontmatter `sources` from **Fuentes**, and regenerates the alphabetical index. Then run `python .claude/skills/af-business-glossary-curator/scripts/glossary.py check <glossary-dir>` and fix every error until it reports 0 errors.
+7. Run `python .claude/skills/af-business-glossary-curator/scripts/glossary.py build <glossary-dir>`: it copies each term's **Definición** into its `description`, derives its frontmatter `sources` from **Fuentes**, and regenerates the alphabetical index. Then run `python .claude/skills/af-business-glossary-curator/scripts/glossary.py check <glossary-dir>` and fix every error until it reports 0 errors. `build` does not touch the catalog's hand-edited **Aprobación** line: update its totals (terms, and how many are `approved`) so they match what `check` reports. Leave historical validation records ("N de M términos" in the human-validation checklist) as they were.
 8. Update `knowledge-base/index.md` and `knowledge-base/changelog.md`.
 9. Emit READY, CONDITIONAL or NOT READY, with the human validation gate.
 
@@ -78,3 +78,13 @@ Grouping:
 The updated term files (`templates/term-template.md`) and catalog (`templates/glossary-template.md`), with source levels from `assets/source-levels.md`, open questions, readiness and handoff. Report to the user: terms added, terms updated, terms left as `gap`, and the final output of `glossary.py check`.
 
 Store results in `knowledge-base/business/glossary/` (catalog) and `knowledge-base/business/glossary/terms/` (one file per term).
+
+## Workspace isolation (git worktree)
+
+When the task will create or edit files, work in an isolated git worktree so the main branch receives nothing until a person decides.
+
+- Check first: if `git rev-parse --git-dir` and `git rev-parse --git-common-dir` differ, you are already in a linked worktree (for example, one created by `af-requirements-orchestrator`). Work there and do not create another.
+- In the main checkout, offer a worktree through `superpowers:using-git-worktrees` (branch `req/<slug>`) and honor the answer or a preference already declared. A worktree starts from the last commit: run `git status --short` and tell the user which uncommitted files it will not contain.
+- If the caller says it will update `knowledge-base/index.md` and `changelog.md`, skip those steps and return the entries to add instead; parallel runs in one worktree would overwrite each other.
+- Never commit, merge or delete the worktree on your own. When done, summarize `git status --short` and `git diff --stat` and let the user choose merge, PR, keep or discard. Read-only tasks need no worktree.
+- Run the commands in this skill from the worktree root.
