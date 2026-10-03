@@ -10,6 +10,10 @@ This directory contains validated Development Context Packs (DCPs) that bridge a
 
 ## Active Handoffs
 
+### DCP-003 — Catálogo de roles y niveles (DSP-001)
+
+**Estado:** `REQUIRES_REVIEW` (no `READY_FOR_DEV`): ADR-011 sin decisor, falta la API de asignación de Rol-Nivel, brechas de componentes y sin aprobación humana. Archivo: [DCP-003-catalogo-de-roles-y-niveles.md](DCP-003-catalogo-de-roles-y-niveles.md)
+
 ### DCP-002-VALIDADO — Party Management Service API (Python/FastAPI)
 
 **Service:** Party/Collaborator Master Data Management  
