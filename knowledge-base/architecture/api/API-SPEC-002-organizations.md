@@ -102,5 +102,17 @@ Pruebas de contrato del servicio (lista, filtros, paginación, 404/400, vigencia
 | Q-3 | US-017 y US-018 siguen `draft`; su contrato de lectura puede cambiar al refinarse | No |
 | Q-4 | `type` usa los nombres de API-SPEC-001 (`internal_unit`/`external_provider`), no los códigos de BD | No |
 
+## 8b. Cambio propuesto v3 (pendiente de aprobación; no implementado)
+Decisiones de ianache (2026-10-03): la organización registra **correo laboral y teléfono laboral**, y el proveedor un **régimen tributario** (IMD-002 R-31, R-32).
+
+| Aspecto | Propuesta | Estado |
+|---|---|---|
+| Contacto | `POST` acepta `contact: {email_work?, phone_work?}`; se guardan en `tb_contact_mechanism` + `tb_party_contact_mechanism` con propósito `WORK_EMAIL` / `WORK_PHONE`, vigentes desde hoy. **Sin migración**: el modelo físico ya lo permite para cualquier parte. Respuesta y `GET` devuelven `contact` | Esperando IM-Q10 (obligatoriedad, cuántos, unicidad frente a colaboradores) |
+| Régimen tributario | `tax_regime` solo para `external_provider`. **Requiere migración**: `tb_organization.tax_regime VARCHAR(40) NULL` | Esperando IM-Q11 (valores admitidos) |
+| Validación | correo con el formato ya usado en `PartyCreateRequest`; teléfono con el formato del servicio de partes | A confirmar |
+| Privacidad | el contacto de una organización no es dato personal de una persona; aun así se entrega solo a usuarios autenticados, como el resto | Supuesto |
+| `metadata` genérico | **No** se acepta un objeto libre: cada metadato será un campo con nombre cuando IM-Q11 lo defina | Propuesta |
+
+
 ## 9. Siguiente acción
 Plan de implementación y desarrollo TDD (servicio → BFF → portal). Q-6 pendiente como seguimiento.
