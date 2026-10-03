@@ -151,6 +151,9 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0130 | A los demás colaboradores solo se les muestran el nombre, el correo laboral, la unidad, el rol y los perfiles profesionales de una persona. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-52 | decision | high |
 | EVD-2026-0131 | El Instructor es un colaborador que el Jefe de Ingeniería o un usuario ADMIN asigna para ejecutar una edición de un curso. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-49 | decision | high |
 | EVD-2026-0132 | Se versionan las competencias, pero no los roles. | Decisión humana: ianache (Jefe de Ingeniería), 2026-09-27, en respuesta a P-50 | decision | high |
+| EVD-2026-0133 | Las unidades organizacionales se gestionan con listado (filtros y ordenamiento), alta, edición y eliminación lógica (activa / inactiva). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, solicitud de desarrollo de US-017 | decision | high |
+| EVD-2026-0134 | Se rechaza un cambio de unidad padre que cree un ciclo en la jerarquía (US-017-Q1). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a US-017-Q1 | decision | high |
+| EVD-2026-0135 | No se puede desactivar una unidad con unidades hijas activas o personas con pertenencia vigente (US-017-Q2). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a US-017-Q2 | decision | high |
 
 Todas las evidencias comparten estos campos del esquema:
 
@@ -321,6 +324,9 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 | BR-PTY-18 | Validación | Se espera un único Jefe de Ingeniería vigente. Al asignar un segundo, la plataforma avisa sin impedirlo. | EVD-2026-0092, EVD-2026-0093 |
 | BR-PTY-19 | Validación | Un contratista no tiene jefe directo dentro de COMSATEL: la relación de reporte solo se registra para empleados. | EVD-2026-0120 |
 | BR-PTY-20 | Permiso | Cualquier colaborador que ingrese a la plataforma ve de las demás personas solo el nombre, el correo laboral, la unidad, el rol y los perfiles profesionales. Las identificaciones, el teléfono y los demás datos personales no se muestran a otros colaboradores. *Precisada el 2026-09-27 (P-52).* | EVD-2026-0121, 0130 |
+| BR-PTY-21 | Estado | Una unidad organizacional está Activa si su rol de Unidad organizacional tiene vigencia abierta e Inactiva si la cerró. Desactivarla es la eliminación lógica: cierra la vigencia del rol y de su relación de estructura; la unidad no se borra (BR-PTY-12). *Decisión del 2026-10-03.* | EVD-2026-0133 |
+| BR-PTY-22 | Validación | Una unidad no puede ser su propia unidad padre ni quedar bajo una de sus descendientes: se rechaza el cambio que cree un ciclo. *Decisión del 2026-10-03 (US-017-Q1).* | EVD-2026-0134 |
+| BR-PTY-23 | Validación | No se desactiva una unidad que tenga unidades hijas activas o personas con pertenencia vigente. *Decisión del 2026-10-03 (US-017-Q2).* | EVD-2026-0135 |
 
 ### Dependencias
 

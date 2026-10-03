@@ -271,7 +271,7 @@ sources:
 
 | Término | Tipo | Definición | Estado |
 |---|---|---|---|
-| [Unidad organizacional](terms/TRM-0079-unidad-organizacional.md) | concepto | Rol de la parte de una unidad interna de COMSATEL. Las unidades forman una jerarquía (relación de estructura con su unidad padre) y las personas pertenecen a ellas (relación de pertenencia). | draft |
+| [Unidad organizacional](terms/TRM-0079-unidad-organizacional.md) | concepto | Rol de la parte de una unidad interna de COMSATEL. Las unidades forman una jerarquía (relación de estructura con su unidad padre) y las personas pertenecen a ellas (relación de pertenencia). Está Activa mientras su rol tiene vigencia abierta e Inactiva cuando la cerró (eliminación lógica: no se borra). | draft |
 
 ### V
 

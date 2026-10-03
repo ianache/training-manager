@@ -1,12 +1,12 @@
 ---
 type: User Story
 title: "US-017 — Gestionar la estructura organizacional"
-description: "El Jefe de Ingeniería registra la organización interna, sus unidades organizacionales y la jerarquía entre ellas, con vigencias."
-tags: [user-story, colaboradores, party, c3, estructura-organizacional]
+description: "El Jefe de Ingeniería consulta, busca, registra, edita y desactiva las unidades organizacionales de COMSATEL y la jerarquía entre ellas, con vigencias."
+tags: [user-story, colaboradores, party, c3, estructura-organizacional, unidades]
 status: draft
 generated:
   by: "af-user-story-refiner/2.0"
-  at: "2026-09-27T11:50:00-05:00"
+  at: "2026-10-03T10:30:00-05:00"
 sources:
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
@@ -23,7 +23,7 @@ sources:
 | Campo | Valor |
 |---|---|
 | ID | US-017 |
-| Épica / capacidad | SPEC-001 C3 — Gestionar la estructura organizacional (SPEC-001:L141) |
+| Épica / capacidad | SPEC-001 C3 — Gestionar la estructura organizacional (SPEC-001:L147) |
 | Horizonte / release | Por definir |
 | Actor | [Jefe de Ingeniería](../../business/glossary/terms/TRM-0036-jefe-de-ingenieria.md) |
 | Responsable de negocio (PO) | Jefe de Ingeniería |
@@ -34,22 +34,26 @@ sources:
 
 ## 2. Historia
 
-**Como** Jefe de Ingeniería, **quiero** registrar la organización interna, sus unidades y la jerarquía entre ellas, **para** ubicar a cada colaborador en la estructura de COMSATEL.
+**Como** Jefe de Ingeniería, **quiero** consultar, buscar, registrar, editar y desactivar las unidades organizacionales de COMSATEL y la jerarquía entre ellas, **para** mantener al día la estructura donde se ubica a cada colaborador.
 
 ## 3. Contexto y valor
 
-- **Problema que resuelve:** la pertenencia de las personas a unidades y la estructura entre unidades no tenían dónde registrarse (SPEC-001:L35).
-- **Valor esperado:** estructura vigente e histórica de COMSATEL disponible para altas y consultas.
+- **Problema que resuelve:** la pertenencia de las personas a unidades y la estructura entre unidades no tenían dónde registrarse ni mantenerse (SPEC-001:L35).
+- **Valor esperado:** estructura vigente e histórica de COMSATEL disponible, fácil de ubicar y de mantener, para altas y consultas.
 - **Métrica o KPI que impacta:** Sin métrica asociada.
 
 ## 4. Alcance
 
 - **Incluye:**
-  - Registrar la organización interna ([COMSATEL](../../business/glossary/terms/TRM-0015-comsatel.md)) con su nombre y su RUC (SPEC-001:L109).
-  - Registrar unidades organizacionales (rol de la parte Unidad organizacional) y su relación de estructura con la unidad padre, con vigencia.
-  - Cambiar la unidad padre cerrando la vigencia de la relación anterior.
+  - Registrar la organización interna ([COMSATEL](../../business/glossary/terms/TRM-0015-comsatel.md)) con su razón social y su RUC.
+  - **Listar** las unidades organizacionales con su unidad padre, estado (Activa / Inactiva) y vigencia, por defecto las Activas.
+  - **Buscar** por nombre, **filtrar** por estado y por unidad padre (con sus descendientes), **ordenar** por columnas y alternar entre lista y jerarquía.
+  - **Registrar** una unidad con su unidad padre y fecha desde.
+  - **Editar** el nombre de una unidad y **cambiar su unidad padre**, cerrando la vigencia de la relación anterior.
+  - **Desactivar** una unidad (eliminación lógica) y **reactivarla**.
 - **Excluye:**
   - La pertenencia de una persona a una unidad (US-015 y US-016).
+  - Borrar físicamente una unidad.
   - Proveedores (US-018).
 
 ## 5. Criterios de aceptación
@@ -65,18 +69,95 @@ Escenario: Registrar COMSATEL
 
 - **Regla / fuente:** BR-PTY-02, BR-PTY-03, BR-PTY-07
 
-### AC-2 — Registrar una unidad y su padre
+### AC-2 — Listar las unidades
+
+```gherkin
+Escenario: Ver las unidades activas
+  Dado que existen unidades Activas e Inactivas
+  Cuando abro la gestión de la estructura organizacional
+  Entonces veo las unidades Activas, cada una con su nombre, unidad padre, estado y vigencia desde
+```
+
+- **Regla / fuente:** BR-PTY-04, BR-PTY-21; EVD-2026-0133
+
+### AC-3 — Buscar por nombre
+
+```gherkin
+Escenario: Buscar una unidad
+  Dado que existen varias unidades
+  Cuando escribo parte del nombre de una unidad en la búsqueda
+  Entonces solo veo las unidades cuyo nombre contiene ese texto
+```
+
+- **Regla / fuente:** EVD-2026-0133
+
+### AC-4 — Filtrar por estado
+
+```gherkin
+Escenario: Ver las unidades inactivas
+  Dado que existen unidades Activas e Inactivas
+  Cuando filtro por estado Inactiva
+  Entonces veo solo las unidades Inactivas, con su vigencia hasta
+```
+
+- **Regla / fuente:** BR-PTY-21; EVD-2026-0133
+
+### AC-5 — Filtrar por unidad padre
+
+```gherkin
+Escenario: Ver las unidades de una rama
+  Dado una unidad con unidades hijas y descendientes
+  Cuando filtro por esa unidad padre
+  Entonces veo sus unidades hijas y todas sus descendientes que cumplen los demás filtros
+```
+
+- **Regla / fuente:** BR-PTY-04; EVD-2026-0133
+
+### AC-6 — Ordenar el listado
+
+```gherkin
+Escenario: Ordenar por una columna
+  Dado el listado de unidades
+  Cuando ordeno por nombre, unidad padre, estado o vigencia desde, en sentido ascendente o descendente
+  Entonces las unidades se muestran en ese orden y se conservan los filtros aplicados
+```
+
+- **Regla / fuente:** EVD-2026-0133
+
+### AC-7 — Ver la jerarquía
+
+```gherkin
+Escenario: Alternar a la vista jerárquica
+  Dado el listado de unidades
+  Cuando cambio a la vista jerárquica
+  Entonces veo cada unidad bajo su unidad padre vigente
+```
+
+- **Regla / fuente:** BR-PTY-04; EVD-2026-0133
+
+### AC-8 — Registrar una unidad y su padre
 
 ```gherkin
 Escenario: Crear una unidad dentro de otra
-  Dado una unidad organizacional existente
+  Dado una unidad organizacional Activa existente
   Cuando registro una nueva unidad y la relaciono con la existente como su unidad padre, con fecha desde
-  Entonces la nueva unidad queda en la jerarquía con esa relación vigente
+  Entonces la nueva unidad queda Activa en la jerarquía con esa relación vigente
 ```
 
-- **Regla / fuente:** BR-PTY-03, BR-PTY-04
+- **Regla / fuente:** BR-PTY-03, BR-PTY-04, BR-PTY-21
 
-### AC-3 — Cambiar la unidad padre
+### AC-9 — Editar el nombre de una unidad
+
+```gherkin
+Escenario: Corregir el nombre
+  Dado una unidad existente
+  Cuando cambio su nombre y confirmo
+  Entonces la unidad muestra el nuevo nombre y el cambio queda auditado con el valor anterior
+```
+
+- **Regla / fuente:** BR-PTY-12
+
+### AC-10 — Cambiar la unidad padre
 
 ```gherkin
 Escenario: Mover una unidad
@@ -87,7 +168,51 @@ Escenario: Mover una unidad
 
 - **Regla / fuente:** BR-PTY-12
 
-### AC-4 — RUC repetido
+### AC-11 — Rechazar un ciclo
+
+```gherkin
+Escenario: Mover una unidad bajo una de sus descendientes
+  Dado una unidad A con una unidad hija B
+  Cuando intento relacionar A con B como su unidad padre
+  Entonces el cambio se rechaza y se indica que crearía un ciclo en la jerarquía
+```
+
+- **Regla / fuente:** BR-PTY-22
+
+### AC-12 — Desactivar una unidad
+
+```gherkin
+Escenario: Desactivar una unidad sin dependencias
+  Dado una unidad Activa sin unidades hijas activas ni personas con pertenencia vigente
+  Cuando la desactivo y confirmo
+  Entonces la unidad queda Inactiva con su vigencia cerrada y no se borra
+```
+
+- **Regla / fuente:** BR-PTY-12, BR-PTY-21
+
+### AC-13 — Bloquear la desactivación con dependencias
+
+```gherkin
+Escenario: Desactivar una unidad con unidades hijas activas o personas vigentes
+  Dado una unidad Activa con unidades hijas activas o personas con pertenencia vigente
+  Cuando intento desactivarla
+  Entonces la desactivación no se realiza y se indica cuántas unidades hijas activas y personas vigentes la impiden
+```
+
+- **Regla / fuente:** BR-PTY-23
+
+### AC-14 — Reactivar una unidad
+
+```gherkin
+Escenario: Reactivar una unidad inactiva
+  Dado una unidad Inactiva
+  Cuando la reactivo con una fecha desde y su unidad padre
+  Entonces la unidad queda Activa con una nueva vigencia y el historial conserva la vigencia anterior
+```
+
+- **Regla / fuente:** BR-PTY-12, BR-PTY-21 (hipótesis H-2, US-017-Q3)
+
+### AC-15 — RUC repetido
 
 ```gherkin
 Escenario: Rechazar un RUC ya registrado
@@ -102,11 +227,15 @@ Escenario: Rechazar un RUC ya registrado
 
 | Caso | Comportamiento esperado | Fuente o pregunta |
 |---|---|---|
-| Borrar una unidad | No se borra: se cierra la vigencia | BR-PTY-12 |
-| Unidad que queda como padre de sí misma o ciclo en la jerarquía | Sin regla | US-017-Q1 |
-| Cerrar una unidad con personas vigentes | Sin regla | US-017-Q2 |
+| Borrar una unidad | No existe el borrado: solo se desactiva, cerrando la vigencia | BR-PTY-12, BR-PTY-21 |
+| Unidad que queda como padre de sí misma o ciclo en la jerarquía | Se rechaza | BR-PTY-22 |
+| Desactivar una unidad con unidades hijas activas o personas vigentes | No se desactiva; se informa qué la impide | BR-PTY-23 |
+| Elegir como padre una unidad Inactiva | Sin regla | US-017-Q5 |
+| Reactivar una unidad cuyo padre anterior está Inactivo | Sin regla | US-017-Q3 |
+| Nombre de unidad repetido | Sin regla | US-017-Q4 |
 | Identificación de persona (DNI) en una organización | Se rechaza: las organizaciones usan RUC | BR-PTY-07 |
 | Usuario que no es Jefe de Ingeniería | No puede gestionar la estructura | BR-PTY-17 |
+| Consulta de la estructura por otros colaboradores | Sin regla | US-017-Q6 |
 
 ## 7. Reglas de negocio aplicables
 
@@ -116,41 +245,58 @@ Escenario: Rechazar un RUC ya registrado
 | BR-PTY-03 | Roles Organización interna y Unidad organizacional | BRC-001 |
 | BR-PTY-04 | Relación de estructura unidad ↔ unidad padre | BRC-001 |
 | BR-PTY-07 | RUC para organizaciones, único | BRC-001 |
-| BR-PTY-12 | Vigencias y auditoría | BRC-001 |
+| BR-PTY-12 | Vigencias y auditoría: no se borra, se cierra la vigencia | BRC-001 |
 | BR-PTY-17 | Permiso del Jefe de Ingeniería | BRC-001 |
+| BR-PTY-21 | Unidad Activa / Inactiva según su vigencia; desactivar = eliminación lógica | BRC-001 |
+| BR-PTY-22 | Sin ciclos en la jerarquía | BRC-001 |
+| BR-PTY-23 | No se desactiva con unidades hijas activas ni personas vigentes | BRC-001 |
 
 ## 8. Datos y términos
 
 | Término | Uso en esta historia | Glosario |
 |---|---|---|
 | COMSATEL | Organización interna | [TRM-0015](../../business/glossary/terms/TRM-0015-comsatel.md) |
-| Organización, Unidad organizacional, Relación entre partes | Estructura | Términos nuevos de SPEC-001 en curso (artefacto #3) |
+| Organización | Parte con RUC | [TRM-0072](../../business/glossary/terms/TRM-0072-organizacion.md) |
+| Organización interna | Rol de COMSATEL | [TRM-0078](../../business/glossary/terms/TRM-0078-organizacion-interna.md) |
+| Unidad organizacional | Objeto gestionado; Activa / Inactiva | [TRM-0079](../../business/glossary/terms/TRM-0079-unidad-organizacional.md) |
+| Relación entre partes | Estructura (unidad ↔ unidad padre) | [TRM-0074](../../business/glossary/terms/TRM-0074-relacion-entre-partes.md) |
+| Vigencia | Desde / hasta de rol y relación | [TRM-0092](../../business/glossary/terms/TRM-0092-vigencia.md) |
+
+Datos de una unidad: nombre, unidad padre (vacía en la unidad superior), estado, vigencia desde y hasta, y los conteos de unidades hijas activas y personas vigentes (para explicar el bloqueo de BR-PTY-23). Una unidad no tiene RUC (H-1).
 
 ## 9. Requisitos no funcionales
 
 - **Accesibilidad:** WCAG 2.2 AA (estándar del repositorio).
-- **Privacidad y datos personales:** No aplica (datos de organizaciones).
+- **Privacidad y datos personales:** No aplica (datos de organizaciones; los conteos de personas no identifican a nadie).
 - **Otros:** auditoría de cambios (BR-PTY-12).
 
 ## 10. Consideraciones de UX
 
-- **Flujo esperado:** ver la jerarquía vigente → crear unidad o cambiar su padre → confirmar.
-- **Estados de la interfaz:** sin organización interna (vacío inicial); éxito; RUC duplicado; sin permisos.
-- **Contenido clave:** jerarquía vigente y su historial.
+- **Flujo esperado:** abrir la gestión → ver las unidades Activas → buscar, filtrar y ordenar, o alternar a la jerarquía → registrar una unidad, editarla, cambiar su padre, desactivarla o reactivarla → confirmar. Desactivar pide confirmación.
+- **Estados de la interfaz:** sin organización interna (vacío inicial); sin unidades registradas; sin resultados para los filtros aplicados; éxito; RUC duplicado; ciclo rechazado; desactivación bloqueada con el detalle de lo que la impide; sin permisos; error al guardar.
+- **Contenido clave:** por unidad, nombre, unidad padre, estado, vigencia desde/hasta, unidades hijas activas y personas vigentes; filtros activos visibles, con estado Activa por defecto; historial de relaciones y vigencias de la unidad.
 
 ## 11. Dependencias, supuestos e hipótesis
 
 - **Depende de:** —
 - **Es prerrequisito de:** US-015.
 - **Supuestos:** ninguno.
-- **Hipótesis del agente:** H-1: una unidad organizacional no necesita RUC (SPEC-001:L109 "RUC si aplica").
+- **Hipótesis del agente:**
+  - H-1: una unidad organizacional no necesita RUC (SPEC-001:L109 "RUC si aplica").
+  - H-2: reactivar una unidad abre una nueva vigencia, según BR-PTY-12 (no hay decisión explícita; ver US-017-Q3).
+  - H-3: la unidad superior se registra sin unidad padre (IMD-002 R-08, inferencia).
+  - H-4: el cambio de nombre se audita con su valor anterior, por la regla general de auditoría de BR-PTY-12.
 
 ## 12. Preguntas abiertas
 
 | ID | Pregunta | Responsable | Prioridad | Bloquea | Estado |
 |---|---|---|---|---|---|
-| US-017-Q1 | ¿Se impiden los ciclos en la jerarquía de unidades? | Jefe de Ingeniería | Baja | No | Abierta |
-| US-017-Q2 | ¿Se puede cerrar una unidad que tiene personas o unidades hijas vigentes? | Jefe de Ingeniería | Media | No | Abierta |
+| US-017-Q1 | ¿Se impiden los ciclos en la jerarquía de unidades? | Jefe de Ingeniería | Baja | No | Respondida (ianache (Jefe de Ingeniería), 2026-10-03): sí, se rechazan (BR-PTY-22, EVD-2026-0134) |
+| US-017-Q2 | ¿Se puede cerrar una unidad que tiene personas o unidades hijas vigentes? | Jefe de Ingeniería | Media | No | Respondida (ianache (Jefe de Ingeniería), 2026-10-03): no, se bloquea (BR-PTY-23, EVD-2026-0135) |
+| US-017-Q3 | ¿Se puede reactivar una unidad Inactiva? ¿Con qué unidad padre si la anterior está Inactiva? | Jefe de Ingeniería | Media | No (AC-14 sigue H-2) | Abierta |
+| US-017-Q4 | ¿El nombre de una unidad debe ser único (en toda la organización o entre unidades con el mismo padre)? | Jefe de Ingeniería | Baja | No | Abierta |
+| US-017-Q5 | ¿Puede elegirse como padre una unidad Inactiva? | Jefe de Ingeniería | Baja | No | Abierta |
+| US-017-Q6 | ¿Pueden los demás colaboradores consultar la estructura en solo lectura? | Jefe de Ingeniería | Media | No (la pantalla de esta historia es del Jefe de Ingeniería) | Abierta |
 
 ## 13. Evidencia y trazabilidad
 
@@ -159,8 +305,11 @@ Escenario: Rechazar un RUC ya registrado
 | EVD-2026-0078 | Patrón Party: roles y relaciones con vigencia | SPEC-001:L59, L86-L88 (D5) | decision | high |
 | EVD-2026-0083 | RUC para organizaciones | SPEC-001:L64 (D10) | decision | high |
 | EVD-2026-0084 | El Jefe de Ingeniería mantiene la información | SPEC-001:L65 (D11) | decision | high |
+| EVD-2026-0133 | Gestión de unidades con listado (filtros y orden), alta, edición y eliminación lógica | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03 | decision | high |
+| EVD-2026-0134 | Se rechazan los ciclos en la jerarquía | Decisión humana: ianache, 2026-10-03, US-017-Q1 | decision | high |
+| EVD-2026-0135 | No se desactiva una unidad con hijas activas o personas vigentes | Decisión humana: ianache, 2026-10-03, US-017-Q2 | decision | high |
 
-Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05:00`, `freshness: current`, `owner: Jefe de Ingeniería`.
+Evidencia compartida: `source_type: human`, `observed_at: 2026-10-03T10:00:00-05:00` (EVD-0133 a 0135; las demás, 2026-09-27T10:05:00-05:00), `freshness: current`, `owner: Jefe de Ingeniería`.
 
 - **Upstream:** SPEC-001, BRC-001, [RCP-002](../context-packs/RCP-002-gestion-de-colaboradores.md)
 - **Downstream (pendiente):** UXR → FLW → SCR → CMP → AC
@@ -170,10 +319,10 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 | Criterio | ¿Cumple? | Justificación |
 |---|---|---|
 | Independiente | Sí | No depende de otra historia |
-| Negociable | Sí | Ciclos y cierre de unidades abiertos |
-| Valiosa | Sí | Necesaria para el alta |
-| Estimable | Sí | Reglas claras |
-| Pequeña (Small) | Sí | Una estructura simple |
+| Negociable | Sí | Reactivación, unicidad de nombre y consulta de solo lectura abiertas |
+| Valiosa | Sí | Necesaria para el alta y el mantenimiento de la estructura |
+| Estimable | Sí | Reglas claras; ver división propuesta |
+| Pequeña (Small) | Parcial | 15 criterios; ver división propuesta en la sección 17 |
 | Testeable | Sí | Criterios verificables |
 
 ## 15. Definition of Ready
@@ -197,9 +346,9 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 ## 17. Preparación y validación
 
 - **Estado:** READY
-- **Motivo:** los criterios están sostenidos por BR-PTY-02 a 04, 07, 12 y 17; las preguntas abiertas son de borde y no bloquean.
+- **Motivo:** el actor y el valor están sostenidos; los criterios se apoyan en BR-PTY-02 a 04, 07, 12, 17 y 21 a 23 y en la decisión EVD-2026-0133; las preguntas abiertas (Q3 a Q6) son de borde, tienen hipótesis o no afectan la pantalla del Jefe de Ingeniería, y ninguna bloquea.
 - **Bloqueos de entrega:** Ninguno.
-- **Propuesta de división (si no es pequeña):** No aplica.
+- **Propuesta de división (si no es pequeña):** si el equipo la considera grande, dividir por paso del flujo: (a) organización interna (AC-1, AC-15); (b) consulta del listado (AC-2 a AC-7); (c) alta y edición (AC-8 a AC-11); (d) desactivar y reactivar (AC-12 a AC-14). Es una recomendación; decide el PO. Se mantiene un solo ID para conservar la trazabilidad con US-015.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
-- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde US-017-Q1 y Q2.
+- **Decisión humana requerida:** el Jefe de Ingeniería valida la historia y responde US-017-Q3 a Q6.
 - **Validación:** Pendiente · Responsable: Jefe de Ingeniería · Fecha: —
