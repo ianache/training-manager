@@ -261,3 +261,6 @@ sources:
 - Artefactos afectados: `knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md`, `knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md`, `knowledge-base/architecture/data-model/ddl/catalog-postgresql.sql`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
 
 - SCR-028-01: generado el estado D (sin unidades registradas, `0799c949…`); C (sin resultados) respondió sin devolver pantalla y E (sin organización interna) dio timeout. SCR-029-02 y las correcciones de SCR-029-01 y SCR-029-03 (D–F) siguen pendientes por timeouts de Stitch. Actualizado `GEN-028`.
+
+- Catalog-service diseñado, sin implementar: ADR-011 (`Propuesto`, sin decisor) y API-SPEC-003 (`REQUIRES_REVIEW`) para US-001 y US-019. La forma de `GET /catalog/roles` que ya usa el asistente de alta se mantiene. Supuestos marcados: la versión anterior pasa a DEPRECATED al aprobar; se desactiva, no se elimina. Bloqueo hallado: el realm de Keycloak y el BFF no tienen el rol «Responsable de producto» (EVD-2026-0147).
+- Artefactos afectados: `knowledge-base/architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md`, `knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
