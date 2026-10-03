@@ -87,7 +87,7 @@ Party guarda `catalog_role_id` y `catalog_role_level_id` sin FK (LDM-001 DM-07).
 
 ## 6. Transacciones, concurrencia y operación
 
-- **Aprobar una versión:** una transacción: pasa el DRAFT a APPROVED y, si hay otra APPROVED vigente, la deja APPROVED o la pasa a DEPRECATED según decida el servicio (UNKNOWN, DM-Q-02). Con `row_version` en la competencia, dos aprobaciones simultáneas no se pisan.
+- **Aprobar una versión:** una transacción: pasa el DRAFT a APPROVED y, si hay otra APPROVED vigente, la pasa a DEPRECATED (decisión del 2026-10-03, DM-Q-02, BR-CAT-24). Solo se aprueba desde DRAFT. Con `row_version` en la competencia, dos aprobaciones simultáneas no se pisan.
 - **Alta de un rol:** rol, niveles y competencias en una sola transacción (CHK-A exige el conjunto completo).
 - **Índices:** los únicos de la sección 2 y `ix_evidence_by_version_level`, `ix_rlc_by_version` para «dónde se usa esta versión» (la advertencia de versión anterior).
 - **Datos sensibles:** ninguno; no hay datos personales en el catálogo. **Retención:** indefinida (CM-11). **Multi-inquilino:** no aplica. **Copia y restauración:** las del PostgreSQL común (ADR-007).
@@ -115,16 +115,18 @@ No se probaron CHK-A a CHK-D (son del servicio, que no existe) ni la carga.
 
 ## 8. Preguntas abiertas
 
-| ID | Pregunta | Responsable | Bloquea |
-|---|---|---|---|
-| DM-Q-01 | ¿La versión incluye la rúbrica y los requisitos de evidencia? (R-45 sigue siendo inferencia) | Jefe de Ingeniería | El diseño de CM-06; no el resto |
-| DM-Q-02 | Al aprobar una versión nueva, ¿la anterior pasa a DEPRECATED o queda APPROVED? ¿Se puede aprobar sin pasar por DRAFT? | Jefe de Ingeniería | La operación «aprobar» |
-| DM-Q-03 | ¿Un rol, nivel o competencia se puede eliminar o solo desactivar? ¿Una competencia tiene estado activo/inactivo? | Jefe de Ingeniería | CM-11 |
-| DM-Q-04 | ADR-006 (2026-09-27) fija quién decide el upgrade de nivel; las decisiones del 2026-10-03 añaden a ADMIN con cambio directo. Verificar que no se contradicen | Jefe de Ingeniería | La asignación (US-019), no este modelo |
-| DM-Q-05 | ¿Los requisitos de evidencia se versionan con la competencia (como aquí) o por separado? | Jefe de Ingeniería | CM-06 |
+| ID | Respuesta (ianache, 2026-10-03) | Regla |
+|---|---|---|
+| DM-Q-01 | La versión incluye la rúbrica y los requisitos de evidencia. R-45 pasa de inferencia a hecho. | BR-CAT-23 |
+| DM-Q-02 | La versión anterior pasa a DEPRECATED. No se aprueba sin pasar por DRAFT, para asegurar revisión y control. | BR-CAT-24 |
+| DM-Q-03 | Solo se desactiva; no hay eliminaciones. Las competencias tienen estado ACTIVE o INACTIVE. | BR-CAT-25 |
+| DM-Q-04 | Es correcto el rol ADMIN añadido en ADR-006: es una nueva decisión. | BR-CAT-26 |
+| DM-Q-05 | Los requisitos de evidencia se versionan con la competencia. | BR-CAT-23 |
+
+**Efecto en el modelo:** la competencia necesita un estado ACTIVE/INACTIVE propio (hoy solo existe el estado de versión) y la operación de aprobar exige que la versión esté en DRAFT. Ambos puntos quedan **pendientes de reflejar en el DDL** (`ddl/catalog-postgresql.sql`), que no se modificó. Hoy `tb_competency` no tiene columna de estado, y `tb_role` usa `'active'`/`'inactive'` en minúsculas mientras la decisión habla de ACTIVE/INACTIVE: conviene unificar el formato.
 
 ## 9. Siguiente paso
 
 1. ADR del catalog-service (stack, esquema propio en la misma instancia PostgreSQL, relación con party y el BFF).
 2. API-SPEC del catálogo (`api-designer`), con CHK-A a CHK-D como reglas de negocio de los endpoints.
-3. Revisión humana de este modelo y respuesta a DM-Q-01 a DM-Q-05.
+3. Revisión humana de este modelo. DM-Q-01 a DM-Q-05 respondidas el 2026-10-03; falta reflejar el estado ACTIVE/INACTIVE de la competencia en el DDL.

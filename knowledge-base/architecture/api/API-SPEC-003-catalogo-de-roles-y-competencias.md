@@ -77,12 +77,12 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
 | Nombre de rol repetido | `ROLE_NAME_DUPLICATE` | 409 | LDM-002 CM-10 (supuesto) |
 | `If-Match` desactualizado | `PRECONDITION_FAILED` | 412 | LDM-002 CM-09 |
 
-`POST /roles/{id}/deactivate` desactiva (no se elimina; supuesto DM-Q-03): los ids siguen válidos para party.
+`POST /roles/{id}/deactivate` desactiva (no se elimina; decisión DM-Q-03, BR-CAT-25): los ids siguen válidos para party.
 
 ### Competencias y versiones
 
 - `POST /competencies` `{name, description?}` crea la competencia y su versión 1 en DRAFT. Nombre repetido → `COMPETENCY_NAME_DUPLICATE` 409.
-- `POST /competencies/{id}/versions` crea un DRAFT copiando la versión vigente (con su rúbrica y requisitos, supuesto DM-Q-01/05). Si ya hay un DRAFT → `DRAFT_EXISTS` 409.
+- `POST /competencies/{id}/versions` crea un DRAFT copiando la versión vigente (con su rúbrica y requisitos; decisión DM-Q-01/05, BR-CAT-23). Si ya hay un DRAFT → `DRAFT_EXISTS` 409.
 - `PUT …/versions/{versionId}` (solo en DRAFT; si no, `VERSION_NOT_EDITABLE` 409):
   ```json
   { "rubric": [ { "level": "L1", "behavior_description": "..." } ],
@@ -90,7 +90,7 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
         "description": "Aprobar el curso X", "is_required": true, "course_ref": "uuid|null" } ] }
   ```
   La definición es progresiva (BR-CAT-17): no exige los cuatro niveles. Cada requisito declara `is_required` (BR-ACR-12) y `course_ref` solo con `FORMACION` (LDM-002 CM-08).
-- `POST …/approve`: pasa DRAFT a APPROVED y la APPROVED anterior a DEPRECATED, en una transacción (**supuesto**, DM-Q-02). Registra `approved_by` y `approved_at`. Las relaciones vigentes no cambian (EVD-2026-0143). Respuesta `200` con la versión y `previous_version_id`.
+- `POST …/approve`: pasa DRAFT a APPROVED y la APPROVED anterior a DEPRECATED, en una transacción (decisión DM-Q-02, BR-CAT-24; solo se aprueba desde DRAFT). Registra `approved_by` y `approved_at`. Las relaciones vigentes no cambian (EVD-2026-0143). Respuesta `200` con la versión y `previous_version_id`.
 
 ## 3. Seguridad y privacidad
 
@@ -127,10 +127,10 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 |---|---|---|
 | AQ-1 | ¿Qué rol de Keycloak es el Responsable de producto y puede editar competencias o solo roles? | Bloquea el permiso de EVD-2026-0147 |
 | AQ-2 | Significado de `levels[].evidence_requirements` (§2) | Texto del asistente de alta |
-| AQ-3 | Aprobar: ¿la anterior pasa a DEPRECATED? (DM-Q-02) | Contrato de `approve` |
-| AQ-4 | Desactivar vs eliminar (DM-Q-03) | `deactivate` |
+| AQ-3 | **Resuelta (2026-10-03):** la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT (DM-Q-02) | Contrato de `approve` (confirmado) |
+| AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). Falta añadir `deactivate` para competencias | `deactivate` |
 | AQ-5 | ¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019 | `PUT /roles` |
-| AQ-6 | ADR-006 y el cambio directo de ADMIN (DM-Q-04) | Asignación de niveles (US-019), fuera de este contrato |
+| AQ-6 | **Resuelta (2026-10-03):** el rol ADMIN es correcto (DM-Q-04, BR-CAT-26) | Asignación de niveles (US-019), fuera de este contrato |
 
 La **asignación de Rol-Nivel a personas** (US-019) no está aquí: vive en party (LDM-001 DM-07) y referencia los ids de este catálogo. Su API se diseña al revisar API-SPEC-001.
 

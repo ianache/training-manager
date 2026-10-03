@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791065348.075048,
-    "seen": 1791065397.1735961,
-    "ast_hash": "c9866f440f10d683e5af9574631624f9",
+    "mtime": 1791065629.7544274,
+    "seen": 1791065676.917431,
+    "ast_hash": "f77a7f592ffec033ee9e3c7aae2786b1",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791065304.5857878,
-    "seen": 1791065397.270176,
-    "ast_hash": "81dd480f70fa57b7cea4cf3e2edce854",
+    "mtime": 1791065629.7493105,
+    "seen": 1791065676.9583242,
+    "ast_hash": "51dc76fe6230de0b6c7d8aba1d944ac1",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3573,6 +3573,18 @@
     "mtime": 1791065287.6719072,
     "seen": 1791065397.0271785,
     "ast_hash": "af62fe0b7e3992a306126f50e8c392a8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md": {
+    "mtime": 1791065568.5374143,
+    "seen": 1791065676.8574696,
+    "ast_hash": "1705fa46429fd3b012b7ca7c67bb0c1c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1791065616.1009827,
+    "seen": 1791065676.8574696,
+    "ast_hash": "59edef54bb2da64a53ad55d0bb788ab1",
     "semantic_hash": ""
   }
 }

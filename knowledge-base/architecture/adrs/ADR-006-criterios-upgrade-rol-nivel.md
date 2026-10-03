@@ -222,3 +222,9 @@ DECISIÓN FINAL:
 - Desarrolladores (implementan flujo de propuesta → aprobación en plataforma)
 - Evaluadores (proponen upgrade basado en proyecto)
 - Agente IA (futuro: propone basado en evidencias)
+
+---
+
+## Enmienda 2026-10-03: rol ADMIN
+
+Decisión de `human:ianache` (respuesta a DM-Q-04 de LDM-002, EVD-2026-0151 y 0155, BR-CAT-26): el rol **ADMIN** decide el cambio de nivel de un colaborador de forma directa. Es una decisión nueva, no una corrección de la del 2026-09-27: los actores y el mecanismo híbrido de esta decisión siguen vigentes y ADMIN se suma a ellos. El cuerpo original no se reescribe; esta enmienda prevalece en lo que toca a ADMIN. Pendiente de reflejar en US-019 y en el contrato de asignación de niveles.

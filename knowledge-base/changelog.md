@@ -267,3 +267,8 @@ sources:
 
 - Correcciones v3 en Stitch: SCR-029-01 (formulario vacío, registrada en el DTM como `v3-clean-shell`) y SCR-029-03 E/F corrigen los dos `fail` del ARP-UNIDADES-V2, verificado sobre el HTML. Pendientes por timeouts: resumen D de SCR-029-03, SCR-029-02 y estados C y E de SCR-028-01.
 - Artefactos afectados: `knowledge-base/design/generations/GEN-029-*.md`, `knowledge-base/design/handoff/ARP-UNIDADES-REGENERACION-v2.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`, `knowledge-base/changelog.md`.
+
+## 2026-10-03 (catálogo)
+
+- Respuestas de ianache a DM-Q-01 a DM-Q-05 de LDM-002, registradas como BR-CAT-23 a BR-CAT-26 y EVD-2026-0152 a 0156 en BRC-001: la versión incluye rúbrica y requisitos de evidencia, que se versionan con la competencia; al aprobar, la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT; no hay eliminaciones, solo desactivación (competencias ACTIVE/INACTIVE); el rol ADMIN de ADR-006 es una decisión nueva y correcta (enmienda añadida a ADR-006). R-45 de IMD-001 pasa a FACT. Actualizados LDM-002, API-SPEC-003 (AQ-3, AQ-4, AQ-6 resueltas) y ADR-011. **Pendiente:** reflejar el estado de la competencia en `catalog-postgresql.sql` y el endpoint de desactivar competencias en la API; US-019 por la enmienda de ADR-006.
+- Artefactos afectados: `knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md`, `business/information-model/IMD-001-modelo-de-informacion-conceptual.md`, `architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md`, `architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md`, `architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md`, `architecture/adrs/ADR-006-criterios-upgrade-rol-nivel.md`, `knowledge-base/changelog.md`.

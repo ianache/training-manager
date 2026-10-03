@@ -71,8 +71,8 @@ Las opciones y sus pros y contras son una reconstrucción del agente. No hay dec
 
 **No se decidió todavía**, y el desarrollo no debe asumirlo:
 - Si el catalog-service comparte instancia de PostgreSQL con party o tiene la suya (aquí se supone la misma, por ADR-007).
-- Si la aprobación de una versión deja la anterior en DEPRECATED y si se desactiva o se elimina (DM-Q-02, DM-Q-03 de LDM-002); la API-SPEC los marca como supuestos.
-- Que ADR-006 y las decisiones del 2026-10-03 sobre quién cambia el nivel (ADMIN directo) sean coherentes (DM-Q-04).
+- ~~Si la aprobación deja la anterior en DEPRECATED y si se desactiva o se elimina~~ **Resuelto el 2026-10-03** (DM-Q-02, DM-Q-03 de LDM-002): la anterior pasa a DEPRECATED, solo se aprueba desde DRAFT y solo se desactiva (BR-CAT-24, BR-CAT-25).
+- ~~Que ADR-006 y las decisiones del 2026-10-03 sean coherentes~~ **Resuelto el 2026-10-03** (DM-Q-04): el rol ADMIN es correcto; ADR-006 se enmienda (BR-CAT-26).
 - Qué hace party si el catálogo no responde (degradación del alta); no hay ASR que fije disponibilidad.
 
 ## Metas de calidad
