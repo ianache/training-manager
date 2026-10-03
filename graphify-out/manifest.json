@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791040010.687448,
-    "seen": 1791040077.4715707,
-    "ast_hash": "9e573389514884472d658ca5a177ec6b",
+    "mtime": 1791040359.7488496,
+    "seen": 1791045405.095134,
+    "ast_hash": "45b91dc8f9ca9804ec1548213f8bc88b",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791003430.9775968,
-    "seen": 1791038399.3121326,
-    "ast_hash": "9106fa258c7d7461baf55e502d2a7271",
+    "mtime": 1791040359.8937316,
+    "seen": 1791045405.113137,
+    "ast_hash": "ac8927cd7fc5b8aa23298e2571a2384c",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -36,9 +36,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/GLS-001-glosario-de-negocio.md": {
-    "mtime": 1791040010.6616662,
-    "seen": 1791040077.3687408,
-    "ast_hash": "d2c8190d99c78098dd9fec2d7adf09f9",
+    "mtime": 1791040293.1498823,
+    "seen": 1791045405.0660799,
+    "ast_hash": "5fe7cbc3bd5dcb21c5e021fe31b5585f",
     "semantic_hash": ""
   },
   "knowledge-base/business/glossary/terms/TRM-0001-acreditacion.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791040010.6802955,
-    "seen": 1791040077.4687545,
-    "ast_hash": "24c883351731e96d483901f5e9eaa409",
+    "mtime": 1791040359.6118226,
+    "seen": 1791045405.094134,
+    "ast_hash": "2d9131901e70a8be30922932a1cedc3e",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
-    "mtime": 1790527449.0341065,
-    "seen": 1790536370.7001495,
-    "ast_hash": "25d9db088bbe6988b3f546274cc21f77",
+    "mtime": 1791040293.1731033,
+    "seen": 1791045405.0921402,
+    "ast_hash": "d7fdb7a5b19957e6ed5ea16067e336fb",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
@@ -3255,6 +3255,36 @@
     "mtime": 1791002495.738987,
     "seen": 1791038399.288516,
     "ast_hash": "14f78bbd6913502e37062547ba78ad80",
+    "semantic_hash": ""
+  },
+  "knowledge-base/business/glossary/terms/TRM-0106-curso.md": {
+    "mtime": 1791040293.1591477,
+    "seen": 1791045405.0921402,
+    "ast_hash": "da4291a5419541a0556bcf35d8d757a8",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md": {
+    "mtime": 1791040293.2142842,
+    "seen": 1791045405.1141357,
+    "ast_hash": "91ee05982048e08ec2a97d1bb1e97bbf",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/specs/RQS-001-catalogo-de-cursos-con-filtros.md": {
+    "mtime": 1791040359.9325087,
+    "seen": 1791045405.1141357,
+    "ast_hash": "10f0f06ff5e1cfd66ed5e00e254ab40f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-026-explorar-el-catalogo-de-cursos.md": {
+    "mtime": 1791040359.905838,
+    "seen": 1791045405.1221943,
+    "ast_hash": "a9461a657c794f9d74fc832183851fd7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-027-ubicar-cursos-con-filtros.md": {
+    "mtime": 1791040359.922783,
+    "seen": 1791045405.1221943,
+    "ast_hash": "d85a3bc53704a24aed88c92ba850e2ce",
     "semantic_hash": ""
   }
 }

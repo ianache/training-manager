@@ -6,7 +6,7 @@ tags: [information-model, conceptual, domain, competencias, certificacion]
 status: draft
 generated:
   by: "af-conceptual-model-designer/1.0"
-  at: "2026-09-27T18:00:00-05:00"
+  at: "2026-10-03T13:00:00-05:00"
 sources:
   - id: vis-001
     resource: /knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md
@@ -20,6 +20,8 @@ sources:
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
   - id: imd-002
     resource: /knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md
+  - id: rcp-004
+    resource: /knowledge-base/requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md
 ---
 
 # IMD-001 — Modelo de información conceptual
@@ -106,6 +108,14 @@ Las **competencias se versionan; los roles no** (BR-CAT-22, respuesta a P-50, EV
 - **Brecha:** por colaborador y competencia, nivel requerido menos nivel certificado vigente (VIS-001:L59; P-12).
 - **Candidato:** un colaborador cuyo nivel certificado alcanza el nivel del requerimiento (VIS-001:L42, L119; P-16).
 
+**Vistas (no son conceptos):** el **catálogo de cursos con filtros** (RCP-004; BR-FOR-11 y BR-FOR-12, *propuestas sin validar* del 2026-10-03; BR-FOR-13 a BR-FOR-17, vacíos) es una pantalla de exploración, una vista sobre CURSO, VERSION_DE_CURSO, EDICION_DE_CURSO, COMPETENCIA y NIVEL_DE_ROL; no pasa la prueba de concepto y no se añade al modelo. Cada filtro propuesto (D2) se apoya en relaciones que ya existen y no crea ninguna nueva:
+- **Competencia y nivel L1–L4:** R-34 (curso–competencia), con BR-FOR-01 a BR-FOR-03.
+- **Rol-Nivel mínimo y objetivo:** R-35 (curso–nivel de rol), con BR-FOR-01.
+- **Estado de la versión (DRAFT, APPROVED, DEPRECATED):** R-37, con BR-FOR-06 a BR-FOR-09.
+- **Instructor y edición:** R-38 (edición–versión), R-42 y R-43 (Instructor de la edición, que es un colaborador), con BR-FOR-05 y BR-FOR-10.
+
+Duración, modalidad, idioma y producto no tienen relación ni concepto que los respalde (BR-FOR-17, P-59). Si "catálogo de cursos" es solo una vista o un concepto con reglas propias queda en IM-Q13.
+
 ## 3. Diagrama H2 y H3 — Formación, certificados de curso e IA
 
 ```mermaid
@@ -167,7 +177,7 @@ erDiagram
 | Asignación | ASIGNACION | Vínculo entre un requerimiento y un colaborador, que registra el Jefe de Ingeniería o un ADMIN a partir de los candidatos que recomienda la plataforma; se admite bajo el nivel y en varios requerimientos a la vez | Demanda | [TRM-0004](../glossary/terms/TRM-0004-asignacion.md) (revisar definición: GQ-35) | VIS-001:L58; BR-REQ-04, BR-REQ-11, BR-REQ-12 | H1 |
 | Brecha | — (derivado) | Nivel requerido menos nivel certificado | Derivado | [TRM-0005](../glossary/terms/TRM-0005-brecha.md) | VIS-001:L59 | H1 |
 | Ruta de formación | RUTA_DE_FORMACION | Secuencia de formación generada a partir de la brecha | Formación | [TRM-0057](../glossary/terms/TRM-0057-ruta-de-formacion.md) | VIS-001:L79 | H2 |
-| Curso / Material | CURSO, MATERIAL | Curso en Classroom, diseñado para desarrollar competencias en un nivel L1–L4 para ciertos roles y niveles de rol, y su material en Drive | Formación (externo) | [TRM-0029](../glossary/terms/TRM-0029-google-classroom.md), [TRM-0030](../glossary/terms/TRM-0030-google-drive.md) | VIS-001:L32, L93-L94; BR-FOR-01, BR-FOR-03, BR-CER-06 | H2 |
+| Curso / Material | CURSO, MATERIAL | Curso en Classroom, diseñado para desarrollar competencias en un nivel L1–L4 para ciertos roles y niveles de rol, y su material en Drive | Formación (externo) | [TRM-0106](../glossary/terms/TRM-0106-curso.md) (curso; `draft`), [TRM-0029](../glossary/terms/TRM-0029-google-classroom.md), [TRM-0030](../glossary/terms/TRM-0030-google-drive.md) | VIS-001:L32, L93-L94; BR-FOR-01, BR-FOR-03, BR-CER-06 | H2 |
 | Curso final | CURSO_FINAL | Curso cuya aprobación se certifica | Formación | [TRM-0017](../glossary/terms/TRM-0017-curso-final.md) | VIS-001:L82 | H2 |
 | Certificado de curso | CERTIFICADO_DE_CURSO | Constancia de aprobación del curso final; no equivale a un nivel | Formación | [TRM-0008](../glossary/terms/TRM-0008-certificado.md) | VIS-001:L82 | H2 |
 | Versión de curso | VERSION_DE_CURSO | Cada diseño de un curso en el tiempo, con estado DRAFT, APPROVED o DEPRECATED | Formación | [TRM-0104](../glossary/terms/TRM-0104-version-de-curso.md) | BR-FOR-06 a BR-FOR-09 (EVD-2026-0116) | H2 |
@@ -350,6 +360,7 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 | P-49.2 | ¿El Instructor puede firmar la propuesta de certificación de BR-ACR-14 o solo concluye la aprobación del curso? Si firma, se relaciona con la certificación como el Evaluador (R-08) | R-41, R-42, R-08 | Jefe de Ingeniería | Alta — abierta (BRC-001; también P-07.4) |
 | IM-Q11 | La propuesta de certificar el nivel objetivo a partir de un curso (BR-ACR-14), ¿es un concepto propio con estados (pendiente, firmada, rechazada), como la Propuesta de nivel de la IA, o un paso del flujo de certificación? Si es concepto, necesita término en el glosario | R-41; Certificación, Propuesta de nivel | Jefe de Ingeniería | Media — nueva |
 | IM-Q12 | ¿"Versión de competencia" entra al glosario? Se propuso en GLS-001 GQ-36; hasta entonces el concepto no tiene término | R-44, R-45 | Jefe de Ingeniería | Media — nueva |
+| IM-Q13 | El "catálogo de cursos" (RCP-004), ¿es solo una vista sobre CURSO, VERSION_DE_CURSO, EDICION_DE_CURSO, COMPETENCIA y NIVEL_DE_ROL, o un concepto con reglas propias (por ejemplo, curación o publicación de qué cursos se ofrecen)? Si es concepto, necesita término en el glosario (GLS-001 GQ-38) y relaciones nuevas, que hoy serían UNKNOWN. Reutiliza P-55 (qué cursos y versiones ve cada actor); no duplica P-56 a P-60 | Vista en la nota de conceptos derivados; R-34, R-35, R-37, R-38, R-42; Curso | Jefe de Ingeniería | Media — nueva (GLS-001 GQ-38; P-55; BR-FOR-11 a BR-FOR-13) |
 | P-51 | ¿Una edición en curso de una versión que pasa a DEPRECATED sigue hasta terminar (se supone que sí, por BR-FOR-10)? ¿Cómo se relaciona una versión con el curso de Classroom? | R-37, R-38, R-39 | Jefe de Ingeniería + Gestión de formación | Media — nueva (BRC-001) |
 
 ## 8. Historial de cambios del modelo
@@ -376,6 +387,7 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 | 2026-09-27 | P-47 respondida y P-48 en parte por ianache (Jefe de Ingeniería), 2026-09-27: alta de R-36 (la aprobación de un curso exige los requisitos de evidencia requeridos de las competencias que desarrolla) y de la arista CURSO–REQUISITO_DE_EVIDENCIA; R-30 gana BR-FOR-04 (evidencias de evaluaciones y artefactos de proyectos); reglas BR-FOR-03, BR-FOR-04 y BR-CER-06 (precisada). La propuesta de P-48 (Instructor por edición de curso, BR-FOR-05) está solo en consideración: no se agregan conceptos; IM-Q10 nueva | R-30, R-36; Curso, Requisito de evidencia, Evidencia | BR-CER-06, BR-FOR-03, BR-FOR-04 (EVD-2026-0112); BR-FOR-05 (EVD-2026-0113, hipótesis) → P-49 |
 | 2026-09-27 | P-39, P-40 y US1-Q1 respondidas, y P-02 y P-42 en parte, por ianache (Jefe de Ingeniería), 2026-09-27, en UXR-001: conceptos nuevos Versión de curso, Edición de curso e Inscripción (pasan la prueba de concepto: se registran y tienen reglas); altas R-37 (FACT, cardinalidad inferida), R-38 (INFERENCE) y R-39 (FACT, cardinalidades inferidas) y sus aristas; el diagrama de H2 y H3 se divide en formación e IA; R-04, R-19, R-24 y R-28 actualizadas; reglas BR-CAT-20, BR-CAT-21, BR-ACR-13, BR-FOR-06 a BR-FOR-10, BR-PRF-03 y BR-TRA-02; IM-Q10 respondida en parte (el Instructor sigue abierto); P-50 y P-51 agregadas | R-04, R-19, R-24, R-28, R-37 a R-39; Versión de curso, Edición de curso, Inscripción, Nivel de rol | EVD-2026-0114 a 0118, EVD-2026-0125; GLS-001 TRM-0102 a TRM-0104 |
 | 2026-09-27 | P-05, US2-Q2, P-07, P-08, P-52 y, en parte, P-49 y P-50, respondidas por ianache (Jefe de Ingeniería), 2026-09-27: la asignación la registra el Jefe de Ingeniería o un ADMIN, para uno o varios colaboradores, aun bajo el nivel y en varios requerimientos (R-13 actualizada, alta de R-40; etiquetas de las aristas REQUERIMIENTO–ASIGNACION y ASIGNACION–COLABORADOR); el curso aporta evidencia y la plataforma propone certificar el nivel objetivo (alta de R-41 y de la arista INSCRIPCION–CERTIFICACION (inf.); R-15, R-21, R-30, R-34 y R-36 actualizadas; AMB-01 resuelta); concepto nuevo Instructor (altas R-42 y R-43 y sus aristas); concepto nuevo Versión de competencia, con diagrama propio (altas R-44 (FACT, cardinalidad inferida), R-45 (INFERENCE) y R-46 (UNKNOWN)); reglas BR-REQ-02, BR-REQ-04, BR-REQ-11, BR-REQ-12, BR-ACR-14, BR-FOR-05, BR-CAT-22 y los permisos BR-TRA-03 a BR-TRA-06 y BR-IA-04 (no modelados); IM-Q10 respondida en lo del Instructor; IM-Q11, IM-Q12, P-50.1, P-50.2, P-53, P-07.1 y P-49.2 agregadas | R-13, R-15, R-21, R-30, R-34, R-36, R-37, R-40 a R-46; Asignación, Instructor, Versión de competencia, Inscripción, Certificación | EVD-2026-0126 a 0132; GLS-001 TRM-0105, GQ-35 a GQ-37 |
+| 2026-10-03 | RCP-004 (catálogo de cursos con filtros; BR-FOR-11 y BR-FOR-12, propuestas sin validar; BR-FOR-13 a BR-FOR-17, vacíos): el concepto Curso enlaza el término TRM-0106 (`draft`); el catálogo de cursos con filtros se registra como vista sobre el modelo y no como concepto, con el respaldo de cada filtro propuesto en R-34, R-35, R-37, R-38, R-42 y R-43; sin conceptos, relaciones ni cardinalidades nuevos y sin cambios en los diagramas; IM-Q13 nueva (vista o concepto, GLS-001 GQ-38, P-55) | Curso; R-34, R-35, R-37, R-38, R-42, R-43 (solo citadas); IM-Q13 | RCP-004; BRC-001 BR-FOR-11 a BR-FOR-17, P-55 a P-60; GLS-001 TRM-0106, GQ-38 |
 
 ## 9. Preparación y validación
 
@@ -385,4 +397,5 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
   - [ ] Catálogo y certificación — Jefe de Ingeniería — R-33 (inferencia de P-37), interpretaciones de BR-ACR-13 y BR-CAT-21, P-41, P-42 (resto), P-50.1, P-50.2, R-44 a R-46 (versión de competencia), IM-Q12, P-30, P-34, P-35, P-23 (equivalencias)
   - [ ] Demanda — Responsable de producto — P-29, P-53, R-40; revisar las decisiones IM-Q2, IM-Q6, P-25, P-38 y P-05 (tomadas por el Jefe de Ingeniería)
   - [ ] Formación e IA — Jefe de Ingeniería y Gestión de formación — P-07.1, P-18, P-49.1 a P-49.3, P-51, IM-Q10 ("evaluación") e IM-Q11; R-38 (inferencia: una edición pertenece a una versión) y R-41 (inferencia: la propuesta nace de la inscripción)
+- **Cambio 2026-10-03 (RCP-004):** sin efecto en el estado: el catálogo de cursos con filtros es una vista y no añade conceptos ni relaciones. Se agrega IM-Q13 (vista o concepto) al bloque Formación e IA, ligada a P-55 y GLS-001 GQ-38; BR-FOR-11 y BR-FOR-12 siguen sin validar (P-60). `verified` sin asignar.
 - **Inferencias a aceptar o rechazar:** R-17, R-33 (lo que describe la rúbrica se verifica con los requisitos de evidencia; son cosas distintas) R-38 (una edición es de una versión), R-41 (la propuesta de certificación nace de la inscripción), R-45 (una versión de competencia incluye rúbrica y requisitos) y las cardinalidades de R-20, R-21, R-24 (por Rol-Nivel), R-30, R-36, R-37, R-39, R-42 y R-44. R-28 y R-29 dejaron de ser inferencias el 2026-09-27 (SPEC-001 D6, BR-PTY-11)

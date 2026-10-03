@@ -14,6 +14,8 @@ sources:
     resource: /AGENTS.md
   - id: spec-001
     resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
+  - id: rcp-004
+    resource: /knowledge-base/requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md
 ---
 
 # BRC-001 — Reglas de negocio de la Plataforma de Gestión de Formación
@@ -36,6 +38,8 @@ Se catalogaron **32 entradas**: 26 reglas y 6 vacíos. Tres áreas tienen reglas
 3. **Permisos:** la visibilidad quedó definida el 2026-09-27 (P-08, BR-TRA-03 a BR-TRA-06); siguen abiertos P-09, P-52 y P-54.
 
 **Actualización (2026-09-27):** con [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.md) se añadieron 18 reglas de información maestra de colaboradores (BR-PTY-01 a BR-PTY-18) y las evidencias EVD-2026-0076 a EVD-2026-0095. Son decisiones humanas registradas, pero siguen sin verificar.
+
+**Actualización (2026-10-03):** con [RCP-004](../../requirement/context-packs/RCP-004-catalogo-de-cursos-con-filtros.md) (catálogo de cursos con filtros, H2 por hipótesis) se añadieron 2 propuestas sin validar (BR-FOR-11 y BR-FOR-12, decisiones D1 y D2 de `ianache`, sin validación del Responsable de dominio), 5 vacíos (BR-FOR-13 a BR-FOR-17), las preguntas P-55 a P-60 y las evidencias EVD-2026-0136 a 0138. No se modificó ninguna regla vigente y no hay contradicciones nuevas.
 
 La fuente no define **estados** explícitos. Los únicos que se pueden derivar son los de la propuesta de nivel hecha por la IA (BR-IA-02).
 
@@ -154,6 +158,9 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0133 | Las unidades organizacionales se gestionan con listado (filtros y ordenamiento), alta, edición y eliminación lógica (activa / inactiva). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, solicitud de desarrollo de US-017 | decision | high |
 | EVD-2026-0134 | Se rechaza un cambio de unidad padre que cree un ciclo en la jerarquía (US-017-Q1). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a US-017-Q1 | decision | high |
 | EVD-2026-0135 | No se puede desactivar una unidad con unidades hijas activas o personas con pertenencia vigente (US-017-Q2). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a US-017-Q2 | decision | high |
+| EVD-2026-0136 | D1: el actor que explora el catálogo de cursos es el Colaborador. Pendiente de validación del Responsable de dominio. | Propuesta en consideración: ianache (usuario de sesión), 2026-10-03, RCP-004 §10 D1 | hypothesis | medium |
+| EVD-2026-0137 | D2: los filtros propuestos son solo los respaldados por reglas existentes (competencia y nivel L1–L4, Rol-Nivel mínimo y objetivo, estado de la versión, Instructor y edición); duración, modalidad, idioma y producto no son requisitos. Pendiente de validación del Responsable de dominio. | Propuesta en consideración: ianache (usuario de sesión), 2026-10-03, RCP-004 §10 D2 | hypothesis | medium |
+| EVD-2026-0138 | Sin fuente que defina: visibilidad de cursos y de versiones DRAFT/DEPRECATED por actor, metadatos leídos de Classroom frente a los de la plataforma, inscripción desde la exploración, ordenamiento, búsqueda por texto, resultado vacío y filtros de duración, modalidad, idioma y producto. Tampoco existe el término "catálogo de cursos" en la base de conocimiento. | RCP-004 §4 E-16 a E-21, §7 (RCP4-Q1 a RCP4-Q13) | gap | high |
 
 Todas las evidencias comparten estos campos del esquema:
 
@@ -273,6 +280,13 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-FOR-08 | Validación | Solo las versiones APPROVED admiten inscripciones nuevas. | EVD-2026-0116 |
 | BR-FOR-09 | Estado | Cuando una versión de curso pasa a APPROVED, la versión APPROVED anterior pasa a DEPRECATED. | EVD-2026-0116 |
 | BR-FOR-10 | Validación | Un colaborador inscrito en una edición de un curso termina el curso en esa edición; no se homologan versiones. | EVD-2026-0116 |
+| BR-FOR-11 | Alcance (propuesta, sin validar) | **Propuesta en consideración (D1, 2026-10-03):** el actor que explora el catálogo de cursos es el Colaborador. No es una regla vigente hasta que la valide el Responsable de dominio. | EVD-2026-0136 |
+| BR-FOR-12 | Presentación (propuesta, sin validar) | **Propuesta en consideración (D2, 2026-10-03):** los filtros del catálogo de cursos son solo los respaldados por reglas existentes: competencia y nivel L1–L4 (BR-FOR-01, BR-FOR-02, BR-FOR-03), Rol-Nivel mínimo y objetivo (BR-FOR-01), estado de la versión (BR-FOR-06 a BR-FOR-09) e Instructor y edición (BR-FOR-05, BR-FOR-10). Duración, modalidad, idioma y producto no son requisitos (BR-FOR-17). No es una regla vigente hasta su validación. | EVD-2026-0137 |
+| BR-FOR-13 | Vacío | Visibilidad de los cursos: qué cursos ve cada actor, y si el Colaborador ve versiones DRAFT o DEPRECATED (o solo APPROVED), incluida una edición en curso de una versión DEPRECATED. Ninguna regla de visibilidad existente (BR-PTY-20, BR-TRA-03 a BR-TRA-06) menciona cursos. | EVD-2026-0138 → P-55 (RCP4-Q3, RCP4-Q10) |
+| BR-FOR-14 | Vacío | Qué metadatos de un curso se leen de Classroom (solo lectura, BR-INT-01) y cuáles conserva la plataforma; si aparece un curso de Classroom sin diseño en la plataforma. | EVD-2026-0138 → P-56 (RCP4-Q2, RCP4-Q13) |
+| BR-FOR-15 | Vacío | Si explorar un curso implica poder inscribirse, y quién inscribe, desde el catálogo. BR-FOR-08 solo limita las inscripciones a versiones APPROVED. | EVD-2026-0138 → P-57 (RCP4-Q5) |
+| BR-FOR-16 | Vacío | Ordenamiento de la lista, búsqueda por texto y resultado vacío del catálogo de cursos: sin definir. | EVD-2026-0138 → P-58 (RCP4-Q7, RCP4-Q8, RCP4-Q9) |
+| BR-FOR-17 | Vacío | Filtros por duración, modalidad, idioma y producto: sin respaldo en reglas ni en el modelo; si son atributos del curso y de dónde saldrían. | EVD-2026-0138 → P-59 (RCP4-Q6) |
 | BR-TER-01 | Terminología | Se usa "certificar" (certificación, nivel certificado) para las competencias de la persona, en lugar de "acreditar": en términos académicos se acredita el programa y se certifican las competencias de la persona. El documento que acredita la aprobación de un curso se llama "certificado de curso". Los IDs de reglas BR-ACR-* y los nombres de archivo conservan "acreditar" porque son permanentes. | EVD-2026-0075 |
 
 ### Integraciones y contenido
@@ -395,6 +409,12 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 | P-52 | "Data abierta" (BR-PTY-20): ¿incluye las identificaciones (DNI, carné de extranjería, pasaporte), el teléfono laboral y los datos de las personas dadas de baja o anonimizadas, o solo nombre, correo laboral, unidad, rol y perfiles profesionales? Mostrar documentos de identidad a todos los colaboradores es un riesgo de privacidad que choca con la minimización de datos personales de SPEC-001 | Jefe de Ingeniería + Legal | Alta | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): solo nombre, correo laboral, unidad, rol y perfiles profesionales (BR-PTY-20) |
 | P-53 | Asignar a un colaborador bajo el nivel (BR-REQ-11): ¿la plataforma registra el curso que debe seguir para cubrir la brecha, o lo avisa, o queda fuera de la plataforma como planificación? ¿Exige registrar un motivo? | Jefe de Ingeniería | Media | Nueva (derivada de P-05) |
 | P-54 | La visibilidad abierta de evidencias y certificaciones (BR-TRA-05, BR-TRA-06) incluye las calificaciones de evaluaciones y cuestionarios y el sustento de un evaluador que decidió distinto de la propuesta (BR-CER-07). ¿Se muestran también a todos, o solo el resultado? Además, BR-IA-01 dice que la evidencia de GitLab se usa "solo internamente": ¿se mantiene, o la plataforma puede mostrar enlaces a GitLab y dejar el control al repositorio? | Jefe de Ingeniería | Media | Nueva (derivada de P-08) |
+| P-55 | ¿Todo Colaborador ve todos los cursos, o algún curso se restringe por rol, nivel o producto? ¿El catálogo muestra solo versiones APPROVED o también DRAFT y DEPRECATED, y según qué actor? ¿Una edición en curso de una versión DEPRECATED se ve? ¿El estado es un filtro o una restricción? (BR-FOR-13) | Jefe de Ingeniería | Alta | Nueva (RCP4-Q3, RCP4-Q10 de RCP-004) |
+| P-56 | Con Classroom en solo lectura (BR-INT-01): ¿qué metadatos de un curso se leen de Classroom y cuáles conserva la plataforma? ¿Aparece un curso de Classroom sin diseño en la plataforma? (BR-FOR-14) | Gestión de formación + ARQ | Alta | Nueva (RCP4-Q2, RCP4-Q13 de RCP-004) |
+| P-57 | ¿Explorar un curso implica poder inscribirse? ¿La inscripción desde el catálogo está en alcance y quién inscribe? (BR-FOR-15) | Jefe de Ingeniería | Alta | Nueva (RCP4-Q5 de RCP-004) |
+| P-58 | ¿Con qué criterios se ordena la lista, se busca por texto (y sobre qué campos) y qué ve el Colaborador cuando ningún curso cumple los filtros? (BR-FOR-16) | Responsable de producto + UX | Media | Nueva (RCP4-Q7, RCP4-Q8, RCP4-Q9 de RCP-004) |
+| P-59 | ¿Duración, modalidad, idioma y producto son atributos del curso que importan? ¿De dónde saldrían, de Classroom o de la plataforma? (BR-FOR-17) | Responsable de producto | Media | Nueva (RCP4-Q6 de RCP-004; D2 no los incluye) |
+| P-60 | ¿Se validan D1 (el Colaborador explora el catálogo de cursos) y D2 (los filtros propuestos) como reglas vigentes? (BR-FOR-11, BR-FOR-12) | Jefe de Ingeniería / Responsable de producto | Alta | Nueva: propuestas sin validar, 2026-10-03 |
 | P-05.1 | ¿La plataforma registra la asignación o solo muestra candidatos? | Responsable de producto | Alta | Respondida (EVD-2026-0126): recomienda candidatos y registra la asignación que hace el Jefe de Ingeniería o un ADMIN (BR-REQ-04) |
 | P-05.2 | Si se registra, ¿quién decide la asignación? | Responsable de producto | Alta | Respondida (EVD-2026-0126): el Jefe de Ingeniería o un ADMIN (BR-REQ-04) |
 | P-05.3 | ¿Se permite asignar a alguien que no alcanza el nivel? ¿Exige registrar un motivo? | Jefe de Ingeniería | Media | Parcialmente respondida (EVD-2026-0126): se permite (BR-REQ-11). El motivo y el registro del curso de cierre siguen abiertos en P-53 |
@@ -431,6 +451,7 @@ La pregunta P-03 (metas de KPI) de VIS-001 §11 sigue abierta en la visión. La 
 
 - **Estado:** CONDITIONAL
 - **Motivo:** las reglas del catálogo, la certificación con firma humana, los certificados de curso y las integraciones bastan para redactar historias. P-05, P-07 y P-08 bloquean los criterios completos de certificación, asignación y visibilidad. P-01 quedó respondida en lo esencial (BR-ACR-07).
+- **Cambio 2026-10-03 (RCP-004, catálogo de cursos con filtros):** NOT READY para redactar criterios de aceptación completos. BR-FOR-11 y BR-FOR-12 son propuestas sin validar y BR-FOR-13 a BR-FOR-17 son vacíos; P-55, P-56, P-57 y P-60 (prioridad alta) lo bloquean. Compuerta de validación humana: el Responsable de dominio (Jefe de Ingeniería / Responsable de producto) valida D1 y D2 y responde P-55 a P-60. El estado global del catálogo sigue en CONDITIONAL y `verified` sin asignar.
 - **Siguiente rol o Skill:** `af-user-story-refiner`, empezando por H1 (catálogo, requerimientos, perfil con certificación manual, brechas).
 - **Decisión humana requerida:** el Jefe de Ingeniería y el responsable del producto validan las reglas y responden las preguntas de prioridad alta. `verified` queda sin asignar hasta esa validación.
 
