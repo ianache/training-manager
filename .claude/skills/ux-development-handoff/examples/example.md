@@ -1,19 +1,23 @@
 ---
-type: Handoff Pack
+type: UX Development Handoff
 title: "Example — ux-development-handoff"
-description: "Example output produced by ux-development-handoff."
-tags: [ux-ui, ai-cowork]
+description: "Apunta al ejemplo E2E completo (CLocator2, referencias PLACEHOLDER)."
+tags: [ux-ui, ai-cowork, example]
 status: draft
 generated:
-  by: "ux-development-handoff/1.0"
-  at: "YYYY-MM-DDTHH:MM:SS-05:00"
+  by: "ux-development-handoff/2.0"
+  at: "2026-10-01T10:00:00-05:00"
 sources:
-  - id: source-1
-    resource: /path/to/source.md
+  - id: e2e
+    resource: /.claude/skills/ux-development-handoff/examples/e2e-clocator2/knowledge-base/design/handoff/HOF-CL2-TENANT-001.md
 ---
 
-# Traceability
-- Source: [/inputs/example.md](/inputs/example.md)
+# Example
 
-# Open questions
-- None confirmed yet.
+El ejemplo completo está en `examples/e2e-clocator2/`: Requirements Context Pack → UX Context Pack → FLW/SCR →
+Stitch Project único → artefactos Stitch → Figma gobernado → Design Traceability Map → UX Development Handoff →
+`DESIGN_READY_FOR_DEV` → Development Context Pack. Todas las referencias externas son `PLACEHOLDER:`.
+
+```
+python validators/cli.py gate --kb examples/e2e-clocator2/knowledge-base --hof HOF-CL2-TENANT-001 --profile example
+```

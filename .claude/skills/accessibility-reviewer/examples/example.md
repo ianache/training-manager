@@ -5,7 +5,7 @@ description: "Example output produced by accessibility-reviewer."
 tags: [ux-ui, ai-cowork]
 status: draft
 generated:
-  by: "accessibility-reviewer/1.0"
+  by: "accessibility-reviewer/1.1"
   at: "YYYY-MM-DDTHH:MM:SS-05:00"
 sources:
   - id: source-1

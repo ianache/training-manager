@@ -1,101 +1,58 @@
+---
+name: ux-development-handoff
+description: Usar cuando un diseño UX/UI aprobado deba entregarse a Desarrollo (Developer + agente IA + Superpowers), cuando se pida evaluar DESIGN_READY_FOR_DEV, o cuando Superpowers pida el contexto de diseño para implementar un SCR-*.
+---
+
 # ux-development-handoff
 
 ## Purpose
-Preparar contexto consumible por Arquitectura, Dev y QA.
-
-## Course
-UX-106
+Convertir el diseño aprobado en un **contrato Design-to-Code** verificable: qué Screen implementar, cuál es su `governed_design` (Figma), con qué componentes, tokens, estados, responsive, interacciones y accesibilidad, y con qué lineage. Evalúa el gate `DESIGN_READY_FOR_DEV`.
 
 ## Input contract
-- Input: Bundle OKF + Figma
+- DTM (Design Traceability Map) con una entrada por SCR; SCR, FLW, UXR, US/AC, CMP/TKN, DD y Accessibility Reports aprobados.
+- `governed_design` en Figma (lo registra `figma-design-validator`).
 - MUST receive a governed Context Pack or canonical source artifacts.
-- MUST distinguish facts, assumptions, open questions, and human decisions.
-- MUST NOT silently resolve missing business information.
 
 ## Output contract
-- Output: Handoff Pack + trazabilidad + ASR candidates
-- Markdown outputs MUST conform to the UX/UI track conventions for Google OKF v0.2.
-- New or modified concepts start with `status: draft`.
-- The skill MUST set `generated.by` to its own actor/version.
-- The skill MUST NOT set or fabricate `verified`.
-- Open questions MUST be explicit.
+- **HOF-*** (`UX Development Handoff`, plantilla en `templates/`): secciones A–N (Requirement Context, User Flow, Screens, Governed Design Reference, Components, Design Tokens, Screen States, Responsive, Interaction Rules, Accessibility, Acceptance Criteria, Design Decisions, Open Questions/Assumptions, Provenance). Referencia IDs; no copia el contenido de SCR/CMP/DTM. Detalle en `references/design-to-code-contract.md`.
+- Registro del gate en el frontmatter: `gate.result` = `PASSED | FAILED | BLOCKED`, evidencia (hallazgos) y `human_review`.
+- Si el gate pasa: insumo para `development-handoff-builder` (Development Context Pack).
+- A solicitud: contexto de implementación por SCR (`dev-context`).
+- OKF v0.2: `status: draft`, `generated.by: ux-development-handoff/2.0`, nunca `verified`.
+
+## Preconditions
+Cada SCR del alcance tiene entrada DTM, FLW y lineage; ver el DTM en `references/design-traceability-map.md`. El validador compartido está en `validators/` (este paquete).
+
+## Invariants
+- Se entrega a Dev el `governed_design`. Nunca se selecciona un artefacto Stitch cuando existe Figma gobernado; Stitch solo aparece como `exploration_lineage` no autoritativa.
+- Sin `governed_design` identificable → no hay handoff.
+- La aprobación del gate es humana: el validador nunca escribe `human_review.status: approved`.
+- `PASSED` = comprobaciones automáticas superadas, pendiente de revisión humana.
 
 ## Workflow
-1. Validate required inputs and provenance.
-2. Extract relevant constraints and traceability links.
-3. Generate candidate output(s).
-4. Critique against UX requirements, acceptance criteria, accessibility, and Design System where applicable.
-5. Produce draft OKF concepts and a concise change summary.
-6. Stop for human review when a decision, ambiguity, or conflict requires judgment.
+1. `python validators/cli.py gate --kb knowledge-base --hof <HOF> [--profile production]`.
+2. Si `FAILED`/`BLOCKED`: no emitir contexto; reportar códigos, SCR y responsable. Corregir upstream; no parchear aquí.
+3. Redactar/actualizar HOF (A–N) por referencias. Registrar `gate` y dejar `human_review: {status: pending}`.
+4. Un humano revisa y registra `human_review.status: approved` con `reviewer: human:<id>`.
+5. Pasar a `development-handoff-builder`; para un SCR concreto: `python validators/cli.py dev-context --kb knowledge-base --screen <SCR>`.
+6. Actualizar `index.md` y `changelog.md` de `knowledge-base/`.
 
-## Guardrails
-- Never treat generated UI as approved merely because it renders.
-- Never invent user research, business rules, accessibility evidence, or approvals.
-- Preserve lineage to upstream US/UXR/FLW/SCR/CMP/AC concepts.
-- Prefer semantic design tokens over raw visual values.
-- External-tool exports are references, not the canonical knowledge artifact.
+## Quality gates
+`DESIGN_READY_FOR_DEV` (códigos y reglas en `references/design-to-code-contract.md`). Perfil `example` acepta `PLACEHOLDER:`; `production` los rechaza y exige aprobación humana.
 
-## Quality checks
-- Required sources exist.
-- Traceability links are resolvable.
-- No critical open question is hidden.
-- Output is reproducible from recorded context.
-- Human verification remains pending unless supplied by a human workflow.
+## Failure / blocking behavior
+Resultado `BLOCKED` (falta una decisión o dato: Figma gobernado, divergencia sin resolver, pregunta bloqueante, lineage) o `FAILED` (defecto: estado/responsive/a11y/componente/token faltante, referencia obsoleta, proyecto Stitch incorrecto). `FAILED` prevalece. El agente de desarrollo que encuentre una ambigüedad de diseño emite `DESIGN_CONFLICT` (ver `references/superpowers-design-contract.md`).
 
-## Implementation Requirements Section (REQUIRED OUTPUT)
+## Downstream consumers
+`development-handoff-builder` (Development Context Pack) → Developer + AI Coding Agent + Superpowers → QA / Visual Verification.
 
-After producing Handoff Pack, MUST generate and include:
-
-### Component Inventory & Implementation Checklist
-
-Extract all components from UX specs and enumerate:
-
-```markdown
-## Implementation Requirements (for development-handoff-builder)
-
-### Component Inventory (Auto-extracted)
-
-| Component | Type | Library | Props | Validators | States | A11y | Design Ref |
-|-----------|------|---------|-------|------------|--------|------|------------|
-| nombres | text-input | @gf/ui | label, placeholder, required | required, minLength(2) | normal, error | aria-required | GEN-015-02 |
-
-### Handoff Instructions for development-handoff-builder
-
-**Next Step:** Pass this Handoff Pack + GEN-XXX to `development-handoff-builder`
-
-**development-handoff-builder MUST:**
-1. Read this Component Inventory
-2. Extract from GEN-XXX all design specifications
-3. Generate DCP with Implementation Contract
-4. Bind components to development tasks
-
-**What NOT to do:**
-- Do NOT pass to writing-plans without DCP
-- Do NOT create development tasks without component mapping
-- Do NOT accept implementations that deviate from inventory
-```
-
-### Pre-Handoff Quality Gate
-
-```markdown
-## Gate Before Handoff: Design Complete?
-
-MUST answer:
-- [ ] All screens in SCR have corresponding GEN design?
-- [ ] All components in GEN have properties enumerated?
-- [ ] All validators specified (sync + async)?
-- [ ] All states covered (normal, error, loading, success)?
-- [ ] Accessibility (aria-*, role) defined for each?
-- [ ] Ready for development-handoff-builder consumption?
-
-If ANY is NO → Stop. Complete design first.
-If ALL are YES → Ready to hand off.
-```
+## Must NOT
+- DO NOT INVENT MISSING INFORMATION.
+- DO NOT PASS DESIGN_READY_FOR_DEV WITH BLOCKING OPEN QUESTIONS.
+- DO NOT ALLOW THE CODING AGENT TO SILENTLY RESOLVE DESIGN AMBIGUITIES.
+- DO NOT TREAT EXPLORATION DESIGN AS GOVERNED DESIGN. DO NOT CREATE ORPHAN DESIGN ARTIFACTS.
+- PRESERVE IDS AND PROVENANCE. HUMAN DECISIONS MUST REMAIN EXPLICIT.
+- No fabricar `verified`, aprobaciones, evidencia a11y ni referencias Stitch/Figma.
 
 ## Definition of Done
-The skill output includes:
-- ✅ Handoff Pack with traceability
-- ✅ Component Inventory extracted from design
-- ✅ Implementation instructions for next phase
-- ✅ Ready for development-handoff-builder to consume
-- ✅ All artifacts (SCR, GEN, FLW) available for developers
+HOF con A–N completos por referencia; `gate.result` registrado con evidencia; si `PASSED`, revisión humana solicitada con reviewer identificado; contexto de Dev solo con `governed_design`; todo trazable US → UXR → FLW → SCR → diseño → CMP/TKN → handoff.

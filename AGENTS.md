@@ -16,25 +16,9 @@ Idioma de trabajo: **español**. Identificadores técnicos (campos OKF, nombres 
 |------|-----------|
 | `01_Fichas_Formales/` | Fichas UX-101 a UX-106 (`.docx`). Fuente canónica de objetivos y alcance de cada curso. |
 | `02_Guias_Laboratorio/` | Guías de laboratorio UX-101 a UX-106 (`.docx`). |
-| `.claude/skills/` | Ocho Skills con `SKILL.md`, `templates/concept-template.md` y `examples/example.md`. |
+| `.claude/skills/` | Ocho Skills con `SKILL.md`, `templates/`, `examples/`, `manifest.yaml` y, cuando hace falta, `references/`. Los validadores y pruebas del diseño↔código viven en `ux-development-handoff/validators` y `tests`. |
+| `docs/skills-regeneration/` | Inventario, matriz de impacto, diseño del cambio, esquema, gate `DESIGN_READY_FOR_DEV`, migración y reportes (2026-10-01). |
 | `README.md` | Resumen del pack y secuencia canónica. |
-
-## Secuencia canónica de cursos
-
-```
-UX-101 → UX-102 → {UX-103 | UX-104 | directo} → UX-105 → UX-106
-```
-
-| Curso | Tema | Skills |
-|-------|------|--------|
-| UX-101 | Experiencia de Usuario con IA | `ux-requirements-analyzer`, `user-flow-designer` |
-| UX-102 | Diseño de Interfaces con IA | `ui-spec-writer`, `accessibility-reviewer` |
-| UX-103 | Diseño Agentic con Claude Design | `claude-design-orchestrator` |
-| UX-104 | Prototipado con Google Stitch | `stitch-ui-generator` |
-| UX-105 | Diseño Gobernado con Figma | `figma-design-validator` |
-| UX-106 | Design-to-Code & Handoff Agentic | `ux-development-handoff` |
-
-`accessibility-reviewer` aplica de UX-102 a UX-106.
 
 ## Cadena de trazabilidad
 
@@ -43,6 +27,9 @@ Todo artefacto debe preservar el linaje hacia sus conceptos upstream:
 ```
 US (User Story) → UXR (UX Requirement) → FLW (Flow) → SCR (Screen) → CMP (Component) → AC (Acceptance Criteria)
 ```
+
+Cadena de diseño (Skills 2.0): `US → UXR → FLW → SCR → Stitch (exploration_design) → Figma (governed_design) → CMP/TKN → HOF → DCP → Código → Test Evidence`.
+Un solo proyecto Stitch gobernado (`STP-*`) por iniciativa; el vínculo SCR↔diseño vive en el Design Traceability Map (`DTM-*`); Desarrollo implementa `governed_design`. Gate: `DESIGN_READY_FOR_DEV`.
 
 ## Reglas para agentes
 
@@ -74,8 +61,9 @@ US (User Story) → UXR (UX Requirement) → FLW (Flow) → SCR (Screen) → CMP
 
 ### Archivos
 - No modificar los `.docx` de `01_Fichas_Formales/` ni `02_Guias_Laboratorio/` salvo pedido explícito.
-- Al crear o editar una skill, mantener la estructura: `SKILL.md` (Purpose, Course, Input/Output
-  contract, Workflow, Guardrails, Quality checks, Definition of Done) + `templates/` + `examples/`.
+- Al crear o editar una skill, mantener la estructura: `SKILL.md` con frontmatter (`name`, `description`) y secciones Purpose, Course, Input/Output contract,
+  Preconditions, Invariants, Workflow, Quality gates, Failure / blocking behavior, Downstream consumers, Must NOT, Definition of Done
+  + `templates/` + `examples/` + `manifest.yaml` (versión). Contratos extensos van en `references/`.
 
 ## Definition of Done (general)
 

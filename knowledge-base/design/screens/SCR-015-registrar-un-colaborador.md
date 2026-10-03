@@ -1,19 +1,246 @@
 ---
 type: Screen
-title: "SCR-015 — Registrar un colaborador"
-description: "Especificación de pantallas para el flujo de alta de empleados y contratistas."
-tags: [ux-ui, screen, party, h1, administracion]
+title: SCR-015 — Registrar un colaborador
+description: Especificación de pantallas para el flujo de alta de empleados y contratistas.
+tags:
+- ux-ui
+- screen
+- party
+- h1
+- administracion
 status: draft
 generated:
-  by: "ui-spec-writer/1.0"
-  at: "2026-09-30T00:00:00-05:00"
+  by: ui-spec-writer/1.0
+  at: '2026-09-30T00:00:00-05:00'
 sources:
-  - id: flw-015
-    resource: /knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md
-  - id: uxr-015
-    resource: /knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md
-  - id: uxr-000
-    resource: /knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md
+- id: flw-015
+  resource: /knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md
+- id: uxr-015
+  resource: /knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md
+- id: uxr-000
+  resource: /knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md
+screens:
+- id: SCR-015-01
+  name: Seleccionar tipo de colaborador
+  required_states:
+  - default
+  - selected
+  flow: FLW-015
+  requirements: &id001
+  - US-015
+  - UXR-015
+  - AC-015
+  responsive:
+  - desktop
+  a11y_requirements: &id002
+  - WCAG-2.2-AA
+  - keyboard-nav
+  - focus-visible
+  - accessible-names
+  - error-announcement
+  components: &id003
+  - CMP-015
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-02
+  name: Datos de la persona
+  required_states:
+  - default
+  - error
+  - completed
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-03
+  name: Identificación
+  required_states:
+  - default
+  - validating
+  - valid
+  - duplicate
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-04
+  name: Correo laboral
+  required_states:
+  - default
+  - validating
+  - valid
+  - duplicate
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-05
+  name: Unidad (Empleado) o Proveedor (Contratista)
+  required_states:
+  - default
+  - loading
+  - empty
+  - selected
+  - error
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-06
+  name: Jefe directo (Empleado)
+  required_states:
+  - default
+  - loading
+  - selected
+  - error
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-07
+  name: Rol-Nivel inicial
+  required_states:
+  - default
+  - empty
+  - selected
+  - error
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-08
+  name: Revisar y confirmar
+  required_states:
+  - default
+  - error
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-09
+  name: Éxito
+  required_states:
+  - success
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+- id: SCR-015-10
+  name: Hoja de referencia de mensajes de error (E1–E11)
+  required_states:
+  - error
+  flow: FLW-015
+  requirements: *id001
+  responsive:
+  - desktop
+  a11y_requirements: *id002
+  components: *id003
+  tokens:
+  - TKN-color-primary
+  - TKN-color-text-primary
+  - TKN-color-surface-elevated
+  - TKN-color-border-default
+  - TKN-color-error-border
+  - TKN-focus-ring
+  - TKN-font-family
+  - TKN-radius-default
+  kind: reference-sheet
+design_map: DTM-PPM-001
 ---
 
 # SCR-015 — Registrar un colaborador

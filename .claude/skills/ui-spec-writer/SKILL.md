@@ -1,110 +1,58 @@
+---
+name: ui-spec-writer
+description: Usar cuando un User Flow (FLW-*) deba convertirse en especificación de pantallas (SCR-*), componentes y tokens independiente de herramienta, antes de generar UI en Stitch o diseñar en Figma.
+---
+
 # ui-spec-writer
 
 ## Purpose
-Convertir flujos en especificación UI independiente de herramienta.
+Convertir flujos en una **Screen Specification** independiente de herramienta, completa y trazable, que sea la precondición de `stitch-ui-generator`. No referencia Stitch ni Figma.
 
 ## Course
 UX-102
 
 ## Input contract
-- Input: User Flows + Design System
+- User Flows (FLW-*) + Design System (si existe; si no, pregunta abierta) + UXR y AC relacionados.
 - MUST receive a governed Context Pack or canonical source artifacts.
 - MUST distinguish facts, assumptions, open questions, and human decisions.
-- MUST NOT silently resolve missing business information.
 
 ## Output contract
-- Output: Screen + Component + Token + AC
-- Markdown outputs MUST conform to the UX/UI track conventions for Google OKF v0.2.
-- New or modified concepts start with `status: draft`.
-- The skill MUST set `generated.by` to its own actor/version.
-- The skill MUST NOT set or fabricate `verified`.
-- Open questions MUST be explicit.
+- `Screen` (SCR-*), Component (CMP-*), Token (TKN-*) y AC; OKF v0.2, `status: draft`, `generated.by: ui-spec-writer/1.1`, nunca `verified`.
+- Cada SCR en frontmatter (esquema en `references/screen-spec-schema.md`): `id`, `flow: FLW-*`, `requirements`, `required_states`, `responsive`, `a11y_requirements`, `components`, `tokens`. Un archivo puede declarar varias pantallas en `screens:`.
+- `design_map: DTM-*` solo como puntero; **no** se guardan `project_ref`, `artifact_ref` ni nodos Figma en el SCR (viven en el DTM).
+- Sección "Implementation Requirements" (Component Inventory, checklist, instrucciones a Dev): contrato conservado en `references/implementation-requirements.md`.
+
+## Preconditions
+El FLW existe, tiene requisitos y lista el SCR en su `screens`. Si falta, devolver `BLOCKED` (`MISSING_FLOW_REFERENCE` / `MISSING_REQUIREMENT_LINEAGE`).
+
+## Invariants
+- Un SCR sin `flow` o sin `requirements` no se considera especificado.
+- `required_states` incluye default, loading, empty, error y disabled cuando apliquen, más los estados explícitos del flujo; cada ausencia se justifica o se registra como pregunta abierta. No inventar estados.
+- `responsive` lista los breakpoints exigidos; `a11y_requirements` al menos WCAG 2.2 AA y navegación por teclado.
+- Tokens semánticos, no valores crudos.
 
 ## Workflow
-1. Validate required inputs and provenance.
-2. Extract relevant constraints and traceability links.
-3. Generate candidate output(s).
-4. Critique against UX requirements, acceptance criteria, accessibility, and Design System where applicable.
-5. Produce draft OKF concepts and a concise change summary.
-6. Stop for human review when a decision, ambiguity, or conflict requires judgment.
+1. Validar entradas y provenance; leer FLW/UXR/AC.
+2. Definir SCR por paso del flujo; completar el frontmatter.
+3. Especificar componentes y tokens; vincular a CMP/TKN existentes antes de crear nuevos.
+4. Generar la sección Implementation Requirements.
+5. Verificar con `python ../ux-development-handoff/validators/cli.py preflight --profile example --kb knowledge-base --initiative <ini> --screens <SCR…>`: lo que haga `BLOCKED` no está listo para Stitch.
+6. Actualizar `index.md`/`changelog.md`; detenerse para revisión humana.
 
-## Guardrails
-- Never treat generated UI as approved merely because it renders.
-- Never invent user research, business rules, accessibility evidence, or approvals.
-- Preserve lineage to upstream US/UXR/FLW/SCR/CMP/AC concepts.
-- Prefer semantic design tokens over raw visual values.
-- External-tool exports are references, not the canonical knowledge artifact.
+## Quality gates
+Frontmatter completo y resoluble; FLW lista el SCR; componentes existen; WCAG 2.2 AA declarado; sin preguntas abiertas ocultas.
 
-## Quality checks
-- Required sources exist.
-- Traceability links are resolvable.
-- No critical open question is hidden.
-- Output is reproducible from recorded context.
-- Human verification remains pending unless supplied by a human workflow.
+## Failure / blocking behavior
+`BLOCKED` con el código y la información faltante cuando falte FLW, requisitos, estados, responsive, a11y o componentes. Se pregunta; no se rellena.
 
-## Implementation Requirements Section (REQUIRED OUTPUT)
+## Downstream consumers
+`stitch-ui-generator` (precondición), `accessibility-reviewer`, `figma-design-validator`, `ux-development-handoff`, `development-handoff-builder`.
 
-After producing SCR, MUST generate and include:
-
-### Component Inventory
-
-For each screen, extract all components with:
-- Component name (mapped to @gf/ui library)
-- Type (text-input, select, button, etc.)
-- Props (label, placeholder, required, etc.)
-- Validators (sync + async)
-- States (normal, focused, filled, error, loading, success)
-- Accessibility (aria-*, role)
-- Cross-reference to SCR section
-
-**Format:**
-```markdown
-### SCR-015-02: Datos de Persona — Component Inventory
-
-| Component | Type | Props | Validators | States | A11y |
-|-----------|------|-------|------------|--------|------|
-| nombres | text-input | label, placeholder, aria-required | required, minLength(2) | normal, focused, error | aria-required, aria-invalid, aria-label |
-```
-
-### Implementation Checklist
-
-```markdown
-### Implementation Prerequisites
-
-- [ ] All components in inventory mapped to @gf/ui v1.1.0
-- [ ] All validators enumerated (sync: required, email, etc. + async: duplicate-check)
-- [ ] All states covered in design (normal, error, loading, success, etc.)
-- [ ] Accessibility attributes specified (aria-*, role, keyboard nav)
-- [ ] Ready for development-handoff-builder consumption
-```
-
-### Handoff Instructions for Developers
-
-```markdown
-## Handoff to Development
-
-**Framework & Dependencies:**
-- Framework: Angular 22 (Standalone components)
-- UI Library: @gf/ui v1.1.0
-- Design System: Material Design 3
-- Accessibility Standard: WCAG 2.2 AA (0 violations required)
-
-**Implementation Binding:**
-ALL components listed in Component Inventory above MUST be implemented.
-NO SUBSTITUTIONS without UX review and approval.
-
-**Design Verification:**
-Post-implementation, code reviewer MUST verify against:
-- GEN-XXX design specification (visual match)
-- Component Inventory (all components present)
-- States (all variations implemented)
-- Accessibility (WCAG 2.2 AA verified via axe/WAVE)
-
-**Cross-References:**
-- Visual design: GEN-XXX
-- Acceptance criteria: SCR-XXX (this document)
-- Flow context: FLW-XXX
-```
+## Must NOT
+- DO NOT INVENT MISSING INFORMATION.
+- DO NOT BYPASS FLW/SCR TRACEABILITY. DO NOT CREATE ORPHAN DESIGN ARTIFACTS.
+- PRESERVE IDS AND PROVENANCE. HUMAN DECISIONS MUST REMAIN EXPLICIT.
+- No copiar referencias de herramientas externas al SCR.
 
 ## Definition of Done
-The skill output is ready for human review, is traceable to its sources, includes Implementation Requirements section with Component Inventory, and can be handed to development-handoff-builder without rework.
+SCR(s) con lineage `US/UXR → FLW → SCR`, estados, responsive, a11y, componentes y tokens; Implementation Requirements generado; el preflight no devuelve `BLOCKED`; revisión humana pendiente.

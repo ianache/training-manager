@@ -60,10 +60,10 @@ Dar de alta a un colaborador (empleado o contratista) una sola vez en la platafo
 | UXR-015.13 | Elegir tipo de identificación e ingresar número y país | BR-PTY-07 |
 | UXR-015.14 | Ingresar correo laboral (validando según el tipo de rol) | BR-PTY-08, D13 |
 | UXR-015.15 | Buscar y elegir la unidad (empleado) | SPEC-001:L113 |
-| UXR-015.16 | Buscar y elegir el jefe directo (empleado; si es obligatorio) | AC-1, BR-PTY-04 |
+| UXR-015.16 | Buscar y elegir el jefe directo (empleado; obligatorio, US-015-Q2) | AC-1, BR-PTY-04 |
 | UXR-015.17 | Buscar y elegir el proveedor (contratista) | AC-2, BR-PTY-10 |
 | UXR-015.18 | Elegir un rol del catálogo vigente | BR-CAT-09 |
-| UXR-015.19 | Elegir un nivel inicial válido del rol (según BR-PRF-02 y AC-7; si es obligatorio) | BR-PRF-02, AC-7 |
+| UXR-015.19 | Elegir un nivel inicial válido del rol (obligatorio, cualquier nivel válido del rol; BR-PRF-02, AC-7, US-015-Q3) | BR-PRF-02, AC-7 |
 | UXR-015.20 | Editar la fecha desde (predeterminada a hoy) | SPEC-001:L112 |
 | UXR-015.21 | Confirmar / guardar el alta | AC-1 a AC-3 |
 | UXR-015.22 | Cancelar el registro sin guardar | Convención UX |
@@ -75,7 +75,7 @@ Dar de alta a un colaborador (empleado o contratista) una sola vez en la platafo
 - **Correo único entre vigentes:** solo se valida unicidad entre colaboradores con rol vigente; una persona anonimizada puede tener reutilizado su correo (BR-PTY-08, AC-6, caso límite).
 - **Correo según tipo:** empleado = dominio de COMSATEL; contratista = dominio del proveedor (D13). **Nota:** la comprobación de dominio sigue abierta (US-015-Q1).
 - **Código generado automáticamente:** el formulario no pide código de colaborador; la plataforma lo genera como GUID al guardar (BR-PTY-06, D25, AC-4).
-- **Nivel inicial del rol:** cuando se asigna, el Jefe de Ingeniería elige cuál es el nivel inicial válido (AC-7); **abierto:** si es obligatorio (US-015-Q3) y cuál es el nivel por defecto.
+- **Nivel inicial del rol:** cuando se asigna, el Jefe de Ingeniería elige cuál es el nivel inicial válido (AC-7); es obligatorio y puede ser cualquier nivel válido del rol (US-015-Q3, respondida).
 - **Solo acceso Jefe de Ingeniería:** solo ese rol puede registrar colaboradores; otros no ven esta función (BR-PTY-17).
 - **Privacidad:** se capturan solo los campos de SPEC-001:L102-L109 (minimización, ASR-BR-TRA-01).
 - **Auditoría:** el sistema registra quién realizó el alta y cuándo (BR-PTY-12).
@@ -109,7 +109,7 @@ Dar de alta a un colaborador (empleado o contratista) una sola vez en la platafo
 | ~~US-015-Q3~~ | ~~¿El nivel inicial de rol es obligatorio para completar el alta? ¿Puede ser cualquier nivel del rol o solo el primero?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-30): es obligatorio y puede ser cualquier nivel válido del rol | Jefe de Ingeniería | — | — | Respondida |
 | UXR-015-Q1 | **Investigación con usuarios:** ¿se hará antes de diseñar la interfaz? ¿Hay contexto de uso conocido (dónde, cuándo, cuánto tiempo)? | Responsable de producto | Alta | No | Abierta |
 | ~~UXR-015-Q2~~ | ~~**Búsqueda de jefe directo, unidad y proveedor:**~~ **Respondida (ianache, 2026-10-01):** Combobox con búsqueda real-time (implementado en GEN-015 y Stitch) | Responsable UX | — | — | ✅ Respondida |
-| UXR-015-Q3 | **Flujo de niveles iniciales:** si el catálogo define varios niveles para un rol (ej: Developer Junior a Senior), ¿se muestra la escala completa o solo el primero como predeterminado? ¿Puede el Jefe de Ingeniería asignar cualquier nivel? | Jefe de Ingeniería | Media | Sí (AC-7) | Abierta |
+| ~~UXR-015-Q3~~ | ~~**Flujo de niveles iniciales:** si el catálogo define varios niveles para un rol, ¿se muestra la escala completa o solo el primero como predeterminado? ¿Puede el Jefe de Ingeniería asignar cualquier nivel?~~ **Cerrada (ianache, 2026-10-01)** como respondida por US-015-Q3 (ianache, 2026-09-30): el nivel inicial es obligatorio y puede ser cualquier nivel válido del rol. | Jefe de Ingeniería | — | — | ✅ Respondida |
 | ~~UXR-015-Q4~~ | ~~**Feedback al usuario:**~~ **Respondida (ianache, 2026-10-01):** Validación tiempo real (duplicados de ID y correo se bloquean con feedback visual en vivo) | Responsable UX | — | — | ✅ Respondida |
 | ~~UXR-015-Q5~~ | ~~**Después del alta:**~~ **Respondida (ianache, 2026-10-01):** Se muestra confirmación con código + 3 opciones ([Registrar otro], [Volver lista], [Ir dashboard]) | Responsable UX | — | — | ✅ Respondida |
 | P-50.2 | ¿En qué estado se crea un rol en el catálogo (DRAFT, APPROVED)? ¿Quién aprueba? | Jefe de Ingeniería | Media | No (abierto desde UXR-001) | Abierta |
@@ -120,3 +120,8 @@ Dar de alta a un colaborador (empleado o contratista) una sola vez en la platafo
   - Q-01 (código generado): automáticamente, GUID (D25, EVD-2026-0119).
   - Q-02 (jefe directo del contratista): no lo tiene (D26, BR-PTY-19, EVD-2026-0120).
   - P-28 (nivel inicial del rol): se asigna al registrarlo, después se evalúa su evolución (BR-PRF-02, EVD-2026-0103).
+- Respuestas adicionales, por `human:ianache` (Jefe de Ingeniería):
+  - US-015-Q2 (2026-09-30): unidad y jefe directo son obligatorios para el empleado.
+  - US-015-Q3 (2026-09-30): el nivel inicial es obligatorio y puede ser cualquier nivel válido del rol. UXR-015-Q3 cerrada con esa respuesta el 2026-10-01.
+  - US-015-Q1 (2026-10-01): no validar el dominio del correo del contratista; diferido a un MVP futuro.
+  - UXR-015-Q2, Q4, Q5 (2026-10-01): combobox con búsqueda en tiempo real; validación en tiempo real de duplicados; confirmación con código y tres opciones.

@@ -1,0 +1,83 @@
+"""Writes lineage into the Design Traceability Map. The DTM is the single source of SCR<->design links."""
+from __future__ import annotations
+
+from datetime import datetime, timedelta, timezone
+
+from . import codes as C
+from .okf import KB, dump_concept, load_kb
+
+LIMA = timezone(timedelta(hours=-5))
+
+
+class RegistryError(ValueError):
+    pass
+
+
+def _now() -> str:
+    return datetime.now(LIMA).replace(microsecond=0).isoformat()
+
+
+def _dtm_entry(kb: KB, dtm_id: str, screen: str):
+    dtm = kb.get(dtm_id)
+    if dtm is None or dtm.type != "Design Traceability Map":
+        raise RegistryError(f"{C.DANGLING_REFERENCE}: DTM {dtm_id} not found")
+    scr = kb.screen(screen)
+    if scr is None:
+        raise RegistryError(f"{C.ORPHAN_STITCH_ARTIFACT}: {screen} is not a known screen; no orphan designs")
+    if not scr.get("flow"):
+        raise RegistryError(f"{C.MISSING_FLOW_REFERENCE}: {screen} has no flow")
+    entries = dtm.fm.setdefault("traceability", [])
+    entry = next((e for e in entries if e.get("screen") == screen), None)
+    if entry is None:
+        reqs = scr.get("requirements") or []
+        entry = {"screen": screen, "flow": scr["flow"], "requirements": {
+            "us": [r for r in reqs if r.startswith("US-")], "ac": [r for r in reqs if r.startswith("AC-")],
+            "uxr": [r for r in reqs if r.startswith("UXR-")]},
+            "components": list(scr.get("components") or []), "tokens": list(scr.get("tokens") or [])}
+        entries.append(entry)
+    return dtm, entry
+
+
+def register_exploration(kb_root, dtm_id: str, screen: str, project_ref: str, artifact_ref: str,
+                         version: str, captured_at: str | None = None) -> None:
+    kb = load_kb(kb_root)
+    dtm, entry = _dtm_entry(kb, dtm_id, screen)
+    initiative = dtm.fm.get("initiative") or ""
+    if project_ref not in {c.id for c in kb.active_projects(initiative)}:
+        raise RegistryError(f"{C.WRONG_STITCH_PROJECT}: {project_ref} is not the active project of {initiative}")
+    if not artifact_ref:
+        raise RegistryError(f"{C.ORPHAN_STITCH_ARTIFACT}: artifact_ref is empty")
+    old = entry.get("exploration_design")
+    if old:
+        entry.setdefault("exploration_history", []).append({**old, "status": "superseded"})
+    entry["exploration_design"] = {
+        "tool": "google-stitch", "project_ref": project_ref, "artifact_ref": artifact_ref, "version": version,
+        "status": "current", "captured_at": captured_at or _now(), "latest_known_version": version}
+    dump_concept(dtm.path, dtm.fm, dtm.body)
+
+
+def register_governed(kb_root, dtm_id: str, screen: str, file_ref: str, node_ref: str, version: str,
+                      approved_by: str | None, decision_ref: str | None, states_covered: list,
+                      responsive_covered: list, divergence: str) -> None:
+    if approved_by is not None and not str(approved_by).startswith("human:"):
+        raise RegistryError("approval must come from a human (human:<id>); agents cannot approve a design")
+    if divergence not in ("none", "resolved", "open"):
+        raise RegistryError("divergence must be none, resolved or open")
+    if divergence == "resolved" and not decision_ref:
+        raise RegistryError("a resolved divergence needs a recorded decision (DD-*)")
+    kb = load_kb(kb_root)
+    dtm, entry = _dtm_entry(kb, dtm_id, screen)
+    approved = approved_by is not None and divergence != "open"
+    entry["governed_design"] = {
+        "tool": "figma", "file_ref": file_ref, "node_ref": node_ref, "version": version,
+        "status": "approved" if approved else "candidate", "approved_by": approved_by, "decision_ref": decision_ref,
+        "states_covered": list(states_covered), "responsive_covered": list(responsive_covered),
+        "latest_known_version": version}
+    sf = {"divergence": divergence}
+    if decision_ref:
+        sf["decision_ref"] = decision_ref
+    entry["stitch_figma"] = sf
+    exp = entry.get("exploration_design")
+    if approved and exp and exp.get("status") == "current":
+        exp["status"] = "superseded"  # stays as exploration lineage, no longer the design to build
+    dump_concept(dtm.path, dtm.fm, dtm.body)

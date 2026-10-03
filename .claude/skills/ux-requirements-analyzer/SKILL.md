@@ -1,3 +1,8 @@
+---
+name: ux-requirements-analyzer
+description: Usar cuando User Stories y reglas de negocio deban analizarse para producir UX Requirements (UXR-*) y preguntas abiertas, sin inventar respuestas a vacíos.
+---
+
 # ux-requirements-analyzer
 
 ## Purpose

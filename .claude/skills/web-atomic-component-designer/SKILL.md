@@ -11,7 +11,7 @@ metadata:
 
 ## Purpose
 
-Translate DTC-104 web designs into an implementation-ready inventory and technical specification for Angular UI components organized as atoms, molecules, organisms, templates and pages. The output is a reusable-library contract for Developers, QA, UX, accessibility reviewers and agents; it does not silently implement production code or replace an ARQ decision.
+Translate a DTC-XXX web designs into an implementation-ready inventory and technical specification for Angular UI components organized as atoms, molecules, organisms, templates and pages. The output is a reusable-library contract for Developers, QA, UX, accessibility reviewers and agents; it does not silently implement production code or replace an ARQ decision.
 
 ## Triggers
 
@@ -21,7 +21,7 @@ Do not use for visual branding alone, a one-off page mockup, backend/BFF design,
 
 ## Inputs
 
-- Architecture Context Pack and DTC-104 Web Design Pack.
+- Architecture Context Pack and DTC-XXX Web Design Pack.
 - User Stories, ASRs, ADRs, acceptance criteria and design references.
 - Existing Angular workspace, standalone/component conventions, Angular/CDK/Material versions and NPM package constraints.
 - Design tokens, responsive breakpoints, supported browsers, WCAG target and localization requirements.
@@ -135,4 +135,4 @@ The gate passes only when:
 
 ## Handoff
 
-Link DTC-104 context, the component catalog, each specification, token contract, Angular library architecture, NPM package contract, review, traceability report and development context pack. The receiving Developer must know what to build, what not to assume, how to test it, what to export and which decisions remain open.
+Link DTC-XXX context, the component catalog, each specification, token contract, Angular library architecture, NPM package contract, review, traceability report and development context pack. The receiving Developer must know what to build, what not to assume, how to test it, what to export and which decisions remain open.

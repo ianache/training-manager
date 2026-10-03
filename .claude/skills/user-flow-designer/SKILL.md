@@ -1,46 +1,54 @@
+---
+name: user-flow-designer
+description: Usar cuando los UX Requirements (UXR-*) deban convertirse en flujos de usuario con happy path, excepciones, permisos y estados, y haya que declarar qué pantallas (SCR-*) pertenecen a cada flujo.
+---
+
 # user-flow-designer
 
 ## Purpose
-Construir flujos con happy path, excepciones, permisos y estados.
+Construir flujos con happy path, excepciones, permisos y estados, y fijar la relación FLW ↔ SCR: todo Screen pertenece a un Flow.
 
 ## Course
 UX-101
 
 ## Input contract
-- Input: UX Requirements
+- UX Requirements (UXR-*) y su lineage US/AC.
 - MUST receive a governed Context Pack or canonical source artifacts.
 - MUST distinguish facts, assumptions, open questions, and human decisions.
 - MUST NOT silently resolve missing business information.
 
 ## Output contract
-- Output: User Flow
-- Markdown outputs MUST conform to the UX/UI track conventions for Google OKF v0.2.
-- New or modified concepts start with `status: draft`.
-- The skill MUST set `generated.by` to its own actor/version.
-- The skill MUST NOT set or fabricate `verified`.
-- Open questions MUST be explicit.
+- `User Flow` (FLW-*), OKF v0.2, `status: draft`, `generated.by: user-flow-designer/1.1`, nunca `verified`.
+- Frontmatter: `id`, `requirements: [US-*, UXR-*]`, `screens: [SCR-*]` (lista de pantallas del flujo; `screens: []` + pregunta abierta si aún no existen).
+- El flujo identifica pasos y estados; **no** define el layout (eso es `ui-spec-writer`).
+
+## Preconditions
+Cada UXR de entrada tiene US/AC resolubles. Si no, `BLOCKED` (`MISSING_REQUIREMENT_LINEAGE`).
+
+## Invariants
+- FLW → SCR y SCR → FLW coinciden: cada SCR listado declara `flow:` con este FLW (lo verifica `ui-spec-writer` y el preflight).
+- Excepciones, permisos y estados del flujo son explícitos; los vacíos son preguntas abiertas.
 
 ## Workflow
-1. Validate required inputs and provenance.
-2. Extract relevant constraints and traceability links.
-3. Generate candidate output(s).
-4. Critique against UX requirements, acceptance criteria, accessibility, and Design System where applicable.
-5. Produce draft OKF concepts and a concise change summary.
-6. Stop for human review when a decision, ambiguity, or conflict requires judgment.
+1. Validar entradas y provenance; extraer UXR/AC/reglas.
+2. Diseñar happy path, excepciones, permisos y estados.
+3. Listar las pantallas necesarias como `screens` (IDs reservados; se especifican en `ui-spec-writer`).
+4. Críticar contra UXR, AC y accesibilidad.
+5. Actualizar `index.md`/`changelog.md`; detenerse ante ambigüedad.
 
-## Guardrails
-- Never treat generated UI as approved merely because it renders.
-- Never invent user research, business rules, accessibility evidence, or approvals.
-- Preserve lineage to upstream US/UXR/FLW/SCR/CMP/AC concepts.
-- Prefer semantic design tokens over raw visual values.
-- External-tool exports are references, not the canonical knowledge artifact.
+## Quality gates
+Lineage `US → UXR → FLW` resoluble; `screens` presente; ninguna pregunta crítica oculta.
 
-## Quality checks
-- Required sources exist.
-- Traceability links are resolvable.
-- No critical open question is hidden.
-- Output is reproducible from recorded context.
-- Human verification remains pending unless supplied by a human workflow.
+## Failure / blocking behavior
+`BLOCKED` ante falta de requisitos o conflicto entre UXR; se registra y se pide decisión humana.
+
+## Downstream consumers
+`ui-spec-writer`, `claude-design-orchestrator`, `stitch-ui-generator` (precondición FLW), `ux-development-handoff`.
+
+## Must NOT
+- DO NOT INVENT MISSING INFORMATION. DO NOT BYPASS FLW/SCR TRACEABILITY.
+- PRESERVE IDS AND PROVENANCE. HUMAN DECISIONS MUST REMAIN EXPLICIT.
+- No definir diseño visual ni referenciar herramientas externas.
 
 ## Definition of Done
-The skill output is ready for human review, is traceable to its sources, and can be added to the UX/UI OKF bundle without losing provenance.
+FLW con requisitos y `screens`, listo para revisión humana y para que `ui-spec-writer` especifique cada SCR.

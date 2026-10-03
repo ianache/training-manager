@@ -1,8 +1,8 @@
 {
   "AGENTS.md": {
-    "mtime": 1790703393.8910346,
-    "seen": 1790707615.8740067,
-    "ast_hash": "6c515f55d577fa7227cd3e7a0ccb9a66",
+    "mtime": 1790915736.7416182,
+    "seen": 1790915830.675552,
+    "ast_hash": "22e30da796b3f2ddb70a761c3494ac57",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1790832346.686148,
-    "seen": 1790832490.680678,
-    "ast_hash": "f13f9dfb546809f0a01f951ea1d0581a",
+    "mtime": 1790915745.6599112,
+    "seen": 1790915830.7924654,
+    "ast_hash": "ed89f0d8a80db1e44fb80cbc8247d1fb",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1790832347.5693207,
-    "seen": 1790832490.7042723,
-    "ast_hash": "0a866754b903a8106d7cac1e5e4139e2",
+    "mtime": 1790915745.5398223,
+    "seen": 1790915830.807583,
+    "ast_hash": "55d36552a8adc49b9b14c4af30a9e892",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -2004,9 +2004,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-detail/party-detail.page.ts": {
-    "mtime": 1790824063.9475935,
-    "seen": 1790826046.4992359,
-    "ast_hash": "90024e618000d6dfde1a75baf7ee0630",
+    "mtime": 1790896907.695169,
+    "seen": 1790911447.2069848,
+    "ast_hash": "3914aec54d731ce33087416cc79eee8b",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/party-list/party-list.page.ts": {
@@ -2412,27 +2412,27 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md": {
-    "mtime": 1790831187.9662285,
-    "seen": 1790831530.762566,
-    "ast_hash": "5fd54d308231bc3146406c7dfdd16fd9",
+    "mtime": 1790911875.9982214,
+    "seen": 1790914002.4232068,
+    "ast_hash": "9ece2f30c760caa8eebaa4dc0c0a905c",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-015-registrar-un-colaborador.md": {
-    "mtime": 1790827791.5515997,
-    "seen": 1790827837.151936,
-    "ast_hash": "de19c006759e13f6d35423cd47fa383a",
+    "mtime": 1790912681.6898434,
+    "seen": 1790914002.416141,
+    "ast_hash": "921cd12ec4d6566a32895d2b198b34c7",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-015-registrar-un-colaborador.md": {
-    "mtime": 1790827932.956498,
-    "seen": 1790827977.0614307,
-    "ast_hash": "68bb640a2ea46221436f6a8019da4238",
+    "mtime": 1790915023.2130444,
+    "seen": 1790915149.5976133,
+    "ast_hash": "11b63b43cea702320ed4a49e66c85162",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-015-stitch-registrar-colaborador.md": {
-    "mtime": 1790828360.816936,
-    "seen": 1790828398.161198,
-    "ast_hash": "6fcfad3b832d6335164ef6f40e67e0e5",
+    "mtime": 1790915027.922407,
+    "seen": 1790915149.5976133,
+    "ast_hash": "061f6e31bf7071b6a88558450d47a623",
     "semantic_hash": ""
   },
   "knowledge-base/design/MEMORY.md": {
@@ -2748,9 +2748,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/email-input/email-input.ts": {
-    "mtime": 1790893806.562175,
-    "seen": 1790894628.9007437,
-    "ast_hash": "0fcdea35c55578e1b5f2fd2a5a5fdc74",
+    "mtime": 1790895495.4128904,
+    "seen": 1790911447.262707,
+    "ast_hash": "364d90674b554d4bcc232bdf6a652fae",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/error-message/error-message.spec.ts": {
@@ -2790,9 +2790,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.spec.ts": {
-    "mtime": 1790893848.83158,
-    "seen": 1790894628.90175,
-    "ast_hash": "ef154453d6589b0c4c76bd04f8e676b4",
+    "mtime": 1790894814.5838132,
+    "seen": 1790895032.0902655,
+    "ast_hash": "adab390abd7f721ffe2973422a775bd3",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/select/select.ts": {
@@ -2802,9 +2802,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.spec.ts": {
-    "mtime": 1790893822.5817177,
-    "seen": 1790894628.9032607,
-    "ast_hash": "6fc7c36d27fe8bf0e5de3142744f219b",
+    "mtime": 1790894780.3011587,
+    "seen": 1790895032.092799,
+    "ast_hash": "77dc1180784b8f75cd2bcb6a7b18878d",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/tel-input/tel-input.ts": {
@@ -2985,6 +2985,138 @@
     "mtime": 1790833411.1472886,
     "seen": 1790894629.1203594,
     "ast_hash": "72a1881cff17268ecb1798334baf4985",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/colaborador-perfiles.cy.ts": {
+    "mtime": 1790894916.6316254,
+    "seen": 1790895032.0165567,
+    "ast_hash": "5f5f12d2206ff4cfa37956290014ded1",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/colaborador-phone-edit.cy.ts": {
+    "mtime": 1790894943.199446,
+    "seen": 1790895032.0165567,
+    "ast_hash": "1f345c3a3c6fececdddd31e19f0c8133",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/jefe-contactos-edit.cy.ts": {
+    "mtime": 1790894892.879499,
+    "seen": 1790895032.0165567,
+    "ast_hash": "30d50e9766f23e80108467bd9c7e8e69",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/cypress/e2e/jefe-datos-edit.cy.ts": {
+    "mtime": 1790894866.8103247,
+    "seen": 1790895032.0165567,
+    "ast_hash": "95e67b5d51966bac197c5f8e916fe4af",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/jefe-datos.service.spec.ts": {
+    "mtime": 1790894842.4720826,
+    "seen": 1790895032.032687,
+    "ast_hash": "7d080acbf8d290d44f22373c13be0b6c",
+    "semantic_hash": ""
+  },
+  ".superpowers/sdd/plan-016/batch-c-report.md": {
+    "mtime": 1790895065.3025868,
+    "seen": 1790911447.3180604,
+    "ast_hash": "3383c9327a1a60438fca4c5769c7eafd",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/01-INVENTORY.md": {
+    "mtime": 1790905577.8603404,
+    "seen": 1790911447.3703892,
+    "ast_hash": "ab3d28929357d9b0abe19601ddc61a86",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/02-IMPACT-MATRIX.md": {
+    "mtime": 1790910737.0360026,
+    "seen": 1790911447.3703892,
+    "ast_hash": "da47f28f7f1d18b4fd00275d0dd37ca8",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/03-CHANGE-DESIGN.md": {
+    "mtime": 1790910737.0186152,
+    "seen": 1790911447.3703892,
+    "ast_hash": "9b82fdec9f48a16a46058f4624e22633",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/CHANGELOG.md": {
+    "mtime": 1790910066.2186415,
+    "seen": 1790911447.3703892,
+    "ast_hash": "11dcbb869a6d941732c6b2a34ccf7bfb",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/DESIGN-READY-FOR-DEV-GATE.md": {
+    "mtime": 1790910047.693826,
+    "seen": 1790911447.3703892,
+    "ast_hash": "46f59e28fda58716d7b8f338c4710381",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/DESIGN-TRACEABILITY-SCHEMA.md": {
+    "mtime": 1790910035.6723099,
+    "seen": 1790911447.3703892,
+    "ast_hash": "fd169bf8dcfd84f7fc7e3cd00ed44472",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/MIGRATION-GUIDE.md": {
+    "mtime": 1790910060.086898,
+    "seen": 1790911447.3703892,
+    "ast_hash": "fe6713441d5d40d1cb8ff3771a059f3f",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/TEST-REPORT.md": {
+    "mtime": 1790910791.7767477,
+    "seen": 1790911447.3703892,
+    "ast_hash": "2f2b04392423e9c7e3f4a746e5a07455",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/VALIDATION-REPORT.md": {
+    "mtime": 1790911468.678726,
+    "seen": 1790914002.10057,
+    "ast_hash": "12953cc32c1d474219b049704e32d0f3",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/baseline-red-contracts.txt": {
+    "mtime": 1790906681.5246587,
+    "seen": 1790911447.3703892,
+    "ast_hash": "a7c9ca7b6371261ff28be915b269309a",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/baseline-red-summary.txt": {
+    "mtime": 1790905803.8374326,
+    "seen": 1790911447.3703892,
+    "ast_hash": "5235dc1f5b71ca480bc4d3fae92573ef",
+    "semantic_hash": ""
+  },
+  "docs/skills-regeneration/evidence/green-pytest-verbose.txt": {
+    "mtime": 1790910017.2102633,
+    "seen": 1790911447.3703892,
+    "ast_hash": "2e896aa345cb8a88cf471657f2b159a1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/projects/STP-PPM-001-plataforma-ppm.md": {
+    "mtime": 1790915023.2385693,
+    "seen": 1790915149.5976133,
+    "ast_hash": "a0c8145726c73267b4ecb3417042d844",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
+    "mtime": 1790915027.8927958,
+    "seen": 1790915149.6081288,
+    "ast_hash": "cbc15710d05cb63c6d15dd18549161b0",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
+    "mtime": 1790915023.145734,
+    "seen": 1790915149.6081288,
+    "ast_hash": "95d5568849f100992c818bf02edb8126",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/HOF-PPM-001-registrar-colaborador.md": {
+    "mtime": 1790915511.085503,
+    "seen": 1790915830.7949471,
+    "ast_hash": "c9edcc3a7583a327301b5eb0500d183d",
     "semantic_hash": ""
   }
 }

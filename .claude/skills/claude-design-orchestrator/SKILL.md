@@ -1,46 +1,51 @@
+---
+name: claude-design-orchestrator
+description: Usar cuando haya que explorar y criticar alternativas de diseño en Claude Design para pantallas SCR-* de un flujo FLW-*, o cuando una decisión humana deba elegir entre Stitch y Figma.
+---
+
 # claude-design-orchestrator
 
 ## Purpose
-Orquestar exploración y crítica en Claude Design conservando decisión humana.
-
-## Course
-UX-103
+Orquestar exploración y crítica en Claude Design conservando la decisión humana. Cada exploración cuelga de un FLW/SCR; su DD puede ser la decisión registrada que resuelve una divergencia Stitch↔Figma.
 
 ## Input contract
-- Input: UI Specification + UX Context Pack
+- UI Specification (SCR-* con `flow`) + UX Context Pack.
 - MUST receive a governed Context Pack or canonical source artifacts.
 - MUST distinguish facts, assumptions, open questions, and human decisions.
-- MUST NOT silently resolve missing business information.
 
 ## Output contract
-- Output: Intent Brief + Alternatives + DD
-- Markdown outputs MUST conform to the UX/UI track conventions for Google OKF v0.2.
-- New or modified concepts start with `status: draft`.
-- The skill MUST set `generated.by` to its own actor/version.
-- The skill MUST NOT set or fabricate `verified`.
-- Open questions MUST be explicit.
+- Intent Brief + Alternatives + `Design Decision` (DD-*), OKF v0.2, `status: draft`, `generated.by: claude-design-orchestrator/1.1`, nunca `verified`.
+- Intent Brief y DD llevan `flow: FLW-*` y `screens: [SCR-*]`. Un DD que elige entre Stitch y Figma lleva `decides:` (p. ej. `figma-governed`) y es el `decision_ref` del DTM.
+- No registra proyectos Stitch ni referencias Figma (las escriben sus skills propietarios).
+
+## Preconditions
+Cada pantalla explorada existe como SCR con `flow` y requisitos. Sin SCR/FLW: `BLOCKED` (no explora).
+
+## Invariants
+- Las alternativas son exploración, no diseño gobernado.
+- La elección entre alternativas es humana; el DD registra quién y por qué.
 
 ## Workflow
-1. Validate required inputs and provenance.
-2. Extract relevant constraints and traceability links.
-3. Generate candidate output(s).
-4. Critique against UX requirements, acceptance criteria, accessibility, and Design System where applicable.
-5. Produce draft OKF concepts and a concise change summary.
-6. Stop for human review when a decision, ambiguity, or conflict requires judgment.
+1. Validar entradas y provenance; leer SCR/FLW/UXR.
+2. Redactar el Intent Brief y generar alternativas.
+3. Críticar contra UXR, AC y accesibilidad.
+4. Registrar el DD solo con la decisión humana; si hay divergencia Stitch↔Figma, indicar el SCR afectado (`STITCH_FIGMA_DIVERGENCE`).
+5. Actualizar `index.md`/`changelog.md`; detenerse.
 
-## Guardrails
-- Never treat generated UI as approved merely because it renders.
-- Never invent user research, business rules, accessibility evidence, or approvals.
-- Preserve lineage to upstream US/UXR/FLW/SCR/CMP/AC concepts.
-- Prefer semantic design tokens over raw visual values.
-- External-tool exports are references, not the canonical knowledge artifact.
+## Quality gates
+Todo artefacto con FLW/SCR; decisiones humanas explícitas; sin pregunta crítica oculta.
 
-## Quality checks
-- Required sources exist.
-- Traceability links are resolvable.
-- No critical open question is hidden.
-- Output is reproducible from recorded context.
-- Human verification remains pending unless supplied by a human workflow.
+## Failure / blocking behavior
+`BLOCKED` sin SCR/FLW o sin decisor humano para un DD.
+
+## Downstream consumers
+`figma-design-validator` (decision_ref), `stitch-ui-generator`, `ux-development-handoff` (Design Decisions).
+
+## Must NOT
+- DO NOT INVENT MISSING INFORMATION.
+- DO NOT CREATE ORPHAN DESIGN ARTIFACTS. DO NOT TREAT EXPLORATION DESIGN AS GOVERNED DESIGN.
+- PRESERVE IDS AND PROVENANCE. HUMAN DECISIONS MUST REMAIN EXPLICIT.
+- No decidir en nombre del humano ni fabricar aprobaciones.
 
 ## Definition of Done
-The skill output is ready for human review, is traceable to its sources, and can be added to the UX/UI OKF bundle without losing provenance.
+Intent Brief, alternativas y DD con lineage `FLW → SCR`, decisión humana explícita y revisión humana pendiente.

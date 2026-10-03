@@ -1,37 +1,37 @@
 /*
  * Design tokens semánticos de la plataforma.
- * Fuente: UI-INV-001 §3 (valores tomados del design system que Stitch generó en GEN-001).
- * NO es un design system corporativo: UXR-Q4 sigue abierta. Las vistas usan solo
- * variables semánticas (--gf-*), nunca valores crudos (AGENTS.md, "Diseño").
+ * Fuente: TKN-SET-002 «Comsatel Styled» (decisión de ianache, 2026-10-02; sustituye a TKN-SET-001).
+ * Las vistas usan solo variables semánticas (--gf-*), nunca valores crudos (AGENTS.md, "Diseño").
  */
 :root {
-  /* Color — marca y acción */
-  --gf-color-primary: #0f2942;
-  --gf-color-primary-hover: #1e3a8a;
-  --gf-color-primary-active: #0b1e30;
+  /* Color — marca y acción (primary #bc0100: 6.68:1 con blanco, AA). */
+  --gf-color-primary: #bc0100;
+  --gf-color-primary-hover: #930100;
+  --gf-color-primary-active: #410000;
   --gf-color-on-primary: #ffffff;
-  --gf-color-focus-ring: #1e3a8a;
+  --gf-color-focus-ring: #0059ba;
 
   /* Color — superficies y texto */
-  --gf-color-surface: #ffffff;
-  --gf-color-surface-container: #f1f5f9;
-  --gf-color-surface-selected: #eff6ff;
-  --gf-color-border: #cbd5e1;
-  --gf-color-border-strong: #94a3b8;
-  --gf-color-text: #0f172a;
-  --gf-color-text-muted: #43474d;
+  --gf-color-surface: #fff8f6;
+  --gf-color-surface-container: #ffe9e6;
+  --gf-color-surface-selected: #ffe2dd;
+  --gf-color-border: #956d67;
+  --gf-color-border-strong: #855f59;
+  --gf-color-text: #2b1613;
+  --gf-color-text-muted: #603e39;
 
-  /* Color — estado (siempre acompañado de icono + texto, UI-INV-001 §6) */
+  /* Color — estado (siempre acompañado de icono + texto, UI-INV-001 §6).
+   * success, warning y neutral no existen en «Comsatel Styled»: se conservan. */
   --gf-color-success-bg: #dcfce7;
   --gf-color-success-fg: #065f46;
   --gf-color-warning-bg: #fef3c7;
   --gf-color-warning-fg: #92400e;
-  --gf-color-danger-bg: #fee2e2;
-  --gf-color-danger-fg: #991b1b;
+  --gf-color-danger-bg: #ffdad6;
+  --gf-color-danger-fg: #93000a;
   --gf-color-neutral-bg: #e8eaef;
   --gf-color-neutral-fg: #43474d;
-  --gf-color-info-bg: #eff6ff;
-  --gf-color-info-fg: #1e3a8a;
+  --gf-color-info-bg: #d7e2ff;
+  --gf-color-info-fg: #004491;
 
   /* Tipografía (GEN-002 F-01: unificar en Inter) */
   --gf-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -51,8 +51,8 @@
   --gf-space-8: 2rem;
 
   /* Forma y layout */
-  --gf-radius-sm: 4px;
-  --gf-radius-md: 8px;
+  --gf-radius-sm: 0.25rem;
+  --gf-radius-md: 0.5rem;
   --gf-touch-target: 44px;
   --gf-header-height: 56px;
   --gf-sidebar-width: 264px;

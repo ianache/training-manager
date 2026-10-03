@@ -5,7 +5,7 @@ description: "Example output produced by ui-spec-writer."
 tags: [ux-ui, ai-cowork]
 status: draft
 generated:
-  by: "ui-spec-writer/1.0"
+  by: "ui-spec-writer/1.1"
   at: "YYYY-MM-DDTHH:MM:SS-05:00"
 sources:
   - id: source-1

@@ -18,6 +18,8 @@ sources:
     resource: /knowledge-base/design/ux-requirements/UXR-000-requisitos-ux-transversales.md
 ---
 
+> **Decisión de `human:ianache` (2026-10-02): se usan los componentes `gf-*` de `@gf/ui`, no Angular Material.** Las referencias `mat-*` de este documento son históricas; el equivalente vigente está en el [catálogo atómico](../components/dtc-015/atomic-component-catalog.md) (`gf-text-input`, `gf-select`, `gf-autocomplete`, `gf-date-input`, …). No se reescribe el detalle: no implementar con Material.
+
 # GEN-015 — Diseño Stitch: Registrar un colaborador
 
 ## Trazabilidad
@@ -775,3 +777,43 @@ Crea variantes de error para cada pantalla:
 3. **Pruebas de aceptación (AC-015):** Validar cada pantalla/estado contra requisitos UX
 4. **Pruebas de accesibilidad:** Auditoría WCAG 2.2 AA con herramientas (axe, WAVE)
 5. **User testing:** Validar flujo con 3-5 Jefes de Ingeniería (si presupuesto permite)
+
+---
+
+## Ejecución en Stitch — 2026-10-01 (stitch-ui-generator 2.0)
+
+> Diseño **exploratorio** (`exploration_design`). No aprobado ni gobernado. El vínculo SCR↔artefacto vive en [DTM-PPM-001](../traceability/DTM-PPM-001-plataforma-ppm.md); el proyecto, en [STP-PPM-001](../projects/STP-PPM-001-plataforma-ppm.md). No se copian aquí.
+
+- **Preflight:** `READY` · `REUSE` de `STP-PPM-001` (perfil `production`).
+- **Proyecto Stitch:** el indicado por ianache (`projects/13050549605434273903`, «Plataforma PPM»). Verificado en vivo con `get_project` (existe, `OWNER`, vacío al inicio). **Visibilidad `PUBLIC`.**
+- **Dispositivo:** solo `DESKTOP`, por decisión de ianache (2026-10-01): `responsive: [desktop]`. Cierra la parte de dispositivos de UXR-015-Q1.
+- **Design system:** Stitch creó automáticamente «Sovereign Enterprise» (`assets/bcea74e59ec041d7bc9ccac7f22e82dd`, v1) en la primera generación y se reutilizó. No es un design system corporativo; su texto afirma contrastes («exceeds WCAG AAA») **sin verificar**.
+- **Versión del artefacto:** Stitch no expone versión; se registró `not-exposed-by-stitch`. La obsolescencia no puede detectarse mientras no haya otra forma de comparar.
+- **Verificación de existencia:** `list_screens` devuelve solo 3 de las 9 pantallas generadas; cada una se verificó con `get_screen`. No usar `list_screens` como prueba de ausencia.
+
+### Pantallas generadas (referencias en el DTM)
+SCR-015-01, 02, 03, 04, 06, 07, 08, 09, 10: una por SCR. Los pasos con varios estados (02, 03, 04, 06, 07, 08) salieron como **tarjetas comparativas de estados en una sola pantalla**, no como pantallas separadas por estado.
+
+**SCR-015-05 (Unidad / Proveedor):** la primera llamada agotó el tiempo y no dejó ID. Con la aprobación de ianache se regeneró una vez con restricciones explícitas (sin migas, campana, avatar ni subtextos). Artefacto registrado en el DTM. **Puede existir un duplicado huérfano de la primera llamada**, no localizable (`list_screens` es poco fiable): revisar el proyecto en Stitch.
+
+### Revisión crítica
+Basada en el texto de los prompts que Stitch devolvió y en sus resúmenes. **No se inspeccionaron visualmente las capturas.**
+
+| ID | SCR | Hallazgo | Severidad | Origen | Acción |
+|---|---|---|---|---|---|
+| F-01 | 04, 06, 07, 08, 09, 10 | Stitch reescribió los prompts y añadió navegación no pedida: migas «Gestión de Personal > Registrar un colaborador», etiqueta «REGISTRO DE PERSONAL», campana de notificaciones, avatar y el subtexto «Operaciones de Formación» bajo el usuario | Media | Stitch | Quitar o decidir con UX; «Operaciones de Formación» no existe en las fuentes |
+| F-02 | 07 | El estado válido «confirma que el nivel cuenta con evidencias configuradas»: mezcla evidencia con requisito de evidencia (BR-ACR-11; GEN-001 F-09) | Alta | Stitch | Usar «requisitos de evidencia» |
+| F-03 | 10 | El H1 pasó a «Catálogo de estados de error y excepciones», con subtítulo y badge «Referencia técnica (E1 - E11)»; se pidió «Registrar un colaborador» | Baja | Stitch | **Resuelto por decisión de ianache:** SCR-015-10 es una hoja de referencia de mensajes de error (`kind: reference-sheet`); el título de Stitch es aceptable como tal |
+| F-04 | 01 | Añadió un conmutador de estados «para testing» no especificado | Baja | Stitch | Quitar |
+| F-05 | 06, 08 | Datos de ejemplo con campos fuera de la especificación: código de unidad «ING-HQ-01»; «Marina Ramos Vargas (Subgerente de Operaciones)» con avatar y «etiqueta de vigencia» | Baja | Stitch | Marcar como ilustrativos; quitar el código de unidad |
+| F-06 | 03, 04 | Los textos E5/E6 llevan datos ilustrativos concretos (DNI 12345678; juan.perez@…); deben ser plantillas `{tipo} {número} ({país})` | Baja | Prompt del agente | Sustituir por placeholders en Figma |
+| F-07 | todas | El design system afirma contraste «WCAG AAA»; no hay evidencia | Media | Stitch | Solo `accessibility-reviewer` puede afirmarlo |
+| F-08 | 02–08 | Estados como tarjetas comparativas: no son frames implementables por estado | Media | Stitch | Figma debe tener un frame por estado (`states_covered`) |
+
+### Hallazgos de la especificación (no de Stitch)
+- **Q-1:** SCR-015 tiene contadores de pasos incoherentes («Paso 1 de 5» … «Paso 6 de 5»; el flujo del empleado tiene 7 pasos antes de revisar). Los prompts omitieron los totales; hay que corregir SCR-015.
+- ~~**Q-2:**~~ Dispositivos: **solo escritorio** (ianache, 2026-10-01).
+- ~~**Q-3:**~~ Tokens: **«Sovereign Enterprise»** (ianache, 2026-10-01) → [TKN-SET-001](../tokens/TKN-SET-001-sovereign-enterprise.md). Conflicto interno de color de error (`#DC2626` vs `#BA1A1A`) pendiente.
+- ~~**Q-4:**~~ Visibilidad `PUBLIC` aceptada por ianache (2026-10-01).
+- **Q-5:** el proyecto anterior `projects/7424057371727816981` (GEN-001/002) queda sin registrar como activo; archivarlo es decisión humana.
+- **Q-6:** `plataforma-gestion-formacion` (iniciativa) es un identificador asumido.

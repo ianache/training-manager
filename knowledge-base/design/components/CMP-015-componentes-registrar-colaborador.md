@@ -16,6 +16,8 @@ sources:
     resource: /knowledge-base/design/generations/GEN-015-stitch-registrar-colaborador.md
 ---
 
+> **Decisión de `human:ianache` (2026-10-02): se usan los componentes `gf-*` de `@gf/ui`, no Angular Material.** Las referencias `mat-*` de este documento son históricas; el equivalente vigente está en el [catálogo atómico](dtc-015/atomic-component-catalog.md) (`gf-text-input`, `gf-select`, `gf-autocomplete`, `gf-date-input`, …). No se reescribe el detalle: no implementar con Material.
+
 # CMP-015 — Componentes Reutilizables
 
 ## Trazabilidad

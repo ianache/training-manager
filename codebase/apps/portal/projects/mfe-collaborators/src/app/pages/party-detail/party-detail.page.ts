@@ -58,8 +58,8 @@ import { PARTY_ROLE_LABEL, PartyDetail, displayName } from '../../data-access/pa
   `,
   styles: `.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--gf-space-6); }
            .actions { display: flex; gap: var(--gf-space-3); }
-           button { padding: var(--gf-space-2) var(--gf-space-4); background: var(--gf-color-primary); color: white; border: none; border-radius: var(--gf-radius-sm); cursor: pointer; }
-           button:hover { background: var(--gf-color-primary-dark); }
+           button { padding: var(--gf-space-2) var(--gf-space-4); background: var(--gf-color-primary); color: var(--gf-color-on-primary); border: none; border-radius: var(--gf-radius-sm); cursor: pointer; }
+           button:hover { background: var(--gf-color-primary-hover); }
            .facts { display: grid; grid-template-columns: max-content 1fr; gap: var(--gf-space-2) var(--gf-space-6); }
            dt { color: var(--gf-color-text-muted); }  dd { margin: 0; }`,
 })

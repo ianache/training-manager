@@ -90,6 +90,16 @@ sources:
 - [GEN-001 — Diseño Google Stitch del catálogo de roles y competencias (UXR-001)](design/stitch/GEN-001-catalogo-de-roles-y-competencias.md) — exploratorio, `draft`
 - [GEN-002 — Diseño Google Stitch del shell y los estados transversales (UXR-000)](design/stitch/GEN-002-shell-y-estados-transversales.md) — exploratorio, `draft`
 
+## Diseño — Proyecto Stitch y trazabilidad
+
+- [STP-PPM-001 — Proyecto Stitch «Plataforma PPM»](design/projects/STP-PPM-001-plataforma-ppm.md) — Design Project, `draft`
+- [DTM-PPM-001 — Design Traceability Map](design/traceability/DTM-PPM-001-plataforma-ppm.md) — Design Traceability Map, `draft`
+- [HOF-PPM-001 — Handoff de diseño: Registrar un colaborador](design/handoff/HOF-PPM-001-registrar-colaborador.md) — UX Development Handoff, `draft`; gate `DESIGN_READY_FOR_DEV` = FAILED
+- Revisión de componentes de DTC-015 (`readiness: REQUIRES_REVIEW`): [revisión técnica](design/components/dtc-015/technical-design-review.md) · [inventario UI](design/components/dtc-015/ui-inventory.md) · [catálogo atómico](design/components/dtc-015/atomic-component-catalog.md) · [frontera MicroUI](design/components/dtc-015/micro-ui-boundary-analysis.md) · [contrato NPM](design/components/dtc-015/npm-package-contract.md)
+- [TKN-SET-001 — Tokens «Sovereign Enterprise»](design/tokens/TKN-SET-001-sovereign-enterprise.md) — Design Tokens, `draft`; **reemplazado** por TKN-SET-002 (2026-10-02)
+- [TKN-SET-002 — Tokens «Comsatel Styled»](design/tokens/TKN-SET-002-comsatel-styled.md) — Design Tokens, `draft`; base vigente de toda la plataforma, sustituye a TKN-SET-001
+- [GEN-015 — Diseño Stitch: Registrar un colaborador](design/generations/GEN-015-stitch-registrar-colaborador.md) — Stitch Generation, `draft` (ejecución 2026-10-01 añadida)
+
 ## Negocio — Modelo de información
 
 - [IMD-001 — Modelo de información conceptual](business/information-model/IMD-001-modelo-de-informacion-conceptual.md) — `draft`

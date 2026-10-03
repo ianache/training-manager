@@ -5,7 +5,7 @@ description: "Example output produced by figma-design-validator."
 tags: [ux-ui, ai-cowork]
 status: draft
 generated:
-  by: "figma-design-validator/1.0"
+  by: "figma-design-validator/2.0"
   at: "YYYY-MM-DDTHH:MM:SS-05:00"
 sources:
   - id: source-1

@@ -1,21 +1,42 @@
 ---
 type: User Flow
-title: "FLW-015 — Registrar un colaborador"
-description: "Happy path y excepciones para registrar un empleado o contratista con sus datos maestros, rol y nivel inicial."
-tags: [ux-ui, user-flow, party, h1, administracion]
+title: FLW-015 — Registrar un colaborador
+description: Happy path y excepciones para registrar un empleado o contratista con
+  sus datos maestros, rol y nivel inicial.
+tags:
+- ux-ui
+- user-flow
+- party
+- h1
+- administracion
 status: draft
 generated:
-  by: "user-flow-designer/1.0"
-  at: "2026-09-30T00:00:00-05:00"
+  by: user-flow-designer/1.0
+  at: '2026-09-30T00:00:00-05:00'
 sources:
-  - id: uxr-015
-    resource: /knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md
-  - id: us-015
-    resource: /knowledge-base/requirement/user-stories/US-015-registrar-un-colaborador.md
-  - id: spec-001
-    resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
-  - id: brc-001
-    resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
+- id: uxr-015
+  resource: /knowledge-base/design/ux-requirements/UXR-015-registrar-un-colaborador.md
+- id: us-015
+  resource: /knowledge-base/requirement/user-stories/US-015-registrar-un-colaborador.md
+- id: spec-001
+  resource: /knowledge-base/requirement/specs/SPEC-001-gestion-de-colaboradores.md
+- id: brc-001
+  resource: /knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md
+id: FLW-015
+requirements:
+- US-015
+- UXR-015
+screens:
+- SCR-015-01
+- SCR-015-02
+- SCR-015-03
+- SCR-015-04
+- SCR-015-05
+- SCR-015-06
+- SCR-015-07
+- SCR-015-08
+- SCR-015-09
+- SCR-015-10
 ---
 
 # FLW-015 — Registrar un colaborador
