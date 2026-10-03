@@ -29,7 +29,7 @@ sources:
 | Responsable de negocio (PO) | Jefe de Ingeniería (decisor de SPEC-001) |
 | Prioridad | Must: sin colaboradores registrados no hay perfil, certificación ni búsqueda (SPEC-001:L151-L153) |
 | Estimación | |
-| Dependencias | US-017 (unidades), US-018 (proveedores), US-001 (Rol-Nivel del catálogo, para el nivel inicial) |
+| Dependencias | US-017 y US-029 (organización interna y unidades), US-018 (proveedores), US-001 (Rol-Nivel del catálogo, para el nivel inicial) |
 | Preparación | CONDITIONAL |
 
 ## 2. Historia
@@ -193,7 +193,7 @@ Escenario: Asignar el nivel inicial al registrar
 
 ## 11. Dependencias, supuestos e hipótesis
 
-- **Depende de:** US-017 (unidades y organización interna), US-018 (proveedores) y US-001 (Rol-Nivel del catálogo).
+- **Depende de:** US-017 (organización interna) y US-029 (unidades), US-018 (proveedores) y US-001 (Rol-Nivel del catálogo).
 - **Es prerrequisito de:** US-016, US-019, US-020, US-021, US-022, US-023; y de US-003, US-004 y US-006.
 - **Supuestos:** ninguno.
 - **Hipótesis del agente:** H-1: el jefe directo de un empleado es otra persona registrada (relación de reporte persona ↔ jefe directo, BR-PTY-04; solo empleados, BR-PTY-19); confirma el Jefe de Ingeniería. H-2: mostrar el código generado al terminar el alta es una propuesta de UX del agente, no una decisión.
@@ -261,7 +261,7 @@ Evidencia compartida: `source_type: human`, `observed_at: 2026-09-27T10:05:00-05
 
 - **Estado:** CONDITIONAL
 - **Motivo:** actor, valor y validaciones sostenidos por BR-PTY; el nivel inicial de rol, por BR-PRF-02 (P-28, respondida el 2026-09-27). Q-01 (código, D25) y Q-02 (jefe directo del contratista, D26) se respondieron el 2026-09-27 y ya no bloquean. Sigue CONDITIONAL porque US-015-Q3 (obligatoriedad del nivel inicial) bloquea AC-7 y falta la validación del PO.
-- **Bloqueos de entrega:** US-017 y US-018 (redactadas, no implementadas).
+- **Bloqueos de entrega:** US-017, US-029 y US-018 (redactadas, no implementadas).
 - **Propuesta de división (si no es pequeña):** No aplica. Si crece, dividir por variación de regla: alta de empleado y alta de contratista.
 - **Siguiente rol o Skill:** `ux-requirements-analyzer`.
 - **Decisión humana requerida:** el Jefe de Ingeniería responde US-015-Q3 y valida la historia.

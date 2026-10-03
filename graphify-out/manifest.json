@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791045885.8959908,
-    "seen": 1791045927.164189,
-    "ast_hash": "14e4f22fe099c818261b0d6ee5f482dc",
+    "mtime": 1791050437.4488554,
+    "seen": 1791050487.1455789,
+    "ast_hash": "7f185ca773ec16635fc89cf81ef27aa9",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791040359.8937316,
-    "seen": 1791045405.113137,
-    "ast_hash": "ac8927cd7fc5b8aa23298e2571a2384c",
+    "mtime": 1791050437.4301076,
+    "seen": 1791050487.1610522,
+    "ast_hash": "f947d4f6697abb14d9fd5fe2602ac3f5",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -948,9 +948,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-015-registrar-un-colaborador.md": {
-    "mtime": 1790524514.9165797,
-    "seen": 1790525177.6784112,
-    "ast_hash": "5239ca03dd661c2d6cc7600e0209acfb",
+    "mtime": 1791050442.689294,
+    "seen": 1791050487.1694632,
+    "ast_hash": "85f46e16cf31e2ee6ae67848e0c3392b",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-016-actualizar-datos-y-contactos.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
-    "mtime": 1791045880.4985886,
-    "seen": 1791045927.1853223,
-    "ast_hash": "496dc9176c38fb18de7385755c6ca292",
+    "mtime": 1791050428.2930062,
+    "seen": 1791050487.1694632,
+    "ast_hash": "ea06869275ed0e55c1c38768baf169e1",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
@@ -3285,6 +3285,30 @@
     "mtime": 1791040359.922783,
     "seen": 1791045405.1221943,
     "ast_hash": "d85a3bc53704a24aed88c92ba850e2ce",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-002-organizations-read.md": {
+    "mtime": 1791050257.2149057,
+    "seen": 1791050487.070075,
+    "ast_hash": "03245a497b4e00b11beb66a9986280f7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-028-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791050428.2969716,
+    "seen": 1791050487.1783583,
+    "ast_hash": "3b83b6e150c4052a3ded899b4602219a",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-029-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791050428.3043537,
+    "seen": 1791050487.1783583,
+    "ast_hash": "c956bae21f89835ba0a868a682545554",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/user-stories/US-030-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791050428.3178878,
+    "seen": 1791050487.1783583,
+    "ast_hash": "675d8d1150af1d0063cb915d97b473fa",
     "semantic_hash": ""
   }
 }
