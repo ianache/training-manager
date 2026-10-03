@@ -119,3 +119,28 @@ Se regeneraron SCR-029-03 y SCR-029-04 con prompts más cortos y **un solo estad
 | SCR-029-04 | `projects/13050549605434273903/screens/4a7c7d12dfc2459db13fbefd5d8381cd` | SCR-029-04 — Historial de relaciones y vigencias de la unidad |
 
 **Diferencias con el SCR y limitaciones:** (1) solo el estado predeterminado: faltan en el diseño los estados ciclo, padre inactivo, resumen previo a confirmar, error al guardar y éxito de SCR-029-03, y los estados cargando, vacío, error y sin acceso de SCR-029-04; (2) en SCR-029-04 la fila vigente muestra la insignia «Vigente» en la columna «Hasta» (el SCR pide «Hasta» vacío con la insignia en la relación vigente: criterio por confirmar); (3) en SCR-029-03 las opciones del selector llevan una insignia de estado activo no pedida; (4) la insignia «Vigente» se pintó en verde, color que no existe en «Comsatel Styled» (ver R-10 de GEN-016). **No se hizo la revisión crítica del HTML**; la revisión humana y la de accesibilidad siguen pendientes. Es exploración, no diseño gobernado.
+
+## Hojas de estados adicionales y revisión crítica (2026-10-03)
+
+Para cubrir los estados que faltaban se generaron tres hojas más, una llamada cada una. **No están en `DTM-PPM-001`**: el DTM admite un solo `exploration_design` por SCR y registrarlas habría reemplazado la pantalla principal. Su vínculo SCR ↔ artefacto vive aquí.
+
+| SCR | Estados | Resource name (Stitch) |
+|---|---|---|
+| SCR-029-03 | B ciclo, C padre inactivo | `projects/13050549605434273903/screens/9571f3a48bc840fb98e9f8a7634ab050` |
+| SCR-029-03 | D resumen previo, E error al guardar, F éxito | `projects/13050549605434273903/screens/a5558fd6fa2943e3a3fcafb0817db4e1` |
+| SCR-029-04 | B cargando, C vacío, D error, E sin acceso | `projects/13050549605434273903/screens/781b835533004ced937b430e00def465` |
+
+Revisión crítica (HTML descargado; textos y estructura comparados con SCR-029, UXR-029 y FLW-029; sin ver las capturas a resolución completa):
+
+| ID | SCR | Hallazgo | Severidad | Origen | Acción |
+|---|---|---|---|---|---|
+| R-20 | 029-03 (B/C, D/E/F) | La barra lateral añade «Soporte» y «Ajustes»; B/C añade «Gestión Operativa / Comsatel Portal» y rótulos «Estado 01/02» | Media | Stitch | Contenido inventado; no copiar |
+| R-21 | 029-03 (D) | El diálogo cambia el texto: «¿Deseas cambiar la unidad padre de Calidad de Software?» y «Fecha desde: 03/10/2026»; el SCR solo pide «de X a Y» (SCR-029-Q6) | Media | Stitch | Decisión de producto sobre contenido del resumen |
+| R-22 | 029-03 (F) | La vista de éxito dice «Activo desde 03/10/2026» y muestra los campos del formulario | Baja | Stitch | Texto de éxito sin fuente |
+| R-23 | 029-03 (A) | Las opciones del selector llevan la insignia «Activa» | Baja | Stitch | No especificado en SCR; coherente con BR-PTY-25 |
+| R-24 | 029-04 | La insignia «Vigente» es verde (`emerald`), color ajeno a «Comsatel Styled», y ocupa la columna «Hasta» | Media | Stitch | Decidir color de éxito/vigencia (R-10 de GEN-016) y si «Hasta» va vacío |
+| R-25 | 029-04 | La hoja de datos añade «Mostrando 2 de 2 registros» | Baja | Stitch | No pedido |
+| R-26 | 030-04 | Anotaciones de lienzo «SCR-030-04 — …» y «A / B» | Baja | Stitch | No son UI |
+| R-27 | 029-03, 029-04, 030-04 | Accesibilidad: las tres en `fail` (ver ARP-SCR-029-03, ARP-SCR-029-04, ARP-SCR-030-04) | Alta | Revisión | Corregir en el diseño gobernado |
+
+No se halló «Eliminar» ni «Borrar» en ninguna. Es exploración, no diseño gobernado; la revisión humana sigue pendiente.

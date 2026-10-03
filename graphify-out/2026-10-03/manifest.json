@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791059542.8112812,
-    "seen": 1791059625.464574,
-    "ast_hash": "0b0381f8966a42e25eb45bc5f67236a0",
+    "mtime": 1791059813.375393,
+    "seen": 1791059859.8914924,
+    "ast_hash": "452db114ca503c80244315d239bba48e",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791059527.7946553,
-    "seen": 1791059625.5115235,
-    "ast_hash": "1825195b426934e47189222505a4cca9",
+    "mtime": 1791059812.7917492,
+    "seen": 1791059859.9137144,
+    "ast_hash": "580d780a01945e3e3d4f280dcff7f0f4",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3426,9 +3426,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791059542.784971,
-    "seen": 1791059625.488547,
-    "ast_hash": "5f53f3b9c6a338a4930e994f8c28b020",
+    "mtime": 1791059813.351776,
+    "seen": 1791059859.901493,
+    "ast_hash": "0bc096113df7d8dd63b7440f92ffc241",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
