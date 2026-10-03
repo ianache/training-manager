@@ -21,6 +21,8 @@ sources:
 
 **Estado: `REQUIRES_REVIEW`** (sin aprobación humana de este diseño).
 
+**v3 (2026-10-03):** `contact` obligatorio en `POST` y devuelto como `contact: {emails, phones}`; las organizaciones sin contacto devuelven listas vacías. Verificado: servicio 106 pruebas, BFF 28; **no** contra PostgreSQL.
+
 **Implementado (2026-10-03):** servicio (`GET`, `GET /{id}`, `POST`, migración 0003), relay del BFF y cliente del asistente. Verificado con pruebas (servicio 90, BFF 27, portal 7+3+105+177). **No** probado contra PostgreSQL ni en navegador.
 
 **Decisiones de `human:ianache` (2026-10-03):** ruta `/organizations` aprobada (ID-1); Q-1 → diseñar e implementar también el alta (`POST`) para que haya datos; Q-2 → `location` y `code` se añaden al modelo (migración). Aprobados el 2026-10-03: alcance solo `POST` y los límites (RUC 11, code 40, location 120). Q-6 queda como seguimiento del modelo de datos.
@@ -57,10 +59,11 @@ Respuesta `200` — mismo envoltorio que `/parties` (`data`, `pagination`, `filt
 `200` con el mismo objeto; `404 NOT_FOUND`; `400 VALIDATION_ERROR` si el id no es UUID.
 
 ### POST /api/v1/organizations (crear unidad o proveedor)
-Solo Jefe de Ingeniería (BR-PTY-17; `403` si no). Cuerpo: subconjunto de API-SPEC-001 §3.2, sin `contact` ni `metadata` libres (PDM-001 no tiene dónde guardarlos):
+Solo Jefe de Ingeniería (BR-PTY-17; `403` si no). Cuerpo: subconjunto de API-SPEC-001 §3.2. `contact` es **obligatorio** (correo laboral) desde la v3; no hay `metadata` ni `tax_regime` (IMD-002 R-32 retirada):
 ```json
 { "name": "Ingeniería Backend", "type": "internal_unit", "parent_id": "uuid|null",
-  "code": "ING-BE", "location": "Sede Central", "ruc": null }
+  "code": "ING-BE", "location": "Sede Central", "ruc": null,
+  "contact": { "email_work": "contacto@example.com", "phone_work": "+51 987654321" } }
 ```
 | Campo | Regla |
 |---|---|
@@ -69,6 +72,8 @@ Solo Jefe de Ingeniería (BR-PTY-17; `403` si no). Cuerpo: subconjunto de API-SP
 | `parent_id` | solo unidades; debe existir y ser una unidad vigente; `null` = raíz |
 | `ruc` | obligatorio en proveedor (11 dígitos), prohibido en unidad; único (BR-PTY-07) |
 | `code`, `location` | opcionales, ≤40 y ≤120; solo unidades |
+| `contact.email_work` | obligatorio; formato de correo; puede coincidir con el de un colaborador y con el de otra organización |
+| `contact.phone_work` | opcional; `^\+?[0-9 ()-]{6,20}$` |
 
 `201` con el objeto (como GET) y cabecera `Location`. `400 VALIDATION_ERROR`; `403`; `404` si el padre no existe; `409 ORGANIZATION_DUPLICATE` (nombre repetido bajo el mismo padre, o RUC repetido).
 Crea `tb_party` + `tb_organization` + rol vigente (`ORGANIZATIONAL_UNIT` o `SUPPLIER`, `from_date` = hoy) y, con padre, la relación `ORG_STRUCTURE`, todo en una transacción; `created_by` = usuario final. Idempotencia: sin `Idempotency-Key`; un reintento da `409` por la unicidad (igual que `POST /parties`).
@@ -102,7 +107,7 @@ Pruebas de contrato del servicio (lista, filtros, paginación, 404/400, vigencia
 | Q-3 | US-017 y US-018 siguen `draft`; su contrato de lectura puede cambiar al refinarse | No |
 | Q-4 | `type` usa los nombres de API-SPEC-001 (`internal_unit`/`external_provider`), no los códigos de BD | No |
 
-## 8b. Cambio propuesto v3 (pendiente de aprobación; no implementado)
+## 8b. Contacto de la organización — v3 (aprobado por ianache 2026-10-03; **implementado**: migración 0004, servicio, pruebas)
 Decisiones de ianache (2026-10-03, IMD-002 R-31): toda organización tiene **correo laboral obligatorio** y **teléfono laboral opcional**, 1 o más vigentes de cada uno; el correo puede coincidir con el de un colaborador y BR-PTY-08 se mantiene. **No hay `tax_regime` ni más metadatos** (R-32 retirada).
 
 **Hallazgo técnico.** Hoy no se puede cumplir "el correo puede coincidir" tal cual: `ux_pcm_current_work_email` permite **un solo** vínculo vigente con propósito `WORK_EMAIL` por correo, y `ux_contact_mechanism_email_active` permite **una sola fila** por correo. Si la organización usara `WORK_EMAIL`, un colaborador con ese correo daría `409 EMAIL_DUPLICATE` (y al revés).

@@ -41,9 +41,9 @@ function fakeOidc(roles: string[]): OidcPort {
 }
 
 function setup(roles: string[] = ['colaborador'], downstreamStatus = 200, downstreamHeaders: Record<string, string> = {}) {
-  const calls: { url: string; headers: Record<string, string> }[] = [];
+  const calls: { url: string; headers: Record<string, string>; body?: unknown }[] = [];
   const fetchImpl = (async (input: URL | RequestInfo, init?: RequestInit) => {
-    calls.push({ url: String(input), headers: init?.headers as Record<string, string> });
+    calls.push({ url: String(input), headers: init?.headers as Record<string, string>, body: init?.body });
     if (downstreamStatus !== 200)
       return new Response('{"error":{"code":"X","status":' + downstreamStatus + '}}', { status: downstreamStatus, headers: downstreamHeaders });
     return new Response(JSON.stringify({ data: [], pagination: { page: 1, limit: 20, total: 0, total_pages: 0, has_next: false, has_prev: false } }), {
@@ -153,6 +153,14 @@ describe('BFF', () => {
     expect(calls).toHaveLength(0);
     await agent.post('/api/v1/organizations').set('X-XSRF-TOKEN', cb.xsrf).send({ name: 'Ingeniería', type: 'internal_unit' }).expect(200);
     expect(calls.at(-1)!.url).toBe('http://party.test/api/v1/organizations');
+  });
+
+  it('reenvía el contacto de la organización tal cual al servicio', async () => {
+    const { agent, calls } = setup(['jefe_ingenieria']);
+    const cb = await login(agent);
+    const body = { name: 'Ingeniería', type: 'internal_unit', contact: { email_work: 'contacto@example.com', phone_work: '+51 987654321' } };
+    await agent.post('/api/v1/organizations').set('X-XSRF-TOKEN', cb.xsrf).send(body).expect(200);
+    expect(JSON.parse(String(calls.at(-1)!.body))).toEqual(body);
   });
 
   it('responde 503 cuando el catálogo aún no existe', async () => {

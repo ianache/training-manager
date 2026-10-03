@@ -54333,7 +54333,7 @@
       "node_kind": "heading",
       "norm_label": "1. decision de ruta (id-1)",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_2_alcance",
@@ -54345,7 +54345,7 @@
       "node_kind": "heading",
       "norm_label": "2. alcance",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_3_contrato",
@@ -54357,7 +54357,7 @@
       "node_kind": "heading",
       "norm_label": "3. contrato",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L35"
+      "source_location": "L37"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_4_seguridad_y_privacidad",
@@ -54369,7 +54369,7 @@
       "node_kind": "heading",
       "norm_label": "4. seguridad y privacidad",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L79"
+      "source_location": "L84"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_5_datos_una_migraci\u00f3n",
@@ -54381,7 +54381,7 @@
       "node_kind": "heading",
       "norm_label": "5. datos (una migracion)",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L85"
+      "source_location": "L90"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_6_compatibilidad_y_versionado",
@@ -54393,7 +54393,7 @@
       "node_kind": "heading",
       "norm_label": "6. compatibilidad y versionado",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L88"
+      "source_location": "L93"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_7_verificaci\u00f3n_propuesta",
@@ -54405,7 +54405,7 @@
       "node_kind": "heading",
       "norm_label": "7. verificacion propuesta",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L91"
+      "source_location": "L96"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_8_riesgos_y_preguntas_abiertas",
@@ -54417,7 +54417,7 @@
       "node_kind": "heading",
       "norm_label": "8. riesgos y preguntas abiertas",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L94"
+      "source_location": "L99"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_9_siguiente_acci\u00f3n",
@@ -54429,7 +54429,7 @@
       "node_kind": "heading",
       "norm_label": "9. siguiente accion",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L122"
+      "source_location": "L127"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_api_spec_002_organizaciones_consulta_b\u00fasqueda_y_alta",
@@ -54453,7 +54453,7 @@
       "node_kind": "heading",
       "norm_label": "errores y cabeceras",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L76"
+      "source_location": "L81"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_get_api_v1_organizations",
@@ -54465,7 +54465,7 @@
       "node_kind": "heading",
       "norm_label": "get /api/v1/organizations",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L37"
+      "source_location": "L39"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_get_api_v1_organizations_id",
@@ -54477,7 +54477,7 @@
       "node_kind": "heading",
       "norm_label": "get /api/v1/organizations/{id}",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "knowledge_base_architecture_api_api_spec_002_organizations_post_api_v1_organizations_crear_unidad_o_proveedor",
@@ -54489,7 +54489,7 @@
       "node_kind": "heading",
       "norm_label": "post /api/v1/organizations (crear unidad o proveedor)",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L59"
+      "source_location": "L61"
     },
     {
       "id": "knowledge_base_requirement_user_stories_us_024_anonimizar_datos_personales_10_consideraciones_de_ux",
@@ -55773,7 +55773,7 @@
       "node_kind": "heading",
       "norm_label": "10. preparacion y validacion",
       "source_file": "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md",
-      "source_location": "L259"
+      "source_location": "L260"
     },
     {
       "id": "knowledge_base_business_information_model_imd_002_modelo_conceptual_de_partes_1_vista_general",
@@ -64412,16 +64412,16 @@
       "source_location": "L9"
     },
     {
-      "id": "knowledge_base_architecture_api_api_spec_002_organizations_8b_cambio_propuesto_v3_pendiente_de_aprobaci\u00f3n_no_implementado",
-      "label": "8b. Cambio propuesto v3 (pendiente de aprobaci\u00f3n; no implementado)",
+      "id": "knowledge_base_architecture_api_api_spec_002_organizations_8b_contacto_de_la_organizaci\u00f3n_v3_aprobado_por_ianache_2026_10_03_implementado_migraci\u00f3n_0004_servicio_pruebas",
+      "label": "8b. Contacto de la organizaci\u00f3n \u2014 v3 (aprobado por ianache 2026-10-03; **implementado**: migraci\u00f3n 0004, servicio, pruebas)",
       "_origin": "ast",
       "community": 87,
       "community_name": "party_service.py",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "8b. cambio propuesto v3 (pendiente de aprobacion; no implementado)",
+      "norm_label": "8b. contacto de la organizacion \u2014 v3 (aprobado por ianache 2026-10-03; **implementado**: migracion 0004, servicio, pruebas)",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L105"
+      "source_location": "L110"
     },
     {
       "id": "codebase_apps_domains_party_management_service_app_database_seed_rationale_1",
@@ -107486,7 +107486,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -107497,7 +107497,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -107508,7 +107508,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -107519,18 +107519,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L76",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
       "source": "knowledge_base_architecture_api_api_spec_002_organizations_api_spec_002_organizaciones_consulta_b\u00fasqueda_y_alta",
-      "target": "knowledge_base_architecture_api_api_spec_002_organizations_8b_cambio_propuesto_v3_pendiente_de_aprobaci\u00f3n_no_implementado",
+      "target": "knowledge_base_architecture_api_api_spec_002_organizations_8b_contacto_de_la_organizaci\u00f3n_v3_aprobado_por_ianache_2026_10_03_implementado_migraci\u00f3n_0004_servicio_pruebas",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L105",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -107541,7 +107541,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L122",
+      "source_location": "L127",
       "weight": 1.0
     },
     {
@@ -107552,7 +107552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -107563,7 +107563,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -107574,7 +107574,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -107585,7 +107585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L79",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -107596,7 +107596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L85",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -107607,7 +107607,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L88",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -107618,7 +107618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L91",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -107629,7 +107629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L94",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -112645,7 +112645,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md",
-      "source_location": "L259",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -148808,11 +148808,11 @@
       "confidence_score": 0.95,
       "context": "PartyCreateRequest",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L83",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
-      "source": "knowledge_base_architecture_api_api_spec_002_organizations_8b_cambio_propuesto_v3_pendiente_de_aprobaci\u00f3n_no_implementado",
+      "source": "knowledge_base_architecture_api_api_spec_002_organizations_8b_contacto_de_la_organizaci\u00f3n_v3_aprobado_por_ianache_2026_10_03_implementado_migraci\u00f3n_0004_servicio_pruebas",
       "target": "codebase_apps_domains_party_management_service_app_schemas_party_partycreaterequest",
       "relation": "references",
       "_origin": "ast",
@@ -148820,7 +148820,7 @@
       "confidence_score": 0.95,
       "context": "PartyCreateRequest",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L117",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -148992,7 +148992,7 @@
       "weight": 1.0
     },
     {
-      "source": "knowledge_base_architecture_api_api_spec_002_organizations_8b_cambio_propuesto_v3_pendiente_de_aprobaci\u00f3n_no_implementado",
+      "source": "knowledge_base_architecture_api_api_spec_002_organizations_8b_contacto_de_la_organizaci\u00f3n_v3_aprobado_por_ianache_2026_10_03_implementado_migraci\u00f3n_0004_servicio_pruebas",
       "target": "codebase_apps_domains_party_management_service_app_services_party_service_partyservice_email_mechanism",
       "relation": "references",
       "_origin": "ast",
@@ -149000,7 +149000,7 @@
       "confidence_score": 0.95,
       "context": "_email_mechanism",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L113",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -149552,7 +149552,7 @@
       "confidence_score": 0.95,
       "context": "requireAnyRole",
       "source_file": "knowledge-base/architecture/api/API-SPEC-002-organizations.md",
-      "source_location": "L81",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -150516,5 +150516,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "72f9c601911c49846d93eebefa36d062604a1089"
+  "built_at_commit": "f252bc63ad0987e3d6126213aa5a6edfea33962c"
 }

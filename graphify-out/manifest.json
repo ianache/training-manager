@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791057911.2315278,
-    "seen": 1791057932.1204293,
-    "ast_hash": "744e7409a0193bb8f1ae11bc7a59d129",
+    "mtime": 1791058727.6262925,
+    "seen": 1791058793.8300607,
+    "ast_hash": "9986ec904a2906a43019cdede9701605",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -936,9 +936,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-002-modelo-conceptual-de-partes.md": {
-    "mtime": 1791057911.2044926,
-    "seen": 1791057932.1117735,
-    "ast_hash": "d8b60bec7bd8f0b3af0d6f14702cd632",
+    "mtime": 1791058727.6142545,
+    "seen": 1791058793.823637,
+    "ast_hash": "b02964d4b1db6286ffe15ed66d376fe1",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-002-gestion-de-colaboradores.md": {
@@ -1746,9 +1746,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/app.test.ts": {
-    "mtime": 1791055935.859996,
-    "seen": 1791056009.225682,
-    "ast_hash": "d1e06c259642cc645f05381124bcee52",
+    "mtime": 1791058668.5112176,
+    "seen": 1791058793.5130436,
+    "ast_hash": "35360d153c3d97a1aeb83e98db794da0",
     "semantic_hash": ""
   },
   "codebase/apps/bff/tsconfig.build.json": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-002-organizations.md": {
-    "mtime": 1791057911.2210388,
-    "seen": 1791057931.9286351,
-    "ast_hash": "2c4b2c5dab819fba697817b6a9113b5d",
+    "mtime": 1791058727.6063693,
+    "seen": 1791058793.7200363,
+    "ast_hash": "5e16c61755ca54d38ff3ca0fdef1dba4",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {
