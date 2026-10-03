@@ -245,7 +245,9 @@ class OrganizationService:
         # y un conflicto de unicidad saltaría fuera del manejo de _commit
         email_row = await self._email_row(email)
         pid, rid, today = str(uuid4()), str(uuid4()), date.today()
+        # el modelo no declara relationship() entre tablas: el orden de INSERT lo fijamos nosotros (FK reales en PostgreSQL)
         self.db.add(Party(pk_party_id=pid, party_kind=ORGANIZATION, created_by=actor))
+        await self._flush()
         self.db.add(
             Organization(
                 pk_party_id=pid, organization_name=payload.name, code=payload.code, location=payload.location, created_by=actor
@@ -273,6 +275,7 @@ class OrganizationService:
                     created_by=actor,
                 )
             )
+        await self._flush()
         if parent_role:
             self.db.add(
                 PartyRelationship(
@@ -291,6 +294,7 @@ class OrganizationService:
                     pk_contact_mechanism_id=email_row, fk_contact_mechanism_type_code=MECH_EMAIL, contact_value=email, created_by=actor
                 )
             )
+        await self._flush()
         self._contact(pid, email_row, MECH_EMAIL, PURPOSE_ORG_EMAIL, actor, today)
         if payload.contact.phone_work:
             phone_row = str(uuid4())
@@ -302,14 +306,21 @@ class OrganizationService:
                     created_by=actor,
                 )
             )
+            await self._flush()
             self._contact(pid, phone_row, MECH_PHONE, PURPOSE_ORG_PHONE, actor, today)
         await self._commit()
         self.db.expunge_all()
         return await self.get(pid)
 
+    async def _flush(self) -> None:
+        await self._guard(self.db.flush)
+
     async def _commit(self) -> None:
+        await self._guard(self.db.commit)
+
+    async def _guard(self, action) -> None:
         try:
-            await self.db.commit()
+            await action()
         except IntegrityError as exc:
             # carrera entre dos altas: el índice único parcial del RUC (PDM-001) tiene la última palabra
             await self.db.rollback()

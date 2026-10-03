@@ -3,13 +3,13 @@
 El correo de una organización puede coincidir con el de un colaborador (decisión de ianache, 2026-10-03).
 Para no tocar BR-PTY-08 (ux_pcm_current_work_email, solo WORK_EMAIL), la organización usa propósitos propios.
 
-Revision ID: 0004_organization_contact_purposes
+Revision ID: 0004_org_contact_purposes
 Revises: 0003_organization_code_location
 Create Date: 2026-10-03
 """
 from alembic import op
 
-revision = "0004_organization_contact_purposes"
+revision = "0004_org_contact_purposes"
 down_revision = "0003_organization_code_location"
 branch_labels = None
 depends_on = None

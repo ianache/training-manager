@@ -16,7 +16,7 @@ pytestmark = pytest.mark.skipif(not TEST_DATABASE_URL, reason="requiere TEST_DAT
 
 def test_version_en_head(migrated_postgres):
     with migrated_postgres.connect() as conn:
-        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0004_organization_contact_purposes"
+        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0004_org_contact_purposes"
 
 
 def test_orm_coincide_con_la_base(migrated_postgres):
