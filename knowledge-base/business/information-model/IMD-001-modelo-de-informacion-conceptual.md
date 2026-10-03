@@ -97,7 +97,7 @@ erDiagram
     VERSION_DE_COMPETENCIA ||--o{ REQUISITO_DE_EVIDENCIA : "incluye (inf.)"
 ```
 
-Las **competencias se versionan; los roles no** (BR-CAT-22, respuesta a P-50, EVD-2026-0132). Es todo lo que dice la decisión. Son **inferencias a confirmar** que una versión siga DRAFT, APPROVED y DEPRECATED como las versiones de curso (R-37) y que incluya la rúbrica y los requisitos de evidencia (R-45, P-50.2). Cómo se relaciona una versión con los Rol-Nivel, los requerimientos y las certificaciones hechas con una versión anterior es **UNKNOWN** (R-46, P-50.1) y no se dibuja.
+Las **competencias se versionan; los roles no** (BR-CAT-22, respuesta a P-50, EVD-2026-0132). Es todo lo que dice la decisión. Son **inferencias a confirmar** que una versión siga DRAFT, APPROVED y DEPRECATED como las versiones de curso (R-37) y que incluya la rúbrica y los requisitos de evidencia (R-45, P-50.2). Desde el 2026-10-03 (P-50.1, EVD-2026-0143) una versión nueva **no altera** las relaciones vigentes con Rol-Nivel, requerimientos y certificaciones, que siguen refiriéndose a la versión con que se hicieron; la nueva pasa a ser la vigente para toda operación que asigne la competencia, y donde se referencie una versión anterior se sugiere la nueva con una advertencia (R-46). La aprueba el Jefe de Ingeniería o un ADMIN (P-50.2, EVD-2026-0144).
 
 **Roles iniciales del catálogo** (BR-CAT-12): analista funcional, developer, analista QA, analista BI, diseñador UX, diseñador UI y jefe de proyecto; se pueden definir otros. El **Jefe de proyecto** es un colaborador que desempeña un rol del catálogo y tiene su propio perfil de competencias y nivel de rol (BR-CAT-13); si es el mismo rol que "jefe de proyecto" está abierto (P-30). El **Evaluador** y el **Jefe de Ingeniería** son solo gestores del programa (BR-PRG-01). Por ahora quedan fuera del proceso de evaluación, aunque sus roles también tienen competencias definidas (BR-PRG-02, respuesta a P-31).
 
@@ -240,8 +240,8 @@ Clasificación: **FACT** (lo dice la fuente), **INFERENCE** (deducción del agen
 | R-42 | El Jefe de Ingeniería o un ADMIN asigna un colaborador como Instructor de una edición de curso; el Instructor evalúa el desempeño de los inscritos | Edición 0..1 : Instructor; Instructor 1 : N ediciones | FACT (relación, decisión ianache (Jefe de Ingeniería), 2026-09-27, respuesta a P-49; EVD-2026-0131) · INFERENCE (cardinalidades: "se le puede asignar un colaborador") | BR-FOR-05 | P-49.1, P-49.2, P-49.3 |
 | R-43 | Un Instructor es un colaborador | N : 1 | FACT (decisión: "El Instructor es un colaborador") | BR-FOR-05 (EVD-2026-0131) | GQ-37 |
 | R-44 | Una competencia tiene versiones; los roles no se versionan | 1 : N | FACT (relación, decisión ianache (Jefe de Ingeniería), 2026-09-27, respuesta a P-50; EVD-2026-0132) · INFERENCE (cardinalidad y estados DRAFT, APPROVED, DEPRECATED por analogía con R-37) | BR-CAT-22 | P-50.2, IM-Q12 |
-| R-45 | Una versión de competencia incluye su rúbrica y sus requisitos de evidencia | 1 : 0..1 rúbrica; 1 : N requisitos | INFERENCE (BR-CAT-22 lo marca como inferencia a confirmar) | BR-CAT-22 | P-50.2 |
-| R-46 | Rol-Nivel, requerimientos y certificaciones se refieren a una versión de competencia determinada | UNKNOWN | UNKNOWN: la decisión no dice qué pasa con ellos cuando se aprueba una versión nueva | BR-CAT-22 | P-50.1 |
+| R-45 | Una versión de competencia incluye su rúbrica y sus requisitos de evidencia | 1 : 0..1 rúbrica; 1 : N requisitos | INFERENCE (BR-CAT-22 lo marca como inferencia a confirmar) | BR-CAT-22 | P-50.2 → aprueba el Jefe de Ingeniería o ADMIN (EVD-2026-0144); queda por confirmar que la versión incluya rúbrica y requisitos |
+| R-46 | Rol-Nivel, requerimientos y certificaciones se refieren a una versión de competencia determinada; una versión nueva no los altera y es la vigente para nuevas asignaciones | N : 1 (cada uno a una versión) | FACT (decisión ianache (Jefe de Ingeniería), 2026-10-03, respuesta a P-50.1; EVD-2026-0143) · INFERENCE (cardinalidad) | BR-CAT-22 | — |
 
 ## 6. Reglas que actúan sobre el modelo
 
@@ -367,6 +367,7 @@ Las preguntas existentes están en BRC-001 (P-nn), USC-001 y las historias (US-n
 
 | Fecha | Cambio | Relaciones o conceptos afectados | Fuente |
 |---|---|---|---|
+| 2026-10-03 | R-46 pasa de UNKNOWN a FACT: una versión nueva de competencia no altera las relaciones vigentes y es la vigente para nuevas asignaciones; la aprueba el Jefe de Ingeniería o ADMIN. Alta del permiso del Responsable de producto para editar roles (sin límite por producto) | R-44, R-46, BR-CAT-04, BR-CAT-05 | BRC-001 EVD-2026-0143 a 0151; DSP-001 |
 | 2026-09-26 | Alta del modelo: 22 conceptos y 18 relaciones | R-01 a R-18 | VIS-001, BRC-001 (incluida BR-ACR-07), GLS-001 |
 | 2026-09-26 | Adaptación a la plantilla de `af-conceptual-model-designer` (columna "Nombre en diagrama", historial, preparación) | — | — |
 | 2026-09-26 | IM-Q1, IM-Q2 y P-22 respondidas por ianache (Jefe de Ingeniería), 2026-09-26: R-03 pasa a FACT; R-12 RETIRADA; R-04 actualizada; altas R-19, R-20 y R-21; IM-Q6 a IM-Q8 nuevas | R-03, R-04, R-12, R-19 a R-21; Competencia, Requerimiento, Requisito de evidencia | BR-CAT-07, BR-REQ-06, BR-ACR-08 (EVD-2026-0053 a 0055) |

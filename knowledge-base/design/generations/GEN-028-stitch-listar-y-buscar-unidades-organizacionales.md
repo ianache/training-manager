@@ -94,3 +94,7 @@ Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design 
 **Pendiente:** las variantes C (sin resultados), D (sin unidades registradas) y E (sin organización interna) de SCR-028-01 dieron timeout dos veces y no tienen artefacto verificado.
 
 Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.
+
+## Estados vacíos de SCR-028-01 (2026-10-03, segundo intento)
+
+Se generó una hoja por estado, en serie. **D · Sin unidades registradas:** `projects/13050549605434273903/screens/0799c949029c48ff9a2a7e2fac9a82b7` (verificada; HTML descargado). **C · Sin resultados:** la llamada respondió con texto de confirmación pero **sin devolver pantalla ni ID**, así que no hay artefacto verificable y no se registra. **E · Sin organización interna:** timeout, sin artefacto. Siguen pendientes C y E.

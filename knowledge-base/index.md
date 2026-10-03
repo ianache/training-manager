@@ -78,6 +78,7 @@ sources:
 ## Arquitectura — Modelo de datos
 
 - [LDM-001 — Modelo lógico de partes](architecture/data-model/LDM-001-modelo-logico-de-partes.md) — `draft`, REQUIRES_REVIEW
+- [LDM-002 — Modelo de datos del catálogo](architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md) — `draft`, REQUIRES_REVIEW (DDL en `architecture/data-model/ddl/catalog-postgresql.sql`)
 - [PDM-001 — Modelo físico de partes](architecture/data-model/PDM-001-modelo-fisico-de-partes.md) — `draft`, con anexos [MySQL](architecture/data-model/PDM-001-anexo-mysql.md) y [PostgreSQL](architecture/data-model/PDM-001-anexo-postgresql.md) y [DDL](architecture/data-model/ddl/party-portable.sql)
 - [TST-001 — Pruebas de restricciones](architecture/data-model/tests/TST-001-pruebas-de-restricciones.md) — `draft`, ejecución PENDIENTE (Q-06)
 
