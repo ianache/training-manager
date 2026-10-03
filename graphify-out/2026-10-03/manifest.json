@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791059813.375393,
-    "seen": 1791059859.8914924,
-    "ast_hash": "452db114ca503c80244315d239bba48e",
+    "mtime": 1791060525.1414573,
+    "seen": 1791060570.0609462,
+    "ast_hash": "f0fe44f8a07a364eebc5a6028982c369",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791056488.8206747,
-    "seen": 1791056553.7849143,
-    "ast_hash": "64b638dbe01887cce06a26fe4fb44e0c",
+    "mtime": 1791060525.1226795,
+    "seen": 1791060570.0913165,
+    "ast_hash": "0d6050f78c75803258688a6f4432a36c",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1362,9 +1362,9 @@
     "semantic_hash": ""
   },
   "codebase/docker-compose.yml": {
-    "mtime": 1790832339.8244572,
-    "seen": 1790832490.5374618,
-    "ast_hash": "7b6748b03ce3db661e191995a3571409",
+    "mtime": 1791060380.0347064,
+    "seen": 1791060569.9885862,
+    "ast_hash": "d8b567a1364ceb1ec4d6a3948d6bf214",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md": {
@@ -3426,9 +3426,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791059813.351776,
-    "seen": 1791059859.901493,
-    "ast_hash": "0bc096113df7d8dd63b7440f92ffc241",
+    "mtime": 1791060515.837255,
+    "seen": 1791060570.0713449,
+    "ast_hash": "334cb2c1dce30d1e91b5b2c1c9abd448",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -3456,9 +3456,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
-    "mtime": 1791058585.0110006,
-    "seen": 1791058664.413158,
-    "ast_hash": "12fc54762d49fd86c21aae56eae92164",
+    "mtime": 1791059960.1981404,
+    "seen": 1791060569.899852,
+    "ast_hash": "5ded64b89e8225c29c19c8205fa2ed60",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_create.py": {
@@ -3531,6 +3531,30 @@
     "mtime": 1791058067.3624406,
     "seen": 1791058203.7646043,
     "ast_hash": "ad0d16be360288a04416926fab796278",
+    "semantic_hash": ""
+  },
+  "codebase/dev/catalog-stub/roles.json": {
+    "mtime": 1791060379.6076589,
+    "seen": 1791060569.9692757,
+    "ast_hash": "3422e9f71d6853b2672946c77ba18f76",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md": {
+    "mtime": 1791060499.7058563,
+    "seen": 1791060570.073354,
+    "ast_hash": "fcd8578b76260ba647a3e8939a50d4cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-04-historial-de-relaciones.md": {
+    "mtime": 1791060501.2579186,
+    "seen": 1791060570.073354,
+    "ast_hash": "a5a4113ef00eefdb21ed2ce35cb7f8cd",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-030-04-reactivacion-bloqueada.md": {
+    "mtime": 1791060498.0760832,
+    "seen": 1791060570.073354,
+    "ast_hash": "88703723aa56b9fb271408fed93ce714",
     "semantic_hash": ""
   }
 }

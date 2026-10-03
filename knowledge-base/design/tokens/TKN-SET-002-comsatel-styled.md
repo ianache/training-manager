@@ -176,3 +176,7 @@ Las cifras del ajuste (7.0:1, 6.1:1, 4.0:1) no coinciden exactamente con las cal
 - Sustituye a: `TKN-SET-001` (Sovereign Enterprise).
 - Implementado en: `codebase/apps/portal/projects/ui/src/styles/tokens.css`.
 - Pendiente: reconciliar SCR-015, GEN-015, DTM-PPM-001, HOF-PPM-001 y los DTC-015 que citan TKN-SET-001; sin vínculo todavía con Variables de Figma.
+
+## Ajuste 2026-10-03: roles de éxito (verde)
+
+Decisión de `human:ianache`: el éxito y la vigencia usan verde. Se añadieron al design system «Comsatel Styled» en Stitch (v2) `success` `#065f46`, `on-success` `#ffffff`, `success-container` `#ecfdf5`, `on-success-container` `#065f46` y `success-outline` `#a7f3d0`; contraste texto/fondo 7.29:1. Solo para estados de éxito y vigencia, siempre con icono y texto. Estos valores son los que `@gf/ui` conservaba como `success` (`#065f46`), así que el set y la biblioteca vuelven a coincidir. Pendiente: transcribir los tokens al `tokens.css` de `@gf/ui` si cambia algún valor.

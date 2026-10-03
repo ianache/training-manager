@@ -113,3 +113,16 @@ Método: se descargó el HTML de SCR-030-01, 02 y 03 (SCR-030-04 no existe aún)
 ## Actualización 2026-10-03 (SCR-030-04)
 
 Se volvió a generar SCR-030-04 con el mismo prompt (una sola llamada, sin reintentos). Esta vez Stitch respondió con la pantalla y el ID `c647294ecb764bada0bb6a6ec1d5cd61`, verificado con `get_screen` (título «SCR-030-04 — Reactivación bloqueada por padre Inactivo (Estados A y B)»). **Sigue sin aparecer en `list_screens` ni en `screenInstances` de `get_project`**; el ID solo se conoce por la respuesta de la generación. Registrada en `DTM-PPM-001` con `register-exploration` (`version: not-exposed-by-stitch`). Cierra R-10 en cuanto a la existencia de la pantalla. **No se hizo la revisión crítica contra AC-4 y BR-PTY-24** (no se descargó su HTML): sigue pendiente, igual que la revisión humana. Es exploración, no diseño gobernado.
+
+## Regeneración v2 (2026-10-03): éxito en verde y semántica de accesibilidad
+
+Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design system, que se ajustó en Stitch (`Comsatel Styled` v2: roles `success` #065f46, `success-container` #ecfdf5, `success-outline` #a7f3d0, siempre con icono y texto); el diálogo de resumen de SCR-029-03 muestra solo «{unidad}: de X a Y»; la columna «Hasta» va vacía mientras no se defina su valor. Los prompts exigieron además `aria-hidden` en iconos, `label for`, `aria-invalid`/`aria-describedby`, `role=alert`/`status`, `caption`, `aria-label` en `nav` y `aria-current`. El DTM apunta a la primera hoja de cada pantalla (`version: v2-success-green`); las hojas de estados adicionales solo constan aquí. Los artefactos anteriores quedan en Stitch como residuo (no hay herramienta para borrarlos).
+
+| Pantalla | Resource name (Stitch) |
+|---|---|
+| SCR-030-01 (A–D) | `projects/13050549605434273903/screens/11e52a5f6d6d401eb239180750c1df9d` |
+| SCR-030-02 (A, B) | `projects/13050549605434273903/screens/fc1cfa0bf4d9442d926d1ab37aff49d1` |
+| SCR-030-03 (A–D) | `projects/13050549605434273903/screens/727b36fe16884700ac3329309f09c644` |
+| SCR-030-04 (A, B) | `projects/13050549605434273903/screens/836b9b73b01e4191afab8798ba562000` |
+
+Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.

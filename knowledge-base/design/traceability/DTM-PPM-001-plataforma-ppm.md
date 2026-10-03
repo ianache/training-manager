@@ -645,9 +645,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/ead458becb59418fb0cf15f0c601beb5
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:15-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/ebe76a85620f4cb590f9f626d8e428ca
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:01-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-017-02
@@ -680,9 +688,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/5256b92d20f04c31b720dd32e26a9259
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:17-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/f8bc9e0d2d4e4fd685b102f72dd5b921
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:03-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-017-03
@@ -715,9 +731,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/08a98db688474629b3ef7a32c9d751ca
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:19-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/a4a8d03623454c779678750c37e106bd
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:08-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-028-01
@@ -753,9 +777,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/a4618f57bdec4cd9a4164d6cc0b3020b
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:21-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/078ae7f725e242bcba357e646e1395dd
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:20-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-029-01
@@ -791,9 +823,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/b8210fe9bfd949ab8d64a8cf46ac9632
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:23-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/00d2d9ec2ecc4fa79429d957ea2e01e8
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:27-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-029-02
@@ -862,9 +902,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/11e52a5f6d6d401eb239180750c1df9d
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:29-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/06e62932b2a94c80a345ff0267378fef
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:31-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-030-02
@@ -895,9 +943,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/fc1cfa0bf4d9442d926d1ab37aff49d1
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:31-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/ab28fe4f0b4d4d99a9c4eaee30b8cc18
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:34-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-030-03
@@ -929,9 +985,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/727b36fe16884700ac3329309f09c644
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:34-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/6e368fd66d0f4d5caff850faf7f9dd2e
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:35-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-030-04
@@ -962,9 +1026,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/836b9b73b01e4191afab8798ba562000
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:36-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/c647294ecb764bada0bb6a6ec1d5cd61
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T15:32:07-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-029-03
@@ -1000,9 +1072,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/8c7e545751404313aee0ed6cd6c1c94a
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:25-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/24e8c918d78d4db1ab9bc8a6a081e4db
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T15:36:50-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-029-04
@@ -1038,9 +1118,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/c6e84489643249fda7636832f349a3a8
+    version: v2-success-green
+    status: current
+    captured_at: '2026-10-03T16:47:27-05:00'
+    latest_known_version: v2-success-green
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/4a7c7d12dfc2459db13fbefd5d8381cd
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T15:36:52-05:00'
     latest_known_version: not-exposed-by-stitch
 ---

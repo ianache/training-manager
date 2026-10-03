@@ -128,6 +128,7 @@ sources:
 - [ARP-SCR-030-04 — Reactivación bloqueada por padre Inactivo](design/handoff/ARP-SCR-030-04-reactivacion-bloqueada.md) — Accessibility Report, `draft`, resultado `fail`
 - [ARP-SCR-029-03 — Cambiar unidad padre](design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md) — Accessibility Report, `draft`, resultado `fail`
 - [ARP-SCR-029-04 — Historial de relaciones y vigencias](design/handoff/ARP-SCR-029-04-historial-de-relaciones.md) — Accessibility Report, `draft`, resultado `fail`
+- [ARP-UNIDADES-V2 — Regeneración de las pantallas de unidades organizacionales](design/handoff/ARP-UNIDADES-REGENERACION-v2.md) — Accessibility Report, `draft`, 2 `fail` y 14 `inconclusive`
 - [UXS-001 anexo — Preguntas abiertas por responsable](design/specs/UXS-001-anexo-preguntas-por-responsable.md) — UX Open Questions Digest, `draft`; 77 preguntas fusionadas en 44, 21 de negocio para `af-requirements-orchestrator`
 - [UXS-001 — Gestión de la estructura organizacional](design/specs/UXS-001-gestion-de-unidades-organizacionales.md) — UX Design Specification, `draft`; Stitch y QA CONDITIONAL, Figma y Desarrollo NOT READY
 - [FLW-016 — Actualizar datos y medios de contacto](design/user-flows/FLW-016-actualizar-datos-y-contactos.md) — User Flow, `draft`

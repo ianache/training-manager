@@ -144,3 +144,20 @@ Revisión crítica (HTML descargado; textos y estructura comparados con SCR-029,
 | R-27 | 029-03, 029-04, 030-04 | Accesibilidad: las tres en `fail` (ver ARP-SCR-029-03, ARP-SCR-029-04, ARP-SCR-030-04) | Alta | Revisión | Corregir en el diseño gobernado |
 
 No se halló «Eliminar» ni «Borrar» en ninguna. Es exploración, no diseño gobernado; la revisión humana sigue pendiente.
+
+## Regeneración v2 (2026-10-03): éxito en verde y semántica de accesibilidad
+
+Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design system, que se ajustó en Stitch (`Comsatel Styled` v2: roles `success` #065f46, `success-container` #ecfdf5, `success-outline` #a7f3d0, siempre con icono y texto); el diálogo de resumen de SCR-029-03 muestra solo «{unidad}: de X a Y»; la columna «Hasta» va vacía mientras no se defina su valor. Los prompts exigieron además `aria-hidden` en iconos, `label for`, `aria-invalid`/`aria-describedby`, `role=alert`/`status`, `caption`, `aria-label` en `nav` y `aria-current`. El DTM apunta a la primera hoja de cada pantalla (`version: v2-success-green`); las hojas de estados adicionales solo constan aquí. Los artefactos anteriores quedan en Stitch como residuo (no hay herramienta para borrarlos).
+
+| Pantalla | Resource name (Stitch) |
+|---|---|
+| SCR-029-01 (A–D) | `projects/13050549605434273903/screens/b8210fe9bfd949ab8d64a8cf46ac9632` |
+| SCR-029-01 (E–H) | `projects/13050549605434273903/screens/d14e0605943c4639a07570bda8e0782c` |
+| SCR-029-03 (A–C) | `projects/13050549605434273903/screens/8c7e545751404313aee0ed6cd6c1c94a` |
+| SCR-029-03 (D–F) | `projects/13050549605434273903/screens/8adf727de4b648bcbc3af8a945a27ac0` |
+| SCR-029-04 (datos) | `projects/13050549605434273903/screens/c6e84489643249fda7636832f349a3a8` |
+| SCR-029-04 (B–E) | `projects/13050549605434273903/screens/2c3406fbc34e48f584a73ed71e0bfe26` |
+
+**Pendiente:** SCR-029-02 (editar nombre) no se regeneró: dos llamadas dieron timeout; sigue vigente su artefacto anterior (`f497a2997e144bd29856800143c8fd1d`). **Defectos abiertos** (ARP-UNIDADES-V2): SCR-029-01 incluye «Soporte» y «Ajustes» en la barra lateral; SCR-029-03 (D–F) tiene campos sin etiqueta y un verde fuera del design system.
+
+Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.

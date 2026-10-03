@@ -81,3 +81,16 @@ Método: se descargó el HTML (`44 555` bytes) y se extrajo el texto; se compar�
 - Redacción de los mensajes (SCR-028-Q5), texto de la etiqueta de vigencia y representación de «sin unidad padre».
 - Confirmación de una sola pantalla con alternancia (SCR-028-Q3 / FLW-028-Q1).
 - Registro en `DTM-PPM-001` con `register-exploration`, diseño gobernado (Figma) e informe de `accessibility-reviewer` siguen pendientes; esta exploración no los sustituye.
+
+## Regeneración v2 (2026-10-03): éxito en verde y semántica de accesibilidad
+
+Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design system, que se ajustó en Stitch (`Comsatel Styled` v2: roles `success` #065f46, `success-container` #ecfdf5, `success-outline` #a7f3d0, siempre con icono y texto); el diálogo de resumen de SCR-029-03 muestra solo «{unidad}: de X a Y»; la columna «Hasta» va vacía mientras no se defina su valor. Los prompts exigieron además `aria-hidden` en iconos, `label for`, `aria-invalid`/`aria-describedby`, `role=alert`/`status`, `caption`, `aria-label` en `nav` y `aria-current`. El DTM apunta a la primera hoja de cada pantalla (`version: v2-success-green`); las hojas de estados adicionales solo constan aquí. Los artefactos anteriores quedan en Stitch como residuo (no hay herramienta para borrarlos).
+
+| Pantalla | Resource name (Stitch) |
+|---|---|
+| SCR-028-01 (A lista, B jerarquía) | `projects/13050549605434273903/screens/a4618f57bdec4cd9a4164d6cc0b3020b` |
+| SCR-028-01 (F cargando, G error, H sin permisos) | `projects/13050549605434273903/screens/86eba07cd92340b0bbac094a3c0a67f7` |
+
+**Pendiente:** las variantes C (sin resultados), D (sin unidades registradas) y E (sin organización interna) de SCR-028-01 dieron timeout dos veces y no tienen artefacto verificado.
+
+Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.

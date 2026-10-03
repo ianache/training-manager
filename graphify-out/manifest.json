@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791060525.1414573,
-    "seen": 1791060570.0609462,
-    "ast_hash": "f0fe44f8a07a364eebc5a6028982c369",
+    "mtime": 1791064119.6236086,
+    "seen": 1791064164.1827502,
+    "ast_hash": "b58f8fbd342c99daf1504081994afd71",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791060525.1226795,
-    "seen": 1791060570.0913165,
-    "ast_hash": "0d6050f78c75803258688a6f4432a36c",
+    "mtime": 1791064120.1147857,
+    "seen": 1791064164.2165337,
+    "ast_hash": "369730081d95d30d2006553ad92380a1",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791059812.7917492,
-    "seen": 1791059859.9137144,
-    "ast_hash": "580d780a01945e3e3d4f280dcff7f0f4",
+    "mtime": 1791064056.1692824,
+    "seen": 1791064164.200069,
+    "ast_hash": "8fe21c8df3ff40221d5c146319a5b12f",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3132,9 +3132,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-002-comsatel-styled.md": {
-    "mtime": 1790919641.8731656,
-    "seen": 1790997664.7319787,
-    "ast_hash": "f938c4faa7ec9cb440f13793da840572",
+    "mtime": 1791064119.6009514,
+    "seen": 1791064164.200069,
+    "ast_hash": "e1a8b6907e6eb434a13ac93ba95e3f84",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.spec.ts": {
@@ -3414,27 +3414,27 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
-    "mtime": 1791054702.9229774,
-    "seen": 1791055086.0204139,
-    "ast_hash": "1774bb4a2c7ed6932116c6d0abd0f27f",
+    "mtime": 1791064119.564448,
+    "seen": 1791064164.197647,
+    "ast_hash": "1a873c3c465b2f89d42476752edabe5d",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md": {
-    "mtime": 1791054627.3704822,
-    "seen": 1791055086.0204139,
-    "ast_hash": "f8ec1ec45dc4654d507b434aa21b14a3",
+    "mtime": 1791064119.5740452,
+    "seen": 1791064164.197647,
+    "ast_hash": "4ca73cacc49811cc6e8024821711d434",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791060515.837255,
-    "seen": 1791060570.0713449,
-    "ast_hash": "334cb2c1dce30d1e91b5b2c1c9abd448",
+    "mtime": 1791064119.579672,
+    "seen": 1791064164.197647,
+    "ast_hash": "8221adffc41b8f45d6f11d844209daaf",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
-    "mtime": 1791059542.784971,
-    "seen": 1791059625.488547,
-    "ast_hash": "7540cb2b727080cb5fcd0f4c510e9ffe",
+    "mtime": 1791064119.593608,
+    "seen": 1791064164.197647,
+    "ast_hash": "26a617509be34abfc66f9a0ada3cdc0d",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
@@ -3555,6 +3555,18 @@
     "mtime": 1791060498.0760832,
     "seen": 1791060570.073354,
     "ast_hash": "88703723aa56b9fb271408fed93ce714",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-UNIDADES-REGENERACION-v2.md": {
+    "mtime": 1791064093.1697035,
+    "seen": 1791064164.200069,
+    "ast_hash": "e90dfbcee58c5432124c36b4c243ec3f",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md": {
+    "mtime": 1791064043.703611,
+    "seen": 1791064164.2165337,
+    "ast_hash": "114a3a0ee6b6296f64f830d9eb37d2ae",
     "semantic_hash": ""
   }
 }

@@ -96,3 +96,16 @@ Método: se descargó el HTML de cada pantalla y se extrajo su texto; se compar�
 - ¿Se corrigen R-01, R-02 y R-06 con `edit_screens` o se espera a la revisión humana?
 - Preguntas heredadas de SCR-017 siguen abiertas (Q1–Q8, FLW-017-Q1..Q5, UXR-017-Q1..Q3); esta exploración no las resuelve.
 - El diseño gobernado (Figma) y el informe de `accessibility-reviewer` siguen pendientes.
+
+## Regeneración v2 (2026-10-03): éxito en verde y semántica de accesibilidad
+
+Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design system, que se ajustó en Stitch (`Comsatel Styled` v2: roles `success` #065f46, `success-container` #ecfdf5, `success-outline` #a7f3d0, siempre con icono y texto); el diálogo de resumen de SCR-029-03 muestra solo «{unidad}: de X a Y»; la columna «Hasta» va vacía mientras no se defina su valor. Los prompts exigieron además `aria-hidden` en iconos, `label for`, `aria-invalid`/`aria-describedby`, `role=alert`/`status`, `caption`, `aria-label` en `nav` y `aria-current`. El DTM apunta a la primera hoja de cada pantalla (`version: v2-success-green`); las hojas de estados adicionales solo constan aquí. Los artefactos anteriores quedan en Stitch como residuo (no hay herramienta para borrarlos).
+
+| Pantalla | Resource name (Stitch) |
+|---|---|
+| SCR-017-01 (A–D) | `projects/13050549605434273903/screens/ead458becb59418fb0cf15f0c601beb5` |
+| SCR-017-02 (A–D) | `projects/13050549605434273903/screens/5256b92d20f04c31b720dd32e26a9259` |
+| SCR-017-02 (E–G) | `projects/13050549605434273903/screens/ec2726f18a154d88a0d1ae7d3e475980` |
+| SCR-017-03 | `projects/13050549605434273903/screens/08a98db688474629b3ef7a32c9d751ca` |
+
+Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.
