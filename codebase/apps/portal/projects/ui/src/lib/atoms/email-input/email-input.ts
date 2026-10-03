@@ -3,7 +3,6 @@ import {
   Component,
   input,
   output,
-  computed,
 } from '@angular/core';
 import {
   ReactiveFormsModule,
@@ -89,10 +88,14 @@ export class GfEmailInput {
     null
   );
 
-  readonly shouldShowInvalid = computed(() => {
+  /**
+   * Método y no `computed`: el estado `touched/invalid` de un FormControl no es una señal, así que un `computed`
+   * se quedaba con el primer valor y `aria-invalid` no aparecía al salir de un campo inválido.
+   */
+  shouldShowInvalid(): 'true' | null {
     const ctrl = this.control();
     return ctrl?.invalid && ctrl?.touched ? 'true' : null;
-  });
+  }
 
   readonly valueChange = output<string>();
   readonly blur = output<void>();

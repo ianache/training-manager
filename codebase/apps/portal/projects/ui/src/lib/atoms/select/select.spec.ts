@@ -222,8 +222,7 @@ describe('GfSelect', () => {
     });
 
     it('should set aria-invalid=true when control is invalid and touched', () => {
-      const control = new FormControl('', []);
-      control.setErrors({ required: true });
+      const control = new FormControl('', Validators.required);
       control.markAsTouched();
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();
@@ -267,8 +266,7 @@ describe('GfSelect', () => {
     });
 
     it('should show error state when control is invalid', () => {
-      const control = new FormControl('');
-      control.setErrors({ required: true });
+      const control = new FormControl('', Validators.required);
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();
 
@@ -276,8 +274,7 @@ describe('GfSelect', () => {
     });
 
     it('should show error visual when touched and invalid', () => {
-      const control = new FormControl('');
-      control.setErrors({ required: true });
+      const control = new FormControl('', Validators.required);
       control.markAsTouched();
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();

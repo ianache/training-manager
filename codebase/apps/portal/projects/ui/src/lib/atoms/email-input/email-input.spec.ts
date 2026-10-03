@@ -150,8 +150,8 @@ describe('GfEmailInput', () => {
     });
 
     it('un error duplicate en un control tocado se muestra como inválido', () => {
-      const control = new FormControl('duplicate@example.com');
-      control.setErrors({ duplicate: { person: 'Juan Pérez' } });
+      // setErrors() antes de enlazar lo borra la revalidación del directiva formControl: se usa un validador real.
+      const control = new FormControl('duplicate@example.com', () => ({ duplicate: { person: 'Juan Pérez' } }));
       control.markAsTouched();
       fixture.componentRef.setInput('control', control);
       fixture.detectChanges();

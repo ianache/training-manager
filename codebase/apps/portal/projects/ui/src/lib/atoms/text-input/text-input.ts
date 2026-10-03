@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 /** Estado visual del campo (Stitch: defecto, validando, válido, error). */
@@ -91,10 +91,14 @@ export class GfTextInput {
   readonly ariaDescribedBy = input('');
   readonly state = input<FieldState>('default');
 
-  readonly shouldShowInvalid = computed(() => {
+  /**
+   * Método y no `computed`: el estado `touched/invalid` de un FormControl no es una señal, así que un `computed`
+   * se quedaba con el primer valor y `aria-invalid` no aparecía al salir de un campo inválido.
+   */
+  shouldShowInvalid(): 'true' | null {
     const ctrl = this.control();
     return (ctrl?.invalid && ctrl?.touched) || this.invalid() || this.state() === 'invalid' ? 'true' : null;
-  });
+  }
 
   readonly valueChange = output<string>();
   readonly blur = output<void>();
