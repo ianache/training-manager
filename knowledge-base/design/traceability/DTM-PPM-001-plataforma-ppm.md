@@ -1138,6 +1138,241 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T15:36:52-05:00'
     latest_known_version: not-exposed-by-stitch
+- screen: SCR-001-01
+  flow: FLW-001
+  requirements:
+    us:
+    - US-001
+    ac: []
+    uxr:
+    - UXR-001
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-color-tertiary
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/3f614bf8ca0e4bf394208fcd76393df2
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:17-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-001-02
+  flow: FLW-001
+  requirements:
+    us:
+    - US-001
+    ac: []
+    uxr:
+    - UXR-001
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-color-tertiary
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/70872fded1bf4c25a027044efdd9c808
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:19-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-001-03
+  flow: FLW-001
+  requirements:
+    us:
+    - US-001
+    ac: []
+    uxr:
+    - UXR-001
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-color-tertiary
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/60a3355332104dbfa3b35ab7ff6bb9f4
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:21-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-001-04
+  flow: FLW-001
+  requirements:
+    us:
+    - US-001
+    ac: []
+    uxr:
+    - UXR-001
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-color-tertiary
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/af95e5279d8d4dd59e6d5797bd068050
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:23-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-019-01
+  flow: FLW-019
+  requirements:
+    us:
+    - US-019
+    ac: []
+    uxr:
+    - UXR-019
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/5223996189a446b0b140af99d1a16e10
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:26-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-019-02
+  flow: FLW-019
+  requirements:
+    us:
+    - US-019
+    ac: []
+    uxr:
+    - UXR-019
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/7c90ec1d19894fd78a455aa39d76d05a
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:28-05:00'
+    latest_known_version: v1-comsatel-styled
+- screen: SCR-019-03
+  flow: FLW-019
+  requirements:
+    us:
+    - US-019
+    ac: []
+    uxr:
+    - UXR-019
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/d81b2e4fe6a94d6fae3d86c8003c987e
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-03T17:51:30-05:00'
+    latest_known_version: v1-comsatel-styled
 ---
 
 # DTM-PPM-001 — Design Traceability Map

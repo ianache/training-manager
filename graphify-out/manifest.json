@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791067025.3818543,
-    "seen": 1791067072.416938,
-    "ast_hash": "c9ad44259a1325bb12b485c85e69cea6",
+    "mtime": 1791067935.9211419,
+    "seen": 1791068014.878881,
+    "ast_hash": "ac394f16b667e3a31046c6587c691209",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791066505.597386,
-    "seen": 1791066568.7809687,
-    "ast_hash": "82ea02266eb8535594ce8750985b7814",
+    "mtime": 1791067935.9141812,
+    "seen": 1791068014.9786048,
+    "ast_hash": "66a04747ff801a15793bd74c8d605fe8",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791065689.2821925,
-    "seen": 1791066001.1355038,
-    "ast_hash": "c92d4d18018c757c19009288a6a878f0",
+    "mtime": 1791067890.7621331,
+    "seen": 1791068014.9415488,
+    "ast_hash": "823177bc25a08bc16b2cc9c3fd02a9e1",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3615,6 +3615,18 @@
     "mtime": 1791066683.8693419,
     "seen": 1791066751.7460155,
     "ast_hash": "fc8f2a7865d66cb8192896725be948d5",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-001-G-stitch-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1791067922.853108,
+    "seen": 1791068014.905607,
+    "ast_hash": "749d07238e828de19356fad1c12819c4",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md": {
+    "mtime": 1791067924.537697,
+    "seen": 1791068014.9082685,
+    "ast_hash": "3a30e4602e6a432f160bb4f12a477b39",
     "semantic_hash": ""
   }
 }
