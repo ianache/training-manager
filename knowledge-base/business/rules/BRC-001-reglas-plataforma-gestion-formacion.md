@@ -168,6 +168,9 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0154 | No hay eliminaciones: solo se desactiva. Las competencias tienen estado ACTIVE o INACTIVE. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-03 (LDM-002) | decision | high |
 | EVD-2026-0155 | El rol ADMIN añadido en ADR-006 es correcto: es una nueva decisión. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-04 (LDM-002) | decision | high |
 | EVD-2026-0156 | Los requisitos de evidencia se versionan con la competencia, no por separado. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-05 (LDM-002) | decision | high |
+| EVD-2026-0157 | Todos los estados se escriben en mayúsculas. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-06 (LDM-002) | decision | high |
+| EVD-2026-0158 | Una competencia INACTIVE se puede reactivar. Los Rol-Nivel que ya la usan la conservan; un Rol-Nivel nuevo que quiera usarla debe poder hacerlo. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-07 (LDM-002) | decision | high |
+| EVD-2026-0159 | Desactivan una competencia el Jefe de Ingeniería y cualquier usuario con el rol ADMIN. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a AQ-7 (API-SPEC-003) | decision | high |
 | EVD-2026-0149 | Al menos un requisito de evidencia de cada competencia y nivel debe ser «requerido». | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a BR-ACR-13 (DSP-001) | decision | high |
 | EVD-2026-0133 | Las unidades organizacionales se gestionan con listado (filtros y ordenamiento), alta, edición y eliminación lógica (activa / inactiva). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, solicitud de desarrollo de US-017 | decision | high |
 | EVD-2026-0134 | Se rechaza un cambio de unidad padre que cree un ciclo en la jerarquía (US-017-Q1). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a US-017-Q1 | decision | high |
@@ -223,6 +226,9 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-CAT-24 | Estado | Una versión solo se aprueba desde DRAFT. Al aprobarla, la versión APPROVED anterior pasa a DEPRECATED. *Decisión del 2026-10-03 (DM-Q-02); concreta la inferencia de BR-CAT-22.* | EVD-2026-0153 |
 | BR-CAT-25 | Estado | Roles, niveles y competencias no se eliminan: solo se desactivan. Las competencias tienen estado ACTIVE o INACTIVE. *Decisión del 2026-10-03 (DM-Q-03).* | EVD-2026-0154 |
 | BR-CAT-26 | Permiso | El rol ADMIN decide el cambio de nivel de forma directa, como lo recoge ADR-006 (enmendado el 2026-10-03). *Confirma la decisión de EVD-2026-0151 (DM-Q-04).* | EVD-2026-0151, 0155 |
+| BR-CAT-27 | Estado | Todos los estados se escriben en mayúsculas (por ejemplo ACTIVE, INACTIVE, DRAFT, APPROVED, DEPRECATED). *Decisión del 2026-10-03 (DM-Q-06).* | EVD-2026-0157 |
+| BR-CAT-28 | Estado | Una competencia INACTIVE se puede reactivar. Los Rol-Nivel que ya la usan la conservan como parte de ellos, y un Rol-Nivel nuevo puede usarla. *Decisión del 2026-10-03 (DM-Q-07). Queda por precisar si usarla exige reactivarla antes (DM-Q-08).* | EVD-2026-0158 |
+| BR-CAT-29 | Permiso | Desactivan una competencia el Jefe de Ingeniería y cualquier usuario con el rol ADMIN. *Decisión del 2026-10-03 (AQ-7). Se supone que reactivarla lo hace el mismo conjunto de actores (DM-Q-08).* | EVD-2026-0159 |
 
 ### Requerimientos de proyecto y asignación
 
