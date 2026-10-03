@@ -103,15 +103,20 @@ Pruebas de contrato del servicio (lista, filtros, paginación, 404/400, vigencia
 | Q-4 | `type` usa los nombres de API-SPEC-001 (`internal_unit`/`external_provider`), no los códigos de BD | No |
 
 ## 8b. Cambio propuesto v3 (pendiente de aprobación; no implementado)
-Decisiones de ianache (2026-10-03): la organización registra **correo laboral y teléfono laboral**, y el proveedor un **régimen tributario** (IMD-002 R-31, R-32).
+Decisiones de ianache (2026-10-03, IMD-002 R-31): toda organización tiene **correo laboral obligatorio** y **teléfono laboral opcional**, 1 o más vigentes de cada uno; el correo puede coincidir con el de un colaborador y BR-PTY-08 se mantiene. **No hay `tax_regime` ni más metadatos** (R-32 retirada).
 
-| Aspecto | Propuesta | Estado |
+**Hallazgo técnico.** Hoy no se puede cumplir "el correo puede coincidir" tal cual: `ux_pcm_current_work_email` permite **un solo** vínculo vigente con propósito `WORK_EMAIL` por correo, y `ux_contact_mechanism_email_active` permite **una sola fila** por correo. Si la organización usara `WORK_EMAIL`, un colaborador con ese correo daría `409 EMAIL_DUPLICATE` (y al revés).
+
+| Decisión de diseño | Propuesta | Alternativa descartada |
 |---|---|---|
-| Contacto | `POST` acepta `contact: {email_work?, phone_work?}`; se guardan en `tb_contact_mechanism` + `tb_party_contact_mechanism` con propósito `WORK_EMAIL` / `WORK_PHONE`, vigentes desde hoy. **Sin migración**: el modelo físico ya lo permite para cualquier parte. Respuesta y `GET` devuelven `contact` | Esperando IM-Q10 (obligatoriedad, cuántos, unicidad frente a colaboradores) |
-| Régimen tributario | `tax_regime` solo para `external_provider`. **Requiere migración**: `tb_organization.tax_regime VARCHAR(40) NULL` | Esperando IM-Q11 (valores admitidos) |
-| Validación | correo con el formato ya usado en `PartyCreateRequest`; teléfono con el formato del servicio de partes | A confirmar |
-| Privacidad | el contacto de una organización no es dato personal de una persona; aun así se entrega solo a usuarios autenticados, como el resto | Supuesto |
-| `metadata` genérico | **No** se acepta un objeto libre: cada metadato será un campo con nombre cuando IM-Q11 lo defina | Propuesta |
+| Propósitos de contacto | Migración `0004` siembra dos propósitos: `ORGANIZATION_EMAIL` (EMAIL) y `ORGANIZATION_PHONE` (PHONE). La organización se vincula con ellos; `WORK_EMAIL` queda solo para colaboradores, así BR-PTY-08 y su índice **no cambian** | Reutilizar `WORK_EMAIL`: rompe la decisión de coincidencia |
+| Fila del correo | Se **reutiliza** la fila de correo existente (como hace ya `_email_mechanism`), pues el índice exige una por valor | Duplicar filas: lo impide el índice |
+| Anonimización | El correo compartido no debe borrarse al anonimizar a un colaborador si otra parte lo usa (IM-Q12; tarea para US-024, hoy sin implementar) | — |
+| API | `POST` exige `contact.email_work` y acepta `contact.phone_work`; crea **un** correo y, si viene, **un** teléfono. Respuesta y `GET` devuelven `contact: {emails: [...], phones: [...]}` (listas, por el "1 o más") | — |
+| "1 o más vigentes" | Agregar o cerrar contactos adicionales **no** está en este alcance (solo `POST`); se difiere a un endpoint de contactos | — |
+| Formato | Correo con la misma validación de `PartyCreateRequest`; teléfono con el formato del servicio de partes | A confirmar |
+| Compatibilidad | Hoy `POST` no recibe `contact`: hacerlo obligatorio **rompe** a los clientes actuales (solo el asistente, que no crea organizaciones). Las organizaciones ya creadas no tienen correo; el `GET` devuelve listas vacías | Decisión de migración abierta |
+| Lectura | Los `GET` devuelven el contacto a cualquier usuario autenticado (igual que el resto). Un correo de organización no es dato personal, pero puede coincidir con el de una persona | Supuesto |
 
 
 ## 9. Siguiente acción
