@@ -108,3 +108,14 @@ Método: se descargó el HTML de SCR-029-01 y SCR-029-02 y se compararon sus tex
 ## Actualización 2026-10-03 (SCR-029-03 y SCR-029-04)
 
 Segundo intento de generación de SCR-029-03 y SCR-029-04 con los mismos prompts: ambas llamadas dieron de nuevo `The operation timed out` y no se reintentaron. `list_screens` y `get_project` no muestran pantallas con esos títulos, y sin su ID no se puede consultar con `get_screen`. **Siguen sin artefacto y sin registrar en `DTM-PPM-001`.** Antes de un tercer intento conviene decidir cómo evitar el duplicado (p. ej. generar una pantalla por llamada con un prompt más corto, o dividir las variantes en varias pantallas).
+
+## Actualización 2026-10-03 (tercer intento, con prompts cortos)
+
+Se regeneraron SCR-029-03 y SCR-029-04 con prompts más cortos y **un solo estado por pantalla** (sin hojas comparativas), una llamada cada una. Esta vez Stitch respondió sin timeout. Ambas verificadas con `get_screen` y registradas en `DTM-PPM-001` (`version: not-exposed-by-stitch`). Siguen sin aparecer en `list_screens`: el ID solo se conoce por la respuesta de la generación.
+
+| SCR | Resource name (Stitch) | Título en Stitch |
+|---|---|---|
+| SCR-029-03 | `projects/13050549605434273903/screens/24e8c918d78d4db1ab9bc8a6a081e4db` | SCR-029-03 — Cambiar unidad padre (Jefe de Ingeniería) |
+| SCR-029-04 | `projects/13050549605434273903/screens/4a7c7d12dfc2459db13fbefd5d8381cd` | SCR-029-04 — Historial de relaciones y vigencias de la unidad |
+
+**Diferencias con el SCR y limitaciones:** (1) solo el estado predeterminado: faltan en el diseño los estados ciclo, padre inactivo, resumen previo a confirmar, error al guardar y éxito de SCR-029-03, y los estados cargando, vacío, error y sin acceso de SCR-029-04; (2) en SCR-029-04 la fila vigente muestra la insignia «Vigente» en la columna «Hasta» (el SCR pide «Hasta» vacío con la insignia en la relación vigente: criterio por confirmar); (3) en SCR-029-03 las opciones del selector llevan una insignia de estado activo no pedida; (4) la insignia «Vigente» se pintó en verde, color que no existe en «Comsatel Styled» (ver R-10 de GEN-016). **No se hizo la revisión crítica del HTML**; la revisión humana y la de accesibilidad siguen pendientes. Es exploración, no diseño gobernado.

@@ -247,3 +247,6 @@ sources:
 
 - Se generó SCR-030-04 en Stitch (`STP-PPM-001`, Comsatel Styled), verificada con `get_screen` y registrada en `DTM-PPM-001`; GEN-030 actualizado. SCR-029-03 y SCR-029-04 dieron timeout por segunda vez y siguen sin artefacto (GEN-029 actualizado). 10 de 12 pantallas de la gestión de unidades organizacionales quedan registradas.
 - Artefactos afectados: `knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md`, `GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`, `knowledge-base/changelog.md`.
+
+- Tercer intento de SCR-029-03 y SCR-029-04 en Stitch con prompts cortos y un solo estado: ambas generadas, verificadas con `get_screen` y registradas en `DTM-PPM-001`. Las 12 pantallas de la gestión de unidades organizacionales tienen ya artefacto de exploración, pero SCR-029-03 y SCR-029-04 solo cubren el estado predeterminado. Revisión crítica y de accesibilidad pendientes.
+- Artefactos afectados: `knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`, `knowledge-base/changelog.md`.

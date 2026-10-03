@@ -967,6 +967,82 @@ traceability:
     status: current
     captured_at: '2026-10-03T15:32:07-05:00'
     latest_known_version: not-exposed-by-stitch
+- screen: SCR-029-03
+  flow: FLW-029
+  requirements:
+    us:
+    - US-029
+    ac: []
+    uxr:
+    - UXR-029
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  - CMP-MOL-008
+  - CMP-MOL-009
+  tokens:
+  - TKN-SET-001
+  - TKN-SET-002
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-outline-variant
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/24e8c918d78d4db1ab9bc8a6a081e4db
+    version: not-exposed-by-stitch
+    status: current
+    captured_at: '2026-10-03T15:36:50-05:00'
+    latest_known_version: not-exposed-by-stitch
+- screen: SCR-029-04
+  flow: FLW-029
+  requirements:
+    us:
+    - US-029
+    ac: []
+    uxr:
+    - UXR-029
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  - CMP-MOL-008
+  - CMP-MOL-009
+  tokens:
+  - TKN-SET-001
+  - TKN-SET-002
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-outline-variant
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/4a7c7d12dfc2459db13fbefd5d8381cd
+    version: not-exposed-by-stitch
+    status: current
+    captured_at: '2026-10-03T15:36:52-05:00'
+    latest_known_version: not-exposed-by-stitch
 ---
 
 # DTM-PPM-001 — Design Traceability Map
