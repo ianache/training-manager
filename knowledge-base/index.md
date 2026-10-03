@@ -68,7 +68,8 @@ sources:
 - [ADR-004 — Secretos y parametría en HashiCorp Vault](architecture/adrs/ADR-004-secretos-y-parametria-en-hashicorp-vault.md) — Aceptado (`human:ianache`), `draft`
 - [ADR-009 — Composición de microUIs con Native Federation](architecture/adrs/ADR-009-composicion-de-microuis-con-native-federation.md) — **Rechazado** (`human:ianache`, 2026-09-30), `draft`
 - [ADR-010 — Lenguaje del BFF: Node.js](architecture/adrs/ADR-010-lenguaje-del-bff-nodejs.md) — Aceptado (`human:ianache`, 2026-09-30), `draft`. Reemplaza en parte a ADR-008
-- [ADR-011 — catalog-service como microservicio propio](architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md) — Propuesto, `draft`
+- [ADR-011 — catalog-service como microservicio propio](architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md) — Aceptado (`human:ianache`, 2026-10-04), `draft`
+- [ADR-012 — Reintentos con espera creciente y cortacircuito](architecture/adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md) — Aceptado (`human:ianache`, 2026-10-04), `draft`; parámetros sin decidir
 - [ACP-001 — Architecture Context Pack](architecture/ACP-001-architecture-context-pack.md) — DRAFT, no READY_FOR_ARQ_102
 - [AIM-001 — Matriz de impacto de arquitectura](architecture/AIM-001-matriz-impacto-arquitectura.md) — `draft`
 - [ADB-001 — Descubrimiento de arquitectura](architecture/ADB-001-descubrimiento-arquitectura-plataforma.md) — Architecture Discovery Brief, `draft`

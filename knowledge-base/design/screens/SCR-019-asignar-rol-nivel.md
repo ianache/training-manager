@@ -136,7 +136,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 | Vigente desde | date-input (CMP-015 Date-Input) | Sí | fecha válida; reglas de fecha pasada o futura sin definir (SCR-019-Q1) | AC-1, AC-3 |
 | Aviso de cierre | texto | solo lectura | «Al cambiar el nivel se cierra {nivel actual} desde la fecha elegida» (texto propuesto) | US-019 §10 |
 
-**Bloqueo AC-5:** si faltan competencias de los niveles inferiores, no se permite confirmar y se lista cada una pendiente con su nivel L: «No se puede asignar {nivel}: faltan competencias de niveles inferiores» (texto propuesto). No depende solo del color.
+**Bloqueo AC-5:** si faltan competencias certificadas de los niveles inferiores o del nivel destino (EVD-2026-0172), no se permite confirmar y se lista cada una pendiente con su nivel L: «No se puede asignar {nivel}: faltan competencias certificadas de niveles inferiores o de este nivel» (texto propuesto). No depende solo del color.
 
 **Acciones:** «Confirmar» (principal, Loading-Button), «Cancelar» (confirmación si hay cambios).
 

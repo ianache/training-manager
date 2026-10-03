@@ -50,7 +50,7 @@ erDiagram
 | COMPETENCY_RUBRIC_LEVEL | Comportamiento y logro verificable de cada nivel L1–L4 de una versión | (versión, nivel) | R-45 (inferencia), BR-CAT-15/19 |
 | EVIDENCE_REQUIREMENT | Requisito de evidencia por versión y nivel: categoría, descripción, requerido o deseado, curso opcional | `pk_evidence_requirement_id` | R-04, R-21, BR-ACR-07/08/12/17 |
 | ROLE | Rol común a todos los productos; no se versiona | `pk_role_id` | BR-CAT-08/12, R-23 |
-| ROLE_LEVEL | Nivel de rol: nombre y orden propios de cada rol | `pk_role_level_id`; único (rol, orden) y (rol, nombre) | BR-CAT-09, R-23 |
+| ROLE_LEVEL | Nivel de rol: nombre, orden y estado (ACTIVE/INACTIVE) propios de cada rol | `pk_role_level_id`; único (rol, orden) y (rol, nombre) | BR-CAT-09, R-23 |
 | ROLE_LEVEL_COMPETENCY | Competencia que exige un Rol-Nivel, con su nivel L esperado y la **versión** de la competencia | (Rol-Nivel, competencia) | R-24, R-46, BR-CAT-14/21 |
 
 ## 3. Decisiones de diseño
@@ -69,7 +69,7 @@ Son propuestas del agente dentro del margen de las fuentes. Requieren revisión.
 | CM-08 | `course_ref` es una referencia lógica sin FK, solo con categoría `FORMACION` | El curso pertenece a otro dominio; R-21 es 0..1 | R-21, ADR-001 |
 | CM-09 | `row_version` en las tablas que se editan para concurrencia optimista | Dos jefes pueden editar el mismo rol; la segunda escritura debe fallar | — |
 | CM-10 | Nombres únicos sin distinguir mayúsculas para competencias y roles | BR-CAT-07 dice que cada competencia existe una vez; para roles es **supuesto** | BR-CAT-07 |
-| CM-11 | Sin borrado físico de versiones; un rol o nivel con asignaciones se desactiva | Las certificaciones y asignaciones lo referencian | EVD-2026-0143 |
+| CM-11 | Sin borrado físico de versiones; un rol, nivel o competencia se desactiva (`status` ACTIVE/INACTIVE; `tb_role_level.status` añadida el 2026-10-04, `ck_role_level_status`) | Las certificaciones y asignaciones lo referencian; el catálogo no puede saber si un nivel tiene asignaciones en party (sin clave foránea) | EVD-2026-0143, 0154, 0174 |
 
 ## 4. Referencias desde otros servicios
 
@@ -114,6 +114,8 @@ Ejecutado en el PostgreSQL del compose (base temporal, eliminada después):
 | Competencia nueva sin indicar estado | queda ACTIVE | queda ACTIVE (comprobado el 2026-10-03 en PostgreSQL 15 temporal) |
 | Rol con estado `'active'` en minúsculas | falla | falla (`ck_role_status`; comprobado en PostgreSQL 15 temporal) |
 | Desactivar una competencia | pasa | pasa |
+
+Cinco casos más del estado de `tb_role_level` (2026-10-04): por defecto ACTIVE (pasa), desactivar (pasa), `inactive` en minúsculas, `DELETED` y orden repetido (los tres fallan, como se esperaba).
 
 No se probaron CHK-A a CHK-D (son del servicio, que no existe) ni la carga.
 

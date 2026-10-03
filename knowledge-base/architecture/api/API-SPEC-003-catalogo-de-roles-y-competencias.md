@@ -30,7 +30,7 @@ El BFF ya expone `/api/v1/catalog/roles[/:id]` (`catalog.router.ts`, hoy 503) y 
 | Portal (BFF) | Servicio | Uso |
 |---|---|---|
 | `GET /api/v1/catalog/roles` · `/roles/{id}` | `/api/v1/roles` | Asistente de alta (lista con niveles) y consulta |
-| `POST /catalog/roles` · `PUT /catalog/roles/{id}` · `POST /catalog/roles/{id}/deactivate` | ídem | Gestionar roles (US-001) |
+| `POST /catalog/roles` · `PUT /catalog/roles/{id}` · `POST /catalog/roles/{id}/deactivate` · `POST /catalog/roles/{id}/levels/{levelId}/deactivate` · `/reactivate` | ídem | Gestionar roles y desactivar o reactivar niveles (US-001, BR-CAT-30) |
 | `GET /catalog/competencies` · `/competencies/{id}` | `/api/v1/competencies` | Consulta |
 | `POST /catalog/competencies/{id}/deactivate` · `/reactivate` | ídem | Desactivar y reactivar una competencia (BR-CAT-25, BR-CAT-28) |
 | `POST /catalog/competencies` | ídem | Alta con versión 1 en DRAFT |
@@ -48,11 +48,11 @@ Query: `search`, `status` (`ACTIVE`|`INACTIVE`), `page`, `limit` (máx. 100), `s
 
 ```json
 { "data": [ { "id": "uuid", "name": "Developer", "status": "ACTIVE",
-    "levels": [ { "id": "uuid", "name": "Junior (Nivel 1)", "ordinal": 1, "evidence_requirements": 2 } ] } ],
+    "levels": [ { "id": "uuid", "name": "Junior (Nivel 1)", "ordinal": 1, "status": "ACTIVE", "usable": true, "evidence_requirements": 2 } ] } ],
   "pagination": { "page": 1, "limit": 100, "total": 1, "total_pages": 1 } }
 ```
 
-`levels[].evidence_requirements` es el número de requisitos **requeridos** de las competencias del nivel, en su nivel L esperado. Es **supuesto del agente**: el portal ya lee ese campo (`register-collaborator.api.ts`) pero ninguna fuente define su significado.
+`levels[].usable` es la **compuerta** de BR-ACR-13 (EVD-2026-0173): `true` cuando cada competencia del nivel tiene, en su L esperado y en una versión **APROBADA** (no borrador), al menos un requisito de evidencia «requerido». El asistente de alta debe ofrecer solo niveles con `usable = true` y `status = ACTIVE` (hoy decide con `evidence_requirements > 0`: cambio pendiente en el portal). `levels[].evidence_requirements` es **informativo**: cantidad de requisitos configurados de esas versiones aprobadas, requeridos y deseados (lectura del agente de «configurados y aprobados»).
 
 ### GET /roles/{id}
 
@@ -79,7 +79,7 @@ Una sola transacción (rol, niveles, competencias). `PUT` exige `If-Match: <row_
 | Nombre de rol repetido | `ROLE_NAME_DUPLICATE` | 409 | LDM-002 CM-10 (supuesto) |
 | `If-Match` desactualizado | `PRECONDITION_FAILED` | 412 | LDM-002 CM-09 |
 
-`POST /roles/{id}/deactivate` desactiva (no se elimina; decisión DM-Q-03, BR-CAT-25): los ids siguen válidos para party.
+`POST /roles/{id}/deactivate` desactiva (no se elimina; decisión DM-Q-03, BR-CAT-25): los ids siguen válidos para party. `POST /roles/{id}/levels/{levelId}/deactivate` y `…/reactivate` hacen lo mismo con un nivel (BR-CAT-30, EVD-2026-0174): quien ya lo tiene lo conserva y no se asigna a nadie más mientras esté `INACTIVE`. `PUT /roles` no elimina niveles: solo los añade o los renombra.
 
 ### Competencias y versiones
 
@@ -112,6 +112,10 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 
 No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites de longitud de LDM-002, y consultas parametrizadas. Rate limit como `/parties` (lectura 1000/h, escritura 100/h en desarrollo).
 
+## 3b. Disponibilidad
+
+El BFF reintenta las peticiones al catalog-service con tiempos crecientes y abre un cortacircuito ([ADR-012](../adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md), aceptado; parámetros sin decidir). Las escrituras (`POST`, `PUT`, `approve`) solo se reintentan si el contrato las hace idempotentes; no lo está: abierto en ADR-012.
+
 ## 4. Compatibilidad y versionado
 
 - La forma de `GET /catalog/roles` (`data[].id`, `name`, `levels[].{id,name,evidence_requirements}`) es la que el portal ya consume: **compatible**, **salvo `status`**, que pasa a `ACTIVE`/`INACTIVE` (BR-CAT-27, AQ-9); el stub y la consulta de roles del portal ya lo usan así.
@@ -132,13 +136,13 @@ No hay datos personales. Entrada con esquema estricto (`extra=forbid`), límites
 | ID | Pregunta | Efecto |
 |---|---|---|
 | ~~AQ-1~~ | ~~¿Qué rol de Keycloak es el Responsable de producto y puede editar competencias o solo roles?~~ Respondida (ianache, 2026-10-03): `product_owner` creado en Keycloak y en `roles.ts` (EVD-2026-0165); edita roles. | Bloquea el permiso de EVD-2026-0147 |
-| AQ-2 | Significado de `levels[].evidence_requirements` (§2) | Texto del asistente de alta |
+| ~~AQ-2~~ | ~~Significado de `levels[].evidence_requirements` (§2)~~ Respondida (ianache, 2026-10-04): `usable` como compuerta y el número informativo, solo de versiones aprobadas (EVD-2026-0173). | Texto del asistente de alta |
 | AQ-3 | **Resuelta (2026-10-03):** la anterior pasa a DEPRECATED y solo se aprueba desde DRAFT (DM-Q-02) | Contrato de `approve` (confirmado) |
 | AQ-4 | **Resuelta (2026-10-03):** solo se desactiva; las competencias tienen ACTIVE/INACTIVE (DM-Q-03). `deactivate` de competencias añadido arriba | `deactivate` |
 | AQ-7 | **Resuelta (2026-10-03):** desactivan y reactivan el Jefe de Ingeniería y `admin` (BR-CAT-29) | `deactivate`, `reactivate` |
 | AQ-8 | **Resuelta (2026-10-03):** un Rol-Nivel nuevo solo usa una competencia `ACTIVE` (DM-Q-08, BR-CAT-28) | CHK-A/CHK-B |
 | AQ-9 | **Resuelta (2026-10-03):** el `status` de los roles del catálogo también va en mayúsculas (`ACTIVE`/`INACTIVE`). Aplicado en el stub (`roles.json`) y en la consulta del portal `GET /catalog/roles?status=ACTIVE`; el BFF reenvía `status` sin traducir. Party y sus consumidores no cambian (EVD-2026-0162) | Compatibilidad del contrato |
-| AQ-5 | ¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019 | `PUT /roles` |
+| ~~AQ-5~~ | ~~¿Quitar un nivel con personas asignadas? Se rechaza (409) hasta confirmarlo con US-019~~ Respondida (ianache, 2026-10-04): un nivel no se quita: se desactiva, con la regla análoga a las competencias (EVD-2026-0174, BR-CAT-30). | `PUT /roles` |
 | AQ-6 | **Resuelta (2026-10-03):** el rol ADMIN es correcto (DM-Q-04, BR-CAT-26) | Asignación de niveles (US-019), fuera de este contrato |
 
 La **asignación de Rol-Nivel a personas** (US-019) no está aquí: vive en party (LDM-001 DM-07) y referencia los ids de este catálogo. Su API se diseña al revisar API-SPEC-001.

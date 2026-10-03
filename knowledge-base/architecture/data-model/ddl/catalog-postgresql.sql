@@ -99,6 +99,7 @@ CREATE TABLE tb_role_level (
     fk_role_id       CHAR(36)     NOT NULL REFERENCES tb_role (pk_role_id),
     name             VARCHAR(80)  NOT NULL,
     ordinal          SMALLINT     NOT NULL,
+    status           VARCHAR(8)   NOT NULL DEFAULT 'ACTIVE',
     row_version      INTEGER      NOT NULL DEFAULT 1,
     created_at       TIMESTAMPTZ  NOT NULL DEFAULT now(),
     created_by       VARCHAR(100) NOT NULL,
@@ -107,6 +108,7 @@ CREATE TABLE tb_role_level (
     CONSTRAINT ux_role_level_ordinal UNIQUE (fk_role_id, ordinal),
     CONSTRAINT ux_role_level_name UNIQUE (fk_role_id, name),
     CONSTRAINT ck_role_level_ordinal CHECK (ordinal >= 1),
+    CONSTRAINT ck_role_level_status CHECK (status IN ('ACTIVE', 'INACTIVE')),
     CONSTRAINT ck_role_level_name CHECK (btrim(name) <> '')
 );
 

@@ -62,6 +62,8 @@ Verificación automática del HTML devuelto:
 3. La lista de asignaciones con historial es una brecha de componentes: Stitch la resolvió con su propio marcado, no con `@gf/ui`.
 4. Solo se verificó el texto del HTML: no se revisaron las capturas, el contraste ni la correspondencia valor por valor con `TKN-SET-002`. Accesibilidad no demostrada; `accessibility-reviewer` pendiente.
 
+**Desajuste con decisiones posteriores (2026-10-04):** SCR-019-02 se generó cuando el bloqueo solo hablaba de niveles inferiores; ahora también cubre las competencias del nivel destino (EVD-2026-0172). El diseño de Stitch debe ajustarse (texto y lista de pendientes) antes de darlo por válido.
+
 ## Preguntas abiertas
 
 SCR-019-Q1 a Q3, FLW-019-Q3 y Q4 (si bastan los niveles inferiores o también el destino, y si ADMIN puede saltarse el bloqueo AC-5). Revisión humana pendiente.

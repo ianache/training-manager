@@ -308,3 +308,6 @@ sources:
 
 - Respuesta de `human:ianache` 2026-10-03: ADMIN también edita rúbricas (EVD-2026-0171, BR-CAT-19). Actualizados BRC-001, API-SPEC-003 y DCP-003.
 - Artefactos afectados: `BRC-001`, `API-SPEC-003`, `DCP-003`, `changelog.md`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0172 a 0176): subir de nivel exige todas las competencias del nivel destino certificadas (lectura A); `levels[].usable` como compuerta de BR-ACR-13 con `evidence_requirements` informativo de versiones aprobadas; los niveles se desactivan como las competencias (BR-CAT-30, `tb_role_level.status` añadida al DDL, 5 casos probados en PostgreSQL); ADR-011 pasa a `Aceptado`; nuevo ADR-012 de reintentos con espera creciente y cortacircuito (parámetros sin decidir). GEN-019 queda desfasado respecto al bloqueo del nivel destino.
+- Artefactos afectados: `BRC-001`, `US-019`, `UXR-019`, `FLW-019`, `SCR-019`, `GEN-019`, `API-SPEC-003`, `LDM-002`, `catalog-postgresql.sql`, `ADR-011`, `ADR-012`, `DCP-003`.

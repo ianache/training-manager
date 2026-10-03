@@ -44,8 +44,9 @@ Que el Jefe de Ingeniería defina roles, Rol-Nivel y competencias versionadas en
 
 | Pieza | Fuente | Estado de la fuente |
 |---|---|---|
-| Servicio `catalog-service` (FastAPI, esquema propio en el PostgreSQL común, Alembic) | ADR-011 | Propuesto, sin decisor |
-| 7 tablas con sus restricciones | LDM-002, `catalog-postgresql.sql` | draft; DDL probado en PostgreSQL |
+| Servicio `catalog-service` (FastAPI, esquema propio en el PostgreSQL común, Alembic) | ADR-011 | **Aceptado** (`human:ianache`, 2026-10-04); el detalle del diseño sigue siendo propuesta del agente |
+| Reintentos con espera creciente y cortacircuito hacia el catalog-service | ADR-012 | Aceptado; parámetros sin decidir |
+| 7 tablas con sus restricciones, con `status` ACTIVE/INACTIVE también en `tb_role_level` | LDM-002, `catalog-postgresql.sql` | draft; DDL probado en PostgreSQL |
 | API de roles, competencias, versiones, rúbrica y requisitos | API-SPEC-003 | REQUIRES_REVIEW |
 | Rutas `/api/v1/catalog/*` del BFF (existentes, hoy 503) y `CATALOG_SERVICE_URL` | `catalog.router.ts` | código existente |
 | Rol `product_owner` | `realm-gestion-formacion.json`, `roles.ts` | **ya implementado** (commit `fc228f1`) |
@@ -63,7 +64,7 @@ Que el Jefe de Ingeniería defina roles, Rol-Nivel y competencias versionadas en
 - Rol-Nivel apunta a una **versión** de competencia (LDM-002 CM-02); una competencia, una vez por Rol-Nivel, con L mayor en niveles superiores (EVD-2026-0148).
 - Al menos un requisito de evidencia «requerido» por nivel L exigido (EVD-2026-0149); un rol necesita al menos una competencia (BR-CAT-20).
 - Permisos: editan roles Jefe de Ingeniería, `product_owner` y ADMIN; requisitos de evidencia y rúbricas, Jefe y ADMIN (EVD-2026-0168, 0171); aprobar versiones y desactivar o reactivar competencias, Jefe o ADMIN (EVD-2026-0144, 0159, 0168); asignar y cambiar Rol-Nivel, Jefe o ADMIN (EVD-2026-0163). Lectura abierta (EVD-2026-0118).
-- «Cumplida» = competencia certificada en el L que exige el Rol-Nivel inferior (EVD-2026-0164); se exigen también las del nivel destino (EVD-2026-0169, interpretación a confirmar: cómo se evalúan antes de asignar) y ADMIN no puede saltarse el bloqueo (EVD-2026-0170); solo se sube de nivel (0166); solo colaboradores vigentes (0146).
+- «Cumplida» = competencia certificada en el L que exige el Rol-Nivel inferior (EVD-2026-0164); se exigen también las del nivel destino (EVD-2026-0169, 0172: todas certificadas, lectura A) y ADMIN no puede saltarse el bloqueo (EVD-2026-0170); solo se sube de nivel (0166); solo colaboradores vigentes (0146).
 - Pila: Python 3.11+ y FastAPI (ADR-008), PostgreSQL (ADR-007); UI Angular con `@gf/ui`, sin Material (decisión de `human:ianache` para DTC-015); solo escritorio (supuesto).
 - Las reglas entre filas CHK-A a CHK-D de LDM-002 §5 las aplica el servicio; la base no puede.
 
@@ -72,20 +73,21 @@ Que el Jefe de Ingeniería defina roles, Rol-Nivel y competencias versionadas en
 Supuestos del agente, marcados en las fuentes y **sin confirmar**:
 
 - ~~Al aprobar una versión la anterior pasa a DEPRECATED; se desactiva en vez de eliminar; la versión incluye rúbrica y requisitos~~ Confirmado (EVD-2026-0152 a 0156, BR-CAT-23 a 26): no es supuesto.
-- `levels[].evidence_requirements` = requisitos «requeridos» del nivel (AQ-2 de API-SPEC-003).
-- Un nivel con personas asignadas no se puede quitar de un rol (AQ-5).
+- ~~`levels[].evidence_requirements` = requisitos «requeridos»~~ Decidido (EVD-2026-0173): `levels[].usable` es la compuerta y `evidence_requirements` es informativo (requisitos configurados de versiones aprobadas; si cuenta requeridos y deseados es lectura del agente).
+- ~~Un nivel con personas asignadas no se puede quitar~~ Decidido (EVD-2026-0174, BR-CAT-30): se desactiva, no se elimina.
 - Un solo borrador por competencia; nombres de rol y competencia únicos sin distinguir mayúsculas (CM-04, CM-10).
 
-Preguntas abiertas: cómo se evalúan las competencias del nivel destino antes de asignar el nivel (interpretación de EVD-2026-0169), el significado de `levels[].evidence_requirements` (AQ-2), quitar un nivel con personas asignadas (AQ-5), SCR-001-Q1 a Q4 y SCR-019-Q1 a Q3 (textos sin fuente, fecha «desde», responsive).
+Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción de BR-PRF-02 con la lectura A (no confirmado expresamente), quién desactiva y reactiva un nivel (BR-CAT-30, se asume como las competencias), parámetros del reintento y cortacircuito (ADR-012), SCR-001-Q1 a Q4 y SCR-019-Q1 a Q3 (textos sin fuente, fecha «desde», responsive).
 
 ### Risks and dependencies
 
-- **ADR-011 sin decisor:** construir el servicio sin esa decisión puede rehacerse.
-- **Falta la API de asignación de Rol-Nivel** (party): API-SPEC-003 la excluye; hace falta una API-SPEC o ampliar API-SPEC-001 antes de implementar US-019.
+- **Reintentos y cortacircuito sin parámetros:** ADR-012 decide la política pero no el número de reintentos, las esperas ni los umbrales; hace falta antes de implementar. Reintentar escrituras exige idempotencia, que API-SPEC-003 no define.
+- **Falta la API de asignación de Rol-Nivel** (party): API-SPEC-003 la excluye; hace falta una API-SPEC o ampliar API-SPEC-001 antes de implementar US-019. Un nivel desactivado (BR-CAT-30) no debe asignarse: party tiene que consultar el estado.
 - **Verificar contra el comprobador de AC-5:** necesita datos de certificación, que no existen (certificación fuera de alcance); sin ellos no se puede evaluar «competencias pendientes». **Dependencia bloqueante de US-019 AC-5.**
 - **Sin servicio de certificación ni curso:** el bloqueo y `course_ref` quedan simulados o desactivados hasta que existan.
 - **SQLite no detecta** errores de PostgreSQL (orden de INSERT, longitud de la revisión de Alembic, claves foráneas): las pruebas del servicio deben correr contra PostgreSQL real.
 - **Consistencia entre servicios:** ids lógicos sin FK; un rol desactivado no debe invalidar asignaciones.
+- **Diseño desfasado:** SCR-019-02 en Stitch no refleja que el bloqueo incluye las competencias del nivel destino (GEN-019) y falta el estado de nivel inactivo.
 - **Diseño no gobernado:** solo hay exploración en Stitch; faltan diseño gobernado (Figma), informes de accesibilidad y aprobación humana.
 
 ## Verification
@@ -112,6 +114,8 @@ Este contrato fija lo que debe implementarse; no hay desviaciones sin aprobació
 | Confirmaciones | `@gf/ui` (CMP-015 Confirmation-Dialog) | dialog | — | visible | foco atrapado, Escape | SCR-001-02/04, 019-02 |
 | Pestañas, tabla, estado vacío, insignia de estado, lista de asignaciones, editor de niveles | **sin CMP (brecha)** | — | — | — | — | SCR-001, SCR-019 |
 
+**Cambio de contrato pendiente en el portal:** el asistente de alta decide con `evidence_requirements > 0`; debe pasar a `usable` y `status = ACTIVE`.
+
 **Bloqueo para el contrato:** los componentes en brecha no tienen diseño en `@gf/ui`; antes de implementarlos hay que pasar por `web-atomic-component-designer`.
 
 ### Acceptance Criteria for Implementation
@@ -134,5 +138,5 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir ADR-011; (2) responder las preguntas abiertas de «Assumptions» (nivel destino, AQ-2, AQ-5); (3) diseñar la API de asignación de Rol-Nivel en party; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
-- Gate: pasar a `READY_FOR_DEV` exige ADR-011 aceptado, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.
+- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) diseñar la API de asignación de Rol-Nivel en party; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
+- Gate: pasar a `READY_FOR_DEV` exige parámetros de ADR-012, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.

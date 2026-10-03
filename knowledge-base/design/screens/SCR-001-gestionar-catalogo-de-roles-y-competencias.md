@@ -166,7 +166,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 
 **Reglas visibles:** un nivel L sin requisitos de evidencia, o sin ninguno requerido, bloquea guardar y se explica: «Primero define cómo se evidencia el nivel L{n} de {competencia}» (BR-ACR-13, texto sin fuente, propuesto). La advertencia de versión anterior usa icono, texto y color (no solo color).
 
-**Acciones:** «Guardar» (principal, Loading-Button), «Cancelar» (confirmación si hay cambios, CMP-015 Confirmation-Dialog), «Desactivar rol» (confirmación; sin eliminar, supuesto DM-Q-03).
+**Acciones:** «Guardar» (principal, Loading-Button), «Cancelar» (confirmación si hay cambios, CMP-015 Confirmation-Dialog), «Desactivar rol» y «Desactivar nivel» (con «Reactivar»; confirmación; sin eliminar, EVD-2026-0154 y 0174): quien ya tiene un nivel inactivo lo conserva y no se asigna a nadie más. Los niveles inactivos se muestran con el texto «Inactivo», no solo con color. Este estado no figura aún en el diseño de Stitch (GEN-001-G).
 
 **Estados:** default; loading; error; validation-error (`role="alert"`, foco al primer error); saving; success; conflict («Otra persona modificó este rol. Recarga para ver los cambios», 412); outdated-version-warning; read-only; disabled.
 
