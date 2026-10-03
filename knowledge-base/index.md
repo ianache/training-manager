@@ -110,6 +110,7 @@ sources:
 - [GEN-015 — Diseño Stitch: Registrar un colaborador](design/generations/GEN-015-stitch-registrar-colaborador.md) — Stitch Generation, `draft` (ejecución 2026-10-01 añadida)
 - [UXR-016 — Actualizar datos y medios de contacto](design/ux-requirements/UXR-016-actualizar-datos-y-contactos.md) — UX Requirement, `draft`
 - [UXR-017 — Registrar la organización interna](design/ux-requirements/UXR-017-registrar-la-organizacion-interna.md) — UX Requirement, `draft`
+- [UXR-019 — Asignar un Rol-Nivel a una persona](design/ux-requirements/UXR-019-asignar-rol-nivel.md) — UX Requirement, `draft`
 - [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-029 — Registrar y editar unidades organizacionales](design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-030 — Desactivar y reactivar unidades organizacionales](design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md) — UX Requirement, `draft`

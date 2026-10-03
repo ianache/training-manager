@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791065629.7544274,
-    "seen": 1791065676.917431,
-    "ast_hash": "f77a7f592ffec033ee9e3c7aae2786b1",
+    "mtime": 1791065952.5973182,
+    "seen": 1791066001.1157956,
+    "ast_hash": "0739208d7291cbac43d600446254af21",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791064857.9111085,
-    "seen": 1791064931.015502,
-    "ast_hash": "92927a4787334e544e73b7a349ecc0b2",
+    "mtime": 1791065932.4724722,
+    "seen": 1791066001.1137834,
+    "ast_hash": "2e4e921770188f1178dcfed3f6bbab2c",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
-    "mtime": 1791065173.443432,
-    "seen": 1791065397.1560533,
-    "ast_hash": "96198e4ef4f14445901bf5ce3189cf39",
+    "mtime": 1791065952.5294962,
+    "seen": 1791066001.1090946,
+    "ast_hash": "5963c40e04b3379a5968d497c6d90015",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
@@ -630,9 +630,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-001-gestionar-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1790526581.064504,
-    "seen": 1790536370.7001495,
-    "ast_hash": "44a3ecfcede65a805e35a0a98974ab2a",
+    "mtime": 1791065998.4010053,
+    "seen": 1791066001.1355038,
+    "ast_hash": "78accb4929cfc7e5986c1f46fba8af97",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-002-declarar-requerimiento-de-proyecto.md": {
@@ -1398,9 +1398,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-006-criterios-upgrade-rol-nivel.md": {
-    "mtime": 1790557485.4738092,
-    "seen": 1790707615.877006,
-    "ast_hash": "86958842345617288bf8d7e572dd0d1e",
+    "mtime": 1791065932.5000205,
+    "seen": 1791066001.0442522,
+    "ast_hash": "76506a0e09a759c5c225895c80a59963",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-007-consolidacion-postgresql-desarrollo.md": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791064056.1692824,
-    "seen": 1791064164.200069,
-    "ast_hash": "8fe21c8df3ff40221d5c146319a5b12f",
+    "mtime": 1791065689.2821925,
+    "seen": 1791066001.1355038,
+    "ast_hash": "c92d4d18018c757c19009288a6a878f0",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3426,9 +3426,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791064119.579672,
-    "seen": 1791064164.197647,
-    "ast_hash": "8221adffc41b8f45d6f11d844209daaf",
+    "mtime": 1791065689.7311027,
+    "seen": 1791066001.1249404,
+    "ast_hash": "7bcbe08d556d7487ab74ce5c34b7bfbc",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -3558,9 +3558,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-UNIDADES-REGENERACION-v2.md": {
-    "mtime": 1791064093.1697035,
-    "seen": 1791064164.200069,
-    "ast_hash": "e90dfbcee58c5432124c36b4c243ec3f",
+    "mtime": 1791065689.743294,
+    "seen": 1791066001.127986,
+    "ast_hash": "5a27fa7719d55506188c4da0de34a90f",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md": {
@@ -3570,21 +3570,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md": {
-    "mtime": 1791065287.6719072,
-    "seen": 1791065397.0271785,
-    "ast_hash": "af62fe0b7e3992a306126f50e8c392a8",
+    "mtime": 1791065952.5612924,
+    "seen": 1791066001.046822,
+    "ast_hash": "535046d69a1b648fc42b5afe15891501",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-011-catalog-service-como-microservicio-propio.md": {
-    "mtime": 1791065568.5374143,
-    "seen": 1791065676.8574696,
-    "ast_hash": "1705fa46429fd3b012b7ca7c67bb0c1c",
+    "mtime": 1791065932.4913776,
+    "seen": 1791066001.046822,
+    "ast_hash": "2b5a7814778a393fb220ec6bd515c5dd",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791065616.1009827,
-    "seen": 1791065676.8574696,
-    "ast_hash": "59edef54bb2da64a53ad55d0bb788ab1",
+    "mtime": 1791065932.4878635,
+    "seen": 1791066001.046822,
+    "ast_hash": "f8828fc8fa78160a19aebbe572378666",
     "semantic_hash": ""
   }
 }
