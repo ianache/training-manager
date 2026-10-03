@@ -281,3 +281,6 @@ sources:
 
 - Flujos FLW-001 (catálogo: 4 pantallas reservadas) y FLW-019 (asignar Rol-Nivel: 3 pantallas reservadas), `draft`. Aún sin SCR ni GEN gobernados: el siguiente paso es `ui-spec-writer`. Preguntas nuevas: FLW-001-Q1 a Q4 (ADMIN, Responsable de producto, eliminar o desactivar, transversal) y FLW-019-Q1 a Q5.
 - Artefactos afectados: `knowledge-base/design/user-flows/FLW-001-gestionar-catalogo-de-roles-y-competencias.md`, `knowledge-base/design/user-flows/FLW-019-asignar-rol-nivel.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
+
+- Especificaciones de pantalla SCR-001 (4 pantallas) y SCR-019 (3), `draft`, para el catálogo y la asignación de Rol-Nivel. Preflight del skill ux-development-handoff (perfil `example`, iniciativa `plataforma-gestion-formacion`): `READY`, reutiliza el proyecto STP-PPM-001. CMP-MOL-001 a 006 solo existen en `ui-inventory.md`, no como conceptos: pestañas, tabla, estado vacío, insignia de estado, lista de asignaciones y editor de niveles quedan como brechas de componentes. Textos «propuesto» sin fuente: SCR-001-Q1 y SCR-019-Q2.
+- Artefactos afectados: `knowledge-base/design/screens/SCR-001-gestionar-catalogo-de-roles-y-competencias.md`, `knowledge-base/design/screens/SCR-019-asignar-rol-nivel.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.

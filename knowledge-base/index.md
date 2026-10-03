@@ -113,6 +113,8 @@ sources:
 - [UXR-019 — Asignar un Rol-Nivel a una persona](design/ux-requirements/UXR-019-asignar-rol-nivel.md) — UX Requirement, `draft`
 - [FLW-001 — Gestionar el catálogo de roles y competencias](design/user-flows/FLW-001-gestionar-catalogo-de-roles-y-competencias.md) — User Flow, `draft`; pantallas SCR-001-01..04 reservadas
 - [FLW-019 — Asignar un Rol-Nivel a una persona](design/user-flows/FLW-019-asignar-rol-nivel.md) — User Flow, `draft`; pantallas SCR-019-01..03 reservadas
+- [SCR-001 — Gestionar el catálogo de roles y competencias](design/screens/SCR-001-gestionar-catalogo-de-roles-y-competencias.md) — Screen, `draft`; SCR-001-01..04
+- [SCR-019 — Asignar un Rol-Nivel a una persona](design/screens/SCR-019-asignar-rol-nivel.md) — Screen, `draft`; SCR-019-01..03
 - [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-029 — Registrar y editar unidades organizacionales](design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-030 — Desactivar y reactivar unidades organizacionales](design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md) — UX Requirement, `draft`

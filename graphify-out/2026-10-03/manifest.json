@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791066130.7771509,
-    "seen": 1791066183.9218163,
-    "ast_hash": "01dc190438a6a3e7b1f11064d2b37ff2",
+    "mtime": 1791066185.5454125,
+    "seen": 1791066230.006016,
+    "ast_hash": "58f493ece851265bf1d1edeaaf68e09c",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791066037.8763175,
-    "seen": 1791066093.7181106,
-    "ast_hash": "6cca30a64c9cf3d0ee7336b434827bc3",
+    "mtime": 1791066185.5385456,
+    "seen": 1791066230.0342,
+    "ast_hash": "58de1daba1d5b352e1d425ffe5102dcc",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3591,6 +3591,18 @@
     "mtime": 1791066016.960744,
     "seen": 1791066093.7039819,
     "ast_hash": "9cb4a87b6fcb9ff37a26347efc19be2e",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-001-gestionar-catalogo-de-roles-y-competencias.md": {
+    "mtime": 1791066172.5293312,
+    "seen": 1791066230.022511,
+    "ast_hash": "eafdecaec7845fc537ecb7a35e0be041",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-019-asignar-rol-nivel.md": {
+    "mtime": 1791066174.3593347,
+    "seen": 1791066230.022511,
+    "ast_hash": "969d4406a39f15693dd8d27546526add",
     "semantic_hash": ""
   }
 }
