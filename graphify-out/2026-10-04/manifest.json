@@ -3000,9 +3000,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791092245.0992377,
-    "seen": 1791092309.629139,
-    "ast_hash": "8ddd8c8a8fc1f94ee441aaf87df502ff",
+    "mtime": 1791134331.2381682,
+    "seen": 1791134373.8392415,
+    "ast_hash": "b7061ac3846db75f280527824cd37cc6",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3378,9 +3378,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-029-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791053872.08148,
-    "seen": 1791054214.5169792,
-    "ast_hash": "8d6311fb441ef3c02ee55f30a89408ed",
+    "mtime": 1791130576.8061056,
+    "seen": 1791132157.7576418,
+    "ast_hash": "9728e83dc3b86510400a269003993959",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-030-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -3408,21 +3408,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
-    "mtime": 1791064119.564448,
-    "seen": 1791064164.197647,
-    "ast_hash": "1a873c3c465b2f89d42476752edabe5d",
+    "mtime": 1791134341.2716143,
+    "seen": 1791134373.8317335,
+    "ast_hash": "65c43c6e21b6288541bb107d9c360de2",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md": {
-    "mtime": 1791088428.2168822,
-    "seen": 1791088538.4366603,
-    "ast_hash": "13b47ce176141528fbcac69658467f0c",
+    "mtime": 1791134341.2838662,
+    "seen": 1791134373.8317335,
+    "ast_hash": "1929aabb5ed74521fef41c3e996fe7f7",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791091804.2819097,
-    "seen": 1791092309.6054525,
-    "ast_hash": "756e5b561acbd4394f7486c9c02e737e",
+    "mtime": 1791134341.292158,
+    "seen": 1791134373.8317335,
+    "ast_hash": "3151aff436113ed32388df10186b8cfa",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
