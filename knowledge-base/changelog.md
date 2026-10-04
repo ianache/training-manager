@@ -412,3 +412,8 @@ sources:
 
 - Cadena de diseño de certificar y del perfil: UXR-003 y UXR-004 actualizados con las decisiones EVD-2026-0185 a 0237 (calificación CUMPLE / NO CUMPLE por evidencia, no aprobar con motivo tipificado y descripción, recertificar con evidencias nuevas, revocar por el Jefe de Ingeniería o ADMIN, visibilidad de las descripciones); nuevos FLW-003 (5 pantallas) y FLW-004 (2) y las especificaciones SCR-003 y SCR-004, `draft`. Preflight del skill ux-development-handoff: `READY`. Hallazgos: **no hay una historia para que el colaborador registre sus evidencias** (UXR-003-Q3, UXR-004-Q4); quién inicia la evaluación (se diseña que el evaluador, UXR-003-Q2) y cómo se busca al colaborador (UXR-003-Q4) siguen abiertos. Faltan los diseños de Stitch, la revisión de accesibilidad y el DCP.
 - Artefactos afectados: `UXR-003`, `UXR-004`, `FLW-003`, `FLW-004`, `SCR-003`, `SCR-004`, `index.md`.
+
+## 2026-10-04 (Stitch de certificación)
+
+- Se generaron en STP-PPM-001 y se registraron en el DTM (con `--evidence`) SCR-003-01, 03, 04, 05 y SCR-004-01, 02; GEN-003 y GEN-004 documentan la revisión (aria bajo en SCR-003-01; rótulos de estado ausentes). **SCR-003-02 no apareció en Stitch** tras dos intentos; sigue pendiente.
+- Artefactos afectados: `GEN-003`, `GEN-004`, `DTM-PPM-001`, `index.md`, `changelog.md`.
