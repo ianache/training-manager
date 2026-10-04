@@ -40,7 +40,7 @@ Hereda [UXR-000](../ux-requirements/UXR-000-requisitos-ux-transversales.md) y la
 
 | ID | Paso del flujo que cubre |
 |---|---|
-| SCR-029-01 | Registrar unidad (nombre, unidad padre, fecha desde) |
+| SCR-029-01 | Registrar unidad (nombre, correo laboral, unidad padre, fecha desde) |
 | SCR-029-02 | Editar nombre de una unidad |
 | SCR-029-03 | Cambiar unidad padre, incluido el resumen "de X a Y" previo a confirmar |
 | SCR-029-04 | Historial de relaciones y vigencias de la unidad (quién cambió, desde/hasta) |
@@ -52,8 +52,8 @@ Hereda [UXR-000](../ux-requirements/UXR-000-requisitos-ux-transversales.md) y la
 **Actor:** Jefe de Ingeniería · **Precondición:** organización interna registrada (US-017).
 
 1. Desde el listado (UXR-028) elige "Registrar unidad" → SCR-029-01.
-2. Ingresa nombre, elige unidad padre (solo Activas; vacía para la unidad superior, ver Q4) e indica fecha desde.
-3. Valida: campos obligatorios en línea al salir del campo y al enviar; nombre único entre hermanas (BR-PTY-26).
+2. Ingresa nombre y correo laboral (obligatorio, BR-PTY-27), elige unidad padre (solo Activas; vacía para la unidad superior, ver Q4) e indica fecha desde.
+3. Valida: campos obligatorios en línea al salir del campo y al enviar; nombre único entre hermanas (BR-PTY-26) y formato del correo laboral.
 4. Confirma → la unidad queda Activa con su relación vigente.
 5. Confirmación visible y retorno al listado con la unidad resaltada; el foco vuelve a un punto lógico.
 
@@ -88,6 +88,7 @@ Hereda [UXR-000](../ux-requirements/UXR-000-requisitos-ux-transversales.md) y la
 | E1 | Ciclo (unidad bajo una descendiente o sí misma) | El selector no la ofrece; si el servidor la rechaza, error en el campo "Unidad padre": "Crearía un ciclo en la jerarquía"; se conservan los datos | BR-PTY-22, AC-4 |
 | E2 | Padre Inactivo | El selector no lo ofrece; si el servidor lo rechaza: "Solo se pueden elegir unidades activas" | BR-PTY-25, AC-5 |
 | E3 | Nombre repetido bajo el mismo padre | Error en "Nombre": "Ya existe una unidad con este nombre bajo [padre]"; el mismo nombre bajo otro padre se permite | BR-PTY-26, AC-6 |
+| E3b | Correo laboral vacío o con formato inválido | Error en «Correo laboral» al salir del campo y al enviar: «Ingrese un correo válido» (texto propuesto) | BR-PTY-27 |
 | E4 | Campo obligatorio vacío | Error en línea al salir del campo y al enviar ("Indica la fecha desde") | UXR-029 §3 |
 | E5 | Sin organización interna | Impide registrar y remite a UXR-017 | BR-PTY-03 |
 | E6 | Error al guardar | Mensaje con reintento sin perder lo ingresado | UXR-029 §4 |
@@ -101,7 +102,7 @@ Los errores de regla se asocian a su campo y se anuncian con `role="alert"` (UXR
 
 | Actor | Ve | Hace |
 |---|---|---|
-| Jefe de Ingeniería | Formularios, selector de padre, historial | Registrar, editar nombre, cambiar padre (BR-PTY-17) |
+| Jefe de Ingeniería y ADMIN | Formularios, selector de padre, historial | Registrar, editar nombre, cambiar padre (BR-PTY-17, EVD-2026-0238) |
 | Otros usuarios | Nada | Nada |
 
 ### Estados de la unidad y de la relación
