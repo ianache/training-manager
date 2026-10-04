@@ -95,10 +95,19 @@ The delivery team or supplier must implement only the included scope, provide te
 
 | ID | Pregunta | Fuente | Por qué bloquea |
 |---|---|---|---|
-| P-14 | ¿Una certificación vence, se revoca o se recertifica? | US-003, BRC-001 | Define qué es «nivel certificado vigente» cuando hay varias |
-| DSP2-Q1 | Si una competencia ya tiene un nivel certificado, ¿el vigente es la última certificación o la más alta? ¿Se puede certificar un nivel inferior? (US-003 lo deja «sin regla») | US-003 §Límite | Cálculo del nivel que consulta AC-5 |
-| DSP2-Q2 | ¿El Certification Service es un microservicio propio, como prevé ACP-002? Hace falta un ADR, como ADR-011 | ACP-002, DCP-002 | Arquitectura |
-| RCP-Q1 | ¿Quién designa a los evaluadores? ¿Instructor y evaluador son el mismo rol? | RCP-001 | Quién puede certificar |
+| ~~P-14~~ | ~~¿Una certificación vence, se revoca o se recertifica?~~ **Respondida (ianache, 2026-10-04):** se revoca o se recertifica (EVD-2026-0185); no menciona vencimiento (se asume que no vence). | US-003, BRC-001 | Define qué es «nivel certificado vigente» cuando hay varias |
+| ~~DSP2-Q1~~ | ~~Si una competencia ya tiene un nivel certificado, ¿el vigente es la última certificación o la más alta? ¿Se puede certificar un nivel inferior? (US-003 lo deja «sin regla»)~~ **Respondida (ianache, 2026-10-04):** el vigente es el más alto de los vigentes y no se certifica un nivel inferior (EVD-2026-0186, 0187). | US-003 §Límite | Cálculo del nivel que consulta AC-5 |
+| ~~DSP2-Q2~~ | ~~¿El Certification Service es un microservicio propio, como prevé ACP-002? Hace falta un ADR, como ADR-011~~ **Respondida (ianache, 2026-10-04):** microservicio nuevo y propio (EVD-2026-0188); ver ADR-013. | ACP-002, DCP-002 | Arquitectura |
+| ~~RCP-Q1~~ | ~~¿Quién designa a los evaluadores? ¿Instructor y evaluador son el mismo rol?~~ **Respondida (ianache, 2026-10-04):** los designan el Jefe de Ingeniería o ADMIN (EVD-2026-0189); sigue abierto si instructor y evaluador son el mismo rol. | RCP-001 | Quién puede certificar |
+
+**Nuevas preguntas derivadas de esas respuestas (abiertas):**
+
+| ID | Pregunta |
+|---|---|
+| DSP2-Q3 | ¿Una certificación vence? La respuesta habla de revocar y recertificar |
+| DSP2-Q4 | ¿Quién revoca una certificación, con qué motivo y auditoría? |
+| DSP2-Q5 | ¿Recertificar crea una certificación nueva del mismo nivel o reemplaza la anterior? |
+| DSP2-Q6 | Si se revoca la certificación que sostuvo una subida de nivel, ¿la persona conserva el Rol-Nivel asignado (US-019)? |
 
 **No bloquean pero hay que decidir antes de construir:**
 
@@ -111,9 +120,9 @@ The delivery team or supplier must implement only the included scope, provide te
 | RCP-Q2 | ¿En H1 un evaluador registra a mano evidencia de GitLab? | Jefe de Ingeniería |
 
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
-1. Responder P-14 y DSP2-Q1.
+1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.
 2. Actualizar el modelo conceptual (IMD-001: Certificación, Evidencia, Nivel certificado) con `af-conceptual-model-designer`.
-3. Modelo de datos (`data-model-designer`) y ADR del Certification Service.
+3. Modelo de datos (`data-model-designer`); el ADR del Certification Service ya está aceptado (ADR-013).
 4. API-SPEC con la consulta del nivel certificado y el alta de certificación.
 5. UXR-003 y UXR-004 ya existen: faltan FLW, SCR y GEN.
 6. DCP de este alcance.

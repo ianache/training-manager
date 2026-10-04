@@ -335,3 +335,6 @@ sources:
 
 - DSP-002 (certificación manual de niveles y perfil de competencias: US-003 y US-004) en `REQUIRES_REVIEW`: planifica la dependencia de US-019 AC-3 y AC-5 (EVD-2026-0177). Hallazgo: lo que US-019 necesita es el dato del nivel certificado vigente, no la pantalla de perfil; ningún criterio de US-003 ni de US-004 cubre esa consulta. Bloquean el diseño P-14 y DSP2-Q1 (qué es el nivel vigente con varias certificaciones) y la decisión de arquitectura del Certification Service (previsto en ACP-002, sin ADR). No se codificó nada.
 - Artefactos afectados: `knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md`, `DSP-001`, `DCP-003`, `index.md`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0185 a 0189): las certificaciones se revocan o se recertifican; el nivel vigente es el más alto de las vigentes y no se certifica un nivel inferior (BR-ACR-15, BR-ACR-16); el Certification Service es un microservicio nuevo y propio (ADR-013 aceptado); designan a los evaluadores el Jefe de Ingeniería o ADMIN (BR-PRG-03). Nuevas preguntas abiertas en DSP-002 (DSP2-Q3 a Q6): vencimiento, quién revoca, semántica de recertificar y efecto de revocar sobre un Rol-Nivel ya asignado.
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`, `index.md`.

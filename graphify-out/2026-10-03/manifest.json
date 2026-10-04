@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791080866.413252,
-    "seen": 1791080901.3548317,
-    "ast_hash": "4ffd238ae95a1d3cfa7fd4efffb34f6e",
+    "mtime": 1791081027.8397894,
+    "seen": 1791081063.0577488,
+    "ast_hash": "e95e1b4e0040e759bc3f8910fb462350",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791071955.9391007,
-    "seen": 1791072006.4862761,
-    "ast_hash": "9ec355b8fb4fa6b9ec6f089995a95ec9",
+    "mtime": 1791081027.8319778,
+    "seen": 1791081063.0807617,
+    "ast_hash": "8331443f72c3c226fefecaaf83a81c82",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3564,9 +3564,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791080224.4756234,
-    "seen": 1791080267.5564919,
-    "ast_hash": "7154d4058dcfa9d58cdb5f2840e99992",
+    "mtime": 1791081027.817214,
+    "seen": 1791081063.0817637,
+    "ast_hash": "f1670c46df3bc33c2b44f677090bfd33",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md": {
@@ -3630,9 +3630,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791080866.408213,
-    "seen": 1791080901.318818,
-    "ast_hash": "985cdb72c9c2db1d327b328687e4e739",
+    "mtime": 1791081027.8249826,
+    "seen": 1791081063.0234327,
+    "ast_hash": "dc0ab48928d626362baebef287bc7eba",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md": {
@@ -3645,6 +3645,12 @@
     "mtime": 1791080866.3915112,
     "seen": 1791080901.321817,
     "ast_hash": "74076c789616e5149b995288f8e43dc1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
+    "mtime": 1791081027.8112166,
+    "seen": 1791081063.0817637,
+    "ast_hash": "e321ab58cd5bc31717ca5be699d9539f",
     "semantic_hash": ""
   }
 }
