@@ -57,7 +57,7 @@ Que el Jefe de Ingeniería defina roles, niveles y competencias en un catálogo 
 
 ## Dependencies and Constraints
 
-- **Dependencia fuera de este alcance (EVD-2026-0177):** US-019 AC-3 y AC-5 dependen de US-003 (certificar un nivel) y US-004 (perfil de competencias), que **no están en DSP-001** y hay que planificar; hasta entonces subir de nivel se bloquea. Las reglas de DSP-001 sobre «prerrequisito de US-004» se refieren al rol y nivel que muestra el perfil, no a este bloqueo: posible circularidad entre US-019 y US-004 por aclarar.
+- **Dependencia fuera de este alcance (EVD-2026-0177):** US-019 AC-3 y AC-5 dependen de US-003 (certificar un nivel) y US-004 (perfil de competencias), que **no están en DSP-001** y se planifican en [DSP-002](DSP-002-certificacion-y-perfil.md); hasta entonces subir de nivel se bloquea. Las reglas de DSP-001 sobre «prerrequisito de US-004» se refieren al rol y nivel que muestra el perfil, no a este bloqueo: posible circularidad entre US-019 y US-004 por aclarar.
 - **Orden de entrega:** US-001 antes que US-019; la asignación consume los Rol-Nivel que define el catálogo (US-019 §11).
 - **US-015 (alta de colaborador):** el nivel inicial se asigna al registrar (P-28); el paso «Rol-Nivel inicial» del asistente lee hoy el catálogo simulado `catalog-stub` (solo desarrollo), que este alcance sustituye.
 - **Permisos:** el Jefe de Ingeniería modifica el catálogo y asigna Rol-Nivel (BR-CAT-04, BR-CAT-16, BR-CAT-19); por decisión del 2026-10-03 también ADMIN (aprobar versiones, cambiar niveles directamente) y el Responsable de Producto (editar roles, sin límite por producto); todo colaborador lo consulta en lectura (AC-12).

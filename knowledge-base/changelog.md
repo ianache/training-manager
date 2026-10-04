@@ -332,3 +332,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0183, 0184): un nivel de rol lo desactiva o reactiva el Jefe de Ingeniería o ADMIN; quien tiene un nivel que se desactiva después lo conserva y puede cambiar desde él a otro nivel activo. BR-CAT-30 sin interpretaciones pendientes; AQ-1 a AQ-7 de API-SPEC-004 resueltas.
 - Artefactos afectados: `BRC-001`, `API-SPEC-003`, `API-SPEC-004`, `DCP-003`.
+
+- DSP-002 (certificación manual de niveles y perfil de competencias: US-003 y US-004) en `REQUIRES_REVIEW`: planifica la dependencia de US-019 AC-3 y AC-5 (EVD-2026-0177). Hallazgo: lo que US-019 necesita es el dato del nivel certificado vigente, no la pantalla de perfil; ningún criterio de US-003 ni de US-004 cubre esa consulta. Bloquean el diseño P-14 y DSP2-Q1 (qué es el nivel vigente con varias certificaciones) y la decisión de arquitectura del Certification Service (previsto en ACP-002, sin ADR). No se codificó nada.
+- Artefactos afectados: `knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md`, `DSP-001`, `DCP-003`, `index.md`.
