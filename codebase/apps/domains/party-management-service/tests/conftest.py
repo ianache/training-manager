@@ -124,6 +124,9 @@ def migrated_postgres():
     cfg = AlembicConfig(os.path.join(os.path.dirname(__file__), "..", "alembic.ini"))
     cfg.set_main_option("script_location", os.path.join(os.path.dirname(__file__), "..", "migrations"))
     cfg.set_main_option("sqlalchemy.url", TEST_DATABASE_URL)
+    # la migración 0006 carga la organización interna desde estas variables (DTC-017); valores solo de prueba
+    os.environ.setdefault("INTERNAL_ORG_NAME", "COMSATEL DE PRUEBA S.A.C.")
+    os.environ.setdefault("INTERNAL_ORG_RUC", "20999999991")
     command.upgrade(cfg, "head")
     yield sync
     sync.dispose()

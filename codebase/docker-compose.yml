@@ -175,6 +175,10 @@ services:
       KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/gestion-formacion/protocol/openid-connect/certs
       KEYCLOAK_ALLOWED_CLIENTS: bff-app
       SEED_DEMO_DATA: "true"         # 5 colaboradores de ejemplo si no hay personas (solo dev)
+      # Organización interna (migración 0006, DTC-017): razón social y RUC (11 dígitos) reales, definidos en .env.
+      # Sin ellos el primer arranque se detiene al migrar, porque la migración no inventa valores.
+      INTERNAL_ORG_NAME: ${INTERNAL_ORG_NAME:-}
+      INTERNAL_ORG_RUC: ${INTERNAL_ORG_RUC:-}
       # Límite por usuario (API-SPEC-001 §4.5): 1000/h lectura en dev; en producción 10000
       RATE_LIMIT_READ_PER_HOUR: "1000"
       RATE_LIMIT_CREATE_PER_HOUR: "100"

@@ -58,15 +58,20 @@ sources:
 | Rechazo de un RUC ya registrado | US-017 AC-2, BR-PTY-07 | `POST /organizations` ya lo hace con `409 ORGANIZATION_DUPLICATE` |
 | Pantallas SCR-017-01 a 03 (organización registrada, formulario, acceso no autorizado) | SCR-017 | Hojas de Stitch; consolidada solo SCR-017-02 |
 
-## 2. Decisión que lo condiciona
+## 2. Decisión (2026-10-04) y qué se implementó
 
-Decisión del 2026-10-04 (BR-PTY-28, EVD-2026-0240): **la API gestiona solo unidades y proveedores; la organización interna es un registro único fuera de esa gestión.** US-017 se conserva, pero ya no hay `type: internal_organization` en la API. **Falta decidir cómo se registra** ese único registro. Opciones a presentar al Jefe de Ingeniería (no decididas):
+Decisión de ianache tras explorar tres opciones: **carga inicial por migración**, sin endpoint ni formulario (BR-PTY-28). Diseño aprobado por ianache antes de implementar.
 
-1. una carga inicial (migración de datos o semilla) con razón social y RUC;
-2. un endpoint o pantalla de uso único, con permiso restringido;
-3. conservar el `POST /organizations` existente con un tipo aparte.
+**Implementado** en `party-management-service` (con TDD contra PostgreSQL 15):
+- Migración `0006_internal_org`: si no existe una organización con el rol `INTERNAL_ORGANIZATION`, inserta la parte, la organización, el rol vigente y el RUC (tipo `RUC`, país `PE`); si ya existe, no hace nada. `downgrade` retira solo lo que creó (autor `migration-0006`).
+- La razón social y el RUC salen de `INTERNAL_ORG_NAME` e `INTERNAL_ORG_RUC`. Si faltan, el RUC no tiene 11 dígitos, ya está registrado o el nombre supera 200 caracteres, la migración se detiene sin crear nada. El «20123456789» de los diseños es un dato de muestra: **no es el RUC real**.
+- Pruebas: `tests/schema/test_internal_organization_seed.py` (8 casos) y `tests/conftest.py` fija valores de prueba para el resto de la suite.
+- `docker-compose.yml` pasa las dos variables al servicio y `.env.example` las documenta (sin valores).
 
-El rol `INTERNAL_ORGANIZATION` ya está sembrado, pero el servicio hoy lo ignora. Hasta resolverlo, **este DTC no puede pasar a `READY_FOR_DEV`** y SCR-017-02 (formulario) puede quedar sin uso, lo que hay que confirmar con SCR-017 y UXR-017.
+**Consecuencias que debes conocer**
+- **Primer arranque:** el entrypoint del servicio ejecuta `alembic upgrade head`. Al reconstruir la imagen, el contenedor no arrancará hasta definir `INTERNAL_ORG_NAME` e `INTERNAL_ORG_RUC` en `.env`, porque la base de desarrollo todavía no tiene la organización interna.
+- **SCR-017-02 (formulario) queda sin uso** y SCR-017-01 solo la muestra; US-017 AC-1 (registrar) se cumple con la carga inicial, no con una pantalla.
+- **Pregunta abierta:** cómo lee SCR-017-01 ese registro. BR-PTY-28 la deja fuera de `/organizations`, así que hace falta un contrato de lectura (por ejemplo `GET /organizations?type=internal_organization` solo de lectura, o una ruta propia). Sin decidir.
 
 ## 3. Reglas
 

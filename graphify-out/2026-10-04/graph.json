@@ -34634,7 +34634,7 @@
       "node_kind": "heading",
       "norm_label": "acceptance criteria for implementation",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L150"
+      "source_location": "L162"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_assumptions_and_open_questions",
@@ -34646,7 +34646,7 @@
       "node_kind": "heading",
       "norm_label": "assumptions and open questions",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L91"
+      "source_location": "L103"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_cobertura_de_criterios",
@@ -34658,7 +34658,7 @@
       "node_kind": "heading",
       "norm_label": "cobertura de criterios",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L123"
+      "source_location": "L135"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_component_inventory",
@@ -34670,7 +34670,7 @@
       "node_kind": "heading",
       "norm_label": "component inventory",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L141"
+      "source_location": "L153"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_content",
@@ -34682,7 +34682,7 @@
       "node_kind": "heading",
       "norm_label": "content",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L49"
+      "source_location": "L61"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_cross_references",
@@ -34694,7 +34694,7 @@
       "node_kind": "heading",
       "norm_label": "cross-references",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L165"
+      "source_location": "L177"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_decisions_and_constraints",
@@ -34706,7 +34706,7 @@
       "node_kind": "heading",
       "norm_label": "decisions and constraints",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L78"
+      "source_location": "L90"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_development_context_pack_gesti\u00f3n_de_la_estructura_organizacional",
@@ -34730,7 +34730,7 @@
       "node_kind": "heading",
       "norm_label": "excluded work",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L70"
+      "source_location": "L82"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_fases_propuestas",
@@ -34742,7 +34742,7 @@
       "node_kind": "heading",
       "norm_label": "fases propuestas",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L169"
+      "source_location": "L181"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_implementation_contract_binding_for_development",
@@ -34754,7 +34754,7 @@
       "node_kind": "heading",
       "norm_label": "implementation contract (binding for development)",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L137"
+      "source_location": "L149"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_included_work",
@@ -34766,7 +34766,7 @@
       "node_kind": "heading",
       "norm_label": "included work",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L55"
+      "source_location": "L67"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_next_action",
@@ -34778,7 +34778,7 @@
       "node_kind": "heading",
       "norm_label": "next action",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L182"
+      "source_location": "L194"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_no_substitutions_policy",
@@ -34790,7 +34790,7 @@
       "node_kind": "heading",
       "norm_label": "no substitutions policy",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L157"
+      "source_location": "L169"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_objective",
@@ -34802,7 +34802,7 @@
       "node_kind": "heading",
       "norm_label": "objective",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L51"
+      "source_location": "L63"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_risks_and_dependencies",
@@ -34814,7 +34814,7 @@
       "node_kind": "heading",
       "norm_label": "risks and dependencies",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L104"
+      "source_location": "L116"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_scope_and_identity",
@@ -34826,7 +34826,7 @@
       "node_kind": "heading",
       "norm_label": "scope and identity",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L41"
+      "source_location": "L53"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_verification",
@@ -34838,7 +34838,7 @@
       "node_kind": "heading",
       "norm_label": "verification",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L116"
+      "source_location": "L128"
     },
     {
       "id": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_verification_workflow",
@@ -34850,7 +34850,7 @@
       "node_kind": "heading",
       "norm_label": "verification workflow",
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L161"
+      "source_location": "L173"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_catalog_src_app_pages_role_form_role_form_logic",
@@ -58970,7 +58970,7 @@
         "title": "Development Context Pack \u2014 Gesti\u00f3n de la estructura organizacional (US-017, US-028, US-029, US-030)",
         "generated": "2026-10-04",
         "verified": false,
-        "status": "REQUIRES_REVIEW",
+        "status": "READY_FOR_DEV",
         "sources": [
           "/knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md",
           "/knowledge-base/requirement/user-stories/US-028-listar-y-buscar-unidades-organizacionales.md",
@@ -130791,13 +130791,24 @@
     },
     {
       "source": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_content",
+      "target": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_assumptions_and_open_questions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_content",
       "target": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_risks_and_dependencies",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L104",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -130808,7 +130819,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L51",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -130819,7 +130830,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L55",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -130830,7 +130841,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L70",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -130841,18 +130852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L78",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_content",
-      "target": "knowledge_base_architecture_ad_handoff_dcp_004_gestion_de_unidades_organizacionales_assumptions_and_open_questions",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L91",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -130863,7 +130863,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L116",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -130874,7 +130874,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L137",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -130885,7 +130885,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L169",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -130896,7 +130896,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L182",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -130907,7 +130907,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L41",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -130918,7 +130918,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L49",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -130929,7 +130929,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L141",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -130940,7 +130940,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L150",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -130951,7 +130951,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L157",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -130962,7 +130962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L161",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -130973,7 +130973,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L165",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -130984,7 +130984,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L123",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -168533,7 +168533,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md",
-      "source_location": "L143",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -184446,5 +184446,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3fe76ad925779ebd1965fcde6df32c0edb8c3517"
+  "built_at_commit": "eb6a6ec467ec5a3abc96cd4cbf5dd151304180ee"
 }
