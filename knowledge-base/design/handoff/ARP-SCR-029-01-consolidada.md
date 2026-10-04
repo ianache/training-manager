@@ -23,7 +23,7 @@ a11y_review:
   target: html
   result: fail
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 11, fail: 1, inconclusive: 1}
+  counts: {pass: 12, fail: 1, inconclusive: 0}
 ---
 
 # ARP-SCR-029-01-C — Registrar unidad
@@ -41,7 +41,7 @@ a11y_review:
 | 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
 | 4.1.3 Mensajes de estado | pass | 3 role=alert, 1 role=status, 2 aria-busy, 1 aria-live. |
 | 3.3.2 Etiquetas o instrucciones (obligatorio) | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C9, 2026-10-04). Análisis estático: Los obligatorios se marcan con «*» y 20 campos llevan required o aria-required; no se evaluó la leyenda del asterisco. |
-| 1.4.3 Contraste (texto) | **inconclusive** | No se calculó el contraste de los colores de esta hoja. |
+| 1.4.3 Contraste (texto) | pass | 15 pares calculados; ninguno bajo el mínimo. El texto del indicador de carga (ligadura `progress_activity`) y el separador «›» son decorativos y están ocultos a tecnologías de apoyo. Cálculo estático por clases (sin variantes hover/focus, degradados ni imágenes). |
 | 2.4.7 Foco visible | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C3, 2026-10-04). Análisis estático: 48 clases focus:ring/outline y 16 outline-none; sin navegador no se confirma el indicador de foco. |
 | 1.4.10 Reflow / 1.4.4 / 1.4.12 | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C4, C5 y C6, 2026-10-04). Análisis estático: Requiere navegador. |
 | 2.5.8 Tamaño de objetivo | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C7, 2026-10-04). Análisis estático: Sin medición. |

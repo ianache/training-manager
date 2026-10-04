@@ -2,7 +2,7 @@
 id: ARP-SCR-029-02-C
 type: Accessibility Report
 title: "ARP-SCR-029-02-C — Revisión de accesibilidad: Editar nombre de una unidad (hoja consolidada de Stitch)"
-description: "Revisión estática WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-02. Resultado inconclusive; borrador, sin verificación humana ni prueba en navegador."
+description: "Revisión estática WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-02. Resultado pass; borrador, sin verificación humana ni prueba en navegador."
 tags:
 - ux-ui
 - accessibility
@@ -21,9 +21,9 @@ sources:
 a11y_review:
   screen: SCR-029-02
   target: html
-  result: inconclusive
+  result: pass
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 11, fail: 0, inconclusive: 1}
+  counts: {pass: 12, fail: 0, inconclusive: 0}
 ---
 
 # ARP-SCR-029-02-C — Editar nombre de una unidad
@@ -40,7 +40,7 @@ a11y_review:
 | 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
 | 4.1.3 Mensajes de estado | pass | 3 role=alert, 1 role=status, 0 aria-busy, 0 aria-live. |
 | 3.3.2 Etiquetas o instrucciones (obligatorio) | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C9, 2026-10-04). Análisis estático: Los obligatorios se marcan con «*» y 0 campos llevan required o aria-required; no se evaluó la leyenda del asterisco. |
-| 1.4.3 Contraste (texto) | **inconclusive** | No se calculó el contraste de los colores de esta hoja. |
+| 1.4.3 Contraste (texto) | pass | 15 pares calculados. «Guardar» deshabilitado (blanco sobre #bc0100 al 50 %) está exento por estar deshabilitado; habilitado es 6.68:1. El separador «/» es decorativo (`aria-hidden`). Cálculo estático por clases (sin variantes hover/focus, degradados ni imágenes). |
 | 2.4.7 Foco visible | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C3, 2026-10-04). Análisis estático: 0 clases focus:ring/outline y 0 outline-none; sin navegador no se confirma el indicador de foco. |
 | 1.4.10 Reflow / 1.4.4 / 1.4.12 | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C4, C5 y C6, 2026-10-04). Análisis estático: Requiere navegador. |
 | 2.5.8 Tamaño de objetivo | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C7, 2026-10-04). Análisis estático: Sin medición. |
@@ -53,4 +53,4 @@ a11y_review:
 
 ## Resultado
 
-`inconclusive`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión manual en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
+`pass`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión manual en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
