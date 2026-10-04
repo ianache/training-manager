@@ -154,6 +154,10 @@ sources:
 - [ARP-SCR-029-04 — Historial de relaciones y vigencias](design/handoff/ARP-SCR-029-04-historial-de-relaciones.md) — Accessibility Report, `draft`, resultado `fail`
 - [ARP-UNIDADES-V2 — Regeneración de las pantallas de unidades organizacionales](design/handoff/ARP-UNIDADES-REGENERACION-v2.md) — Accessibility Report, `draft`, 2 `fail` y 14 `inconclusive`
 - [DCP-004 — Development Context Pack de la gestión de unidades organizacionales](architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md) — `REQUIRES_REVIEW`
+- [DTC-017 — Handoff de Desarrollo: Registrar la organización interna](implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md) — `REQUIRES_REVIEW`
+- [DTC-028 — Handoff de Desarrollo: Listar y buscar unidades](implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
+- [DTC-029 — Handoff de Desarrollo: Registrar y editar unidades](implementation/DTC-029-handoff-desarrollo-registrar-y-editar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
+- [DTC-030 — Handoff de Desarrollo: Desactivar y reactivar unidades](implementation/DTC-030-handoff-desarrollo-desactivar-y-reactivar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
 - [API-SPEC-006 — Gestión de la estructura organizacional](architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md) — Technical Design, `draft`, `REQUIRES_REVIEW`
 - [CMP-017 — Componentes de la gestión de la estructura organizacional](design/components/CMP-017-componentes-gestion-de-unidades.md) — Component Specification, `draft`, `REQUIRES_REVIEW`
 - [CHK-UNIDADES-001 — Lista de comprobación en navegador de las pantallas de unidades](design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md) — Checklist, `draft`; pruebas manuales de teclado, foco y zoom pendientes

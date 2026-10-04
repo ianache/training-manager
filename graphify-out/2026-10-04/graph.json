@@ -61654,7 +61654,7 @@
         "id": "ARP-SCR-017-02-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-017-02-C \u2014 Revisi\u00f3n de accesibilidad: Registrar la organizaci\u00f3n interna (hoja consolidada de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-017-02. Resultado inconclusive; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-017-02. Resultado pass; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -61682,7 +61682,7 @@
         "a11y_review": {
           "screen": "SCR-017-02",
           "target": "html",
-          "result": "inconclusive",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -61691,9 +61691,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 11,
+            "pass": 12,
             "fail": 0,
-            "inconclusive": 1
+            "inconclusive": 0
           }
         }
       },
@@ -62491,7 +62491,7 @@
         "id": "ARP-SCR-028-01-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-028-01-C \u2014 Revisi\u00f3n de accesibilidad: Lista y jerarqu\u00eda de unidades (hoja consolidada de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-028-01. Resultado inconclusive; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-028-01. Resultado fail; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -62519,7 +62519,7 @@
         "a11y_review": {
           "screen": "SCR-028-01",
           "target": "html",
-          "result": "inconclusive",
+          "result": "fail",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -62529,8 +62529,8 @@
           ],
           "counts": {
             "pass": 11,
-            "fail": 0,
-            "inconclusive": 1
+            "fail": 1,
+            "inconclusive": 0
           }
         }
       },
@@ -62870,9 +62870,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 11,
+            "pass": 12,
             "fail": 1,
-            "inconclusive": 1
+            "inconclusive": 0
           }
         }
       },
@@ -62951,7 +62951,7 @@
         "id": "ARP-SCR-029-02-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-029-02-C \u2014 Revisi\u00f3n de accesibilidad: Editar nombre de una unidad (hoja consolidada de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-02. Resultado inconclusive; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-02. Resultado pass; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -62979,7 +62979,7 @@
         "a11y_review": {
           "screen": "SCR-029-02",
           "target": "html",
-          "result": "inconclusive",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -62988,9 +62988,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 11,
+            "pass": 12,
             "fail": 0,
-            "inconclusive": 1
+            "inconclusive": 0
           }
         }
       },
@@ -63058,7 +63058,7 @@
         "id": "ARP-SCR-029-03-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-029-03-C \u2014 Revisi\u00f3n de accesibilidad: Cambiar unidad padre (hoja consolidada de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-03. Resultado inconclusive; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja consolidada de Stitch para SCR-029-03. Resultado fail; borrador, sin verificaci\u00f3n humana ni prueba en navegador.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -63086,7 +63086,7 @@
         "a11y_review": {
           "screen": "SCR-029-03",
           "target": "html",
-          "result": "inconclusive",
+          "result": "fail",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -63096,8 +63096,8 @@
           ],
           "counts": {
             "pass": 11,
-            "fail": 0,
-            "inconclusive": 2
+            "fail": 1,
+            "inconclusive": 1
           }
         }
       },
@@ -63286,9 +63286,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 9,
+            "pass": 10,
             "fail": 1,
-            "inconclusive": 1
+            "inconclusive": 0
           }
         }
       },
@@ -181949,5 +181949,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2f42e7cab67e85d12583dc5d69a2e77957b9f437"
+  "built_at_commit": "07ada79e2b3a2020af83a356709d9888e035132d"
 }

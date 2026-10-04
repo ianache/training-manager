@@ -36,7 +36,7 @@ human-reviewed: false
 
 # Development Context Pack — Gestión de la estructura organizacional
 
-**Estado: `REQUIRES_REVIEW`.** No es `READY_FOR_DEV`. Todos los insumos están en `draft`; el gate `DESIGN_READY_FOR_DEV` de `HOF-PPM-002` está en **`FAILED`** (39 hallazgos, 2026-10-04) y el contrato de API (API-SPEC-006) y el de componentes (CMP-017) son propuestas sin revisión humana. El diseño de referencia es solo Stitch (decisión de `human:ianache`, 2026-10-03; Figma descartado).
+**Estado: `REQUIRES_REVIEW`.** No es `READY_FOR_DEV`. Todos los insumos están en `draft`; el gate `DESIGN_READY_FOR_DEV` de `HOF-PPM-002` está en **`FAILED`** (23 hallazgos, 2026-10-04: sin aprobación humana del diseño por pantalla, informes de accesibilidad sin `pass` en 10 pantallas y revisión humana del gate) y el contrato de API (API-SPEC-006) y el de componentes (CMP-017) son propuestas sin revisión humana. El diseño de referencia es solo Stitch (decisión de `human:ianache`, 2026-10-03; Figma descartado).
 
 ## Scope and identity
 
@@ -56,14 +56,14 @@ Que el Jefe de Ingeniería registre la organización interna y gestione sus unid
 
 | Pieza | Fuente | Estado de la fuente |
 |---|---|---|
-| Registrar la organización interna (`internal_organization`, RUC) | US-017, API-SPEC-006 §3.2 | contrato propuesto; **no existe en el código** |
+| Registrar la organización interna (RUC) | US-017 | **fuera de la API gestionada** (BR-PTY-28, EVD-2026-0240): registro único; falta definir cómo se carga (DTC-017) |
 | Listado ampliado: `ancestor_id`, orden por padre/estado/vigencia, `from_date`/`thru_date`, conteos, `view=tree` | US-028, API-SPEC-006 §3.1 | propuesto; `GET /organizations` existente cubre solo parte |
-| `PATCH` del nombre con auditoría del valor anterior | US-029 AC-2 | propuesto; **requiere historial** |
+| `PATCH` del nombre con auditoría del valor anterior | US-029 AC-2 | propuesto; historial en `tb_organization_name_history` (migración 0005, ya en el código; falta la lógica del servicio) |
 | `POST …/parent`: cambio de padre con cierre y apertura de vigencia, ciclo, padre inactivo y nombre repetido | US-029 AC-3 a 6 | propuesto |
 | `POST …/deactivate` y `…/reactivate`, con `ORGANIZATION_HAS_DEPENDENCIES` y `PARENT_INACTIVE` | US-030 | propuesto |
 | `GET …/relationships` (historial) | SCR-029-04 | propuesto |
-| Migración posterior a `0004` (auditoría del nombre, índice de unicidad por padre) | API-SPEC-006 §5 | **por diseñar**; sin DDL escrito |
-| Rutas del BFF con `requireAnyRole(Role.JefeIngenieria)`; `LIST_QUERY` ampliado | `organizations.router.ts` | código existente a ampliar |
+| Migración 0005 (historial del nombre) | API-SPEC-006 §5 | **hecha** (commit `8df2d92`, probada en PostgreSQL 15); falta una migración para el índice de unicidad del nombre por padre |
+| Rutas del BFF con `requireAnyRole(Role.JefeIngenieria, Role.Admin)`; `LIST_QUERY` ampliado | `organizations.router.ts` | código existente a ampliar |
 | Páginas del portal: organización interna, listado (lista y árbol), formularios, diálogos e historial | SCR-017, 028, 029, 030 | diseño exploratorio en Stitch |
 | Componentes nuevos de `@gf/ui` (7 brechas) | CMP-017 | **sin diseño atómico** |
 
@@ -81,7 +81,9 @@ Que el Jefe de Ingeniería registre la organización interna y gestione sus unid
 - **No se borra:** desactivar cierra vigencias y reactivar abre una nueva (BR-PTY-12, BR-PTY-21, BR-PTY-24).
 - **Sin ciclos** (BR-PTY-22), **padre solo Activo** (BR-PTY-25), **nombre único entre unidades con el mismo padre** (BR-PTY-26), **no se desactiva con hijas activas ni personas vigentes** (BR-PTY-23).
 - **Estados de la API en minúsculas** (`active`/`inactive`): BR-CAT-27 no se propaga a party (EVD-2026-0162). La interfaz muestra «Activa»/«Inactiva».
-- **Permiso:** Jefe de Ingeniería; la pantalla de gestión no es de los demás colaboradores (EVD-2026-0142).
+- **Permiso:** Jefe de Ingeniería **y ADMIN** (EVD-2026-0142 y EVD-2026-0238); la pantalla de gestión no es de los demás colaboradores.
+- **Correo laboral obligatorio** al registrar una unidad (BR-PTY-27, EVD-2026-0239).
+- **Solo unidades y proveedores se gestionan** por la API; la organización interna es un registro único (BR-PTY-28).
 - Pila: Python 3.11+ y FastAPI (ADR-008), PostgreSQL (ADR-007), Angular con `@gf/ui` **sin Material** (decisión de `human:ianache` para DTC-015), solo escritorio.
 - Éxito y vigencia en verde del design system (`success`), siempre con icono y texto (decisión de `human:ianache`, 2026-10-03).
 - El diálogo de resumen del cambio de padre muestra solo «{unidad}: de X a Y»; la columna «Hasta» del historial va vacía en la relación vigente (decisiones de `human:ianache`, 2026-10-03).
@@ -90,26 +92,25 @@ Que el Jefe de Ingeniería registre la organización interna y gestione sus unid
 
 Supuestos del agente, **sin confirmar**:
 
-- ADMIN **no** gestiona la estructura (BR-PTY-17 solo menciona al Jefe; la ampliación del 2026-10-03 habla de Rol-Nivel y catálogo).
 - `If-Match`/`row_version` para la concurrencia de `PATCH` y cambio de padre.
 - Los textos de mensajes de error al guardar, de carga y de sin permisos son de muestra.
 
 Preguntas abiertas que condicionan la implementación:
 
-- **API-SPEC-006 Q-1 (resuelta 2026-10-04):** se añade `contact.email_work` («Correo laboral *») a SCR-029-01; falta propagarlo a UXR-029, FLW-029 y regenerar el diseño de Stitch.
+- **API-SPEC-006 Q-1 (resuelta 2026-10-04):** `contact.email_work` («Correo laboral *») ya está en US-029, SCR-029, UXR-029, FLW-029, CMP-017 y en la hoja v6 de SCR-029-01. Falta propagar la regla a la API (validación y contrato de `POST`).
 - Q-2 (resuelta: ADMIN también gestiona), Q-3 (sin objeto: la organización interna queda fuera de la API gestionada, BR-PTY-28), Q-4 (volumen y profundidad del árbol), Q-5 (editar una unidad inactiva), Q-6 (unidad superior), Q-7 (`code` y `location` en pantalla), Q-8 (concurrencia) y Q-9 (resuelta: tabla `tb_organization_name_history`, migración 0005).
 - Las **44 preguntas de diseño** fusionadas en UXS-001 (21 de ellas de negocio), de las que ninguna se resolvió salvo las decididas el 2026-10-03.
 
 ### Risks and dependencies
 
-- **Gate de diseño sin pasar:** `HOF-PPM-002` `FAILED` por: sin `governed_design` aprobado (el validador ya acepta Stitch con aprobación humana, pero nadie la ha registrado), sin informe de accesibilidad en `pass`, secciones A a N sin redactar y sin aprobación humana.
-- **Diseño no consolidado:** el contrato exige un artefacto por pantalla con todos sus estados; hoy hay hojas repartidas y las seis consolidadas pedidas a Stitch no han aparecido.
-- **Accesibilidad no verificada en navegador:** ARP-UNIDADES-V2 es análisis estático (0 `pass`); falta CHK-UNIDADES-001.
+- **Gate de diseño sin pasar:** `HOF-PPM-002` `FAILED` (23 hallazgos). Secciones A a N ya redactadas. Falta: aprobación humana del diseño de Stitch por pantalla (`register-governed-stitch`), informes de accesibilidad en `pass` (SCR-017-02 y SCR-029-02 ya lo están; SCR-028-01, 029-01, 029-03 y 029-04 tienen fallos pequeños anotados; faltan SCR-017-01, 017-03 y SCR-030-01 a 04) y la revisión humana del gate.
+- **Diseño parcialmente consolidado:** hay hoja consolidada registrada en el DTM para SCR-017-02, 028-01, 029-01 (v6), 029-02, 029-03 y 029-04; el resto de las pantallas conserva sus hojas por estado.
+- **Accesibilidad:** ianache aprobó C1 a C9 de CHK-UNIDADES-001 en las seis hojas consolidadas (2026-10-04); faltan las pruebas específicas por pantalla y las pantallas no consolidadas.
 - **Componentes sin diseño:** tabla ordenable, árbol y diálogo (con foco atrapado) son de alto riesgo.
-- **Historial del nombre:** sin tabla de auditoría no se puede cumplir AC-9 de US-029.
+- **Historial del nombre:** la tabla existe (migración 0005); falta escribirla desde el servicio para cumplir AC-2 de US-029.
 - **Conteos y árbol:** `active_children_count`, `current_people_count` y la consulta recursiva pueden ser costosos; sin volumen esperado no se puede dimensionar (Q-4).
-- **Contrato publicado:** hacer opcional el contacto (Q-1) cambia API-SPEC-002 v3; y `status` en minúsculas convive con `ACTIVE` del catálogo.
-- **SQLite no detecta** errores de PostgreSQL: las pruebas de la API deben correr contra PostgreSQL real.
+- **Contrato publicado:** `status` en minúsculas convive con `ACTIVE` del catálogo.
+- **SQLite no detecta** errores de PostgreSQL: las pruebas de la API deben correr contra PostgreSQL real. En PostgreSQL ya fallan 13 pruebas de integración anteriores a esta capacidad (orden de inserción de claves foráneas en las pruebas): conviene corregirlas antes de apoyarse en esa suite.
 - **Dependencias de datos:** el conteo de personas vigentes depende de la pertenencia persona ↔ unidad que registra US-015 (implementación en curso).
 
 ## Verification
@@ -169,7 +170,7 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 
 Orden por dependencia, sin estimaciones (las hace el equipo):
 
-1. **Contrato y datos:** Q-1 a Q-3 y Q-9 respondidas; migración 0005 hecha; falta la migración (índice de unicidad por padre) y (auditoría del nombre, índice de unicidad por padre); revisar API-SPEC-006.
+1. **Contrato y datos:** Q-1 a Q-3 y Q-9 respondidas y migración 0005 hecha; falta el índice de unicidad del nombre por padre, revisar API-SPEC-006 y decidir cómo se carga la organización interna.
 2. **Servicio:** organización interna, listado ampliado, `PATCH`, cambio de padre, desactivar, reactivar e historial, con pruebas contra PostgreSQL.
 3. **BFF:** rutas y consulta permitida.
 4. **Componentes:** diseñar y construir las brechas de CMP-017.
@@ -181,5 +182,5 @@ Orden por dependencia, sin estimaciones (las hace el equipo):
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir Q-1 (contacto) y Q-2 (ADMIN); (2) registrar la aprobación humana del diseño de Stitch por pantalla (`register-governed-stitch --approved-by human:<id>`) cuando existan las hojas consolidadas; (3) ejecutar CHK-UNIDADES-001; (4) pasar CMP-017 por `web-atomic-component-designer`; (5) revisar API-SPEC-006 con `api-contract-reviewer` y `api-security-reviewer`.
-- Gate: pasar a `READY_FOR_DEV` exige gate `DESIGN_READY_FOR_DEV` en `PASSED` con aprobación humana, Q-1 y Q-2 resueltas, brechas de componentes diseñadas, API-SPEC-006 revisada y la migración diseñada. Hoy no se cumple ninguno.
+- Action: (1) registrar la aprobación humana del diseño de Stitch por pantalla (`register-governed-stitch --approved-by human:<id>`) y la revisión humana del gate; (2) completar las pruebas específicas de CHK-UNIDADES-001 y los informes de accesibilidad de SCR-017-01, 017-03 y SCR-030-01 a 04; (3) regenerar las hojas con fallos anotados (SCR-029-01, 029-03, 029-04, 028-01); (4) pasar CMP-017 por `web-atomic-component-designer`; (5) revisar API-SPEC-006 con `api-contract-reviewer` y `api-security-reviewer`; (6) decidir cómo se carga la organización interna (DTC-017); (7) responder Q-4 a Q-8.
+- Gate: pasar a `READY_FOR_DEV` exige gate `DESIGN_READY_FOR_DEV` en `PASSED` con aprobación humana, brechas de componentes diseñadas y API-SPEC-006 revisada. Q-1, Q-2 y Q-9 están resueltas y la migración 0005 hecha; el gate de diseño, las brechas de componentes y la revisión del contrato siguen pendientes.

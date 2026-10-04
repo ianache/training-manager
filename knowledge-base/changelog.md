@@ -439,3 +439,8 @@ sources:
 
 - Generado el Development Context Pack DCP-004 de la gestión de unidades organizacionales (US-017, 028, 029, 030) con sus artefactos de diseño: API-SPEC-006 (contrato propuesto: organización interna, listado ampliado, PATCH, cambio de padre, desactivar, reactivar, historial) y CMP-017 (inventario de componentes: 7 brechas en `@gf/ui`). Estado `REQUIRES_REVIEW`: gate DESIGN_READY_FOR_DEV en FAILED, sin diseño gobernado aprobado ni informes de accesibilidad en pass. **Hallazgos:** `POST /organizations` exige `contact.email_work` y el diseño no tiene campo de contacto (Q-1); no está decidido si ADMIN gestiona la estructura (Q-2); la organización interna no existe en el código; el historial del nombre necesita una tabla de auditoría.
 - Artefactos afectados: `knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md`, `INDEX.md`, `architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md`, `design/components/CMP-017-componentes-gestion-de-unidades.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
+
+## 2026-10-04
+
+- Se actualizó DCP-004 al estado actual (ADMIN gestiona la estructura, correo laboral obligatorio, organización interna fuera de la API gestionada, migración 0005 hecha, gate con 23 hallazgos) y se crearon DTC-017, DTC-028, DTC-029 y DTC-030, uno por historia, todos `REQUIRES_REVIEW`.
+- Artefactos afectados: `architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md`, `architecture/ad-handoff/INDEX.md`, `implementation/DTC-017-*`, `DTC-028-*`, `DTC-029-*`, `DTC-030-*`, `index.md`, `changelog.md`.
