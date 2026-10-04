@@ -41,6 +41,8 @@ sources:
 | C8 | 4.1.3 Mensajes de estado | Con un lector de pantalla (NVDA o VoiceOver) provoca el estado | El error, la carga o el éxito se anuncian sin mover el foco |
 | C9 | 1.3.1 y 4.1.2 | Lector de pantalla: recorre los campos | Cada campo anuncia su etiqueta, su obligatoriedad y su error |
 
+**Resultado de las pruebas comunes (2026-10-04).** ianache (Jefe de Ingeniería) comprobó directamente en Stitch y **aprobó C1 a C9** para las seis hojas consolidadas (SCR-017-02, 028-01, 029-01, 029-02, 029-03 y 029-04). Lo registró el agente a partir de esa declaración; el agente no ejecutó las pruebas. Las pruebas específicas por pantalla de la sección 2 siguen sin resultado registrado, y SCR-017-01, 017-03 y SCR-030-01 a 04 no están cubiertas.
+
 ## 2. Pruebas específicas por pantalla
 
 Marca cada fila con ✔ (cumple), ✘ (no cumple, con nota) o — (no aplica).

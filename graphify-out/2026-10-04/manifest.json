@@ -3942,15 +3942,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md": {
-    "mtime": 1791092401.7207153,
-    "seen": 1791094406.6827579,
-    "ast_hash": "8739ae1c59d87f5809773d8b918564cf",
+    "mtime": 1791135765.8952346,
+    "seen": 1791135801.5780034,
+    "ast_hash": "03f1dd2ffa9a6c9699c58f7a6be9a5e8",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md": {
-    "mtime": 1791134739.7490354,
-    "seen": 1791134787.9317925,
-    "ast_hash": "bfb46812c6e9105a04a5d8c3c7f666ae",
+    "mtime": 1791135272.9931047,
+    "seen": 1791135311.696131,
+    "ast_hash": "3c291647eb2fdbd3043f346442aefd6f",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.api.spec.ts": {

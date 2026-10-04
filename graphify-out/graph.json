@@ -61691,9 +61691,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 11,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -62528,9 +62528,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 11,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -62870,9 +62870,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 11,
             "fail": 1,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -62988,9 +62988,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 11,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -63095,9 +63095,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 11,
             "fail": 0,
-            "inconclusive": 7
+            "inconclusive": 2
           }
         }
       },
@@ -63286,9 +63286,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 5,
+            "pass": 9,
             "fail": 1,
-            "inconclusive": 5
+            "inconclusive": 1
           }
         }
       },
@@ -64054,7 +64054,7 @@
       "node_kind": "heading",
       "norm_label": "2. pruebas especificas por pantalla",
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L44"
+      "source_location": "L46"
     },
     {
       "id": "knowledge_base_design_handoff_chk_unidades_revision_navegador_3_c\u00f3mo_registrar_el_resultado",
@@ -64066,7 +64066,7 @@
       "node_kind": "heading",
       "norm_label": "3. como registrar el resultado",
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L63"
+      "source_location": "L65"
     },
     {
       "id": "knowledge_base_design_handoff_chk_unidades_revision_navegador_4_fuera_de_esta_lista",
@@ -64078,7 +64078,7 @@
       "node_kind": "heading",
       "norm_label": "4. fuera de esta lista",
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L70"
+      "source_location": "L72"
     },
     {
       "id": "knowledge_base_design_handoff_chk_unidades_revision_navegador_chk_unidades_001_revisi\u00f3n_en_navegador",
@@ -144669,7 +144669,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -144680,7 +144680,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -144691,7 +144691,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -181949,5 +181949,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "32f2215a72972408b18f6056a78b09890e18b4d3"
+  "built_at_commit": "2f42e7cab67e85d12583dc5d69a2e77957b9f437"
 }
