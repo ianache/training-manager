@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791071955.93472,
-    "seen": 1791072006.4349256,
-    "ast_hash": "eaf7609447ec1693593901e4b88d2290",
+    "mtime": 1791073539.0318928,
+    "seen": 1791073587.746192,
+    "ast_hash": "d61fe952836d1c01a7d323d1c9e8beb5",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -3624,9 +3624,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md": {
-    "mtime": 1791071300.9501424,
-    "seen": 1791071395.4524329,
-    "ast_hash": "ad5825ef385ba937c2aa4f4bf5e9d3ad",
+    "mtime": 1791073601.7235575,
+    "seen": 1791073650.8564055,
+    "ast_hash": "3fb9fee2147d21795a43d087991d0d50",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {

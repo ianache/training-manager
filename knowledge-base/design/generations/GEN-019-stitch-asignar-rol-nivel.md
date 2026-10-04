@@ -38,7 +38,8 @@ sources:
 | SCR | `artifact_ref` | Estados incluidos |
 |---|---|---|
 | SCR-019-01 | `projects/13050549605434273903/screens/5223996189a446b0b140af99d1a16e10` | A a E |
-| SCR-019-02 | `…/screens/7c90ec1d19894fd78a455aa39d76d05a` | A a E |
+| SCR-019-02 (v2, vigente en el DTM) | `…/screens/d5465d68fc1546fbb011c7841a9c7a9b` | A a E, con el bloqueo del nivel destino |
+| SCR-019-02 (v1, historial) | `…/screens/7c90ec1d19894fd78a455aa39d76d05a` | A a E, bloqueo solo de niveles inferiores |
 | SCR-019-03 | `…/screens/d81b2e4fe6a94d6fae3d86c8003c987e` | A a D |
 
 ## Prompts (reproducibles)
@@ -62,9 +63,9 @@ Verificación automática del HTML devuelto:
 3. La lista de asignaciones con historial es una brecha de componentes: Stitch la resolvió con su propio marcado, no con `@gf/ui`.
 4. Solo se verificó el texto del HTML: no se revisaron las capturas, el contraste ni la correspondencia valor por valor con `TKN-SET-002`. Accesibilidad no demostrada; `accessibility-reviewer` pendiente.
 
-**Desajuste con decisiones posteriores (2026-10-04):** SCR-019-02 se generó cuando el bloqueo solo hablaba de niveles inferiores; ahora también cubre las competencias del nivel destino (EVD-2026-0172). El diseño de Stitch debe ajustarse (texto y lista de pendientes) antes de darlo por válido.
+**Desajuste resuelto (2026-10-04):** la v1 de SCR-019-02 solo bloqueaba por niveles inferiores; la v2 incluye también el nivel destino (EVD-2026-0172).
 
-**Intentos de ajuste (2026-10-04), sin efecto:** se pidió a Stitch dos veces `edit_screens` sobre SCR-019-02 (`7c90ec1d…`) y una regeneración completa con `generate_screen_from_text`; las tres llamadas agotaron el tiempo de espera y, tras más de diez minutos de espera, la pantalla no cambió y no apareció ninguna pantalla nueva (95 pantallas en el proyecto antes y después; se comprobó el HTML, que sigue sin «Nivel destino» ni «Sin certificar»). Se dejó de reintentar para no crear duplicados. El diseño sigue desfasado; hay que ajustarlo a mano en Stitch o reintentar más tarde.
+**Regeneración v2 (2026-10-04):** los intentos con `edit_screens` (dos) no se aplicaron. Una regeneración completa con `generate_screen_from_text` tardó unos 15 minutos y devolvió siempre `timeout` en la llamada, pero la pantalla apareció después: `d5465d68fc1546fbb011c7841a9c7a9b` (v2, la registrada). Apareció además `c3342d35c640412aa9020d5c763df16e`, otra pantalla v2 (probablemente de un intento anterior que llegó tarde): **duplicado huérfano**, no registrado, a borrar en Stitch. Revisión del HTML de la v2: los cinco estados A a E, el bloqueo con «Niveles inferiores» y «Nivel destino: Junior (Nivel 3)», «Sin certificar» y las cuatro competencias de ejemplo, sin opción de bajar de nivel; 35 atributos `aria-` y 4 `role="alert"`. No muestra niveles inactivos (SCR-019 solo los excluye de la lista) y no se revisaron las capturas ni el contraste.
 
 ## Preguntas abiertas
 

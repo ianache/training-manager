@@ -51964,7 +51964,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L67"
+      "source_location": "L69"
     },
     {
       "id": "knowledge_base_design_generations_gen_019_stitch_asignar_rol_nivel_prompts_reproducibles",
@@ -121594,7 +121594,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L67",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -156126,5 +156126,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8ebbe95b2a97c3b7208e6b31bb42892bfda14d9b"
+  "built_at_commit": "83dd536ac217a795b15db89a030f5b0a22aea144"
 }

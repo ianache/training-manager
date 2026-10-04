@@ -1335,9 +1335,17 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/d5465d68fc1546fbb011c7841a9c7a9b
+    version: v2-nivel-destino
+    status: current
+    captured_at: '2026-10-03T20:42:02-05:00'
+    latest_known_version: v2-nivel-destino
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/7c90ec1d19894fd78a455aa39d76d05a
     version: v1-comsatel-styled
-    status: current
+    status: superseded
     captured_at: '2026-10-03T17:51:28-05:00'
     latest_known_version: v1-comsatel-styled
 - screen: SCR-019-03

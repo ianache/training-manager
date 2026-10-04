@@ -317,3 +317,6 @@ sources:
 
 - Portal: el asistente de alta elige niveles por `usable` y estado ACTIVE (EVD-2026-0173); 177 pruebas del micro-frontend pasan; el stub sirve `usable` y `status`; imagen del portal reconstruida. Stitch: tres intentos de ajustar SCR-019-02 al bloqueo del nivel destino no surtieron efecto (GEN-019 sigue desfasado).
 - Artefactos afectados: `knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md`, `codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/`, `codebase/dev/catalog-stub/roles.json`.
+
+- SCR-019-02 regenerado por completo en Stitch con el bloqueo del nivel destino (v2, `d5465d68…`) y registrado en `DTM-PPM-001` (la v1 pasa al historial). Texto del HTML revisado: cinco estados y textos exigidos presentes. Un duplicado huérfano `c3342d35…` queda sin registrar. Corrección: al registrar usé primero un id inventado y lo reemplacé por el real antes de commitear.
+- Artefactos afectados: `knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`.
