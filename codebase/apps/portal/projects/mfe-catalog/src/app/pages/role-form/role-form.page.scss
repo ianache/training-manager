@@ -1,0 +1,137 @@
+:host {
+  display: block;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: var(--gf-space-4);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gf-space-3);
+  margin-bottom: var(--gf-space-4);
+  h1 {
+    margin: 0;
+    font-size: var(--gf-font-size-xl);
+  }
+}
+
+.muted {
+  color: var(--gf-color-text-muted);
+  font-style: italic;
+}
+
+gf-alert {
+  display: block;
+  margin-bottom: var(--gf-space-4);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--gf-font-size-sm);
+}
+
+.inline {
+  margin-top: var(--gf-space-3);
+  &.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gf-space-2);
+  }
+}
+
+.error-list {
+  margin: 0;
+  padding-left: var(--gf-space-5);
+  font-size: var(--gf-font-size-sm);
+}
+
+.form {
+  display: grid;
+  gap: var(--gf-space-6);
+  max-width: 56rem;
+}
+
+.levels {
+  display: grid;
+  gap: var(--gf-space-4);
+  h2 {
+    margin: 0;
+    font-size: var(--gf-font-size-lg);
+  }
+  h3 {
+    margin: var(--gf-space-4) 0 var(--gf-space-2);
+    font-size: var(--gf-font-size-md);
+  }
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--gf-font-size-sm);
+  color: var(--gf-color-text-muted);
+}
+
+.level {
+  border: 1px solid var(--gf-color-border);
+  border-radius: var(--gf-radius-md);
+  padding: var(--gf-space-4);
+  margin: 0;
+  &[data-status='INACTIVE'] {
+    background: var(--gf-color-surface-container);
+  }
+  legend {
+    display: flex;
+    align-items: center;
+    gap: var(--gf-space-2);
+    padding: 0 var(--gf-space-2);
+    font-weight: var(--gf-font-weight-semibold);
+  }
+}
+
+.competency {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gf-space-3) var(--gf-space-4);
+  align-items: start;
+  padding: var(--gf-space-3) 0;
+  border-top: 1px solid var(--gf-color-border);
+}
+
+.version {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gf-space-3);
+  font-size: var(--gf-font-size-sm);
+  color: var(--gf-color-text-muted);
+}
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: var(--gf-space-1);
+  margin: 0 0 var(--gf-space-2);
+  color: var(--gf-color-danger-fg);
+  font-size: var(--gf-font-size-sm);
+}
+
+.level-actions,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gf-space-2);
+  margin-top: var(--gf-space-3);
+}
+
+.actions {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .competency {
+    grid-template-columns: 1fr;
+  }
+}

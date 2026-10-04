@@ -27,3 +27,17 @@
     background: var(--gf-color-surface-container);
   }
 }
+
+.search {
+  display: grid;
+  gap: var(--gf-space-2);
+  max-width: 24rem;
+  margin-bottom: var(--gf-space-4);
+  label {
+    font-size: var(--gf-font-size-sm);
+  }
+}
+
+.create {
+  text-decoration: none;
+}

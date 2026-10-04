@@ -11,9 +11,13 @@ export const ROUTES: Routes = [
     title: 'Catálogo de roles',
   },
   {
+    path: 'roles/nuevo',
+    loadComponent: () => import('./pages/role-form/role-form.page').then((m) => m.RoleFormPage),
+    title: 'Crear rol',
+  },
+  {
     path: 'roles/:roleId',
-    loadComponent: () =>
-      import('./pages/role-detail/role-detail.page').then((m) => m.RoleDetailPage),
-    title: 'Detalle de rol',
+    loadComponent: () => import('./pages/role-form/role-form.page').then((m) => m.RoleFormPage),
+    title: 'Rol',
   },
 ];

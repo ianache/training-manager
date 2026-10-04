@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791092254.1019523,
-    "seen": 1791092309.5851047,
-    "ast_hash": "54db4fa7008f94c11aaf59d2ee8046a7",
+    "mtime": 1791093472.0939336,
+    "seen": 1791094406.6574447,
+    "ast_hash": "19cf12558ec6dfea9b078baca371c241",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791092254.191759,
-    "seen": 1791092309.6496332,
-    "ast_hash": "780898257042a5b22475ddb6f6611d94",
+    "mtime": 1791092402.041112,
+    "seen": 1791094406.7041411,
+    "ast_hash": "0e1c36a1b775b91f0bf03c73eb859392",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1296,9 +1296,9 @@
     "semantic_hash": ""
   },
   "codebase/postgres-init.sh": {
-    "mtime": 1790832340.3110716,
-    "seen": 1790832490.5162704,
-    "ast_hash": "64812d2dbe3c3e647bb6dd13a343b972",
+    "mtime": 1791094103.1389432,
+    "seen": 1791094406.509279,
+    "ast_hash": "f0a24823954130ab99ec3aa3e067c846",
     "semantic_hash": ""
   },
   "generate-diagrams.ps1": {
@@ -1362,9 +1362,9 @@
     "semantic_hash": ""
   },
   "codebase/docker-compose.yml": {
-    "mtime": 1791060380.0347064,
-    "seen": 1791060569.9885862,
-    "ast_hash": "d8b567a1364ceb1ec4d6a3948d6bf214",
+    "mtime": 1791094103.134958,
+    "seen": 1791094406.5450773,
+    "ast_hash": "c74103e2c3d9e0eb5d96aac150df30e8",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md": {
@@ -1668,9 +1668,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/downstream/service-client.ts": {
-    "mtime": 1790832267.5992396,
-    "seen": 1790832319.3015163,
-    "ast_hash": "214c404370ea57a1cdf6073c138808cd",
+    "mtime": 1791094221.0027966,
+    "seen": 1791094406.3588834,
+    "ast_hash": "070402e3cc95cc6593e7814aedbe8c65",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/downstream/service-token.ts": {
@@ -1710,9 +1710,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/catalog/catalog.router.ts": {
-    "mtime": 1790832268.130365,
-    "seen": 1790832319.3035176,
-    "ast_hash": "1792c2a71bbfa0c9bb4a42c26567a977",
+    "mtime": 1791094221.8507788,
+    "seen": 1791094406.3588834,
+    "ast_hash": "77d732bd95a2d007a5a719f980d55278",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/parties/parties.router.ts": {
@@ -1746,9 +1746,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/app.test.ts": {
-    "mtime": 1791058668.5112176,
-    "seen": 1791058793.5130436,
-    "ast_hash": "35360d153c3d97a1aeb83e98db794da0",
+    "mtime": 1791094245.762156,
+    "seen": 1791094406.3588834,
+    "ast_hash": "8fe9406e2d465e859d69d7459708ed3d",
     "semantic_hash": ""
   },
   "codebase/apps/bff/tsconfig.build.json": {
@@ -3474,21 +3474,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-01-organizacion-interna.md": {
-    "mtime": 1791056259.5203576,
-    "seen": 1791056485.6563501,
-    "ast_hash": "943c28a56ea53c88eb8da29e9c2939cb",
+    "mtime": 1791093447.5838995,
+    "seen": 1791094406.6790004,
+    "ast_hash": "2271f0b0d545d72bccc6d9aa9ca07f8a",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-02-registrar-la-organizacion-interna.md": {
-    "mtime": 1791056262.5964973,
-    "seen": 1791056485.6563501,
-    "ast_hash": "b8cbca2e0038c0b5deb0ceb9a1b25201",
+    "mtime": 1791093447.589905,
+    "seen": 1791094406.6790004,
+    "ast_hash": "75ecc157910a50d7621a21274f3f2282",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-03-acceso-no-autorizado.md": {
-    "mtime": 1791056257.516726,
-    "seen": 1791056485.6563501,
-    "ast_hash": "b35ce7267452345cdc8532c18777cff9",
+    "mtime": 1791093447.595684,
+    "seen": 1791094406.6790004,
+    "ast_hash": "83664152341368e8a828bf1fab2e5ad3",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-028-029-scr-028-01-lista-y-jerarquia.md": {
@@ -3540,21 +3540,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md": {
-    "mtime": 1791060499.7058563,
-    "seen": 1791060570.073354,
-    "ast_hash": "fcd8578b76260ba647a3e8939a50d4cb",
+    "mtime": 1791093447.602521,
+    "seen": 1791094406.680601,
+    "ast_hash": "bdac3c036f4e9b326439e3c9f7e5a9ed",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-04-historial-de-relaciones.md": {
-    "mtime": 1791060501.2579186,
-    "seen": 1791060570.073354,
-    "ast_hash": "a5a4113ef00eefdb21ed2ce35cb7f8cd",
+    "mtime": 1791093447.6101067,
+    "seen": 1791094406.680601,
+    "ast_hash": "779bbcc8396e1fa1226c291909353a5d",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-030-04-reactivacion-bloqueada.md": {
-    "mtime": 1791060498.0760832,
-    "seen": 1791060570.073354,
-    "ast_hash": "88703723aa56b9fb271408fed93ce714",
+    "mtime": 1791093447.6187236,
+    "seen": 1791094406.680601,
+    "ast_hash": "be28decedba9c1566685a60a3d357f24",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-UNIDADES-REGENERACION-v2.md": {
@@ -3705,6 +3705,258 @@
     "mtime": 1791091144.5855374,
     "seen": 1791091272.9301505,
     "ast_hash": "e764687d14a1b7cba945648e074d3e16",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/__init__.py": {
+    "mtime": 1791093667.5742443,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/config.py": {
+    "mtime": 1791093722.2570002,
+    "seen": 1791094406.3719826,
+    "ast_hash": "689fc7a3ab62e7bddda242a1fc8c0859",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/__init__.py": {
+    "mtime": 1791093665.8783345,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/auth.py": {
+    "mtime": 1791093666.011931,
+    "seen": 1791094406.3719826,
+    "ast_hash": "65eb66e577e13a456db12d9f6acf1d23",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/authorization.py": {
+    "mtime": 1791093750.1786294,
+    "seen": 1791094406.3719826,
+    "ast_hash": "f8b4a17279b19748edcef8fcea36d137",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/errors.py": {
+    "mtime": 1791093750.654002,
+    "seen": 1791094406.3719826,
+    "ast_hash": "0b289b4a3bf028ebd038a5cc6920ba45",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/logging.py": {
+    "mtime": 1791093666.219296,
+    "seen": 1791094406.3719826,
+    "ast_hash": "027796865b88128a0ff93cfc1bbd2b80",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/core/rate_limit.py": {
+    "mtime": 1791093666.3665748,
+    "seen": 1791094406.3719826,
+    "ast_hash": "27994d93ec73c1badf4df37020053f13",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/database/__init__.py": {
+    "mtime": 1791093666.4666035,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/database/engine.py": {
+    "mtime": 1791093736.2800581,
+    "seen": 1791094406.3719826,
+    "ast_hash": "2ba01b13f77208e8ec2b1ad86fbb2bb3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/database/preflight.py": {
+    "mtime": 1791094149.2671716,
+    "seen": 1791094406.3719826,
+    "ast_hash": "7c0c226bbb3e6f486ef745d876ff588e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/database/seed.py": {
+    "mtime": 1791093914.3920429,
+    "seen": 1791094406.3719826,
+    "ast_hash": "826360b8b6c4c8a02121b13d5bef5d9d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/main.py": {
+    "mtime": 1791093916.119789,
+    "seen": 1791094406.3719826,
+    "ast_hash": "fb47d289b3b239f7ac9d7a5e20600c37",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/models/__init__.py": {
+    "mtime": 1791093667.0504086,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/models/base.py": {
+    "mtime": 1791093667.1400416,
+    "seen": 1791094406.3719826,
+    "ast_hash": "f9ce77713f2a3c4312568d2f1de24402",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/models/catalog.py": {
+    "mtime": 1791093774.6864657,
+    "seen": 1791094406.3719826,
+    "ast_hash": "2ad4c18af70dcd3f120377f6bd73483d",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/routers/__init__.py": {
+    "mtime": 1791093667.22668,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/routers/competencies.py": {
+    "mtime": 1791093888.3844476,
+    "seen": 1791094406.3719826,
+    "ast_hash": "44307b9f71e3d6189e515df0b30d1152",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/routers/roles.py": {
+    "mtime": 1791093886.8646142,
+    "seen": 1791094406.3719826,
+    "ast_hash": "b031e942784f44c0556cfaa47be7674a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/schemas/__init__.py": {
+    "mtime": 1791093667.316134,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/schemas/catalog.py": {
+    "mtime": 1791093776.223416,
+    "seen": 1791094406.3719826,
+    "ast_hash": "0fd66aceebd85553a1575c6326483dbe",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/services/__init__.py": {
+    "mtime": 1791093667.4504535,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/services/competency_service.py": {
+    "mtime": 1791093885.3266253,
+    "seen": 1791094406.3719826,
+    "ast_hash": "5b77bcda57124d3e56bafbddfe8669e6",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/app/services/role_service.py": {
+    "mtime": 1791094085.9741974,
+    "seen": 1791094406.3719826,
+    "ast_hash": "930cd729952d6262bc1b781a3c2d0c87",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/docker-entrypoint.sh": {
+    "mtime": 1791093749.9504848,
+    "seen": 1791094406.3719826,
+    "ast_hash": "df7178ec44fb1b2738d580d9bdc7f62c",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/migrations/__init__.py": {
+    "mtime": 1791093667.982505,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/migrations/env.py": {
+    "mtime": 1791093736.3045118,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d3cd675c4f561e39f01b5739064e20ca",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/migrations/sql_runner.py": {
+    "mtime": 1791093668.0484712,
+    "seen": 1791094406.3719826,
+    "ast_hash": "99f9aa723bc39cdb1f8135ce6b6b930a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/migrations/versions/0001_ldm002_catalog_baseline.py": {
+    "mtime": 1791093749.5959783,
+    "seen": 1791094406.3719826,
+    "ast_hash": "e1f2ae403ebc8f821bad4b1bcf8b4aa4",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/migrations/versions/__init__.py": {
+    "mtime": 1791093749.8053095,
+    "seen": 1791094406.3719826,
+    "ast_hash": "7b38285071dcfab925bfaf0dfc76bb37",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/pyproject.toml": {
+    "mtime": 1791093950.923832,
+    "seen": 1791094406.3719826,
+    "ast_hash": "2d0b037cb00917e029a983e2adeaedd3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/__init__.py": {
+    "mtime": 1791093676.1149063,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/conftest.py": {
+    "mtime": 1791093959.459826,
+    "seen": 1791094406.3719826,
+    "ast_hash": "b8cd6f233dcd5a2cfbbbb1e8ec5771aa",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/integration/__init__.py": {
+    "mtime": 1791093676.1171443,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/integration/test_roles_read.py": {
+    "mtime": 1791094021.3163002,
+    "seen": 1791094406.3719826,
+    "ast_hash": "95591b3cdfb76c1ad83bfdc16f4e718f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/integration/test_roles_write.py": {
+    "mtime": 1791094022.88619,
+    "seen": 1791094406.3719826,
+    "ast_hash": "20ab5a8091da6175053fcb2a0c276270",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/integration/test_schema_and_health.py": {
+    "mtime": 1791094025.9019551,
+    "seen": 1791094406.3719826,
+    "ast_hash": "7822e91119c3e166180d2db9812a28bb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/security/__init__.py": {
+    "mtime": 1791093676.120019,
+    "seen": 1791094406.3719826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/tests/security/test_authorization.py": {
+    "mtime": 1791094024.3551989,
+    "seen": 1791094406.3719826,
+    "ast_hash": "3b7dbd4d3ae632073bf8047435c1eee5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/catalog-service/requirements.txt": {
+    "mtime": 1791093750.0607955,
+    "seen": 1791094406.526182,
+    "ast_hash": "42b43d86bd945a26a9d6862dc5cc57a3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md": {
+    "mtime": 1791092401.7207153,
+    "seen": 1791094406.6827579,
+    "ast_hash": "8739ae1c59d87f5809773d8b918564cf",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md": {
+    "mtime": 1791093472.0811057,
+    "seen": 1791094406.6832979,
+    "ast_hash": "7b49546613b3d9248a000cfedb4857cb",
     "semantic_hash": ""
   }
 }

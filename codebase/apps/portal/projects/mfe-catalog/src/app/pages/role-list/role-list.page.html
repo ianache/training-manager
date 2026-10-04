@@ -1,15 +1,25 @@
 <header class="page-header">
   <h1>Catálogo de roles</h1>
-  <!-- UIQ-01 abierta: ¿modal o página para "Nuevo rol"? -->
-  <gf-button>Nuevo rol</gf-button>
+  @if (canEdit()) {
+    <a class="create" routerLink="roles/nuevo"><gf-button>Crear rol</gf-button></a>
+  }
 </header>
+
+<div class="search">
+  <label for="rl-search">Buscar por nombre</label>
+  <gf-text-input inputId="rl-search" [value]="search()" (valueChange)="onSearch($event)" />
+</div>
 
 <gf-view-state [state]="state()" (retry)="retry()" loadingLabel="Cargando roles">
   <ng-template #empty>
-    <gf-empty-state
-      title="El catálogo todavía no tiene roles"
-      description="Define el primer rol para que los proyectos puedan declarar requerimientos."
-    />
+    @if (search()) {
+      <gf-empty-state title="Ningún rol coincide con la búsqueda" description="Prueba con otro nombre o borra la búsqueda." />
+    } @else {
+      <gf-empty-state
+        title="No hay roles registrados todavía"
+        [description]="canEdit() ? 'Crea el primer rol para que los proyectos puedan declarar requerimientos.' : 'Todavía no hay roles en el catálogo.'"
+      />
+    }
   </ng-template>
 
   <ng-template #success let-page>
@@ -27,13 +37,13 @@
         @for (role of page.data; track role.id) {
           <tr>
             <th scope="row"><a [routerLink]="['roles', role.id]">{{ role.name }}</a></th>
-            <td>{{ role.levelCount }}</td>
-            <td>{{ role.competencyCount }}</td>
+            <td>{{ role.levels.length }}</td>
+            <td>{{ role.competency_count }}</td>
             <td>
-              @if (role.status === 'defined') {
-                <gf-badge tone="success">Definido</gf-badge>
+              @if (role.status === 'ACTIVE') {
+                <gf-badge tone="success">Activo</gf-badge>
               } @else {
-                <gf-badge tone="neutral">Sin definir</gf-badge>
+                <gf-badge tone="neutral">Inactivo</gf-badge>
               }
             </td>
           </tr>
