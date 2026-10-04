@@ -424,3 +424,6 @@ sources:
 
 - Lista de comprobación CHK-UNIDADES-001 para la revisión manual en navegador de las 12 pantallas de unidades (teclado, foco, zoom, espaciado, lector de pantalla), con los resource names de Stitch de cada hoja. El agente no puede ejecutarla; una persona la rellena y el `pass` solo se asigna con sus notas.
 - Artefactos afectados: `knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
+
+- Evaluado el gate DESIGN_READY_FOR_DEV de las 12 pantallas de unidades (HOF-PPM-002, borrador): FAILED, 39 hallazgos. Bloqueos: sin governed_design aprobado (el validador exige Figma, descartado), sin informe de accesibilidad en pass, secciones A a N sin redactar y sin aprobación humana. Corregido el YAML de 6 ARP (título sin comillas con dos puntos), que hacía fallar la lectura del validador (OKF_INVALID).
+- Artefactos afectados: `knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md`, los ARP-SCR-017-01..03, 029-03, 029-04 y 030-04, `knowledge-base/changelog.md`.

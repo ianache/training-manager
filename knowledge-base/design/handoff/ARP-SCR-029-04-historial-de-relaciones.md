@@ -1,8 +1,8 @@
 ---
 id: ARP-SCR-029-04
 type: Accessibility Report
-title: ARP-SCR-029-04 — Revisión de accesibilidad: Historial de relaciones y vigencias (HTML Stitch)
-description: Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-029-04, en dos hojas (estado con datos; estados cargando, vacío, error y sin acceso). Resultado fail; borrador, sin verificación humana.
+title: "ARP-SCR-029-04 — Revisión de accesibilidad: Historial de relaciones y vigencias (HTML Stitch)"
+description: "Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-029-04, en dos hojas (estado con datos; estados cargando, vacío, error y sin acceso). Resultado fail; borrador, sin verificación humana."
 tags:
 - ux-ui
 - accessibility

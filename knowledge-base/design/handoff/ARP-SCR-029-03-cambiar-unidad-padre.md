@@ -1,8 +1,8 @@
 ---
 id: ARP-SCR-029-03
 type: Accessibility Report
-title: ARP-SCR-029-03 — Revisión de accesibilidad: Cambiar unidad padre (HTML Stitch)
-description: Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-029-03, en tres hojas (estado A; variantes B y C; variantes D, E y F). Resultado fail; borrador, sin verificación humana.
+title: "ARP-SCR-029-03 — Revisión de accesibilidad: Cambiar unidad padre (HTML Stitch)"
+description: "Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-029-03, en tres hojas (estado A; variantes B y C; variantes D, E y F). Resultado fail; borrador, sin verificación humana."
 tags:
 - ux-ui
 - accessibility

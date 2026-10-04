@@ -1,8 +1,8 @@
 ---
 id: ARP-SCR-030-04
 type: Accessibility Report
-title: ARP-SCR-030-04 — Revisión de accesibilidad: Reactivación bloqueada por padre Inactivo (HTML Stitch)
-description: Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-030-04 (estados A y B). Resultado fail; borrador, sin verificación humana.
+title: "ARP-SCR-030-04 — Revisión de accesibilidad: Reactivación bloqueada por padre Inactivo (HTML Stitch)"
+description: "Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-030-04 (estados A y B). Resultado fail; borrador, sin verificación humana."
 tags:
 - ux-ui
 - accessibility

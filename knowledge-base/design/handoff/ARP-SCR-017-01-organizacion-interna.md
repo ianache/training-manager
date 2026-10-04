@@ -1,8 +1,8 @@
 ---
 id: ARP-SCR-017-01
 type: Accessibility Report
-title: ARP-SCR-017-01 — Revisión de accesibilidad: Organización interna (HTML Stitch)
-description: Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-017-01 (estados A a E). Resultado fail; borrador, sin verificación humana.
+title: "ARP-SCR-017-01 — Revisión de accesibilidad: Organización interna (HTML Stitch)"
+description: "Revisión estática WCAG 2.2 AA del HTML exploratorio de Stitch para SCR-017-01 (estados A a E). Resultado fail; borrador, sin verificación humana."
 tags:
 - ux-ui
 - accessibility
