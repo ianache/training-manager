@@ -67,7 +67,7 @@ BFF → servicio (el BFF añade lo que sale del catálogo):
 
 Respuesta `201` con `Location`: la certificación (§ detalle) con `status: "ACTIVE"`, sus evidencias con calificación y el evento de auditoría. `competency_version_id` es la versión vigente al certificar (IMD-001 R-46).
 
-**Evaluación no aprobada (EVD-2026-0224).** `outcome` es `APPROVED` (por defecto) o `NOT_APPROVED`. Con `NOT_APPROVED` el servicio guarda la evaluación con sus calificaciones y su auditoría, con estado `NOT_APPROVED`: **no es una certificación**, no cuenta para el nivel vigente y es un estado final (no se revoca ni se recertifica). Responde `201` con ese estado. No se exige `REQUIREMENTS_NOT_MET` (puede no aprobarse porque faltan requisitos, o por decisión del evaluador); el resto de las validaciones se aplican. Quién la ve: AQ-8.
+**Evaluación no aprobada (EVD-2026-0224).** `outcome` es `APPROVED` (por defecto) o `NOT_APPROVED`. Con `NOT_APPROVED` el servicio guarda la evaluación con sus calificaciones y su auditoría, con estado `NOT_APPROVED`: **no es una certificación**, no cuenta para el nivel vigente y es un estado final (no se revoca ni se recertifica). Responde `201` con ese estado. No se exige `REQUIREMENTS_NOT_MET` (puede no aprobarse porque faltan requisitos, o por decisión del evaluador); el resto de las validaciones se aplican. Lleva un motivo con una descripción (EVD-2026-0231; la forma está pendiente, AQ-13). La ven el colaborador evaluado, el evaluador que la registró, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, 0232).
 
 Validaciones, con su regla y dónde se aplican:
 
@@ -140,7 +140,7 @@ Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`
 **Visibilidad (BR-TRA-06, BR-TRA-07, BR-TRA-08):**
 - Cualquier colaborador ve la certificación, sus evidencias y su auditoría: quién, cuándo y con qué evidencia.
 - De una revocación, todos ven el hecho, el motivo tipificado, quién y cuándo. La **`description`** solo la ven la persona certificada, todos los evaluadores (cualquier usuario con el rol `evaluador`), el Jefe de Ingeniería y ADMIN (EVD-2026-0206, 0209); a los demás el campo se omite.
-- Una evaluación no aprobada (`status = NOT_APPROVED`) la ven solo el colaborador evaluado, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, BR-TRA-09); no figura en las listas ni en el detalle de los demás (AQ-12).
+- Una evaluación no aprobada (`status = NOT_APPROVED`) la ven solo el colaborador evaluado, el evaluador que la registró, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, 0232, BR-TRA-09); a los demás se les omite de las listas y se les responde `404 NOT_FOUND` en el detalle (EVD-2026-0233).
 - Si la persona está **anonimizada**, sus certificaciones solo las ve ADMIN (EVD-2026-0218): los demás reciben `403 PERSON_ANONYMIZED` (EVD-2026-0225).
 
 ### Evidencias
@@ -209,9 +209,10 @@ Servicio nuevo: todo es aditivo bajo `/api/v1`. Cuando exista, `eligibility` de 
 | AQ-7 | ¿Se añade `Idempotency-Key` a los `POST`? (como AQ-5 de API-SPEC-004, se decidió no reintentar) | Reintentos |
 | ~~AQ-8~~ | ~~De la evaluación no aprobada: ¿quién la ve y lleva motivo o descripción? Se propone, por defecto restrictivo, la persona evaluada, los evaluadores, el Jefe de Ingeniería y ADMIN (DM-Q-08 de LDM-003)~~ **Respondida (ianache, 2026-10-04):** la ven el colaborador evaluado, el Jefe de Ingeniería y ADMIN (EVD-2026-0229). Sigue abierto si lleva motivo o descripción (AQ-10) y qué pasa con el evaluador que la registró (AQ-11). | Privacidad y API de consulta |
 | ~~AQ-9~~ | ~~Si un usuario tiene varios roles y no tiene código de party, ¿qué nombre de rol se muestra? Se propone el rol que autoriza la acción~~ **Respondida (ianache, 2026-10-04):** el rol que autoriza la acción (EVD-2026-0230). | Auditoría |
-| AQ-10 | ¿La evaluación no aprobada lleva un motivo o una descripción? Hoy solo guarda las calificaciones por evidencia | Auditoría |
-| AQ-11 | El evaluador que registró una evaluación no aprobada **no figura** entre quienes la ven (EVD-2026-0229): ¿ni siquiera la propia? Sin verla no puede saber que ya evaluó a esa persona. Se propone que la vea quien la registró (a confirmar) | Privacidad y flujo de evaluación |
-| AQ-12 | Respuesta ante quien no puede ver una evaluación no aprobada: se propone omitirla de las listas y responder `404` en el detalle | API de consulta |
+| ~~AQ-10~~ | ~~¿La evaluación no aprobada lleva un motivo o una descripción? Hoy solo guarda las calificaciones por evidencia~~ **Respondida (ianache, 2026-10-04):** sí, lleva un motivo con una descripción (EVD-2026-0231). Falta definir si el motivo es tipificado y el largo de la descripción (AQ-13). | Auditoría |
+| ~~AQ-11~~ | ~~El evaluador que registró una evaluación no aprobada **no figura** entre quienes la ven (EVD-2026-0229): ¿ni siquiera la propia? Sin verla no puede saber que ya evaluó a esa persona. Se propone que la vea quien la registró (a confirmar)~~ **Respondida (ianache, 2026-10-04):** sí, la ve quien la registró (EVD-2026-0232). | Privacidad y flujo de evaluación |
+| ~~AQ-12~~ | ~~Respuesta ante quien no puede ver una evaluación no aprobada: se propone omitirla de las listas y responder `404` en el detalle~~ **Respondida (ianache, 2026-10-04):** conforme: se omite de las listas y se responde 404 en el detalle (EVD-2026-0233). | API de consulta |
+| AQ-13 | Del motivo de una evaluación no aprobada (EVD-2026-0231): ¿es **tipificado**, con su propia lista ampliable como los motivos de revocación, o es texto libre? ¿Qué largo tiene la descripción (10 a 1000 como la revocación)? No está en el DDL hasta decidirlo (DM-Q-09 de LDM-003) | `POST /certifications` con `NOT_APPROVED` |
 
 ## 10. Siguiente acción
 

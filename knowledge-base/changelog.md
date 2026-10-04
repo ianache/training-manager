@@ -400,3 +400,6 @@ sources:
 - Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
 
 - Revisadas las dos hojas «estados vacíos» de SCR-028-01 que se creían residuo: son hojas completas de C, D y E; la `5c821e8a…` ya trae `aria-label` en las dos `nav` y sustituye la hoja individual de E, así que no hace falta regenerarla. Anotado en `GEN-028`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0231 a 0233): la evaluación no aprobada lleva un motivo con una descripción; la ve también el evaluador que la registró; a quien no puede verla se le omite de las listas y se le responde 404. Abierta AQ-13 / DM-Q-09: si el motivo es tipificado, su lista y el largo de la descripción; el DDL no tiene aún esas columnas.
+- Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
