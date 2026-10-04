@@ -28,7 +28,7 @@ a11y_review:
 
 # ARP-SCR-017-02-C — Registrar la organización interna
 
-**Método.** Análisis estático del HTML de la hoja vigente `4368eace9ac44ba6b630ad0391cf2bc4` (25959 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 (no los ejecutó el agente). Esta revisión sustituye a los ARP anteriores de esta pantalla.
+**Método.** Análisis estático del HTML de la hoja vigente `4368eace9ac44ba6b630ad0391cf2bc4` (25959 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 y confirmó que aplican igual a las hojas regeneradas (no los ejecutó el agente). Esta revisión sustituye a los ARP anteriores de esta pantalla.
 
 ## Criterios
 

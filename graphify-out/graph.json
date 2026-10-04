@@ -62563,7 +62563,7 @@
         "id": "ARP-SCR-017-01-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-017-01-C \u2014 Revisi\u00f3n de accesibilidad: Organizaci\u00f3n interna (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-01. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-01. Resultado pass; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -62591,7 +62591,7 @@
         "a11y_review": {
           "screen": "SCR-017-01",
           "target": "html",
-          "result": "inconclusive",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -62600,9 +62600,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 10,
             "fail": 0,
-            "inconclusive": 4
+            "inconclusive": 0
           }
         }
       },
@@ -62802,7 +62802,7 @@
         "id": "ARP-SCR-017-03-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-017-03-C \u2014 Revisi\u00f3n de accesibilidad: Acceso no autorizado (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-03. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-03. Resultado pass; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -62830,7 +62830,7 @@
         "a11y_review": {
           "screen": "SCR-017-03",
           "target": "html",
-          "result": "inconclusive",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -62839,9 +62839,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 10,
             "fail": 0,
-            "inconclusive": 4
+            "inconclusive": 0
           }
         }
       },
@@ -63367,9 +63367,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 7,
+            "pass": 12,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -63485,9 +63485,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 8,
+            "pass": 13,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -63592,9 +63592,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 8,
+            "pass": 13,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -64658,9 +64658,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 10,
             "fail": 0,
-            "inconclusive": 5
+            "inconclusive": 1
           }
         }
       },
@@ -64765,9 +64765,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 7,
+            "pass": 11,
             "fail": 0,
-            "inconclusive": 5
+            "inconclusive": 1
           }
         }
       },
@@ -64872,9 +64872,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 8,
+            "pass": 13,
             "fail": 0,
-            "inconclusive": 6
+            "inconclusive": 1
           }
         }
       },
@@ -65255,9 +65255,9 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
+            "pass": 10,
             "fail": 0,
-            "inconclusive": 5
+            "inconclusive": 1
           }
         }
       },
@@ -184428,5 +184428,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cb11c91b9b54b736f965675535d9e3a2d85274d7"
+  "built_at_commit": "5a0b637c2f0d7257c14665436a542852e785a88d"
 }

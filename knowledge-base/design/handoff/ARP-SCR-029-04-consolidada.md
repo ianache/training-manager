@@ -28,7 +28,7 @@ a11y_review:
 
 # ARP-SCR-029-04-C — Historial de relaciones y vigencias
 
-**Método.** Análisis estático del HTML de la hoja vigente `54b227ae20d649e698b804011e3e00af` (18904 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 (no los ejecutó el agente). Esta revisión sustituye a los ARP anteriores de esta pantalla.
+**Método.** Análisis estático del HTML de la hoja vigente `54b227ae20d649e698b804011e3e00af` (18904 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 y confirmó que aplican igual a las hojas regeneradas (no los ejecutó el agente). Esta revisión sustituye a los ARP anteriores de esta pantalla.
 
 ## Criterios
 

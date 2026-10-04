@@ -23,12 +23,12 @@ a11y_review:
   target: html
   result: inconclusive
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 8, fail: 0, inconclusive: 6}
+  counts: {pass: 13, fail: 0, inconclusive: 1}
 ---
 
 # ARP-SCR-029-02-C — Editar nombre de una unidad
 
-**Método.** Análisis estático del HTML de la hoja vigente `5a2d1ac4aea84efa9c104340c61c042d` (30954 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 sobre las hojas consolidadas de entonces; **esta hoja es posterior o distinta**, así que esos criterios quedan `inconclusive` hasta que se repitan sobre ella. Esta revisión sustituye a los ARP anteriores de esta pantalla.
+**Método.** Análisis estático del HTML de la hoja vigente `5a2d1ac4aea84efa9c104340c61c042d` (30954 bytes), descargado de Stitch el 2026-10-04: etiquetas, atributos ARIA, tablas, controles y contraste por clases. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Los criterios cubiertos por C1 a C9 de CHK-UNIDADES-001 los aprobó ianache en navegador el 2026-10-04 y confirmó que aplican igual a las hojas regeneradas (no los ejecutó el agente). Esta revisión sustituye a los ARP anteriores de esta pantalla.
 
 ## Criterios
 
@@ -40,13 +40,13 @@ a11y_review:
 | 1.3.1 Landmarks | pass | 3 nav, 3 con aria-label; 2 aria-current. |
 | 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
 | 4.1.3 Mensajes de estado | pass | 3 role=alert, 3 role=status, 0 aria-busy. |
-| 3.3.2 Etiquetas o instrucciones (obligatorio) | **inconclusive** | 7 campos con required o aria-required. |
+| 3.3.2 Etiquetas o instrucciones (obligatorio) | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C9, 2026-10-04). Análisis estático: 7 campos con required o aria-required. |
 | 4.1.2 Diálogo | **inconclusive** | 1 role=dialog, 1 aria-modal; el nombre accesible y el foco atrapado requieren navegador. |
 | 1.4.3 Contraste (texto) | pass | 15 pares calculados por clases y config de Tailwind; ninguno bajo 4.5:1 (se excluyen ligaduras de iconos, separadores decorativos y controles deshabilitados). Cálculo estático sin hover/focus, degradados ni imágenes. |
-| 2.4.7 Foco visible | **inconclusive** | 61 clases focus:ring/outline y 19 outline-none. |
-| 1.4.10 Reflow / 1.4.4 / 1.4.12 | **inconclusive** | Requiere navegador. |
-| 2.5.8 Tamaño de objetivo | **inconclusive** | Sin medición. |
-| 2.1.1 Teclado / 2.4.3 Orden del foco / foco inicial | **inconclusive** | Hoja con 2 bloque(s) de script; el comportamiento real no se evaluó. |
+| 2.4.7 Foco visible | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C3, 2026-10-04). Análisis estático: 61 clases focus:ring/outline y 19 outline-none. |
+| 1.4.10 Reflow / 1.4.4 / 1.4.12 | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C4, C5 y C6, 2026-10-04). Análisis estático: Requiere navegador. |
+| 2.5.8 Tamaño de objetivo | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C7, 2026-10-04). Análisis estático: Sin medición. |
+| 2.1.1 Teclado / 2.4.3 Orden del foco / foco inicial | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C1 y C2, 2026-10-04). Análisis estático: Hoja con 2 bloque(s) de script; el comportamiento real no se evaluó. |
 | 3.1.1 Idioma / 2.4.1 Bloques / 2.4.2 Título | pass | lang es: True; main: True; h1: 1. |
 
 ## Hallazgos fail
