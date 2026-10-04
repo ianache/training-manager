@@ -120,3 +120,5 @@ Las dos hojas que se habían dado por residuo resultaron ser hojas completas de 
 | Estados C, D y E (alternativa) | `projects/13050549605434273903/screens/e72f753aa88a46788f99dbbbe361771a` | Misma estructura, pero usa datos de ejemplo distintos («Gerencia General», «Dirección de Operaciones») y añade opciones «Estado: Inactiva» y «Estado: Todos» que no están en el SCR como textos. No se recomienda. |
 
 No hace falta regenerar E: la hoja recomendada ya trae el `aria-label`. Sigue sin evaluarse en navegador el foco, el teclado y el zoom, y falta la revisión humana.
+
+**Hoja consolidada de SCR-028-01.** `projects/13050549605434273903/screens/3000469d418c4941b1d98dca2c1b4b27`, registrada en el DTM como `exploration_design` vigente (`v-consolidada`, 2026-10-04); las hojas anteriores quedan `superseded`. Verificación estática del HTML: sin «Soporte», «Ajustes», «Eliminar» ni «Borrar» en la interfaz; iconos con `aria-hidden` y `role="alert"` presentes. Sin revisión completa de accesibilidad, de contenido inventado ni de estados contra el SCR.

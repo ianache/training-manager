@@ -109,3 +109,5 @@ Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design 
 | SCR-017-03 | `projects/13050549605434273903/screens/08a98db688474629b3ef7a32c9d751ca` |
 
 Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.
+
+**Hoja consolidada de SCR-017-02.** `projects/13050549605434273903/screens/4368eace9ac44ba6b630ad0391cf2bc4`, registrada en el DTM como `exploration_design` vigente (`v-consolidada`, 2026-10-04); las hojas anteriores quedan `superseded`. Verificación estática del HTML: sin «Soporte», «Ajustes», «Eliminar» ni «Borrar» en la interfaz; iconos con `aria-hidden` y `role="alert"` presentes. Sin revisión completa de accesibilidad, de contenido inventado ni de estados contra el SCR.

@@ -688,11 +688,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/5256b92d20f04c31b720dd32e26a9259
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/4368eace9ac44ba6b630ad0391cf2bc4
+    version: v-consolidada
     status: current
-    captured_at: '2026-10-03T16:47:17-05:00'
-    latest_known_version: v2-success-green
+    captured_at: '2026-10-04T12:18:44-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -701,6 +702,13 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:03-05:00'
     latest_known_version: not-exposed-by-stitch
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/5256b92d20f04c31b720dd32e26a9259
+    version: v2-success-green
+    status: superseded
+    captured_at: '2026-10-03T16:47:17-05:00'
+    latest_known_version: v2-success-green
 - screen: SCR-017-03
   flow: FLW-017
   requirements:
@@ -777,11 +785,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/a4618f57bdec4cd9a4164d6cc0b3020b
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/3000469d418c4941b1d98dca2c1b4b27
+    version: v-consolidada
     status: current
-    captured_at: '2026-10-03T16:47:21-05:00'
-    latest_known_version: v2-success-green
+    captured_at: '2026-10-04T12:18:46-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -790,6 +799,13 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:20-05:00'
     latest_known_version: not-exposed-by-stitch
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/a4618f57bdec4cd9a4164d6cc0b3020b
+    version: v2-success-green
+    status: superseded
+    captured_at: '2026-10-03T16:47:21-05:00'
+    latest_known_version: v2-success-green
 - screen: SCR-029-01
   flow: FLW-029
   requirements:
@@ -892,9 +908,18 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/234079448a8b438cb5ecb9e601093c39
+    version: v-consolidada
+    status: current
+    captured_at: '2026-10-04T12:18:47-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
+  exploration_history:
+  - tool: google-stitch
+    project_ref: STP-PPM-001
     artifact_ref: projects/13050549605434273903/screens/f497a2997e144bd29856800143c8fd1d
     version: not-exposed-by-stitch
-    status: current
+    status: superseded
     captured_at: '2026-10-03T14:17:29-05:00'
     latest_known_version: not-exposed-by-stitch
 - screen: SCR-030-01
@@ -1095,11 +1120,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/8c7e545751404313aee0ed6cd6c1c94a
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/c53d12f7720c49e4a73c193b62b517a5
+    version: v-consolidada
     status: current
-    captured_at: '2026-10-03T16:47:25-05:00'
-    latest_known_version: v2-success-green
+    captured_at: '2026-10-04T12:18:49-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -1108,6 +1134,13 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T15:36:50-05:00'
     latest_known_version: not-exposed-by-stitch
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/8c7e545751404313aee0ed6cd6c1c94a
+    version: v2-success-green
+    status: superseded
+    captured_at: '2026-10-03T16:47:25-05:00'
+    latest_known_version: v2-success-green
 - screen: SCR-029-04
   flow: FLW-029
   requirements:
@@ -1141,11 +1174,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/c6e84489643249fda7636832f349a3a8
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/54b227ae20d649e698b804011e3e00af
+    version: v-consolidada
     status: current
-    captured_at: '2026-10-03T16:47:27-05:00'
-    latest_known_version: v2-success-green
+    captured_at: '2026-10-04T12:18:51-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -1154,6 +1188,13 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T15:36:52-05:00'
     latest_known_version: not-exposed-by-stitch
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/c6e84489643249fda7636832f349a3a8
+    version: v2-success-green
+    status: superseded
+    captured_at: '2026-10-03T16:47:27-05:00'
+    latest_known_version: v2-success-green
 - screen: SCR-001-01
   flow: FLW-001
   requirements:
