@@ -45,18 +45,18 @@ sources:
 | Botones (Registrar, Guardar, Continuar, Desactivar, Reactivar, Cancelar, Editar, Reintentar) | `button` | todas | primario, secundario, deshabilitado, cargando | foco visible 2 px #0059ba, `aria-busy` al cargar | **Existe** (variante de carga por confirmar) |
 | Mensajes de error, éxito y carga | `alert`, `error-message`, `spinner`, `view-state` | todas | error, éxito, cargando | `role="alert"` (error), `role="status"` (éxito, carga), iconos `aria-hidden` | **Existe** |
 | Estado vacío («Aún no hay unidades…», «Sin resultados», sin organización interna) | `empty-state` | 017-01, 028-01 | vacío | mensaje en `role="status"` | **Existe** (SCR-017-Q5 pedía confirmarlo) |
-| Lista de datos de solo lectura (razón social, RUC, país) | — | 017-01, 029-03, 029-02 | solo lectura | `dl/dt/dd` | **Brecha**: no hay componente de lista de descripción |
-| **Tabla ordenable** (caption, `th scope`, `aria-sort`, acciones por fila) | — | 028-01, 029-04 | normal, ordenada, vacía, cargando (esqueleto) | `caption`, `aria-sort`, filas con acciones alcanzables por teclado | **Brecha** |
-| **Árbol de unidades** (`tree`/`treeitem`, expandir/contraer) | — | 028-01 | nodo cerrado/abierto/seleccionado | `role="tree"`, `aria-level`, `aria-expanded`, flechas | **Brecha** |
-| **Diálogo de confirmación / bloqueo** (modal) | — | 029-03 (resumen), 030-01 a 04 | abierto, guardando, error | `role="dialog"`, `aria-modal`, `aria-labelledby`, **foco atrapado**, Escape, retorno del foco | **Brecha** |
-| **Grupo de alternancia** Lista/Jerarquía | — | 028-01 | seleccionado | `aria-pressed` | **Brecha** |
-| **Filtro activo + «Limpiar filtros»** (chip) | — | 028-01 | activo | anunciar cambios de filtro | **Brecha** |
-| **Paginación** (Anterior/Siguiente) | — | 028-01, 029-04 | habilitado, deshabilitado | botones nativos | **Brecha** |
-| **Migas de pan** (`nav` con `aria-label`, `aria-current`) | — | 017-02, 029-0x | — | `aria-label`, `aria-current="page"` | **Brecha** (aunque pertenece al shell) |
+| Lista de datos de solo lectura (razón social, RUC, país) | — | 017-01, 029-03, 029-02 | solo lectura | `dl/dt/dd` | **Brecha**: no hay componente de lista de descripción. Diseño: [CMP-MOL-014](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) |
+| **Tabla ordenable** (caption, `th scope`, `aria-sort`, acciones por fila) | — | 028-01, 029-04 | normal, ordenada, vacía, cargando (esqueleto) | `caption`, `aria-sort`, filas con acciones alcanzables por teclado | **Brecha**. Diseño: [CMP-ORG-009](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) |
+| **Árbol de unidades** (`tree`/`treeitem`, expandir/contraer) | — | 028-01 | nodo cerrado/abierto/seleccionado | `role="tree"`, `aria-level`, `aria-expanded`, flechas | **Brecha**. Diseño: [CMP-ORG-010](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) |
+| **Diálogo de confirmación / bloqueo** (modal) | — | 029-03 (resumen), 030-01 a 04 | abierto, guardando, error | `role="dialog"`, `aria-modal`, `aria-labelledby`, **foco atrapado**, Escape, retorno del foco | **Brecha**. Diseño: [CMP-ORG-008](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) |
+| **Grupo de alternancia** Lista/Jerarquía | — | 028-01 | seleccionado | `aria-pressed` | **Brecha**. Diseño: [CMP-MOL-012](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) y CMP-ATOM-015 |
+| **Filtro activo + «Limpiar filtros»** (chip) | — | 028-01 | activo | anunciar cambios de filtro | **Brecha**. Diseño: [CMP-MOL-013](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) y CMP-ATOM-014 |
+| **Paginación** (Anterior/Siguiente) | — | 028-01, 029-04 | habilitado, deshabilitado | botones nativos | **Brecha**. Reutiliza [CMP-MOL-009](cmp-016/CMP-MOL-009-gf-pagination.md) (CMP-018 §3.1) |
+| **Migas de pan** (`nav` con `aria-label`, `aria-current`) | — | 017-02, 029-0x | — | `aria-label`, `aria-current="page"` | **Brecha** (aunque pertenece al shell). Diseño: [CMP-MOL-015](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) |
 
 ## 3. Brechas (7 componentes) y decisión de límite
 
-Las siete brechas (lista de descripción, tabla ordenable, árbol, diálogo, grupo de alternancia, chip de filtro, paginación) más las migas de pan **no tienen diseño en `@gf/ui`**. Antes de implementarlas hay que pasar por `web-atomic-component-designer`, que decide si cada una es un átomo, una molécula o un organismo y su contrato npm. La tabla ordenable, el árbol y el diálogo son los de mayor riesgo de accesibilidad (ver ARP-UNIDADES-V2 y CHK-UNIDADES-001). **No se sustituyen por Material ni otra biblioteca** (decisión de DTC-015).
+Las siete brechas (lista de descripción, tabla ordenable, árbol, diálogo, grupo de alternancia, chip de filtro, paginación) más las migas de pan **no tienen diseño en `@gf/ui`**. **Diseño atómico hecho en [CMP-018](CMP-018-diseno-atomico-brechas-gestion-de-unidades.md)** (`draft`, `REQUIRES_REVIEW`, pendiente de revisión humana). Antes de implementarlas había que pasar por `web-atomic-component-designer`, que decide si cada una es un átomo, una molécula o un organismo y su contrato npm. La tabla ordenable, el árbol y el diálogo son los de mayor riesgo de accesibilidad (ver ARP-UNIDADES-V2 y CHK-UNIDADES-001). **No se sustituyen por Material ni otra biblioteca** (decisión de DTC-015).
 
 ## 4. Dónde vive la pantalla (decisión de límite, propuesta)
 

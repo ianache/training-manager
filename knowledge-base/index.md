@@ -160,6 +160,7 @@ sources:
 - [DTC-030 — Handoff de Desarrollo: Desactivar y reactivar unidades](implementation/DTC-030-handoff-desarrollo-desactivar-y-reactivar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
 - [API-SPEC-006 — Gestión de la estructura organizacional](architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md) — Technical Design, `draft`, `REQUIRES_REVIEW`
 - [CMP-017 — Componentes de la gestión de la estructura organizacional](design/components/CMP-017-componentes-gestion-de-unidades.md) — Component Specification, `draft`, `REQUIRES_REVIEW`
+- [CMP-018 — Diseño atómico de las brechas de componentes de la gestión de unidades](design/components/CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) — Component Specification, `draft`, `REQUIRES_REVIEW`; 9 componentes nuevos más MOL-009 reutilizada, 12 preguntas abiertas
 - [CHK-UNIDADES-001 — Lista de comprobación en navegador de las pantallas de unidades](design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md) — Checklist, `draft`; pruebas manuales de teclado, foco y zoom pendientes
 - [UXS-001 anexo — Preguntas abiertas por responsable](design/specs/UXS-001-anexo-preguntas-por-responsable.md) — UX Open Questions Digest, `draft`; 77 preguntas fusionadas en 44, 21 de negocio para `af-requirements-orchestrator`
 - [UXS-001 — Gestión de la estructura organizacional](design/specs/UXS-001-gestion-de-unidades-organizacionales.md) — UX Design Specification, `draft`; Stitch y QA CONDITIONAL, Figma y Desarrollo NOT READY
