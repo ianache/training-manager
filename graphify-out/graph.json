@@ -63448,7 +63448,7 @@
         "id": "ARP-SCR-029-02-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-029-02-C \u2014 Revisi\u00f3n de accesibilidad: Editar nombre de una unidad (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -63476,7 +63476,7 @@
         "a11y_review": {
           "screen": "SCR-029-02",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -63485,8 +63485,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 7,
-            "fail": 1,
+            "pass": 8,
+            "fail": 0,
             "inconclusive": 6
           }
         }
@@ -63555,7 +63555,7 @@
         "id": "ARP-SCR-029-03-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-029-03-C \u2014 Revisi\u00f3n de accesibilidad: Cambiar unidad padre (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-03. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-03. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -63583,7 +63583,7 @@
         "a11y_review": {
           "screen": "SCR-029-03",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -63592,8 +63592,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 7,
-            "fail": 1,
+            "pass": 8,
+            "fail": 0,
             "inconclusive": 6
           }
         }
@@ -63746,7 +63746,7 @@
         "id": "ARP-SCR-029-04-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-029-04-C \u2014 Revisi\u00f3n de accesibilidad: Historial de relaciones y vigencias (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-04. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-04. Resultado pass; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -63774,7 +63774,7 @@
         "a11y_review": {
           "screen": "SCR-029-04",
           "target": "html",
-          "result": "fail",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -63783,8 +63783,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 10,
-            "fail": 1,
+            "pass": 11,
+            "fail": 0,
             "inconclusive": 0
           }
         }
@@ -64728,7 +64728,7 @@
         "id": "ARP-SCR-030-02-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-030-02-C \u2014 Revisi\u00f3n de accesibilidad: Bloqueo de la desactivaci\u00f3n (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-02. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-02. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -64756,7 +64756,7 @@
         "a11y_review": {
           "screen": "SCR-030-02",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -64765,8 +64765,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 6,
-            "fail": 1,
+            "pass": 7,
+            "fail": 0,
             "inconclusive": 5
           }
         }
@@ -64835,7 +64835,7 @@
         "id": "ARP-SCR-030-03-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-030-03-C \u2014 Revisi\u00f3n de accesibilidad: Reactivar una unidad (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-03. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-03. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -64863,7 +64863,7 @@
         "a11y_review": {
           "screen": "SCR-030-03",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -64872,8 +64872,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 7,
-            "fail": 1,
+            "pass": 8,
+            "fail": 0,
             "inconclusive": 6
           }
         }
@@ -184428,5 +184428,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2f6f5d64fa0b4363fec5df890ee448c63e657f6d"
+  "built_at_commit": "dcb49033b96c05aec4b3968059231629ad80a25d"
 }

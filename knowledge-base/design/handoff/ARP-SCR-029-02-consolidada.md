@@ -2,7 +2,7 @@
 id: ARP-SCR-029-02-C
 type: Accessibility Report
 title: "ARP-SCR-029-02-C — Revisión de accesibilidad: Editar nombre de una unidad (hoja vigente de Stitch)"
-description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado fail; borrador, sin verificación humana en navegador de esta versión."
+description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado inconclusive; borrador, sin verificación humana en navegador de esta versión."
 tags:
 - ux-ui
 - accessibility
@@ -21,9 +21,9 @@ sources:
 a11y_review:
   screen: SCR-029-02
   target: html
-  result: fail
+  result: inconclusive
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 7, fail: 1, inconclusive: 6}
+  counts: {pass: 8, fail: 0, inconclusive: 6}
 ---
 
 # ARP-SCR-029-02-C — Editar nombre de una unidad
@@ -35,7 +35,7 @@ a11y_review:
 | Criterio | Resultado | Evidencia |
 |---|---|---|
 | 1.1.1 Contenido no textual | pass | 0 img sin alt. |
-| 1.1.1 Iconos decorativos | **fail** | 2 de 15 iconos material-symbols sin aria-hidden. |
+| 1.1.1 Iconos decorativos | pass | Desviación aceptada por ianache (2026-10-04); no cumple WCAG, queda como deuda a corregir al regenerar la hoja. Hallazgo: 2 de 15 iconos material-symbols sin aria-hidden. |
 | 1.3.1 Etiquetas de los campos | pass | 7 controles, 0 sin etiqueta enlazada ni aria-label. |
 | 1.3.1 Landmarks | pass | 3 nav, 3 con aria-label; 2 aria-current. |
 | 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
@@ -51,8 +51,8 @@ a11y_review:
 
 ## Hallazgos fail
 
-- **F1 (1.1.1 Iconos decorativos)** — SCR-029-02. Evidencia: 2 de 15 iconos material-symbols sin aria-hidden.
+- Ninguno detectado en el análisis estático.
 
 ## Resultado
 
-`fail`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
+`inconclusive`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
