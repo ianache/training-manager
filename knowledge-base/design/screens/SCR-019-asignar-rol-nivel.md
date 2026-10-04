@@ -70,6 +70,7 @@ screens:
   - default
   - validation-error
   - blocked-lower-levels-pending
+  - certification-unavailable
   - validating
   - saving
   - save-error
@@ -138,9 +139,11 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 
 **Bloqueo AC-5:** si faltan competencias certificadas de los niveles inferiores o del nivel destino (EVD-2026-0172), no se permite confirmar y se lista cada una pendiente con su nivel L: «No se puede asignar {nivel}: faltan competencias certificadas de niveles inferiores o de este nivel» (texto propuesto). No depende solo del color.
 
+**Certificación no disponible (EVD-2026-0177):** al elegir un nivel **mayor** que el vigente, mientras no exista el servicio de certificación, no se permite confirmar y se muestra una alerta con «Reintentar» (propuesta de texto sin fuente: «No se puede comprobar la certificación de las competencias. Intenta de nuevo más tarde»). **Asignar un rol nuevo no pasa por esta comprobación** (EVD-2026-0178). Este estado no figura en el diseño de Stitch (GEN-019).
+
 **Acciones:** «Confirmar» (principal, Loading-Button), «Cancelar» (confirmación si hay cambios).
 
-**Estados:** default; validation-error; blocked-lower-levels-pending; validating; saving; save-error; disabled.
+**Estados:** default; validation-error; blocked-lower-levels-pending; certification-unavailable; validating; saving; save-error; disabled.
 
 ## SCR-019-03 — Resultado
 

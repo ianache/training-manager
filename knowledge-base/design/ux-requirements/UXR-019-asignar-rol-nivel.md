@@ -59,6 +59,7 @@ Que el perfil y la brecha de cada persona se midan contra el Rol-Nivel correcto,
 - Solo se asigna a **colaboradores vigentes**; una persona anonimizada no se edita (BR-PTY-14).
 - Asignan o cambian niveles el Jefe de Ingeniería y ADMIN (EVD-2026-0145, 0151). El resto no ve las acciones (UXR-000.2). Al no ser el Jefe de Ingeniería ni ADMIN: estado «sin permisos».
 - El rol (y el resumen de niveles certificados) de una persona lo ve cualquier colaborador (BR-PTY-20, BR-TRA-03).
+- Mientras no exista el servicio de certificación, **subir de nivel se bloquea** (EVD-2026-0177); asignar un rol nuevo no comprueba certificaciones (EVD-2026-0178).
 - La interfaz no pide escala salarial ni criterios de nivel (BR-CAT-18).
 
 ## Estados

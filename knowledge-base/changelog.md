@@ -323,3 +323,6 @@ sources:
 
 - Skill `stitch-ui-generator` y validador `register-exploration` reforzados tras el incidente del 2026-10-04 (se registró un `artifact_ref` con prefijo real y sufijo inventado): el id se copia de la salida de Stitch y se prueba con `--evidence`; el validador rechaza ids mal formados, de otro proyecto o ausentes de la evidencia (`INVALID_ARTIFACT_REF`, `UNVERIFIED_ARTIFACT_REF`). 8 pruebas nuevas (96 en total) y 3 mutaciones detectadas.
 - Artefactos afectados: `.claude/skills/stitch-ui-generator/SKILL.md`, `.claude/skills/stitch-ui-generator/references/stitch-project-governance.md`, `.claude/skills/ux-development-handoff/validators/{registry,codes,cli}.py`, `.claude/skills/ux-development-handoff/tests/test_artifact_ref_verification.py`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0177, 0178): mientras no exista el servicio de certificación, subir de nivel se bloquea con `CERTIFICATION_UNAVAILABLE` y US-003 y US-004 se planifican como dependencia de US-019 AC-3 y AC-5; la lectura A solo aplica al subir de nivel, no al asignar un rol nuevo. Posible circularidad por aclarar: DSP-001 y US-019 dicen que US-019 es prerrequisito de US-004. Falta diseñar en Stitch el estado «Certificación no disponible».
+- Artefactos afectados: `BRC-001`, `API-SPEC-004`, `US-019`, `DSP-001`, `UXR-019`, `FLW-019`, `SCR-019`, `GEN-019`, `DCP-003`.

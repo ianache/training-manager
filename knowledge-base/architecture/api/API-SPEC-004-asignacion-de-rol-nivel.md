@@ -51,11 +51,11 @@ Party solo conoce ids; el catálogo es de otro servicio y no existe servicio de 
 | Paso | Quién | Qué valida |
 |---|---|---|
 | 1. Existe y está `ACTIVE` el rol y el nivel, y el nivel es del rol | BFF, con `GET /catalog/roles/{id}` | BR-CAT-09, BR-CAT-30 |
-| 2. La persona cumple los requisitos de subir de nivel (lectura A) | BFF, con catálogo + certificación | BR-PRF-03, EVD-2026-0164, 0169, 0172 |
+| 2. La persona cumple los requisitos de **subir de nivel** (lectura A); no aplica a asignar un rol nuevo | BFF, con catálogo + certificación | BR-PRF-03, EVD-2026-0164, 0169, 0172 |
 | 3. Persona vigente, no anonimizada, un solo nivel vigente por rol, no bajar, fechas | Party | BR-PTY-11, 12, 14; EVD-2026-0146, 0166 |
 | 4. Permiso | BFF y party | EVD-0152 |
 
-**Consecuencia:** la comprobación del paso 2 **no puede ejecutarse hoy** porque no hay servicio de certificación (AQ-1).
+**Consecuencia (EVD-2026-0177, 0178):** la comprobación del paso 2 **no puede ejecutarse hoy** porque no hay servicio de certificación; por eso **subir de nivel se bloquea** con `503 CERTIFICATION_UNAVAILABLE` hasta que existan US-003 y US-004. Asignar un rol nuevo (`assigned`) no comprueba certificaciones y sigue funcionando.
 
 ## 4. Contratos
 
@@ -179,8 +179,8 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 
 | ID | Pregunta | Efecto |
 |---|---|---|
-| AQ-1 | **No hay servicio de certificación.** Mientras no exista, el cambio de nivel, ¿se bloquea (más seguro: nadie sube de nivel sin comprobar) o se permite sin comprobación (hay que registrarlo)? Se propone bloquearlo con `CERTIFICATION_UNAVAILABLE`. | Hace inutilizable el cambio de nivel hasta que exista la certificación |
-| AQ-2 | ¿La lectura A (todo certificado) aplica también a **asignar un rol nuevo** (AC-1, AC-2) o solo a **subir de nivel**? Las fuentes hablan de «escalar a un nivel superior» (BR-PRF-03). Se asume que solo a subir. | Si aplica al rol nuevo, nadie puede recibir un rol nuevo sin certificaciones previas |
+| ~~AQ-1~~ | ~~**No hay servicio de certificación.** Mientras no exista, el cambio de nivel, ¿se bloquea (más seguro: nadie sube de nivel sin comprobar) o se permite sin comprobación (hay que registrarlo)? Se propone bloquearlo con `CERTIFICATION_UNAVAILABLE`.~~ Respondida (ianache, 2026-10-04): se bloquea con `CERTIFICATION_UNAVAILABLE` (EVD-2026-0177). | Hace inutilizable el cambio de nivel hasta que exista la certificación |
+| ~~AQ-2~~ | ~~¿La lectura A (todo certificado) aplica también a **asignar un rol nuevo** (AC-1, AC-2) o solo a **subir de nivel**? Las fuentes hablan de «escalar a un nivel superior» (BR-PRF-03). Se asume que solo a subir.~~ Respondida (ianache, 2026-10-04): solo al subir de nivel; asignar un rol nuevo no comprueba certificaciones (EVD-2026-0178). | Si aplica al rol nuevo, nadie puede recibir un rol nuevo sin certificaciones previas |
 | AQ-3 | Fechas: ¿la anterior termina el mismo día que empieza la nueva (`thru_date = from_date`) o el día previo? ¿Se admiten `from_date` pasadas o futuras? (SCR-019-Q1) | Cierre de vigencias |
 | AQ-4 | Instantánea de nombres y orden en party (propuesta) frente a completarlos desde el catálogo. | Migración 0005 |
 | AQ-5 | Idempotencia: ¿se añade `Idempotency-Key` al `POST`? | Reintentos de escrituras (ADR-012) |

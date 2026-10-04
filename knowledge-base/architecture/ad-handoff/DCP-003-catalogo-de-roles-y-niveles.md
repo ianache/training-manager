@@ -82,8 +82,8 @@ Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción 
 ### Risks and dependencies
 
 - **Reintentos y cortacircuito sin parámetros:** ADR-012 decide la política pero no el número de reintentos, las esperas ni los umbrales; hace falta antes de implementar. Reintentar escrituras exige idempotencia, que API-SPEC-003 no define.
-- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): sus preguntas AQ-1 a AQ-5 siguen abiertas. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
-- **Verificar contra el comprobador de AC-5:** necesita datos de certificación, que no existen (certificación fuera de alcance); sin ellos no se puede evaluar «competencias pendientes». **Dependencia bloqueante de US-019 AC-5.**
+- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): AQ-1 y AQ-2 están resueltas (EVD-2026-0177, 0178); siguen abiertas AQ-3 a AQ-7. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
+- **Certificación (decidido, EVD-2026-0177, 0178):** hasta que existan US-003 y US-004, subir de nivel se bloquea con `CERTIFICATION_UNAVAILABLE`. Son dependencia de US-019 AC-3 y AC-5, **no están en DSP-001** y hay que planificarlas. Asignar un rol nuevo no depende de ellas.
 - **Sin servicio de certificación ni curso:** el bloqueo y `course_ref` quedan simulados o desactivados hasta que existan.
 - **SQLite no detecta** errores de PostgreSQL (orden de INSERT, longitud de la revisión de Alembic, claves foráneas): las pruebas del servicio deben correr contra PostgreSQL real.
 - **Consistencia entre servicios:** ids lógicos sin FK; un rol desactivado no debe invalidar asignaciones.
@@ -138,5 +138,5 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) responder AQ-1 a AQ-5 de API-SPEC-004; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
+- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) responder AQ-3 a AQ-5 de API-SPEC-004 y planificar US-003 y US-004; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
 - Gate: pasar a `READY_FOR_DEV` exige parámetros de ADR-012, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.

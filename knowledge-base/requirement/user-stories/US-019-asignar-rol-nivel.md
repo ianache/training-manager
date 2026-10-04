@@ -161,7 +161,7 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 
 ## 11. Dependencias, supuestos e hipótesis
 
-- **Depende de:** US-001 (Rol-Nivel en el catálogo), US-015.
+- **Depende de:** US-001 (Rol-Nivel en el catálogo), US-015 y, para AC-3 y AC-5, US-003 y US-004 (certificaciones y perfil): hasta que existan, subir de nivel se bloquea (EVD-2026-0177). Asignar un rol nuevo (AC-1, AC-2) no comprueba certificaciones (EVD-2026-0178).
 - **Es prerrequisito de:** US-005 (brecha), US-004 (perfil).
 - **Supuestos:** ninguno.
 - **Hipótesis del agente:** H-1: la asignación se hace a colaboradores vigentes; SPEC-001 dice "persona" (US-019-Q1). **Confirmada el 2026-10-03 (EVD-2026-0146).**

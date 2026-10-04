@@ -59,6 +59,7 @@ Cada SCR debe declarar `flow: FLW-019`.
 | E6 | Catálogo no responde | Error con reintento; no se permite asignar | ADR-011 |
 | E7 | Error al guardar | Mensaje con reintentar sin perder lo ingresado | UXR-000 |
 | E8 | Se vuelve a elegir el mismo nivel vigente | Sin cambio: se avisa (sin regla, FLW-019-Q5) | propuesta |
+| E9 | La certificación no está disponible (hoy no existe el servicio) | Subir de nivel se bloquea con aviso y «Reintentar»; asignar un rol nuevo no se ve afectado | EVD-2026-0177, 0178 |
 
 **Estados de SCR-019-01:** cargando, sin asignaciones, con asignaciones e historial, error de carga, solo lectura. **SCR-019-02:** inicial, validando, bloqueado por AC-5, guardando, error. **SCR-019-03:** éxito, bloqueado.
 

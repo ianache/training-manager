@@ -51964,7 +51964,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L69"
+      "source_location": "L70"
     },
     {
       "id": "knowledge_base_design_generations_gen_019_stitch_asignar_rol_nivel_prompts_reproducibles",
@@ -51976,7 +51976,7 @@
       "node_kind": "heading",
       "norm_label": "prompts (reproducibles)",
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L44"
+      "source_location": "L45"
     },
     {
       "id": "knowledge_base_design_generations_gen_019_stitch_asignar_rol_nivel_revisi\u00f3n_cr\u00edtica",
@@ -51988,7 +51988,7 @@
       "node_kind": "heading",
       "norm_label": "revision critica",
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L48"
+      "source_location": "L49"
     },
     {
       "id": "superpowers_sdd_2026_10_03_organizations_api_progress",
@@ -121572,7 +121572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -121583,7 +121583,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -121594,7 +121594,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -156126,5 +156126,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "83dd536ac217a795b15db89a030f5b0a22aea144"
+  "built_at_commit": "7992cbd188d0b118cba4caebf2d1d10e65118510"
 }

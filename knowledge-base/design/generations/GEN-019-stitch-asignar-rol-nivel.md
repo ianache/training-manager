@@ -67,6 +67,8 @@ Verificación automática del HTML devuelto:
 
 **Regeneración v2 (2026-10-04):** los intentos con `edit_screens` (dos) no se aplicaron. Una regeneración completa con `generate_screen_from_text` tardó unos 15 minutos y devolvió siempre `timeout` en la llamada, pero la pantalla apareció después: `d5465d68fc1546fbb011c7841a9c7a9b` (v2, la registrada). Apareció además `c3342d35c640412aa9020d5c763df16e`, otra pantalla v2 (probablemente de un intento anterior que llegó tarde): **duplicado huérfano**, no registrado, a borrar en Stitch. Revisión del HTML de la v2: los cinco estados A a E, el bloqueo con «Niveles inferiores» y «Nivel destino: Junior (Nivel 3)», «Sin certificar» y las cuatro competencias de ejemplo, sin opción de bajar de nivel; 35 atributos `aria-` y 4 `role="alert"`. No muestra niveles inactivos (SCR-019 solo los excluye de la lista) y no se revisaron las capturas ni el contraste.
 
+**Estado pendiente de diseñar:** el estado «Certificación no disponible» de SCR-019-02 (EVD-2026-0177) no figura en la v2; hay que generarlo en Stitch.
+
 ## Preguntas abiertas
 
 SCR-019-Q1 a Q3, FLW-019-Q3 y Q4 (si bastan los niveles inferiores o también el destino, y si ADMIN puede saltarse el bloqueo AC-5). Revisión humana pendiente.
