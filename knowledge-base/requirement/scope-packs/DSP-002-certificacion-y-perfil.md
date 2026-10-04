@@ -58,7 +58,7 @@ Que un evaluador humano certifique el nivel L1–L4 de un colaborador en una com
 
 **De qué depende:**
 - **Catálogo (US-001, catalog-service):** competencias, sus versiones, rúbricas y requisitos de evidencia «requeridos» y «deseados» (BR-ACR-07, 09, 12, 13). *Inferencia a confirmar:* una certificación se refiere a la versión de la competencia vigente al certificar (IMD-001 R-46).
-- **Personas (US-015):** el colaborador certificado es un colaborador vigente.
+- **Personas (US-015) y anonimización (US-024):** el colaborador certificado debe ser vigente (EVD-2026-0217); si se anonimiza, sus certificaciones solo las ve ADMIN (EVD-2026-0218). El servicio necesita saber ambas cosas de party: consulta directa o composición en el BFF (abierto).
 - **Evaluadores (US-020):** el rol `evaluador` existe en Keycloak (descrito como «Evaluador de competencias») y cualquier usuario con él puede certificar (EVD-2026-0199); los designa el Jefe de Ingeniería o ADMIN asignando ese rol (EVD-2026-0189).
 - **Evidencias de formación:** en H1 se registran a mano; la conexión con cursos es H2.
 - **Servicio:** ACP-002 prevé un «Certification Service» propio (PostgreSQL, puerto 3003). No existe: no tiene ADR, modelo de datos ni API, y DCP-002 lo deja fuera.
@@ -126,7 +126,7 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~P-23~~ | ~~Equivalencias de evidencia (parcialmente respondida)~~ **Respondida (ianache, 2026-10-04):** sin equivalencias; un requisito puede exigir varias piezas (EVD-2026-0202, 0203). | Jefe de Ingeniería |
 | ~~P-41~~ | ~~Cómo «refuerza» una evidencia deseada la certificación~~ **Respondida (ianache, 2026-10-04):** solo queda registrada y visible en H1; la marca «reforzada» queda abierta (EVD-2026-0205). | Jefe de Ingeniería |
 | ~~P-54~~ | ~~Visibilidad de las calificaciones y del sustento del evaluador~~ **Respondida (ianache, 2026-10-04):** descripción de la revocación restringida; GitLab según BR-TRA-05 (EVD-2026-0206, 0207). Calificaciones y sustento de BR-CER-07: de cursos (H2). | Jefe de Ingeniería |
-| RCP-Q2 | ¿En H1 un evaluador registra a mano evidencia de GitLab? | Jefe de Ingeniería |
+| ~~RCP-Q2~~ | ~~¿En H1 un evaluador registra a mano evidencia de GitLab?~~ **Respondida (ianache, 2026-10-04):** las evidencias las registra el colaborador (EVD-2026-0215); a confirmar que el evaluador no las registra a mano. | Jefe de Ingeniería |
 
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
 1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.

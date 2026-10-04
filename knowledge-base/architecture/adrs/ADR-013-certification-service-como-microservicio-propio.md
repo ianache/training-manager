@@ -74,6 +74,7 @@ Las opciones y sus pros y contras son una reconstrucción del agente. El decisor
 - ~~Si una certificación vence~~ **Resuelto el 2026-10-04:** no vence (EVD-2026-0190).
 - ~~La semántica de «recertificar»~~ **Resuelto el 2026-10-04:** crea una certificación nueva del mismo nivel que reemplaza la anterior (EVD-2026-0192).
 - ~~Cómo comprueba el servicio que un evaluador no certifica a su propio equipo~~ **Resuelto el 2026-10-04:** la regla se retiró (EVD-2026-0200); el servicio no necesita datos de party para esto.
+- Cómo se entera el servicio de que una persona está vigente o anonimizada (EVD-2026-0217, 0218): consulta a party o composición en el BFF.
 - El modelo de datos y la API.
 
 ## Metas de calidad

@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791084756.885709,
-    "seen": 1791084836.2531204,
-    "ast_hash": "2007cd657449c2e7afa89989eedff322",
+    "mtime": 1791084990.854481,
+    "seen": 1791085073.2371955,
+    "ast_hash": "c79492338072c929fe38bfb1ef0e84a7",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791081356.0506127,
-    "seen": 1791081395.2296743,
-    "ast_hash": "7b49e8d4d94f675b1c3c4480fd55d111",
+    "mtime": 1791084990.839282,
+    "seen": 1791085073.3050094,
+    "ast_hash": "cd6ddae8a180f51457850b81496a1df2",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3648,15 +3648,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791084756.8776739,
-    "seen": 1791084836.3515854,
-    "ast_hash": "0c4b0d5e514faebc97ba9a09ad38a315",
+    "mtime": 1791084990.8440082,
+    "seen": 1791085073.3117154,
+    "ast_hash": "919e4208fcd1e83bdccd36d503027c26",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
     "mtime": 1791082882.7720902,
     "seen": 1791082925.6282742,
     "ast_hash": "c9ddf83f172d8186e26abf2b2c168783",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
+    "mtime": 1791084969.8647962,
+    "seen": 1791085073.0927584,
+    "ast_hash": "82180aad0c3596eed35f14f36ba86b4b",
     "semantic_hash": ""
   }
 }

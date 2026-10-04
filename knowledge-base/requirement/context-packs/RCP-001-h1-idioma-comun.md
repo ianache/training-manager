@@ -185,7 +185,7 @@ Están respaldados por una fuente. Los que vienen de una decisión humana se lis
 | P-17 | ¿Quién consulta las brechas agregadas por producto? | Negocio (Jefe de Ingeniería) | Media | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): Jefe de Ingeniería, Jefe de proyecto y cualquier usuario con privilegios de ADMIN (BR-BRE-06) |
 | P-45 | ¿Qué es un usuario con privilegios de ADMIN y quién lo otorga? | Negocio (Jefe de Ingeniería) + ARQ | Media | Nueva (BRC-001, derivada de P-17) |
 | GQ-08 | ¿Qué es un "perfil activo"? Lo necesita el KPI 6. | Negocio (Responsable de producto) | Media | Abierta (GLS-001) |
-| RCP-Q2 | En H1, sin el agente de IA, ¿un evaluador puede registrar a mano evidencia de GitLab (desempeño en proyecto)? | Negocio (Jefe de Ingeniería) | Media | Nueva |
+| RCP-Q2 | En H1, sin el agente de IA, ¿un evaluador puede registrar a mano evidencia de GitLab (desempeño en proyecto)? | Negocio (Jefe de Ingeniería) | Media | Nueva → **Respondida por implicación (2026-10-04, EVD-2026-0215):** las evidencias las registra el colaborador; a confirmar que un evaluador no las registra a mano. |
 | P-14 | ¿Una certificación vence o puede revocarse? | Negocio (Jefe de Ingeniería) | Baja | Abierta (BRC-001) |
 
 ## 8. Actores, procesos, datos y dependencias

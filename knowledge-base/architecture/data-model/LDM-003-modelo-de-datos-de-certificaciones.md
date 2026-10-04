@@ -91,8 +91,11 @@ REPLACED y REVOKED: finales
 | CHK-C | Solo revocan el Jefe de Ingeniería o ADMIN; el motivo debe estar `ACTIVE` | Servicio | EVD-2026-0191, 0197 |
 | CHK-D | La versión de la competencia está aprobada y el nivel tiene requisitos definidos, con al menos uno requerido | Servicio (necesita el catálogo) | BR-ACR-13, EVD-2026-0149 |
 | CHK-E | Dos certificaciones simultáneas de la misma persona y competencia no se pisan | Servicio: bloqueo por persona y competencia | CE-06 (el disparador no es serializable) |
-| CHK-F | La evidencia pertenece a la persona certificada | Servicio | R-20 |
+| CHK-F | La evidencia pertenece a la persona certificada | Servicio | R-20, EVD-2026-0215 |
 | CHK-G | Visibilidad por rol de la descripción de la revocación | Servicio (API) | BR-TRA-07 |
+| CHK-H | La evidencia la registra el propio colaborador certificado (EVD-2026-0215) | Servicio | BR-ACR-20 |
+| CHK-I | Recertificar exige al menos una evidencia nueva, distinta de las de la certificación que se reemplaza (EVD-2026-0216) | Servicio | BR-ACR-21 |
+| CHK-J | La persona certificada es un colaborador vigente y no está anonimizada (EVD-2026-0217, 0218): se consulta a party, o lo orquesta el BFF como en API-SPEC-004 | Servicio / BFF | BR-ACR-22, BR-TRA-08 |
 
 ## 6. Transacciones, concurrencia y operación
 
@@ -101,7 +104,7 @@ REPLACED y REVOKED: finales
 - **Concurrencia:** `row_version` en la certificación; el índice único parcial impide dos vigentes del mismo nivel. **Riesgo:** dos inserciones simultáneas de niveles distintos podrían dejar vigentes un nivel inferior y uno superior si ninguna ve a la otra; por eso CHK-E exige un bloqueo en el servicio.
 - **Índices:** los únicos y los de apoyo de la §2; `ix_cert_by_person_competency` sirve a la vista y a US-004.
 - **Datos sensibles:** la descripción de una revocación puede contener información delicada sobre una persona (se restringe en la API, CE-13). La descripción de una evidencia puede incluir datos personales (DM-Q-05).
-- **Retención:** indefinida; no hay borrado.
+- **Retención:** indefinida; no hay borrado. Si la persona se anonimiza, sus evidencias no se anonimizan y sus certificaciones solo las ve ADMIN (EVD-2026-0218, BR-TRA-08): el bloqueo es de la API, no de la base. Las evidencias de una certificación revocada siguen disponibles (EVD-2026-0219).
 - **Despliegue:** migración propia (Alembic) del servicio nuevo; revertir es eliminar las tablas, la vista, las funciones y los disparadores, sin dependencias entrantes mientras nadie los referencie.
 
 ## 7. Verificación
@@ -140,12 +143,12 @@ No se probaron CHK-A a CHK-G (son del servicio, que no existe), la carga ni dos 
 
 | ID | Pregunta | Responsable | Bloquea |
 |---|---|---|---|
-| DM-Q-01 | ¿Quién registra una evidencia: el colaborador, el evaluador o ambos? En H1 un evaluador puede registrar a mano evidencia de GitLab (RCP-Q2, abierta) | Jefe de Ingeniería | CHK-F y la API |
-| DM-Q-02 | ¿Recertificar exige nuevas evidencias o puede reutilizar las anteriores? | Jefe de Ingeniería | La API de recertificación |
-| DM-Q-03 | ¿La persona certificada debe ser un colaborador vigente? (como US-019-Q1) | Jefe de Ingeniería | CHK-B |
-| DM-Q-04 | Formato del identificador del evaluador y del actor (nombre de usuario o id) | Arquitectura | Auditoría |
-| DM-Q-05 | Si se anonimiza a una persona (US-024), ¿qué pasa con la descripción de sus evidencias y con sus certificaciones? | Jefe de Ingeniería | Retención |
-| DM-Q-06 | Si una certificación se revoca, ¿las evidencias que solo la respaldaban siguen disponibles para otras? (se supone que sí) | Jefe de Ingeniería | — |
+| ~~DM-Q-01~~ | ~~¿Quién registra una evidencia: el colaborador, el evaluador o ambos? En H1 un evaluador puede registrar a mano evidencia de GitLab (RCP-Q2, abierta)~~ **Respondida (ianache, 2026-10-04):** las registra el colaborador (EVD-2026-0215). | Jefe de Ingeniería | CHK-F y la API |
+| ~~DM-Q-02~~ | ~~¿Recertificar exige nuevas evidencias o puede reutilizar las anteriores?~~ **Respondida (ianache, 2026-10-04):** recertificar exige nuevas evidencias (EVD-2026-0216). | Jefe de Ingeniería | La API de recertificación |
+| ~~DM-Q-03~~ | ~~¿La persona certificada debe ser un colaborador vigente? (como US-019-Q1)~~ **Respondida (ianache, 2026-10-04):** sí, un colaborador vigente (EVD-2026-0217). | Jefe de Ingeniería | CHK-B |
+| DM-Q-04 | **Aclaración de la pregunta:** el registro de auditoría guarda *quién* certificó, calificó o revocó. ¿Con qué dato se identifica a esa persona: el **nombre de usuario** de Keycloak (legible, es lo que ya guardan party y el catálogo en `created_by`), el **identificador interno** (un UUID estable que no cambia aunque se renombre el usuario) o el **código de colaborador** de party? Hoy las columnas son `VARCHAR(100)` y valen para cualquiera de los tres | Arquitectura | Auditoría |
+| ~~DM-Q-05~~ | ~~Si se anonimiza a una persona (US-024), ¿qué pasa con la descripción de sus evidencias y con sus certificaciones?~~ **Respondida (ianache, 2026-10-04):** las evidencias no se anonimizan y las certificaciones solo las ve ADMIN (EVD-2026-0218). | Jefe de Ingeniería | Retención |
+| ~~DM-Q-06~~ | ~~Si una certificación se revoca, ¿las evidencias que solo la respaldaban siguen disponibles para otras? (se supone que sí)~~ **Respondida (ianache, 2026-10-04):** siguen disponibles (EVD-2026-0219). | Jefe de Ingeniería | — |
 
 ## 9. Siguiente paso
 
