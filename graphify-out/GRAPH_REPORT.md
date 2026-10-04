@@ -1,17 +1,17 @@
 # Graph Report - UX_UI_agentic  (2026-10-04)
 
 ## Corpus Check
-- 667 files · ~569,146 words
+- 667 files · ~569,311 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 35 file(s) not represented in the graph (top: (none) 14, .scss 7, .example 3)
 
 ## Summary
-- 5728 nodes · 8822 edges · 398 communities (342 shown, 56 thin omitted)
+- 5729 nodes · 8823 edges · 394 communities (338 shown, 56 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 348 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8df2d922`
+- Built from commit: `bab3a078`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -135,7 +135,7 @@
 - OKF-CONCEPTS-INDEX.md
 - ASR candidato — Versionado del catálogo de competencias
 - GEN-029 — Diseño Stitch: Registrar y editar unidades organizacionales
-- TRM-0021-evaluador.md
+- TRM-0049-propuesta-de-nivel.md
 - DCP-002-VALIDADO: Party Management Service API
 - BCON-001 — Aprobación Humana Obligatoria para Certificación
 - BRISK-001 — Catálogo Desactualizado o Falta de Consenso
@@ -252,7 +252,7 @@
 - gf-autocomplete
 - gf-form-field
 - gf-radio-card
-- LDM-002 — Modelo de datos del catálogo
+- LDM-001-modelo-logico-de-partes.md
 - UXS-001 — Gestión de la estructura organizacional
 - gf-error-message
 - gf-icon
@@ -309,7 +309,7 @@
 - UXR-004 — Consultar mi perfil de competencias
 - test_migrated_schema.py
 - update_role
-- index.md
+- USC-001-user-stories-plataforma-gestion-formacion.md
 - RQS-001 — Catálogo de cursos con filtros
 - sqlalchemy_ext_asyncio
 - product_owner
@@ -346,13 +346,13 @@
 - PDM-001 — Modelo físico de partes
 - US-015 — Alineación 100 % con FLW-015 y SCR-015 — Plan de implementación
 - FLW-019 — Asignar un Rol-Nivel a una persona
-- Files Overview
-- ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios
-- ADR-003 — Persistencia compatible con MySQL y PostgreSQL
+- RCP-004-catalogo-de-cursos-con-filtros.md
+- 1. What Was Handed Off
+- 2. Scope & Boundaries
 - register-collaborator.steps.spec.ts
-- TST-001 — Pruebas de restricciones del modelo de partes
+- 4. Implementation Readiness
 - ApiError
-- Catálogo atómico
+- 12. Lessons Learned & Future Improvements
 - LDM-003 — Modelo de datos de certificaciones
 - test_service_auth.py
 - SCR-004 — Consultar mi perfil de competencias
@@ -365,21 +365,17 @@
 - FLW-004 — Consultar mi perfil de competencias
 - JefeDatosEditPage
 - StepCorreo
-- RCP-001-h1-idioma-comun.md
+- TRM-0047-producto.md
 - CMP-017 — Componentes de la gestión de la estructura organizacional
 - oidc.ts
 - ADR-013 — certification-service como microservicio propio
 - party-management-service/tests/security/test_authorization.py
-- 🎯 Who Should Read What?
-- TRM-0027-gestion-de-formacion.md
-- 📋 Implementation Checklist
+- 6. NFRs & Fitness Criteria Validation
 - test_sql_injection.py
 - StepJefe
 - TRM-0019-docsuite.md
-- 11. Recommendations for Implementation Team
 - CHK-UNIDADES-001 — Revisión en navegador
 - 7. Assumptions, Unknowns, Conflicts
-- 5. Security Review Validation
 - HOF-PPM-002 — Gestión de la estructura organizacional
 - catalog-service/docker-entrypoint.sh
 - catalog-service/migrations/versions/__init__.py
@@ -413,7 +409,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (398 total, 56 thin omitted)
+## Communities (394 total, 56 thin omitted)
 
 ### Community 0 - "API-SPEC-005 — Certificaciones y evidencias"
 Cohesion: 0.22
@@ -456,8 +452,8 @@ Cohesion: 0.08
 Nodes (26): Evidencias y trazabilidad, Gestión de colaboradores (SPEC-001), H1 — El idioma común, H2 — Formación integrada, H3 — Evidencia real con IA, Lista de calidad, Objetivo y alcance, Preparación y entrega (+18 more)
 
 ### Community 10 - "GLS-001-glosario-de-negocio.md"
-Cohesion: 0.09
-Nodes (29): Parte, Persona, Organización, Rol de la parte, Relación entre partes, Empleado, Contratista, Proveedor (+21 more)
+Cohesion: 0.08
+Nodes (30): RR. HH., Sistema de RR. HH., Parte, Persona, Organización, Rol de la parte, Relación entre partes, Empleado (+22 more)
 
 ### Community 11 - "US-001 — Definir el catálogo de roles y competencias"
 Cohesion: 0.20
@@ -552,8 +548,8 @@ Cohesion: 0.06
 Nodes (33): 10. Supuestos documentados, 11. Próximos pasos, 12. Validación y aprobaciones, 1. Resumen ejecutivo, 2. Decisiones arquitectónicas (ADRs), 3. Bounded Contexts (DDD) y MicroUI boundaries, 4. Angular setup y convenciones, 5. Design System: Tokens y contrato visual (+25 more)
 
 ### Community 34 - "Revisión técnica — DTC-015"
-Cohesion: 0.11
-Nodes (15): Actualización 2026-10-02, Análisis de frontera — Registrar un colaborador, Brechas y cambio propuesto, Contrato NPM — `@gf/ui`, Estado actual, Mapeo de tokens (a completar tras la decisión 2), Actualización 2026-10-02 — decisiones y estado del árbol, Compatibilidad con la convención del repositorio (+7 more)
+Cohesion: 0.08
+Nodes (21): Atoms (`@gf/ui`, `ui/src/lib/atoms/`), Catálogo atómico, Molecules (`@gf/ui`, `ui/src/lib/molecules/`), No UI (orquestación, ya existen), Reglas de dependencia observadas/exigidas, Shells / páginas / pasos (`mfe-collaborators/src/app/`), Actualización 2026-10-02, Análisis de frontera — Registrar un colaborador (+13 more)
 
 ### Community 35 - "party-management-service/app/core/rate_limit.py"
 Cohesion: 0.08
@@ -568,7 +564,7 @@ Cohesion: 0.09
 Nodes (23): 10. Consideraciones de UX, 11. Dependencias, supuestos e hipótesis, 12. Preguntas abiertas, 13. Evidencia y trazabilidad, 14. Evaluación INVEST, 15. Definition of Ready, 16. Definition of Done (funcional), 17. Preparación y validación (+15 more)
 
 ### Community 38 - "UXR-003 — Certificar un nivel de competencia"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (9): Acciones, Actualización del 2026-10-04 (decisiones EVD-2026-0185 a 0237), Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad (+1 more)
 
 ### Community 39 - "MIGRATION-GUIDE"
@@ -744,7 +740,7 @@ Cohesion: 0.08
 Nodes (23): 1. Type Safety (Pydantic v2 vs TypeScript), 2. Performance, 3. Equipo, 4. Integración Keycloak, ADR-008 — Python + FastAPI como Estándar para APIs REST, Cambios a Documentos Relacionados, Consecuencias, Contexto (+15 more)
 
 ### Community 85 - "SCR-017 — Registrar la organización interna"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (13): Handoff Instructions for Developers, Implementation Checklist, Implementation Requirements, Permisos por actor, Preguntas abiertas, SCR-017-01 — Component Inventory, SCR-017-01 — Organización interna, SCR-017-02 — Component Inventory (+5 more)
 
 ### Community 86 - "Development Context Pack — Party Management Service API"
@@ -812,8 +808,8 @@ Cohesion: 0.20
 Nodes (10): Acciones, Decisiones humanas registradas, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Supuestos (+2 more)
 
 ### Community 103 - "READY_FOR_DEV Assessment"
-Cohesion: 0.08
-Nodes (26): 0. Revisión v1.1 (2026-10-01), 10. Readiness Assessment Grid, 12. Sign-Off, 13. References, 1. Implementation Scope Validation, 2. Architecture Constraints Validation, 3. API Contract Validation, 4. Data Model Validation (+18 more)
+Cohesion: 0.07
+Nodes (30): 0. Revisión v1.1 (2026-10-01), 10. Readiness Assessment Grid, 11. Recommendations for Implementation Team, 12. Sign-Off, 13. References, 1. Implementation Scope Validation, 2. Architecture Constraints Validation, 3. API Contract Validation (+22 more)
 
 ### Community 104 - "ASR-007 — Optimización de Recursos en Desarrollo Local"
 Cohesion: 0.18
@@ -828,7 +824,7 @@ Cohesion: 0.22
 Nodes (8): ADR-007 — Consolidación de PostgreSQL para Desarrollo Local, Cambios realizados, Consecuencias, Contexto, Decisión, Justificación, No se decidió todavía, Opciones consideradas
 
 ### Community 107 - "SCR-028-01 — Gestión de unidades organizacionales"
-Cohesion: 0.13
+Cohesion: 0.14
 Nodes (14): Estados, Handoff Instructions for Developers, Implementation Checklist, Implementation Requirements, Permisos, Preguntas abiertas, SCR-028-01 — Component Inventory, SCR-028-01 — Gestión de unidades organizacionales (+6 more)
 
 ### Community 108 - "Hallazgos (fail)"
@@ -873,15 +869,15 @@ Nodes (9): ASR candidato — Versionado del catálogo de competencias, Disposici
 
 ### Community 118 - "GEN-029 — Diseño Stitch: Registrar y editar unidades organizacionales"
 Cohesion: 0.11
-Nodes (18): Actualización 2026-10-03 (SCR-029-03 y SCR-029-04), Actualización 2026-10-03 (tercer intento, con prompts cortos), Cierre de pendientes (2026-10-03, v3 en serie), Correcciones v3 (2026-10-03), GEN-029 — Diseño Stitch: Registrar y editar unidades organizacionales, Hojas de estados adicionales y revisión crítica (2026-10-03), Pantallas generadas, Preguntas abiertas (+10 more)
+Nodes (19): Actualización 2026-10-03 (SCR-029-03 y SCR-029-04), Actualización 2026-10-03 (tercer intento, con prompts cortos), Cierre de pendientes (2026-10-03, v3 en serie), Correcciones v3 (2026-10-03), GEN-029 — Diseño Stitch: Registrar y editar unidades organizacionales, Hojas de estados adicionales y revisión crítica (2026-10-03), Pantallas generadas, Preguntas abiertas (+11 more)
 
-### Community 119 - "TRM-0021-evaluador.md"
-Cohesion: 0.10
-Nodes (13): Evaluador, Evidencia de GitLab asistida por IA, Evidencia real, Evidencia sobre volumen, Firma humana, GitLab, Horizonte, Human-in-the-loop (+5 more)
+### Community 119 - "TRM-0049-propuesta-de-nivel.md"
+Cohesion: 0.11
+Nodes (12): Adopción, Evidencia de GitLab asistida por IA, Evidencia sobre volumen, GitLab, Human-in-the-loop, IA, Issue, Milestone (+4 more)
 
 ### Community 120 - "DCP-002-VALIDADO: Party Management Service API"
-Cohesion: 0.14
-Nodes (14): ✅ **Approvals Completed**, 🔄 Cambios en v1.1 (2026-10-01), 🚨 Critical Items, DCP-002-VALIDADO: Party Management Service API, ❓ **Decisions Needed**, 📝 Document Metadata, If You Have 15 Minutes:, If You Have 2 Hours: (+6 more)
+Cohesion: 0.06
+Nodes (35): 1️⃣ **development-context-pack.md** (Main Implementation Guide), 2️⃣ **pack.yaml** (Structured Metadata), 3️⃣ **traceability-map.md** (Requirements → Implementation), 4️⃣ **ready-for-dev.md** (Readiness Validation), 5️⃣ **handoff-report.md** (Executive Summary), ✅ **Approvals Completed**, 👨‍💻 **Backend Developers**, 🔄 Cambios en v1.1 (2026-10-01) (+27 more)
 
 ### Community 121 - "BCON-001 — Aprobación Humana Obligatoria para Certificación"
 Cohesion: 0.29
@@ -964,8 +960,8 @@ Cohesion: 0.13
 Nodes (31): not_found(), Datos de ejemplo SOLO DE DESARROLLO (SEED_DEMO_DATA=true y entorno…, seed_demo_data(), Competency, CompetencyVersion, EvidenceRequirement, Base, Modelo ORM del catálogo (LDM-002). El esquema real lo crea Alembic desde el DDL… (+23 more)
 
 ### Community 155 - "Handoff Report"
-Cohesion: 0.05
-Nodes (44): 10. Handoff Package Contents, 11. Approval Record, 12. Lessons Learned & Future Improvements, 13. References & Support, 14. Sign-Off, 1.1 Core Deliverables, 1.2 Architecture Context, 1.3 Traceability & Verification (+36 more)
+Cohesion: 0.07
+Nodes (29): 10. Handoff Package Contents, 11. Approval Record, 13. References & Support, 14. Sign-Off, 3.1 Stack & Technology, 3.2 Deployment Architecture, 3.3 Architectural Constraints (Approved ADRs), 3. Architecture Summary (+21 more)
 
 ### Community 156 - "compilerOptions"
 Cohesion: 0.14
@@ -1028,7 +1024,7 @@ Cohesion: 0.12
 Nodes (22): AppDeps, createApp(), createSessionMiddleware(), Env, FetchLike, DependencyStatus, healthRouter(), ReadinessCheck (+14 more)
 
 ### Community 171 - "UXR-002 — Declarar un requerimiento de proyecto"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-002 — Declarar un requerimiento de proyecto
 
 ### Community 172 - "Traceability Matrix: Requirements → Architecture → Implementation → Verification"
@@ -1104,7 +1100,7 @@ Cohesion: 0.40
 Nodes (4): dest, lib, entryFile, $schema
 
 ### Community 191 - "GEN-017 — Diseño Stitch: Registrar la organización interna"
-Cohesion: 0.17
+Cohesion: 0.18
 Nodes (11): GEN-017 — Diseño Stitch: Registrar la organización interna, Pantallas generadas, Preguntas abiertas, Prompts (reproducibles), Regeneración v2 (2026-10-03): éxito en verde y semántica de accesibilidad, Revisión crítica, SCR-017-01, SCR-017-02 (+3 more)
 
 ### Community 192 - "mfe-catalog/tsconfig.federation.json"
@@ -1128,8 +1124,8 @@ Cohesion: 0.25
 Nodes (7): ADR-009 — Composición de microUIs con Native Federation, Consecuencias, Contexto, Decisión propuesta (rechazada), Evidencia del *spike* (2026-09-30), Metas de calidad, Opciones consideradas
 
 ### Community 197 - "TRM-0037-kpi.md"
-Cohesion: 0.11
-Nodes (10): Adopción, Cierre de brechas, Cobertura de roles, Dirección, KPI, Proyecto activo, Riesgo de cobertura, Tablero de capacidad (+2 more)
+Cohesion: 0.10
+Nodes (11): Cierre de brechas, Cobertura de roles, Dirección, Evidencia real, Horizonte, KPI, Proyecto activo, Riesgo de cobertura (+3 more)
 
 ### Community 198 - "Batch C Implementation Report - PLAN-016"
 Cohesion: 0.07
@@ -1164,7 +1160,7 @@ Cohesion: 0.17
 Nodes (11): Acceptance Criteria (Elaborated), Accessibility Requirements, Actors & Permissions, Data Validation Rules, Definition of Done, Key Flows, Open Questions, Permission & Security Rules (+3 more)
 
 ### Community 206 - "SCR-030 — Desactivar y reactivar unidades organizacionales"
-Cohesion: 0.13
+Cohesion: 0.14
 Nodes (14): Handoff Instructions for Developers, Implementation Checklist, Implementation Requirements, Permisos por actor, Preguntas abiertas, SCR-030-01 — Component Inventory, SCR-030-01 — Confirmar desactivación de la unidad, SCR-030-02 — Desactivación bloqueada por dependencias (+6 more)
 
 ### Community 212 - "Content"
@@ -1303,9 +1299,9 @@ Nodes (5): Accessibility, gf-form-field, Inputs, Outputs, Usage
 Cohesion: 0.33
 Nodes (5): Accessibility, gf-radio-card, Inputs, Outputs, Usage
 
-### Community 250 - "LDM-002 — Modelo de datos del catálogo"
-Cohesion: 0.20
-Nodes (10): 1. Diagrama, 2. Entidades, 3. Decisiones de diseño, 4. Referencias desde otros servicios, 5. Restricciones y dónde se aplican, 6. Transacciones, concurrencia y operación, 7. Verificación, 8. Preguntas abiertas (+2 more)
+### Community 250 - "LDM-001-modelo-logico-de-partes.md"
+Cohesion: 0.06
+Nodes (31): ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas, ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias (+23 more)
 
 ### Community 251 - "UXS-001 — Gestión de la estructura organizacional"
 Cohesion: 0.22
@@ -1336,12 +1332,12 @@ Cohesion: 0.50
 Nodes (4): Parte 3: Criterios de Éxito, Phase 1 Exit Criteria (@gf/ui), Phase 2 Exit Criteria (Shells + Commands), Phase 3 Exit Criteria (Pages + Tests)
 
 ### Community 259 - "API-SPEC-002 — Organizaciones: consulta, búsqueda y alta"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (14): 1. Decisión de ruta (ID-1), 2. Alcance, 3. Contrato, 4. Seguridad y privacidad, 5. Datos (una migración), 6. Compatibilidad y versionado, 7. Verificación propuesta, 8. Riesgos y preguntas abiertas (+6 more)
 
 ### Community 260 - "IMD-001-modelo-de-informacion-conceptual.md"
 Cohesion: 0.08
-Nodes (30): Certificación, Brecha, Catálogo de competencias, Certificado de curso, Competencia, Contingencia, Curso final, Escala de niveles de dominio (+22 more)
+Nodes (28): Certificación, Asignación, Brecha, Búsqueda de personal, Catálogo de competencias, Certificado de curso, Competencia, Escala de niveles de dominio (+20 more)
 
 ### Community 261 - "GEN-003 — Diseño Stitch de certificar un nivel de competencia"
 Cohesion: 0.29
@@ -1376,7 +1372,7 @@ Cohesion: 0.13
 Nodes (14): Cómo se aplicó «Comsatel Styled», GEN-016 — Diseño Stitch: Actualizar datos y medios de contacto, Pantallas generadas, Preguntas abiertas, Prompts (reproducibles), Revisión crítica, SCR-016-01, SCR-016-02 (+6 more)
 
 ### Community 270 - "UXS-001 anexo — Preguntas abiertas por responsable"
-Cohesion: 0.18
+Cohesion: 0.20
 Nodes (10): 1. Jefe de Ingeniería — reglas de negocio (derivar a af-requirements-orchestrator), 2. Jefe de Ingeniería — comportamiento del flujo (decisión de diseño con el Jefe), 3. UX / Design System (con el Jefe donde se indica), 4. Responsable de producto, 5. Arquitecto (con el Jefe de Ingeniería), Conteo, Leyenda, Orden de respuesta sugerido (+2 more)
 
 ### Community 271 - "ARP-SCR-030 — Informe de accesibilidad"
@@ -1400,11 +1396,11 @@ Cohesion: 0.16
 Nodes (9): field_validator, RoleIn, RoleLevelIn, AsyncSession, Valida las competencias de un nivel. `current`: competencia → versión ya…, Datos auxiliares para calcular `usable`, conteos y advertencias de versión., RoleService, _validation() (+1 more)
 
 ### Community 276 - "UXR-006 — Buscar candidatos para un requerimiento"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-006 — Buscar candidatos para un requerimiento
 
 ### Community 277 - "SCR-029 — Registrar y editar unidades organizacionales"
-Cohesion: 0.15
+Cohesion: 0.17
 Nodes (12): Component Inventory, Handoff Instructions for Developers, Implementation Checklist, Implementation Requirements, Permisos por actor, Preguntas abiertas, SCR-029-01 — Registrar unidad, SCR-029-02 — Editar nombre de una unidad (+4 more)
 
 ### Community 278 - "PartyCreateRequest"
@@ -1420,7 +1416,7 @@ Cohesion: 0.11
 Nodes (12): PartyStatus, PartyListPage, Component, 2026-09-26, 2026-09-27, 2026-09-30, 2026-10-01, 2026-10-03 (+4 more)
 
 ### Community 281 - "Excepciones, permisos y estados"
-Cohesion: 0.17
+Cohesion: 0.18
 Nodes (11): Accesibilidad (UXR-030 §5-6), Estados, Excepciones, Excepciones, permisos y estados, Flujo 1: Desactivar una unidad Activa, Flujo 2: Reactivar una unidad Inactiva, FLW-030 — Desactivar y reactivar unidades organizacionales, Happy path (+3 more)
 
 ### Community 282 - "test_organizations_api.py"
@@ -1472,7 +1468,7 @@ Cohesion: 0.20
 Nodes (10): Accesibilidad del flujo (UXR-000, UXR-028 §7), Definition of Done, Estados de la interfaz, Excepciones, Excepciones, permisos y estados, FLW-028 — Listar y buscar unidades organizacionales, Happy path, Permisos (+2 more)
 
 ### Community 295 - "FLW-015-registrar-un-colaborador.md"
-Cohesion: 0.21
+Cohesion: 0.22
 Nodes (5): Design Memory Index, UX & Components, STP-PPM-001 — Proyecto Stitch «Plataforma PPM», TKN-SET-001 — Tokens «Sovereign Enterprise», DTM-PPM-001 — Design Traceability Map
 
 ### Community 296 - "AGENTS.md — UX/UI Potenciado por IA (Pack V2)"
@@ -1504,7 +1500,7 @@ Cohesion: 0.22
 Nodes (9): 1. Alcance, 2. Diagrama, 3. Entidades, 4. Decisiones de diseño, 5. Restricciones y dónde se aplican, 6. Supuestos, 7. Preguntas abiertas, 8. Siguiente paso (+1 more)
 
 ### Community 303 - "UXR-005 — Ver mi brecha frente a un Rol-Nivel"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Acciones, Estados, Necesidades de información, Objetivo del usuario, Preguntas abiertas, Reglas que la interfaz debe hacer visibles, Trazabilidad, UXR-005 — Ver mi brecha frente a un Rol-Nivel
 
 ### Community 304 - "ARP-SCR-017-02 — Registrar la organización interna"
@@ -1523,9 +1519,9 @@ Nodes (5): app_models_base, Esquema creado por `alembic upgrade head` sobre Post
 Cohesion: 0.35
 Nodes (14): create_role(), deactivate_level(), deactivate_role(), get_role(), AsyncSession, post, Response, UUID (+6 more)
 
-### Community 308 - "index.md"
-Cohesion: 0.11
-Nodes (7): PDM-001 — Anexo MySQL 8, PDM-001 — Anexo PostgreSQL, Colaborador, COMSATEL, Jefe de Ingeniería, Perfil de competencias del colaborador, Transparencia para el colaborador
+### Community 308 - "USC-001-user-stories-plataforma-gestion-formacion.md"
+Cohesion: 0.24
+Nodes (3): Colaborador, COMSATEL, Jefe de Ingeniería
 
 ### Community 309 - "RQS-001 — Catálogo de cursos con filtros"
 Cohesion: 0.22
@@ -1620,7 +1616,7 @@ Cohesion: 0.20
 Nodes (10): 1. Actor y permisos, 2. Flujos, 3. Campos y validaciones, 4. Estados de la interfaz, 5. Contenido clave, 6. Criterios UX verificables, 7. Accesibilidad, 8. Preguntas abiertas (+2 more)
 
 ### Community 335 - "FLW-017 — Registrar la organización interna"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (5): Excepciones, permisos y estados, FLW-017 — Registrar la organización interna, Happy path, Preguntas abiertas, Trazabilidad
 
 ### Community 336 - "models/party.py"
@@ -1663,33 +1659,33 @@ Nodes (9): Contrato (fijo para todos los flujos), Flujo `us015-e2e-docs`, Global
 Cohesion: 0.33
 Nodes (5): Excepciones, permisos y estados, FLW-019 — Asignar un Rol-Nivel a una persona, Happy path, Preguntas abiertas, Trazabilidad
 
-### Community 346 - "Files Overview"
-Cohesion: 0.29
-Nodes (7): 1️⃣ **development-context-pack.md** (Main Implementation Guide), 2️⃣ **pack.yaml** (Structured Metadata), 3️⃣ **traceability-map.md** (Requirements → Implementation), 4️⃣ **ready-for-dev.md** (Readiness Validation), 5️⃣ **handoff-report.md** (Executive Summary), Files Overview, 📚 What's in This Package?
+### Community 346 - "RCP-004-catalogo-de-cursos-con-filtros.md"
+Cohesion: 0.16
+Nodes (12): Contingencia, Curso final, Google Classroom, Google Drive, Integrar, no hospedar, LMS, Ruta de formación, Edición de curso (+4 more)
 
-### Community 347 - "ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios"
-Cohesion: 0.33
-Nodes (6): ADR-001 — Estructura de la plataforma: shell y microUIs en Angular, BFF en Node.js intermediario con los microservicios, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
+### Community 347 - "1. What Was Handed Off"
+Cohesion: 0.50
+Nodes (4): 1.1 Core Deliverables, 1.2 Architecture Context, 1.3 Traceability & Verification, 1. What Was Handed Off
 
-### Community 348 - "ADR-003 — Persistencia compatible con MySQL y PostgreSQL"
-Cohesion: 0.29
-Nodes (7): ADR-003 — Persistencia compatible con MySQL y PostgreSQL, Consecuencias, Contexto, Decisión, Historial, Metas de calidad, Opciones consideradas
+### Community 348 - "2. Scope & Boundaries"
+Cohesion: 0.50
+Nodes (4): 2. Scope & Boundaries, 🎯 Bounded Context, ❌ Excluded (Out of Scope), ✅ Included (In Scope)
 
 ### Community 349 - "register-collaborator.steps.spec.ts"
 Cohesion: 0.08
 Nodes (17): CatalogRow, RegisterCollaboratorApi, rows(), Injectable, Option, RoleOption, todayIso(), Api (+9 more)
 
-### Community 350 - "TST-001 — Pruebas de restricciones del modelo de partes"
-Cohesion: 0.33
-Nodes (6): Casos, Cómo ejecutarlas, Fuera de estas pruebas, Para ejecutarlas (Q-06 respondida por D28), Resultado, TST-001 — Pruebas de restricciones del modelo de partes
+### Community 350 - "4. Implementation Readiness"
+Cohesion: 0.50
+Nodes (4): 4. Implementation Readiness, ⚠️ Known Risks, ✅ Readiness Assessment Results, ⚠️ Security Findings (SRC-001)
 
 ### Community 351 - "ApiError"
 Cohesion: 0.21
 Nodes (12): US-015 / US-016: solo el Jefe de Ingeniería registra y modifica colaboradores., require_jefe_ingenieria(), ApiError, authorization_failed(), not_found(), Exception, Obsoleto: se mantiene solo por compatibilidad. Usar app.core.errors.ApiError,…, _limit_for() (+4 more)
 
-### Community 352 - "Catálogo atómico"
-Cohesion: 0.33
-Nodes (6): Atoms (`@gf/ui`, `ui/src/lib/atoms/`), Catálogo atómico, Molecules (`@gf/ui`, `ui/src/lib/molecules/`), No UI (orquestación, ya existen), Reglas de dependencia observadas/exigidas, Shells / páginas / pasos (`mfe-collaborators/src/app/`)
+### Community 352 - "12. Lessons Learned & Future Improvements"
+Cohesion: 0.67
+Nodes (3): 12. Lessons Learned & Future Improvements, 🔄 Improvements for Next Handoff, ✅ What Worked Well
 
 ### Community 353 - "LDM-003 — Modelo de datos de certificaciones"
 Cohesion: 0.20
@@ -1727,12 +1723,12 @@ Nodes (5): Excepciones, permisos y estados, FLW-003 — Certificar un nivel de c
 Cohesion: 0.33
 Nodes (5): Excepciones, permisos y estados, FLW-004 — Consultar mi perfil de competencias, Happy path, Preguntas abiertas, Trazabilidad
 
-### Community 365 - "RCP-001-h1-idioma-comun.md"
-Cohesion: 0.12
-Nodes (11): Asignación, Búsqueda de personal, CLocator, CLocator v2, Jefe de proyecto, Producto, Proyecto, Requerimiento de proyecto (+3 more)
+### Community 365 - "TRM-0047-producto.md"
+Cohesion: 0.22
+Nodes (5): CLocator, CLocator v2, Producto, SIGO, SmartSuite
 
 ### Community 366 - "CMP-017 — Componentes de la gestión de la estructura organizacional"
-Cohesion: 0.29
+Cohesion: 0.22
 Nodes (7): 1. Lo que existe en `@gf/ui`, 2. Inventario por pantalla, 3. Brechas (7 componentes) y decisión de límite, 4. Dónde vive la pantalla (decisión de límite, propuesta), 5. Reglas de implementación, 6. Preguntas abiertas, CMP-017 — Componentes de la gestión de la estructura organizacional
 
 ### Community 367 - "oidc.ts"
@@ -1740,24 +1736,16 @@ Cohesion: 0.31
 Nodes (8): backchannelFetch(), createKeycloakOidc(), decodeJwtPayload(), extractRealmRoles(), IdentityClaims, LoginRequest, ADR-0005, openid-client
 
 ### Community 368 - "ADR-013 — certification-service como microservicio propio"
-Cohesion: 0.20
+Cohesion: 0.33
 Nodes (6): ADR-013 — certification-service como microservicio propio, Consecuencias, Contexto, Decisión, Metas de calidad, Opciones consideradas
 
 ### Community 369 - "party-management-service/tests/security/test_authorization.py"
 Cohesion: 0.44
 Nodes (8): _create(), asyncio, RBAC y visibilidad (US-015, US-016, UXR-000.5 / P-08)., test_colaborador_no_modifica_403(), test_colaborador_no_registra_403(), test_colaborador_ve_ficha_ajena_limitada(), test_jefe_ve_ficha_completa(), test_lista_limitada_para_colaborador()
 
-### Community 370 - "🎯 Who Should Read What?"
-Cohesion: 0.29
-Nodes (7): 👨‍💻 **Backend Developers**, 🚀 **Ops / DevOps Lead**, 📊 **Product Manager**, ✅ **QA / Test Lead**, 🔒 **Security Lead**, 🏗️ **Tech Lead / Architecture**, 🎯 Who Should Read What?
-
-### Community 371 - "TRM-0027-gestion-de-formacion.md"
-Cohesion: 0.33
-Nodes (3): Gestión de formación, RR. HH., Sistema de RR. HH.
-
-### Community 372 - "📋 Implementation Checklist"
-Cohesion: 0.29
-Nodes (7): 📋 Implementation Checklist, Phase 1 (Weeks 1-2): PARTY + ORGANIZATION, Phase 2 (Week 3): ROLE-ASSIGNMENT + PROGRAM-ROLE, Phase 3 (Week 4): KEYCLOAK-LINK + E2E, Phase 4 (Week 5): ANONYMIZATION + Scheduler, Phase 5 (Week 6): Observability, Pre-Development (Week 0)
+### Community 370 - "6. NFRs & Fitness Criteria Validation"
+Cohesion: 0.67
+Nodes (3): 6. NFRs & Fitness Criteria Validation, ✅ Auditability NFRs Defined, ✅ Performance NFRs Defined
 
 ### Community 373 - "test_sql_injection.py"
 Cohesion: 0.47
@@ -1767,10 +1755,6 @@ Nodes (5): _create(), asyncio, Entradas maliciosas: se rechazan por validación 
 Cohesion: 0.40
 Nodes (3): API REST, docsuite, PDF
 
-### Community 376 - "11. Recommendations for Implementation Team"
-Cohesion: 0.50
-Nodes (4): 11. Recommendations for Implementation Team, ⚠️ Implementation Cautions, 📋 Pre-Development Checklist for Team, ✅ Strong Readiness Signals
-
 ### Community 377 - "CHK-UNIDADES-001 — Revisión en navegador"
 Cohesion: 0.33
 Nodes (5): 1. Pruebas comunes a todas las pantallas, 2. Pruebas específicas por pantalla, 3. Cómo registrar el resultado, 4. Fuera de esta lista, CHK-UNIDADES-001 — Revisión en navegador
@@ -1778,10 +1762,6 @@ Nodes (5): 1. Pruebas comunes a todas las pantallas, 2. Pruebas específicas por
 ### Community 378 - "7. Assumptions, Unknowns, Conflicts"
 Cohesion: 0.50
 Nodes (4): 7. Assumptions, Unknowns, Conflicts, ⚠️ ASSUMPTIONS (Document & Verify), ✅ CONFLICTS (Resolved), ❓ UNKNOWNS (Documented with Recommendations)
-
-### Community 379 - "5. Security Review Validation"
-Cohesion: 0.67
-Nodes (3): 5. Security Review Validation, ✅ OWASP Top 10 Mitigations Defined, ✅ SRC-001 Findings Documented with Remediation
 
 ## Knowledge Gaps
 - **3161 isolated node(s):** `name`, `version`, `private`, `description`, `type` (+3156 more)
@@ -1792,11 +1772,11 @@ Nodes (3): 5. Security Review Validation, ✅ OWASP Top 10 Mitigations Defined, 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `admin()` connect `admin` to `product_owner`, `API-SPEC-006 — Gestión de la estructura organizacional`, `OidcPort`, `Development Context Pack — Catálogo de roles y niveles`, `READY_FOR_DEV Assessment`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `API-SPEC-003 — Catálogo de roles y competencias`, `Development Context Pack — Party Management Service API`, `DCP-002-VALIDADO: Party Management Service API`, `Handoff Report`, `catalog-service/tests/conftest.py`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
 - **Why does `product_owner()` connect `product_owner` to `Reglas, dependencias e impactos`, `Development Context Pack — Catálogo de roles y niveles`, `UXR-001 — Gestionar el catálogo de roles y competencias`, `Registro de cambios`, `API-SPEC-003 — Catálogo de roles y competencias`, `catalog-service/tests/conftest.py`?**
   _High betweenness centrality (0.074) - this node is a cross-community bridge._
 - **Why does `sources()` connect `AGENTS.md — UX/UI Potenciado por IA (Pack V2)` to `bff/src/main.ts`, `Development Context Pack — Catálogo de roles y niveles`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **Are the 16 inferred relationships involving `RoleService` (e.g. with `create_role()` and `deactivate_level()`) actually correct?**
   _`RoleService` has 16 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 21 inferred relationships involving `OrganizationService` (e.g. with `create_organization()` and `get_organization()`) actually correct?**

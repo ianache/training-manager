@@ -823,11 +823,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/12e3390b33c04a3e999434240a947ab2
-    version: v3-clean-shell
+    artifact_ref: projects/13050549605434273903/screens/f971cc7dc0c34577a14e8858dfb4bc64
+    version: v5-correo-laboral
     status: current
-    captured_at: '2026-10-03T17:14:49-05:00'
-    latest_known_version: v3-clean-shell
+    captured_at: '2026-10-04T11:41:32-05:00'
+    latest_known_version: v5-correo-laboral
+    evidence: ev-scr029-01-v5.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -843,6 +844,13 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:23-05:00'
     latest_known_version: v2-success-green
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/12e3390b33c04a3e999434240a947ab2
+    version: v3-clean-shell
+    status: superseded
+    captured_at: '2026-10-03T17:14:49-05:00'
+    latest_known_version: v3-clean-shell
 - screen: SCR-029-02
   flow: FLW-029
   requirements:

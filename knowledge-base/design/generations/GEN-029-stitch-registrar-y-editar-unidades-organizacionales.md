@@ -193,3 +193,7 @@ Tras el timeout, la hoja apareció en `list_screens` pasado un rato (la llamada 
 | SCR-029-01 (B campos obligatorios, C nombre duplicado, D unidad padre inactiva) | `projects/13050549605434273903/screens/2be6838e89aa48b898b98b11aa15e5fc` | Sin «Soporte» ni «Ajustes» (la única coincidencia es el valor de ejemplo «Soporte» del campo); 9 de 9 controles con `label for`; 4 errores con `role="alert"`, `aria-invalid` y `aria-describedby`; las 4 `nav` con `aria-label`; iconos ocultos. |
 
 Con esta hoja, SCR-029-01 tiene sus estados A (`12e3390b…`), B a D (`2be6838e…`) y E a H (`d14e0605…`). La hoja E a H es la única que conserva «Soporte» y «Ajustes» en la barra lateral: pendiente de regenerar si se quiere eliminar ese defecto. Foco y teclado siguen sin evaluarse en navegador.
+
+### SCR-029-01 v5 — correo laboral (2026-10-04)
+
+Se añadió el campo «Correo laboral *» (BR-PTY-27, EVD-2026-0239) y se generó la hoja `projects/13050549605434273903/screens/f971cc7dc0c34577a14e8858dfb4bc64` (solo estado A, normal), registrada en el DTM como `exploration_design` vigente de SCR-029-01 (`v5-correo-laboral`); `12e3390b…` pasó a `superseded`. Dos ediciones y dos generaciones previas agotaron el tiempo de espera; la generación corta respondió tras subir `MCP_TOOL_TIMEOUT` a 600000. **Pendiente:** las hojas de los estados B a D (`2be6838e…`) y E a H (`d14e0605…`) no tienen el campo; el estado de errores debe mostrar «Ingrese un correo válido». El HTML de v5 no se revisó contra el SCR ni en accesibilidad.
