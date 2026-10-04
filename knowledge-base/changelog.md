@@ -374,3 +374,6 @@ sources:
 
 - Confirmación de `human:ianache` 2026-10-04 (EVD-2026-0214): la calificación CUMPLE / NO CUMPLE es por evidencia y un requisito se cumple con al menos una pieza en CUMPLE. Se quitó la marca «a confirmar» de EVD-2026-0210, BR-ACR-19, IMD-001 R-20 y DSP-002.
 - Artefactos afectados: `BRC-001`, `IMD-001`, `DSP-002`.
+
+- LDM-003 y su DDL PostgreSQL para el certification-service (ADR-013): certificaciones con estados ACTIVE, REPLACED y REVOKED, evidencias reutilizables con tabla de unión y calificación CUMPLE / NO_CUMPLE por evidencia, motivos de revocación ampliables y registro de auditoría de solo inserción escrito por disparadores; vista del nivel vigente (el más alto de las vigentes). 25 casos probados en una base temporal del compose (17 deben fallar y fallan, 10 pasan). Estado `REQUIRES_REVIEW`. Preguntas abiertas DM-Q-01 a DM-Q-06 (quién registra evidencias, recertificar con evidencias nuevas, persona vigente, formato del actor, anonimización, evidencias de una certificación revocada).
+- Artefactos afectados: `knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md`, `knowledge-base/architecture/data-model/ddl/certification-postgresql.sql`, `DSP-002`, `index.md`.

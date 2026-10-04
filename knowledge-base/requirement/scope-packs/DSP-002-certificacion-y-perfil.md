@@ -131,7 +131,7 @@ The delivery team or supplier must implement only the included scope, provide te
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
 1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.
 2. ~~Actualizar el modelo conceptual (IMD-001)~~ Hecho el 2026-10-04: la evidencia es una entidad propia y R-20 y R-07 pasan a N : M (EVD-2026-0213).
-3. Modelo de datos (`data-model-designer`); el ADR del Certification Service ya está aceptado (ADR-013).
+3. ~~Modelo de datos~~ Hecho el 2026-10-04: [LDM-003](../../architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md) y su DDL, probados en PostgreSQL; el ADR del Certification Service ya está aceptado (ADR-013).
 4. API-SPEC con la consulta del nivel certificado y el alta de certificación.
 5. UXR-003 y UXR-004 ya existen: faltan FLW, SCR y GEN.
 6. DCP de este alcance.
