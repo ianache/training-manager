@@ -223,6 +223,8 @@
                     />
                   </gf-form-field>
 
+                  @if (level.competencies.length) {
+                  <div class="rows">
                   @for (c of level.competencies; track $index; let j = $index) {
                     <div class="competency" [class.competency--invalid]="err('level.' + i + '.c.' + j)">
                       <div class="row">
@@ -278,6 +280,8 @@
                         </div>
                       }
                     </div>
+                  }
+                  </div>
                   }
 
                   @if (!level.competencies.length && err('level.' + i + '.competencies')) {

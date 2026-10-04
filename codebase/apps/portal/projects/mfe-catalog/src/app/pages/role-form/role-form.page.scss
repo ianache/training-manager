@@ -119,6 +119,8 @@ gf-alert {
   display: grid;
   gap: var(--gf-space-4);
   &__head {
+    padding-bottom: var(--gf-space-3);
+    border-bottom: 1px solid $line;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -135,8 +137,8 @@ gf-alert {
 .level {
   border: 1px solid $line;
   border-radius: var(--gf-radius-md);
-  background: var(--gf-color-on-primary);
-  overflow: hidden;
+  background: var(--gf-color-surface);
+  /* Sin overflow: hidden: la lista del combobox «Agregar competencia…» debe poder salir de la tarjeta. */
   &[data-status='INACTIVE'] {
     background: var(--gf-color-surface-container);
   }
@@ -149,6 +151,7 @@ gf-alert {
     padding: var(--gf-space-3) var(--gf-space-4);
     background: var(--gf-color-surface);
     border-bottom: 1px solid $line;
+    border-radius: var(--gf-radius-md) var(--gf-radius-md) 0 0;
   }
   &__title {
     display: flex;
@@ -188,18 +191,25 @@ gf-alert {
   }
 }
 
+.rows {
+  border: 1px solid $line;
+  border-radius: var(--gf-radius-md);
+  background: var(--gf-color-on-primary);
+}
+
+/* Lista continua: las competencias se separan por una línea, como filas de una tabla (diseño Stitch). */
 .competency {
   display: grid;
   gap: var(--gf-space-2);
-  padding: var(--gf-space-3);
-  border: 1px solid $line;
-  border-radius: var(--gf-radius-md);
-  background: var(--gf-color-surface);
+  padding: var(--gf-space-3) var(--gf-space-4);
+  & + & {
+    border-top: 1px solid $line;
+  }
   &:hover {
-    border-color: var(--gf-color-border);
+    background: var(--gf-color-surface);
   }
   &--invalid {
-    border-color: var(--gf-color-danger-fg);
+    background: var(--gf-color-danger-bg);
   }
 }
 

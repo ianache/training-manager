@@ -3984,9 +3984,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.page.html": {
-    "mtime": 1791122745.9971762,
-    "seen": 1791123150.1509225,
-    "ast_hash": "83e5e6cfbebb0181b76c2e916c47f578",
+    "mtime": 1791123810.4086616,
+    "seen": 1791123968.2836955,
+    "ast_hash": "d4441676d93c69ab93482a92ce2df009",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.spec.ts": {
