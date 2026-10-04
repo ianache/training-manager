@@ -32,7 +32,7 @@ sources:
 | Necesidad | Existe hoy | Qué falta |
 |---|---|---|
 | Listar unidades con búsqueda, estado y padre (US-028) | `GET /organizations` con `type`, `search`, `status`, `parent_id` (hijos directos), `page`, `limit`, `sort` | Filtrar por padre **con descendientes**; ordenar por padre, estado y vigencia; devolver vigencia desde/hasta y los conteos; vista en árbol |
-| Registrar unidad (US-029 AC-1) | `POST /organizations` (`type: internal_unit`) | **Conflicto:** hoy exige `contact.email_work` y el diseño (SCR-029-01) no tiene ese campo (ver Q-1) |
+| Registrar unidad (US-029 AC-1) | `POST /organizations` (`type: internal_unit`) | Exige `contact.email_work`: **resuelto**, el formulario lo incluye (Q-1, BR-PTY-27) |
 | Editar nombre (US-029 AC-2) | — | `PATCH /organizations/{id}` |
 | Cambiar la unidad padre (US-029 AC-3 a 6) | — | `POST /organizations/{id}/parent` |
 | Desactivar y reactivar (US-030) | — | `POST …/deactivate` y `…/reactivate` |
@@ -59,7 +59,7 @@ Ruta `/api/v1`, envoltorio `{data, pagination, filters_applied}`, errores `{erro
 | `sort` | `name`, `parent_name`, `status`, `from_date` con `:asc`/`:desc`; por defecto `name:asc` |
 | `view` | **nuevo:** `list` (por defecto) · `tree` |
 
-Cada elemento añade, solo para `internal_unit`: `from_date` (inicio de la vigencia del rol), `thru_date` (fin, `null` si está activa), `active_children_count` y `current_people_count`. En `view=tree` los elementos llevan `children: [...]` hasta una profundidad máxima (Q-4). `200 OK`; `403` si no es Jefe de Ingeniería (Q-2).
+Cada elemento añade, solo para `internal_unit`: `from_date` (inicio de la vigencia del rol), `thru_date` (fin, `null` si está activa), `active_children_count` y `current_people_count`. En `view=tree` los elementos llevan `children: [...]` hasta una profundidad máxima (Q-4). `200 OK`; `403` si no es Jefe de Ingeniería ni ADMIN (Q-2, resuelta).
 
 ### 3.2 `POST /organizations` con `type: internal_organization`
 
@@ -97,7 +97,7 @@ Historial de relaciones de estructura, de la más reciente a la más antigua, pa
 
 ## 4. Seguridad
 
-- **Quién:** hoy BR-PTY-17 y las historias dicen «Jefe de Ingeniería». La decisión del 2026-10-03 amplió a ADMIN la asignación de Rol-Nivel y el catálogo; **no está dicho si ADMIN gestiona la estructura** (Q-2). Hasta que se decida: solo `jefe_ingenieria`, validado en el BFF (`requireAnyRole`) y de nuevo en el servicio.
+- **Quién:** hoy BR-PTY-17 y las historias dicen «Jefe de Ingeniería». La decisión del 2026-10-03 amplió a ADMIN la asignación de Rol-Nivel y el catálogo; **no está dicho si ADMIN gestiona la estructura** (Q-2). **Resuelto el 2026-10-04 (EVD-2026-0238):** `jefe_ingenieria` y `admin`, validado en el BFF (`requireAnyRole`) y de nuevo en el servicio.
 - **Lectura:** cualquier sesión puede leer la lista de unidades (la usa el asistente de US-015), pero **la pantalla de gestión es solo del Jefe** (EVD-2026-0142). Los conteos de personas no identifican a nadie. Los demás colaboradores ven únicamente la unidad de cada persona (BR-PTY-20).
 - **Auditoría:** cada cambio guarda quién, cuándo, valor anterior y nuevo (BR-PTY-12).
 - **Entrada:** esquema estricto, consultas parametrizadas, rate limit como `/organizations` (lectura 1000/h, escritura 100/h en desarrollo).
@@ -118,7 +118,7 @@ Requiere una migración (siguiente a `0004`) para la auditoría y el índice; el
 
 ## 6. Compatibilidad
 
-Todo es **aditivo** salvo la decisión sobre `contact` (Q-1), que cambia el contrato publicado de `POST`. El BFF añade las rutas nuevas con `requireAnyRole(Role.JefeIngenieria)` y amplía `LIST_QUERY` con `ancestor_id` y `view`.
+Todo es **aditivo** salvo la decisión sobre `contact` (Q-1), que cambia el contrato publicado de `POST`. El BFF añade las rutas nuevas con `requireAnyRole(Role.JefeIngenieria, Role.Admin)` y amplía `LIST_QUERY` con `ancestor_id` y `view`.
 
 ## 7. Verificación propuesta
 
@@ -128,12 +128,12 @@ Un caso por fila de errores (400, 404, 409, 412), incluido el ciclo (A↔B, A ba
 
 | ID | Pregunta | Quién | Bloquea |
 |---|---|---|---|
-| Q-1 | `POST /organizations` exige `contact.email_work` (API-SPEC-002 v3) pero ni US-029 ni SCR-029-01 ni SCR-017-02 tienen campo de contacto. ¿Se pide el contacto al registrar una unidad y la organización interna, o se hace opcional para ellas? | Jefe de Ingeniería | `POST` y los formularios |
-| Q-2 | ¿ADMIN también gestiona la estructura (BR-PTY-17 ampliado el 2026-10-03)? | Jefe de Ingeniería | Permisos |
-| Q-3 | ¿Puede haber más de una organización interna vigente? (UXR-017-Q3) | Jefe de Ingeniería | `POST` interna |
+| Q-1 | **Resuelta 2026-10-04 (EVD-2026-0239):** se añade `contact.email_work` («Correo laboral *») al formulario de unidad. Pregunta original: `POST /organizations` exige `contact.email_work` (API-SPEC-002 v3) pero ni US-029 ni SCR-029-01 ni SCR-017-02 tienen campo de contacto. ¿Se pide el contacto al registrar una unidad y la organización interna, o se hace opcional para ellas? | Jefe de Ingeniería | `POST` y los formularios |
+| Q-2 | **Resuelta 2026-10-04 (EVD-2026-0238): sí.** ¿ADMIN también gestiona la estructura (BR-PTY-17 ampliado el 2026-10-03)? | Jefe de Ingeniería | Permisos |
+| Q-3 | **Sin objeto (EVD-2026-0240):** la organización interna queda fuera de la API gestionada. ¿Puede haber más de una organización interna vigente? (UXR-017-Q3) | Jefe de Ingeniería | `POST` interna |
 | Q-4 | Profundidad máxima y volumen esperado de unidades; ¿paginación del árbol? (UXR-028-Q1) | Jefe de Ingeniería | `view=tree` |
 | Q-5 | ¿Se puede editar el nombre o cambiar el padre de una unidad `inactive`? (SCR-029-Q7) | Jefe de Ingeniería | `PATCH`, `…/parent` |
 | Q-6 | ¿Cómo se registra la unidad superior (sin padre)? Hipótesis H-2 de US-029 | Jefe de Ingeniería | `POST` unidad |
 | Q-7 | `code` y `location` existen en la API y no en las pantallas: ¿se gestionan en la interfaz? (UXR-029-Q4) | Jefe de Ingeniería | Formularios |
 | Q-8 | `If-Match`/`row_version` en `PATCH` y cambio de padre: supuesto mío | Arquitecto | Concurrencia |
-| Q-9 | Historial: ¿tabla de auditoría genérica o específica? (DM-Q-01 de LDM-001) | Arquitecto + Jefe | Migración |
+| Q-9 | **Resuelta (EVD-2026-0241):** tabla específica `tb_organization_name_history`, migración 0005 (commit 8df2d92). Historial: ¿tabla de auditoría genérica o específica? (DM-Q-01 de LDM-001) | Arquitecto + Jefe | Migración |

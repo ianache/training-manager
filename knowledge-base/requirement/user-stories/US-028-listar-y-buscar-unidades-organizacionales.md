@@ -51,7 +51,7 @@ sources:
 - **Excluye:**
   - Registrar o editar unidades (US-029).
   - Desactivar o reactivar unidades (US-030).
-  - Consulta por otros colaboradores: solo el Jefe de Ingeniería (BR-PTY-17).
+  - Consulta por otros colaboradores: el Jefe de Ingeniería y ADMIN (BR-PTY-17).
 
 ## 5. Criterios de aceptación
 
@@ -127,14 +127,14 @@ Escenario: Alternar a la vista jerárquica
 |---|---|---|
 | Sin unidades que cumplan los filtros | Se muestra el estado sin resultados con los filtros activos | EVD-2026-0133 |
 | Consulta de la estructura por otros colaboradores | No puede: ven solo la unidad de cada persona (BR-PTY-20) | BR-PTY-17 |
-| Usuario que no es Jefe de Ingeniería | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
+| Usuario que no es Jefe de Ingeniería ni ADMIN | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
 
 ## 7. Reglas de negocio aplicables
 
 | ID | Regla | Fuente |
 |---|---|---|
 | BR-PTY-04 | Relación de estructura unidad ↔ unidad padre | BRC-001 |
-| BR-PTY-17 | Permiso del Jefe de Ingeniería (incluye consultar la estructura) | BRC-001 |
+| BR-PTY-17 | Permiso del Jefe de Ingeniería y de ADMIN (incluye consultar la estructura) | BRC-001 |
 | BR-PTY-21 | Unidad Activa / Inactiva según su vigencia; desactivar = eliminación lógica | BRC-001 |
 
 ## 8. Datos y términos

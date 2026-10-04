@@ -34,6 +34,7 @@ sources:
 
 | Componente | Biblioteca | Pantalla | Estados | A11y exigida | Cobertura |
 |---|---|---|---|---|---|
+| Correo laboral de la unidad (obligatorio, BR-PTY-27) | `email-input` + `form-field` | 029-01 | normal, foco, error, deshabilitado | `label for`, `aria-required`, `aria-invalid`, error con `role="alert"` | **Existe** |
 | Campo de texto (razón social, RUC, nombre) | `text-input` + `form-field` | 017-02, 029-01, 029-02 | normal, foco, error, deshabilitado, guardando | `label for`, `aria-required`, `aria-invalid`, `aria-describedby`, error con `role="alert"` | **Existe** |
 | País emisor | `select` | 017-02 | normal, abierto, error | etiqueta ligada | **Existe** (la versión con bandera de CMP-MOL-007 no está en `@gf/ui`; no se pide aquí) |
 | Fecha desde | `date-input` | 029-01, 029-03, 030-03 | normal, error | etiqueta, formato dd/mm/aaaa | **Existe** |

@@ -40,6 +40,7 @@ Familia: [UXR-017](UXR-017-registrar-la-organizacion-interna.md) · [UXR-028](UX
 | Campo | Obligatorio | Regla | Mensaje (propuesto) |
 |---|---|---|---|
 | Nombre | Sí | Único entre unidades con el mismo padre (BR-PTY-26) | "Ya existe una unidad con este nombre bajo [padre]" |
+| Correo laboral | Sí | Formato de correo (BR-PTY-27, EVD-2026-0239) | "Ingrese un correo válido" (propuesto) |
 | Unidad padre | Sí, salvo la unidad superior (H-2) | Solo Activas (BR-PTY-25); sin ciclos (BR-PTY-22) | "Solo se pueden elegir unidades activas" / "Crearía un ciclo en la jerarquía" |
 | Fecha desde | Sí | Vigencia de la relación (BR-PTY-12) | "Indica la fecha desde" |
 

@@ -61,11 +61,11 @@ sources:
 ```gherkin
 Escenario: Crear una unidad dentro de otra
   Dado una unidad organizacional Activa existente
-  Cuando registro una nueva unidad y la relaciono con la existente como su unidad padre, con fecha desde
+  Cuando registro una nueva unidad con su nombre y su correo laboral, y la relaciono con la existente como su unidad padre, con fecha desde
   Entonces la nueva unidad queda Activa en la jerarquía con esa relación vigente
 ```
 
-- **Regla / fuente:** BR-PTY-03, BR-PTY-04, BR-PTY-21
+- **Regla / fuente:** BR-PTY-03, BR-PTY-04, BR-PTY-21, BR-PTY-27
 
 ### AC-2 — Editar el nombre de una unidad
 
@@ -131,7 +131,7 @@ Escenario: Rechazar un nombre ya usado bajo el mismo padre
 | Elegir como padre una unidad Inactiva | Se rechaza | BR-PTY-25 |
 | Nombre repetido bajo el mismo padre | Se rechaza; el mismo nombre bajo otro padre se permite | BR-PTY-26 |
 | Registrar una unidad sin organización interna | No se puede: primero se registra COMSATEL (US-017) | BR-PTY-03 |
-| Usuario que no es Jefe de Ingeniería | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
+| Usuario que no es Jefe de Ingeniería ni ADMIN | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
 
 ## 7. Reglas de negocio aplicables
 
@@ -140,7 +140,7 @@ Escenario: Rechazar un nombre ya usado bajo el mismo padre
 | BR-PTY-03 | Roles Organización interna y Unidad organizacional | BRC-001 |
 | BR-PTY-04 | Relación de estructura unidad ↔ unidad padre | BRC-001 |
 | BR-PTY-12 | Vigencias y auditoría: no se borra, se cierra la vigencia | BRC-001 |
-| BR-PTY-17 | Permiso del Jefe de Ingeniería (incluye consultar la estructura) | BRC-001 |
+| BR-PTY-17 | Permiso del Jefe de Ingeniería y de ADMIN (incluye consultar la estructura) | BRC-001 |
 | BR-PTY-21 | Unidad Activa / Inactiva según su vigencia; desactivar = eliminación lógica | BRC-001 |
 | BR-PTY-22 | Sin ciclos en la jerarquía | BRC-001 |
 | BR-PTY-25 | Solo una unidad Activa puede ser padre | BRC-001 |

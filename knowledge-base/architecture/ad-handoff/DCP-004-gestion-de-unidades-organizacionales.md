@@ -96,8 +96,8 @@ Supuestos del agente, **sin confirmar**:
 
 Preguntas abiertas que condicionan la implementación:
 
-- **API-SPEC-006 Q-1 (bloquea el alta):** `POST /organizations` exige `contact.email_work`, pero SCR-017-02 y SCR-029-01 no tienen campo de contacto.
-- Q-2 (ADMIN), Q-3 (más de una organización interna), Q-4 (volumen y profundidad del árbol), Q-5 (editar una unidad inactiva), Q-6 (unidad superior), Q-7 (`code` y `location` en pantalla), Q-8 y Q-9 (concurrencia e historial).
+- **API-SPEC-006 Q-1 (resuelta 2026-10-04):** se añade `contact.email_work` («Correo laboral *») a SCR-029-01; falta propagarlo a UXR-029, FLW-029 y regenerar el diseño de Stitch.
+- Q-2 (resuelta: ADMIN también gestiona), Q-3 (sin objeto: la organización interna queda fuera de la API gestionada, BR-PTY-28), Q-4 (volumen y profundidad del árbol), Q-5 (editar una unidad inactiva), Q-6 (unidad superior), Q-7 (`code` y `location` en pantalla), Q-8 (concurrencia) y Q-9 (resuelta: tabla `tb_organization_name_history`, migración 0005).
 - Las **44 preguntas de diseño** fusionadas en UXS-001 (21 de ellas de negocio), de las que ninguna se resolvió salvo las decididas el 2026-10-03.
 
 ### Risks and dependencies
@@ -169,7 +169,7 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 
 Orden por dependencia, sin estimaciones (las hace el equipo):
 
-1. **Contrato y datos:** responder Q-1 a Q-3 y Q-9; diseñar la migración (auditoría del nombre, índice de unicidad por padre); revisar API-SPEC-006.
+1. **Contrato y datos:** Q-1 a Q-3 y Q-9 respondidas; migración 0005 hecha; falta la migración (índice de unicidad por padre) y (auditoría del nombre, índice de unicidad por padre); revisar API-SPEC-006.
 2. **Servicio:** organización interna, listado ampliado, `PATCH`, cambio de padre, desactivar, reactivar e historial, con pruebas contra PostgreSQL.
 3. **BFF:** rutas y consulta permitida.
 4. **Componentes:** diseñar y construir las brechas de CMP-017.

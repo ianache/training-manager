@@ -151,7 +151,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 
 | Actor | Ve | Hace |
 |---|---|---|
-| Jefe de Ingeniería | Formularios, selector de unidad padre, historial | Registrar, editar nombre, cambiar unidad padre (BR-PTY-17) |
+| Jefe de Ingeniería | Formularios, selector de unidad padre, historial | Registrar, editar nombre, cambiar unidad padre (BR-PTY-17); ADMIN con los mismos permisos (EVD-2026-0238) |
 | Otros usuarios | Nada | Nada; las acciones no son visibles y el acceso directo es no autorizado (estado `forbidden`) |
 
 En ninguna pantalla existe una acción «Eliminar» (BR-PTY-12, BR-PTY-21; solo desactivar en UXR-030).
@@ -163,6 +163,7 @@ En ninguna pantalla existe una acción «Eliminar» (BR-PTY-12, BR-PTY-21; solo 
 | Campo | Componente | Oblig. | Validación y mensaje | Fuente |
 |---|---|---|---|---|
 | Nombre | texto (CMP-015 Text-Input) | Sí | único entre hermanas: «Ya existe una unidad con este nombre bajo [padre]»; longitud y caracteres abiertos (SCR-029-Q1) | UXR-029 §3, BR-PTY-26 |
+| Correo laboral | email (`email-input` de `@gf/ui`) | Sí | formato de correo: «Ingrese un correo válido»; obligatorio: «El correo laboral es obligatorio» (textos propuestos) | BR-PTY-27, EVD-2026-0239 |
 | Unidad padre | selector con búsqueda (CMP-015 Combobox-Search) | Sí, salvo la unidad superior | solo Activas, sin ciclos; «Solo se pueden elegir unidades activas» / «Crearía un ciclo en la jerarquía» | BR-PTY-22, 25 |
 | Fecha desde | fecha (CMP-015 Date-Input) | Sí | «Indica la fecha desde»; pasada/futura/hoy abierto (SCR-029-Q2) | UXR-029 §3, BR-PTY-12 |
 
@@ -215,6 +216,7 @@ Biblioteca: `@gf/ui` (Angular, standalone). Reutiliza `CMP-015` (Text-Input, Com
 
 | Pantalla | Componente | Tipo | Validadores | Estados | A11y |
 |---|---|---|---|---|---|
+| 01 | correo laboral | email-input | required, formato correo | normal, focus, error, disabled | aria-required, aria-invalid, aria-describedby, role alert |
 | 01, 02 | nombre | text-input (CMP-015) | required, único entre hermanas (servidor) | normal, focus, error, disabled | aria-required, aria-invalid, aria-describedby, role alert |
 | 01, 03 | unidadPadre | combobox-search (CMP-015) | required (salvo unidad superior), solo Activas, sin ciclos | normal, open, selected, error | role combobox/listbox, aria-expanded, búsqueda por teclado |
 | 01, 03 | fechaDesde | date-input (CMP-015) | required | normal, error | etiqueta ligada, aria-invalid |

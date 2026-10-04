@@ -108,14 +108,14 @@ Escenario: Rechazar reactivar una unidad cuyo padre está Inactivo
 | Desactivar una unidad con unidades hijas activas o personas vigentes | No se desactiva; se informa qué la impide | BR-PTY-23 |
 | Reactivar una unidad cuyo padre está Inactivo | Se rechaza; primero se reactiva el padre | BR-PTY-24 |
 | Desactivar una unidad ya Inactiva | La opción no se ofrece | BR-PTY-21 |
-| Usuario que no es Jefe de Ingeniería | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
+| Usuario que no es Jefe de Ingeniería ni ADMIN | No puede gestionar la estructura ni consultarla | BR-PTY-17 |
 
 ## 7. Reglas de negocio aplicables
 
 | ID | Regla | Fuente |
 |---|---|---|
 | BR-PTY-12 | Vigencias y auditoría: no se borra, se cierra la vigencia | BRC-001 |
-| BR-PTY-17 | Permiso del Jefe de Ingeniería (incluye consultar la estructura) | BRC-001 |
+| BR-PTY-17 | Permiso del Jefe de Ingeniería y de ADMIN (incluye consultar la estructura) | BRC-001 |
 | BR-PTY-21 | Unidad Activa / Inactiva según su vigencia; desactivar = eliminación lógica | BRC-001 |
 | BR-PTY-23 | No se desactiva con unidades hijas activas ni personas vigentes | BRC-001 |
 | BR-PTY-24 | Reactivar abre nueva vigencia, solo bajo un padre Activo | BRC-001 |

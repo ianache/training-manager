@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791088786.7131927,
-    "seen": 1791088866.7113159,
-    "ast_hash": "4de9f8f983c25b61b78b389db90057d3",
+    "mtime": 1791129959.6057374,
+    "seen": 1791130067.3264897,
+    "ast_hash": "3390f2978d5284e328b0e36a516a1846",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
-    "mtime": 1791050428.2930062,
-    "seen": 1791050487.1694632,
-    "ast_hash": "ea06869275ed0e55c1c38768baf169e1",
+    "mtime": 1791129980.8789973,
+    "seen": 1791130067.3952901,
+    "ast_hash": "d51020a9401c11b027890b80b044d910",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
@@ -3282,21 +3282,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-028-listar-y-buscar-unidades-organizacionales.md": {
-    "mtime": 1791050428.2969716,
-    "seen": 1791050487.1783583,
-    "ast_hash": "3b83b6e150c4052a3ded899b4602219a",
+    "mtime": 1791129959.6126478,
+    "seen": 1791130067.4008236,
+    "ast_hash": "7eb33f28af5debce7470dced1ff7a06b",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-029-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791050428.3043537,
-    "seen": 1791050487.1783583,
-    "ast_hash": "c956bae21f89835ba0a868a682545554",
+    "mtime": 1791129959.6403728,
+    "seen": 1791130067.4008236,
+    "ast_hash": "e5f80e654ed375e0db28f0d4eb786b56",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-030-desactivar-y-reactivar-unidades-organizacionales.md": {
-    "mtime": 1791050428.3178878,
-    "seen": 1791050487.1783583,
-    "ast_hash": "675d8d1150af1d0063cb915d97b473fa",
+    "mtime": 1791129959.6287227,
+    "seen": 1791130067.4008236,
+    "ast_hash": "a036abe03548349aaf186895127b58d8",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-017-registrar-la-organizacion-interna.md": {
@@ -3312,9 +3312,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791050666.561419,
-    "seen": 1791050723.3252451,
-    "ast_hash": "0eb78752783fca33820f81f5bd28721b",
+    "mtime": 1791130007.5802243,
+    "seen": 1791130067.3778176,
+    "ast_hash": "d3a37e3f7f4c7093e0cd7ae9eeb96aea",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-030-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -3348,9 +3348,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-029-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791054042.1106913,
-    "seen": 1791054214.508993,
-    "ast_hash": "8fac0dec4c9cf0bbd644e2457bc5c579",
+    "mtime": 1791129999.6165683,
+    "seen": 1791130067.3583274,
+    "ast_hash": "b60d4b1973f7d8c6876fd7ac81dfc45a",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-030-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -4014,21 +4014,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791127494.1639476,
-    "seen": 1791129441.6285832,
-    "ast_hash": "26b78fc6af8c77d3a4f4b448dc2ceec1",
+    "mtime": 1791129980.895997,
+    "seen": 1791130067.1442027,
+    "ast_hash": "ccba8711d4f3a95fc4e3e26137455718",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791127415.239917,
-    "seen": 1791129441.6335835,
-    "ast_hash": "4fad0cfa1ebfbaa2fc79a177c9ce2aa7",
+    "mtime": 1791129980.888998,
+    "seen": 1791130067.1605697,
+    "ast_hash": "5c5f3da9ed9433cbe615052384215b48",
     "semantic_hash": ""
   },
   "knowledge-base/design/components/CMP-017-componentes-gestion-de-unidades.md": {
-    "mtime": 1791127447.0029862,
-    "seen": 1791129441.6841593,
-    "ast_hash": "83c8621e4fe59e74a0bf24a26e1f91f7",
+    "mtime": 1791129980.9049933,
+    "seen": 1791130067.3343513,
+    "ast_hash": "76c578f7cb0ce19ab4dea19e38901a0d",
     "semantic_hash": ""
   }
 }

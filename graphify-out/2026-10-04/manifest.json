@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791123100.0429652,
-    "seen": 1791123150.3234615,
-    "ast_hash": "9ea29d43a7879336b8a23737fca4973d",
+    "mtime": 1791127509.0598,
+    "seen": 1791129441.6821666,
+    "ast_hash": "3244a00b76479864d36beecd6fee6dc3",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791092402.041112,
-    "seen": 1791094406.7041411,
-    "ast_hash": "0e1c36a1b775b91f0bf03c73eb859392",
+    "mtime": 1791127509.033314,
+    "seen": 1791129441.7281415,
+    "ast_hash": "e400a7faaf841f6887cbba6438974cb9",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1200,9 +1200,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/party.py": {
-    "mtime": 1791058097.4450428,
-    "seen": 1791058203.576406,
-    "ast_hash": "95e8daad280682c5cbe6214bb53a4be8",
+    "mtime": 1791129040.097893,
+    "seen": 1791129441.5378401,
+    "ast_hash": "f327f0c7f4f826c0ab38ffed41e338db",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/__init__.py": {
@@ -2346,9 +2346,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/INDEX.md": {
-    "mtime": 1791068084.657061,
-    "seen": 1791068164.9715855,
-    "ast_hash": "c48395f1a41ba634193ac3653d29d089",
+    "mtime": 1791127509.0246708,
+    "seen": 1791129441.6285832,
+    "ast_hash": "3a1a679f7fab070500b22472d310cab6",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
@@ -2538,9 +2538,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
-    "mtime": 1791059350.2771206,
-    "seen": 1791059625.1559534,
-    "ast_hash": "260e5e14a097cbd0ed856cf90923f4db",
+    "mtime": 1791129040.1059072,
+    "seen": 1791129441.548216,
+    "ast_hash": "0a868a74acffeb59c5007db56e0a4115",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
@@ -3984,15 +3984,51 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.page.html": {
-    "mtime": 1791123810.4086616,
-    "seen": 1791123968.2836955,
-    "ast_hash": "d4441676d93c69ab93482a92ce2df009",
+    "mtime": 1791124004.9245524,
+    "seen": 1791129441.6139524,
+    "ast_hash": "d1af0c33b511be43b449f3d9d71a78d2",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.spec.ts": {
     "mtime": 1791122046.0398164,
     "seen": 1791122235.7279856,
     "ast_hash": "c8dd130f88a5242f2f5079ae4951953f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0005_organization_name_history.py": {
+    "mtime": 1791129039.4877436,
+    "seen": 1791129441.5442214,
+    "ast_hash": "81d77c20c081f3f05aeaa30c34e73aae",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-04-us015-alineacion-flw-scr.md": {
+    "mtime": 1791127242.2089455,
+    "seen": 1791129441.622952,
+    "ast_hash": "38cd9affc0696660ce255b903e1b9087",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-10-04-us015-alineacion-flw-scr-design.md": {
+    "mtime": 1791126701.743331,
+    "seen": 1791129441.6244695,
+    "ast_hash": "19b6b28e82991d95e20a8ee07f2161ef",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md": {
+    "mtime": 1791127494.1639476,
+    "seen": 1791129441.6285832,
+    "ast_hash": "26b78fc6af8c77d3a4f4b448dc2ceec1",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md": {
+    "mtime": 1791127415.239917,
+    "seen": 1791129441.6335835,
+    "ast_hash": "4fad0cfa1ebfbaa2fc79a177c9ce2aa7",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/CMP-017-componentes-gestion-de-unidades.md": {
+    "mtime": 1791127447.0029862,
+    "seen": 1791129441.6841593,
+    "ast_hash": "83c8621e4fe59e74a0bf24a26e1f91f7",
     "semantic_hash": ""
   }
 }

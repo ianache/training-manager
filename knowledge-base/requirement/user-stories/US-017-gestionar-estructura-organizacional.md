@@ -51,6 +51,7 @@ sources:
   - Gestión de unidades organizacionales (US-028, US-029, US-030).
   - La pertenencia de una persona a una unidad (US-015 y US-016).
   - Proveedores (US-018).
+  - Gestión por API de la organización interna: es un registro único fuera de la gestión (BR-PTY-28, EVD-2026-0240); no se lista, edita ni desactiva en las pantallas de unidades.
 
 ## 5. Criterios de aceptación
 
