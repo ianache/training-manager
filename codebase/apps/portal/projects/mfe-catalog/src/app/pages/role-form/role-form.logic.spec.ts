@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { RoleDetail } from '../../data-access/catalog.models';
 import {
   FormCompetency,
+  blockedMessage,
+  incidents,
+  lastModified,
   MESSAGES,
   RoleForm,
   describeSaveError,
@@ -132,21 +135,21 @@ describe('describeSaveError', () => {
   const body = (code: string, message = 'del servicio') => ({ error: { code, message } });
 
   it('412 es un conflicto: hay que recargar', () => {
-    expect(describeSaveError(412, body('PRECONDITION_FAILED'))).toEqual({
-      message: 'Otra persona modificó este rol. Recarga para ver los cambios.',
-      conflict: true,
-    });
+    expect(describeSaveError(412, body('PRECONDITION_FAILED'))).toEqual({ message: 'Otra persona modificó este rol.', conflict: true });
   });
 
   it('nombre repetido y competencia repetida tienen mensaje propio', () => {
-    expect(describeSaveError(409, body('ROLE_NAME_DUPLICATE')).message).toBe('Ya existe un rol con ese nombre.');
+    expect(describeSaveError(409, body('ROLE_NAME_DUPLICATE'))).toEqual({ message: 'Ya existe un rol con ese nombre', conflict: false, field: 'name' });
     expect(describeSaveError(409, body('COMPETENCY_DUPLICATED')).message).toBe(MESSAGES.competencyDuplicated);
   });
 
   it('un 422 por requisitos de evidencia explica cuál competencia', () => {
-    const p = describeSaveError(422, body('EVIDENCE_REQUIREMENTS_MISSING', 'La competencia «Git» no tiene requisitos'));
+    const p = describeSaveError(422, {
+      error: { code: 'EVIDENCE_REQUIREMENTS_MISSING', message: 'La competencia «Git» no tiene requisitos', details: { competency_id: 'c1', required_level: 'L3' } },
+    });
     expect(p.message).toBe('La competencia «Git» no tiene requisitos');
     expect(p.conflict).toBe(false);
+    expect(p.blocked).toEqual({ competencyId: 'c1', requiredLevel: 'L3' });
   });
 
   it('un fallo de red o del servidor conserva lo escrito y no es conflicto', () => {
@@ -160,5 +163,38 @@ describe('describeSaveError', () => {
   it('un código desconocido usa el mensaje del servicio o uno genérico', () => {
     expect(describeSaveError(409, body('OTRO', 'texto'))).toEqual({ message: 'texto', conflict: false });
     expect(describeSaveError(400, null).message).toBe('No se pudo guardar el rol.');
+  });
+});
+
+describe('blockedMessage', () => {
+  it('nombra el nivel y la competencia como el diseño (estado B)', () => {
+    expect(blockedMessage(valid(), { competencyId: 'c1', requiredLevel: 'L3' })).toBe(
+      'Acción bloqueada: Primero define cómo se evidencia el nivel L3 de Git',
+    );
+  });
+  it('si la competencia ya no está en el formulario usa un nombre genérico', () => {
+    expect(blockedMessage(valid(), { competencyId: 'zz', requiredLevel: 'L2' })).toContain('de la competencia');
+  });
+});
+
+describe('incidents', () => {
+  it('cuenta los errores del nivel pedido y no los de otros', () => {
+    const errors = { name: 'x', 'level.0.name': 'a', 'level.0.c.1': 'b', 'level.1.competencies': 'c', 'level.10.name': 'd' };
+    expect(incidents(errors, 0)).toBe(2);
+    expect(incidents(errors, 1)).toBe(1);
+    expect(incidents(errors, 2)).toBe(0);
+  });
+});
+
+describe('lastModified', () => {
+  const base = { created_at: '2026-10-01T12:00:00', created_by: 'ana', updated_at: null, updated_by: null };
+  it('«Hoy, por …» si fue el mismo día y prefiere a quien editó por último', () => {
+    const now = new Date('2026-10-04T18:00:00');
+    expect(lastModified({ ...base, updated_at: '2026-10-04T09:00:00', updated_by: 'jefe' }, now)).toBe('Hoy, por jefe');
+  });
+  it('otro día: la fecha; sin edición, quien creó', () => {
+    const text = lastModified(base, new Date('2026-10-04T18:00:00'));
+    expect(text).toMatch(/, por ana$/);
+    expect(text).not.toContain('Hoy');
   });
 });

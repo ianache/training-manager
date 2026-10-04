@@ -1,214 +1,335 @@
-<a class="back" routerLink="..">← Catálogo de roles</a>
-
 @switch (load()) {
   @case ('loading') {
     <p class="muted"><gf-spinner label="Cargando rol" /> Cargando rol…</p>
   }
   @case ('notFound') {
+    <a class="back" routerLink="..">← Catálogo de roles</a>
     <gf-alert tone="warning" icon="warning" heading="No encontramos este rol">
       <p class="text">Puede que se haya movido. Vuelve al catálogo para elegirlo de nuevo.</p>
     </gf-alert>
   }
   @case ('error') {
+    <a class="back" routerLink="..">← Catálogo de roles</a>
     <gf-alert tone="danger" icon="error" heading="No se pudo cargar el rol">
       <p class="text">Vuelve a intentarlo.</p>
       <div class="inline"><gf-button variant="secondary" (pressed)="retry()">Reintentar</gf-button></div>
     </gf-alert>
   }
   @default {
-    <header class="page-header">
-      <h1>{{ isNew() ? 'Crear rol' : form().name || 'Rol' }}</h1>
-      @if (role(); as r) {
-        @if (r.status === 'INACTIVE') {
-          <gf-badge tone="neutral">Inactivo</gf-badge>
-        } @else {
-          <gf-badge tone="success">Activo</gf-badge>
-        }
-      }
-    </header>
-
-    @if (!canEdit()) {
-      <gf-alert tone="info" icon="info">
-        <p class="text">Solo puedes consultar este rol. Editan roles el Jefe de Ingeniería, el Responsable de producto y ADMIN.</p>
+    @if (saved(); as r) {
+      <!-- Estado D.2 — Confirmación de guardado -->
+      <header class="head">
+        <h1>{{ isNew() ? 'Rol creado' : 'Rol actualizado' }}</h1>
+      </header>
+      <gf-alert tone="success" icon="check_circle">
+        <p class="strong">{{ isNew() ? 'El rol se creó correctamente.' : 'El rol se actualizó correctamente.' }}</p>
+        <p class="text">Los niveles y asignaciones de competencias fueron guardados en el catálogo vigente.</p>
       </gf-alert>
-    }
-
-    @if (problem(); as p) {
-      <gf-alert tone="danger" icon="error" heading="No se guardó el rol">
-        <p class="text">{{ p.message }}</p>
-        @if (p.conflict) {
-          <div class="inline"><gf-button variant="secondary" (pressed)="reload()">Recargar</gf-button></div>
-        }
-      </gf-alert>
-    }
-
-    @if (errorList().length) {
-      <gf-alert tone="danger" icon="error" heading="Corrige estos puntos para guardar">
-        <ul class="error-list">
-          @for (m of errorList(); track $index) {
-            <li>{{ m }}</li>
-          }
-        </ul>
-      </gf-alert>
-    }
-
-    @if (saved()) {
-      <gf-alert tone="success" icon="check_circle"><p class="text">Cambios guardados.</p></gf-alert>
-    }
-
-    @if (confirm(); as c) {
-      <gf-alert tone="warning" icon="warning" heading="Confirma la acción">
-        <p class="text">{{ confirmText(c) }}</p>
-        <div class="inline row">
-          <gf-button [variant]="c.kind === 'cancel' ? 'destructive' : 'primary'" (pressed)="confirmed()">{{ confirmLabel(c) }}</gf-button>
-          <gf-button variant="secondary" (pressed)="dismiss()">Volver</gf-button>
+      <section class="summary" aria-label="Resumen del rol guardado">
+        <div class="summary__head">
+          <div>
+            <span class="eyebrow">Rol del catálogo</span>
+            <h2>{{ r.name }}</h2>
+          </div>
+          <span class="summary__status">Estado: {{ r.status === 'ACTIVE' ? 'Activo' : 'Inactivo' }}</span>
         </div>
-      </gf-alert>
-    }
+        <dl class="summary__facts">
+          <div><dt>Niveles activos</dt><dd>{{ activeLevels() === 1 ? '1 nivel' : activeLevels() + ' niveles' }}</dd></div>
+          <div><dt>Competencias asignadas</dt><dd>{{ assignments() }} {{ assignments() === 1 ? 'asignación total' : 'asignaciones totales' }}</dd></div>
+          <div><dt>Última modificación</dt><dd>{{ lastModified(r) }}</dd></div>
+        </dl>
+      </section>
+      <div class="bar bar--end">
+        <gf-button variant="secondary" (pressed)="leave()"><gf-icon name="arrow_back" size="1rem" [decorative]="true" /> Volver al catálogo</gf-button>
+      </div>
+    } @else {
+      <nav class="crumbs" aria-label="Migas de pan">
+        <a routerLink="..">Catálogo de roles</a>
+        <gf-icon name="chevron_right" size="1rem" [decorative]="true" />
+        @if (role(); as r) {
+          <a [routerLink]="'../' + r.id" aria-current="false">{{ r.name }}</a>
+          <gf-icon name="chevron_right" size="1rem" [decorative]="true" />
+        }
+        <span class="crumbs__current" aria-current="page">{{ isNew() ? 'Crear rol' : canEdit() ? 'Editar rol' : 'Ver rol' }}</span>
+      </nav>
 
-    <form class="form" (submit)="$event.preventDefault(); save()" novalidate>
-      <gf-form-field label="Nombre del rol" [required]="true" fieldId="rf-name" [state]="state('name')" [message]="err('name')">
-        <gf-text-input
-          inputId="rf-name"
-          [required]="true"
-          [maxlength]="limits.name"
-          [disabled]="!canEdit()"
-          [value]="form().name"
-          [state]="state('name')"
-          [ariaDescribedBy]="err('name') ? 'rf-name-msg' : ''"
-          (valueChange)="setName($event)"
-        />
-      </gf-form-field>
+      <header class="head">
+        <div>
+          <h1>{{ isNew() ? 'Crear rol' : (canEdit() ? 'Editar rol: ' : 'Rol: ') + form().name }}</h1>
+          @if (canEdit()) {
+            <p class="sub">Asignación estructurada de competencias y requerimientos de nivel por cada etapa del perfil.</p>
+          }
+        </div>
+        @if (role(); as r) {
+          @if (r.status === 'INACTIVE') {
+            <gf-badge tone="neutral">Inactivo</gf-badge>
+          }
+        }
+      </header>
 
-      <gf-form-field label="Descripción" fieldId="rf-desc" [state]="state('description')" [message]="err('description')">
-        <gf-text-input
-          inputId="rf-desc"
-          [maxlength]="limits.description"
-          [disabled]="!canEdit()"
-          [value]="form().description"
-          [state]="state('description')"
-          (valueChange)="setDescription($event)"
-        />
-      </gf-form-field>
-
-      <section class="levels" aria-labelledby="rf-levels-title">
-        <h2 id="rf-levels-title">Niveles</h2>
-        <p class="hint">Cada rol define cuántos niveles tiene y cómo se llaman. Cada nivel pide al menos una competencia con su nivel esperado (L1 a L4).</p>
-
-        @for (level of form().levels; track $index; let i = $index) {
-          <fieldset class="level" [attr.data-status]="level.status">
-            <legend>
-              Nivel {{ level.ordinal }}
-              @if (level.status === 'INACTIVE') {
-                <gf-badge tone="neutral">Inactivo</gf-badge>
-              }
-            </legend>
-
-            <gf-form-field label="Nombre del nivel" [required]="true" [fieldId]="'rf-l' + i + '-name'" [state]="state('level.' + i + '.name')" [message]="err('level.' + i + '.name')">
-              <gf-text-input
-                [inputId]="'rf-l' + i + '-name'"
-                [required]="true"
-                [maxlength]="limits.level"
-                [disabled]="!canEdit()"
-                [value]="level.name"
-                [state]="state('level.' + i + '.name')"
-                [ariaDescribedBy]="err('level.' + i + '.name') ? 'rf-l' + i + '-name-msg' : ''"
-                (valueChange)="setLevelName(i, $event)"
-              />
-            </gf-form-field>
-
-            <h3>Competencias del nivel</h3>
-            @if (err('level.' + i + '.competencies'); as m) {
-              <p class="field-error" role="alert"><gf-icon name="warning" size="1rem" [decorative]="true" /> {{ m }}</p>
-            }
-
-            @for (c of level.competencies; track $index; let j = $index) {
-              <div class="competency">
-                <gf-form-field label="Competencia" [required]="true" [fieldId]="'rf-l' + i + '-c' + j" [statusIcon]="false" [state]="state('level.' + i + '.c.' + j)" [message]="err('level.' + i + '.c.' + j)">
-                  <gf-select
-                    [inputId]="'rf-l' + i + '-c' + j"
-                    [required]="true"
-                    [disabled]="!canEdit()"
-                    [value]="c.competencyId"
-                    [state]="state('level.' + i + '.c.' + j)"
-                    (valueChange)="pickCompetency(i, j, $event)"
-                  >
-                    <option value="" [selected]="!c.competencyId">Elegir competencia…</option>
-                    @for (o of optionsFor(c); track o.id) {
-                      <option [value]="o.id" [disabled]="o.disabled" [selected]="o.id === c.competencyId">{{ o.label }}</option>
-                    }
-                  </gf-select>
-                </gf-form-field>
-
-                <gf-form-field label="Nivel esperado" [required]="true" [fieldId]="'rf-l' + i + '-r' + j" [statusIcon]="false">
-                  <gf-select
-                    [inputId]="'rf-l' + i + '-r' + j"
-                    [required]="true"
-                    [disabled]="!canEdit()"
-                    [value]="c.requiredLevel"
-                    (valueChange)="pickRequiredLevel(i, j, $event)"
-                  >
-                    <option value="" [selected]="!c.requiredLevel">Elegir…</option>
-                    @for (code of levelCodes; track code) {
-                      <option [value]="code" [selected]="code === c.requiredLevel">{{ code }}</option>
-                    }
-                  </gf-select>
-                </gf-form-field>
-
-                <div class="version">
-                  @if (c.versionNumber) {
-                    <span>Versión v{{ c.versionNumber }}</span>
+      @if (!canEdit()) {
+        <!-- Estado F — Solo lectura -->
+        <div class="readonly-bar">
+          <span class="chip"><gf-icon name="person" size="1rem" [decorative]="true" /> Perfil activo: {{ profile() }}</span>
+          <span class="chip chip--info"><gf-icon name="visibility" size="1rem" [decorative]="true" /> Modo solo lectura</span>
+        </div>
+        <div class="static-field">
+          <span class="eyebrow">Nombre del rol</span>
+          <p class="static-field__value">{{ form().name }}</p>
+        </div>
+        <div class="levels">
+          @for (level of form().levels; track $index) {
+            <section class="level" [attr.data-status]="level.status">
+              <div class="level__head">
+                <div class="level__title">
+                  <gf-icon name="layers" [decorative]="true" />
+                  <h3>{{ level.name }}</h3>
+                  @if (level.status === 'INACTIVE') {
+                    <gf-badge tone="neutral">Inactivo</gf-badge>
                   }
-                  @if (!c.isCurrent) {
-                    <gf-badge tone="warning">Hay una versión nueva de esta competencia</gf-badge>
-                    @if (canEdit()) {
-                      <gf-button variant="text" (pressed)="useNewVersion(i, j)">Usar la nueva</gf-button>
+                </div>
+                <span class="count">{{ competenciesText(level.competencies.length) }}</span>
+              </div>
+              <ul class="level__body list">
+                @for (c of level.competencies; track c.competencyId) {
+                  <li class="row row--static">
+                    <span class="row__name">{{ c.name }}</span>
+                    <span class="lvl-badge" [attr.aria-label]="'Nivel esperado ' + c.requiredLevel">{{ c.requiredLevel }}</span>
+                  </li>
+                }
+              </ul>
+            </section>
+          }
+        </div>
+        <div class="bar bar--end">
+          <gf-button variant="secondary" (pressed)="leave()"><gf-icon name="arrow_back" size="1rem" [decorative]="true" /> Volver</gf-button>
+        </div>
+      } @else {
+        @if (conflict()) {
+          <!-- Estado E — Conflicto de concurrencia -->
+          <div class="banner banner--warn" role="alert">
+            <gf-icon name="sync_problem" size="1.5rem" [decorative]="true" />
+            <div class="banner__body">
+              <p class="strong">Conflicto de edición: Otra persona modificó este rol.</p>
+              <p class="text">Recarga para ver los cambios recientes antes de continuar con la edición.</p>
+            </div>
+            <gf-button (pressed)="reload()"><gf-icon name="refresh" size="1rem" [decorative]="true" /> Recargar</gf-button>
+          </div>
+        }
+
+        @if (problem(); as p) {
+          @if (p.blocked) {
+            <!-- Estado B — Acción bloqueada -->
+            <div class="banner banner--danger" role="alert">
+              <gf-icon name="warning" size="1.5rem" [decorative]="true" />
+              <div class="banner__body">
+                <p class="strong">{{ blockedText() }}</p>
+                <p class="text">{{ messages.blockedDetail }}</p>
+              </div>
+            </div>
+          } @else if (!p.conflict) {
+            <div class="banner banner--danger" role="alert">
+              <gf-icon name="error" size="1.5rem" [decorative]="true" />
+              <div class="banner__body">
+                <p class="strong">No se guardó el rol</p>
+                <p class="text">{{ p.message }}</p>
+              </div>
+            </div>
+          }
+        }
+
+        @if (confirm(); as c) {
+          <gf-alert tone="warning" icon="warning" heading="Confirma la acción">
+            <p class="text">{{ confirmText(c) }}</p>
+            <div class="inline row-actions">
+              <gf-button [variant]="c.kind === 'cancel' ? 'destructive' : 'primary'" (pressed)="confirmed()">{{ confirmLabel(c) }}</gf-button>
+              <gf-button variant="secondary" (pressed)="dismiss()">Volver</gf-button>
+            </div>
+          </gf-alert>
+        }
+
+        <form class="form" (submit)="$event.preventDefault(); save()" novalidate>
+          <gf-form-field label="Nombre del rol" [required]="true" fieldId="rf-name" [state]="state('name')" [message]="err('name')">
+            <gf-text-input
+              inputId="rf-name"
+              [required]="true"
+              [maxlength]="limits.name"
+              [disabled]="!editable()"
+              [value]="form().name"
+              [state]="state('name')"
+              [ariaDescribedBy]="err('name') ? 'rf-name-msg' : ''"
+              (valueChange)="setName($event)"
+            />
+          </gf-form-field>
+
+          <section class="levels" aria-labelledby="rf-levels-title">
+            <div class="levels__head">
+              <div>
+                <h2 id="rf-levels-title">Niveles y competencias asignadas</h2>
+                <p class="sub">Establezca los requerimientos de competencia por cada nivel de seniority.</p>
+              </div>
+              <gf-button id="rf-add-level" variant="secondary" [disabled]="!editable()" (pressed)="addLevel()">
+                <gf-icon name="add" size="1rem" [decorative]="true" /> Agregar nivel
+              </gf-button>
+            </div>
+
+            @for (level of form().levels; track $index; let i = $index) {
+              <section class="level" [attr.data-status]="level.status" [attr.aria-labelledby]="'rf-l' + i + '-title'">
+                <div class="level__head">
+                  <div class="level__title">
+                    <gf-icon name="layers" [decorative]="true" />
+                    <h3 [id]="'rf-l' + i + '-title'">{{ title(level) }}</h3>
+                    <span class="count">{{ competenciesText(level.competencies.length) }}</span>
+                    @if (incidents(errors(), i); as n) {
+                      <span class="count count--error">{{ incidentsText(n) }}</span>
+                    }
+                    @if (level.status === 'INACTIVE') {
+                      <gf-badge tone="neutral">Inactivo</gf-badge>
+                    }
+                    @if (conflict()) {
+                      <span class="count">Bloqueado temporalmente</span>
+                    }
+                  </div>
+                  @if (canEdit() && !conflict()) {
+                    @if (!level.id) {
+                      <gf-button variant="text" [disabled]="saving()" (pressed)="removeNewLevel(i)">
+                        <gf-icon name="delete" size="1rem" [decorative]="true" /> Quitar nivel
+                      </gf-button>
+                    } @else if (canToggleLevels()) {
+                      @if (level.status === 'ACTIVE') {
+                        <gf-button variant="text" [disabled]="saving()" (pressed)="ask({ kind: 'level', index: i, action: 'deactivate' })">
+                          <gf-icon name="delete" size="1rem" [decorative]="true" /> Desactivar nivel
+                        </gf-button>
+                      } @else {
+                        <gf-button variant="text" [disabled]="saving()" (pressed)="ask({ kind: 'level', index: i, action: 'reactivate' })">
+                          <gf-icon name="refresh" size="1rem" [decorative]="true" /> Reactivar nivel
+                        </gf-button>
+                      }
                     }
                   }
                 </div>
 
-                @if (canEdit()) {
-                  <gf-button variant="text" [ariaLabel]="'Quitar la competencia ' + (c.name || (j + 1)) + ' del nivel ' + (level.name || (i + 1))" (pressed)="removeCompetency(i, j)">
-                    <gf-icon name="close" size="1rem" [decorative]="true" /> Quitar
+                <div class="level__body">
+                  <gf-form-field label="Nombre del nivel" [required]="true" [fieldId]="'rf-l' + i + '-name'" [state]="state('level.' + i + '.name')" [message]="err('level.' + i + '.name')">
+                    <gf-text-input
+                      [inputId]="'rf-l' + i + '-name'"
+                      [required]="true"
+                      [maxlength]="limits.level"
+                      [disabled]="!editable()"
+                      [value]="level.name"
+                      [state]="state('level.' + i + '.name')"
+                      [ariaDescribedBy]="err('level.' + i + '.name') ? 'rf-l' + i + '-name-msg' : ''"
+                      (valueChange)="setLevelName(i, $event)"
+                    />
+                  </gf-form-field>
+
+                  @for (c of level.competencies; track $index; let j = $index) {
+                    <div class="competency" [class.competency--invalid]="err('level.' + i + '.c.' + j)">
+                      <div class="row">
+                        <div class="row__name">
+                          <span>{{ c.name }}</span>
+                          @if (c.isCurrent) {
+                            <span class="version">v{{ c.versionNumber }}</span>
+                          } @else {
+                            <span class="muted-inline">(asignada v{{ c.versionNumber }})</span>
+                          }
+                          @if (isDuplicate(i, j)) {
+                            <span class="muted-inline">(Duplicada)</span>
+                          }
+                        </div>
+                        <div class="row__controls">
+                          <label class="inline-label" [for]="'rf-l' + i + '-r' + j">Nivel esperado:</label>
+                          <gf-select
+                            [inputId]="'rf-l' + i + '-r' + j"
+                            [required]="true"
+                            [disabled]="!editable()"
+                            [value]="c.requiredLevel"
+                            [invalid]="!!err('level.' + i + '.c.' + j)"
+                            [ariaDescribedBy]="err('level.' + i + '.c.' + j) ? 'rf-l' + i + '-c' + j + '-err' : ''"
+                            (valueChange)="pickRequiredLevel(i, j, $event)"
+                          >
+                            <option value="" disabled [selected]="!c.requiredLevel">Seleccionar...</option>
+                            @for (code of levelCodes; track code) {
+                              <option [value]="code" [selected]="code === c.requiredLevel">{{ code }}</option>
+                            }
+                          </gf-select>
+                          <gf-button variant="text" [disabled]="!editable()" ariaLabel="Quitar competencia" (pressed)="removeCompetency(i, j)">
+                            <gf-icon name="close" size="1.25rem" [decorative]="true" />
+                          </gf-button>
+                        </div>
+                      </div>
+                      @if (err('level.' + i + '.c.' + j); as m) {
+                        <p class="row-error" role="alert" [id]="'rf-l' + i + '-c' + j + '-err'">
+                          <gf-icon name="error" size="1rem" [decorative]="true" /> {{ m }}
+                        </p>
+                      }
+                      @if (!c.isCurrent) {
+                        <!-- Estado C — Versión desactualizada -->
+                        <div class="outdated">
+                          <span class="outdated__text">
+                            <gf-icon name="warning" size="1rem" [decorative]="true" />
+                            Hay una versión nueva ({{ newestVersion(c) ? 'v' + newestVersion(c)!.version_number : 'más reciente' }}) de esta competencia
+                          </span>
+                          @if (editable()) {
+                            <gf-button variant="secondary" (pressed)="useNewVersion(i, j)">
+                              <gf-icon name="sync" size="1rem" [decorative]="true" /> Usar la nueva
+                            </gf-button>
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+
+                  @if (!level.competencies.length && err('level.' + i + '.competencies')) {
+                    <div class="empty-level" role="alert">
+                      <gf-icon name="error" size="1.5rem" [decorative]="true" />
+                      <p class="strong">{{ err('level.' + i + '.competencies') }}</p>
+                      <p class="text">Nivel: {{ title(level) }} se encuentra actualmente vacío.</p>
+                      <gf-button variant="secondary" [disabled]="!editable()" (pressed)="focusCombo(i)">
+                        <gf-icon name="add" size="1rem" [decorative]="true" /> Asignar primera competencia
+                      </gf-button>
+                    </div>
+                  }
+
+                  <div class="add-row">
+                    <div class="add-row__combo">
+                      <label class="gf-visually-hidden" [for]="'rf-l' + i + '-ac'">Agregar competencia al nivel {{ title(level) }}</label>
+                      <gf-autocomplete
+                        [inputId]="'rf-l' + i + '-ac'"
+                        placeholder="Agregar competencia..."
+                        [searchIcon]="true"
+                        [disabled]="!editable()"
+                        [searchFn]="searchCompetencies"
+                        [selectedText]="pickedText(i)"
+                        listLabel="Competencias disponibles"
+                        emptyText="Sin competencias con versión aprobada"
+                        (selected)="onPicked(i, $event)"
+                      />
+                    </div>
+                    <gf-button variant="secondary" [disabled]="!editable() || !pickedText(i)" (pressed)="assign(i)">Asignar</gf-button>
+                  </div>
+                </div>
+              </section>
+            }
+          </section>
+
+          <div class="bar">
+            <div>
+              @if (role(); as r) {
+                @if (r.status === 'ACTIVE') {
+                  <gf-button variant="secondary" [disabled]="!editable()" (pressed)="ask({ kind: 'deactivate-role' })">
+                    <gf-icon name="block" size="1rem" [decorative]="true" /> Desactivar rol
                   </gf-button>
                 }
-              </div>
-            }
-
-            @if (canEdit()) {
-              <div class="level-actions">
-                <gf-button [attr.id]="'rf-l' + i + '-add-c'" variant="secondary" (pressed)="addCompetency(i)">Agregar competencia</gf-button>
-                @if (!level.id) {
-                  <gf-button variant="text" (pressed)="removeNewLevel(i)">Quitar este nivel</gf-button>
-                }
-                @if (level.id && canToggleLevels()) {
-                  @if (level.status === 'ACTIVE') {
-                    <gf-button variant="text" (pressed)="ask({ kind: 'level', index: i, action: 'deactivate' })">Desactivar nivel</gf-button>
-                  } @else {
-                    <gf-button variant="text" (pressed)="ask({ kind: 'level', index: i, action: 'reactivate' })">Reactivar nivel</gf-button>
-                  }
-                }
-              </div>
-            }
-          </fieldset>
-        }
-
-        @if (canEdit()) {
-          <gf-button id="rf-add-level" variant="secondary" (pressed)="addLevel()">Agregar nivel</gf-button>
-        }
-      </section>
-
-      @if (canEdit()) {
-        <div class="actions">
-          <gf-button type="submit" [loading]="saving()">Guardar</gf-button>
-          <gf-button variant="secondary" [disabled]="saving()" (pressed)="cancel()">Cancelar</gf-button>
-          @if (role(); as r) {
-            @if (r.status === 'ACTIVE') {
-              <gf-button variant="text" [disabled]="saving()" (pressed)="ask({ kind: 'deactivate-role' })">Desactivar rol</gf-button>
-            }
-          }
-        </div>
+              }
+            </div>
+            <div class="bar__end">
+              <gf-button variant="secondary" [disabled]="saving()" (pressed)="cancel()">Cancelar</gf-button>
+              <gf-button type="submit" [loading]="saving()" [disabled]="conflict()">{{ saving() ? 'Guardando...' : 'Guardar' }}</gf-button>
+            </div>
+          </div>
+        </form>
       }
-    </form>
+    }
   }
 }

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791095043.6087732,
-    "seen": 1791114435.9979196,
-    "ast_hash": "f821a3fdce700d83df07896722275271",
+    "mtime": 1791122190.131353,
+    "seen": 1791122235.833004,
+    "ast_hash": "2e7cf5f1576e226eea642ff4c646ca19",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -1920,15 +1920,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.models.ts": {
-    "mtime": 1791094488.1119912,
-    "seen": 1791094916.9763548,
-    "ast_hash": "739f6b8988bf0e9a587fb9a2064378f9",
+    "mtime": 1791121945.853869,
+    "seen": 1791122235.7269864,
+    "ast_hash": "63dc3c8ecc3698cc94e47765529103aa",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.ts": {
-    "mtime": 1791094629.56628,
-    "seen": 1791094916.9763548,
-    "ast_hash": "01d0d226771a692f46b36cf701058f35",
+    "mtime": 1791122021.624163,
+    "seen": 1791122235.7279856,
+    "ast_hash": "ba8618944369eb401b984b4c52b1b5ea",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/routes.ts": {
@@ -2268,9 +2268,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.html": {
-    "mtime": 1791094631.209378,
-    "seen": 1791094917.0838823,
-    "ast_hash": "b6d85c8b4359f9e7d074bff1796396d9",
+    "mtime": 1791122021.6305954,
+    "seen": 1791122235.7692666,
+    "ast_hash": "3a6281cfd3f5d6b32c3a0fb13a82ceeb",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/index.html": {
@@ -3576,9 +3576,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791095043.591699,
-    "seen": 1791114435.8660653,
-    "ast_hash": "fab60d98c01254dfc9cc59bcba654f45",
+    "mtime": 1791122190.1012125,
+    "seen": 1791122235.7901678,
+    "ast_hash": "4d07bce0a4e726a6c501f326bcf90d86",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {
@@ -3822,9 +3822,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/app/schemas/catalog.py": {
-    "mtime": 1791093776.223416,
-    "seen": 1791094406.3719826,
-    "ast_hash": "0fd66aceebd85553a1575c6326483dbe",
+    "mtime": 1791121909.4895782,
+    "seen": 1791122235.70457,
+    "ast_hash": "d390c5788ce380bb267de9eb00615dd1",
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/app/services/__init__.py": {
@@ -3834,9 +3834,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/app/services/competency_service.py": {
-    "mtime": 1791093885.3266253,
-    "seen": 1791094406.3719826,
-    "ast_hash": "5b77bcda57124d3e56bafbddfe8669e6",
+    "mtime": 1791121886.8424733,
+    "seen": 1791122235.70457,
+    "ast_hash": "7501b99d450ad9c992ce31f4aeee1003",
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/app/services/role_service.py": {
@@ -3906,9 +3906,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/tests/integration/test_roles_read.py": {
-    "mtime": 1791094021.3163002,
-    "seen": 1791094406.3719826,
-    "ast_hash": "95591b3cdfb76c1ad83bfdc16f4e718f",
+    "mtime": 1791121871.2341688,
+    "seen": 1791122235.7077036,
+    "ast_hash": "b91d55ec9de4337475af8693e93bb519",
     "semantic_hash": ""
   },
   "codebase/apps/domains/catalog-service/tests/integration/test_roles_write.py": {
@@ -3987,6 +3987,12 @@
     "mtime": 1791094608.0172205,
     "seen": 1791094917.0838823,
     "ast_hash": "6c882d414c27528ecadecc96466c3668",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.spec.ts": {
+    "mtime": 1791122046.0398164,
+    "seen": 1791122235.7279856,
+    "ast_hash": "c8dd130f88a5242f2f5079ae4951953f",
     "semantic_hash": ""
   }
 }

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791122190.131353,
-    "seen": 1791122235.833004,
-    "ast_hash": "2e7cf5f1576e226eea642ff4c646ca19",
+    "mtime": 1791123100.0429652,
+    "seen": 1791123150.3234615,
+    "ast_hash": "9ea29d43a7879336b8a23737fca4973d",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -2688,9 +2688,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/icon/icon.ts": {
-    "mtime": 1790922350.2451682,
-    "seen": 1790997664.6708217,
-    "ast_hash": "0f97bca531fada639ac77dd2daf819a3",
+    "mtime": 1791122635.6422238,
+    "seen": 1791123150.1067715,
+    "ast_hash": "786ebce110d880fb08c160b761ea2f89",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/label/label.spec.ts": {
@@ -3960,33 +3960,33 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.logic.spec.ts": {
-    "mtime": 1791094526.6167817,
-    "seen": 1791094916.9763548,
-    "ast_hash": "75b3bc7efbf9a71e685f4b1260eb9c72",
+    "mtime": 1791122843.470594,
+    "seen": 1791123150.066011,
+    "ast_hash": "a2d851f877c96245d3c1844972058f6c",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.logic.ts": {
-    "mtime": 1791094524.9608345,
-    "seen": 1791094916.9763548,
-    "ast_hash": "6c86091b3aace4aef631b38dc6fc7c07",
+    "mtime": 1791122677.530026,
+    "seen": 1791123150.066011,
+    "ast_hash": "61b540c36f909c07787f9e208f2d09f0",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.page.spec.ts": {
-    "mtime": 1791094803.1831257,
-    "seen": 1791094916.9763548,
-    "ast_hash": "16cacfdce57f100fdbb7c724d33ec67d",
+    "mtime": 1791122905.8663032,
+    "seen": 1791123150.066011,
+    "ast_hash": "90a32c03a08979d77be95676e51c6817",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.page.ts": {
-    "mtime": 1791094628.4034297,
-    "seen": 1791094916.9763548,
-    "ast_hash": "8e8a2a627962ff2dfad6f5227fd0c973",
+    "mtime": 1791122711.9522388,
+    "seen": 1791123150.066011,
+    "ast_hash": "d3616cd29a569896dcf82c2538a7308b",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-form/role-form.page.html": {
-    "mtime": 1791094608.0172205,
-    "seen": 1791094917.0838823,
-    "ast_hash": "6c882d414c27528ecadecc96466c3668",
+    "mtime": 1791122745.9971762,
+    "seen": 1791123150.1509225,
+    "ast_hash": "83e5e6cfbebb0181b76c2e916c47f578",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/pages/role-list/role-list.page.spec.ts": {

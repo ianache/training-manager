@@ -82,18 +82,21 @@ export function toBody(form: RoleForm): RoleBody {
 /** Errores por campo. Claves: `name`, `description`, `levels`, `level.<i>.name`, `level.<i>.competencies`, `level.<i>.c.<j>`. */
 export type FormErrors = Record<string, string>;
 
+/** Textos de SCR-001-02 / GEN-001-G. Los marcados «propuesto» en la especificación no tienen fuente (SCR-001-Q2). */
 export const MESSAGES = {
   nameRequired: 'Escribe el nombre del rol.',
   nameTooLong: `El nombre no puede pasar de ${NAME_MAX} caracteres.`,
+  nameDuplicated: 'Ya existe un rol con ese nombre',
   descriptionTooLong: `La descripción no puede pasar de ${DESCRIPTION_MAX} caracteres.`,
   levelsRequired: 'El rol necesita al menos un nivel.',
   levelNameRequired: 'Escribe el nombre del nivel.',
   levelNameTooLong: `El nombre del nivel no puede pasar de ${LEVEL_NAME_MAX} caracteres.`,
   levelNameDuplicated: 'Dos niveles no pueden llamarse igual.',
-  competenciesRequired: 'Cada nivel necesita al menos una competencia.',
+  competenciesRequired: 'Este nivel no tiene ninguna competencia asignada. Agrega al menos una competencia.',
   competencyRequired: 'Elige la competencia.',
-  requiredLevelRequired: 'Elige el nivel esperado de la competencia.',
-  competencyDuplicated: 'Esta competencia ya está en este nivel.',
+  requiredLevelRequired: 'Elige el nivel esperado de la competencia',
+  competencyDuplicated: 'Esta competencia ya está en este nivel',
+  blockedDetail: 'Existen discrepancias en la matriz de descriptores requeridos antes de confirmar los cambios.',
 } as const;
 
 export function validate(form: RoleForm): FormErrors {
@@ -124,27 +127,42 @@ export function validate(form: RoleForm): FormErrors {
   return e;
 }
 
-/** Qué le pasó al guardar y qué puede hacer. `conflict`: otra persona editó antes (412). */
+/** Qué le pasó al guardar y qué puede hacer. */
 export interface SaveProblem {
   message: string;
+  /** Otra persona editó antes (412): hay que recargar. */
   conflict: boolean;
+  /** Campo del formulario al que pertenece el error (se muestra junto al campo, no en un aviso). */
+  field?: 'name';
+  /** El nivel esperado de una competencia no tiene requisitos de evidencia (422): bloquea guardar. */
+  blocked?: { competencyId: string; requiredLevel: string };
 }
 
 /** Los textos de los errores del servicio son propuestos (SCR-001-Q2 pendiente de revisión humana). */
 export function describeSaveError(status: number, body: unknown): SaveProblem {
-  const error = (body as { error?: { code?: string; message?: string } } | null)?.error;
+  const error = (body as { error?: { code?: string; message?: string; details?: Record<string, unknown> } } | null)?.error;
   const code = error?.code ?? '';
   switch (code) {
     case 'PRECONDITION_FAILED':
-      return { message: 'Otra persona modificó este rol. Recarga para ver los cambios.', conflict: true };
+      return { message: 'Otra persona modificó este rol.', conflict: true };
     case 'ROLE_NAME_DUPLICATE':
-      return { message: 'Ya existe un rol con ese nombre.', conflict: false };
+      return { message: MESSAGES.nameDuplicated, conflict: false, field: 'name' };
     case 'COMPETENCY_DUPLICATED':
       return { message: MESSAGES.competencyDuplicated, conflict: false };
     case 'COMPETENCY_INACTIVE':
       return { message: error?.message ?? 'La competencia elegida está inactiva.', conflict: false };
-    case 'EVIDENCE_REQUIREMENTS_MISSING':
-      return { message: error?.message ?? 'Primero hay que definir cómo se evidencia el nivel esperado de la competencia.', conflict: false };
+    case 'EVIDENCE_REQUIREMENTS_MISSING': {
+      const d = error?.details ?? {};
+      const blocked =
+        typeof d['competency_id'] === 'string' && typeof d['required_level'] === 'string'
+          ? { competencyId: d['competency_id'], requiredLevel: d['required_level'] }
+          : undefined;
+      return {
+        message: error?.message ?? 'Primero hay que definir cómo se evidencia el nivel esperado de la competencia.',
+        conflict: false,
+        blocked,
+      };
+    }
     case 'LEVEL_CONFLICT':
       return { message: 'Otro nivel del rol ya usa ese nombre u orden.', conflict: false };
     case 'AUTHORIZATION_FAILED':
@@ -157,3 +175,30 @@ export function describeSaveError(status: number, body: unknown): SaveProblem {
         : { message: error?.message ?? 'No se pudo guardar el rol.', conflict: false };
   }
 }
+
+/** «Acción bloqueada: Primero define cómo se evidencia el nivel L3 de Pruebas unitarias» (SCR-001-02, estado B). */
+export function blockedMessage(form: RoleForm, blocked: { competencyId: string; requiredLevel: string }): string {
+  const name = form.levels.flatMap((l) => l.competencies).find((c) => c.competencyId === blocked.competencyId)?.name;
+  return `Acción bloqueada: Primero define cómo se evidencia el nivel ${blocked.requiredLevel} de ${name ?? 'la competencia'}`;
+}
+
+/** Cantidad de problemas de un nivel («2 incidencias»). */
+export function incidents(errors: FormErrors, levelIndex: number): number {
+  return Object.keys(errors).filter((k) => k.startsWith(`level.${levelIndex}.`)).length;
+}
+
+/** «Hoy, por jefe.ingenieria» o «04/10/2026, por …» según la última modificación (o la creación). */
+export function lastModified(
+  role: { updated_at: string | null; updated_by: string | null; created_at: string; created_by: string },
+  now = new Date(),
+): string {
+  const when = new Date(role.updated_at ?? role.created_at);
+  const who = role.updated_by ?? role.created_by;
+  const same = when.toDateString() === now.toDateString();
+  return `${same ? 'Hoy' : when.toLocaleDateString('es-PE')}, por ${who}`;
+}
+
+/** «1 competencia», «3 competencias». */
+export const competenciesText = (n: number): string => `${n} ${n === 1 ? 'competencia' : 'competencias'}`;
+/** «1 incidencia», «2 incidencias». */
+export const incidentsText = (n: number): string => `${n} ${n === 1 ? 'incidencia' : 'incidencias'}`;
