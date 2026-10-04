@@ -59,7 +59,7 @@ Que un evaluador humano certifique el nivel L1–L4 de un colaborador en una com
 **De qué depende:**
 - **Catálogo (US-001, catalog-service):** competencias, sus versiones, rúbricas y requisitos de evidencia «requeridos» y «deseados» (BR-ACR-07, 09, 12, 13). *Inferencia a confirmar:* una certificación se refiere a la versión de la competencia vigente al certificar (IMD-001 R-46).
 - **Personas (US-015):** el colaborador certificado es un colaborador vigente.
-- **Evaluadores (US-020):** el rol `evaluador` existe en Keycloak; quién los designa está abierto (RCP-Q1).
+- **Evaluadores (US-020):** el rol `evaluador` existe en Keycloak (descrito como «Evaluador de competencias») y cualquier usuario con él puede certificar (EVD-2026-0199); los designa el Jefe de Ingeniería o ADMIN asignando ese rol (EVD-2026-0189).
 - **Evidencias de formación:** en H1 se registran a mano; la conexión con cursos es H2.
 - **Servicio:** ACP-002 prevé un «Certification Service» propio (PostgreSQL, puerto 3003). No existe: no tiene ADR, modelo de datos ni API, y DCP-002 lo deja fuera.
 
@@ -119,6 +119,7 @@ The delivery team or supplier must implement only the included scope, provide te
 |---|---|---|
 | ~~P-09~~ | ~~¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.?~~ **Respondida en parte (ianache, 2026-10-04):** un evaluador no puede certificar a su propio equipo (EVD-2026-0198); queda abierto qué hace Gestión de formación / RR. HH. | Responsable de producto |
 | DSP2-Q11 | **Bloquea la regla de BR-ACR-17:** ¿qué es el «equipo» de un evaluador? ¿Sus reportes directos (relación de reporte, solo empleados, BR-PTY-19), su unidad organizacional o sus proyectos? | Jefe de Ingeniería |
+| DSP2-Q12 | **Respuesta del 2026-10-04 (EVD-2026-0199):** se habilita un rol de evaluador y cualquier usuario con él puede evaluar; se usa el rol `evaluador` existente. **Esto no define el «equipo»** de DSP2-Q11, que BR-ACR-17 sigue necesitando para saber a quién no puede certificar un evaluador. ¿Se mantiene BR-ACR-17 y se define el equipo, o la regla se reemplaza por el rol? | Jefe de Ingeniería |
 | P-23 | Equivalencias de evidencia (parcialmente respondida) | Jefe de Ingeniería |
 | P-41 | Cómo «refuerza» una evidencia deseada la certificación | Jefe de Ingeniería |
 | P-54 | Visibilidad de las calificaciones y del sustento del evaluador | Jefe de Ingeniería |

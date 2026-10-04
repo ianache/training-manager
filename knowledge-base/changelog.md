@@ -353,3 +353,6 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0198): un evaluador no puede certificar a su propio equipo (BR-ACR-17). P-09 respondida en parte: sigue abierto qué hace Gestión de formación / RR. HH. Nueva pregunta DSP2-Q11: qué es el «equipo» del evaluador; la regla necesita datos de party. `CONFLICTO_DE_INTERES` ya aplica como motivo de revocación.
 - Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0199): se habilita un rol de evaluador de competencias y cualquier usuario con él puede certificar; se usa el rol `evaluador` que ya existe en Keycloak, el BFF y el portal (no se creó ningún rol nuevo). La respuesta no define el «equipo» de BR-ACR-17: nueva pregunta DSP2-Q12 (¿se mantiene la regla del equipo o la reemplaza el rol?); DSP2-Q11 sigue abierta.
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.

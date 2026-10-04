@@ -199,6 +199,7 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0196 | La descripción que sustenta la revocación admite hasta 1000 caracteres. *Interpretación a confirmar:* se entendió «1000 caracteres» como el máximo; el mínimo no se definió. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DSP2-Q9 (DSP-002) | decision | high |
 | EVD-2026-0197 | La lista de motivos de revocación es ampliable (catálogo con estado activo/inactivo); se asume que la gestionan el Jefe de Ingeniería y ADMIN, como el resto del catálogo, y los motivos ya usados no se eliminan. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DSP2-Q9 (DSP-002) | decision | high |
 | EVD-2026-0198 | Un evaluador no puede certificar a su propio equipo. *A definir:* qué es el «equipo» del evaluador. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a P-09 | decision | high |
+| EVD-2026-0199 | Se habilita un rol de evaluador de competencias: cualquier usuario con ese rol puede realizar la evaluación (certificar). Se usa el rol `evaluador`, que ya existe en Keycloak, en el BFF y en el portal con la descripción «Evaluador de competencias»; no se crea otro. *Interpretación a confirmar:* la respuesta no define qué es el «equipo» del evaluador (BR-ACR-17). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DSP2-Q11 (DSP-002) | decision | high |
 | EVD-2026-0152 | La versión de una competencia incluye su rúbrica y sus requisitos de evidencia. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-01 (LDM-002) | decision | high |
 | EVD-2026-0153 | Al aprobar una versión, la anterior pasa a DEPRECATED. Una versión no se aprueba sin pasar por DRAFT, para asegurar revisión y control. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-02 (LDM-002) | decision | high |
 | EVD-2026-0154 | No hay eliminaciones: solo se desactiva. Las competencias tienen estado ACTIVE o INACTIVE. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-03 (LDM-002) | decision | high |
@@ -303,7 +304,7 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | ID | Tipo | Regla | Evidencia |
 |---|---|---|---|
 | BR-ACR-01 | Validación | Un nivel certificado debe estar respaldado por al menos una evidencia de tipo formación, práctica evaluada o desempeño en proyecto. | EVD-2026-0009 |
-| BR-ACR-02 | Permiso | Solo un evaluador humano certifica un nivel. | EVD-2026-0011, 0012 |
+| BR-ACR-02 | Permiso | Solo un evaluador humano certifica un nivel. Es evaluador quien tiene el rol `evaluador` de Keycloak; cualquier usuario con ese rol puede certificar (EVD-2026-0199). | EVD-2026-0011, 0012 |
 | BR-ACR-03 | Auditoría | Cada certificación registra quién certificó, cuándo y con qué evidencia. | EVD-2026-0011 |
 | BR-ACR-04 | Excepción prohibida | No existe certificación automática: ningún nivel se certifica sin firma humana, tampoco a partir de una propuesta de la IA. | EVD-2026-0012 |
 | BR-ACR-05 | Alcance | En H1 la certificación es manual. | EVD-2026-0022 |
@@ -382,7 +383,7 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-PRF-02 | Estructura | Al registrar un colaborador se le asigna un nivel inicial del rol que se le asigna. Después se evalúa la evolución de sus competencias del rol a través de los cursos o de su desempeño en los proyectos, con evidencias específicas de lo que produce. | EVD-2026-0103 |
 | BR-PRF-03 | Validación | Para escalar a un nivel superior de su rol, el colaborador debe haber cumplido las competencias de los niveles inferiores. El paso lo decide el Jefe de Ingeniería o ADMIN (EVD-2026-0145). La asignación de Rol-Nivel es solo a colaboradores vigentes (EVD-2026-0146). «Cumplida» = certificada en el L que exige el Rol-Nivel inferior (EVD-2026-0164). Solo se sube de nivel; no se baja (EVD-2026-0166). Se exigen también las competencias del nivel destino (EVD-2026-0169); ADMIN no puede saltarse el bloqueo (EVD-2026-0170). Se exigen todas las competencias del nivel destino certificadas, lectura A (EVD-2026-0172). Solo aplica al subir de nivel (EVD-2026-0178). Mientras no exista el servicio de certificación, subir de nivel se bloquea (EVD-2026-0177). | EVD-2026-0125 |
 | BR-PRG-02 | Alcance | Por ahora el Evaluador y el Jefe de Ingeniería quedan fuera del proceso de evaluación, aunque sus roles también tienen competencias definidas. | EVD-2026-0105 |
-| BR-PRG-03 | Permiso | Designan a los evaluadores el Jefe de Ingeniería o cualquier usuario con el rol ADMIN. *Pendiente:* si instructor y evaluador son el mismo rol (GQ-07). | EVD-2026-0189 |
+| BR-PRG-03 | Permiso | Designan a los evaluadores el Jefe de Ingeniería o cualquier usuario con el rol ADMIN. *Pendiente:* si instructor y evaluador son el mismo rol (GQ-07). Designar es asignar el rol `evaluador` (EVD-2026-0199). | EVD-2026-0189 |
 
 ### Colaboradores e información maestra (Party)
 

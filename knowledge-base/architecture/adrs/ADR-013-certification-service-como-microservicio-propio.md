@@ -65,7 +65,7 @@ Las opciones y sus pros y contras son una reconstrucción del agente. El decisor
 | Acceso | Solo el BFF lo llama, con el token de servicio; el portal no lo ve |
 | Referencias | Ids lógicos: persona (party), competencia y su **versión** (catálogo), evaluador; sin clave foránea entre servicios |
 | Consulta para US-019 | El nivel certificado vigente por persona y competencia (el más alto de los vigentes, EVD-2026-0186); la consume el BFF en `eligibility` de API-SPEC-004 |
-| Autorización | El servicio vuelve a validar el rol: solo `evaluador` certifica (BR-ACR-02); lectura abierta a cualquier colaborador (BR-TRA-06) |
+| Autorización | El servicio vuelve a validar el rol: solo quien tiene el rol `evaluador` certifica (BR-ACR-02, EVD-2026-0199); lectura abierta a cualquier colaborador (BR-TRA-06) |
 
 **No se decidió todavía**, y el desarrollo no debe asumirlo:
 - Si comparte instancia de PostgreSQL con party y el catálogo o tiene la suya.
