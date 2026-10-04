@@ -2,7 +2,7 @@
 id: ARP-SCR-030-01-C
 type: Accessibility Report
 title: "ARP-SCR-030-01-C — Revisión de accesibilidad: Desactivar una unidad (hoja vigente de Stitch)"
-description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-01. Resultado inconclusive; borrador, sin verificación humana en navegador de esta versión."
+description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-01. Resultado pass; borrador, sin verificación humana en navegador de esta versión."
 tags:
 - ux-ui
 - accessibility
@@ -21,9 +21,9 @@ sources:
 a11y_review:
   screen: SCR-030-01
   target: html
-  result: inconclusive
+  result: pass
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 10, fail: 0, inconclusive: 1}
+  counts: {pass: 11, fail: 0, inconclusive: 0}
 ---
 
 # ARP-SCR-030-01-C — Desactivar una unidad
@@ -38,7 +38,7 @@ a11y_review:
 | 1.3.1 Etiquetas de los campos | pass | 0 controles, 0 sin etiqueta enlazada ni aria-label. |
 | 1.3.1 Landmarks | pass | 3 nav, 3 con aria-label; 2 aria-current. |
 | 4.1.3 Mensajes de estado | pass | 1 role=alert, 1 role=status, 0 aria-busy. |
-| 4.1.2 Diálogo | **inconclusive** | 3 role=dialog, 3 aria-modal; el nombre accesible y el foco atrapado requieren navegador. |
+| 4.1.2 Diálogo | pass | 3 role=dialog y 3 aria-modal con aria-labelledby. Aceptado por ianache (2026-10-04): el foco atrapado, Escape y el retorno del foco no se pueden demostrar en una hoja estática y quedan como obligación de la implementación (DCP-004, DTC-029 y DTC-030). |
 | 1.4.3 Contraste (texto) | pass | 5 pares calculados por clases y config de Tailwind; ninguno bajo 4.5:1 (se excluyen ligaduras de iconos, separadores decorativos y controles deshabilitados). Cálculo estático sin hover/focus, degradados ni imágenes. |
 | 2.4.7 Foco visible | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C3, 2026-10-04; confirmó que C1 a C9 aplican igual a las hojas nuevas). Análisis estático: 0 clases focus:ring/outline y 0 outline-none. |
 | 1.4.10 Reflow / 1.4.4 / 1.4.12 | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C4, C5 y C6, 2026-10-04; confirmó que C1 a C9 aplican igual a las hojas nuevas). Análisis estático: Requiere navegador. |
@@ -52,4 +52,4 @@ a11y_review:
 
 ## Resultado
 
-`inconclusive`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
+`pass`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; se cumple. Revisión humana pendiente.

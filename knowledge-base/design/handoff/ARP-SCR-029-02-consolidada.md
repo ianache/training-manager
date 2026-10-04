@@ -2,7 +2,7 @@
 id: ARP-SCR-029-02-C
 type: Accessibility Report
 title: "ARP-SCR-029-02-C — Revisión de accesibilidad: Editar nombre de una unidad (hoja vigente de Stitch)"
-description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado inconclusive; borrador, sin verificación humana en navegador de esta versión."
+description: "Revisión estática WCAG 2.2 AA de la hoja vigente de Stitch para SCR-029-02. Resultado pass; borrador, sin verificación humana en navegador de esta versión."
 tags:
 - ux-ui
 - accessibility
@@ -21,9 +21,9 @@ sources:
 a11y_review:
   screen: SCR-029-02
   target: html
-  result: inconclusive
+  result: pass
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 13, fail: 0, inconclusive: 1}
+  counts: {pass: 14, fail: 0, inconclusive: 0}
 ---
 
 # ARP-SCR-029-02-C — Editar nombre de una unidad
@@ -41,7 +41,7 @@ a11y_review:
 | 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
 | 4.1.3 Mensajes de estado | pass | 3 role=alert, 3 role=status, 0 aria-busy. |
 | 3.3.2 Etiquetas o instrucciones (obligatorio) | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C9, 2026-10-04). Análisis estático: 7 campos con required o aria-required. |
-| 4.1.2 Diálogo | **inconclusive** | 1 role=dialog, 1 aria-modal; el nombre accesible y el foco atrapado requieren navegador. |
+| 4.1.2 Diálogo | pass | 1 role=dialog y 1 aria-modal con aria-labelledby. Aceptado por ianache (2026-10-04): el foco atrapado, Escape y el retorno del foco no se pueden demostrar en una hoja estática y quedan como obligación de la implementación (DCP-004, DTC-029 y DTC-030). |
 | 1.4.3 Contraste (texto) | pass | 15 pares calculados por clases y config de Tailwind; ninguno bajo 4.5:1 (se excluyen ligaduras de iconos, separadores decorativos y controles deshabilitados). Cálculo estático sin hover/focus, degradados ni imágenes. |
 | 2.4.7 Foco visible | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C3, 2026-10-04). Análisis estático: 61 clases focus:ring/outline y 19 outline-none. |
 | 1.4.10 Reflow / 1.4.4 / 1.4.12 | pass | Aprobado por ianache en navegador (CHK-UNIDADES-001 C4, C5 y C6, 2026-10-04). Análisis estático: Requiere navegador. |
@@ -55,4 +55,4 @@ a11y_review:
 
 ## Resultado
 
-`inconclusive`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; no se cumple. Lo `inconclusive` depende de la revisión en navegador (CHK-UNIDADES-001). Revisión humana pendiente.
+`pass`. `DESIGN_READY_FOR_DEV` exige `pass` para este SCR; se cumple. Revisión humana pendiente.
