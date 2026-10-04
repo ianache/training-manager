@@ -21,7 +21,7 @@ sources:
 
 # API-SPEC-003 — Catálogo de roles y competencias
 
-**Estado: `REQUIRES_REVIEW`.** Diseño del agente sin aprobación humana, y ADR-011 está `Propuesto`. Nada de esto está implementado.
+**Estado: `REQUIRES_REVIEW`.** Diseño del agente sin aprobación humana, y ADR-011 está `Propuesto`. **Implementado el 2026-10-04 (primer tramo, sin revisión humana):** lectura de roles y competencias, alta y edición de roles, desactivar rol y desactivar o reactivar niveles. **Sin implementar:** alta, versiones, rúbrica, requisitos, aprobación, desactivar y reactivar competencias. Detalle en «Tramo implementado» (§7).
 
 ## 1. Rutas
 
@@ -153,3 +153,21 @@ La **asignación de Rol-Nivel a personas** (US-019) no está aquí: vive en part
 1. Responder AQ-1 a AQ-5 y revisar LDM-002 y ADR-011.
 2. `api-contract-reviewer` y `api-security-reviewer` sobre este documento.
 3. Cadena de diseño de pantallas de US-001 y US-019 (los SCR/GEN que exige el DCP).
+
+## 8. Tramo implementado (2026-10-04)
+
+Código en `codebase/apps/domains/catalog-service` (FastAPI, esquema propio `catalog`, Alembic `0001_ldm002_catalog`), ruta del BFF `/api/v1/catalog/*` y portal `mfe-catalog`. Supuestos del agente, a confirmar:
+
+| Tema | Lo que hace el código | Por qué es supuesto |
+|---|---|---|
+| `GET /roles` sin `status` | Devuelve activos e inactivos; el asistente de alta pide `status=ACTIVE` | El contrato no fija el valor por defecto |
+| `usable` y versiones reemplazadas | Una versión `DEPRECATED` cuenta como aprobada: el nivel sigue usable | EVD-2026-0143 dice que la relación conserva su versión; el contrato solo dice «APROBADA» |
+| `evidence_requirements` | Cuenta todos los requisitos (requeridos y deseados) del L esperado, solo de versiones no borrador | AQ-2 lo deja informativo |
+| `PUT /roles` y niveles omitidos | Un nivel que no viene en la petición se conserva; los nuevos van sin `id`, los existentes con `id` | El contrato dice «solo añade o renombra» sin fijar cómo se identifica un nivel |
+| `If-Match` | Obligatorio en `PUT` (428 si falta); opcional en `POST /roles/{id}/deactivate`; acepta comillas de ETag | El contrato no lo pide para desactivar |
+| `competency_count` en la lista | Competencias distintas del rol (campo aditivo) | La lista del portal lo necesita |
+| Reactivar un rol | No existe | El contrato solo define reactivar niveles y competencias |
+| Datos de ejemplo | `SEED_DEMO_DATA` crea 8 competencias y 4 roles (ids del antiguo stub) solo en desarrollo | Sirven para probar; no son contenido del negocio |
+
+Pruebas: 52 contra PostgreSQL real (una por cada fila de §2, concurrencia de dos `PUT`, permisos por rol, inyección SQL, límite de escritura) y 41 del BFF. El portal añade 30. Falta: prueba de contrato con un Keycloak real, revisión de contrato y de seguridad, y ADR-012 (reintentos).
+

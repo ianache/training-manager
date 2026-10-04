@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791093472.0939336,
-    "seen": 1791094406.6574447,
-    "ast_hash": "19cf12558ec6dfea9b078baca371c241",
+    "mtime": 1791095043.6087732,
+    "seen": 1791114435.9979196,
+    "ast_hash": "f821a3fdce700d83df07896722275271",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -3576,9 +3576,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md": {
-    "mtime": 1791080866.4016938,
-    "seen": 1791080901.321817,
-    "ast_hash": "95019eb0faa360e87669b0e7df7d2961",
+    "mtime": 1791095043.591699,
+    "seen": 1791114435.8660653,
+    "ast_hash": "fab60d98c01254dfc9cc59bcba654f45",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {

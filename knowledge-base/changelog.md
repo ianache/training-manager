@@ -427,3 +427,8 @@ sources:
 
 - Evaluado el gate DESIGN_READY_FOR_DEV de las 12 pantallas de unidades (HOF-PPM-002, borrador): FAILED, 39 hallazgos. Bloqueos: sin governed_design aprobado (el validador exige Figma, descartado), sin informe de accesibilidad en pass, secciones A a N sin redactar y sin aprobación humana. Corregido el YAML de 6 ARP (título sin comillas con dos puntos), que hacía fallar la lectura del validador (OKF_INVALID).
 - Artefactos afectados: `knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md`, los ARP-SCR-017-01..03, 029-03, 029-04 y 030-04, `knowledge-base/changelog.md`.
+
+## 2026-10-04 (catalog-service)
+
+- Implementado el primer tramo del catálogo (API-SPEC-003): `catalog-service`, ruta del BFF y pantallas de lista y formulario de rol (SCR-001-01/02) en el portal. Se retira el `catalog-stub` de docker-compose. Los supuestos del agente están en API-SPEC-003 §8.
+- Artefactos afectados: `API-SPEC-003`, `changelog.md`.
