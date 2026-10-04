@@ -48,13 +48,13 @@ Marca cada fila con ✔ (cumple), ✘ (no cumple, con nota) o — (no aplica).
 | SCR | Hoja de Stitch (resource name) | Prueba específica | Resultado |
 |---|---|---|---|
 | SCR-017-01 | `ead458becb59418fb0cf15f0c601beb5` | El enlace «Continuar a unidades» se alcanza y se activa con teclado; «Cargando» y el error se anuncian | |
-| SCR-017-02 | `5256b92d20f04c31b720dd32e26a9259` (A–D), `ec2726f18a154d88a0d1ae7d3e475980` (E–G) | Foco al primer error al enviar con campos vacíos; el error de RUC duplicado se anuncia; el botón «Registrar» no se activa dos veces | |
+| SCR-017-02 | `4368eace9ac44ba6b630ad0391cf2bc4` (consolidada) | Foco al primer error al enviar con campos vacíos; el error de RUC duplicado se anuncia; el botón «Registrar» no se activa dos veces | |
 | SCR-017-03 | `08a98db688474629b3ef7a32c9d751ca` | El mensaje de acceso no autorizado recibe el foco o se anuncia al cargar | |
-| SCR-028-01 | `a4618f57bdec4cd9a4164d6cc0b3020b` (A, B), `86eba07cd92340b0bbac094a3c0a67f7` (F–H), `5c821e8a409549b982fa97a0e3b4767b` (C–E) | Ordenar por columna con teclado y que se anuncie `aria-sort`; el árbol: flechas expanden y contraen, Enter activa; los filtros se conservan al alternar lista y jerarquía | |
-| SCR-029-01 | `12e3390b33c04a3e999434240a947ab2` (A), `2be6838e89aa48b898b98b11aa15e5fc` (B–D), `d14e0605943c4639a07570bda8e0782c` (E–H) | El combobox «Unidad padre» con teclado (flechas, Enter, Escape) y solo ofrece unidades Activas; foco al primer error | |
-| SCR-029-02 | `f497a2997e144bd29856800143c8fd1d` (A–E), `b00dc58356824c6d907d47c0932d7081` (nombre duplicado) | «Guardar» deshabilitado sin cambios; el error de nombre repetido se anuncia | |
-| SCR-029-03 | `8c7e545751404313aee0ed6cd6c1c94a` (A–C), `34736ed5134349e6b5c37ee7bd9390ad` (D), `1a449427811041479e3a60465018472f` (E, F) | **Diálogo de resumen:** el foco entra, queda atrapado, Escape cierra y el foco vuelve al botón que lo abrió; el fondo no es alcanzable | |
-| SCR-029-04 | `c6e84489643249fda7636832f349a3a8` (datos), `2c3406fbc34e48f584a73ed71e0bfe26` (B–E) | La tabla se lee con `caption` y encabezados; la paginación «Anterior»/«Siguiente» es operable; el estado de carga se anuncia | |
+| SCR-028-01 | `3000469d418c4941b1d98dca2c1b4b27` (consolidada) | Ordenar por columna con teclado y que se anuncie `aria-sort`; el árbol: flechas expanden y contraen, Enter activa; los filtros se conservan al alternar lista y jerarquía | |
+| SCR-029-01 | `f60d9b006fc643d0b0120e95ef04e9a6` (v6, consolidada) | El combobox «Unidad padre» con teclado (flechas, Enter, Escape) y solo ofrece unidades Activas; foco al primer error | |
+| SCR-029-02 | `234079448a8b438cb5ecb9e601093c39` (consolidada) | «Guardar» deshabilitado sin cambios; el error de nombre repetido se anuncia | |
+| SCR-029-03 | `c53d12f7720c49e4a73c193b62b517a5` (consolidada) | **Diálogo de resumen:** el foco entra, queda atrapado, Escape cierra y el foco vuelve al botón que lo abrió; el fondo no es alcanzable | |
+| SCR-029-04 | `54b227ae20d649e698b804011e3e00af` (consolidada) | La tabla se lee con `caption` y encabezados; la paginación «Anterior»/«Siguiente» es operable; el estado de carga se anuncia | |
 | SCR-030-01 | `11e52a5f6d6d401eb239180750c1df9d` | **Diálogo:** foco inicial en «Cancelar», foco atrapado, Escape cancela y el foco vuelve a la fila; tras confirmar, el foco va a la fila y se anuncia «Inactiva» | |
 | SCR-030-02 | `fc1cfa0bf4d9442d926d1ab37aff49d1` | **Diálogo** de bloqueo: se anuncian los conteos; «Cerrar» devuelve el foco | |
 | SCR-030-03 | `727b36fe16884700ac3329309f09c644` | **Diálogo** con la fecha: error «Indica la fecha desde» ligado al campo; foco atrapado y devuelto | |
