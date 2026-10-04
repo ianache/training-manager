@@ -1591,6 +1591,41 @@ traceability:
     captured_at: '2026-10-04T00:18:36-05:00'
     latest_known_version: v1-comsatel-styled
     evidence: mcp-stitch-list_screens-1791091014501.txt
+- screen: SCR-003-02
+  flow: FLW-003
+  requirements:
+    us:
+    - US-003
+    ac: []
+    uxr:
+    - UXR-003
+    - UXR-000
+  components:
+  - CMP-015
+  - CMP-016
+  tokens:
+  - TKN-color-primary
+  - TKN-color-on-primary
+  - TKN-color-surface
+  - TKN-color-on-surface
+  - TKN-color-on-surface-variant
+  - TKN-color-outline
+  - TKN-color-error
+  - TKN-color-error-container
+  - TKN-color-tertiary
+  - TKN-font-family
+  - TKN-radius-default
+  - TKN-space-md
+  - TKN-space-lg
+  exploration_design:
+    tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/8f15a7087fdc400b9466888f8725862a
+    version: v1-comsatel-styled
+    status: current
+    captured_at: '2026-10-04T00:37:25-05:00'
+    latest_known_version: v1-comsatel-styled
+    evidence: mcp-stitch-list_screens-1791092208169.txt
 ---
 
 # DTM-PPM-001 — Design Traceability Map

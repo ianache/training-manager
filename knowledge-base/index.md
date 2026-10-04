@@ -129,7 +129,7 @@ sources:
 - [SCR-004 — Consultar mi perfil de competencias](design/screens/SCR-004-consultar-mi-perfil-de-competencias.md) — Screen, `draft`; SCR-004-01..02
 - [GEN-001-G — Diseño Stitch del catálogo de roles y competencias (gobernado)](design/generations/GEN-001-G-stitch-catalogo-de-roles-y-competencias.md) — Stitch Generation, `draft`; exploración, SCR-001-01..04
 - [GEN-019 — Diseño Stitch de asignar un Rol-Nivel](design/generations/GEN-019-stitch-asignar-rol-nivel.md) — Stitch Generation, `draft`; exploración, SCR-019-01..03
-- [GEN-003 — Diseño Stitch de certificar un nivel de competencia](design/generations/GEN-003-stitch-certificar-un-nivel-de-competencia.md) — Stitch Generation, `draft`; exploración, SCR-003-01/03/04/05 (SCR-003-02 pendiente)
+- [GEN-003 — Diseño Stitch de certificar un nivel de competencia](design/generations/GEN-003-stitch-certificar-un-nivel-de-competencia.md) — Stitch Generation, `draft`; exploración, SCR-003-01/03/04/05
 - [GEN-004 — Diseño Stitch de consultar mi perfil de competencias](design/generations/GEN-004-stitch-consultar-mi-perfil-de-competencias.md) — Stitch Generation, `draft`; exploración, SCR-004-01..02
 - [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
 - [UXR-029 — Registrar y editar unidades organizacionales](design/ux-requirements/UXR-029-registrar-y-editar-unidades-organizacionales.md) — UX Requirement, `draft`

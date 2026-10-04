@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791089588.2262602,
-    "seen": 1791089667.9545264,
-    "ast_hash": "b8f0bce721796ef649e1a281dbef96a1",
+    "mtime": 1791091228.245442,
+    "seen": 1791091272.928551,
+    "ast_hash": "1833303e0c60357edeb67c0f69164f4a",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791089588.212099,
-    "seen": 1791089668.0497584,
-    "ast_hash": "c668bc1901874b3670c6a87526115013",
+    "mtime": 1791091228.2245247,
+    "seen": 1791091272.972629,
+    "ast_hash": "53e0cdd982d4f3c287e4448bd95c2fbc",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791078136.6186085,
-    "seen": 1791078193.9705389,
-    "ast_hash": "5696f2d21f54b910df4e819c3cb67731",
+    "mtime": 1791091116.802617,
+    "seen": 1791091272.9559865,
+    "ast_hash": "7db33b5e286e60bda35d6a51cf34d232",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3693,6 +3693,18 @@
     "mtime": 1791089509.5275726,
     "seen": 1791089668.0194273,
     "ast_hash": "ba8267b8ec861a507097d3b5526721a9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-003-stitch-certificar-un-nivel-de-competencia.md": {
+    "mtime": 1791091143.0730157,
+    "seen": 1791091272.9301505,
+    "ast_hash": "b2bbc7ff7ead3a658c1375bd346ff226",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/generations/GEN-004-stitch-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1791091144.5855374,
+    "seen": 1791091272.9301505,
+    "ast_hash": "e764687d14a1b7cba945648e074d3e16",
     "semantic_hash": ""
   }
 }

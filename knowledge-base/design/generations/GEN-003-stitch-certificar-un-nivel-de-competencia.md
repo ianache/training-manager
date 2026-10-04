@@ -2,7 +2,7 @@
 id: GEN-003
 type: Stitch Generation
 title: "GEN-003 — Diseño Stitch: Certificar un nivel de competencia"
-description: "Prompts, pantallas generadas en el proyecto Stitch gobernado y revisión crítica de SCR-003-01 a SCR-003-05. Exploración, no diseño gobernado. SCR-003-02 pendiente."
+description: "Prompts, pantallas generadas en el proyecto Stitch gobernado y revisión crítica de SCR-003-01 a SCR-003-05. Exploración, no diseño gobernado."
 tags: [ux-ui, stitch, generation, certificacion, evaluacion]
 status: draft
 generated:
@@ -29,7 +29,7 @@ sources:
 
 - **Fecha:** 2026-10-04. Se reutiliza `STP-PPM-001` (proyecto verificado en vivo antes, `get_project`); no se creó ninguno. Preflight `READY`.
 - **Parámetros:** `deviceType = DESKTOP`; `modelId` no indicado; sistema «Comsatel Styled» nombrado en el prompt, sin `designSystem`.
-- **Incidencia:** las siete llamadas dieron timeout; seis pantallas aparecieron en unos 10 a 15 minutos. **SCR-003-02 no apareció tras unos 25 minutos** (su prompt era el más largo) y se relanzó una vez con un prompt más corto; al escribir esto sigue pendiente.
+- **Incidencia:** las siete llamadas dieron timeout; seis pantallas aparecieron en unos 10 a 15 minutos. **SCR-003-02 no apareció tras unos 25 minutos** (su prompt era el más largo) y se relanzó una vez con un prompt más corto; la original apareció después y es la registrada. El relanzamiento dividido dio la «parte A» (`…/5ad7c5e33fb54739b94114fd7a340137`, estados A y B, incompleta: le faltan varios textos exigidos, 0 `role="alert"`, 5 `aria-`) que **no se registró** (el DTM admite un artefacto por SCR) y queda como duplicado; la «parte B» no apareció.
 
 ## Pantallas registradas en el DTM
 
@@ -41,7 +41,7 @@ sources:
 | SCR-003-03 | `…/screens/49aa04e599824d4286355d5ad80bd0d1` |
 | SCR-003-04 | `…/screens/23160bb7dd334090adb09891936eb54d` |
 | SCR-003-05 | `…/screens/57ae3002f15547aeb9125d1f745a69e2` |
-| SCR-003-02 | **sin generar** (la pantalla central de la evaluación) |
+| SCR-003-02 | `…/screens/8f15a7087fdc400b9466888f8725862a` (estados A a D; es la generación original, que apareció después del relanzamiento) |
 
 **La evidencia no vive en el repositorio:** `exploration_design.evidence` guarda solo el nombre del archivo de salida de Stitch, que está fuera del repositorio. La comprobación se hizo, pero otra persona no puede reproducirla.
 
@@ -59,6 +59,7 @@ Verificación automática del HTML devuelto:
 | SCR-003-03 | Todos | Ninguno | 3 | 35 | No aparecen |
 | SCR-003-04 | Todos | Ninguno | 1 | 22 | 4 |
 | SCR-003-05 | Todos | Ninguno | 5 | 22 | No aparecen |
+| SCR-003-02 | Todos | Ninguno | 6 | 25 | 4 |
 
 **Hallazgos (no aceptados como resueltos):**
 1. **SCR-003-01 casi no tiene atributos `aria-` (solo 1)** pese a tener una búsqueda y varios estados: hay que revisar su accesibilidad.

@@ -419,3 +419,5 @@ sources:
 - Artefactos afectados: `GEN-003`, `GEN-004`, `DTM-PPM-001`, `index.md`, `changelog.md`.
 
 - SCR-029-01, estados de validación (B a D) localizados y verificados en Stitch (`2be6838e…`) sin el defecto de «Soporte» y «Ajustes». Solo queda con él la hoja E a H. Anotado en `GEN-029`.
+
+- SCR-003-02 apareció en Stitch (generación original) y se registró en el DTM con `--evidence`; la «parte A» del relanzamiento quedó como duplicado incompleto sin registrar y la «parte B» no se generó. Artefactos afectados: `GEN-003`, `DTM-PPM-001`.
