@@ -10,6 +10,10 @@ This directory contains validated Development Context Packs (DCPs) that bridge a
 
 ## Active Handoffs
 
+### DCP-004 — Gestión de la estructura organizacional (US-017, 028, 029, 030)
+
+**Estado:** `REQUIRES_REVIEW`: gate `DESIGN_READY_FOR_DEV` en `FAILED`, API-SPEC-006 y CMP-017 sin revisión, contacto de la organización en conflicto con el diseño (Q-1) y permiso de ADMIN sin decidir. Archivo: [DCP-004-gestion-de-unidades-organizacionales.md](DCP-004-gestion-de-unidades-organizacionales.md).
+
 ### DCP-003 — Catálogo de roles y niveles (DSP-001)
 
 **Estado:** `REQUIRES_REVIEW` (no `READY_FOR_DEV`): ADR-011 sin decisor, falta la API de asignación de Rol-Nivel, brechas de componentes y sin aprobación humana. Archivo: [DCP-003-catalogo-de-roles-y-niveles.md](DCP-003-catalogo-de-roles-y-niveles.md)
