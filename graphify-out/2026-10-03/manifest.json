@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791084990.854481,
-    "seen": 1791085073.2371955,
-    "ast_hash": "c79492338072c929fe38bfb1ef0e84a7",
+    "mtime": 1791085398.6288438,
+    "seen": 1791085474.5893943,
+    "ast_hash": "e0232cd001b8069de7479b1b74001abd",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791084756.8626046,
-    "seen": 1791084836.251362,
-    "ast_hash": "a8c4897252f9ccf7f3fb5e247d6a0534",
+    "mtime": 1791085398.5830588,
+    "seen": 1791085474.5893943,
+    "ast_hash": "c66ce131743c2975c1b294f337c531de",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md": {
-    "mtime": 1790526442.6912901,
-    "seen": 1790536370.7001495,
-    "ast_hash": "0ed6f9a148a85db05475d60b2c60d315",
+    "mtime": 1791085398.5913599,
+    "seen": 1791085474.657083,
+    "ast_hash": "770628cd57eef4da1c9e63052cd60d3b",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
@@ -3648,21 +3648,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791084990.8440082,
-    "seen": 1791085073.3117154,
-    "ast_hash": "919e4208fcd1e83bdccd36d503027c26",
+    "mtime": 1791085398.60806,
+    "seen": 1791085474.6641328,
+    "ast_hash": "84799f0cdcf5cfc8f347186bef73f79e",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
-    "mtime": 1791082882.7720902,
-    "seen": 1791082925.6282742,
-    "ast_hash": "c9ddf83f172d8186e26abf2b2c168783",
+    "mtime": 1791085398.6115866,
+    "seen": 1791085474.483662,
+    "ast_hash": "8f8ed46ea77bcdf6b1f21bdc5fcc2eb1",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
-    "mtime": 1791084969.8647962,
-    "seen": 1791085073.0927584,
-    "ast_hash": "82180aad0c3596eed35f14f36ba86b4b",
+    "mtime": 1791085398.6003351,
+    "seen": 1791085474.504079,
+    "ast_hash": "364e89333fbfce966cad42c5332cd964",
     "semantic_hash": ""
   }
 }

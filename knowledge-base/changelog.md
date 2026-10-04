@@ -380,3 +380,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0215 a 0219): las evidencias las registra el colaborador; recertificar exige nuevas evidencias; la persona certificada debe ser un colaborador vigente; si se anonimiza, sus evidencias no se anonimizan y sus certificaciones solo las ve ADMIN (excepción BR-TRA-08); las evidencias de una certificación revocada siguen disponibles. Nuevas BR-ACR-20 a 22 y BR-TRA-08. DM-Q-04 se reformuló (identificador del actor en la auditoría) y sigue abierta. El servicio necesita datos de party (persona vigente o anonimizada): consulta directa o composición en el BFF.
 - Artefactos afectados: `BRC-001`, `LDM-003`, `DSP-002`, `ADR-013`, `RCP-001`.
+
+- Confirmaciones de `human:ianache` 2026-10-04 (EVD-2026-0220, 0221): las evidencias «nuevas» al recertificar son las que no respaldaron la certificación reemplazada (no precisó si basta una; se aplica «al menos una»); el colaborador registra las evidencias y un evaluador no las registra a mano en H1 (RCP-Q2 cerrada). Se quitaron las marcas «a confirmar» de EVD-2026-0215 y 0216, BR-ACR-20 y BR-ACR-21.
+- Artefactos afectados: `BRC-001`, `RCP-001`, `DSP-002`, `LDM-003`.

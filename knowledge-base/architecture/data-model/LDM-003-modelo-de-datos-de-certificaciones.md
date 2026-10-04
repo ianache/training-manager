@@ -94,7 +94,7 @@ REPLACED y REVOKED: finales
 | CHK-F | La evidencia pertenece a la persona certificada | Servicio | R-20, EVD-2026-0215 |
 | CHK-G | Visibilidad por rol de la descripción de la revocación | Servicio (API) | BR-TRA-07 |
 | CHK-H | La evidencia la registra el propio colaborador certificado (EVD-2026-0215) | Servicio | BR-ACR-20 |
-| CHK-I | Recertificar exige al menos una evidencia nueva, distinta de las de la certificación que se reemplaza (EVD-2026-0216) | Servicio | BR-ACR-21 |
+| CHK-I | Recertificar exige evidencias nuevas, que no respaldaron la certificación que se reemplaza (EVD-2026-0216, 0220); se aplica «al menos una» (EVD-2026-0220 no precisa si basta una) | Servicio | BR-ACR-21 |
 | CHK-J | La persona certificada es un colaborador vigente y no está anonimizada (EVD-2026-0217, 0218): se consulta a party, o lo orquesta el BFF como en API-SPEC-004 | Servicio / BFF | BR-ACR-22, BR-TRA-08 |
 
 ## 6. Transacciones, concurrencia y operación

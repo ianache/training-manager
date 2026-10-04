@@ -126,7 +126,7 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~P-23~~ | ~~Equivalencias de evidencia (parcialmente respondida)~~ **Respondida (ianache, 2026-10-04):** sin equivalencias; un requisito puede exigir varias piezas (EVD-2026-0202, 0203). | Jefe de Ingeniería |
 | ~~P-41~~ | ~~Cómo «refuerza» una evidencia deseada la certificación~~ **Respondida (ianache, 2026-10-04):** solo queda registrada y visible en H1; la marca «reforzada» queda abierta (EVD-2026-0205). | Jefe de Ingeniería |
 | ~~P-54~~ | ~~Visibilidad de las calificaciones y del sustento del evaluador~~ **Respondida (ianache, 2026-10-04):** descripción de la revocación restringida; GitLab según BR-TRA-05 (EVD-2026-0206, 0207). Calificaciones y sustento de BR-CER-07: de cursos (H2). | Jefe de Ingeniería |
-| ~~RCP-Q2~~ | ~~¿En H1 un evaluador registra a mano evidencia de GitLab?~~ **Respondida (ianache, 2026-10-04):** las evidencias las registra el colaborador (EVD-2026-0215); a confirmar que el evaluador no las registra a mano. | Jefe de Ingeniería |
+| ~~RCP-Q2~~ | ~~¿En H1 un evaluador registra a mano evidencia de GitLab?~~ **Respondida (ianache, 2026-10-04):** las evidencias las registra el colaborador y un evaluador no las registra a mano en H1 (EVD-2026-0215, 0221). | Jefe de Ingeniería |
 
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
 1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.
