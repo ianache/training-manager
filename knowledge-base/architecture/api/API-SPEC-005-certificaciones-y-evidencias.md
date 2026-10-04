@@ -43,7 +43,7 @@ Formato de errores, cabeceras y paginación (`page`, `limit`, `sort`) como API-S
 
 ## 2. Identidad del actor
 
-La auditoría identifica a quien certifica, califica o revoca con su **código de party** (EVD-2026-0222). El BFF traduce el usuario de la sesión a ese código con el vínculo de US-022 y lo envía en la cabecera `X-Actor-Party-Code` (**nombre propuesto por el agente**) junto con el token de servicio y `X-User-Roles`. El servicio no acepta el actor en el cuerpo. Un usuario sin código de party (por ejemplo, un ADMIN que no es colaborador) no puede certificar ni revocar hasta resolver DM-Q-07.
+La auditoría identifica a quien certifica, califica o revoca con su **código de party** (EVD-2026-0222). El BFF traduce el usuario de la sesión a ese código con el vínculo de US-022 y lo envía en la cabecera `X-Actor-Party-Code` (**nombre propuesto por el agente**) junto con el token de servicio y `X-User-Roles`. El servicio no acepta el actor en el cuerpo. Un usuario **sin** código de party (por ejemplo, un ADMIN que no es colaborador) se muestra en la auditoría **solo con el nombre de su rol** (EVD-2026-0226): el BFF envía entonces `X-Actor-Role` (el rol que autoriza la acción, por ejemplo `ADMIN`) en lugar de `X-Actor-Party-Code`. El servicio guarda ese valor en las columnas de actor.
 
 ## 3. Contratos
 
@@ -52,7 +52,7 @@ La auditoría identifica a quien certifica, califica o revoca con su **código d
 Portal → BFF:
 
 ```json
-{ "person_id": "uuid", "competency_id": "uuid", "level": "L2",
+{ "person_id": "uuid", "competency_id": "uuid", "level": "L2", "outcome": "APPROVED",
   "evidence": [ { "evidence_id": "uuid", "requirement_id": "uuid", "grade": "CUMPLE" },
                 { "evidence_id": "uuid", "requirement_id": "uuid", "grade": "NO_CUMPLE" } ] }
 ```
@@ -60,12 +60,14 @@ Portal → BFF:
 BFF → servicio (el BFF añade lo que sale del catálogo):
 
 ```json
-{ "person_id": "uuid", "competency_id": "uuid", "competency_version_id": "uuid", "level": "L2",
+{ "person_id": "uuid", "competency_id": "uuid", "competency_version_id": "uuid", "level": "L2", "outcome": "APPROVED",
   "required_requirement_ids": ["uuid", "uuid"],
   "evidence": [ { "evidence_id": "uuid", "requirement_id": "uuid", "requirement_is_required": true, "grade": "CUMPLE" } ] }
 ```
 
 Respuesta `201` con `Location`: la certificación (§ detalle) con `status: "ACTIVE"`, sus evidencias con calificación y el evento de auditoría. `competency_version_id` es la versión vigente al certificar (IMD-001 R-46).
+
+**Evaluación no aprobada (EVD-2026-0224).** `outcome` es `APPROVED` (por defecto) o `NOT_APPROVED`. Con `NOT_APPROVED` el servicio guarda la evaluación con sus calificaciones y su auditoría, con estado `NOT_APPROVED`: **no es una certificación**, no cuenta para el nivel vigente y es un estado final (no se revoca ni se recertifica). Responde `201` con ese estado. No se exige `REQUIREMENTS_NOT_MET` (puede no aprobarse porque faltan requisitos, o por decisión del evaluador); el resto de las validaciones se aplican. Quién la ve: AQ-8.
 
 Validaciones, con su regla y dónde se aplican:
 
@@ -112,18 +114,18 @@ Requiere `If-Match: <row_version>`. Quién revoca es el actor de la cabecera: de
 
 ### GET /certified-levels
 
-Query: `person_id` (obligatorio) y `competency_id` (repetible). Sin `competency_id` devuelve todas (el resumen de US-004, BR-TRA-03). Respuesta `200`:
+Query: `person_id` y `competency_id` (repetible). Con `person_id` y sin `competency_id` devuelve todas las competencias de la persona (el resumen de US-004, BR-TRA-03). **Por competencia (EVD-2026-0228, para la búsqueda de candidatos de US-006):** con `competency_id` y **sin** `person_id` devuelve las personas con nivel vigente en esa competencia, con el filtro opcional `min_level` y paginación; excluye a las personas anonimizadas salvo para ADMIN. El diseño de US-006 está pendiente. Respuesta `200`:
 
 ```json
 { "data": [ { "competency_id": "uuid", "level": "L3", "certification_id": "uuid",
               "competency_version_id": "uuid", "certified_at": "2026-09-01T15:00:00Z", "certified_by": "uuid-party" } ] }
 ```
 
-El nivel es el **más alto de las certificaciones vigentes** (EVD-2026-0186; vista `vw_current_certified_level`). Una competencia sin certificación vigente **no aparece**. Es lo que consume `eligibility` de API-SPEC-004 para sustituir `CERTIFICATION_UNAVAILABLE`: el BFF compara, por cada competencia que exige el Rol-Nivel, el nivel certificado con el `required_level` (AQ-1: se propone «mayor o igual»).
+El nivel es el **más alto de las certificaciones vigentes** (EVD-2026-0186; vista `vw_current_certified_level`). Una competencia sin certificación vigente **no aparece**. Es lo que consume `eligibility` de API-SPEC-004 para sustituir `CERTIFICATION_UNAVAILABLE`: el BFF compara, por cada competencia que exige el Rol-Nivel, el nivel certificado con el `required_level` (mayor o igual: un L3 vigente cumple lo que exige un L2, EVD-2026-0223).
 
 ### GET /certifications y GET /certifications/{id}
 
-Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`REVOKED`|`all`), `page`, `limit`. El detalle devuelve la certificación, sus evidencias con calificación y la auditoría:
+Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`REVOKED`|`NOT_APPROVED`|`all`), `page`, `limit`. El detalle devuelve la certificación, sus evidencias con calificación y la auditoría:
 
 ```json
 { "id": "uuid", "person_id": "uuid", "competency_id": "uuid", "competency_version_id": "uuid",
@@ -138,7 +140,7 @@ Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`
 **Visibilidad (BR-TRA-06, BR-TRA-07, BR-TRA-08):**
 - Cualquier colaborador ve la certificación, sus evidencias y su auditoría: quién, cuándo y con qué evidencia.
 - De una revocación, todos ven el hecho, el motivo tipificado, quién y cuándo. La **`description`** solo la ven la persona certificada, todos los evaluadores (cualquier usuario con el rol `evaluador`), el Jefe de Ingeniería y ADMIN (EVD-2026-0206, 0209); a los demás el campo se omite.
-- Si la persona está **anonimizada**, sus certificaciones solo las ve ADMIN (EVD-2026-0218): los demás reciben `403 PERSON_ANONYMIZED` (AQ-3).
+- Si la persona está **anonimizada**, sus certificaciones solo las ve ADMIN (EVD-2026-0218): los demás reciben `403 PERSON_ANONYMIZED` (EVD-2026-0225).
 
 ### Evidencias
 
@@ -153,7 +155,7 @@ Reglas: `category` en `FORMACION`, `PRACTICA_EVALUADA`, `DESEMPENO_PROYECTO`; `d
 
 ### Motivos de revocación
 
-`GET /revocation-reasons?status=ACTIVE` (lectura abierta); `POST` con `{code, name}` (código en mayúsculas `^[A-Z][A-Z0-9_]*$`); `POST /{code}/deactivate` y `/reactivate`. Escriben el Jefe de Ingeniería o ADMIN (supuesto, AQ-4); un motivo ya usado no se elimina. Sembrados: `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `OTRO` (EVD-2026-0195, 0200).
+`GET /revocation-reasons?status=ACTIVE` (lectura abierta); `POST` con `{code, name}` (código en mayúsculas `^[A-Z][A-Z0-9_]*$`); `POST /{code}/deactivate` y `/reactivate`. Escriben el Jefe de Ingeniería o ADMIN (EVD-2026-0227); un motivo ya usado no se elimina. Sembrados: `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `OTRO` (EVD-2026-0195, 0200).
 
 ## 4. Seguridad y privacidad
 
@@ -197,13 +199,15 @@ Servicio nuevo: todo es aditivo bajo `/api/v1`. Cuando exista, `eligibility` de 
 
 | ID | Pregunta | Efecto |
 |---|---|---|
-| AQ-1 | ¿Una certificación **mayor** que el nivel exigido cuenta? Se propone «mayor o igual»: un L3 vigente cumple lo que exige un L2 | `eligibility` de API-SPEC-004 |
-| AQ-2 | Nombre de la cabecera del actor (`X-Actor-Party-Code`) y DM-Q-07: qué identifica a un usuario sin código de party | Quién puede certificar o revocar |
-| AQ-3 | Respuesta ante una persona anonimizada: se propone `403 PERSON_ANONYMIZED`; la alternativa es `404`, que no revela que la certificación existe | Privacidad |
-| AQ-4 | ¿Quién gestiona los motivos? Se supone el Jefe de Ingeniería y ADMIN, como el catálogo | Permisos |
-| AQ-5 | ¿Se registra una **evaluación no aprobada**? Hoy una certificación solo existe si se cumplen los requisitos, así que una evaluación con todo `NO_CUMPLE` no deja rastro ni auditoría. Las calificaciones `NO_CUMPLE` solo se guardan dentro de una certificación que sí se emitió | UX de evaluación; auditoría |
-| AQ-6 | Consumidores futuros: la búsqueda de candidatos (US-006) necesitará `GET /certified-levels` por competencia y nivel mínimo, para varias personas. No se diseña aquí | US-006 |
+| ~~AQ-1~~ | ~~¿Una certificación **mayor** que el nivel exigido cuenta? Se propone «mayor o igual»: un L3 vigente cumple lo que exige un L2~~ **Respondida (ianache, 2026-10-04):** mayor o igual (EVD-2026-0223). | `eligibility` de API-SPEC-004 |
+| ~~AQ-2~~ | ~~Nombre de la cabecera del actor (`X-Actor-Party-Code`) y DM-Q-07: qué identifica a un usuario sin código de party~~ **Respondida (ianache, 2026-10-04):** un usuario sin código de party se muestra solo con el nombre de su rol (EVD-2026-0226); el nombre de la cabecera sigue siendo una propuesta del agente. | Quién puede certificar o revocar |
+| ~~AQ-3~~ | ~~Respuesta ante una persona anonimizada: se propone `403 PERSON_ANONYMIZED`; la alternativa es `404`, que no revela que la certificación existe~~ **Respondida (ianache, 2026-10-04):** 403 `PERSON_ANONYMIZED` (EVD-2026-0225). | Privacidad |
+| ~~AQ-4~~ | ~~¿Quién gestiona los motivos? Se supone el Jefe de Ingeniería y ADMIN, como el catálogo~~ **Respondida (ianache, 2026-10-04):** el Jefe de Ingeniería o ADMIN (EVD-2026-0227). | Permisos |
+| ~~AQ-5~~ | ~~¿Se registra una **evaluación no aprobada**? Hoy una certificación solo existe si se cumplen los requisitos, así que una evaluación con todo `NO_CUMPLE` no deja rastro ni auditoría. Las calificaciones `NO_CUMPLE` solo se guardan dentro de una certificación que sí se emitió~~ **Respondida (ianache, 2026-10-04):** sí, se registra la evaluación no aprobada (EVD-2026-0224). | UX de evaluación; auditoría |
+| ~~AQ-6~~ | ~~Consumidores futuros: la búsqueda de candidatos (US-006) necesitará `GET /certified-levels` por competencia y nivel mínimo, para varias personas. No se diseña aquí~~ **Respondida (ianache, 2026-10-04):** la consulta también por competencia (EVD-2026-0228); US-006 sigue sin diseñarse. | US-006 |
 | AQ-7 | ¿Se añade `Idempotency-Key` a los `POST`? (como AQ-5 de API-SPEC-004, se decidió no reintentar) | Reintentos |
+| AQ-8 | De la evaluación no aprobada: ¿quién la ve y lleva motivo o descripción? Se propone, por defecto restrictivo, la persona evaluada, los evaluadores, el Jefe de Ingeniería y ADMIN (DM-Q-08 de LDM-003) | Privacidad y API de consulta |
+| AQ-9 | Si un usuario tiene varios roles y no tiene código de party, ¿qué nombre de rol se muestra? Se propone el rol que autoriza la acción | Auditoría |
 
 ## 10. Siguiente acción
 

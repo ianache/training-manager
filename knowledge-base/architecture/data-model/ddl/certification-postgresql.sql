@@ -43,13 +43,15 @@ CREATE TABLE tb_evidence (
 CREATE INDEX ix_evidence_by_person ON tb_evidence (person_party_id);
 
 -- Certificación de un nivel L1–L4 de una competencia (US-003). Vigente = ACTIVE; no se borra (BR-ACR-15).
+-- NOT_APPROVED = evaluación no aprobada (EVD-2026-0224): se registra con sus calificaciones y su auditoría, no cuenta como
+-- certificación y es un estado final; en ella certified_by / certified_at son el evaluador y la fecha de la evaluación.
 CREATE TABLE tb_certification (
     pk_certification_id        CHAR(36)     PRIMARY KEY,
     person_party_id            CHAR(36)     NOT NULL,   -- ref. lógica a party
     competency_id              CHAR(36)     NOT NULL,   -- ref. lógica al catálogo
     competency_version_id      CHAR(36)     NOT NULL,   -- versión vigente al certificar (IMD-001 R-46)
     level_code                 VARCHAR(2)   NOT NULL,
-    status                     VARCHAR(8)   NOT NULL DEFAULT 'ACTIVE',
+    status                     VARCHAR(12)  NOT NULL DEFAULT 'ACTIVE',
     certified_by               CHAR(36)     NOT NULL,   -- evaluador (BR-ACR-02, 03)
     certified_at               TIMESTAMPTZ  NOT NULL DEFAULT now(),
     replaced_by_certification_id CHAR(36),
@@ -64,7 +66,7 @@ CREATE TABLE tb_certification (
     updated_at                 TIMESTAMPTZ,
     updated_by                 CHAR(36),
     CONSTRAINT ck_cert_level CHECK (level_code IN ('L1', 'L2', 'L3', 'L4')),
-    CONSTRAINT ck_cert_status CHECK (status IN ('ACTIVE', 'REPLACED', 'REVOKED')),
+    CONSTRAINT ck_cert_status CHECK (status IN ('ACTIVE', 'REPLACED', 'REVOKED', 'NOT_APPROVED')),
     -- recertificar reemplaza la anterior (EVD-2026-0192); la FK se verifica al confirmar la transacción
     CONSTRAINT fk_cert_replaced_by FOREIGN KEY (replaced_by_certification_id)
         REFERENCES tb_certification (pk_certification_id) DEFERRABLE INITIALLY DEFERRED,
@@ -73,7 +75,7 @@ CREATE TABLE tb_certification (
     CONSTRAINT ck_cert_not_self_replaced CHECK (replaced_by_certification_id IS NULL OR replaced_by_certification_id <> pk_certification_id),
     -- coherencia de estados: cada estado exige sus datos y excluye los de los otros
     CONSTRAINT ck_cert_state_data CHECK (
-        (status = 'ACTIVE'
+        (status IN ('ACTIVE', 'NOT_APPROVED')
             AND replaced_by_certification_id IS NULL AND replaced_at IS NULL
             AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL)
         OR (status = 'REPLACED'
@@ -109,12 +111,12 @@ CREATE INDEX ix_cert_evidence_by_evidence ON tb_certification_evidence (fk_evide
 CREATE TABLE tb_certification_event (
     pk_certification_event_id BIGSERIAL    PRIMARY KEY,
     fk_certification_id       CHAR(36)     NOT NULL REFERENCES tb_certification (pk_certification_id),
-    event_type                VARCHAR(10)  NOT NULL,
+    event_type                VARCHAR(12)  NOT NULL,
     actor                     CHAR(36)     NOT NULL,
     occurred_at               TIMESTAMPTZ  NOT NULL DEFAULT now(),
     reason_code               VARCHAR(40),
     description               VARCHAR(1000),
-    CONSTRAINT ck_cert_event_type CHECK (event_type IN ('CERTIFIED', 'REPLACED', 'REVOKED'))
+    CONSTRAINT ck_cert_event_type CHECK (event_type IN ('CERTIFIED', 'REPLACED', 'REVOKED', 'NOT_APPROVED'))
 );
 CREATE INDEX ix_cert_event_by_cert ON tb_certification_event (fk_certification_id);
 
@@ -152,7 +154,7 @@ CREATE FUNCTION fn_cert_audit() RETURNS trigger AS $$
 BEGIN
     IF TG_OP = 'INSERT' THEN
         INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at)
-        VALUES (NEW.pk_certification_id, 'CERTIFIED', NEW.certified_by, NEW.certified_at);
+        VALUES (NEW.pk_certification_id, CASE WHEN NEW.status = 'NOT_APPROVED' THEN 'NOT_APPROVED' ELSE 'CERTIFIED' END, NEW.certified_by, NEW.certified_at);
     ELSIF NEW.status = 'REVOKED' AND OLD.status = 'ACTIVE' THEN
         INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at, reason_code, description)
         VALUES (NEW.pk_certification_id, 'REVOKED', NEW.revoked_by, NEW.revoked_at, NEW.revoke_reason_code, NEW.revoke_description);

@@ -223,6 +223,12 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0220 | Evidencias «nuevas» para recertificar: las que no respaldaron la certificación que se reemplaza. *Sin precisar:* si basta con una distinta (se aplica «al menos una», CHK-I de LDM-003). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a EVD-2026-0216 | decision | high |
 | EVD-2026-0221 | El colaborador registra las evidencias; un evaluador no las registra a mano en H1. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a RCP-Q2 | decision | high |
 | EVD-2026-0222 | En el registro de auditoría de certificaciones, quien certifica, califica o revoca se identifica con el código de party (código de colaborador). *A definir:* qué identifica a un usuario sin código de party (por ejemplo, un ADMIN que no es colaborador). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DM-Q-04 (LDM-003) | decision | high |
+| EVD-2026-0223 | Una certificación vigente de un nivel mayor o igual al exigido cumple lo que exige un Rol-Nivel: un L3 vigente cumple lo que exige un L2. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-1 (API-SPEC-005) | decision | high |
+| EVD-2026-0224 | Se registra una evaluación no aprobada, con sus calificaciones y su auditoría; no cuenta como certificación. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-5 (API-SPEC-005) | decision | high |
+| EVD-2026-0225 | Si la persona está anonimizada, las consultas de sus certificaciones responden 403 salvo para ADMIN. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-3 (API-SPEC-005) | decision | high |
+| EVD-2026-0226 | Un usuario sin código de party (por ejemplo, un ADMIN que no es colaborador) se muestra en la auditoría solo con el nombre de su rol. Cierra DM-Q-07 y la identidad del actor de AQ-2. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-2 y DM-Q-07 | decision | high |
+| EVD-2026-0227 | Los motivos de revocación los gestiona el Jefe de Ingeniería o cualquier usuario con el rol ADMIN. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-4 (API-SPEC-005) | decision | high |
+| EVD-2026-0228 | La consulta del nivel certificado vigente debe poder hacerse también por competencia, para la búsqueda de candidatos (US-006). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a AQ-6 (API-SPEC-005) | decision | high |
 | EVD-2026-0152 | La versión de una competencia incluye su rúbrica y sus requisitos de evidencia. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-01 (LDM-002) | decision | high |
 | EVD-2026-0153 | Al aprobar una versión, la anterior pasa a DEPRECATED. Una versión no se aprueba sin pasar por DRAFT, para asegurar revisión y control. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-02 (LDM-002) | decision | high |
 | EVD-2026-0154 | No hay eliminaciones: solo se desactiva. Las competencias tienen estado ACTIVE o INACTIVE. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-03 (LDM-002) | decision | high |
@@ -348,7 +354,9 @@ owner: Jefe de Ingeniería (catálogo, niveles, certificación) · Responsable d
 | BR-ACR-20 | Responsabilidad | Las evidencias las registra el colaborador (es su responsabilidad); un evaluador no las registra a mano en H1 (confirmado). | EVD-2026-0215, 0221 |
 | BR-ACR-21 | Validación | Recertificar exige nuevas evidencias (las que no respaldaron la certificación reemplazada, EVD-2026-0220). Las evidencias de una certificación revocada siguen disponibles. | EVD-2026-0216, 0219 |
 | BR-ACR-22 | Validación | La persona certificada debe ser un colaborador vigente. | EVD-2026-0217 |
-| BR-ACR-23 | Auditoría | El actor de una certificación, una calificación o una revocación se registra con su código de party (código de colaborador). | EVD-2026-0222 |
+| BR-ACR-23 | Auditoría | El actor de una certificación, una calificación o una revocación se registra con su código de party (código de colaborador); un usuario sin código se muestra solo con el nombre de su rol (EVD-2026-0226). | EVD-2026-0222, 0226 |
+| BR-ACR-24 | Auditoría | Se registra la evaluación no aprobada, con sus calificaciones y su auditoría; no es una certificación y no cuenta para el nivel vigente. *A definir:* su visibilidad y si lleva motivo. | EVD-2026-0224 |
+| BR-ACR-25 | Validación | Una certificación vigente de un nivel mayor o igual al exigido cumple lo que exige un Rol-Nivel (por ejemplo, un L3 vigente cumple un L2). | EVD-2026-0223 |
 
 ### Evidencia de GitLab asistida por IA (H3)
 
