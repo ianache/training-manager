@@ -71,7 +71,7 @@ Decisión de ianache tras explorar tres opciones: **carga inicial por migración
 **Consecuencias que debes conocer**
 - **Primer arranque:** el entrypoint del servicio ejecuta `alembic upgrade head`. Al reconstruir la imagen, el contenedor no arrancará hasta definir `INTERNAL_ORG_NAME` e `INTERNAL_ORG_RUC` en `.env`, porque la base de desarrollo todavía no tiene la organización interna.
 - **SCR-017-02 (formulario) queda sin uso** y SCR-017-01 solo la muestra; US-017 AC-1 (registrar) se cumple con la carga inicial, no con una pantalla.
-- **Pregunta abierta:** cómo lee SCR-017-01 ese registro. BR-PTY-28 la deja fuera de `/organizations`, así que hace falta un contrato de lectura (por ejemplo `GET /organizations?type=internal_organization` solo de lectura, o una ruta propia). Sin decidir.
+- **Contrato de lectura propuesto:** [API-SPEC-007](../architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md), `GET /api/v1/internal-organization` de solo lectura (`404` = estado vacío, `403` = sin permiso). Sin aprobar; Q-1 a Q-3 abiertas. Falta implementarlo en el servicio, el BFF y el portal.
 
 ## 3. Reglas
 

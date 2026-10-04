@@ -158,6 +158,7 @@ sources:
 - [DTC-028 — Handoff de Desarrollo: Listar y buscar unidades](implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
 - [DTC-029 — Handoff de Desarrollo: Registrar y editar unidades](implementation/DTC-029-handoff-desarrollo-registrar-y-editar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
 - [DTC-030 — Handoff de Desarrollo: Desactivar y reactivar unidades](implementation/DTC-030-handoff-desarrollo-desactivar-y-reactivar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
+- [API-SPEC-007 — Lectura de la organización interna](architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md) — Technical Design, `draft`, `REQUIRES_REVIEW`
 - [API-SPEC-006 — Gestión de la estructura organizacional](architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md) — Technical Design, `draft`, `REQUIRES_REVIEW`
 - [CMP-017 — Componentes de la gestión de la estructura organizacional](design/components/CMP-017-componentes-gestion-de-unidades.md) — Component Specification, `draft`, `REQUIRES_REVIEW`
 - [CMP-018 — Diseño atómico de las brechas de componentes de la gestión de unidades](design/components/CMP-018-diseno-atomico-brechas-gestion-de-unidades.md) — Component Specification, `draft`, `REQUIRES_REVIEW`; 9 componentes nuevos más MOL-009 reutilizada, 12 preguntas abiertas

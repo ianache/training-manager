@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791141060.953998,
-    "seen": 1791141105.3825176,
-    "ast_hash": "1bc9ce2967119d4b90d41ed36760b0a2",
+    "mtime": 1791141379.7450697,
+    "seen": 1791141542.5530505,
+    "ast_hash": "6a4dfa3bcdf73f99c1636cf8591c035c",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791141060.9489834,
-    "seen": 1791141105.4171205,
-    "ast_hash": "1c62cde936db5aefb4bcfb9076606cfe",
+    "mtime": 1791141379.7389553,
+    "seen": 1791141542.6360462,
+    "ast_hash": "bc6cf1176bd7cac1aa8e7607e3e364d8",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1254,9 +1254,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/conftest.py": {
-    "mtime": 1790832333.6458054,
-    "seen": 1790832490.4358978,
-    "ast_hash": "3bb5f703202276ba3dff3408e796bb5c",
+    "mtime": 1791141381.3497553,
+    "seen": 1791141542.2421608,
+    "ast_hash": "642edfd004f0ab1edb642ba24f2057a5",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/__init__.py": {
@@ -1362,9 +1362,9 @@
     "semantic_hash": ""
   },
   "codebase/docker-compose.yml": {
-    "mtime": 1791094103.134958,
-    "seen": 1791094406.5450773,
-    "ast_hash": "c74103e2c3d9e0eb5d96aac150df30e8",
+    "mtime": 1791141487.9273329,
+    "seen": 1791141542.3773177,
+    "ast_hash": "69aac6bc4d983032f47af997671eef34",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-28-phase-1a-party-endpoints.md": {
@@ -2538,9 +2538,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
-    "mtime": 1791129040.1059072,
-    "seen": 1791129441.548216,
-    "ast_hash": "0a868a74acffeb59c5007db56e0a4115",
+    "mtime": 1791141381.3550415,
+    "seen": 1791141542.246158,
+    "ast_hash": "271c07c1304cfb35f1d08dd0b39e7c64",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
@@ -4026,9 +4026,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/components/CMP-017-componentes-gestion-de-unidades.md": {
-    "mtime": 1791137415.6864655,
-    "seen": 1791137458.7077217,
-    "ast_hash": "9d0765ca572e714b424cd8ba239eec52",
+    "mtime": 1791141379.7501476,
+    "seen": 1791141542.556008,
+    "ast_hash": "fcc32a6cbb808805d7c736438765f79f",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-02-consolidada.md": {
@@ -4068,9 +4068,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md": {
-    "mtime": 1791137143.0274851,
-    "seen": 1791137198.7977393,
-    "ast_hash": "773b7174d3d26531ef119ccc6d29648b",
+    "mtime": 1791141487.9462106,
+    "seen": 1791141542.61745,
+    "ast_hash": "ec135ce76368d076df0ee3c3b81e4072",
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md": {
@@ -4125,6 +4125,24 @@
     "mtime": 1791140736.5471773,
     "seen": 1791140786.7299488,
     "ast_hash": "b31ebaaf62435988eaec26fe634d57e3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0006_internal_organization.py": {
+    "mtime": 1791141372.033335,
+    "seen": 1791141542.2411642,
+    "ast_hash": "fef58f999ead0f2220017934dfcb5a60",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_internal_organization_seed.py": {
+    "mtime": 1791141306.3081741,
+    "seen": 1791141542.246158,
+    "ast_hash": "903ce2a60d401b85e75745eb6a8da014",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/components/CMP-018-diseno-atomico-brechas-gestion-de-unidades.md": {
+    "mtime": 1791141379.7336438,
+    "seen": 1791141542.556008,
+    "ast_hash": "94d95b642c629fba091629d4b06752cb",
     "semantic_hash": ""
   }
 }

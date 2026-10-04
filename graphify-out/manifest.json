@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791141379.7450697,
-    "seen": 1791141542.5530505,
-    "ast_hash": "6a4dfa3bcdf73f99c1636cf8591c035c",
+    "mtime": 1791141873.050567,
+    "seen": 1791141915.8349998,
+    "ast_hash": "40bf58a6763a43409dc38ff7da803f0a",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791141379.7389553,
-    "seen": 1791141542.6360462,
-    "ast_hash": "bc6cf1176bd7cac1aa8e7607e3e364d8",
+    "mtime": 1791141873.0452096,
+    "seen": 1791141915.8808563,
+    "ast_hash": "3816f6ab65ed96a572f1044eecbc9a18",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -4068,9 +4068,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md": {
-    "mtime": 1791141487.9462106,
-    "seen": 1791141542.61745,
-    "ast_hash": "ec135ce76368d076df0ee3c3b81e4072",
+    "mtime": 1791141873.03921,
+    "seen": 1791141915.8791819,
+    "ast_hash": "9ffea649b0348fb56b67525086c93b00",
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md": {
@@ -4143,6 +4143,12 @@
     "mtime": 1791141379.7336438,
     "seen": 1791141542.556008,
     "ast_hash": "94d95b642c629fba091629d4b06752cb",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md": {
+    "mtime": 1791141872.4575722,
+    "seen": 1791141915.7822003,
+    "ast_hash": "7fdfe692384e218b495093ce8dd9f687",
     "semantic_hash": ""
   }
 }
