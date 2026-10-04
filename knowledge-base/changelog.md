@@ -338,3 +338,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0185 a 0189): las certificaciones se revocan o se recertifican; el nivel vigente es el más alto de las vigentes y no se certifica un nivel inferior (BR-ACR-15, BR-ACR-16); el Certification Service es un microservicio nuevo y propio (ADR-013 aceptado); designan a los evaluadores el Jefe de Ingeniería o ADMIN (BR-PRG-03). Nuevas preguntas abiertas en DSP-002 (DSP2-Q3 a Q6): vencimiento, quién revoca, semántica de recertificar y efecto de revocar sobre un Rol-Nivel ya asignado.
 - Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`, `index.md`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0190 a 0193): una certificación no vence; la revocan el Jefe de Ingeniería o ADMIN; recertificar crea una certificación nueva del mismo nivel que reemplaza la anterior; si se revoca la que sostuvo una subida de nivel, la persona conserva el Rol-Nivel (pendiente a futuro: retorno a niveles previos, DSP2-Q7 y US-019-Q2). BR-ACR-15 actualizada. Abierto: motivo y auditoría de la revocación (DSP2-Q8).
+- Artefactos afectados: `BRC-001`, `US-003`, `US-019`, `DSP-002`, `ADR-013`.

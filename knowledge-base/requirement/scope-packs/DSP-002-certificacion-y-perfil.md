@@ -52,7 +52,7 @@ Que un evaluador humano certifique el nivel L1–L4 de un colaborador en una com
 - La brecha frente a un Rol-Nivel (US-005) y la búsqueda de candidatos (US-006): consumen estas certificaciones, pero son otras historias.
 - Certificar competencias de un Evaluador o del Jefe de Ingeniería: son gestores del programa y quedan fuera de la evaluación (BR-PRG-01, BR-PRG-02).
 - La decisión de subir de nivel de rol: la regla vive en US-019 (BR-PRF-03); esta historia solo aporta los datos que ella consulta.
-- Revocar, vencer o recertificar una certificación mientras P-14 siga abierta.
+- El retorno a niveles previos de rol cuando una competencia se revoca (pendiente a futuro, DSP2-Q7).
 
 ## Dependencies and Constraints
 
@@ -104,10 +104,10 @@ The delivery team or supplier must implement only the included scope, provide te
 
 | ID | Pregunta |
 |---|---|
-| DSP2-Q3 | ¿Una certificación vence? La respuesta habla de revocar y recertificar |
-| DSP2-Q4 | ¿Quién revoca una certificación, con qué motivo y auditoría? |
-| DSP2-Q5 | ¿Recertificar crea una certificación nueva del mismo nivel o reemplaza la anterior? |
-| DSP2-Q6 | Si se revoca la certificación que sostuvo una subida de nivel, ¿la persona conserva el Rol-Nivel asignado (US-019)? |
+| ~~DSP2-Q3~~ | ~~¿Una certificación vence? La respuesta habla de revocar y recertificar~~ **Respondida (ianache, 2026-10-04):** no vence (EVD-2026-0190). |
+| ~~DSP2-Q4~~ | ~~¿Quién revoca una certificación, con qué motivo y auditoría?~~ **Respondida (ianache, 2026-10-04):** el Jefe de Ingeniería o ADMIN (EVD-2026-0191); el motivo y la auditoría de la revocación siguen sin definir. |
+| ~~DSP2-Q5~~ | ~~¿Recertificar crea una certificación nueva del mismo nivel o reemplaza la anterior?~~ **Respondida (ianache, 2026-10-04):** crea una certificación nueva del mismo nivel que reemplaza la anterior (EVD-2026-0192). |
+| ~~DSP2-Q6~~ | ~~Si se revoca la certificación que sostuvo una subida de nivel, ¿la persona conserva el Rol-Nivel asignado (US-019)?~~ **Respondida (ianache, 2026-10-04):** sí, la persona conserva el Rol-Nivel (EVD-2026-0193). |
 
 **No bloquean pero hay que decidir antes de construir:**
 

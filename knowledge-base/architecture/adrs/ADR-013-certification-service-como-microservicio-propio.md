@@ -70,9 +70,9 @@ Las opciones y sus pros y contras son una reconstrucción del agente. El decisor
 **No se decidió todavía**, y el desarrollo no debe asumirlo:
 - Si comparte instancia de PostgreSQL con party y el catálogo o tiene la suya.
 - Si ADR-012 (reintentos y cortacircuito) se extiende al certification-service; hoy cubre solo el catálogo.
-- Quién revoca una certificación, con qué motivo y auditoría, y el efecto de una revocación sobre un nivel de rol ya asignado (US-019).
-- Si una certificación vence: la decisión del 2026-10-04 habla de revocar y recertificar, no de vencer.
-- La semántica de «recertificar»: si crea una certificación nueva del mismo nivel o reemplaza la anterior.
+- ~~Quién revoca, y el efecto sobre un nivel de rol ya asignado~~ **Resuelto el 2026-10-04:** revocan el Jefe de Ingeniería o ADMIN (EVD-2026-0191) y la persona conserva el Rol-Nivel (EVD-2026-0193). Siguen abiertos el motivo y la auditoría de la revocación.
+- ~~Si una certificación vence~~ **Resuelto el 2026-10-04:** no vence (EVD-2026-0190).
+- ~~La semántica de «recertificar»~~ **Resuelto el 2026-10-04:** crea una certificación nueva del mismo nivel que reemplaza la anterior (EVD-2026-0192).
 - El modelo de datos y la API.
 
 ## Metas de calidad
