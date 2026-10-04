@@ -25,6 +25,26 @@ INSERT INTO tb_revocation_reason (pk_revocation_reason_code, name, created_by) V
     ('REQUISITOS_NO_CUMPLIDOS', 'Requisitos no cumplidos', 'system'),
     ('OTRO', 'Otro', 'system');
 
+-- Motivos tipificados de una evaluación no aprobada (EVD-2026-0231, 0234, 0235, 0237): catálogo propio y ampliable,
+-- separado del de revocación, para poder generar estadísticas
+CREATE TABLE tb_evaluation_reason (
+    pk_evaluation_reason_code VARCHAR(40)  PRIMARY KEY,
+    name                      VARCHAR(120) NOT NULL,
+    status                    VARCHAR(8)   NOT NULL DEFAULT 'ACTIVE',
+    created_at                TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    created_by                VARCHAR(100) NOT NULL,
+    updated_at                TIMESTAMPTZ,
+    updated_by                VARCHAR(100),
+    CONSTRAINT ck_evaluation_reason_status CHECK (status IN ('ACTIVE', 'INACTIVE')),
+    CONSTRAINT ck_evaluation_reason_code CHECK (pk_evaluation_reason_code ~ '^[A-Z][A-Z0-9_]*$'),
+    CONSTRAINT ck_evaluation_reason_name CHECK (btrim(name) <> '')
+);
+INSERT INTO tb_evaluation_reason (pk_evaluation_reason_code, name, created_by) VALUES
+    ('REQUISITOS_NO_CUMPLIDOS', 'Requisitos no cumplidos', 'system'),
+    ('EVIDENCIA_INSUFICIENTE', 'Evidencia insuficiente', 'system'),
+    ('EVIDENCIA_INVALIDA', 'Evidencia inválida', 'system'),
+    ('OTRO', 'Otro', 'system');
+
 -- Evidencia: entidad propia y reutilizable (EVD-2026-0204, 0213). La presenta el colaborador.
 CREATE TABLE tb_evidence (
     pk_evidence_id  CHAR(36)      PRIMARY KEY,
@@ -60,6 +80,8 @@ CREATE TABLE tb_certification (
     revoked_at                 TIMESTAMPTZ,
     revoke_reason_code         VARCHAR(40),
     revoke_description         VARCHAR(1000),
+    not_approved_reason_code   VARCHAR(40),
+    not_approved_description   VARCHAR(1000),
     row_version                INTEGER      NOT NULL DEFAULT 1,
     created_at                 TIMESTAMPTZ  NOT NULL DEFAULT now(),
     created_by                 CHAR(36)     NOT NULL,
@@ -72,21 +94,32 @@ CREATE TABLE tb_certification (
         REFERENCES tb_certification (pk_certification_id) DEFERRABLE INITIALLY DEFERRED,
     CONSTRAINT fk_cert_revoke_reason FOREIGN KEY (revoke_reason_code)
         REFERENCES tb_revocation_reason (pk_revocation_reason_code),
+    CONSTRAINT fk_cert_not_approved_reason FOREIGN KEY (not_approved_reason_code)
+        REFERENCES tb_evaluation_reason (pk_evaluation_reason_code),
     CONSTRAINT ck_cert_not_self_replaced CHECK (replaced_by_certification_id IS NULL OR replaced_by_certification_id <> pk_certification_id),
     -- coherencia de estados: cada estado exige sus datos y excluye los de los otros
     CONSTRAINT ck_cert_state_data CHECK (
-        (status IN ('ACTIVE', 'NOT_APPROVED')
+        (status = 'ACTIVE'
             AND replaced_by_certification_id IS NULL AND replaced_at IS NULL
-            AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL)
+            AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL
+            AND not_approved_reason_code IS NULL AND not_approved_description IS NULL)
+        OR (status = 'NOT_APPROVED'
+            AND replaced_by_certification_id IS NULL AND replaced_at IS NULL
+            AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL
+            AND not_approved_reason_code IS NOT NULL AND not_approved_description IS NOT NULL)
         OR (status = 'REPLACED'
             AND replaced_by_certification_id IS NOT NULL AND replaced_at IS NOT NULL
-            AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL)
+            AND revoked_by IS NULL AND revoked_at IS NULL AND revoke_reason_code IS NULL AND revoke_description IS NULL
+            AND not_approved_reason_code IS NULL AND not_approved_description IS NULL)
         OR (status = 'REVOKED'
             AND replaced_by_certification_id IS NULL AND replaced_at IS NULL
-            AND revoked_by IS NOT NULL AND revoked_at IS NOT NULL AND revoke_reason_code IS NOT NULL AND revoke_description IS NOT NULL)
+            AND revoked_by IS NOT NULL AND revoked_at IS NOT NULL AND revoke_reason_code IS NOT NULL AND revoke_description IS NOT NULL
+            AND not_approved_reason_code IS NULL AND not_approved_description IS NULL)
     ),
     -- descripción que sustenta la revocación: de 10 a 1000 caracteres (EVD-2026-0196, 0201)
-    CONSTRAINT ck_cert_revoke_description CHECK (revoke_description IS NULL OR char_length(btrim(revoke_description)) BETWEEN 10 AND 1000)
+    CONSTRAINT ck_cert_revoke_description CHECK (revoke_description IS NULL OR char_length(btrim(revoke_description)) BETWEEN 10 AND 1000),
+    -- descripción de la evaluación no aprobada: de 10 a 1000 caracteres (EVD-2026-0236)
+    CONSTRAINT ck_cert_not_approved_description CHECK (not_approved_description IS NULL OR char_length(btrim(not_approved_description)) BETWEEN 10 AND 1000)
 );
 -- a lo sumo una certificación vigente por persona, competencia y nivel: recertificar la reemplaza
 CREATE UNIQUE INDEX ux_cert_active_level ON tb_certification (person_party_id, competency_id, level_code) WHERE status = 'ACTIVE';
@@ -153,8 +186,13 @@ CREATE TRIGGER trg_cert_final_states BEFORE UPDATE ON tb_certification FOR EACH 
 CREATE FUNCTION fn_cert_audit() RETURNS trigger AS $$
 BEGIN
     IF TG_OP = 'INSERT' THEN
-        INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at)
-        VALUES (NEW.pk_certification_id, CASE WHEN NEW.status = 'NOT_APPROVED' THEN 'NOT_APPROVED' ELSE 'CERTIFIED' END, NEW.certified_by, NEW.certified_at);
+        IF NEW.status = 'NOT_APPROVED' THEN
+            INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at, reason_code, description)
+            VALUES (NEW.pk_certification_id, 'NOT_APPROVED', NEW.certified_by, NEW.certified_at, NEW.not_approved_reason_code, NEW.not_approved_description);
+        ELSE
+            INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at)
+            VALUES (NEW.pk_certification_id, 'CERTIFIED', NEW.certified_by, NEW.certified_at);
+        END IF;
     ELSIF NEW.status = 'REVOKED' AND OLD.status = 'ACTIVE' THEN
         INSERT INTO tb_certification_event (fk_certification_id, event_type, actor, occurred_at, reason_code, description)
         VALUES (NEW.pk_certification_id, 'REVOKED', NEW.revoked_by, NEW.revoked_at, NEW.revoke_reason_code, NEW.revoke_description);

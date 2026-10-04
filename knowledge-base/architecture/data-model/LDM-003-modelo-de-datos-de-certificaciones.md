@@ -27,7 +27,7 @@ sources:
 - **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Sin revisión humana; no hay `verified`.
 - **Alcance (DSP-002):** certificaciones de nivel L1–L4, evidencias, la calificación de cada evidencia, motivos de revocación y el registro de auditoría. **Fuera:** la pantalla de perfil (US-004, es una lectura de este modelo), certificados de curso, propuestas de la IA (H3) y la lectura de GitLab.
 - **Dueño de los datos:** el certification-service ([ADR-013](../adrs/ADR-013-certification-service-como-microservicio-propio.md), aceptado). Aún no existe.
-- **Modelo físico:** [ddl/certification-postgresql.sql](ddl/certification-postgresql.sql). Probado el 2026-10-04 en una base temporal del PostgreSQL del compose: 33 casos, 19 que deben fallar (fallan) y 14 que deben pasar (pasan) (§7). Una primera versión de este documento dijo «25 casos» por error: eran 27 (17 + 10); con la evaluación no aprobada son 33. Se repitió tras pasar las columnas de actor a `CHAR(36)` (CE-14) con el mismo resultado. Sin variante MySQL (ADR-007).
+- **Modelo físico:** [ddl/certification-postgresql.sql](ddl/certification-postgresql.sql). Probado el 2026-10-04 en una base temporal del PostgreSQL del compose: 43 casos, 25 que deben fallar (fallan) y 18 que deben pasar o comprobar un resultado (cumplen) (§7). Una primera versión de este documento dijo «25 casos» por error: eran 27 (17 + 10); con la evaluación no aprobada son 33. Se repitió tras pasar las columnas de actor a `CHAR(36)` (CE-14) con el mismo resultado. Sin variante MySQL (ADR-007).
 
 ## 1. Diagrama
 
@@ -37,6 +37,7 @@ erDiagram
     EVIDENCE ||--o{ CERTIFICATION_EVIDENCE : "respalda (reutilizable)"
     CERTIFICATION ||--|{ CERTIFICATION_EVENT : "se audita en"
     REVOCATION_REASON ||--o{ CERTIFICATION : "motiva la revocación"
+    EVALUATION_REASON ||--o{ CERTIFICATION : "motiva la no aprobación"
     CERTIFICATION |o--o| CERTIFICATION : "reemplaza a"
 ```
 
@@ -51,6 +52,7 @@ Las personas, competencias, versiones y requisitos son referencias lógicas a pa
 | CERTIFICATION_EVIDENCE (`tb_certification_evidence`) | Vínculo muchos a muchos: qué requisito intenta cumplir la pieza, si era requerido o deseado al certificar y la calificación CUMPLE o NO_CUMPLE | R-07, R-20, EVD-2026-0205, 0210, 0214 |
 | CERTIFICATION_EVENT (`tb_certification_event`) | Registro de auditoría de solo inserción: certificada, reemplazada, revocada, con actor y fecha; en la revocación, motivo y descripción | BR-ACR-03, EVD-2026-0194 |
 | REVOCATION_REASON (`tb_revocation_reason`) | Catálogo ampliable de motivos: `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `OTRO` | EVD-2026-0195, 0197, 0200 |
+| EVALUATION_REASON (`tb_evaluation_reason`) | Catálogo propio y ampliable de motivos de una evaluación no aprobada: `REQUISITOS_NO_CUMPLIDOS`, `EVIDENCIA_INSUFICIENTE`, `EVIDENCIA_INVALIDA` y `OTRO` | EVD-2026-0231, 0234, 0235, 0237 |
 | `vw_current_certified_level` | Vista: el nivel certificado vigente por persona y competencia, el más alto de las vigentes | EVD-2026-0186 |
 
 ## 3. Decisiones de diseño
@@ -74,6 +76,7 @@ Propuestas del agente dentro del margen de las decisiones. Requieren revisión.
 | CE-13 | Quién ve qué (por ejemplo, la descripción de la revocación solo para la persona certificada, los evaluadores, el Jefe de Ingeniería y ADMIN) **no se aplica en la base**: lo filtra la API | La visibilidad por rol es de la capa de servicio | BR-TRA-07, EVD-2026-0206, 0209 |
 | CE-14 | Las columnas de actor de las cuatro tablas de certificación son `CHAR(36)` (código de party), no el nombre de usuario | EVD-2026-0222 decide que el actor de la auditoría es el código de party; el catálogo de motivos conserva `VARCHAR(100)` por su siembra técnica | EVD-2026-0222, BR-ACR-23 |
 | CE-15 | La evaluación no aprobada se guarda como una fila de `tb_certification` con estado `NOT_APPROVED` (final), con sus calificaciones y su evento `NOT_APPROVED`; no entra en el índice de vigentes ni en el nivel vigente. En ella `certified_by` y `certified_at` son el evaluador y la fecha de la evaluación | EVD-2026-0224: se registra la evaluación no aprobada. Se reutiliza la tabla para no duplicar calificaciones y auditoría | EVD-2026-0224, BR-ACR-24 |
+| CE-16 | La evaluación no aprobada guarda un motivo tipificado (FK a `tb_evaluation_reason`, catálogo **propio**, separado del de revocación) y una descripción de 10 a 1000 caracteres; ambos son obligatorios en `NOT_APPROVED` y nulos en los demás estados; el evento de auditoría los copia | Los motivos son datos clasificables para estadísticas; un catálogo propio evita mezclar evaluar con revocar | EVD-2026-0234 a 0237 |
 
 ## 4. Transiciones de una certificación
 
@@ -141,6 +144,8 @@ Ejecutado en el PostgreSQL del compose, en una base temporal que se eliminó des
 | Motivo nuevo en mayúsculas (ampliable) | pasa | pasa |
 | Otra persona certificada en L1 de la misma competencia | pasa | pasa |
 
+Motivo tipificado de la evaluación no aprobada (2026-10-04): sin motivo ni descripción falla; descripción de 9 caracteres falla; motivo inexistente falla; un motivo de revocación no sirve como motivo de no aprobación (falla); una certificación vigente con motivo de no aprobación falla; el evento `NOT_APPROVED` guarda motivo y descripción; 4 motivos sembrados; código en minúsculas falla; catálogo ampliable pasa; una consulta agrupa las evaluaciones no aprobadas por motivo (la base de las estadísticas).
+
 Evaluación no aprobada (2026-10-04): un L3 `NOT_APPROVED` con un L2 vigente pasa y genera el evento `NOT_APPROVED`; el nivel vigente sigue en L2; otra evaluación no aprobada del mismo nivel pasa; revocarla falla (estado final); `NOT_APPROVED` con datos de revocación falla; sus calificaciones se guardan.
 
 No se probaron CHK-A a CHK-G (son del servicio, que no existe), la carga ni dos transacciones simultáneas reales.
@@ -155,7 +160,7 @@ No se probaron CHK-A a CHK-G (son del servicio, que no existe), la carga ni dos 
 | ~~DM-Q-04~~ | ~~**Aclaración de la pregunta:** el registro de auditoría guarda *quién* certificó, calificó o revocó. ¿Con qué dato se identifica a esa persona: el **nombre de usuario** de Keycloak (legible, es lo que ya guardan party y el catálogo en `created_by`), el **identificador interno** (un UUID estable que no cambia aunque se renombre el usuario) o el **código de colaborador** de party? Hoy las columnas son `VARCHAR(100)` y valen para cualquiera de los tres~~ **Respondida (ianache, 2026-10-04):** se usa el código de party (EVD-2026-0222). | Arquitectura | Auditoría |
 | ~~DM-Q-07~~ | ~~¿Qué identifica en la auditoría a un usuario que **no tiene código de party**? Un ADMIN es un rol de plataforma y puede no ser colaborador (SCR-016-Q19), y revocar o recertificar lo permite a ADMIN (EVD-2026-0191). Además, el servicio debe traducir el usuario de Keycloak a su código de party (vínculo de US-022)~~ **Respondida (ianache, 2026-10-04):** un usuario sin código de party se muestra solo con el nombre de su rol (EVD-2026-0226). | Jefe de Ingeniería | La revocación por ADMIN |
 | ~~DM-Q-08~~ | ~~De la evaluación no aprobada (EVD-2026-0224): ¿quién la ve? Es una información delicada sobre una persona y BR-TRA-06 abre las certificaciones a cualquier colaborador. Se propone, como valor por defecto restrictivo, la persona evaluada, los evaluadores, el Jefe de Ingeniería y ADMIN. ¿Lleva un motivo o una descripción?~~ **Respondida (ianache, 2026-10-04):** la ven el colaborador evaluado, el Jefe de Ingeniería y ADMIN (EVD-2026-0229). **Sin responder:** si lleva un motivo o una descripción. | Jefe de Ingeniería | La API de consulta |
-| DM-Q-09 | Del motivo de una evaluación no aprobada: **ya es tipificado** (EVD-2026-0234, para estadísticas). Falta la lista de motivos, el largo de la descripción y si el catálogo es propio o compartido con la revocación. Hoy `tb_certification` no tiene columnas ni catálogo para eso: se añaden al decidirlo | Jefe de Ingeniería | La API y el DDL |
+| ~~DM-Q-09~~ | ~~Del motivo de una evaluación no aprobada: **ya es tipificado** (EVD-2026-0234, para estadísticas). Falta la lista de motivos, el largo de la descripción y si el catálogo es propio o compartido con la revocación. Hoy `tb_certification` no tiene columnas ni catálogo para eso: se añaden al decidirlo~~ **Respondida (ianache, 2026-10-04):** motivo tipificado, lista `REQUISITOS_NO_CUMPLIDOS`, `EVIDENCIA_INSUFICIENTE`, `EVIDENCIA_INVALIDA` y `OTRO`, descripción de 10 a 1000 caracteres y catálogo propio (EVD-2026-0234 a 0237). Añadido al DDL y probado. | Jefe de Ingeniería | La API y el DDL |
 | ~~DM-Q-05~~ | ~~Si se anonimiza a una persona (US-024), ¿qué pasa con la descripción de sus evidencias y con sus certificaciones?~~ **Respondida (ianache, 2026-10-04):** las evidencias no se anonimizan y las certificaciones solo las ve ADMIN (EVD-2026-0218). | Jefe de Ingeniería | Retención |
 | ~~DM-Q-06~~ | ~~Si una certificación se revoca, ¿las evidencias que solo la respaldaban siguen disponibles para otras? (se supone que sí)~~ **Respondida (ianache, 2026-10-04):** siguen disponibles (EVD-2026-0219). | Jefe de Ingeniería | — |
 

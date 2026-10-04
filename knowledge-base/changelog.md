@@ -406,3 +406,6 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0234): los motivos de una evaluación no aprobada están tipificados, para poder generar estadísticas. Falta aprobar la lista, el largo de la descripción y si el catálogo es propio o compartido (AQ-13, DM-Q-09); el DDL se ajusta al decidirlo. Las estadísticas en sí no están diseñadas.
 - Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0235 a 0237): lista inicial de motivos de una evaluación no aprobada (`REQUISITOS_NO_CUMPLIDOS`, `EVIDENCIA_INSUFICIENTE`, `EVIDENCIA_INVALIDA` y `OTRO`), descripción de 10 a 1000 caracteres y catálogo propio. DDL de certificaciones ampliado con `tb_evaluation_reason` y las columnas de motivo y descripción de la evaluación no aprobada, y API-SPEC-005 con `/evaluation-reasons`. Probado en PostgreSQL: ahora 43 casos, 25 que deben fallar (fallan) y 18 que cumplen; el único «ERROR» extra en la salida era la línea de detalle de T35. AQ-13 y DM-Q-09 cerradas.
+- Artefactos afectados: `BRC-001`, `LDM-003`, `certification-postgresql.sql`, `API-SPEC-005`.

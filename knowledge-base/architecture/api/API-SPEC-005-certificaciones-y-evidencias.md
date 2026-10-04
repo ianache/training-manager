@@ -37,6 +37,7 @@ Rutas del portal (BFF) y del servicio coinciden bajo `/api/v1`. El BFF es el ún
 | `GET /certifications` · `GET /certifications/{id}` | Cualquier colaborador | Consultar certificaciones y su auditoría |
 | `GET /certified-levels` | BFF (eligibility de API-SPEC-004), US-004 | Nivel certificado vigente por persona y competencia |
 | `POST /evidences` · `GET /evidences` · `GET /evidences/{id}` | El colaborador registra; cualquiera consulta | Evidencias |
+| `GET /evaluation-reasons` · `POST /evaluation-reasons` · `POST /evaluation-reasons/{code}/deactivate` · `/reactivate` | Lectura abierta a evaluadores; escritura Jefe de Ingeniería o ADMIN (supuesto: igual que los motivos de revocación) | Catálogo ampliable de motivos de no aprobación |
 | `GET /revocation-reasons` · `POST /revocation-reasons` · `POST /revocation-reasons/{code}/deactivate` · `/reactivate` | Lectura abierta; escritura Jefe de Ingeniería o ADMIN | Catálogo ampliable de motivos |
 
 Formato de errores, cabeceras y paginación (`page`, `limit`, `sort`) como API-SPEC-001 §4.
@@ -67,7 +68,7 @@ BFF → servicio (el BFF añade lo que sale del catálogo):
 
 Respuesta `201` con `Location`: la certificación (§ detalle) con `status: "ACTIVE"`, sus evidencias con calificación y el evento de auditoría. `competency_version_id` es la versión vigente al certificar (IMD-001 R-46).
 
-**Evaluación no aprobada (EVD-2026-0224).** `outcome` es `APPROVED` (por defecto) o `NOT_APPROVED`. Con `NOT_APPROVED` el servicio guarda la evaluación con sus calificaciones y su auditoría, con estado `NOT_APPROVED`: **no es una certificación**, no cuenta para el nivel vigente y es un estado final (no se revoca ni se recertifica). Responde `201` con ese estado. No se exige `REQUIREMENTS_NOT_MET` (puede no aprobarse porque faltan requisitos, o por decisión del evaluador); el resto de las validaciones se aplican. Lleva un motivo con una descripción (EVD-2026-0231; la forma está pendiente, AQ-13). La ven el colaborador evaluado, el evaluador que la registró, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, 0232).
+**Evaluación no aprobada (EVD-2026-0224).** `outcome` es `APPROVED` (por defecto) o `NOT_APPROVED`. Con `NOT_APPROVED` el servicio guarda la evaluación con sus calificaciones y su auditoría, con estado `NOT_APPROVED`: **no es una certificación**, no cuenta para el nivel vigente y es un estado final (no se revoca ni se recertifica). Responde `201` con ese estado. No se exige `REQUIREMENTS_NOT_MET` (puede no aprobarse porque faltan requisitos, o por decisión del evaluador); el resto de las validaciones se aplican. Lleva un motivo tipificado y una descripción: `reason_code` (del catálogo propio de motivos de no aprobación) y `description` de 10 a 1000 caracteres, obligatorios con `NOT_APPROVED` (EVD-2026-0231, 0234 a 0237). La ven el colaborador evaluado, el evaluador que la registró, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, 0232).
 
 Validaciones, con su regla y dónde se aplican:
 
@@ -78,6 +79,7 @@ Validaciones, con su regla y dónde se aplican:
 | La persona no es un colaborador vigente | `PERSON_NOT_CURRENT` | 422 | BR-ACR-22 | BFF (party) |
 | La versión de la competencia no está aprobada | `COMPETENCY_VERSION_NOT_APPROVED` | 422 | LDM-002 | BFF (catálogo) |
 | El nivel no tiene requisitos, o ninguno requerido | `LEVEL_WITHOUT_REQUIREMENTS` | 422 | BR-ACR-13, EVD-2026-0149 | BFF (catálogo) |
+| Motivo de no aprobación inexistente o inactivo, o descripción fuera de 10 a 1000 caracteres (con `NOT_APPROVED`) | `EVALUATION_REASON_INVALID` / `VALIDATION_ERROR` | 422 / 400 | EVD-2026-0235, 0236 | Servicio |
 | Algún requisito requerido sin al menos una pieza `CUMPLE` | `REQUIREMENTS_NOT_MET` (`details.pending`) | 422 | BR-ACR-09, 12, 18, EVD-2026-0208 | Servicio, con `required_requirement_ids` |
 | Una evidencia no es de la persona certificada | `EVIDENCE_NOT_OWNED` | 422 | EVD-2026-0215 (CHK-F) | Servicio |
 | Nivel inferior al vigente más alto | `LEVEL_LOWER_THAN_CERTIFIED` | 422 | EVD-2026-0187 | Servicio y base (disparador) |
@@ -154,6 +156,10 @@ Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`
 
 Reglas: `category` en `FORMACION`, `PRACTICA_EVALUADA`, `DESEMPENO_PROYECTO`; `description` hasta 300 caracteres; `reference_url` `http` o `https`, sin espacios; `course_ref` solo con `FORMACION` (LDM-003 / LDM-002 CM-08). El servicio **no resuelve ni descarga la URL**: es solo una referencia (EVD-2026-0211); GitLab está en red privada y el control de acceso es el del repositorio y la VPN (EVD-2026-0207). Una evidencia puede respaldar varias competencias y niveles y no se anonimiza (EVD-2026-0204, 0218); las de una certificación revocada siguen disponibles (EVD-2026-0219). `GET /evidences?person_id=` y `GET /evidences/{id}`: lectura abierta a cualquier colaborador (BR-TRA-05). No hay `PUT` ni `DELETE`.
 
+### Motivos de no aprobación
+
+`GET /evaluation-reasons?status=ACTIVE`, `POST` con `{code, name}` (mayúsculas), `deactivate` y `reactivate`. Sembrados: `REQUISITOS_NO_CUMPLIDOS`, `EVIDENCIA_INSUFICIENTE`, `EVIDENCIA_INVALIDA` y `OTRO`. Un motivo ya usado no se elimina. Los motivos tipificados permiten generar estadísticas (EVD-2026-0234); las consultas y reportes no están diseñados.
+
 ### Motivos de revocación
 
 `GET /revocation-reasons?status=ACTIVE` (lectura abierta); `POST` con `{code, name}` (código en mayúsculas `^[A-Z][A-Z0-9_]*$`); `POST /{code}/deactivate` y `/reactivate`. Escriben el Jefe de Ingeniería o ADMIN (EVD-2026-0227); un motivo ya usado no se elimina. Sembrados: `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `OTRO` (EVD-2026-0195, 0200).
@@ -212,7 +218,7 @@ Servicio nuevo: todo es aditivo bajo `/api/v1`. Cuando exista, `eligibility` de 
 | ~~AQ-10~~ | ~~¿La evaluación no aprobada lleva un motivo o una descripción? Hoy solo guarda las calificaciones por evidencia~~ **Respondida (ianache, 2026-10-04):** sí, lleva un motivo con una descripción (EVD-2026-0231). Falta definir si el motivo es tipificado y el largo de la descripción (AQ-13). | Auditoría |
 | ~~AQ-11~~ | ~~El evaluador que registró una evaluación no aprobada **no figura** entre quienes la ven (EVD-2026-0229): ¿ni siquiera la propia? Sin verla no puede saber que ya evaluó a esa persona. Se propone que la vea quien la registró (a confirmar)~~ **Respondida (ianache, 2026-10-04):** sí, la ve quien la registró (EVD-2026-0232). | Privacidad y flujo de evaluación |
 | ~~AQ-12~~ | ~~Respuesta ante quien no puede ver una evaluación no aprobada: se propone omitirla de las listas y responder `404` en el detalle~~ **Respondida (ianache, 2026-10-04):** conforme: se omite de las listas y se responde 404 en el detalle (EVD-2026-0233). | API de consulta |
-| AQ-13 | Del motivo de una evaluación no aprobada: **ya es tipificado** (EVD-2026-0234, para estadísticas). Falta: (a) la lista de motivos; (b) el largo de la descripción (se propone 10 a 1000, como la revocación); (c) si comparte catálogo con los motivos de revocación o tiene el suyo (se propone uno propio, porque son decisiones distintas). El DDL no lo incluye hasta decidirlo (DM-Q-09 de LDM-003) | `POST /certifications` con `NOT_APPROVED` |
+| ~~AQ-13~~ | ~~Del motivo de una evaluación no aprobada: **ya es tipificado** (EVD-2026-0234, para estadísticas). Falta: (a) la lista de motivos; (b) el largo de la descripción (se propone 10 a 1000, como la revocación); (c) si comparte catálogo con los motivos de revocación o tiene el suyo (se propone uno propio, porque son decisiones distintas). El DDL no lo incluye hasta decidirlo (DM-Q-09 de LDM-003)~~ **Respondida (ianache, 2026-10-04):** lista `REQUISITOS_NO_CUMPLIDOS`, `EVIDENCIA_INSUFICIENTE`, `EVIDENCIA_INVALIDA` y `OTRO`, descripción de 10 a 1000 caracteres y catálogo propio (EVD-2026-0235 a 0237). | `POST /certifications` con `NOT_APPROVED` |
 
 ## 10. Siguiente acción
 
