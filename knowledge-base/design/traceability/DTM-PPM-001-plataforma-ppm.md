@@ -1266,12 +1266,12 @@ traceability:
   exploration_design:
     tool: google-stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/c53d12f7720c49e4a73c193b62b517a5
-    version: v-consolidada
+    artifact_ref: projects/13050549605434273903/screens/8fe751ab95ab4ae18907be06e14f65ab
+    version: v2-consolidada
     status: current
-    captured_at: '2026-10-04T12:18:49-05:00'
-    latest_known_version: v-consolidada
-    evidence: ev-consolidadas.json
+    captured_at: '2026-10-04T13:20:26-05:00'
+    latest_known_version: v2-consolidada
+    evidence: ev-scr029-03-v2.json
   exploration_history:
   - tool: google-stitch
     project_ref: STP-PPM-001
@@ -1287,6 +1287,14 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:25-05:00'
     latest_known_version: v2-success-green
+  - tool: google-stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/c53d12f7720c49e4a73c193b62b517a5
+    version: v-consolidada
+    status: superseded
+    captured_at: '2026-10-04T12:18:49-05:00'
+    latest_known_version: v-consolidada
+    evidence: ev-consolidadas.json
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
