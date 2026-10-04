@@ -371,3 +371,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0210 a 0213): la certificación guarda una calificación simple CUMPLE / NO CUMPLE (interpretada por evidencia, a confirmar; BR-ACR-19); las evidencias de GitLab son solo URLs a elementos de GitLab (aclara BR-IA-01); la segunda mitad de P-09 se difiere; y se actualizó IMD-001: la evidencia pasa a ser una entidad propia y R-20 y R-07 pasan a N : M (P-35 e IM-Q8 respondidas). DSP2-Q13 cerrada.
 - Artefactos afectados: `IMD-001`, `BRC-001`, `US-003`, `DSP-002`.
+
+- Confirmación de `human:ianache` 2026-10-04 (EVD-2026-0214): la calificación CUMPLE / NO CUMPLE es por evidencia y un requisito se cumple con al menos una pieza en CUMPLE. Se quitó la marca «a confirmar» de EVD-2026-0210, BR-ACR-19, IMD-001 R-20 y DSP-002.
+- Artefactos afectados: `BRC-001`, `IMD-001`, `DSP-002`.

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791084558.0830503,
-    "seen": 1791084638.7664013,
-    "ast_hash": "002c27c6030b850fa5d6ca4693ec1972",
+    "mtime": 1791084756.885709,
+    "seen": 1791084836.2531204,
+    "ast_hash": "2007cd657449c2e7afa89989eedff322",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791084558.060149,
-    "seen": 1791084638.7657533,
-    "ast_hash": "c7ccf3df182bc55a77df11bda52200e3",
+    "mtime": 1791084756.8626046,
+    "seen": 1791084836.251362,
+    "ast_hash": "a8c4897252f9ccf7f3fb5e247d6a0534",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/information-model/IMD-001-modelo-de-informacion-conceptual.md": {
-    "mtime": 1791084558.0491996,
-    "seen": 1791084638.763087,
-    "ast_hash": "2afddd268c398441b47151f361cc14f6",
+    "mtime": 1791084756.8693595,
+    "seen": 1791084836.2431047,
+    "ast_hash": "fadfe6fd3bd138ba82802147ac3ec82f",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-001-estructura-microui-angular-y-bff-nodejs.md": {
@@ -3648,9 +3648,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791084558.063599,
-    "seen": 1791084638.7880135,
-    "ast_hash": "4616121aa3da18a635005a317926b227",
+    "mtime": 1791084756.8776739,
+    "seen": 1791084836.3515854,
+    "ast_hash": "0c4b0d5e514faebc97ba9a09ad38a315",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
