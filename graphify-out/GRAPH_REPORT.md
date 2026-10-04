@@ -1,7 +1,7 @@
 # Graph Report - UX_UI_agentic  (2026-10-04)
 
 ## Corpus Check
-- 673 files · ~573,588 words
+- 673 files · ~573,530 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 35 file(s) not represented in the graph (top: (none) 14, .scss 7, .example 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8fd408f9`
+- Built from commit: `a9e0bf34`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1797,10 +1797,10 @@ Nodes (16): A. Requirement Context, B. User Flow, C. Screens, D. Governed Design
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `admin()` connect `admin` to `product_owner`, `OidcPort`, `READY_FOR_DEV Assessment`, `Docker Compose — Plataforma de Gestión de Formación (entorno local completo)`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `catalog-service/tests/conftest.py`, `Development Context Pack — Party Management Service API`, `DCP-002-VALIDADO: Party Management Service API`, `API-SPEC-004 — Asignación de Rol-Nivel`, `Handoff Report`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
 - **Why does `product_owner()` connect `product_owner` to `FLW-001 — Gestionar el catálogo de roles y competencias`, `Reglas, dependencias e impactos`, `UXR-001 — Gestionar el catálogo de roles y competencias`, `SCR-001 — Gestionar el catálogo de roles y competencias`, `catalog-service/tests/conftest.py`, `Registro de cambios`, `admin`?**
-  _High betweenness centrality (0.073) - this node is a cross-community bridge._
-- **Why does `SessionService` connect `role-list.page.ts` to `ADR-009 — Composición de microUIs con Native Federation`, `role-form.page.ts`, `interceptors.ts`?**
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `PartyCreateRequest` connect `party_service.py` to `parties.py`, `API-SPEC-002 — Organizaciones: consulta, búsqueda y alta`, `src/app.ts`, `US-015 — Alineación 100 % con FLW-015 y SCR-015 (diseño)`, `Party`?**
   _High betweenness centrality (0.067) - this node is a cross-community bridge._
 - **Are the 16 inferred relationships involving `RoleService` (e.g. with `create_role()` and `deactivate_level()`) actually correct?**
   _`RoleService` has 16 INFERRED edges - model-reasoned connections that need verification._

@@ -34,7 +34,7 @@ a11y_review:
 
 | Criterio | Resultado | Evidencia |
 |---|---|---|
-| 1.1.1 Contenido no textual | pass | 0 img sin alt; no se detectaron iconos como ligaduras de texto (0 material-symbols). |
+| 1.1.1 Contenido no textual | pass | 0 img sin alt; 0 iconos material-symbols, 0 con aria-hidden. |
 | 1.3.1 Etiquetas de los campos | pass | 18 controles, 0 sin etiqueta enlazada ni aria-label. |
 | 1.3.1 Landmarks | pass | 3 nav, 3 con aria-label; 2 aria-current. |
 | 3.3.1 Identificación del error | pass | 3 aria-invalid y 3 aria-describedby. |

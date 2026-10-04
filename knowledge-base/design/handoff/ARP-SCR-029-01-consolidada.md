@@ -17,43 +17,40 @@ sources:
 - id: flw
   resource: /knowledge-base/design/user-flows/FLW-029-registrar-y-editar-unidades-organizacionales.md
 - id: stitch-html
-  resource: stitch:projects/13050549605434273903/screens/fc85e64ad27c4b84b2ce40186a69da97
+  resource: stitch:projects/13050549605434273903/screens/f60d9b006fc643d0b0120e95ef04e9a6
 a11y_review:
   screen: SCR-029-01
   target: html
   result: fail
   requirements_checked: [WCAG-2.2-AA, keyboard-nav, focus-visible, accessible-names, error-announcement]
-  counts: {pass: 3, fail: 4, inconclusive: 6}
+  counts: {pass: 6, fail: 1, inconclusive: 6}
 ---
 
 # ARP-SCR-029-01-C — Registrar unidad
 
-**Método.** Análisis estático del HTML de la hoja consolidada `fc85e64ad27c4b84b2ce40186a69da97` (33460 bytes), descargado de Stitch el 2026-10-04: conteo de etiquetas, atributos ARIA, tablas y controles. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Esta revisión sustituye a los ARP anteriores de esta pantalla, que corresponden a hojas por estado ya reemplazadas en el DTM.
+**Método.** Análisis estático del HTML de la hoja consolidada `f60d9b006fc643d0b0120e95ef04e9a6` (38341 bytes), descargado de Stitch el 2026-10-04: conteo de etiquetas, atributos ARIA, tablas y controles. No se ejecutó en navegador ni se examinó la captura. Lo que Stitch afirma de sí mismo no cuenta como evidencia. Esta revisión sustituye a los ARP anteriores de esta pantalla, que corresponden a hojas por estado ya reemplazadas en el DTM.
 
 ## Criterios
 
 | Criterio | Resultado | Evidencia |
 |---|---|---|
-| 1.1.1 Contenido no textual | pass | 0 img sin alt; no se detectaron iconos como ligaduras de texto (0 material-symbols). |
-| 1.3.1 / 4.1.2 Etiquetas de los campos | **fail** | 16 controles y 0 etiquetas enlazadas: cada label no tiene for ni envuelve el campo, y los campos no tienen id ni aria-label. El nombre accesible sería solo el placeholder. |
-| 1.3.1 Landmarks | **fail** | 3 nav sin aria-label y 0 aria-current en las migas. |
-| 1.4.11 Contraste no textual | **fail** | Los campos usan borde slate-300 (#cbd5e1) sobre blanco: 1.48:1, bajo el mínimo de 3:1 (el design system pide outline #916f69). La hoja usa la paleta slate de Tailwind y no los tokens de TKN-SET-002. |
-| 3.3.1 Identificación del error | **fail** | 3 role=alert pero 0 aria-invalid y 0 aria-describedby: el mensaje no queda ligado al campo. |
-| 4.1.3 Mensajes de estado | pass | 3 role=alert, 1 role=status, 0 aria-busy, 0 aria-live. |
-| 3.3.2 Etiquetas o instrucciones (obligatorio) | **inconclusive** | Los obligatorios se marcan con «*» y 0 campos llevan required o aria-required; no se evaluó la leyenda del asterisco. |
+| 1.1.1 Contenido no textual | pass | 0 img sin alt; 29 iconos material-symbols, 20 con aria-hidden. |
+| 1.1.1 Iconos decorativos | **fail** | 9 iconos sin aria-hidden: un lector de pantalla leería el nombre de la ligadura junto al texto. |
+| 1.3.1 Etiquetas de los campos | pass | 20 controles, 0 sin etiqueta enlazada ni aria-label. |
+| 1.3.1 Landmarks | pass | 3 nav, 3 con aria-label; 2 aria-current. |
+| 3.3.1 Identificación del error | pass | 2 aria-invalid y 2 aria-describedby. |
+| 4.1.3 Mensajes de estado | pass | 3 role=alert, 1 role=status, 2 aria-busy, 1 aria-live. |
+| 3.3.2 Etiquetas o instrucciones (obligatorio) | **inconclusive** | Los obligatorios se marcan con «*» y 20 campos llevan required o aria-required; no se evaluó la leyenda del asterisco. |
 | 1.4.3 Contraste (texto) | **inconclusive** | No se calculó el contraste de los colores de esta hoja. |
-| 2.4.7 Foco visible | **inconclusive** | 24 clases focus:ring/outline y 12 outline-none; sin navegador no se confirma el indicador de foco. |
+| 2.4.7 Foco visible | **inconclusive** | 48 clases focus:ring/outline y 16 outline-none; sin navegador no se confirma el indicador de foco. |
 | 1.4.10 Reflow / 1.4.4 / 1.4.12 | **inconclusive** | Requiere navegador. |
 | 2.5.8 Tamaño de objetivo | **inconclusive** | Sin medición. |
-| 2.1.1 Teclado / 2.4.3 Orden del foco / foco inicial | **inconclusive** | 1 bloque(s) de script (selector de estados de la hoja); el comportamiento real no se evaluó. |
+| 2.1.1 Teclado / 2.4.3 Orden del foco / foco inicial | **inconclusive** | 2 bloque(s) de script (selector de estados de la hoja); el comportamiento real no se evaluó. |
 | 3.1.1 Idioma / 2.4.1 Bloques / 2.4.2 Título | pass | lang es: True; main: True; h1: 1. |
 
 ## Hallazgos fail
 
-- **F1 (1.3.1 / 4.1.2 Etiquetas de los campos)** — SCR-029-01. Evidencia: 16 controles y 0 etiquetas enlazadas: cada label no tiene for ni envuelve el campo, y los campos no tienen id ni aria-label. El nombre accesible sería solo el placeholder.
-- **F2 (1.3.1 Landmarks)** — SCR-029-01. Evidencia: 3 nav sin aria-label y 0 aria-current en las migas.
-- **F3 (1.4.11 Contraste no textual)** — SCR-029-01. Evidencia: Los campos usan borde slate-300 (#cbd5e1) sobre blanco: 1.48:1, bajo el mínimo de 3:1 (el design system pide outline #916f69). La hoja usa la paleta slate de Tailwind y no los tokens de TKN-SET-002.
-- **F4 (3.3.1 Identificación del error)** — SCR-029-01. Evidencia: 3 role=alert pero 0 aria-invalid y 0 aria-describedby: el mensaje no queda ligado al campo.
+- **F1 (1.1.1 Iconos decorativos)** — SCR-029-01. Evidencia: 9 iconos sin aria-hidden: un lector de pantalla leería el nombre de la ligadura junto al texto.
 
 ## Resultado
 

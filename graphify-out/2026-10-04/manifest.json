@@ -3948,9 +3948,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md": {
-    "mtime": 1791134538.6887991,
-    "seen": 1791134582.4571033,
-    "ast_hash": "75cabd07590632df80e1b3d5fbe61c18",
+    "mtime": 1791134739.7490354,
+    "seen": 1791134787.9317925,
+    "ast_hash": "bfb46812c6e9105a04a5d8c3c7f666ae",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.api.spec.ts": {
@@ -4029,6 +4029,42 @@
     "mtime": 1791129980.9049933,
     "seen": 1791130067.3343513,
     "ast_hash": "76c578f7cb0ce19ab4dea19e38901a0d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-017-02-consolidada.md": {
+    "mtime": 1791134738.5991287,
+    "seen": 1791134787.928782,
+    "ast_hash": "4d4d9f7a1b3d2b7ca7b7cc0d0c4f1013",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-028-01-consolidada.md": {
+    "mtime": 1791134738.6031287,
+    "seen": 1791134787.928782,
+    "ast_hash": "2e7cccb456defed7deea7316622f2439",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-01-consolidada.md": {
+    "mtime": 1791134738.605411,
+    "seen": 1791134787.9297867,
+    "ast_hash": "b6d3647458b230e753b0d1abe75a3e45",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-02-consolidada.md": {
+    "mtime": 1791134738.6084132,
+    "seen": 1791134787.9297867,
+    "ast_hash": "0cfa3f528f1d194573668495f3b33732",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-03-consolidada.md": {
+    "mtime": 1791134738.610419,
+    "seen": 1791134787.9307983,
+    "ast_hash": "400739465b6558c81b740221f8ec01a6",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/handoff/ARP-SCR-029-04-consolidada.md": {
+    "mtime": 1791134738.6134157,
+    "seen": 1791134787.9307983,
+    "ast_hash": "c8bd4611d88a5ea461e2c62c8764f3f5",
     "semantic_hash": ""
   }
 }

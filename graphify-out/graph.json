@@ -62849,7 +62849,7 @@
           },
           {
             "id": "stitch-html",
-            "resource": "stitch:projects/13050549605434273903/screens/fc85e64ad27c4b84b2ce40186a69da97"
+            "resource": "stitch:projects/13050549605434273903/screens/f60d9b006fc643d0b0120e95ef04e9a6"
           }
         ],
         "a11y_review": {
@@ -62864,8 +62864,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 3,
-            "fail": 4,
+            "pass": 6,
+            "fail": 1,
             "inconclusive": 6
           }
         }
@@ -62921,7 +62921,7 @@
       "node_kind": "heading",
       "norm_label": "resultado",
       "source_file": "knowledge-base/design/handoff/ARP-SCR-029-01-consolidada.md",
-      "source_location": "L58"
+      "source_location": "L55"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_steps_step_correo_ts_component",
@@ -144113,7 +144113,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/ARP-SCR-029-01-consolidada.md",
-      "source_location": "L58",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -181943,5 +181943,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8fd408f94508ec6c98f0957070a04658dd3d5ff4"
+  "built_at_commit": "a9e0bf34b412a6f4eb1ae943e57e59f2b0a54ee0"
 }
