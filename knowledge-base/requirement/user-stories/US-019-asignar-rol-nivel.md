@@ -175,6 +175,7 @@ Escenario: Subir de nivel sin haber cumplido los niveles inferiores
 | P-36 | ¿Cómo se combinan Junior/Senior con 1 a 4? | Jefe de Ingeniería | Alta | No (lo resuelve el catálogo, US-001) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): cada rol define sus niveles y nombres al registrarse, por ejemplo Developer Junior (Nivel 1) a (Nivel 3) (BR-CAT-09) |
 | P-40 | ¿La plataforma registra los criterios de cada nivel de rol (años de experiencia, formación técnica)? Se supone que no (BR-CAT-18) | Jefe de Ingeniería | Media | No (la asignación no valida esos criterios) | Respondida (ianache (Jefe de Ingeniería), 2026-09-27): por ahora no; son parte del MOF, fuera de alcance (BR-CAT-18) |
 | US-019-Q1 | ¿Se puede asignar Rol-Nivel a una persona que no es colaborador vigente? | Jefe de Ingeniería | Media | No | Respondida (ianache (Jefe de Ingeniería), 2026-10-03): solo colaboradores vigentes (EVD-2026-0146) |
+| US-019-Q2 | **Pendiente a futuro (EVD-2026-0193):** si se revoca la certificación que sostuvo una subida de nivel, la persona conserva el Rol-Nivel; ¿cómo tratar el retorno a niveles previos? | Jefe de Ingeniería | Baja | Abierta, a futuro |
 
 ## 13. Evidencia y trazabilidad
 

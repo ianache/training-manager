@@ -105,9 +105,12 @@ The delivery team or supplier must implement only the included scope, provide te
 | ID | Pregunta |
 |---|---|
 | ~~DSP2-Q3~~ | ~~¿Una certificación vence? La respuesta habla de revocar y recertificar~~ **Respondida (ianache, 2026-10-04):** no vence (EVD-2026-0190). |
-| ~~DSP2-Q4~~ | ~~¿Quién revoca una certificación, con qué motivo y auditoría?~~ **Respondida (ianache, 2026-10-04):** el Jefe de Ingeniería o ADMIN (EVD-2026-0191); el motivo y la auditoría de la revocación siguen sin definir. |
+| ~~DSP2-Q4~~ | ~~¿Quién revoca una certificación, con qué motivo y auditoría?~~ **Respondida (ianache, 2026-10-04):** el Jefe de Ingeniería o ADMIN (EVD-2026-0191); el motivo tipificado, la descripción y la auditoría están en EVD-2026-0194. |
 | ~~DSP2-Q5~~ | ~~¿Recertificar crea una certificación nueva del mismo nivel o reemplaza la anterior?~~ **Respondida (ianache, 2026-10-04):** crea una certificación nueva del mismo nivel que reemplaza la anterior (EVD-2026-0192). |
 | ~~DSP2-Q6~~ | ~~Si se revoca la certificación que sostuvo una subida de nivel, ¿la persona conserva el Rol-Nivel asignado (US-019)?~~ **Respondida (ianache, 2026-10-04):** sí, la persona conserva el Rol-Nivel (EVD-2026-0193). |
+| DSP2-Q7 (a futuro) | ¿Cómo tratar el retorno a niveles previos cuando una competencia se revoca? Pendiente de revisar más adelante (EVD-2026-0193); hoy la persona conserva el Rol-Nivel |
+| ~~DSP2-Q8~~ | ~~¿La revocación exige un motivo, y cómo se audita?~~ **Respondida (ianache, 2026-10-04):** sí; motivo tipificado más una descripción de quien revoca que sustente la decisión, con registro de auditoría (EVD-2026-0194) |
+| DSP2-Q9 | ¿Cuáles son los motivos tipificados de revocación? Hace falta la lista (tipo de dato que se puede ampliar) |
 
 **No bloquean pero hay que decidir antes de construir:**
 

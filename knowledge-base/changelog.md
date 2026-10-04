@@ -341,3 +341,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0190 a 0193): una certificación no vence; la revocan el Jefe de Ingeniería o ADMIN; recertificar crea una certificación nueva del mismo nivel que reemplaza la anterior; si se revoca la que sostuvo una subida de nivel, la persona conserva el Rol-Nivel (pendiente a futuro: retorno a niveles previos, DSP2-Q7 y US-019-Q2). BR-ACR-15 actualizada. Abierto: motivo y auditoría de la revocación (DSP2-Q8).
 - Artefactos afectados: `BRC-001`, `US-003`, `US-019`, `DSP-002`, `ADR-013`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0194): al revocar una certificación se elige un motivo tipificado y quien revoca deja una descripción que sustente la decisión, con registro de auditoría. Falta la lista de motivos (DSP2-Q9). Se completaron las filas DSP2-Q7 y US-019-Q2 (retorno a niveles previos, a futuro).
+- Artefactos afectados: `BRC-001`, `US-003`, `US-019`, `DSP-002`, `ADR-013`.

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791081623.313135,
-    "seen": 1791081657.2611752,
-    "ast_hash": "19cb09d55dfac66f379c1190c8ec9629",
+    "mtime": 1791081689.6013377,
+    "seen": 1791081723.6938312,
+    "ast_hash": "04958a740757240e225a2bc3a0b081bd",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791081623.2853615,
-    "seen": 1791081657.2597888,
-    "ast_hash": "642e235acbe720b6bf0d8d33b2e87873",
+    "mtime": 1791081689.5766354,
+    "seen": 1791081723.6918325,
+    "ast_hash": "f80fef84a82fec3ee2606b16e2502ecf",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1791081623.290202,
-    "seen": 1791081657.2834187,
-    "ast_hash": "b3429bf6ccef34a9767421e5293d8170",
+    "mtime": 1791081689.5916111,
+    "seen": 1791081723.7201636,
+    "ast_hash": "71760d045df89ac7315f020724dd85ee",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-019-asignar-rol-nivel.md": {
-    "mtime": 1791081623.30028,
-    "seen": 1791081657.2844286,
-    "ast_hash": "5c9155302d15ab1e9085f0eaa6c16eb0",
+    "mtime": 1791081689.587073,
+    "seen": 1791081723.7224145,
+    "ast_hash": "87b62d367be4642de7b0618294a12343",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-020-asignar-roles-del-programa.md": {
@@ -3648,15 +3648,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791081623.2957816,
-    "seen": 1791081657.2819047,
-    "ast_hash": "1773cc7872c4fb025acfe5eacb7c1894",
+    "mtime": 1791081689.581636,
+    "seen": 1791081723.7191637,
+    "ast_hash": "dde13cd1bd6ff5f35d6faea45f027668",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
-    "mtime": 1791081623.3081317,
-    "seen": 1791081657.224281,
-    "ast_hash": "5a7e510cb1424a835a12a25afe7f4c07",
+    "mtime": 1791081689.5966175,
+    "seen": 1791081723.6438365,
+    "ast_hash": "cbd363ac274f00edc63ad75c778c23af",
     "semantic_hash": ""
   }
 }
