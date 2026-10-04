@@ -53479,7 +53479,13 @@
           "SCR-030-04"
         ],
         "a11y_reports": [
-          "ARP-UNIDADES-V2"
+          "ARP-UNIDADES-V2",
+          "ARP-SCR-017-02-C",
+          "ARP-SCR-028-01-C",
+          "ARP-SCR-029-01-C",
+          "ARP-SCR-029-02-C",
+          "ARP-SCR-029-03-C",
+          "ARP-SCR-029-04-C"
         ],
         "design_decisions": [],
         "open_questions": []
@@ -64312,7 +64318,7 @@
       "node_kind": "heading",
       "norm_label": "a. requirement context",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L59"
+      "source_location": "L65"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_b_user_flow",
@@ -64324,7 +64330,7 @@
       "node_kind": "heading",
       "norm_label": "b. user flow",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L62"
+      "source_location": "L68"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_c_screens",
@@ -64336,7 +64342,7 @@
       "node_kind": "heading",
       "norm_label": "c. screens",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L65"
+      "source_location": "L71"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_d_governed_design_reference",
@@ -64348,7 +64354,7 @@
       "node_kind": "heading",
       "norm_label": "d. governed design reference",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L68"
+      "source_location": "L74"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_e_components",
@@ -64360,7 +64366,7 @@
       "node_kind": "heading",
       "norm_label": "e. components",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L71"
+      "source_location": "L77"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_f_design_tokens",
@@ -64372,7 +64378,7 @@
       "node_kind": "heading",
       "norm_label": "f. design tokens",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L74"
+      "source_location": "L80"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_g_screen_states",
@@ -64384,7 +64390,7 @@
       "node_kind": "heading",
       "norm_label": "g. screen states",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L77"
+      "source_location": "L83"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_h_responsive_behavior",
@@ -64396,7 +64402,7 @@
       "node_kind": "heading",
       "norm_label": "h. responsive behavior",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L80"
+      "source_location": "L86"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
@@ -64408,7 +64414,7 @@
       "node_kind": "heading",
       "norm_label": "hof-ppm-002 \u2014 gestion de la estructura organizacional",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L42"
+      "source_location": "L48"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_i_interaction_rules",
@@ -64420,7 +64426,7 @@
       "node_kind": "heading",
       "norm_label": "i. interaction rules",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L83"
+      "source_location": "L89"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_j_accessibility_requirements",
@@ -64432,7 +64438,7 @@
       "node_kind": "heading",
       "norm_label": "j. accessibility requirements",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L86"
+      "source_location": "L92"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_k_acceptance_criteria",
@@ -64444,7 +64450,7 @@
       "node_kind": "heading",
       "norm_label": "k. acceptance criteria",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L89"
+      "source_location": "L95"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_l_design_decisions",
@@ -64456,7 +64462,7 @@
       "node_kind": "heading",
       "norm_label": "l. design decisions",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L92"
+      "source_location": "L98"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_m_open_questions_assumptions",
@@ -64468,7 +64474,7 @@
       "node_kind": "heading",
       "norm_label": "m. open questions / assumptions",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L95"
+      "source_location": "L101"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_n_provenance_lineage",
@@ -64480,7 +64486,7 @@
       "node_kind": "heading",
       "norm_label": "n. provenance / lineage",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L98"
+      "source_location": "L104"
     },
     {
       "id": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_resultado_del_gate_2026_10_04_perfil_production",
@@ -64492,7 +64498,7 @@
       "node_kind": "heading",
       "norm_label": "resultado del gate (2026-10-04, perfil `production`)",
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L46"
+      "source_location": "L52"
     },
     {
       "id": "codebase_apps_domains_catalog_service_docker_entrypoint",
@@ -144861,150 +144867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_resultado_del_gate_2026_10_04_perfil_production",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L46",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_a_requirement_context",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L59",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_b_user_flow",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L62",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_c_screens",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L65",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_d_governed_design_reference",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L68",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_e_components",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L71",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_f_design_tokens",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L74",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_g_screen_states",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_h_responsive_behavior",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L80",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_i_interaction_rules",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L83",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_j_accessibility_requirements",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L86",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_k_acceptance_criteria",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L89",
-      "weight": 1.0
-    },
-    {
-      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
-      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_l_design_decisions",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L92",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -145015,12 +144878,155 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L95",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
       "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
       "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_n_provenance_lineage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_resultado_del_gate_2026_10_04_perfil_production",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_a_requirement_context",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_b_user_flow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_c_screens",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_d_governed_design_reference",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_e_components",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_f_design_tokens",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_g_screen_states",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_h_responsive_behavior",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_i_interaction_rules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_j_accessibility_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_k_acceptance_criteria",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_hof_ppm_002_gesti\u00f3n_de_la_estructura_organizacional",
+      "target": "knowledge_base_design_handoff_hof_ppm_002_gestion_unidades_organizacionales_l_design_decisions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -172565,7 +172571,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L60",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -172576,7 +172582,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L63",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -172587,7 +172593,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L63",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -172598,7 +172604,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L63",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -172609,7 +172615,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L63",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -172620,7 +172626,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -172631,7 +172637,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -172642,7 +172648,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -172653,7 +172659,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -172664,7 +172670,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L72",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -172675,7 +172681,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L75",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -172686,7 +172692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L75",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -172697,7 +172703,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -181943,5 +181949,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a9e0bf34b412a6f4eb1ae943e57e59f2b0a54ee0"
+  "built_at_commit": "32f2215a72972408b18f6056a78b09890e18b4d3"
 }

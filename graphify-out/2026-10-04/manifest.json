@@ -3000,9 +3000,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791134331.2381682,
-    "seen": 1791134373.8392415,
-    "ast_hash": "b7061ac3846db75f280527824cd37cc6",
+    "mtime": 1791135122.0730312,
+    "seen": 1791135161.9801831,
+    "ast_hash": "69645a3cf0765fcfdd164332c049209a",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3420,9 +3420,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791134341.292158,
-    "seen": 1791134373.8317335,
-    "ast_hash": "3151aff436113ed32388df10186b8cfa",
+    "mtime": 1791135122.690586,
+    "seen": 1791135161.9695625,
+    "ast_hash": "d4be629e593beeecb5f4be60b93b2fb1",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -4032,39 +4032,39 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-02-consolidada.md": {
-    "mtime": 1791134738.5991287,
-    "seen": 1791134787.928782,
-    "ast_hash": "4d4d9f7a1b3d2b7ca7b7cc0d0c4f1013",
+    "mtime": 1791135108.8910124,
+    "seen": 1791135161.9695625,
+    "ast_hash": "2cb604a496983f2c5073606ffbb28e50",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-028-01-consolidada.md": {
-    "mtime": 1791134738.6031287,
-    "seen": 1791134787.928782,
-    "ast_hash": "2e7cccb456defed7deea7316622f2439",
+    "mtime": 1791135108.8940165,
+    "seen": 1791135161.9705622,
+    "ast_hash": "79c21784b3c6802e82f9c079b38134ea",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-01-consolidada.md": {
-    "mtime": 1791134738.605411,
-    "seen": 1791134787.9297867,
-    "ast_hash": "b6d3647458b230e753b0d1abe75a3e45",
+    "mtime": 1791135108.8953993,
+    "seen": 1791135161.9715624,
+    "ast_hash": "a49578d293cdaa2dbde243eba27053ac",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-02-consolidada.md": {
-    "mtime": 1791134738.6084132,
-    "seen": 1791134787.9297867,
-    "ast_hash": "0cfa3f528f1d194573668495f3b33732",
+    "mtime": 1791135108.8975942,
+    "seen": 1791135161.9715624,
+    "ast_hash": "31855454c5c4554acdf4924f927502b8",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-03-consolidada.md": {
-    "mtime": 1791134738.610419,
-    "seen": 1791134787.9307983,
-    "ast_hash": "400739465b6558c81b740221f8ec01a6",
+    "mtime": 1791135108.8975942,
+    "seen": 1791135161.9715624,
+    "ast_hash": "992be08654e3aac7ba67968c106b1a61",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-04-consolidada.md": {
-    "mtime": 1791134738.6134157,
-    "seen": 1791134787.9307983,
-    "ast_hash": "c8bd4611d88a5ea461e2c62c8764f3f5",
+    "mtime": 1791135108.8975942,
+    "seen": 1791135161.9715624,
+    "ast_hash": "d8fe1ac1bc8491f42a387db2174a3bf0",
     "semantic_hash": ""
   }
 }

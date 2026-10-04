@@ -99,7 +99,7 @@ US-017 AC-1 y AC-2; US-028 (6 AC); US-029 (6 AC, AC-1 con el correo laboral); US
 Ninguna DD registrada. Decisiones humanas que rigen el diseño: Stitch como único diseño de referencia; éxito y vigencia en verde del design system; el diálogo de SCR-029-03 solo muestra «{unidad}: de X a Y»; «Hasta» vacío en la relación vigente; una hoja consolidada por pantalla.
 
 ## M. Open Questions / Assumptions
-Sin preguntas bloqueantes registradas en el frontmatter. Siguen abiertas las preguntas de UXR, FLW y SCR (UXS-001 las fusiona en 44), DCP-004 Q-4 a Q-8 y CMP-017-Q1 a Q3. Supuestos: solo escritorio; el texto de los errores al guardar, de carga y de permisos es de muestra.
+Sin preguntas bloqueantes registradas en el frontmatter. Siguen abiertas las preguntas de UXR, FLW y SCR (UXS-001 las fusiona en 44), DCP-004 Q-4 a Q-8 y CMP-017-Q1 a Q3. Pendiente anotado (2026-10-04): los 9 iconos sin `aria-hidden` de la hoja v6 de SCR-029-01 (ARP-SCR-029-01-C F1) y el `nav` sin nombre de SCR-029-04 (ARP-SCR-029-04-C F1) se corrigen al regenerar esas hojas, no con una edición puntual. Supuestos: solo escritorio; el texto de los errores al guardar, de carga y de permisos es de muestra.
 
 ## N. Provenance / Lineage
 US-017/028/029/030 → UXR-017/028/029/030 → FLW-017/028/029/030 → SCR-017-01..03, 028-01, 029-01..04, 030-01..04 → Stitch (STP-PPM-001, exploración) → CMP-017 / TKN-SET-002 → HOF-PPM-002 → DCP-004. Generado por ux-development-handoff/2.0; no verificado.
