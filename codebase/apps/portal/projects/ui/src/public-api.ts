@@ -25,3 +25,8 @@ export * from './lib/atoms/chip/chip';
 export * from './lib/atoms/toggle-button/toggle-button';
 export * from './lib/molecules/toggle-group/toggle-group';
 export * from './lib/molecules/breadcrumb/breadcrumb';
+export * from './lib/molecules/active-filters/active-filters';
+export * from './lib/molecules/description-list/description-list';
+export * from './lib/organisms/dialog/dialog';
+export * from './lib/organisms/data-table/data-table';
+export * from './lib/organisms/tree/tree';
