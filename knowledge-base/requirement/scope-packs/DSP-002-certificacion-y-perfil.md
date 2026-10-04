@@ -111,7 +111,7 @@ The delivery team or supplier must implement only the included scope, provide te
 | DSP2-Q7 (a futuro) | ¿Cómo tratar el retorno a niveles previos cuando una competencia se revoca? Pendiente de revisar más adelante (EVD-2026-0193); hoy la persona conserva el Rol-Nivel |
 | ~~DSP2-Q8~~ | ~~¿La revocación exige un motivo, y cómo se audita?~~ **Respondida (ianache, 2026-10-04):** sí; motivo tipificado más una descripción de quien revoca que sustente la decisión, con registro de auditoría (EVD-2026-0194) |
 | ~~DSP2-Q9~~ | ~~¿Cuáles son los motivos tipificados de revocación? Hace falta la lista (tipo de dato que se puede ampliar)~~ **Respondida (ianache, 2026-10-04):** `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO` (se retiró `CONFLICTO_DE_INTERES`, EVD-2026-0200), lista ampliable, descripción de hasta 1000 caracteres (EVD-2026-0195 a 0197). |
-| DSP2-Q10 | ¿Largo mínimo de la descripción de la revocación? Se entendió «1000 caracteres» como el máximo; el mínimo no se definió |
+| ~~DSP2-Q10~~ | ~~¿Largo mínimo de la descripción de la revocación? Se entendió «1000 caracteres» como el máximo; el mínimo no se definió~~ **Respondida (ianache, 2026-10-04):** mínimo 10 caracteres; entre 10 y 1000 (EVD-2026-0201). |
 
 **No bloquean pero hay que decidir antes de construir:**
 

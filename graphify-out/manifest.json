@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791082882.7780886,
-    "seen": 1791082925.6970487,
-    "ast_hash": "8d1ec78ec704a34c638fd7f11787d7e8",
+    "mtime": 1791083036.7590742,
+    "seen": 1791083072.9476142,
+    "ast_hash": "2a867fc5e0f59479a3811095c4c66358",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791082882.7496197,
-    "seen": 1791082925.6950462,
-    "ast_hash": "81fdf9fb93d1acf7161014cdc174d9a5",
+    "mtime": 1791083036.741267,
+    "seen": 1791083072.9466143,
+    "ast_hash": "c80a99fa114a9f3ce8728cfb7b4d23b4",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1791082882.7496197,
-    "seen": 1791082925.7469678,
-    "ast_hash": "3a93cf8ee0aafead912d5cf9a4a3a2c2",
+    "mtime": 1791083036.7530746,
+    "seen": 1791083072.978383,
+    "ast_hash": "9a4b12846690e7a6ac8e074ce1169bc3",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
@@ -3648,9 +3648,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791082882.7674303,
-    "seen": 1791082925.7449741,
-    "ast_hash": "ce64b7942f355f0b331f647092814028",
+    "mtime": 1791083036.7473557,
+    "seen": 1791083072.9773827,
+    "ast_hash": "50615e56851de9c331f2144c0184dee4",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {

@@ -359,3 +359,6 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0200): el rol `evaluador` reemplaza la regla del equipo; cualquier usuario con ese rol certifica a cualquier colaborador. Se retira BR-ACR-17 (queda en la tabla como RETIRADA) y el motivo de revocación `CONFLICTO_DE_INTERES`, así que la lista queda en `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO`. Cierra DSP2-Q11 y DSP2-Q12; el servicio de certificación ya no necesita datos de party para esta regla.
 - Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0201): la descripción de la revocación de una certificación tiene entre 10 y 1000 caracteres. Cierra DSP2-Q10; ya no queda ninguna pregunta que bloquee el modelo de datos del Certification Service.
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`.
