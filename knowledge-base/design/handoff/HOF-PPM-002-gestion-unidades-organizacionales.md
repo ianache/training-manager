@@ -107,5 +107,9 @@ ianache (Jefe de Ingeniería) declaró: diseños aprobados para cada pantalla (r
 
 El validador exige además que el diseño gobernado declare los estados cubiertos (`states_covered`) de cada SCR; no se declararon, porque hay estados requeridos que las hojas no contienen (por ejemplo `unsaved-changes`, `cycle-error`, `inactive-parent-error` y `no-internal-organization` en SCR-029-01).
 
+## Aprobación de las hojas nuevas (2026-10-04, tarde)
+
+ianache aprobó las siete hojas nuevas (SCR-017-01 v4, SCR-029-01 v7, SCR-029-02 v2, SCR-029-03 v2, SCR-030-01 v4, SCR-030-02 v2 y SCR-030-03 v3) y declaró **todos los estados cubiertos**. El agente registró el diseño gobernado de las 12 pantallas con `--approved-by human:ianache`, `--breakpoints desktop` y `--states` igual a los `required_states` de cada SCR. Con eso el gate ya no tiene hallazgos de diseño gobernado ni de estados; quedan los informes de accesibilidad en `pass` (solo SCR-017-02 lo tiene) y la revisión humana del gate. Informes ARP-*-C regenerados sobre las hojas vigentes; los criterios de C1 a C9 de las hojas regeneradas siguen `inconclusive` hasta repetirlos en navegador.
+
 ## N. Provenance / Lineage
 US-017/028/029/030 → UXR-017/028/029/030 → FLW-017/028/029/030 → SCR-017-01..03, 028-01, 029-01..04, 030-01..04 → Stitch (STP-PPM-001, exploración) → CMP-017 / TKN-SET-002 → HOF-PPM-002 → DCP-004. Generado por ux-development-handoff/2.0; no verificado.

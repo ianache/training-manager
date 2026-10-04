@@ -677,14 +677,19 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/ead458becb59418fb0cf15f0c601beb5
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/7f3c5875bd8246738b4506470dc89daa
+    version: v4-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - empty
+    - error
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v2-success-green
+    latest_known_version: v4-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-017-02
@@ -745,7 +750,15 @@ traceability:
     version: v-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - validation-error
+    - duplicate-ruc
+    - invalid-identification-type
+    - saving
+    - save-error
+    - success
+    - disabled
     responsive_covered:
     - desktop
     latest_known_version: v-consolidada
@@ -801,7 +814,8 @@ traceability:
     version: v2-success-green
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - forbidden
     responsive_covered:
     - desktop
     latest_known_version: v2-success-green
@@ -868,7 +882,15 @@ traceability:
     version: v-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - results
+    - no-organization
+    - empty
+    - no-results
+    - forbidden
+    - error
     responsive_covered:
     - desktop
     latest_known_version: v-consolidada
@@ -962,14 +984,26 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/f60d9b006fc643d0b0120e95ef04e9a6
-    version: v6-consolidada
+    artifact_ref: projects/13050549605434273903/screens/88756f6053b14af6b7237ffbcd5b43f4
+    version: v7-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - validation-error
+    - duplicate-name
+    - cycle-error
+    - inactive-parent-error
+    - saving
+    - success
+    - save-error
+    - unsaved-changes
+    - no-internal-organization
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v6-consolidada
+    latest_known_version: v7-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-029-02
@@ -1030,14 +1064,24 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/234079448a8b438cb5ecb9e601093c39
-    version: v-consolidada
+    artifact_ref: projects/13050549605434273903/screens/5a2d1ac4aea84efa9c104340c61c042d
+    version: v2-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - validation-error
+    - duplicate-name
+    - disabled
+    - saving
+    - success
+    - save-error
+    - unsaved-changes
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v-consolidada
+    latest_known_version: v2-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-030-01
@@ -1100,14 +1144,20 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/11e52a5f6d6d401eb239180750c1df9d
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/1116d52abf2548839f6d08073e98747b
+    version: v4-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - saving
+    - success
+    - error
+    - disabled
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v2-success-green
+    latest_known_version: v4-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-030-02
@@ -1162,14 +1212,17 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/fc1cfa0bf4d9442d926d1ab37aff49d1
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/6b90c7785608427ea500673aad192154
+    version: v2-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v2-success-green
+    latest_known_version: v2-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-030-03
@@ -1225,14 +1278,21 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/727b36fe16884700ac3329309f09c644
-    version: v2-success-green
+    artifact_ref: projects/13050549605434273903/screens/955dec31fce647189e2e8abe59e2e36b
+    version: v3-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - validation-error
+    - saving
+    - success
+    - error
+    - disabled
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v2-success-green
+    latest_known_version: v3-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-030-04
@@ -1283,7 +1343,9 @@ traceability:
     version: v2-success-green
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - forbidden
     responsive_covered:
     - desktop
     latest_known_version: v2-success-green
@@ -1354,14 +1416,27 @@ traceability:
   governed_design:
     tool: stitch
     project_ref: STP-PPM-001
-    artifact_ref: projects/13050549605434273903/screens/c53d12f7720c49e4a73c193b62b517a5
-    version: v-consolidada
+    artifact_ref: projects/13050549605434273903/screens/8fe751ab95ab4ae18907be06e14f65ab
+    version: v2-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - validation-error
+    - cycle-error
+    - inactive-parent-error
+    - duplicate-name
+    - summary-confirmation
+    - disabled
+    - saving
+    - success
+    - save-error
+    - unsaved-changes
+    - forbidden
     responsive_covered:
     - desktop
-    latest_known_version: v-consolidada
+    latest_known_version: v2-consolidada
   stitch_figma:
     divergence: none
 - screen: SCR-029-04
@@ -1425,7 +1500,12 @@ traceability:
     version: v-consolidada
     status: approved
     approved_by: human:ianache
-    states_covered: []
+    states_covered:
+    - default
+    - loading
+    - empty
+    - error
+    - forbidden
     responsive_covered:
     - desktop
     latest_known_version: v-consolidada
