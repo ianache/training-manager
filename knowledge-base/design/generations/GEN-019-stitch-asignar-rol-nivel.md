@@ -64,6 +64,8 @@ Verificación automática del HTML devuelto:
 
 **Desajuste con decisiones posteriores (2026-10-04):** SCR-019-02 se generó cuando el bloqueo solo hablaba de niveles inferiores; ahora también cubre las competencias del nivel destino (EVD-2026-0172). El diseño de Stitch debe ajustarse (texto y lista de pendientes) antes de darlo por válido.
 
+**Intentos de ajuste (2026-10-04), sin efecto:** se pidió a Stitch dos veces  sobre SCR-019-02 () y una regeneración completa con ; las tres llamadas agotaron el tiempo de espera y, tras más de diez minutos de espera, la pantalla no cambió y no apareció ninguna pantalla nueva (95 pantallas en el proyecto antes y después; se comprobó el HTML, que sigue sin «Nivel destino» ni «Sin certificar»). Se dejó de reintentar para no crear duplicados. El diseño sigue desfasado; hay que ajustarlo a mano en Stitch o reintentar más tarde.
+
 ## Preguntas abiertas
 
 SCR-019-Q1 a Q3, FLW-019-Q3 y Q4 (si bastan los niveles inferiores o también el destino, y si ADMIN puede saltarse el bloqueo AC-5). Revisión humana pendiente.
