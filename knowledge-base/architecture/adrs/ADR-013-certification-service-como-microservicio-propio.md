@@ -73,6 +73,7 @@ Las opciones y sus pros y contras son una reconstrucción del agente. El decisor
 - ~~Quién revoca, y el efecto sobre un nivel de rol ya asignado~~ **Resuelto el 2026-10-04:** revocan el Jefe de Ingeniería o ADMIN (EVD-2026-0191) y la persona conserva el Rol-Nivel (EVD-2026-0193). El motivo es tipificado, con una descripción de quien revoca y registro de auditoría (EVD-2026-0194); motivos `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `CONFLICTO_DE_INTERES` y `OTRO`, ampliables, con descripción de hasta 1000 caracteres (EVD-2026-0195 a 0197).
 - ~~Si una certificación vence~~ **Resuelto el 2026-10-04:** no vence (EVD-2026-0190).
 - ~~La semántica de «recertificar»~~ **Resuelto el 2026-10-04:** crea una certificación nueva del mismo nivel que reemplaza la anterior (EVD-2026-0192).
+- Cómo comprueba el servicio que un evaluador no certifica a su propio equipo (EVD-2026-0198): necesita datos de party y la definición de «equipo» (DSP2-Q11).
 - El modelo de datos y la API.
 
 ## Metas de calidad

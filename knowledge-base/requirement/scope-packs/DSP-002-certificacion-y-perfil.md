@@ -117,7 +117,8 @@ The delivery team or supplier must implement only the included scope, provide te
 
 | ID | Pregunta | Responsable |
 |---|---|---|
-| P-09 | ¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.? | Responsable de producto |
+| ~~P-09~~ | ~~¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.?~~ **Respondida en parte (ianache, 2026-10-04):** un evaluador no puede certificar a su propio equipo (EVD-2026-0198); queda abierto qué hace Gestión de formación / RR. HH. | Responsable de producto |
+| DSP2-Q11 | **Bloquea la regla de BR-ACR-17:** ¿qué es el «equipo» de un evaluador? ¿Sus reportes directos (relación de reporte, solo empleados, BR-PTY-19), su unidad organizacional o sus proyectos? | Jefe de Ingeniería |
 | P-23 | Equivalencias de evidencia (parcialmente respondida) | Jefe de Ingeniería |
 | P-41 | Cómo «refuerza» una evidencia deseada la certificación | Jefe de Ingeniería |
 | P-54 | Visibilidad de las calificaciones y del sustento del evaluador | Jefe de Ingeniería |
