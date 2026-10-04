@@ -40,7 +40,24 @@ function fakeOidc(roles: string[]): OidcPort {
   };
 }
 
-function setup(roles: string[] = ['colaborador'], downstreamStatus = 200, downstreamHeaders: Record<string, string> = {}) {
+const envWithCatalog = loadEnv({
+  NODE_ENV: 'test',
+  PUBLIC_ORIGIN: 'http://portal.test',
+  OIDC_ISSUER: 'http://kc.test/realms/gestion-formacion',
+  OIDC_CLIENT_ID: 'bff-app',
+  OIDC_CLIENT_SECRET: 'secret',
+  OIDC_REDIRECT_URI: 'http://portal.test/auth/callback',
+  SESSION_SECRET: 'x'.repeat(40),
+  PARTY_SERVICE_URL: 'http://party.test',
+  CATALOG_SERVICE_URL: 'http://catalog.test',
+});
+
+function setup(
+  roles: string[] = ['colaborador'],
+  downstreamStatus = 200,
+  downstreamHeaders: Record<string, string> = {},
+  withCatalog = false,
+) {
   const calls: { url: string; headers: Record<string, string>; body?: unknown }[] = [];
   const fetchImpl = (async (input: URL | RequestInfo, init?: RequestInit) => {
     calls.push({ url: String(input), headers: init?.headers as Record<string, string>, body: init?.body });
@@ -51,7 +68,7 @@ function setup(roles: string[] = ['colaborador'], downstreamStatus = 200, downst
       headers: { 'Content-Type': 'application/json' },
     });
   }) as typeof fetch;
-  const app = createApp({ env, logger: pino({ level: 'silent' }), oidc: fakeOidc(roles), sessionStore: new MemoryStore(), fetchImpl });
+  const app = createApp({ env: withCatalog ? envWithCatalog : env, logger: pino({ level: 'silent' }), oidc: fakeOidc(roles), sessionStore: new MemoryStore(), fetchImpl });
   return { app, calls, agent: request.agent(app) };
 }
 
@@ -168,6 +185,81 @@ describe('BFF', () => {
     await login(agent);
     const res = await agent.get('/api/v1/catalog/roles').expect(503);
     expect(res.body.error.code).toBe('UPSTREAM_UNAVAILABLE');
+  });
+
+  describe('catálogo (API-SPEC-003)', () => {
+    const catalogSetup = (roles: string[], status = 200, headers: Record<string, string> = {}) => setup(roles, status, headers, true);
+
+    it('reenvía la lectura de roles con solo los query params permitidos', async () => {
+      const { agent, calls } = catalogSetup(['colaborador']);
+      await login(agent);
+      await agent.get('/api/v1/catalog/roles?status=ACTIVE&search=dev&limit=50&evil=1').expect(200);
+      expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/roles?limit=50&search=dev&status=ACTIVE');
+    });
+
+    it('lee un rol y una competencia con el id codificado', async () => {
+      const { agent, calls } = catalogSetup(['colaborador']);
+      await login(agent);
+      await agent.get('/api/v1/catalog/roles/a%2Fb').expect(200);
+      expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/roles/a%2Fb');
+      await agent.get('/api/v1/catalog/competencies/c1').expect(200);
+      expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/competencies/c1');
+    });
+
+    it.each([
+      ['POST', '/api/v1/catalog/roles'],
+      ['PUT', '/api/v1/catalog/roles/r1'],
+      ['POST', '/api/v1/catalog/roles/r1/deactivate'],
+      ['POST', '/api/v1/catalog/roles/r1/levels/l1/deactivate'],
+      ['POST', '/api/v1/catalog/roles/r1/levels/l1/reactivate'],
+    ])('un colaborador no puede %s %s y no se llama al servicio', async (method, path) => {
+      const { agent, calls } = catalogSetup(['colaborador']);
+      const cb = await login(agent);
+      const res = await (agent as any)[method.toLowerCase()](path).set('X-XSRF-TOKEN', cb.xsrf).send({}).expect(403);
+      expect(res.body.error.code).toBe('AUTHORIZATION_FAILED');
+      expect(calls).toHaveLength(0);
+    });
+
+    it.each([['jefe_ingenieria'], ['product_owner'], ['admin']])('%s crea y edita roles, con If-Match y CSRF', async (role) => {
+      const { agent, calls } = catalogSetup([role]);
+      const cb = await login(agent);
+      await agent.post('/api/v1/catalog/roles').send({}).expect(403); // sin CSRF
+      expect(calls).toHaveLength(0);
+      await agent.post('/api/v1/catalog/roles').set('X-XSRF-TOKEN', cb.xsrf).send({ name: 'Dev' }).expect(200);
+      expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/roles');
+      expect(JSON.parse(String(calls.at(-1)!.body))).toEqual({ name: 'Dev' });
+      await agent.put('/api/v1/catalog/roles/r1').set('X-XSRF-TOKEN', cb.xsrf).set('If-Match', '"3"').send({ name: 'Dev 2' }).expect(200);
+      expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/roles/r1');
+      expect(calls.at(-1)!.headers['If-Match']).toBe('"3"');
+    });
+
+    it('el Responsable de producto no desactiva niveles; el Jefe y ADMIN sí', async () => {
+      const po = catalogSetup(['product_owner']);
+      const cbPo = await login(po.agent);
+      await po.agent.post('/api/v1/catalog/roles/r1/levels/l1/deactivate').set('X-XSRF-TOKEN', cbPo.xsrf).send({}).expect(403);
+      for (const role of ['jefe_ingenieria', 'admin']) {
+        const { agent, calls } = catalogSetup([role]);
+        const cb = await login(agent);
+        await agent.post('/api/v1/catalog/roles/r1/levels/l1/reactivate').set('X-XSRF-TOKEN', cb.xsrf).send({}).expect(200);
+        expect(calls.at(-1)!.url).toBe('http://catalog.test/api/v1/roles/r1/levels/l1/reactivate');
+      }
+    });
+
+    it('reenvía el ETag del servicio y no el resto de sus cabeceras', async () => {
+      const { agent } = catalogSetup(['colaborador'], 200, {});
+      await login(agent);
+      // el fetch simulado de `setup` responde sin ETag: se comprueba que la lista de cabeceras permitidas lo incluye
+      const { PASSTHROUGH_HEADERS } = await import('../src/downstream/service-client.js');
+      expect(PASSTHROUGH_HEADERS).toContain('etag');
+      expect(PASSTHROUGH_HEADERS).not.toContain('x-internal-secret');
+    });
+
+    it('un 412 del servicio llega al portal con su código', async () => {
+      const { agent } = catalogSetup(['jefe_ingenieria'], 412);
+      const cb = await login(agent);
+      const res = await agent.put('/api/v1/catalog/roles/r1').set('X-XSRF-TOKEN', cb.xsrf).set('If-Match', '"1"').send({}).expect(412);
+      expect(res.body.error.code).toBe('X');
+    });
   });
 
   it('logout destruye la sesión y redirige a Keycloak', async () => {

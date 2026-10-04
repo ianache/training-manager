@@ -11,6 +11,8 @@ export interface DownstreamCall {
   /** Roles de realm del usuario final (X-User-Roles), para RBAC y visibilidad en el servicio. */
   userRoles: readonly string[];
   requestId: string;
+  /** `If-Match` del navegador (concurrencia optimista, LDM-002 CM-09): se reenvía tal cual. */
+  ifMatch?: string;
 }
 
 export interface DownstreamResponse {
@@ -23,9 +25,9 @@ export interface DownstreamResponse {
 /**
  * Cabeceras del microservicio que el BFF reenvía al navegador: el límite de solicitudes
  * por usuario (API-SPEC-001 §4.5) lo aplica el servicio, y el portal necesita Retry-After
- * para el 429. Las demás cabeceras no se reenvían.
+ * para el 429. ETag lleva la versión de fila de un rol, que el portal devuelve en If-Match al editar. Las demás cabeceras no se reenvían.
  */
-export const PASSTHROUGH_HEADERS = ['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset', 'retry-after'] as const;
+export const PASSTHROUGH_HEADERS = ['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset', 'retry-after', 'etag'] as const;
 
 export type FetchLike = typeof fetch;
 
@@ -59,6 +61,7 @@ export class ServiceClient {
           'X-User-Roles': c.userRoles.join(','),
           'X-Request-ID': c.requestId,
           Accept: 'application/json',
+          ...(c.ifMatch ? { 'If-Match': c.ifMatch } : {}),
           ...(c.body !== undefined ? { 'Content-Type': 'application/json' } : {}),
         },
         body: c.body !== undefined ? JSON.stringify(c.body) : undefined,

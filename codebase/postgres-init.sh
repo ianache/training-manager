@@ -18,6 +18,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" \
       WHERE NOT EXISTS (SELECT FROM pg_roles WHERE rolname = :'app_user') \gexec
     SELECT format('GRANT CONNECT, TEMPORARY ON DATABASE gestion_formacion TO %I', :'app_user') \gexec
     SELECT format('GRANT USAGE, CREATE ON SCHEMA public TO %I', :'app_user') \gexec
+    -- catalog-service crea su propio esquema (`catalog`, ADR-011): necesita CREATE sobre la base
+    SELECT format('GRANT CREATE ON DATABASE gestion_formacion TO %I', :'app_user') \gexec
     SELECT format('GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO %I', :'app_user') \gexec
     SELECT format('GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO %I', :'app_user') \gexec
     SELECT format('ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO %I', :'app_user') \gexec

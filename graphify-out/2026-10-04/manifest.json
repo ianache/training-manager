@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791091228.245442,
-    "seen": 1791091272.928551,
-    "ast_hash": "1833303e0c60357edeb67c0f69164f4a",
+    "mtime": 1791092254.1019523,
+    "seen": 1791092309.5851047,
+    "ast_hash": "54db4fa7008f94c11aaf59d2ee8046a7",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791091228.2245247,
-    "seen": 1791091272.972629,
-    "ast_hash": "53e0cdd982d4f3c287e4448bd95c2fbc",
+    "mtime": 1791092254.191759,
+    "seen": 1791092309.6496332,
+    "ast_hash": "780898257042a5b22475ddb6f6611d94",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3006,9 +3006,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791091116.802617,
-    "seen": 1791091272.9559865,
-    "ast_hash": "7db33b5e286e60bda35d6a51cf34d232",
+    "mtime": 1791092245.0992377,
+    "seen": 1791092309.629139,
+    "ast_hash": "8ddd8c8a8fc1f94ee441aaf87df502ff",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3426,9 +3426,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-029-stitch-registrar-y-editar-unidades-organizacionales.md": {
-    "mtime": 1791082070.6282814,
-    "seen": 1791082071.6035802,
-    "ast_hash": "b97ab4cbe82ed7b5c2fb6ca566a163de",
+    "mtime": 1791091804.2819097,
+    "seen": 1791092309.6054525,
+    "ast_hash": "756e5b561acbd4394f7486c9c02e737e",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
@@ -3696,9 +3696,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-003-stitch-certificar-un-nivel-de-competencia.md": {
-    "mtime": 1791091143.0730157,
-    "seen": 1791091272.9301505,
-    "ast_hash": "b2bbc7ff7ead3a658c1375bd346ff226",
+    "mtime": 1791092254.0861826,
+    "seen": 1791092309.6014504,
+    "ast_hash": "6e866a584c3b7208652acf4499542d68",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-004-stitch-consultar-mi-perfil-de-competencias.md": {

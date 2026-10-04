@@ -1,0 +1,19 @@
+[project]
+name = "catalog-service"
+version = "0.1.0"
+description = "Catálogo de roles, niveles de rol y competencias (ADR-011)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.ruff]
+target-version = "py311"
+select = ["E", "F", "W", "I"]
+line-length = 120
