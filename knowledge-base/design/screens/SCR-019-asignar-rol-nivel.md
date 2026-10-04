@@ -134,7 +134,7 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 |---|---|---|---|---|
 | Rol | select (CMP-015) con roles activos del catálogo | Sí | solo roles del catálogo | SPEC-001:L91 |
 | Nivel | select (CMP-015) con los niveles que define el rol | Sí | solo niveles del rol (BR-CAT-09) | BR-CAT-09 |
-| Vigente desde | date-input (CMP-015 Date-Input) | Sí | fecha válida; reglas de fecha pasada o futura sin definir (SCR-019-Q1) | AC-1, AC-3 |
+| Vigente desde | date-input (CMP-015 Date-Input) | Sí | fecha válida, pasada u hoy (no futura, EVD-2026-0180), hoy por defecto; no anterior al «desde» de la vigente | AC-1, AC-3 |
 | Aviso de cierre | texto | solo lectura | «Al cambiar el nivel se cierra {nivel actual} desde la fecha elegida» (texto propuesto) | US-019 §10 |
 
 **Bloqueo AC-5:** si faltan competencias certificadas de los niveles inferiores o del nivel destino (EVD-2026-0172), no se permite confirmar y se lista cada una pendiente con su nivel L: «No se puede asignar {nivel}: faltan competencias certificadas de niveles inferiores o de este nivel» (texto propuesto). No depende solo del color.
@@ -174,7 +174,7 @@ Biblioteca: `@gf/ui`. Sin `@angular/material` ni `@angular/cdk`. Todo componente
 
 | ID | Pregunta | Responsable | Prioridad |
 |---|---|---|---|
-| SCR-019-Q1 | Reglas de la fecha «desde» (¿se admite pasada?, ¿futura?) | Jefe de Ingeniería | Media |
+| ~~SCR-019-Q1~~ | ~~Reglas de la fecha «desde» (¿se admite pasada?, ¿futura?)~~ Respondida (ianache, 2026-10-04): pasada u hoy, no futura; la anterior termina el mismo día (EVD-2026-0179, 0180). | Jefe de Ingeniería | Media |
 | SCR-019-Q2 | Textos exactos de aviso, bloqueo y resultado (los «propuesto» no tienen fuente) | Jefe de Ingeniería | Media |
 | SCR-019-Q3 | Responsive: solo escritorio, supuesto heredado | Jefe de Ingeniería | Baja |
 | FLW-019-Q3, Q4 | Heredadas del flujo, aún abiertas (niveles destino y si ADMIN puede saltar AC-5). Q1, Q2 y Q5 respondidas el 2026-10-03; solo se sube de nivel (EVD-2026-0166) | Jefe de Ingeniería | Alta |

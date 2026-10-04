@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791079717.6111348,
-    "seen": 1791079754.479866,
-    "ast_hash": "a26d79ee9c719ec1ba688cdc788bb068",
+    "mtime": 1791080224.5182545,
+    "seen": 1791080267.525701,
+    "ast_hash": "2d8d89ab54019c93b170c5c4416b8796",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791071300.9252553,
-    "seen": 1791071395.43902,
-    "ast_hash": "f41db1da0b7dc650acb31223fb697ba7",
+    "mtime": 1791080224.45523,
+    "seen": 1791080267.5240054,
+    "ast_hash": "911d41088f346de088bdf36894d497de",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-019-asignar-rol-nivel.md": {
-    "mtime": 1791071300.929548,
-    "seen": 1791071395.4804177,
-    "ast_hash": "a75a0e06db6df54d71683bba7c10b41a",
+    "mtime": 1791080224.4692998,
+    "seen": 1791080267.5621974,
+    "ast_hash": "5c9155302d15ab1e9085f0eaa6c16eb0",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-020-asignar-roles-del-programa.md": {
@@ -3564,9 +3564,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791064857.9475994,
-    "seen": 1791064931.0482686,
-    "ast_hash": "3639893c35353c416318a2eeaa5f541c",
+    "mtime": 1791080224.4756234,
+    "seen": 1791080267.5564919,
+    "ast_hash": "7154d4058dcfa9d58cdb5f2840e99992",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-002-modelo-de-datos-del-catalogo.md": {
@@ -3588,9 +3588,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-019-asignar-rol-nivel.md": {
-    "mtime": 1791071300.929548,
-    "seen": 1791071395.4686208,
-    "ast_hash": "a0ef37f44f74a8e8754314ecf4085cec",
+    "mtime": 1791080224.4993353,
+    "seen": 1791080267.5524673,
+    "ast_hash": "36ea151d6c284e580c1bd9ba10be43e5",
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-001-gestionar-catalogo-de-roles-y-competencias.md": {
@@ -3600,9 +3600,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/user-flows/FLW-019-asignar-rol-nivel.md": {
-    "mtime": 1791071300.929548,
-    "seen": 1791071395.4656148,
-    "ast_hash": "a87e71ce4b5d275f003a7a967252631c",
+    "mtime": 1791080224.492342,
+    "seen": 1791080267.5491915,
+    "ast_hash": "7beabdddb579d2e8f05609f6d1449fab",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-001-gestionar-catalogo-de-roles-y-competencias.md": {
@@ -3612,9 +3612,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-019-asignar-rol-nivel.md": {
-    "mtime": 1791071300.9453237,
-    "seen": 1791071395.4604352,
-    "ast_hash": "e0b1a0820a62cae55e08f71255678b66",
+    "mtime": 1791080224.484071,
+    "seen": 1791080267.5417218,
+    "ast_hash": "8bcfb23023b706d82355c7e5b8acd869",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-001-G-stitch-catalogo-de-roles-y-competencias.md": {
@@ -3624,15 +3624,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md": {
-    "mtime": 1791078160.5995207,
-    "seen": 1791078193.9585202,
-    "ast_hash": "d0310bb3637638ac8ba4f623ac9ca335",
+    "mtime": 1791080224.5057244,
+    "seen": 1791080267.5357113,
+    "ast_hash": "0b9aa1351befdd99c1b3316e47580d08",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791071955.9281588,
-    "seen": 1791072006.3786829,
-    "ast_hash": "197bd6eaf2b8c5170290dc0961e2fdb1",
+    "mtime": 1791080224.5117269,
+    "seen": 1791080267.4865942,
+    "ast_hash": "fcbf0d21c2eb65fb8c0805910670cc06",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md": {
@@ -3642,9 +3642,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md": {
-    "mtime": 1791071933.959978,
-    "seen": 1791072006.3806808,
-    "ast_hash": "b7492a688eb303617ebd3b0a66deb79c",
+    "mtime": 1791080224.4634857,
+    "seen": 1791080267.4895952,
+    "ast_hash": "1b12301836dca0ae6acdfcec7eb18ed2",
     "semantic_hash": ""
   }
 }

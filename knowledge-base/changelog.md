@@ -326,3 +326,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0177, 0178): mientras no exista el servicio de certificación, subir de nivel se bloquea con `CERTIFICATION_UNAVAILABLE` y US-003 y US-004 se planifican como dependencia de US-019 AC-3 y AC-5; la lectura A solo aplica al subir de nivel, no al asignar un rol nuevo. Posible circularidad por aclarar: DSP-001 y US-019 dicen que US-019 es prerrequisito de US-004. Falta diseñar en Stitch el estado «Certificación no disponible».
 - Artefactos afectados: `BRC-001`, `API-SPEC-004`, `US-019`, `DSP-001`, `UXR-019`, `FLW-019`, `SCR-019`, `GEN-019`, `DCP-003`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0179 a 0182): al cambiar de nivel la anterior termina el mismo día que empieza la nueva; la fecha desde puede ser pasada u hoy, no futura; party guarda una instantánea de nombres y orden (migración `0005`); el BFF no reintenta el `POST` de asignación. AQ-1 a AQ-5 de API-SPEC-004 resueltas. La regla común de fechas para las demás vigencias (UXR-029-Q2, UXR-030-Q3) sigue abierta.
+- Artefactos afectados: `BRC-001`, `API-SPEC-004`, `SCR-019`, `DCP-003`.

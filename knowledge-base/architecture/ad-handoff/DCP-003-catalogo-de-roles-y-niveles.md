@@ -77,12 +77,12 @@ Supuestos del agente, marcados en las fuentes y **sin confirmar**:
 - ~~Un nivel con personas asignadas no se puede quitar~~ Decidido (EVD-2026-0174, BR-CAT-30): se desactiva, no se elimina.
 - Un solo borrador por competencia; nombres de rol y competencia únicos sin distinguir mayúsculas (CM-04, CM-10).
 
-Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción de BR-PRF-02 con la lectura A (no confirmado expresamente), quién desactiva y reactiva un nivel (BR-CAT-30, se asume como las competencias), parámetros del reintento y cortacircuito (ADR-012), SCR-001-Q1 a Q4 y SCR-019-Q1 a Q3 (textos sin fuente, fecha «desde», responsive).
+Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción de BR-PRF-02 con la lectura A (no confirmado expresamente), quién desactiva y reactiva un nivel (BR-CAT-30, se asume como las competencias), parámetros del reintento y cortacircuito (ADR-012), SCR-001-Q1 a Q4 y SCR-019-Q2 y Q3 (textos sin fuente, responsive).
 
 ### Risks and dependencies
 
 - **Reintentos y cortacircuito sin parámetros:** ADR-012 decide la política pero no el número de reintentos, las esperas ni los umbrales; hace falta antes de implementar. Reintentar escrituras exige idempotencia, que API-SPEC-003 no define.
-- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): AQ-1 y AQ-2 están resueltas (EVD-2026-0177, 0178); siguen abiertas AQ-3 a AQ-7. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
+- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): AQ-1 a AQ-5 están resueltas (EVD-2026-0177 a 0182); siguen abiertas AQ-6 y AQ-7. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
 - **Certificación (decidido, EVD-2026-0177, 0178):** hasta que existan US-003 y US-004, subir de nivel se bloquea con `CERTIFICATION_UNAVAILABLE`. Son dependencia de US-019 AC-3 y AC-5, **no están en DSP-001** y hay que planificarlas. Asignar un rol nuevo no depende de ellas.
 - **Sin servicio de certificación ni curso:** el bloqueo y `course_ref` quedan simulados o desactivados hasta que existan.
 - **SQLite no detecta** errores de PostgreSQL (orden de INSERT, longitud de la revisión de Alembic, claves foráneas): las pruebas del servicio deben correr contra PostgreSQL real.
@@ -138,5 +138,5 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) responder AQ-3 a AQ-5 de API-SPEC-004 y planificar US-003 y US-004; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
+- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) planificar US-003 y US-004 y responder AQ-6 y AQ-7 de API-SPEC-004; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
 - Gate: pasar a `READY_FOR_DEV` exige parámetros de ADR-012, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.

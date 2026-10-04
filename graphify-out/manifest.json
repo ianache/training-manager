@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791080224.5182545,
-    "seen": 1791080267.525701,
-    "ast_hash": "2d8d89ab54019c93b170c5c4416b8796",
+    "mtime": 1791080634.5088224,
+    "seen": 1791080675.1101217,
+    "ast_hash": "7223cfd85652c510aaa1f62d551828c8",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791080224.45523,
-    "seen": 1791080267.5240054,
-    "ast_hash": "911d41088f346de088bdf36894d497de",
+    "mtime": 1791080634.4845736,
+    "seen": 1791080675.1091232,
+    "ast_hash": "4c309553234da8a83d9ac7d553dcce16",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -3612,9 +3612,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-019-asignar-rol-nivel.md": {
-    "mtime": 1791080224.484071,
-    "seen": 1791080267.5417218,
-    "ast_hash": "8bcfb23023b706d82355c7e5b8acd869",
+    "mtime": 1791080634.4968758,
+    "seen": 1791080675.119125,
+    "ast_hash": "8a4680acaca0f5b9952c4313c6cea17c",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-001-G-stitch-catalogo-de-roles-y-competencias.md": {
@@ -3630,9 +3630,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791080224.5117269,
-    "seen": 1791080267.4865942,
-    "ast_hash": "fcbf0d21c2eb65fb8c0805910670cc06",
+    "mtime": 1791080634.5018773,
+    "seen": 1791080675.078181,
+    "ast_hash": "2f3601354f6ee53502e234e97fb09809",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md": {
@@ -3642,9 +3642,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md": {
-    "mtime": 1791080224.4634857,
-    "seen": 1791080267.4895952,
-    "ast_hash": "1b12301836dca0ae6acdfcec7eb18ed2",
+    "mtime": 1791080634.4909635,
+    "seen": 1791080675.0811737,
+    "ast_hash": "c9ec98aa1d25c7fe509eeaf44ccc575f",
     "semantic_hash": ""
   }
 }

@@ -83,6 +83,8 @@ Portal → BFF:
 { "catalog_role_id": "uuid", "catalog_role_level_id": "uuid", "from_date": "2026-10-03" }
 ```
 
+**Fecha:** puede ser pasada u hoy, nunca futura (EVD-2026-0180); por defecto, hoy. Al cambiar de nivel, la anterior termina el mismo día que empieza la nueva (EVD-2026-0179). Dos cambios el mismo día son posibles.
+
 BFF → party (el BFF añade la instantánea del catálogo):
 
 ```json
@@ -139,7 +141,7 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 | Nivel o rol `INACTIVE` | `CATALOG_LEVEL_INACTIVE` | 422 | BR-CAT-30 |
 | Mismo nivel que el vigente | `LEVEL_UNCHANGED` | 409 | BR-PTY-11 |
 | Nivel menor que el vigente | `LEVEL_DOWNGRADE_NOT_ALLOWED` | 422 | EVD-0166 |
-| `from_date` anterior al `from_date` de la vigente | `INVALID_DATE_RANGE` | 422 | `ck_rla_dates` |
+| `from_date` anterior al `from_date` de la vigente, o posterior a hoy | `INVALID_DATE_RANGE` | 422 | `ck_rla_dates`, EVD-0180 |
 | Faltan competencias certificadas | `PROMOTION_REQUIREMENTS_NOT_MET` | 422 | BR-PRF-03, EVD-0172 |
 | Dos altas simultáneas de la misma persona y rol | `ASSIGNMENT_CONFLICT` | 409 | `ux_rla_current_role` |
 | El catálogo no responde (tras los reintentos) | `CATALOG_UNAVAILABLE` | 503 | ADR-012 |
@@ -148,8 +150,8 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 ## 5. Datos (una migración, `0005`)
 
 - La tabla `tb_role_level_assignment` ya tiene `person_party_id`, `catalog_role_id`, `catalog_role_level_id`, `from_date`, `thru_date`, auditoría, `ck_rla_dates` y `ux_rla_current_role` (un nivel vigente por persona y rol, BR-PTY-11): no hace falta tocarlos.
-- **Añadir** `role_name VARCHAR(120)`, `level_name VARCHAR(80)` y `level_ordinal SMALLINT` (DM-A1): la instantánea evita consultar al catálogo para listar el historial y permite comparar niveles sin llamarlo. `NOT NULL` para filas nuevas; las filas previas, si las hubiera, se rellenan en la migración (hoy la tabla no tiene filas porque no hay ruta que las cree).
-- Si se prefiere no duplicar nombres, la alternativa es que el BFF los complete desde el catálogo al listar; el costo es que el historial se rompe si el catálogo cambia un nombre y que listar depende del catálogo (ADR-012). Decisión abierta (AQ-4).
+- **Decidido (EVD-2026-0181):** **añadir** `role_name VARCHAR(120)`, `level_name VARCHAR(80)` y `level_ordinal SMALLINT` (DM-A1): la instantánea evita consultar al catálogo para listar el historial y permite comparar niveles sin llamarlo. `NOT NULL` para filas nuevas; las filas previas, si las hubiera, se rellenan en la migración (hoy la tabla no tiene filas porque no hay ruta que las cree).
+- Se descartó que el BFF complete los nombres desde el catálogo: el historial se reescribiría ante un renombrado y listar dependería del catálogo (ADR-012).
 
 ## 6. Seguridad y privacidad
 
@@ -163,7 +165,7 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 ## 7. Compatibilidad y reintentos
 
 - Es **aditivo** en `/api/v1`; el §3.3 de API-SPEC-001 nunca se implementó, así que nadie consume el contrato viejo.
-- Reintentos (ADR-012): `GET` se reintenta. `POST` solo es seguro de reintentar si es idempotente. Aquí lo es **parcialmente**: repetir el mismo nivel devuelve `409 LEVEL_UNCHANGED` y no duplica, pero el cliente ve un error aunque la primera llamada tuvo éxito (AQ-5).
+- Reintentos (ADR-012): el BFF reintenta los `GET` y las lecturas al catálogo. **No reintenta el `POST`** (EVD-2026-0182): ADR-012 cubre las llamadas al catalog-service, no a party, y las escrituras exigirían idempotencia. Si falla, el usuario reintenta; repetir el mismo nivel devuelve `409 LEVEL_UNCHANGED` y no duplica. Se reconsidera si ADR-012 se extiende a party.
 
 ## 8. Verificación propuesta
 
@@ -181,9 +183,9 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 |---|---|---|
 | ~~AQ-1~~ | ~~**No hay servicio de certificación.** Mientras no exista, el cambio de nivel, ¿se bloquea (más seguro: nadie sube de nivel sin comprobar) o se permite sin comprobación (hay que registrarlo)? Se propone bloquearlo con `CERTIFICATION_UNAVAILABLE`.~~ Respondida (ianache, 2026-10-04): se bloquea con `CERTIFICATION_UNAVAILABLE` (EVD-2026-0177). | Hace inutilizable el cambio de nivel hasta que exista la certificación |
 | ~~AQ-2~~ | ~~¿La lectura A (todo certificado) aplica también a **asignar un rol nuevo** (AC-1, AC-2) o solo a **subir de nivel**? Las fuentes hablan de «escalar a un nivel superior» (BR-PRF-03). Se asume que solo a subir.~~ Respondida (ianache, 2026-10-04): solo al subir de nivel; asignar un rol nuevo no comprueba certificaciones (EVD-2026-0178). | Si aplica al rol nuevo, nadie puede recibir un rol nuevo sin certificaciones previas |
-| AQ-3 | Fechas: ¿la anterior termina el mismo día que empieza la nueva (`thru_date = from_date`) o el día previo? ¿Se admiten `from_date` pasadas o futuras? (SCR-019-Q1) | Cierre de vigencias |
-| AQ-4 | Instantánea de nombres y orden en party (propuesta) frente a completarlos desde el catálogo. | Migración 0005 |
-| AQ-5 | Idempotencia: ¿se añade `Idempotency-Key` al `POST`? | Reintentos de escrituras (ADR-012) |
+| ~~AQ-3~~ | ~~Fechas: ¿la anterior termina el mismo día que empieza la nueva (`thru_date = from_date`) o el día previo? ¿Se admiten `from_date` pasadas o futuras? (SCR-019-Q1)~~ Respondida (ianache, 2026-10-04): igual día (`thru_date = from_date`) y fecha pasada u hoy, sin futuras (EVD-2026-0179, 0180). | Cierre de vigencias |
+| ~~AQ-4~~ | ~~Instantánea de nombres y orden en party (propuesta) frente a completarlos desde el catálogo.~~ Respondida (ianache, 2026-10-04): instantánea de nombres y orden en party (EVD-2026-0181). | Migración 0005 |
+| ~~AQ-5~~ | ~~Idempotencia: ¿se añade `Idempotency-Key` al `POST`?~~ Respondida (ianache, 2026-10-04): el BFF no reintenta el `POST` (EVD-2026-0182). | Reintentos de escrituras (ADR-012) |
 | AQ-6 | ¿Quién desactiva o reactiva un nivel? (BR-CAT-30, se asume como las competencias) | Fuera de esta API, en API-SPEC-003 |
 | AQ-7 | Si un nivel se desactiva después de asignarlo, la persona lo conserva (BR-CAT-30); ¿puede cambiar **desde** él a otro nivel activo? Se asume que sí. | `CATALOG_LEVEL_INACTIVE` solo para el destino |
 
