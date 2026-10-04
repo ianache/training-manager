@@ -49,6 +49,16 @@ a11y_reports:
 - ARP-SCR-029-04-C
 design_decisions: []
 open_questions: []
+gate:
+  name: DESIGN_READY_FOR_DEV
+  result: PASSED
+  evaluated_at: '2026-10-04T18:00:00-05:00'
+  evaluator: validators/cli.py gate --profile production
+  findings: []
+  human_review:
+    status: approved
+    reviewer: human:ianache
+    at: '2026-10-04T18:00:00-05:00'
 ---
 
 # HOF-PPM-002 — Gestión de la estructura organizacional
@@ -57,16 +67,18 @@ Borrador creado para **evaluar el gate** `DESIGN_READY_FOR_DEV`. Las secciones A
 
 ## Resultado del gate (2026-10-04, perfil `production`)
 
-`FAILED` con 39 hallazgos sobre las 12 pantallas:
+`PASSED` con revisión humana **aprobada por ianache (Jefe de Ingeniería) el 2026-10-04**. Historia del día: `FAILED` con 39 hallazgos al empezar; con 25 tras redactar A a N; 12 tras aprobar los diseños y declarar los estados; y 0 tras los informes de accesibilidad y la revisión humana.
 
-| Código | Hallazgos | Qué falta | Quién |
-|---|---|---|---|
-| `MISSING_GOVERNED_DESIGN` (BLOCKED) | 12 (uno por SCR) | El validador exige un `governed_design` aprobado **en Figma**. Con Figma descartado el diseño de Stitch no cuenta como gobernado | Decisión del Jefe de Ingeniería: cómo se registra el diseño de Stitch como gobernado (el skill y el validador no lo prevén) |
-| `MISSING_ACCESSIBILITY_REQUIREMENT` (FAILED) | 12 (uno por SCR) | Ningún SCR tiene un informe de accesibilidad en `pass` (ARP-UNIDADES-V2: 2 `fail` ya corregidos en las hojas, 14 `inconclusive`) | Revisión en navegador con CHK-UNIDADES-001 y luego `accessibility-reviewer` |
-| `MISSING_HANDOFF_SECTION` (FAILED) | 14 | Las secciones A a N del contrato no están redactadas (este documento es un borrador) | `ux-development-handoff`, tras resolver lo anterior |
-| `HUMAN_REVIEW_PENDING` (BLOCKED) | 1 | Sin aprobación humana del gate | Jefe de Ingeniería |
+**Desviaciones aceptadas por ianache** (no cumplen WCAG o no se pueden demostrar en una hoja estática; quedan como deuda o como obligación de la implementación):
 
-Sin `open_questions` bloqueantes en este documento: las preguntas abiertas de UXR, FLW y SCR (17, 24 y 36, fusionadas en 44 en UXS-001) no están referenciadas aquí y deben revisarse antes de redactar A a N.
+| Desviación | Dónde |
+|---|---|
+| Iconos decorativos sin `aria-hidden` | SCR-029-02, 029-03, 030-02, 030-03 |
+| `nav` sin `aria-label` | SCR-029-04 |
+| Contraste de rótulos de menú bajo 4.5:1 | SCR-017-03 (4.36:1), SCR-028-01 (2.44:1), SCR-030-04 (4.48:1) |
+| Foco atrapado, Escape y retorno del foco de los diálogos | SCR-029-01, 029-02, 029-03, 030-01 a 04 (se verifican al implementar) |
+
+Las pruebas C1 a C9 de CHK-UNIDADES-001 las aprobó ianache en navegador y confirmó que aplican igual a las hojas regeneradas; el agente no las ejecutó. Las pruebas específicas por pantalla (sección 2) no se registraron.
 
 ## A. Requirement Context
 US-017 (organización interna), US-028 (listar y buscar), US-029 (registrar y editar) y US-030 (desactivar y reactivar); UXR-017, UXR-028, UXR-029, UXR-030 (en `design/ux-requirements/`); reglas BR-PTY-02/03/04/07/12/17/21 a 28 de BRC-001. Decisiones del 2026-10-04: ADMIN también gestiona la estructura (EVD-2026-0238), el correo laboral es obligatorio al registrar una unidad (BR-PTY-27) y la organización interna queda fuera de la gestión por API (BR-PTY-28). Anexo: [UXS-001](../specs/UXS-001-gestion-de-unidades-organizacionales.md).
