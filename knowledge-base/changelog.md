@@ -365,3 +365,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0202 a 0207): sin equivalencias de evidencia (P-23); un requisito puede exigir varias piezas; una misma evidencia puede respaldar varias competencias o niveles (P-35); una evidencia deseada solo queda registrada en H1 y la marca «reforzada» queda abierta (P-41); la descripción de una revocación es restringida, excepción a BR-TRA-06 (BR-TRA-07); las evidencias de GitLab se muestran como enlaces con el control del repositorio, en red privada (P-54). Nuevas BR-ACR-18 y BR-TRA-07. Preguntas abiertas nuevas: DSP2-Q13 (calificación o sustento propios), DSP2-Q14 (dónde se declara la cantidad de piezas; el catálogo no tiene el campo), DSP2-Q15 (quién ve la descripción de una revocación). IMD-001 (R-20 pasa a N:M) y LDM-002 (cantidad de piezas) quedan por actualizar.
 - Artefactos afectados: `BRC-001`, `US-003`, `UXR-003`, `DSP-002`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0208, 0209): no hay una cantidad de piezas por definir (un requisito obligatorio se cumple con al menos una pieza), así que el catálogo no cambia y LDM-002 no necesita un campo nuevo; ven la descripción de una revocación todos los evaluadores. Cierra DSP2-Q14 y DSP2-Q15. Queda abierta DSP2-Q13 (calificación o sustento propios, se supone que no).
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`.

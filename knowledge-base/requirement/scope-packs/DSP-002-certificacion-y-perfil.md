@@ -113,8 +113,8 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~DSP2-Q9~~ | ~~¿Cuáles son los motivos tipificados de revocación? Hace falta la lista (tipo de dato que se puede ampliar)~~ **Respondida (ianache, 2026-10-04):** `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO` (se retiró `CONFLICTO_DE_INTERES`, EVD-2026-0200), lista ampliable, descripción de hasta 1000 caracteres (EVD-2026-0195 a 0197). |
 | ~~DSP2-Q10~~ | ~~¿Largo mínimo de la descripción de la revocación? Se entendió «1000 caracteres» como el máximo; el mínimo no se definió~~ **Respondida (ianache, 2026-10-04):** mínimo 10 caracteres; entre 10 y 1000 (EVD-2026-0201). |
 | DSP2-Q13 | ¿La certificación guarda una calificación o un sustento propios (aparte de la descripción de la revocación)? Hoy no figuran en ninguna historia; se supone que no |
-| DSP2-Q14 | Un requisito puede exigir varias piezas (EVD-2026-0203): ¿dónde se declara la cantidad? El catálogo (LDM-002, `tb_evidence_requirement`) no tiene un campo de cantidad: ¿se añade una «cantidad mínima» o se declara un requisito por pieza? |
-| DSP2-Q15 | «Quienes tienen el rol evaluador» que ven la descripción de una revocación (EVD-2026-0206): ¿todos los evaluadores o solo quien certificó? |
+| ~~DSP2-Q14~~ | ~~Un requisito puede exigir varias piezas (EVD-2026-0203): ¿dónde se declara la cantidad? El catálogo (LDM-002, `tb_evidence_requirement`) no tiene un campo de cantidad: ¿se añade una «cantidad mínima» o se declara un requisito por pieza?~~ **Respondida (ianache, 2026-10-04):** no hay cantidad por definir; un requisito obligatorio se cumple con al menos una pieza (EVD-2026-0208). El catálogo no necesita un campo de cantidad. |
+| ~~DSP2-Q15~~ | ~~«Quienes tienen el rol evaluador» que ven la descripción de una revocación (EVD-2026-0206): ¿todos los evaluadores o solo quien certificó?~~ **Respondida (ianache, 2026-10-04):** cualquier evaluador (EVD-2026-0209). |
 
 **No bloquean pero hay que decidir antes de construir:**
 
