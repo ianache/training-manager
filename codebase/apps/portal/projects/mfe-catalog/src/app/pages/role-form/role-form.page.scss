@@ -184,10 +184,25 @@ gf-alert {
   background: var(--gf-color-surface-container);
   color: var(--gf-color-text-muted);
   font-size: var(--gf-font-size-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gf-space-2);
+  &--error,
+  &--ok,
+  &--info {
+    font-weight: var(--gf-font-weight-semibold);
+  }
   &--error {
     background: var(--gf-color-danger-bg);
     color: var(--gf-color-danger-fg);
-    font-weight: var(--gf-font-weight-semibold);
+  }
+  &--ok {
+    background: var(--gf-color-success-bg);
+    color: var(--gf-color-success-fg);
+  }
+  &--info {
+    background: var(--gf-color-info-bg);
+    color: var(--gf-color-info-fg);
   }
 }
 
@@ -344,21 +359,6 @@ gf-alert {
   gap: var(--gf-space-3);
   margin-bottom: var(--gf-space-4);
 }
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gf-space-2);
-  padding: var(--gf-space-1) var(--gf-space-3);
-  border: 1px solid $line;
-  border-radius: 999px;
-  background: var(--gf-color-surface);
-  font-size: var(--gf-font-size-sm);
-  &--info {
-    background: var(--gf-color-info-bg);
-    color: var(--gf-color-info-fg);
-    border-color: transparent;
-  }
-}
 .static-field {
   display: grid;
   gap: var(--gf-space-1);
@@ -388,14 +388,6 @@ gf-alert {
       margin: var(--gf-space-1) 0 0;
       font-size: var(--gf-font-size-lg);
     }
-  }
-  &__status {
-    padding: 2px var(--gf-space-3);
-    border-radius: 999px;
-    background: var(--gf-color-success-bg);
-    color: var(--gf-color-success-fg);
-    font-size: var(--gf-font-size-sm);
-    font-weight: var(--gf-font-weight-semibold);
   }
   &__facts {
     display: grid;

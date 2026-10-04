@@ -31,7 +31,7 @@
             <span class="eyebrow">Rol del catálogo</span>
             <h2>{{ r.name }}</h2>
           </div>
-          <span class="summary__status">Estado: {{ r.status === 'ACTIVE' ? 'Activo' : 'Inactivo' }}</span>
+          <span class="count count--ok">Estado: {{ r.status === 'ACTIVE' ? 'Activo' : 'Inactivo' }}</span>
         </div>
         <dl class="summary__facts">
           <div><dt>Niveles activos</dt><dd>{{ activeLevels() === 1 ? '1 nivel' : activeLevels() + ' niveles' }}</dd></div>
@@ -70,8 +70,8 @@
       @if (!canEdit()) {
         <!-- Estado F — Solo lectura -->
         <div class="readonly-bar">
-          <span class="chip"><gf-icon name="person" size="1rem" [decorative]="true" /> Perfil activo: {{ profile() }}</span>
-          <span class="chip chip--info"><gf-icon name="visibility" size="1rem" [decorative]="true" /> Modo solo lectura</span>
+          <span class="count"><gf-icon name="person" size="1rem" [decorative]="true" /> Perfil activo: {{ profile() }}</span>
+          <span class="count count--info"><gf-icon name="visibility" size="1rem" [decorative]="true" /> Modo solo lectura</span>
         </div>
         <div class="static-field">
           <span class="eyebrow">Nombre del rol</span>
