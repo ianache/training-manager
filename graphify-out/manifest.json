@@ -3000,9 +3000,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791138378.2408187,
-    "seen": 1791138435.6672194,
-    "ast_hash": "28b0c05afadef9744c9c76a01e8dff89",
+    "mtime": 1791138729.7278178,
+    "seen": 1791138786.2558327,
+    "ast_hash": "198b1c6b1b66d7c7bf6318f1e0fe6eb9",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3408,9 +3408,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-017-stitch-registrar-la-organizacion-interna.md": {
-    "mtime": 1791134341.2716143,
-    "seen": 1791134373.8317335,
-    "ast_hash": "65c43c6e21b6288541bb107d9c360de2",
+    "mtime": 1791138730.3115692,
+    "seen": 1791138786.2412682,
+    "ast_hash": "f52f402b9fa4fe5a62296c6ef0a9f14c",
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-028-stitch-listar-y-buscar-unidades-organizacionales.md": {
