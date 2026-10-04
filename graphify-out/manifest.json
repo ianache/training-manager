@@ -3000,9 +3000,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791135122.0730312,
-    "seen": 1791135161.9801831,
-    "ast_hash": "69645a3cf0765fcfdd164332c049209a",
+    "mtime": 1791137402.9471085,
+    "seen": 1791137458.7334998,
+    "ast_hash": "8a60e77039237ddeb54fc41191644666",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3948,9 +3948,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md": {
-    "mtime": 1791135272.9931047,
-    "seen": 1791135311.696131,
-    "ast_hash": "3c291647eb2fdbd3043f346442aefd6f",
+    "mtime": 1791137415.6955788,
+    "seen": 1791137458.725498,
+    "ast_hash": "a88c60d7c199010fde4b4ef60cd6cc0a",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.api.spec.ts": {
@@ -4020,15 +4020,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791129980.888998,
-    "seen": 1791130067.1605697,
-    "ast_hash": "5c5f3da9ed9433cbe615052384215b48",
+    "mtime": 1791137415.678101,
+    "seen": 1791137458.6578953,
+    "ast_hash": "17303cf8ad67669bb53545f7a0084627",
     "semantic_hash": ""
   },
   "knowledge-base/design/components/CMP-017-componentes-gestion-de-unidades.md": {
-    "mtime": 1791129980.9049933,
-    "seen": 1791130067.3343513,
-    "ast_hash": "76c578f7cb0ce19ab4dea19e38901a0d",
+    "mtime": 1791137415.6864655,
+    "seen": 1791137458.7077217,
+    "ast_hash": "9d0765ca572e714b424cd8ba239eec52",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-02-consolidada.md": {

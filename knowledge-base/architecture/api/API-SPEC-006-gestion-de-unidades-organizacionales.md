@@ -4,8 +4,8 @@ id: API-SPEC-006
 title: API REST — Gestión de la estructura organizacional (organización interna y unidades)
 description: Contrato propuesto para US-017, US-028, US-029 y US-030 sobre el recurso /organizations de party. Amplía API-SPEC-002 (consulta, búsqueda y alta) con la organización interna, el listado con filtros y conteos, la edición del nombre, el cambio de unidad padre, desactivar, reactivar y el historial.
 tags: [architecture, api, rest, party, organizations, us-017, us-028, us-029, us-030]
-status: draft
-readiness: REQUIRES_REVIEW
+status: approved
+readiness: APPROVED_BY_HUMAN
 generated: { by: "development-handoff-builder/1.0 (diseño de contrato; sustituye al api-designer hasta su revisión)", at: "2026-10-04T12:00:00-05:00" }
 related: [API-SPEC-001, API-SPEC-002, US-017, US-028, US-029, US-030, BR-PTY-03, BR-PTY-04, BR-PTY-07, BR-PTY-12, BR-PTY-17, BR-PTY-21, BR-PTY-22, BR-PTY-23, BR-PTY-24, BR-PTY-25, BR-PTY-26]
 sources:
@@ -25,7 +25,9 @@ sources:
 
 # API-SPEC-006 — Gestión de la estructura organizacional
 
-**Estado: `REQUIRES_REVIEW`.** Es una **propuesta**: ningún humano ha revisado este contrato ni `api-contract-reviewer` ni `api-security-reviewer` lo han evaluado. Lo que ya existe en el código (`GET`, `GET /{id}` y `POST /organizations` del servicio y del BFF) se conserva; todo lo demás es nuevo.
+**Revisión humana (2026-10-04):** ianache (Jefe de Ingeniería) declaró este documento aprobado. Registrado por el agente a partir de esa declaración; no se ejecutó una revisión independiente de `api-contract-reviewer ni api-security-reviewer`.
+
+**Estado: aprobado por ianache (2026-10-04)**, según su declaración; `api-contract-reviewer` y `api-security-reviewer` no lo han evaluado. Las preguntas Q-4 a Q-8 siguen abiertas. Lo que ya existe en el código (`GET`, `GET /{id}` y `POST /organizations` del servicio y del BFF) se conserva; todo lo demás es nuevo.
 
 ## 1. Qué cambia respecto de API-SPEC-002
 

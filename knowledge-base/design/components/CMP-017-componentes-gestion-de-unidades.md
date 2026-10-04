@@ -4,8 +4,8 @@ id: CMP-017
 title: CMP-017 — Componentes de la gestión de la estructura organizacional
 description: Inventario de componentes de SCR-017, SCR-028, SCR-029 y SCR-030 frente a @gf/ui. Mapea lo que ya existe y declara las brechas que exigen web-atomic-component-designer antes de implementar.
 tags: [ux-ui, components, gf-ui, atomic-design, estructura-organizacional]
-status: draft
-readiness: REQUIRES_REVIEW
+status: approved
+readiness: APPROVED_BY_HUMAN
 generated: { by: "development-handoff-builder/1.0", at: "2026-10-04T12:00:00-05:00" }
 sources:
   - id: scr-017
@@ -24,7 +24,9 @@ sources:
 
 # CMP-017 — Componentes de la gestión de la estructura organizacional
 
-**Estado: `REQUIRES_REVIEW`.** Es un inventario derivado de los SCR y de la biblioteca `@gf/ui` tal como está en el repositorio (`projects/ui/src/lib`). **No** pasó por `web-atomic-component-designer`: las brechas de abajo no tienen diseño atómico. Los GEN de Stitch no etiquetan componentes, así que el inventario sale de los SCR y del HTML revisado.
+**Revisión humana (2026-10-04):** ianache (Jefe de Ingeniería) declaró este documento aprobado. Registrado por el agente a partir de esa declaración; no se ejecutó una revisión independiente de `web-atomic-component-designer`.
+
+**Estado: aprobado por ianache (2026-10-04)**, según su declaración. Es un inventario derivado de los SCR y de la biblioteca `@gf/ui` tal como está en el repositorio (`projects/ui/src/lib`). **No** pasó por `web-atomic-component-designer`: las brechas de abajo siguen sin diseño atómico, que habrá que hacer antes de implementarlas. Los GEN de Stitch no etiquetan componentes, así que el inventario sale de los SCR y del HTML revisado.
 
 ## 1. Lo que existe en `@gf/ui`
 

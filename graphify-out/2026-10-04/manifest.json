@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791127509.0598,
-    "seen": 1791129441.6821666,
-    "ast_hash": "3244a00b76479864d36beecd6fee6dc3",
+    "mtime": 1791137159.6561692,
+    "seen": 1791137198.7702935,
+    "ast_hash": "dd2531658591990a04e59814bc19301f",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791127509.033314,
-    "seen": 1791129441.7281415,
-    "ast_hash": "e400a7faaf841f6887cbba6438974cb9",
+    "mtime": 1791137159.6442027,
+    "seen": 1791137198.7987423,
+    "ast_hash": "61a6071e155762fffb87608994774e52",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -2346,9 +2346,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/INDEX.md": {
-    "mtime": 1791127509.0246708,
-    "seen": 1791129441.6285832,
-    "ast_hash": "3a1a679f7fab070500b22472d310cab6",
+    "mtime": 1791137159.6505504,
+    "seen": 1791137198.715693,
+    "ast_hash": "8bea0612f5216ba4e315276ff975f306",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
@@ -4014,9 +4014,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791129980.895997,
-    "seen": 1791130067.1442027,
-    "ast_hash": "ccba8711d4f3a95fc4e3e26137455718",
+    "mtime": 1791137076.080199,
+    "seen": 1791137198.715693,
+    "ast_hash": "0c16f822f68f79df011dce6c5241cf20",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md": {
@@ -4065,6 +4065,30 @@
     "mtime": 1791136873.8997805,
     "seen": 1791136916.2447472,
     "ast_hash": "9ad01dcbe335c73ae6430261d12e1afe",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md": {
+    "mtime": 1791137143.0274851,
+    "seen": 1791137198.7977393,
+    "ast_hash": "773b7174d3d26531ef119ccc6d29648b",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md": {
+    "mtime": 1791137143.03049,
+    "seen": 1791137198.7977393,
+    "ast_hash": "5b4d141bf62e3b5ea9995baf39df19ac",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DTC-029-handoff-desarrollo-registrar-y-editar-unidades-organizacionales.md": {
+    "mtime": 1791137143.0328684,
+    "seen": 1791137198.7977393,
+    "ast_hash": "d06c92e8abf56ec1aa493c04a19bc290",
+    "semantic_hash": ""
+  },
+  "knowledge-base/implementation/DTC-030-handoff-desarrollo-desactivar-y-reactivar-unidades-organizacionales.md": {
+    "mtime": 1791137143.0348697,
+    "seen": 1791137198.7977393,
+    "ast_hash": "7353a15365d9d6ba2db5bf2b20cfdd01",
     "semantic_hash": ""
   }
 }

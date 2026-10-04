@@ -101,5 +101,11 @@ Ninguna DD registrada. Decisiones humanas que rigen el diseño: Stitch como úni
 ## M. Open Questions / Assumptions
 Sin preguntas bloqueantes registradas en el frontmatter. Siguen abiertas las preguntas de UXR, FLW y SCR (UXS-001 las fusiona en 44), DCP-004 Q-4 a Q-8 y CMP-017-Q1 a Q3. Pendiente anotado (2026-10-04): los 9 iconos sin `aria-hidden` de la hoja v6 de SCR-029-01 (ARP-SCR-029-01-C F1) y el `nav` sin nombre de SCR-029-04 (ARP-SCR-029-04-C F1) se corrigen al regenerar esas hojas, no con una edición puntual. Supuestos: solo escritorio; el texto de los errores al guardar, de carga y de permisos es de muestra.
 
+## Declaración de ianache (2026-10-04)
+
+ianache (Jefe de Ingeniería) declaró: diseños aprobados para cada pantalla (registrados con `register-governed-stitch --approved-by human:ianache` y `--breakpoints desktop`), pruebas de accesibilidad hechas, gate revisado, y API-SPEC-006 y CMP-017 aprobados. El agente registró las aprobaciones de diseño, API-SPEC-006 y CMP-017; **no** escribió informes de accesibilidad en `pass` ni la revisión humana del gate, porque ese resultado no está respaldado por informes ARP ni por un gate en `PASSED`.
+
+El validador exige además que el diseño gobernado declare los estados cubiertos (`states_covered`) de cada SCR; no se declararon, porque hay estados requeridos que las hojas no contienen (por ejemplo `unsaved-changes`, `cycle-error`, `inactive-parent-error` y `no-internal-organization` en SCR-029-01).
+
 ## N. Provenance / Lineage
 US-017/028/029/030 → UXR-017/028/029/030 → FLW-017/028/029/030 → SCR-017-01..03, 028-01, 029-01..04, 030-01..04 → Stitch (STP-PPM-001, exploración) → CMP-017 / TKN-SET-002 → HOF-PPM-002 → DCP-004. Generado por ux-development-handoff/2.0; no verificado.

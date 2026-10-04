@@ -658,6 +658,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:01-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/ead458becb59418fb0cf15f0c601beb5
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-017-02
   flow: FLW-017
   requirements:
@@ -709,6 +722,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:17-05:00'
     latest_known_version: v2-success-green
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/4368eace9ac44ba6b630ad0391cf2bc4
+    version: v-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-017-03
   flow: FLW-017
   requirements:
@@ -752,6 +778,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:08-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/08a98db688474629b3ef7a32c9d751ca
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-028-01
   flow: FLW-028
   requirements:
@@ -806,6 +845,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:21-05:00'
     latest_known_version: v2-success-green
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/3000469d418c4941b1d98dca2c1b4b27
+    version: v-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-029-01
   flow: FLW-029
   requirements:
@@ -883,6 +935,19 @@ traceability:
     captured_at: '2026-10-04T12:17:19-05:00'
     latest_known_version: v5-todos-los-estados
     evidence: ev-scr029-01-v5-todos.json
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/f60d9b006fc643d0b0120e95ef04e9a6
+    version: v6-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v6-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-029-02
   flow: FLW-029
   requirements:
@@ -930,6 +995,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:29-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/234079448a8b438cb5ecb9e601093c39
+    version: v-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-030-01
   flow: FLW-030
   requirements:
@@ -971,6 +1049,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:31-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/11e52a5f6d6d401eb239180750c1df9d
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-030-02
   flow: FLW-030
   requirements:
@@ -1012,6 +1103,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:34-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/fc1cfa0bf4d9442d926d1ab37aff49d1
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-030-03
   flow: FLW-030
   requirements:
@@ -1054,6 +1158,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T14:17:35-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/727b36fe16884700ac3329309f09c644
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-030-04
   flow: FLW-030
   requirements:
@@ -1095,6 +1212,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T15:32:07-05:00'
     latest_known_version: not-exposed-by-stitch
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/836b9b73b01e4191afab8798ba562000
+    version: v2-success-green
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v2-success-green
+  stitch_figma:
+    divergence: none
 - screen: SCR-029-03
   flow: FLW-029
   requirements:
@@ -1149,6 +1279,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:25-05:00'
     latest_known_version: v2-success-green
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/c53d12f7720c49e4a73c193b62b517a5
+    version: v-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-029-04
   flow: FLW-029
   requirements:
@@ -1203,6 +1346,19 @@ traceability:
     status: superseded
     captured_at: '2026-10-03T16:47:27-05:00'
     latest_known_version: v2-success-green
+  governed_design:
+    tool: stitch
+    project_ref: STP-PPM-001
+    artifact_ref: projects/13050549605434273903/screens/54b227ae20d649e698b804011e3e00af
+    version: v-consolidada
+    status: approved
+    approved_by: human:ianache
+    states_covered: []
+    responsive_covered:
+    - desktop
+    latest_known_version: v-consolidada
+  stitch_figma:
+    divergence: none
 - screen: SCR-001-01
   flow: FLW-001
   requirements:
