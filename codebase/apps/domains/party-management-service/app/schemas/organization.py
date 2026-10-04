@@ -1,6 +1,7 @@
 """API-SPEC-002: organizaciones (unidades y proveedores)."""
 import re
 from enum import Enum
+from datetime import date
 from typing import Optional, Self
 from uuid import UUID
 
@@ -17,6 +18,19 @@ class OrganizationType(str, Enum):
 class OrganizationStatus(str, Enum):
     active = "active"
     inactive = "inactive"
+
+
+class OrganizationStatusFilter(str, Enum):
+    """Valores del parámetro `status` del listado (API-SPEC-006 §3.1)."""
+
+    active = "active"
+    inactive = "inactive"
+    all = "all"
+
+
+class OrganizationView(str, Enum):
+    list = "list"
+    tree = "tree"
 
 
 class OrganizationContact(BaseModel):
@@ -36,6 +50,13 @@ class OrganizationOut(BaseModel):
     location: Optional[str] = None
     ruc: Optional[str] = None
     contact: OrganizationContact = Field(default_factory=OrganizationContact)
+    # solo internal_unit (API-SPEC-006 §3.1); nulos para los proveedores
+    from_date: Optional[date] = None
+    thru_date: Optional[date] = None
+    active_children_count: Optional[int] = None
+    current_people_count: Optional[int] = None
+    children: Optional[list["OrganizationOut"]] = None  # solo con view=tree
+    row_version: Optional[int] = None  # versión para If-Match (Q-8); también viaja en la cabecera ETag
 
 
 class OrganizationContactIn(BaseModel):
@@ -73,3 +94,59 @@ class OrganizationCreateRequest(BaseModel):
         elif self.ruc is not None:
             raise ValueError("La unidad no admite RUC.")
         return self
+
+
+class OrganizationRenameRequest(BaseModel):
+    """PATCH /organizations/{id}: solo el nombre en esta versión (API-SPEC-006 §3.3)."""
+
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    name: str = Field(min_length=1, max_length=200)
+
+
+class ParentChangeRequest(BaseModel):
+    """POST /organizations/{id}/parent (API-SPEC-006 §3.4). `parent_id: null` deja la unidad como superior (Q-6)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    parent_id: Optional[UUID] = Field(...)
+    from_date: date
+
+
+class ReactivateRequest(BaseModel):
+    """POST /organizations/{id}/reactivate (API-SPEC-006 §3.6). Sin `parent_id` conserva el padre con el que se desactivó."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    from_date: date
+    parent_id: Optional[UUID] = None
+
+
+class ParentRef(BaseModel):
+    id: str
+    name: str
+
+
+class RelationshipOut(BaseModel):
+    """Un periodo de la relación de estructura de una unidad (API-SPEC-006 §3.7, SCR-029-04)."""
+
+    previous_parent: Optional[ParentRef] = None
+    new_parent: Optional[ParentRef] = None
+    from_date: date
+    thru_date: Optional[date] = None
+    changed_by: str
+
+
+class InternalOrganizationOut(BaseModel):
+    """API-SPEC-007 §2: la organización interna vigente (registro único, BR-PTY-28)."""
+
+    id: str
+    name: str
+    ruc: Optional[str] = None
+    ruc_country: Optional[str] = None
+    from_date: date
+    thru_date: Optional[date] = None
+
+
+class InternalOrganizationEnvelope(BaseModel):
+    data: InternalOrganizationOut

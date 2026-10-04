@@ -1152,9 +1152,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/authorization.py": {
-    "mtime": 1790832273.5703752,
-    "seen": 1790832319.3083866,
-    "ast_hash": "9339ef7976443f5bf08dfd7077a21ec0",
+    "mtime": 1791148805.3441472,
+    "seen": 1791150012.445625,
+    "ast_hash": "9f07063559233438464ee0788c7a2a9c",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/exceptions.py": {
@@ -1182,9 +1182,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/main.py": {
-    "mtime": 1791055181.2191896,
-    "seen": 1791055209.1461432,
-    "ast_hash": "aee8aaa4de8b7c4f2f26c07ea6fe7d61",
+    "mtime": 1791148163.8418279,
+    "seen": 1791150012.447625,
+    "ast_hash": "2a587ae0a5642202ad63ce34aec4baa1",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/__init__.py": {
@@ -1200,9 +1200,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/models/party.py": {
-    "mtime": 1791129040.097893,
-    "seen": 1791129441.5378401,
-    "ast_hash": "f327f0c7f4f826c0ab38ffed41e338db",
+    "mtime": 1791148163.8525367,
+    "seen": 1791150012.447625,
+    "ast_hash": "59d9d1fb59370bba86458ff93ba53188",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/__init__.py": {
@@ -1344,9 +1344,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/TESTING.md": {
-    "mtime": 1790832271.3139215,
-    "seen": 1790832319.3668187,
-    "ast_hash": "96aad494c4da45c3eb52983aad524183",
+    "mtime": 1791149701.1573286,
+    "seen": 1791150012.497567,
+    "ast_hash": "9e7734ca3372c4c054fa7a36c1284d35",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/docker-compose.yml": {
@@ -2376,9 +2376,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/core/errors.py": {
-    "mtime": 1790832274.1239278,
-    "seen": 1790832319.3083866,
-    "ast_hash": "00963ce7b0d792cb8407d4e408430eb3",
+    "mtime": 1791147657.8010182,
+    "seen": 1791150012.445625,
+    "ast_hash": "ad5b0b2e8ffa488198cf02ebd08029c2",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/database/seed.py": {
@@ -2538,9 +2538,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_migrated_schema.py": {
-    "mtime": 1791141381.3550415,
-    "seen": 1791141542.246158,
-    "ast_hash": "271c07c1304cfb35f1d08dd0b39e7c64",
+    "mtime": 1791147581.9306045,
+    "seen": 1791150012.4541295,
+    "ast_hash": "437caddccc79435d60b6d90bf82de98b",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/schema/test_sql_sources.py": {
@@ -3438,21 +3438,21 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/organizations.py": {
-    "mtime": 1791055390.2536275,
-    "seen": 1791055803.8774397,
-    "ast_hash": "37e820a206cb901cd959f9575c2a9a62",
+    "mtime": 1791148110.1691449,
+    "seen": 1791150012.447625,
+    "ast_hash": "7303f5f17293787a867403c1ad91dca1",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/schemas/organization.py": {
-    "mtime": 1791058335.0431893,
-    "seen": 1791058664.413158,
-    "ast_hash": "18aac1b9d4998481df545354421a19ec",
+    "mtime": 1791149339.9756656,
+    "seen": 1791150012.4486246,
+    "ast_hash": "657c5ac6d58f8b49048d48381b0a591c",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
-    "mtime": 1791059960.1981404,
-    "seen": 1791060569.899852,
-    "ast_hash": "5ded64b89e8225c29c19c8205fa2ed60",
+    "mtime": 1791149671.852842,
+    "seen": 1791150012.4486246,
+    "ast_hash": "303133cbf03a79bf82cd3b391cf1e163",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_create.py": {
@@ -4257,6 +4257,78 @@
     "mtime": 1791146331.0899682,
     "seen": 1791146563.2306821,
     "ast_hash": "d2ab42a107f2dde54a2dbe2e0c3e1e40",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/app/routers/internal_organization.py": {
+    "mtime": 1791148163.454077,
+    "seen": 1791150012.447625,
+    "ast_hash": "15f1851ab4e5755b353cb394497640f5",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/migrations/versions/0007_unit_name_scope.py": {
+    "mtime": 1791149483.300444,
+    "seen": 1791150012.4506247,
+    "ast_hash": "9d00817969026219f09248a1e21ef4b9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/org_helpers.py": {
+    "mtime": 1791147226.2626345,
+    "seen": 1791150012.4516249,
+    "ast_hash": "46dec1f67227e7f38ea71d5706a5ad4f",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_internal_organization.py": {
+    "mtime": 1791148138.0126898,
+    "seen": 1791150012.4526248,
+    "ast_hash": "5fdc17c40c17278bb0e2a63bd2b1d32e",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_create_rules.py": {
+    "mtime": 1791147226.3890042,
+    "seen": 1791150012.4526248,
+    "ast_hash": "91e81856b85b5c356bd21a0f573a018a",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_lifecycle.py": {
+    "mtime": 1791149628.798441,
+    "seen": 1791150012.4526248,
+    "ast_hash": "34a51596cc843db8004b75651331a1f8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_list_extended.py": {
+    "mtime": 1791147344.3263369,
+    "seen": 1791150012.4526248,
+    "ast_hash": "302dbdb6ad14585e257be26cc867a701",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_parent_change.py": {
+    "mtime": 1791148420.8227954,
+    "seen": 1791150012.4526248,
+    "ast_hash": "a945e7311ee4eb2a4eee596458af9e74",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_relationships.py": {
+    "mtime": 1791148086.2969203,
+    "seen": 1791150012.4526248,
+    "ast_hash": "500b942c94fd79b8bab80008a9a385c8",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_org_rename.py": {
+    "mtime": 1791147481.8805254,
+    "seen": 1791150012.4526248,
+    "ast_hash": "190c08844d8a04b7889379c3cf0f0829",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/schema/test_unit_name_scope_migration.py": {
+    "mtime": 1791147537.6155727,
+    "seen": 1791150012.4541295,
+    "ast_hash": "8b49159b75845732634fa2d24dae76d3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/security/test_org_management_security.py": {
+    "mtime": 1791148256.65781,
+    "seen": 1791150012.4541295,
+    "ast_hash": "0410ed679e09798a0aa0c0bcdd63c128",
     "semantic_hash": ""
   }
 }

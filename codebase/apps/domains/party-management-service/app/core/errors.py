@@ -43,6 +43,10 @@ def not_found(message: str = "El colaborador no existe.") -> ApiError:
     return ApiError(404, "RESOURCE_NOT_FOUND", message)
 
 
+def precondition_failed(message: str = "La unidad cambió desde que la consultaste; vuelve a cargarla.") -> ApiError:
+    return ApiError(412, "PRECONDITION_FAILED", message)
+
+
 def _body(request: Request, status: int, code: str, message: str, details: Any = None) -> dict:
     error: dict[str, Any] = {
         "code": code,

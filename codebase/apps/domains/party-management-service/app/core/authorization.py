@@ -17,6 +17,7 @@ JEFE_INGENIERIA = "jefe_ingenieria"
 ADMIN = "admin"
 FULL_VIEW_ROLES = (JEFE_INGENIERIA, ADMIN)
 WRITE_ROLES = (JEFE_INGENIERIA,)
+STRUCTURE_ROLES = (JEFE_INGENIERIA, ADMIN)  # BR-PTY-17 ampliado el 2026-10-04 (EVD-2026-0238)
 
 
 def can_see_full(caller: Caller) -> bool:
@@ -27,4 +28,11 @@ async def require_jefe_ingenieria(caller: Caller = Depends(get_caller)) -> Calle
     """US-015 / US-016: solo el Jefe de Ingeniería registra y modifica colaboradores."""
     if not caller.has_any_role(*WRITE_ROLES):
         raise authorization_failed("Solo el Jefe de Ingeniería puede realizar esta acción.")
+    return caller
+
+
+async def require_structure_manager(caller: Caller = Depends(get_caller)) -> Caller:
+    """US-017/028/029/030: el Jefe de Ingeniería y ADMIN gestionan la estructura organizacional (BR-PTY-17)."""
+    if not caller.has_any_role(*STRUCTURE_ROLES):
+        raise authorization_failed("Solo el Jefe de Ingeniería o ADMIN pueden gestionar la estructura organizacional.")
     return caller

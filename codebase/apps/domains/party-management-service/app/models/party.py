@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timezone
 
-from sqlalchemy import CHAR, Date, DateTime, ForeignKey, ForeignKeyConstraint, Index, String, func, text
+from sqlalchemy import CHAR, Date, DateTime, ForeignKey, ForeignKeyConstraint, Index, Integer, String, func, text
 from sqlalchemy.orm import Mapped, foreign, mapped_column, relationship
 
 from app.models.base import Base
@@ -228,10 +228,12 @@ class PartyContactMechanism(Base):
         ),
     )
 
+ROLE_INTERNAL = "INTERNAL_ORGANIZATION"
 ROLE_UNIT = "ORGANIZATIONAL_UNIT"
 ROLE_SUPPLIER = "SUPPLIER"
 ORG_ROLES = (ROLE_UNIT, ROLE_SUPPLIER)
 REL_ORG_STRUCTURE = "ORG_STRUCTURE"
+REL_MEMBERSHIP = "MEMBERSHIP"
 ID_RUC = "RUC"
 ORGANIZATION = "ORGANIZATION"
 
@@ -248,6 +250,21 @@ class Organization(Base):
     created_by: Mapped[str] = mapped_column(String(36))
     updated_at: Mapped[datetime | None] = mapped_column(DateTime)
     updated_by: Mapped[str | None] = mapped_column(String(36))
+    # migración 0007: versión de fila para If-Match (Q-8) y alcance del nombre de la unidad (BR-PTY-26):
+    # id del padre vigente, "ROOT" si es unidad superior activa, NULL si no ocupa nombre (inactiva, proveedor)
+    row_version: Mapped[int] = mapped_column(Integer, default=1, server_default="1")
+    unit_name_scope: Mapped[str | None] = mapped_column(String(36))
+
+    __table_args__ = (
+        Index(
+            "idx_organization_unit_name_scope",
+            "unit_name_scope",
+            func.lower(text("organization_name")),
+            unique=True,
+            postgresql_where=text("unit_name_scope IS NOT NULL"),
+            sqlite_where=text("unit_name_scope IS NOT NULL"),
+        ),
+    )
 
 
 class OrganizationNameHistory(Base):
@@ -274,3 +291,16 @@ class PartyRelationship(Base):
     thru_date: Mapped[date | None] = mapped_column(Date)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
     created_by: Mapped[str] = mapped_column(String(36))
+    updated_at: Mapped[datetime | None] = mapped_column(DateTime)
+    updated_by: Mapped[str | None] = mapped_column(String(36))
+
+    __table_args__ = (
+        # migración 0007: una unidad tiene a lo sumo una relación de estructura vigente
+        Index(
+            "idx_party_relationship_org_structure_open",
+            "fk_party_role_from_id",
+            unique=True,
+            postgresql_where=text("fk_party_relationship_type_code = 'ORG_STRUCTURE' AND thru_date IS NULL"),
+            sqlite_where=text("fk_party_relationship_type_code = 'ORG_STRUCTURE' AND thru_date IS NULL"),
+        ),
+    )

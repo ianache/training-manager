@@ -30,6 +30,9 @@ Sin esa variable, las pruebas de `tests/schema/test_migrated_schema.py` se omite
 | `tests/integration/test_health.py` | `/health/ready` exige la base migrada |
 | `tests/schema/test_sql_sources.py` | La línea base de Alembic es idéntica a `party-postgresql.sql` |
 | `tests/schema/test_migrated_schema.py` | Solo PostgreSQL: revisión en head, el ORM coincide con la base, nombres STD-DB-001 (≤ 63 caracteres), catálogos sembrados, índice único de correo |
+| `tests/integration/test_org_*.py`, `test_internal_organization.py` | DCP-004 fase 2 (API-SPEC-006/007): listado ampliado (`ancestor_id`, orden, conteos, `view=tree`), `PATCH` con historial del nombre, cambio de padre (ciclo, padre inactivo, nombre repetido, concurrencia), desactivar/reactivar, historial de relaciones y organización interna; permisos Jefe/ADMIN, `If-Match` y auditoría |
+| `tests/security/test_org_management_security.py` | Rutas nuevas: sin token 401, UUID inválido 400, cuota de escrituras 429, inyección en el nombre |
+| `tests/schema/test_unit_name_scope_migration.py` | Solo PostgreSQL: migración 0007 (ascenso con rellenado, índice único del nombre por padre, una relación de estructura vigente, descenso) |
 
 Los tokens se firman con una llave RSA generada en `tests/conftest.py`; el cliente JWKS se reemplaza
 por uno que devuelve esa llave, así que la validación de firma es real sin depender de Keycloak.

@@ -2196,9 +2196,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/public-api.ts": {
-    "mtime": 1791142079.0943434,
-    "seen": 1791142323.4642003,
-    "ast_hash": "38fa6f2f936302f0c69eb0a677235e4f",
+    "mtime": 1791145923.4408412,
+    "seen": 1791146563.2306821,
+    "ast_hash": "15c8ddf75214c8ac0872069ba9a86cea",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/tsconfig.lib.json": {
@@ -4140,8 +4140,8 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/components/CMP-018-diseno-atomico-brechas-gestion-de-unidades.md": {
-    "mtime": 1791141379.7336438,
-    "seen": 1791141542.556008,
+    "mtime": 1791146514.2941227,
+    "seen": 1791146563.309074,
     "ast_hash": "94d95b642c629fba091629d4b06752cb",
     "semantic_hash": ""
   },
@@ -4197,6 +4197,66 @@
     "mtime": 1791142075.5551867,
     "seen": 1791142323.4642003,
     "ast_hash": "3156ad446c6749374a133c850ded48c3",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/active-filters/active-filters.spec.ts": {
+    "mtime": 1791143688.4997509,
+    "seen": 1791146563.2276752,
+    "ast_hash": "00868f66e8affe4d7f99d15f0a1026cb",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/active-filters/active-filters.ts": {
+    "mtime": 1791146057.9740717,
+    "seen": 1791146563.2276752,
+    "ast_hash": "644015456043c2477338e9963eea4412",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/description-list/description-list.spec.ts": {
+    "mtime": 1791143831.557313,
+    "seen": 1791146563.22868,
+    "ast_hash": "faf91f2f0de34fb2af1e2bffa46d9ad9",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/molecules/description-list/description-list.ts": {
+    "mtime": 1791146368.152747,
+    "seen": 1791146563.22868,
+    "ast_hash": "e0b338b480ad5e09a2b417947ba2eb67",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/data-table/data-table.spec.ts": {
+    "mtime": 1791145286.8293247,
+    "seen": 1791146563.2306821,
+    "ast_hash": "c6b6da839f56c1c06ab652575a4dc3dd",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/data-table/data-table.ts": {
+    "mtime": 1791146414.9090269,
+    "seen": 1791146563.2306821,
+    "ast_hash": "19c278e35bcc63cdfa35e2f6358b1164",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/dialog/dialog.spec.ts": {
+    "mtime": 1791144529.4154058,
+    "seen": 1791146563.2306821,
+    "ast_hash": "acea5e0b8c8f6ecfefc1e67b9d4aaf11",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/dialog/dialog.ts": {
+    "mtime": 1791146140.5288544,
+    "seen": 1791146563.2306821,
+    "ast_hash": "440da9d03333b7c99739803acf4d44c0",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/tree/tree.spec.ts": {
+    "mtime": 1791145883.4953032,
+    "seen": 1791146563.2306821,
+    "ast_hash": "ea4e28a0da74fb2bdc43e82db74a6f51",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/ui/src/lib/organisms/tree/tree.ts": {
+    "mtime": 1791146331.0899682,
+    "seen": 1791146563.2306821,
+    "ast_hash": "d2ab42a107f2dde54a2dbe2e0c3e1e40",
     "semantic_hash": ""
   }
 }
