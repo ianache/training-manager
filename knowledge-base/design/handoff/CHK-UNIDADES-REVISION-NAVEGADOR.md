@@ -51,7 +51,7 @@ Marca cada fila con ✔ (cumple), ✘ (no cumple, con nota) o — (no aplica).
 | SCR-017-02 | `4368eace9ac44ba6b630ad0391cf2bc4` (consolidada) | Foco al primer error al enviar con campos vacíos; el error de RUC duplicado se anuncia; el botón «Registrar» no se activa dos veces | |
 | SCR-017-03 | `08a98db688474629b3ef7a32c9d751ca` | El mensaje de acceso no autorizado recibe el foco o se anuncia al cargar | |
 | SCR-028-01 | `3000469d418c4941b1d98dca2c1b4b27` (consolidada) | Ordenar por columna con teclado y que se anuncie `aria-sort`; el árbol: flechas expanden y contraen, Enter activa; los filtros se conservan al alternar lista y jerarquía | |
-| SCR-029-01 | `f60d9b006fc643d0b0120e95ef04e9a6` (v6, consolidada) | El combobox «Unidad padre» con teclado (flechas, Enter, Escape) y solo ofrece unidades Activas; foco al primer error | |
+| SCR-029-01 | `f60d9b006fc643d0b0120e95ef04e9a6` (v6, consolidada) | El combobox «Unidad padre» con teclado (flechas, Enter, Escape) y solo ofrece unidades Activas; foco al primer error **Correo laboral \*:** el lector de pantalla anuncia su etiqueta y que es obligatorio; con «nombre@» anuncia «Ingrese un correo válido» sin mover el foco (BR-PTY-27). | |
 | SCR-029-02 | `234079448a8b438cb5ecb9e601093c39` (consolidada) | «Guardar» deshabilitado sin cambios; el error de nombre repetido se anuncia | |
 | SCR-029-03 | `c53d12f7720c49e4a73c193b62b517a5` (consolidada) | **Diálogo de resumen:** el foco entra, queda atrapado, Escape cierra y el foco vuelve al botón que lo abrió; el fondo no es alcanzable | |
 | SCR-029-04 | `54b227ae20d649e698b804011e3e00af` (consolidada) | La tabla se lee con `caption` y encabezados; la paginación «Anterior»/«Siguiente» es operable; el estado de carga se anuncia | |
