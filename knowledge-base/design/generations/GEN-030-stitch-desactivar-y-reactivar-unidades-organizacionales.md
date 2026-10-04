@@ -126,3 +126,5 @@ Decisiones de `human:ianache`: el éxito y la vigencia usan el verde del design 
 | SCR-030-04 (A, B) | `projects/13050549605434273903/screens/836b9b73b01e4191afab8798ba562000` |
 
 Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACION-v2.md). Es exploración, no diseño gobernado; revisión humana pendiente.
+
+**Hoja consolidada v3 de SCR-030-01 (2026-10-04).** `projects/13050549605434273903/screens/00639d1bc02d41308ff174f3b6f90a8a`: cubre los 6 `required_states` (A diálogo de desactivación, B guardando, C éxito con insignia «Inactiva», D error al guardar, E «Desactivar» deshabilitado, F sin permisos). El texto «No tiene permiso para desactivar unidades» y «Desactivando…» los propuso el agente. Verificación estática: éxito con los tokens exactos `#065f46`/`#ecfdf5`/`#a7f3d0`, 3 `nav` con nombre, 3 `role=dialog` con `aria-modal`, 19 iconos con `aria-hidden`, 0 slate, sin Soporte/Ajustes/Eliminar. **Pendiente:** contraste de los rótulos de menú y migas (`#916f69` sobre `#fff0ee` = 4.05:1 y sobre `#fff8f7` = 4.28:1, mínimo 4.5:1). Registrada como `exploration_design` vigente; necesita aprobación humana nueva.
