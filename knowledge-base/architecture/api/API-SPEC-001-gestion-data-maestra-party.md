@@ -389,6 +389,8 @@ Status Codes:
 
 ### 3.3 ROLE-ASSIGNMENT (Asignar Rol-Nivel — US-019)
 
+> **Reemplazado el 2026-10-04 por [API-SPEC-004](API-SPEC-004-asignacion-de-rol-nivel.md)** (ids del catálogo en lugar de nombres, sin `PATCH` ni `reason`, ADMIN además del Jefe de Ingeniería). Lo que sigue es el bosquejo original; no se implementó.
+
 ```
 POST   /parties/{id}/role-assignments       Asignar nuevo rol/nivel
 GET    /parties/{id}/role-assignments       Listar vigentes + historial

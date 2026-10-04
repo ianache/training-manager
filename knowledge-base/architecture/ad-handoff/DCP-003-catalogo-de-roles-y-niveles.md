@@ -51,7 +51,7 @@ Que el Jefe de Ingeniería defina roles, Rol-Nivel y competencias versionadas en
 | Rutas `/api/v1/catalog/*` del BFF (existentes, hoy 503) y `CATALOG_SERVICE_URL` | `catalog.router.ts` | código existente |
 | Rol `product_owner` | `realm-gestion-formacion.json`, `roles.ts` | **ya implementado** (commit `fc228f1`) |
 | Pantallas SCR-001-01..04 y SCR-019-01..03 | SCR-001, SCR-019, GEN-001-G, GEN-019 | draft; exploración Stitch |
-| Asignación de Rol-Nivel a personas (API y tabla en party) | LDM-001 DM-07, US-019 | **sin API-SPEC** |
+| Asignación de Rol-Nivel a personas (API y tabla en party) | API-SPEC-004, LDM-001 DM-07, US-019 | REQUIRES_REVIEW; sin implementar; migración `0005` por decidir (AQ-4) |
 
 ### Excluded work
 
@@ -82,7 +82,7 @@ Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción 
 ### Risks and dependencies
 
 - **Reintentos y cortacircuito sin parámetros:** ADR-012 decide la política pero no el número de reintentos, las esperas ni los umbrales; hace falta antes de implementar. Reintentar escrituras exige idempotencia, que API-SPEC-003 no define.
-- **Falta la API de asignación de Rol-Nivel** (party): API-SPEC-003 la excluye; hace falta una API-SPEC o ampliar API-SPEC-001 antes de implementar US-019. Un nivel desactivado (BR-CAT-30) no debe asignarse: party tiene que consultar el estado.
+- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): sus preguntas AQ-1 a AQ-5 siguen abiertas. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
 - **Verificar contra el comprobador de AC-5:** necesita datos de certificación, que no existen (certificación fuera de alcance); sin ellos no se puede evaluar «competencias pendientes». **Dependencia bloqueante de US-019 AC-5.**
 - **Sin servicio de certificación ni curso:** el bloqueo y `course_ref` quedan simulados o desactivados hasta que existan.
 - **SQLite no detecta** errores de PostgreSQL (orden de INSERT, longitud de la revisión de Alembic, claves foráneas): las pruebas del servicio deben correr contra PostgreSQL real.
@@ -138,5 +138,5 @@ No sustituir `@gf/ui` por Material ni otra biblioteca; no omitir estados ni vali
 ## Next action
 
 - Owner: Jefe de Ingeniería (decisor), con arquitectura y UX.
-- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) diseñar la API de asignación de Rol-Nivel en party; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
+- Action: (1) decidir los parámetros de ADR-012 y la idempotencia de las escrituras; (2) responder las preguntas abiertas de «Assumptions»; (3) responder AQ-1 a AQ-5 de API-SPEC-004; (4) pasar `web-atomic-component-designer` por las brechas; (5) revisiones de contrato, seguridad y accesibilidad; (6) diseño gobernado y aprobación humana.
 - Gate: pasar a `READY_FOR_DEV` exige parámetros de ADR-012, API de asignación diseñada, brechas de componentes resueltas, accesibilidad revisada y aprobación humana. Hoy no se cumple ninguno.

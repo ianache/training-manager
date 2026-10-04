@@ -77,6 +77,7 @@ sources:
 
 - [API-SPEC-002 — Organizaciones (unidades y proveedores): consulta y alta](architecture/api/API-SPEC-002-organizations.md) — Technical Design, `draft`; implementado
 - [API-SPEC-003 — Catálogo de roles, niveles y competencias con versiones](architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md) — Technical Design, `draft`, REQUIRES_REVIEW; sin implementar
+- [API-SPEC-004 — Asignación de Rol-Nivel a una persona](architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md) — Technical Design, `draft`, REQUIRES_REVIEW; sin implementar
 - [DCP-003 — Development Context Pack: catálogo de roles y niveles](architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md) — `REQUIRES_REVIEW`; alcance completo de DSP-001
 
 ## Arquitectura — Modelo de datos

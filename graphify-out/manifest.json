@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791071333.9803529,
-    "seen": 1791071395.442026,
-    "ast_hash": "c85ff9d215618346a52050ac50c63a98",
+    "mtime": 1791071955.93472,
+    "seen": 1791072006.4349256,
+    "ast_hash": "eaf7609447ec1693593901e4b88d2290",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791071333.985142,
-    "seen": 1791071395.4716184,
-    "ast_hash": "523fce271c3c66e7963cac39d90c156b",
+    "mtime": 1791071955.9391007,
+    "seen": 1791072006.4862761,
+    "ast_hash": "9ec355b8fb4fa6b9ec6f089995a95ec9",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1416,9 +1416,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-001-gestion-data-maestra-party.md": {
-    "mtime": 1790563311.1380053,
-    "seen": 1790707615.877006,
-    "ast_hash": "8de5670a7ba32fd910ce63e44d50ca08",
+    "mtime": 1791071955.923852,
+    "seen": 1791072006.3806808,
+    "ast_hash": "a9187e97009e08406b54b76c709af8cf",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/DCP-001-desarrollo-api-party.md": {
@@ -3630,15 +3630,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md": {
-    "mtime": 1791071333.97339,
-    "seen": 1791071395.3735645,
-    "ast_hash": "722a44362b016b07874abe9d987d62d4",
+    "mtime": 1791071955.9281588,
+    "seen": 1791072006.3786829,
+    "ast_hash": "197bd6eaf2b8c5170290dc0961e2fdb1",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-012-reintentos-con-espera-creciente-y-cortacircuito.md": {
     "mtime": 1791071241.888434,
     "seen": 1791071395.377572,
     "ast_hash": "69db36cf8e66b6bc1a59fd5df93c2483",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md": {
+    "mtime": 1791071933.959978,
+    "seen": 1791072006.3806808,
+    "ast_hash": "b7492a688eb303617ebd3b0a66deb79c",
     "semantic_hash": ""
   }
 }
