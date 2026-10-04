@@ -398,3 +398,5 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0229, 0230): una evaluación no aprobada la ven el colaborador evaluado, el Jefe de Ingeniería y ADMIN (BR-TRA-09, excepción a BR-TRA-06); con varios roles y sin código de party se muestra el rol que autoriza la acción. Los evaluadores no figuran entre quienes ven una evaluación no aprobada (AQ-11 pregunta si el que la registró la ve). Abiertas: AQ-10 (si lleva motivo o descripción), AQ-11, AQ-12 (404 en el detalle) y AQ-7.
 - Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
+
+- Revisadas las dos hojas «estados vacíos» de SCR-028-01 que se creían residuo: son hojas completas de C, D y E; la `5c821e8a…` ya trae `aria-label` en las dos `nav` y sustituye la hoja individual de E, así que no hace falta regenerarla. Anotado en `GEN-028`.

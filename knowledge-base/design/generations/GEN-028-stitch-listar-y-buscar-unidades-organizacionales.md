@@ -109,3 +109,14 @@ Los timeouts de Stitch **no significan que la pantalla no se generó**: las llam
 | E · Sin organización interna | `projects/13050549605434273903/screens/2699220ea5404eec96661060e1b596c8` | Mensaje en `role="status"` y enlace «Registrar organización interna»; iconos ocultos. **Defecto:** el único `nav` no tiene `aria-label`. |
 
 Además hay dos hojas más de «estados vacíos» (`e72f753aa88a46788f99dbbbe361771a` y `5c821e8a409549b982fa97a0e3b4767b`), resultado de llamadas anteriores que dieron timeout; no se revisaron y quedan como residuo. Con C y E, SCR-028-01 tiene ya todos sus estados generados (A y B, C, D, E, F a H); falta solo corregir el `aria-label` de E y la revisión humana.
+
+## Revisión de las hojas «estados vacíos» (2026-10-03)
+
+Las dos hojas que se habían dado por residuo resultaron ser hojas completas de los estados C, D y E, y **una de ellas es mejor que las hojas individuales**:
+
+| Hoja | Resource name (Stitch) | Revisión del HTML |
+|---|---|---|
+| Estados C, D y E (recomendada) | `projects/13050549605434273903/screens/5c821e8a409549b982fa97a0e3b4767b` | Barra de consulta completa (búsqueda, «Estado», «Unidad padre», «Lista»/«Jerarquía») en C; mensajes en `role="status"`; iconos ocultos; **las dos `nav` tienen `aria-label`**, con lo que corrige el defecto de la hoja individual de E; sin «Soporte»/«Ajustes». Opciones de ejemplo coherentes con las demás pantallas («Ingeniería», «Operaciones de Formación»). |
+| Estados C, D y E (alternativa) | `projects/13050549605434273903/screens/e72f753aa88a46788f99dbbbe361771a` | Misma estructura, pero usa datos de ejemplo distintos («Gerencia General», «Dirección de Operaciones») y añade opciones «Estado: Inactiva» y «Estado: Todos» que no están en el SCR como textos. No se recomienda. |
+
+No hace falta regenerar E: la hoja recomendada ya trae el `aria-label`. Sigue sin evaluarse en navegador el foco, el teclado y el zoom, y falta la revisión humana.
