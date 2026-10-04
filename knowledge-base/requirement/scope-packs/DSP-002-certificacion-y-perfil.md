@@ -58,6 +58,7 @@ Que un evaluador humano certifique el nivel L1–L4 de un colaborador en una com
 
 **De qué depende:**
 - **Catálogo (US-001, catalog-service):** competencias, sus versiones, rúbricas y requisitos de evidencia «requeridos» y «deseados» (BR-ACR-07, 09, 12, 13). *Inferencia a confirmar:* una certificación se refiere a la versión de la competencia vigente al certificar (IMD-001 R-46).
+- **Identidad de acceso (US-022):** el actor de la auditoría es el código de party (EVD-2026-0222), así que el servicio traduce el usuario de Keycloak a su código mediante ese vínculo; un usuario sin código (por ejemplo, un ADMIN que no es colaborador) queda por resolver (LDM-003 DM-Q-07).
 - **Personas (US-015) y anonimización (US-024):** el colaborador certificado debe ser vigente (EVD-2026-0217); si se anonimiza, sus certificaciones solo las ve ADMIN (EVD-2026-0218). El servicio necesita saber ambas cosas de party: consulta directa o composición en el BFF (abierto).
 - **Evaluadores (US-020):** el rol `evaluador` existe en Keycloak (descrito como «Evaluador de competencias») y cualquier usuario con él puede certificar (EVD-2026-0199); los designa el Jefe de Ingeniería o ADMIN asignando ese rol (EVD-2026-0189).
 - **Evidencias de formación:** en H1 se registran a mano; la conexión con cursos es H2.

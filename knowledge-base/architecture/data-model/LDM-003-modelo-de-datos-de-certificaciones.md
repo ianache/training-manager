@@ -27,7 +27,7 @@ sources:
 - **Estado del gate (data-model-designer):** `REQUIRES_REVIEW`. Sin revisión humana; no hay `verified`.
 - **Alcance (DSP-002):** certificaciones de nivel L1–L4, evidencias, la calificación de cada evidencia, motivos de revocación y el registro de auditoría. **Fuera:** la pantalla de perfil (US-004, es una lectura de este modelo), certificados de curso, propuestas de la IA (H3) y la lectura de GitLab.
 - **Dueño de los datos:** el certification-service ([ADR-013](../adrs/ADR-013-certification-service-como-microservicio-propio.md), aceptado). Aún no existe.
-- **Modelo físico:** [ddl/certification-postgresql.sql](ddl/certification-postgresql.sql). Probado el 2026-10-04 en una base temporal del PostgreSQL del compose: 25 casos, 17 que deben fallar (fallan) y 10 que deben pasar (pasan) (§7). Sin variante MySQL (ADR-007).
+- **Modelo físico:** [ddl/certification-postgresql.sql](ddl/certification-postgresql.sql). Probado el 2026-10-04 en una base temporal del PostgreSQL del compose: 25 casos, 17 que deben fallar (fallan) y 10 que deben pasar (pasan) (§7). Se repitió tras pasar las columnas de actor a `CHAR(36)` (CE-14) con el mismo resultado. Sin variante MySQL (ADR-007).
 
 ## 1. Diagrama
 
@@ -72,6 +72,7 @@ Propuestas del agente dentro del margen de las decisiones. Requieren revisión.
 | CE-11 | La certificación guarda la versión de la competencia vigente al certificar | Una versión nueva no altera lo vigente | IMD-001 R-46, EVD-2026-0143 |
 | CE-12 | La URL de la evidencia solo admite `http` o `https`; GitLab y otros orígenes son solo URL | Las evidencias de GitLab son referencias | EVD-2026-0211 |
 | CE-13 | Quién ve qué (por ejemplo, la descripción de la revocación solo para la persona certificada, los evaluadores, el Jefe de Ingeniería y ADMIN) **no se aplica en la base**: lo filtra la API | La visibilidad por rol es de la capa de servicio | BR-TRA-07, EVD-2026-0206, 0209 |
+| CE-14 | Las columnas de actor de las cuatro tablas de certificación son `CHAR(36)` (código de party), no el nombre de usuario | EVD-2026-0222 decide que el actor de la auditoría es el código de party; el catálogo de motivos conserva `VARCHAR(100)` por su siembra técnica | EVD-2026-0222, BR-ACR-23 |
 
 ## 4. Transiciones de una certificación
 
@@ -95,6 +96,7 @@ REPLACED y REVOKED: finales
 | CHK-G | Visibilidad por rol de la descripción de la revocación | Servicio (API) | BR-TRA-07 |
 | CHK-H | La evidencia la registra el propio colaborador certificado (EVD-2026-0215) | Servicio | BR-ACR-20 |
 | CHK-I | Recertificar exige evidencias nuevas, que no respaldaron la certificación que se reemplaza (EVD-2026-0216, 0220); se aplica «al menos una» (EVD-2026-0220 no precisa si basta una) | Servicio | BR-ACR-21 |
+| CHK-K | El servicio traduce el usuario de Keycloak (el que llega en `X-User-Name`) a su código de party mediante el vínculo de identidad de US-022 y rechaza al usuario que no lo tiene (DM-Q-07) | Servicio / BFF | BR-ACR-23, US-022 |
 | CHK-J | La persona certificada es un colaborador vigente y no está anonimizada (EVD-2026-0217, 0218): se consulta a party, o lo orquesta el BFF como en API-SPEC-004 | Servicio / BFF | BR-ACR-22, BR-TRA-08 |
 
 ## 6. Transacciones, concurrencia y operación
@@ -146,7 +148,8 @@ No se probaron CHK-A a CHK-G (son del servicio, que no existe), la carga ni dos 
 | ~~DM-Q-01~~ | ~~¿Quién registra una evidencia: el colaborador, el evaluador o ambos? En H1 un evaluador puede registrar a mano evidencia de GitLab (RCP-Q2, abierta)~~ **Respondida (ianache, 2026-10-04):** las registra el colaborador (EVD-2026-0215). | Jefe de Ingeniería | CHK-F y la API |
 | ~~DM-Q-02~~ | ~~¿Recertificar exige nuevas evidencias o puede reutilizar las anteriores?~~ **Respondida (ianache, 2026-10-04):** recertificar exige nuevas evidencias (EVD-2026-0216). | Jefe de Ingeniería | La API de recertificación |
 | ~~DM-Q-03~~ | ~~¿La persona certificada debe ser un colaborador vigente? (como US-019-Q1)~~ **Respondida (ianache, 2026-10-04):** sí, un colaborador vigente (EVD-2026-0217). | Jefe de Ingeniería | CHK-B |
-| DM-Q-04 | **Aclaración de la pregunta:** el registro de auditoría guarda *quién* certificó, calificó o revocó. ¿Con qué dato se identifica a esa persona: el **nombre de usuario** de Keycloak (legible, es lo que ya guardan party y el catálogo en `created_by`), el **identificador interno** (un UUID estable que no cambia aunque se renombre el usuario) o el **código de colaborador** de party? Hoy las columnas son `VARCHAR(100)` y valen para cualquiera de los tres | Arquitectura | Auditoría |
+| ~~DM-Q-04~~ | ~~**Aclaración de la pregunta:** el registro de auditoría guarda *quién* certificó, calificó o revocó. ¿Con qué dato se identifica a esa persona: el **nombre de usuario** de Keycloak (legible, es lo que ya guardan party y el catálogo en `created_by`), el **identificador interno** (un UUID estable que no cambia aunque se renombre el usuario) o el **código de colaborador** de party? Hoy las columnas son `VARCHAR(100)` y valen para cualquiera de los tres~~ **Respondida (ianache, 2026-10-04):** se usa el código de party (EVD-2026-0222). | Arquitectura | Auditoría |
+| DM-Q-07 | ¿Qué identifica en la auditoría a un usuario que **no tiene código de party**? Un ADMIN es un rol de plataforma y puede no ser colaborador (SCR-016-Q19), y revocar o recertificar lo permite a ADMIN (EVD-2026-0191). Además, el servicio debe traducir el usuario de Keycloak a su código de party (vínculo de US-022) | Jefe de Ingeniería | La revocación por ADMIN |
 | ~~DM-Q-05~~ | ~~Si se anonimiza a una persona (US-024), ¿qué pasa con la descripción de sus evidencias y con sus certificaciones?~~ **Respondida (ianache, 2026-10-04):** las evidencias no se anonimizan y las certificaciones solo las ve ADMIN (EVD-2026-0218). | Jefe de Ingeniería | Retención |
 | ~~DM-Q-06~~ | ~~Si una certificación se revoca, ¿las evidencias que solo la respaldaban siguen disponibles para otras? (se supone que sí)~~ **Respondida (ianache, 2026-10-04):** siguen disponibles (EVD-2026-0219). | Jefe de Ingeniería | — |
 

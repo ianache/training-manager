@@ -383,3 +383,6 @@ sources:
 
 - Confirmaciones de `human:ianache` 2026-10-04 (EVD-2026-0220, 0221): las evidencias «nuevas» al recertificar son las que no respaldaron la certificación reemplazada (no precisó si basta una; se aplica «al menos una»); el colaborador registra las evidencias y un evaluador no las registra a mano en H1 (RCP-Q2 cerrada). Se quitaron las marcas «a confirmar» de EVD-2026-0215 y 0216, BR-ACR-20 y BR-ACR-21.
 - Artefactos afectados: `BRC-001`, `RCP-001`, `DSP-002`, `LDM-003`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0222): el actor de la auditoría de certificaciones se identifica con el código de party (BR-ACR-23). Se cambiaron a `CHAR(36)` las columnas de actor del DDL de certificaciones y se volvió a probar. Pregunta nueva DM-Q-07: qué identifica a un usuario sin código de party (un ADMIN que no es colaborador) y cómo se traduce el usuario de Keycloak a su código (US-022).
+- Artefactos afectados: `BRC-001`, `LDM-003`, `certification-postgresql.sql`, `DSP-002`, `ADR-013`.

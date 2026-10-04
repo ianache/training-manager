@@ -2,6 +2,8 @@
 -- Propuesta del agente (data-model-designer): REQUIERE REVISIÓN. Convenciones de PDM-001 y LDM-002:
 -- tb_*, pk_*/fk_*, CHAR(36) generado por el servicio, auditoría sin FK, estados en mayúsculas (BR-CAT-27).
 -- Los ids de persona, competencia, versión y requisito son referencias lógicas a otros servicios (sin FK, ADR-013).
+-- Todo actor de la auditoría (certified_by, revoked_by, graded_by, actor, created_by, updated_by) es el CÓDIGO DE PARTY de la persona
+-- (código de colaborador, CHAR(36)), EVD-2026-0222. El catálogo de motivos conserva VARCHAR(100) por su siembra técnica ('system').
 -- Las reglas entre servicios y entre filas (CHK-A..CHK-E de LDM-003 §5) las aplica el servicio.
 
 -- Motivos tipificados de revocación (EVD-2026-0195, 0197, 0200): lista ampliable con estado
@@ -32,7 +34,7 @@ CREATE TABLE tb_evidence (
     reference_url   VARCHAR(2000),              -- GitLab y otros: solo URL (EVD-2026-0211)
     course_ref      CHAR(36),                   -- ref. lógica a un curso; solo con FORMACION
     created_at      TIMESTAMPTZ   NOT NULL DEFAULT now(),
-    created_by      VARCHAR(100)  NOT NULL,
+    created_by      CHAR(36)      NOT NULL,
     CONSTRAINT ck_evidence_category CHECK (category IN ('FORMACION', 'PRACTICA_EVALUADA', 'DESEMPENO_PROYECTO')),
     CONSTRAINT ck_evidence_text CHECK (btrim(description) <> ''),
     CONSTRAINT ck_evidence_url CHECK (reference_url IS NULL OR reference_url ~ '^https?://[^[:space:]]+$'),
@@ -48,19 +50,19 @@ CREATE TABLE tb_certification (
     competency_version_id      CHAR(36)     NOT NULL,   -- versión vigente al certificar (IMD-001 R-46)
     level_code                 VARCHAR(2)   NOT NULL,
     status                     VARCHAR(8)   NOT NULL DEFAULT 'ACTIVE',
-    certified_by               VARCHAR(100) NOT NULL,   -- evaluador (BR-ACR-02, 03)
+    certified_by               CHAR(36)     NOT NULL,   -- evaluador (BR-ACR-02, 03)
     certified_at               TIMESTAMPTZ  NOT NULL DEFAULT now(),
     replaced_by_certification_id CHAR(36),
     replaced_at                TIMESTAMPTZ,
-    revoked_by                 VARCHAR(100),
+    revoked_by                 CHAR(36),
     revoked_at                 TIMESTAMPTZ,
     revoke_reason_code         VARCHAR(40),
     revoke_description         VARCHAR(1000),
     row_version                INTEGER      NOT NULL DEFAULT 1,
     created_at                 TIMESTAMPTZ  NOT NULL DEFAULT now(),
-    created_by                 VARCHAR(100) NOT NULL,
+    created_by                 CHAR(36)     NOT NULL,
     updated_at                 TIMESTAMPTZ,
-    updated_by                 VARCHAR(100),
+    updated_by                 CHAR(36),
     CONSTRAINT ck_cert_level CHECK (level_code IN ('L1', 'L2', 'L3', 'L4')),
     CONSTRAINT ck_cert_status CHECK (status IN ('ACTIVE', 'REPLACED', 'REVOKED')),
     -- recertificar reemplaza la anterior (EVD-2026-0192); la FK se verifica al confirmar la transacción
@@ -96,7 +98,7 @@ CREATE TABLE tb_certification_evidence (
     evidence_requirement_id   CHAR(36)     NOT NULL,   -- ref. lógica al catálogo: el requisito que la pieza intenta cumplir
     requirement_is_required   BOOLEAN      NOT NULL,   -- instantánea: requerido o deseado al certificar (P-41)
     grade                     VARCHAR(10)  NOT NULL,
-    graded_by                 VARCHAR(100) NOT NULL,
+    graded_by                 CHAR(36)     NOT NULL,
     graded_at                 TIMESTAMPTZ  NOT NULL DEFAULT now(),
     PRIMARY KEY (fk_certification_id, fk_evidence_id, evidence_requirement_id),
     CONSTRAINT ck_cert_evidence_grade CHECK (grade IN ('CUMPLE', 'NO_CUMPLE'))
@@ -108,7 +110,7 @@ CREATE TABLE tb_certification_event (
     pk_certification_event_id BIGSERIAL    PRIMARY KEY,
     fk_certification_id       CHAR(36)     NOT NULL REFERENCES tb_certification (pk_certification_id),
     event_type                VARCHAR(10)  NOT NULL,
-    actor                     VARCHAR(100) NOT NULL,
+    actor                     CHAR(36)     NOT NULL,
     occurred_at               TIMESTAMPTZ  NOT NULL DEFAULT now(),
     reason_code               VARCHAR(40),
     description               VARCHAR(1000),

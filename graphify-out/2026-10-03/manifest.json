@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791085398.6288438,
-    "seen": 1791085474.5893943,
-    "ast_hash": "e0232cd001b8069de7479b1b74001abd",
+    "mtime": 1791086068.216991,
+    "seen": 1791086144.0351696,
+    "ast_hash": "6823dc93a68278d6b6cc3a833f90134b",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791085398.5830588,
-    "seen": 1791085474.5893943,
-    "ast_hash": "c66ce131743c2975c1b294f337c531de",
+    "mtime": 1791086068.1738422,
+    "seen": 1791086144.0351696,
+    "ast_hash": "3686b5578b38071897fe63d48333bfb2",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-001-h1-idioma-comun.md": {
-    "mtime": 1791085398.5913599,
-    "seen": 1791085474.657083,
-    "ast_hash": "770628cd57eef4da1c9e63052cd60d3b",
+    "mtime": 1791086068.178917,
+    "seen": 1791086144.153876,
+    "ast_hash": "529f540793e33a7fd9b6e11bdc7b0d07",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-001-definir-catalogo-de-competencias.md": {
@@ -3648,9 +3648,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791085398.60806,
-    "seen": 1791085474.6641328,
-    "ast_hash": "84799f0cdcf5cfc8f347186bef73f79e",
+    "mtime": 1791086068.1970935,
+    "seen": 1791086144.1584127,
+    "ast_hash": "1ffb4a063ca5ee26000e2507eff0744d",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
@@ -3660,9 +3660,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
-    "mtime": 1791085398.6003351,
-    "seen": 1791085474.504079,
-    "ast_hash": "364e89333fbfce966cad42c5332cd964",
+    "mtime": 1791086068.206238,
+    "seen": 1791086143.894015,
+    "ast_hash": "9d0fa4e951b5d714c47d68e1b271650e",
     "semantic_hash": ""
   }
 }
