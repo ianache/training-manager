@@ -18,8 +18,9 @@ const role: RoleOption = {
   id: 'r1',
   label: 'Developer',
   levels: [
-    { id: 'l1', label: 'Nivel 1', evidenceCount: 0 },
-    { id: 'l2', label: 'Nivel 2', evidenceCount: 4 },
+    { id: 'l1', label: 'Nivel 1', evidenceCount: 0, usable: false },
+    { id: 'l2', label: 'Nivel 2', evidenceCount: 4, usable: true },
+    { id: 'l3', label: 'Nivel 3', evidenceCount: 5, usable: false },
   ],
 };
 
@@ -90,6 +91,8 @@ describe('validación por paso', () => {
   });
   it('rol: nivel sin requisitos de evidencia no es válido (E8)', () => {
     expect(stepErrors('rol', { ...filled(), levelId: 'l1' })['level']).toBe('invalid');
+    // con requisitos contados pero no utilizable (borrador, sin requeridos o nivel inactivo): la compuerta es `usable`
+    expect(stepErrors('rol', { ...filled(), levelId: 'l3' })['level']).toBe('invalid');
     expect(isStepValid('rol', filled())).toBe(true);
     expect(stepErrors('rol', { ...filled(), levelId: '' })['level']).toBe('Requerido');
   });

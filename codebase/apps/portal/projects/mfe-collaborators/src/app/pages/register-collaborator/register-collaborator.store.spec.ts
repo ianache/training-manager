@@ -6,7 +6,7 @@ import { RegisterCollaboratorApi } from './register-collaborator.api';
 import { EMAIL_DEBOUNCE_MS, RegisterWizardStore } from './register-collaborator.store';
 import { RoleOption } from './register-collaborator.rules';
 
-const role: RoleOption = { id: 'r', label: 'Developer', levels: [{ id: 'l', label: 'Nivel 2', evidenceCount: 3 }] };
+const role: RoleOption = { id: 'r', label: 'Developer', levels: [{ id: 'l', label: 'Nivel 2', evidenceCount: 3, usable: true }] };
 
 describe('RegisterWizardStore', () => {
   let api: {

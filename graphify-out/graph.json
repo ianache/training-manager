@@ -768,7 +768,7 @@
       "file_type": "code",
       "norm_label": "roleoption",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L66"
+      "source_location": "L68"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_stepid",
@@ -794,7 +794,7 @@
       "file_type": "code",
       "norm_label": "wizarddata",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L72"
+      "source_location": "L74"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_api",
@@ -807,7 +807,7 @@
       "file_type": "code",
       "norm_label": "api",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L39"
+      "source_location": "L40"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle",
@@ -846,7 +846,7 @@
       "file_type": "code",
       "norm_label": "checkstate",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L145"
+      "source_location": "L147"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_collaboratortype",
@@ -898,7 +898,7 @@
       "file_type": "code",
       "norm_label": "stepcontext",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L147"
+      "source_location": "L149"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_submiterror",
@@ -911,7 +911,7 @@
       "file_type": "code",
       "norm_label": "submiterror",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L256"
+      "source_location": "L258"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_submiterrorkind",
@@ -924,7 +924,7 @@
       "file_type": "code",
       "norm_label": "submiterrorkind",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L255"
+      "source_location": "L257"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_store_registerwizardstore",
@@ -1665,7 +1665,7 @@
       "file_type": "code",
       "norm_label": "createpartybody",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L228"
+      "source_location": "L230"
     },
     {
       "id": "codebase_apps_portal_projects_ui_src_lib_atoms_badge_badge_gfbadge",
@@ -4411,7 +4411,7 @@
       "file_type": "code",
       "norm_label": "todayiso()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L106"
+      "source_location": "L108"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_goto",
@@ -4423,7 +4423,7 @@
       "file_type": "code",
       "norm_label": "goto()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L107"
+      "source_location": "L108"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_set",
@@ -4447,7 +4447,7 @@
       "file_type": "code",
       "norm_label": "setup()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L66"
+      "source_location": "L67"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle_data",
@@ -4531,7 +4531,7 @@
       "file_type": "code",
       "norm_label": "buildcreatebody()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L239"
+      "source_location": "L241"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_emailduplicatemessage",
@@ -4543,7 +4543,7 @@
       "file_type": "code",
       "norm_label": "emailduplicatemessage()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L271"
+      "source_location": "L273"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_emptydata",
@@ -4555,7 +4555,7 @@
       "file_type": "code",
       "norm_label": "emptydata()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L88"
+      "source_location": "L90"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_idduplicatemessage",
@@ -4567,7 +4567,7 @@
       "file_type": "code",
       "norm_label": "idduplicatemessage()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L265"
+      "source_location": "L267"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_isstepvalid",
@@ -4579,7 +4579,7 @@
       "file_type": "code",
       "norm_label": "isstepvalid()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L206"
+      "source_location": "L208"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_mapsubmiterror",
@@ -4591,7 +4591,7 @@
       "file_type": "code",
       "norm_label": "mapsubmiterror()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L281"
+      "source_location": "L283"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_spec_filled",
@@ -4603,7 +4603,7 @@
       "file_type": "code",
       "norm_label": "filled()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_steperrors",
@@ -4615,7 +4615,7 @@
       "file_type": "code",
       "norm_label": "steperrors()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L159"
+      "source_location": "L161"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_stepsfor",
@@ -4627,7 +4627,7 @@
       "file_type": "code",
       "norm_label": "stepsfor()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L111"
+      "source_location": "L113"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_validateemail",
@@ -4639,7 +4639,7 @@
       "file_type": "code",
       "norm_label": "validateemail()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L139"
+      "source_location": "L141"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_validateidnumber",
@@ -4651,7 +4651,7 @@
       "file_type": "code",
       "norm_label": "validateidnumber()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L132"
+      "source_location": "L134"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_validatename",
@@ -4663,7 +4663,7 @@
       "file_type": "code",
       "norm_label": "validatename()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L120"
+      "source_location": "L122"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_validatepreferred",
@@ -4675,7 +4675,7 @@
       "file_type": "code",
       "norm_label": "validatepreferred()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L127"
+      "source_location": "L129"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_store_registerwizardstore_back",
@@ -5023,7 +5023,7 @@
       "file_type": "code",
       "norm_label": "describedby()",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L276"
+      "source_location": "L278"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_steps_step_datos_stepdatos_describe",
@@ -27809,7 +27809,7 @@
       "file_type": "code",
       "norm_label": "manager",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_provider",
@@ -27820,7 +27820,7 @@
       "file_type": "code",
       "norm_label": "provider",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L36"
+      "source_location": "L37"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_role",
@@ -27842,7 +27842,7 @@
       "file_type": "code",
       "norm_label": "unit",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_store_email_debounce_ms",
@@ -33834,7 +33834,7 @@
       "file_type": "code",
       "norm_label": "field_label",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L211"
+      "source_location": "L213"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_no_context",
@@ -33845,7 +33845,7 @@
       "file_type": "code",
       "norm_label": "no_context",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L156"
+      "source_location": "L158"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_required",
@@ -33856,7 +33856,7 @@
       "file_type": "code",
       "norm_label": "required",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L117"
+      "source_location": "L119"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_spec",
@@ -33878,7 +33878,7 @@
       "file_type": "code",
       "norm_label": "ctx",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_spec_role",
@@ -38463,7 +38463,7 @@
       "file_type": "code",
       "norm_label": "e_messages",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L305"
+      "source_location": "L307"
     },
     {
       "id": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_id_types",
@@ -75321,7 +75321,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L207",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -75333,7 +75333,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L294",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -75345,7 +75345,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L297",
+      "source_location": "L299",
       "weight": 1.0
     },
     {
@@ -75357,7 +75357,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -75369,7 +75369,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L167",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -75381,7 +75381,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L169",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -75393,7 +75393,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L172",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -75405,7 +75405,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L177",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -75417,7 +75417,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L198",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -75429,24 +75429,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L199",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
       "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec",
       "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle_settype",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L131",
-      "weight": 1.0
-    },
-    {
-      "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec",
-      "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle_gotostep",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -75458,6 +75446,18 @@
     },
     {
       "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec",
+      "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle_gotostep",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec",
       "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_steps_spec_wizardstorehandle_data",
       "relation": "calls",
       "_origin": "ast",
@@ -75465,7 +75465,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L153",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -75477,7 +75477,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L306",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -75489,7 +75489,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L479",
+      "source_location": "L481",
       "weight": 1.0
     },
     {
@@ -75501,7 +75501,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L108",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -75513,7 +75513,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L109",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -75525,7 +75525,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -76221,7 +76221,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -76233,7 +76233,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L107",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -76245,7 +76245,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -101574,7 +101574,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L106",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -101585,7 +101585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L111",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -101596,7 +101596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L117",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -101618,7 +101618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L120",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -101629,7 +101629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L127",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -101640,7 +101640,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L132",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -101651,7 +101651,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L139",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -101662,7 +101662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L145",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -101673,7 +101673,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L147",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -101684,7 +101684,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L156",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -101695,7 +101695,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L159",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -101717,7 +101717,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L206",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -101728,7 +101728,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L211",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -101739,7 +101739,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L228",
+      "source_location": "L230",
       "weight": 1.0
     },
     {
@@ -101750,7 +101750,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L239",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -101761,7 +101761,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L255",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -101772,7 +101772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L256",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -101783,7 +101783,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L265",
+      "source_location": "L267",
       "weight": 1.0
     },
     {
@@ -101794,7 +101794,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L271",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -101805,7 +101805,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L276",
+      "source_location": "L278",
       "weight": 1.0
     },
     {
@@ -101827,7 +101827,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L281",
+      "source_location": "L283",
       "weight": 1.0
     },
     {
@@ -101849,7 +101849,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L305",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -101904,7 +101904,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L66",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -101926,18 +101926,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L72",
-      "weight": 1.0
-    },
-    {
-      "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules",
-      "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_emptydata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
-      "source_location": "L88",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -101949,6 +101938,17 @@
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules",
+      "target": "codebase_apps_portal_projects_mfe_collaborators_src_app_pages_register_collaborator_register_collaborator_rules_emptydata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -101970,7 +101970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -102014,7 +102014,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -102025,7 +102025,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -102036,7 +102036,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -102047,7 +102047,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -156126,5 +156126,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1121dcbd45647b00ea81501fd7266dbee85d859e"
+  "built_at_commit": "8ebbe95b2a97c3b7208e6b31bb42892bfda14d9b"
 }

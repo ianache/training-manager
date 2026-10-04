@@ -27,9 +27,10 @@ const role: RoleOption = {
   id: 'r-1',
   label: 'Developer',
   levels: [
-    { id: 'l-1', label: 'Nivel 1', evidenceCount: 3 },
-    { id: 'l-2', label: 'Nivel 2', evidenceCount: 2 },
-    { id: 'l-x', label: 'Nivel sin requisitos', evidenceCount: 0 },
+    { id: 'l-1', label: 'Nivel 1', evidenceCount: 3, usable: true },
+    { id: 'l-2', label: 'Nivel 2', evidenceCount: 2, usable: true },
+    { id: 'l-x', label: 'Nivel sin requisitos', evidenceCount: 0, usable: false },
+    { id: 'l-y', label: 'Nivel con requisitos no utilizable', evidenceCount: 4, usable: false },
   ],
 };
 const unit: Option = { id: 'u-1', label: 'Ingeniería', sublabel: 'Sede Central' };
@@ -358,6 +359,7 @@ describe('Asistente «Registrar un colaborador» — pasos SCR-015-03 a SCR-015-
       expect(levels).toContain('Nivel 1');
       expect(levels).toContain('Nivel 2');
       expect(levels).not.toContain('Nivel sin requisitos');
+      expect(levels).not.toContain('Nivel con requisitos no utilizable');
       expect(q<HTMLSelectElement>('#rc-nivel')!.disabled).toBe(false);
     });
 
@@ -381,7 +383,7 @@ describe('Asistente «Registrar un colaborador» — pasos SCR-015-03 a SCR-015-
     });
 
     it('E8: un rol sin ningún nivel con requisitos muestra el error y «Seleccionar otra» reinicia el rol', async () => {
-      const bare: RoleOption = { id: 'r-2', label: 'QA', levels: [{ id: 'q-1', label: 'Nivel 1', evidenceCount: 0 }] };
+      const bare: RoleOption = { id: 'r-2', label: 'QA', levels: [{ id: 'q-1', label: 'Nivel 1', evidenceCount: 0, usable: false }] };
       await setup({ roles: vi.fn(() => of([bare])) });
       store.setType('Employee');
       store.goToStep('rol');

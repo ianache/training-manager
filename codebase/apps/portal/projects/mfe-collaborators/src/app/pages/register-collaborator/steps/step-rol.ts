@@ -151,7 +151,7 @@ export class StepRol implements OnInit {
   }
 
   protected eligibleLevels() {
-    return (this.store.data().role?.levels ?? []).filter((l) => l.evidenceCount > 0);
+    return (this.store.data().role?.levels ?? []).filter((l) => l.usable);
   }
   protected selectedLevel() {
     const d = this.store.data();

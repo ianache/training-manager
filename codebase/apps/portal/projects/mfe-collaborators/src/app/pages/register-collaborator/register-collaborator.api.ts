@@ -14,7 +14,7 @@ interface CatalogRow {
   code?: string | null;
   location?: string | null;
   ruc?: string | null;
-  levels?: Array<{ id: string; name?: string; label?: string; evidence_requirements?: number; evidence_count?: number }>;
+  levels?: Array<{ id: string; name?: string; label?: string; evidence_requirements?: number; evidence_count?: number; usable?: boolean; status?: string }>;
 }
 
 function rows<T>(body: Page<T> | T[]): T[] {
@@ -91,6 +91,8 @@ export class RegisterCollaboratorApi {
             id: l.id,
             label: l.name ?? l.label ?? l.id,
             evidenceCount: l.evidence_requirements ?? l.evidence_count ?? 0,
+            // compuerta de BR-ACR-13 (EVD-2026-0173): sin `usable` explícito el nivel no se ofrece; un nivel inactivo tampoco (BR-CAT-30)
+            usable: l.usable === true && (l.status ?? 'ACTIVE') === 'ACTIVE',
           })),
         })),
       ),

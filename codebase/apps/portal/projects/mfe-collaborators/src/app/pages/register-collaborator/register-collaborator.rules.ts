@@ -60,8 +60,10 @@ export interface Option {
 export interface LevelOption {
   id: string;
   label: string;
-  /** Requisitos de evidencia definidos (BR-ACR-13); 0 = nivel no elegible (E8). */
+  /** Requisitos configurados de versiones aprobadas: dato informativo (API-SPEC-003, EVD-2026-0173). */
   evidenceCount: number;
+  /** Compuerta de BR-ACR-13 y del estado del nivel: solo un nivel `ACTIVE` y utilizable es elegible (E8). */
+  usable: boolean;
 }
 export interface RoleOption {
   id: string;
@@ -190,7 +192,7 @@ export function stepErrors(step: StepId, d: WizardData, ctx: StepContext = NO_CO
       if (!d.role) e['role'] = REQUIRED;
       const level = d.role?.levels.find((l) => l.id === d.levelId);
       if (d.role && !d.levelId) e['level'] = REQUIRED;
-      else if (d.role && (!level || level.evidenceCount < 1)) e['level'] = 'invalid';
+      else if (d.role && (!level || !level.usable)) e['level'] = 'invalid';
       if (!d.fromDate || !/^\d{4}-\d{2}-\d{2}$/.test(d.fromDate)) e['fromDate'] = REQUIRED;
       break;
     }

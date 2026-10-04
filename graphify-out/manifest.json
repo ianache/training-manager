@@ -3054,15 +3054,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.ts": {
-    "mtime": 1791066978.6025646,
-    "seen": 1791067072.2916915,
-    "ast_hash": "7948ad5fe2634bddabe03378ca41df00",
+    "mtime": 1791072123.2604697,
+    "seen": 1791072304.9192514,
+    "ast_hash": "b6aeead37b36f1ba62dcd2dc036caa00",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.ts": {
-    "mtime": 1790922793.8987703,
-    "seen": 1790997664.6648028,
-    "ast_hash": "fe481f958b9ba2f76e89894141405066",
+    "mtime": 1791072123.2536826,
+    "seen": 1791072304.9202518,
+    "ast_hash": "e779d159c3bf8993acc3d49e0f7e8465",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.store.ts": {
@@ -3108,9 +3108,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-rol.ts": {
-    "mtime": 1791037680.8475895,
-    "seen": 1791038398.965928,
-    "ast_hash": "9da2ad0b052da80ce072d2f6a9f3a60e",
+    "mtime": 1791072123.2660813,
+    "seen": 1791072304.9232512,
+    "ast_hash": "e7d4e32c396bd7e39891e3fcf8ed3548",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/steps/step-tipo.ts": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.api.spec.ts": {
-    "mtime": 1791066978.6108713,
-    "seen": 1791067072.2916915,
-    "ast_hash": "b5741b3faba1b6265edd62022b9dfccb",
+    "mtime": 1791072056.5281022,
+    "seen": 1791072304.9192514,
+    "ast_hash": "3cc9fa1e4a5dc10a603f4a4ab4dfa2b3",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.page.spec.ts": {
@@ -3150,21 +3150,21 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.rules.spec.ts": {
-    "mtime": 1790998099.2233992,
-    "seen": 1791038398.965928,
-    "ast_hash": "17540403878bbebaf3e058e930526c2d",
+    "mtime": 1791072056.543967,
+    "seen": 1791072304.9202518,
+    "ast_hash": "e58f0f6cd49281bab1419b61846d6187",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.steps.spec.ts": {
-    "mtime": 1791037914.6909199,
-    "seen": 1791038398.965928,
-    "ast_hash": "b093ae11e8075537827d2a47a8976fa6",
+    "mtime": 1791072056.5499659,
+    "seen": 1791072304.9202518,
+    "ast_hash": "8d1177beca399bc6c453d484d8229335",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/register-collaborator/register-collaborator.store.spec.ts": {
-    "mtime": 1790998113.9225404,
-    "seen": 1791038398.965928,
-    "ast_hash": "d0b09d7732f956dc8f5e1c443c8861e9",
+    "mtime": 1791072056.55748,
+    "seen": 1791072304.9202518,
+    "ast_hash": "f892ea4a0aa6afe921f84062f851a621",
     "semantic_hash": ""
   },
   "knowledge-base/design/components/CMP-016-componentes-actualizar-datos-y-contactos.md": {
@@ -3534,9 +3534,9 @@
     "semantic_hash": ""
   },
   "codebase/dev/catalog-stub/roles.json": {
-    "mtime": 1791066978.5925255,
-    "seen": 1791067072.3150907,
-    "ast_hash": "dbec24a72ab4fb43997f1dca01e1e35e",
+    "mtime": 1791072123.2894075,
+    "seen": 1791072304.963664,
+    "ast_hash": "5960d72911d5295b3fa4d0d8f53c4c66",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md": {
