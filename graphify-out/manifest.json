@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791082695.6108983,
-    "seen": 1791082731.3596952,
-    "ast_hash": "2fe207f5d8100c22d707ec6f8b01f475",
+    "mtime": 1791082882.7780886,
+    "seen": 1791082925.6970487,
+    "ast_hash": "8d1ec78ec704a34c638fd7f11787d7e8",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791082695.586449,
-    "seen": 1791082731.358695,
-    "ast_hash": "d7ef12cc10c9922386b98b171c8f734b",
+    "mtime": 1791082882.7496197,
+    "seen": 1791082925.6950462,
+    "ast_hash": "81fdf9fb93d1acf7161014cdc174d9a5",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1791082695.5915341,
-    "seen": 1791082731.3861482,
-    "ast_hash": "f2b14e5f00fbc7200af44f71fd48ef49",
+    "mtime": 1791082882.7496197,
+    "seen": 1791082925.7469678,
+    "ast_hash": "3a93cf8ee0aafead912d5cf9a4a3a2c2",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-004-consultar-mi-perfil-de-competencias.md": {
@@ -3648,15 +3648,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791082695.5971165,
-    "seen": 1791082731.3851442,
-    "ast_hash": "fafe30f0b32947012caacf2d35feea92",
+    "mtime": 1791082882.7674303,
+    "seen": 1791082925.7449741,
+    "ast_hash": "ce64b7942f355f0b331f647092814028",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
-    "mtime": 1791082695.6047876,
-    "seen": 1791082731.3230922,
-    "ast_hash": "66e486dccfaf74db212f8bc1ec77bb94",
+    "mtime": 1791082882.7720902,
+    "seen": 1791082925.6282742,
+    "ast_hash": "c9ddf83f172d8186e26abf2b2c168783",
     "semantic_hash": ""
   }
 }

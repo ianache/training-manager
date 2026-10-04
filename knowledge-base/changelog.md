@@ -356,3 +356,6 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0199): se habilita un rol de evaluador de competencias y cualquier usuario con él puede certificar; se usa el rol `evaluador` que ya existe en Keycloak, el BFF y el portal (no se creó ningún rol nuevo). La respuesta no define el «equipo» de BR-ACR-17: nueva pregunta DSP2-Q12 (¿se mantiene la regla del equipo o la reemplaza el rol?); DSP2-Q11 sigue abierta.
 - Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0200): el rol `evaluador` reemplaza la regla del equipo; cualquier usuario con ese rol certifica a cualquier colaborador. Se retira BR-ACR-17 (queda en la tabla como RETIRADA) y el motivo de revocación `CONFLICTO_DE_INTERES`, así que la lista queda en `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO`. Cierra DSP2-Q11 y DSP2-Q12; el servicio de certificación ya no necesita datos de party para esta regla.
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.

@@ -29260,7 +29260,7 @@
       "node_kind": "heading",
       "norm_label": "definition of done",
       "source_file": "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md",
-      "source_location": "L141"
+      "source_location": "L142"
     },
     {
       "id": "knowledge_base_requirement_scope_packs_dsp_002_certificacion_y_perfil_definition_of_ready",
@@ -29272,7 +29272,7 @@
       "node_kind": "heading",
       "norm_label": "definition of ready",
       "source_file": "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md",
-      "source_location": "L135"
+      "source_location": "L136"
     },
     {
       "id": "knowledge_base_requirement_scope_packs_dsp_002_certificacion_y_perfil_dependencies_and_constraints",
@@ -61352,7 +61352,7 @@
       "node_kind": "heading",
       "norm_label": "brechas",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L290"
+      "source_location": "L291"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_cat\u00e1logo_de_competencias",
@@ -61364,7 +61364,7 @@
       "node_kind": "heading",
       "norm_label": "catalogo de competencias",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L238"
+      "source_location": "L239"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_certificaci\u00f3n",
@@ -61376,7 +61376,7 @@
       "node_kind": "heading",
       "norm_label": "certificacion",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L301"
+      "source_location": "L302"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_certificados_de_curso_h2",
@@ -61388,7 +61388,7 @@
       "node_kind": "heading",
       "norm_label": "certificados de curso (h2)",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L333"
+      "source_location": "L334"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_colaboradores_e_informaci\u00f3n_maestra_party",
@@ -61400,7 +61400,7 @@
       "node_kind": "heading",
       "norm_label": "colaboradores e informacion maestra (party)",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L387"
+      "source_location": "L388"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_contradicciones_y_ambig\u00fcedades",
@@ -61412,7 +61412,7 @@
       "node_kind": "heading",
       "norm_label": "contradicciones y ambiguedades",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L426"
+      "source_location": "L427"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_dependencias",
@@ -61424,7 +61424,7 @@
       "node_kind": "heading",
       "norm_label": "dependencias",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L420"
+      "source_location": "L421"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_evidencia_de_gitlab_asistida_por_ia_h3",
@@ -61436,7 +61436,7 @@
       "node_kind": "heading",
       "norm_label": "evidencia de gitlab asistida por ia (h3)",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L323"
+      "source_location": "L324"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_evidencias_y_trazabilidad",
@@ -61460,7 +61460,7 @@
       "node_kind": "heading",
       "norm_label": "integraciones y contenido",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L363"
+      "source_location": "L364"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_lista_de_calidad",
@@ -61472,7 +61472,7 @@
       "node_kind": "heading",
       "norm_label": "lista de calidad",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L533"
+      "source_location": "L534"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_objetivo_y_alcance",
@@ -61496,7 +61496,7 @@
       "node_kind": "heading",
       "norm_label": "preparacion y entrega",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L525"
+      "source_location": "L526"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_reglas_dependencias_e_impactos",
@@ -61508,7 +61508,7 @@
       "node_kind": "heading",
       "norm_label": "reglas, dependencias e impactos",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L236"
+      "source_location": "L237"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_requerimientos_de_proyecto_y_asignaci\u00f3n",
@@ -61520,7 +61520,7 @@
       "node_kind": "heading",
       "norm_label": "requerimientos de proyecto y asignacion",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L273"
+      "source_location": "L274"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_resultado",
@@ -61544,7 +61544,7 @@
       "node_kind": "heading",
       "norm_label": "riesgos y supuestos",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L519"
+      "source_location": "L520"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_transparencia",
@@ -61556,7 +61556,7 @@
       "node_kind": "heading",
       "norm_label": "transparencia",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L370"
+      "source_location": "L371"
     },
     {
       "id": "knowledge_base_business_rules_brc_001_reglas_plataforma_gestion_formacion_vac\u00edos_y_preguntas_abiertas",
@@ -61568,7 +61568,7 @@
       "node_kind": "heading",
       "norm_label": "vacios y preguntas abiertas",
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L437"
+      "source_location": "L438"
     },
     {
       "id": "knowledge_base_design_stitch_gen_002_dise\u00f1o_consolidado_uxr_001_a_006",
@@ -117844,7 +117844,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L236",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -117877,7 +117877,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L437",
+      "source_location": "L438",
       "weight": 1.0
     },
     {
@@ -117899,7 +117899,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L519",
+      "source_location": "L520",
       "weight": 1.0
     },
     {
@@ -117910,7 +117910,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L525",
+      "source_location": "L526",
       "weight": 1.0
     },
     {
@@ -117921,7 +117921,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L533",
+      "source_location": "L534",
       "weight": 1.0
     },
     {
@@ -117932,7 +117932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L238",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -117943,7 +117943,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L273",
+      "source_location": "L274",
       "weight": 1.0
     },
     {
@@ -117954,7 +117954,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L290",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -117965,7 +117965,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L301",
+      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -117976,7 +117976,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L323",
+      "source_location": "L324",
       "weight": 1.0
     },
     {
@@ -117987,7 +117987,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L333",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -117998,7 +117998,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L363",
+      "source_location": "L364",
       "weight": 1.0
     },
     {
@@ -118009,7 +118009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L370",
+      "source_location": "L371",
       "weight": 1.0
     },
     {
@@ -118020,7 +118020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L387",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -118031,7 +118031,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L420",
+      "source_location": "L421",
       "weight": 1.0
     },
     {
@@ -118042,7 +118042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md",
-      "source_location": "L426",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -131440,7 +131440,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md",
-      "source_location": "L135",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -131451,7 +131451,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -156721,5 +156721,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cf6a6c111aaa039d7cd055e525efc2e2cd36787d"
+  "built_at_commit": "5c468ed540a8a1d3eaf230ff0e871a1dab5d522a"
 }
