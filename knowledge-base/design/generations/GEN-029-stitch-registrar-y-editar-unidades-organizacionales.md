@@ -183,3 +183,13 @@ Con la fórmula «Create a NEW screen …» y una sola variante por llamada se g
 | SCR-029-02 (nombre duplicado) | `projects/13050549605434273903/screens/b00dc58356824c6d907d47c0932d7081` | Campo con etiqueta ligada, `aria-invalid`, `aria-describedby`, error con `role="alert"`. Complementa la hoja vigente del DTM (`f497a299…`, estados A a E), que no se reemplaza. |
 
 Con esto, SCR-029-03 queda con todos sus estados regenerados (A–C, D, E–F). Los estados B a D de SCR-029-01 siguen solo en la hoja anterior (con «Soporte» y «Ajustes»). Una llamada de SCR-029-02 (estado predeterminado) respondió con texto pero sin devolver pantalla ni ID. Pendientes por timeout: SCR-028-01 C (sin resultados) y E (sin organización interna).
+
+## SCR-029-01: estados de validación v4 (2026-10-04)
+
+Tras el timeout, la hoja apareció en `list_screens` pasado un rato (la llamada sí había generado la pantalla). Verificada con `get_screen` y con el HTML descargado:
+
+| Pantalla | Resource name (Stitch) | Revisión |
+|---|---|---|
+| SCR-029-01 (B campos obligatorios, C nombre duplicado, D unidad padre inactiva) | `projects/13050549605434273903/screens/2be6838e89aa48b898b98b11aa15e5fc` | Sin «Soporte» ni «Ajustes» (la única coincidencia es el valor de ejemplo «Soporte» del campo); 9 de 9 controles con `label for`; 4 errores con `role="alert"`, `aria-invalid` y `aria-describedby`; las 4 `nav` con `aria-label`; iconos ocultos. |
+
+Con esta hoja, SCR-029-01 tiene sus estados A (`12e3390b…`), B a D (`2be6838e…`) y E a H (`d14e0605…`). La hoja E a H es la única que conserva «Soporte» y «Ajustes» en la barra lateral: pendiente de regenerar si se quiere eliminar ese defecto. Foco y teclado siguen sin evaluarse en navegador.

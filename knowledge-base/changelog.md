@@ -417,3 +417,5 @@ sources:
 
 - Se generaron en STP-PPM-001 y se registraron en el DTM (con `--evidence`) SCR-003-01, 03, 04, 05 y SCR-004-01, 02; GEN-003 y GEN-004 documentan la revisión (aria bajo en SCR-003-01; rótulos de estado ausentes). **SCR-003-02 no apareció en Stitch** tras dos intentos; sigue pendiente.
 - Artefactos afectados: `GEN-003`, `GEN-004`, `DTM-PPM-001`, `index.md`, `changelog.md`.
+
+- SCR-029-01, estados de validación (B a D) localizados y verificados en Stitch (`2be6838e…`) sin el defecto de «Soporte» y «Ajustes». Solo queda con él la hoja E a H. Anotado en `GEN-029`.
