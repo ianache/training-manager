@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791088611.4764183,
-    "seen": 1791088651.0418487,
-    "ast_hash": "dec61b3d83a5d68cff431f3767667312",
+    "mtime": 1791088786.7368329,
+    "seen": 1791088866.7123315,
+    "ast_hash": "2c4f61a745d5844fcdc8cae499c46877",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791088611.458036,
-    "seen": 1791088651.0418487,
-    "ast_hash": "bbcf8d60a3d38aa9f0ef2d5793b63807",
+    "mtime": 1791088786.7131927,
+    "seen": 1791088866.7113159,
+    "ast_hash": "4de9f8f983c25b61b78b389db90057d3",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -3660,15 +3660,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
-    "mtime": 1791088611.4710684,
-    "seen": 1791088651.0100427,
-    "ast_hash": "7dfe171c1a3814554081ee2c0dbb7aad",
+    "mtime": 1791088786.7213311,
+    "seen": 1791088866.5689244,
+    "ast_hash": "f220578cc24658f837427c919a7f65a7",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-005-certificaciones-y-evidencias.md": {
-    "mtime": 1791088611.4650784,
-    "seen": 1791088651.003763,
-    "ast_hash": "ffd3cc2bc7f5b9f0d7af9867c0d0b245",
+    "mtime": 1791088786.7325237,
+    "seen": 1791088866.5571384,
+    "ast_hash": "b8f7938c3f9a069cdec56a3203cdeea9",
     "semantic_hash": ""
   }
 }

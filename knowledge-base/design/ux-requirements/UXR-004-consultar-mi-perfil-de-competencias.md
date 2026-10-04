@@ -60,3 +60,29 @@ Saber qué nivel tiene certificado en cada competencia y con qué respaldo.
 | P-33 | ¿Un colaborador tiene uno o varios roles asignados? | Jefe de Ingeniería | Alta |
 | UXR-004-Q1 | ¿El perfil muestra también las competencias exigidas por su rol que todavía no tiene certificadas? Eso se acerca a la brecha (UXR-005) | Responsable de producto | Media |
 | UXR-004-Q2 | ¿La vista del perfil de otro colaborador (resumen de niveles, evidencias y certificaciones, visibles para todos desde P-08) reutiliza esta vista en modo lectura, o es otra? No hay historia para ella todavía | Responsable de producto | Media |
+
+## Actualización del 2026-10-04 (decisiones EVD-2026-0185 a 0237)
+
+**Qué más ve el colaborador en su perfil:**
+
+| ID | Necesidad | Fuente |
+|---|---|---|
+| UXR-004.5 | De cada competencia, el **nivel certificado vigente**: el más alto de sus certificaciones vigentes | EVD-2026-0186; BR-ACR-16 |
+| UXR-004.6 | El historial de una competencia con el estado de cada certificación: vigente, **reemplazada** (por una recertificación) o **revocada**, y con las **evaluaciones no aprobadas** de la propia persona | EVD-2026-0192, 0185, 0224, 0229 |
+| UXR-004.7 | De una revocación: el motivo tipificado, quién y cuándo, **y la descripción** (la ve la persona certificada) | EVD-2026-0206 |
+| UXR-004.8 | De una evaluación no aprobada: el motivo tipificado y la descripción | EVD-2026-0231, 0234 a 0236 |
+| UXR-004.9 | Para cada certificación, sus evidencias con la calificación CUMPLE o NO CUMPLE y su enlace (URL), reutilizables entre competencias | EVD-2026-0204, 0210, 0211 |
+
+**Reglas visibles:**
+- Las certificaciones no vencen (EVD-2026-0190): la interfaz no muestra fecha de vencimiento.
+- Si la persona se anonimiza, sus certificaciones solo las ve ADMIN (EVD-2026-0218).
+- Las evidencias de una certificación revocada siguen disponibles (EVD-2026-0219).
+- El actor se muestra con el código de party, o solo con el nombre del rol si no lo tiene (EVD-2026-0222, 0226).
+- Los enlaces de GitLab abren solo dentro de la organización o con VPN (EVD-2026-0207): la interfaz lo advierte junto al enlace.
+
+**Preguntas que siguen abiertas:**
+
+| ID | Pregunta | Responsable | Prioridad |
+|---|---|---|---|
+| UXR-004-Q3 | ¿Se muestra la **evaluación no aprobada** al colaborador como parte de su historial? Se decidió que la ve (EVD-2026-0229); falta definir cómo se presenta para no desanimar o confundir con una certificación | Jefe de Ingeniería | Media |
+| UXR-004-Q4 | El colaborador **registra sus evidencias** (EVD-2026-0215), pero US-004 es de solo lectura: ¿dónde lo hace? (ver UXR-003-Q3) | Jefe de Ingeniería | Alta |

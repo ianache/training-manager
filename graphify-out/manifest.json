@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791088786.7368329,
-    "seen": 1791088866.7123315,
-    "ast_hash": "2c4f61a745d5844fcdc8cae499c46877",
+    "mtime": 1791089588.2262602,
+    "seen": 1791089667.9545264,
+    "ast_hash": "b8f0bce721796ef649e1a281dbef96a1",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791086768.8405657,
-    "seen": 1791086845.6202211,
-    "ast_hash": "c1984359479b810049121e343ea0359a",
+    "mtime": 1791089588.212099,
+    "seen": 1791089668.0497584,
+    "ast_hash": "c668bc1901874b3670c6a87526115013",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -642,15 +642,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-003-certificar-un-nivel-de-competencia.md": {
-    "mtime": 1791083763.8607945,
-    "seen": 1791083808.3969972,
-    "ast_hash": "bba44656617dc670f5a58ed5b7faa5ef",
+    "mtime": 1791089468.5820737,
+    "seen": 1791089668.03086,
+    "ast_hash": "441fcdb80f844038187307a0064720b2",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-004-consultar-mi-perfil-de-competencias.md": {
-    "mtime": 1790526649.9852738,
-    "seen": 1790536370.7001495,
-    "ast_hash": "515c12979cff29bcce125de8109cebd0",
+    "mtime": 1791089468.5903478,
+    "seen": 1791089668.03086,
+    "ast_hash": "3ab3ddb54ffd77ba7c85a59d848bc57f",
     "semantic_hash": ""
   },
   "knowledge-base/design/ux-requirements/UXR-005-ver-mi-brecha-frente-a-un-rol-nivel.md": {
@@ -3669,6 +3669,30 @@
     "mtime": 1791088786.7325237,
     "seen": 1791088866.5571384,
     "ast_hash": "b8f7938c3f9a069cdec56a3203cdeea9",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-003-certificar-un-nivel-de-competencia.md": {
+    "mtime": 1791089557.6231098,
+    "seen": 1791089668.0004692,
+    "ast_hash": "dfdb189889455d0ae15777812c65609d",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/screens/SCR-004-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1791089559.1521637,
+    "seen": 1791089668.0004692,
+    "ast_hash": "38a8a9d73e9926b5a4699f8b611db856",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-003-certificar-un-nivel-de-competencia.md": {
+    "mtime": 1791089507.8065813,
+    "seen": 1791089668.0194273,
+    "ast_hash": "1e45457446eab01becc69e5c2ea2662c",
+    "semantic_hash": ""
+  },
+  "knowledge-base/design/user-flows/FLW-004-consultar-mi-perfil-de-competencias.md": {
+    "mtime": 1791089509.5275726,
+    "seen": 1791089668.0194273,
+    "ast_hash": "ba8267b8ec861a507097d3b5526721a9",
     "semantic_hash": ""
   }
 }

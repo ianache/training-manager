@@ -123,6 +123,10 @@ sources:
 - [FLW-019 — Asignar un Rol-Nivel a una persona](design/user-flows/FLW-019-asignar-rol-nivel.md) — User Flow, `draft`; pantallas SCR-019-01..03 reservadas
 - [SCR-001 — Gestionar el catálogo de roles y competencias](design/screens/SCR-001-gestionar-catalogo-de-roles-y-competencias.md) — Screen, `draft`; SCR-001-01..04
 - [SCR-019 — Asignar un Rol-Nivel a una persona](design/screens/SCR-019-asignar-rol-nivel.md) — Screen, `draft`; SCR-019-01..03
+- [FLW-003 — Certificar un nivel de competencia](design/user-flows/FLW-003-certificar-un-nivel-de-competencia.md) — User Flow, `draft`; SCR-003-01..05
+- [FLW-004 — Consultar mi perfil de competencias](design/user-flows/FLW-004-consultar-mi-perfil-de-competencias.md) — User Flow, `draft`; SCR-004-01..02
+- [SCR-003 — Certificar un nivel de competencia](design/screens/SCR-003-certificar-un-nivel-de-competencia.md) — Screen, `draft`; SCR-003-01..05
+- [SCR-004 — Consultar mi perfil de competencias](design/screens/SCR-004-consultar-mi-perfil-de-competencias.md) — Screen, `draft`; SCR-004-01..02
 - [GEN-001-G — Diseño Stitch del catálogo de roles y competencias (gobernado)](design/generations/GEN-001-G-stitch-catalogo-de-roles-y-competencias.md) — Stitch Generation, `draft`; exploración, SCR-001-01..04
 - [GEN-019 — Diseño Stitch de asignar un Rol-Nivel](design/generations/GEN-019-stitch-asignar-rol-nivel.md) — Stitch Generation, `draft`; exploración, SCR-019-01..03
 - [UXR-028 — Listar y buscar unidades organizacionales](design/ux-requirements/UXR-028-listar-y-buscar-unidades-organizacionales.md) — UX Requirement, `draft`
