@@ -1,54 +1,166 @@
-<header class="page-header">
-  <h1>Catálogo de roles</h1>
-  @if (canEdit()) {
-    <a class="create" routerLink="roles/nuevo"><gf-button>Crear rol</gf-button></a>
-  }
-</header>
+<h1 class="page-title">Catálogo de roles y competencias</h1>
 
-<div class="search">
-  <label for="rl-search">Buscar por nombre</label>
-  <gf-text-input inputId="rl-search" [value]="search()" (valueChange)="onSearch($event)" />
-</div>
+<div class="card">
+  <div class="tabs" role="tablist" aria-label="Catálogo" (keydown)="onTabKey($event)">
+    <button
+      id="cat-tab-roles"
+      class="tab"
+      type="button"
+      role="tab"
+      aria-controls="cat-panel"
+      [attr.aria-selected]="tab() === 'roles'"
+      [attr.tabindex]="tab() === 'roles' ? 0 : -1"
+      (click)="selectTab('roles')"
+    >
+      Roles
+    </button>
+    <button
+      id="cat-tab-competencies"
+      class="tab"
+      type="button"
+      role="tab"
+      aria-controls="cat-panel"
+      [attr.aria-selected]="tab() === 'competencies'"
+      [attr.tabindex]="tab() === 'competencies' ? 0 : -1"
+      (click)="selectTab('competencies')"
+    >
+      Competencias
+    </button>
+  </div>
 
-<gf-view-state [state]="state()" (retry)="retry()" loadingLabel="Cargando roles">
-  <ng-template #empty>
-    @if (search()) {
-      <gf-empty-state title="Ningún rol coincide con la búsqueda" description="Prueba con otro nombre o borra la búsqueda." />
-    } @else {
-      <gf-empty-state
-        title="No hay roles registrados todavía"
-        [description]="canEdit() ? 'Crea el primer rol para que los proyectos puedan declarar requerimientos.' : 'Todavía no hay roles en el catálogo.'"
-      />
-    }
-  </ng-template>
+  <div id="cat-panel" role="tabpanel" [attr.aria-labelledby]="'cat-tab-' + tab()" [attr.aria-busy]="state().kind === 'loading'">
+    <div class="controls">
+      <div class="search">
+        <label class="gf-visually-hidden" for="cat-search">Buscar por nombre</label>
+        <gf-icon class="search__icon" name="search" [decorative]="true" />
+        <gf-text-input inputId="cat-search" placeholder="Buscar por nombre" [value]="search()" (valueChange)="onSearch($event)" />
+      </div>
+      @if (canEditRoles()) {
+        <div class="actions">
+          <gf-button (pressed)="createRole()">Crear rol</gf-button>
+          @if (canEditCompetencies()) {
+            <!-- El alta de competencias llega en el siguiente tramo (API-SPEC-003); el diseño ya incluye la acción. -->
+            <gf-button [disabled]="true" ariaLabel="Crear competencia (todavía no disponible)">Crear competencia</gf-button>
+          }
+        </div>
+      }
+    </div>
 
-  <ng-template #success let-page>
-    <table class="table">
-      <caption class="gf-visually-hidden">Roles del catálogo</caption>
-      <thead>
-        <tr>
-          <th scope="col">Rol</th>
-          <th scope="col">Niveles</th>
-          <th scope="col">Competencias</th>
-          <th scope="col">Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (role of page.data; track role.id) {
-          <tr>
-            <th scope="row"><a [routerLink]="['roles', role.id]">{{ role.name }}</a></th>
-            <td>{{ role.levels.length }}</td>
-            <td>{{ role.competency_count }}</td>
-            <td>
-              @if (role.status === 'ACTIVE') {
-                <gf-badge tone="success">Activo</gf-badge>
-              } @else {
-                <gf-badge tone="neutral">Inactivo</gf-badge>
+    @switch (state().kind) {
+      @case ('loading') {
+        <div class="table-wrap" role="status">
+          <span class="gf-visually-hidden">{{ tab() === 'roles' ? 'Cargando roles' : 'Cargando competencias' }}</span>
+          <table class="table" aria-hidden="true">
+            <thead>
+              <tr>
+                @if (tab() === 'roles') {
+                  <th scope="col">Rol</th>
+                  <th scope="col">Niveles</th>
+                  <th scope="col">Estado</th>
+                } @else {
+                  <th scope="col">Competencia</th>
+                  <th scope="col">Versión vigente</th>
+                  <th scope="col">Niveles con requisitos</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (w of skeletonRows; track $index) {
+                <tr class="skeleton">
+                  <td><span class="bar" [style.width.ch]="w"></span></td>
+                  <td><span class="bar" [style.width.ch]="20"></span></td>
+                  <td><span class="bar bar--pill"></span></td>
+                </tr>
               }
-            </td>
-          </tr>
+            </tbody>
+          </table>
+        </div>
+      }
+      @case ('empty') {
+        <div class="empty">
+          <span class="empty__icon"><gf-icon name="list" size="1.5rem" [decorative]="true" /></span>
+          @if (search()) {
+            <h2>{{ tab() === 'roles' ? 'Ningún rol coincide con la búsqueda' : 'Ninguna competencia coincide con la búsqueda' }}</h2>
+            <p>Prueba con otro nombre o borra la búsqueda.</p>
+          } @else if (tab() === 'roles') {
+            <h2>No hay roles registrados todavía</h2>
+            @if (canEditRoles()) {
+              <gf-button (pressed)="createRole()">Crear rol</gf-button>
+            }
+          } @else {
+            <h2>No hay competencias registradas todavía</h2>
+          }
+        </div>
+      }
+      @case ('forbidden') {
+        <div class="empty">
+          <span class="empty__icon"><gf-icon name="block" size="1.5rem" [decorative]="true" /></span>
+          <h2>Esta función no está disponible para tu rol</h2>
+          <p>Si crees que deberías tener acceso, consulta con el Jefe de Ingeniería.</p>
+        </div>
+      }
+      @case ('error') {
+        <div class="alert" role="alert">
+          <span class="alert__text">
+            <gf-icon name="error" [decorative]="true" />
+            No se pudo cargar el catálogo
+          </span>
+          <gf-button (pressed)="retry()">Reintentar</gf-button>
+        </div>
+      }
+      @default {
+        @if (showing('roles')) {
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="gf-visually-hidden">Roles del catálogo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Rol</th>
+                  <th scope="col">Niveles</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (role of roles(); track role.id) {
+                  <tr>
+                    <th scope="row"><a [routerLink]="['roles', role.id]">{{ role.name }}</a></th>
+                    <td class="muted">{{ levelsText(role.levels.length) }}</td>
+                    <td>
+                      @if (role.status === 'ACTIVE') {
+                        <gf-badge tone="success">Activo</gf-badge>
+                      } @else {
+                        <gf-badge tone="neutral">Inactivo</gf-badge>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        } @else if (showing('competencies')) {
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="gf-visually-hidden">Competencias del catálogo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Competencia</th>
+                  <th scope="col">Versión vigente</th>
+                  <th scope="col">Niveles con requisitos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (c of competencies(); track c.id) {
+                  <tr>
+                    <th scope="row">{{ c.name }}</th>
+                    <td class="muted">{{ c.current_version ? 'v' + c.current_version.version_number : 'Sin versión aprobada' }}</td>
+                    <td class="muted">{{ c.levels_with_requirements }} de {{ levelCodes.length }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
         }
-      </tbody>
-    </table>
-  </ng-template>
-</gf-view-state>
+      }
+    }
+  </div>
+</div>

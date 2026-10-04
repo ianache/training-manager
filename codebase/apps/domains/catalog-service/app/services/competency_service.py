@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from app.core.errors import not_found
-from app.models.catalog import Competency, CompetencyVersion
+from app.models.catalog import Competency, CompetencyVersion, EvidenceRequirement
 from app.services.role_service import _escape_like
 
 
@@ -20,7 +20,7 @@ def _current(c: Competency) -> CompetencyVersion | None:
     return max(approved, key=lambda v: v.version_number) if approved else None
 
 
-def _summary(c: Competency) -> dict:
+def _summary(c: Competency, levels_with_requirements: int = 0) -> dict:
     cur = _current(c)
     return {
         "id": c.id,
@@ -28,8 +28,23 @@ def _summary(c: Competency) -> dict:
         "description": c.description,
         "status": c.status,
         "current_version": _version_ref(cur) if cur else None,
+        "levels_with_requirements": levels_with_requirements,
         "row_version": c.row_version,
     }
+
+
+async def _levels_with_requirements(db: AsyncSession, competencies: list[Competency]) -> dict[str, int]:
+    """Niveles distintos con algún requisito en la versión vigente de cada competencia (0 si no hay versión aprobada)."""
+    current = {c.id: v.id for c in competencies if (v := _current(c))}
+    if not current:
+        return {}
+    rows = await db.execute(
+        select(EvidenceRequirement.competency_version_id, func.count(func.distinct(EvidenceRequirement.level_code)))
+        .where(EvidenceRequirement.competency_version_id.in_(set(current.values())))
+        .group_by(EvidenceRequirement.competency_version_id)
+    )
+    by_version = {vid: n for vid, n in rows.all()}
+    return {cid: by_version.get(vid, 0) for cid, vid in current.items()}
 
 
 class CompetencyService:
@@ -50,7 +65,8 @@ class CompetencyService:
         total = await self.db.scalar(count)
         stmt = stmt.options(selectinload(Competency.versions)).order_by(func.lower(Competency.name), Competency.id)
         rows = (await self.db.execute(stmt.offset((page - 1) * limit).limit(limit))).scalars().all()
-        return [_summary(c) for c in rows], total, applied
+        counts = await _levels_with_requirements(self.db, list(rows))
+        return [_summary(c, counts.get(c.id, 0)) for c in rows], total, applied
 
     async def get(self, competency_id: str) -> dict:
         versions = selectinload(Competency.versions)
@@ -62,7 +78,7 @@ class CompetencyService:
         c = (await self.db.execute(stmt)).scalar_one_or_none()
         if c is None:
             raise not_found("La competencia no existe.")
-        out = _summary(c)
+        out = _summary(c, (await _levels_with_requirements(self.db, [c])).get(c.id, 0))
         out["versions"] = [
             {
                 "id": v.id,

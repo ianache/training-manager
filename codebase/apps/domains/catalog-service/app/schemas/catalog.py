@@ -148,6 +148,8 @@ class CompetencySummaryOut(BaseModel):
     description: Optional[str] = None
     status: str
     current_version: Optional[VersionRefOut] = None
+    levels_with_requirements: int = 0
+    """Niveles L1 a L4 con al menos un requisito de evidencia en la versión vigente (SCR-001-01: «2 de 4»)."""
     row_version: int
 
 

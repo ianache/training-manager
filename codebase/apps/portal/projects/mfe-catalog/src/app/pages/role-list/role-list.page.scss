@@ -1,43 +1,202 @@
-.page-header {
+:host {
+  display: block;
+}
+
+.page-title {
+  margin: 0 0 var(--gf-space-6);
+  font-size: var(--gf-font-size-xl);
+}
+
+/* Tarjeta del diseño Stitch SCR-001-01: superficie blanca sobre el fondo, borde fino y sombra leve. */
+.card {
+  background: var(--gf-color-on-primary);
+  border: 1px solid color-mix(in srgb, var(--gf-color-border) 35%, transparent);
+  border-radius: var(--gf-radius-md);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--gf-color-text) 10%, transparent);
+  padding: var(--gf-space-6);
+}
+
+.tabs {
   display: flex;
+  border-bottom: 1px solid color-mix(in srgb, var(--gf-color-border) 35%, transparent);
+  margin-bottom: var(--gf-space-6);
+}
+
+.tab {
+  min-height: var(--gf-touch-target);
+  padding: var(--gf-space-3) var(--gf-space-6);
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--gf-color-text-muted);
+  font: inherit;
+  font-size: var(--gf-font-size-sm);
+  font-weight: var(--gf-font-weight-semibold);
+  cursor: pointer;
+  &[aria-selected='true'] {
+    color: var(--gf-color-primary);
+    border-bottom-color: var(--gf-color-primary);
+    font-weight: 700;
+  }
+  &:hover:not([aria-selected='true']) {
+    color: var(--gf-color-text);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--gf-color-focus-ring);
+    outline-offset: -2px;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: var(--gf-space-4);
   margin-bottom: var(--gf-space-6);
-  h1 {
-    margin: 0;
-    font-size: var(--gf-font-size-xl);
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 24rem;
+  &__icon {
+    position: absolute;
+    inset-block: 0;
+    left: var(--gf-space-3);
+    z-index: 1;
+    align-items: center;
+    color: var(--gf-color-text-muted);
+    pointer-events: none;
   }
+  /* El icono ocupa el lado izquierdo del campo; el atom no tiene ranura para él. */
+  :host ::ng-deep & input {
+    padding-left: 2.5rem;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--gf-space-3);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--gf-color-border) 35%, transparent);
+  border-radius: var(--gf-radius-md);
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  font-size: var(--gf-font-size-sm);
   th,
   td {
-    height: var(--gf-row-height);
-    padding: 0 var(--gf-space-3);
+    padding: var(--gf-space-4) var(--gf-space-6);
     text-align: left;
-    border-bottom: 1px solid var(--gf-color-border);
   }
   thead th {
-    font-size: var(--gf-font-size-sm);
+    padding-block: 0.875rem;
+    background: var(--gf-color-surface);
+    border-bottom: 1px solid color-mix(in srgb, var(--gf-color-border) 35%, transparent);
     color: var(--gf-color-text-muted);
+    font-size: 0.75rem;
+    font-weight: var(--gf-font-weight-semibold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  tbody tr + tr > * {
+    border-top: 1px solid color-mix(in srgb, var(--gf-color-border) 35%, transparent);
+  }
+  tbody th {
+    font-weight: var(--gf-font-weight-semibold);
   }
   tbody tr:hover {
-    background: var(--gf-color-surface-container);
+    background: var(--gf-color-surface);
+  }
+  .muted {
+    color: var(--gf-color-text-muted);
   }
 }
 
-.search {
+.skeleton {
+  animation: pulse 1.4s ease-in-out infinite;
+  .bar {
+    display: block;
+    height: 1rem;
+    max-width: 100%;
+    border-radius: var(--gf-radius-sm);
+    background: var(--gf-color-surface-container);
+    &--pill {
+      width: 4rem;
+      height: 1.5rem;
+      border-radius: 999px;
+    }
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+.empty {
   display: grid;
-  gap: var(--gf-space-2);
-  max-width: 24rem;
-  margin-bottom: var(--gf-space-4);
-  label {
+  justify-items: center;
+  gap: var(--gf-space-4);
+  padding: var(--gf-space-8) var(--gf-space-4);
+  border: 1px dashed var(--gf-color-border);
+  border-radius: var(--gf-radius-md);
+  background: var(--gf-color-surface);
+  text-align: center;
+  h2 {
+    margin: 0;
+    font-size: var(--gf-font-size-md);
+    font-weight: 700;
+  }
+  p {
+    margin: 0;
+    color: var(--gf-color-text-muted);
     font-size: var(--gf-font-size-sm);
   }
+  &__icon {
+    display: inline-flex;
+    padding: var(--gf-space-3);
+    border-radius: 50%;
+    background: var(--gf-color-surface-container);
+    color: var(--gf-color-primary);
+  }
 }
 
-.create {
-  text-decoration: none;
+/* Alerta de error del diseño: borde izquierdo en el color de peligro, texto e icono (no solo color). */
+.alert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gf-space-3);
+  padding: var(--gf-space-4);
+  border-left: 4px solid var(--gf-color-primary);
+  border-radius: 0 var(--gf-radius-md) var(--gf-radius-md) 0;
+  background: var(--gf-color-danger-bg);
+  &__text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gf-space-3);
+    color: var(--gf-color-text);
+    font-size: var(--gf-font-size-sm);
+    font-weight: 500;
+    gf-icon {
+      color: var(--gf-color-primary);
+    }
+  }
 }

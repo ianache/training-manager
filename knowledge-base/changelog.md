@@ -432,3 +432,5 @@ sources:
 
 - Implementado el primer tramo del catálogo (API-SPEC-003): `catalog-service`, ruta del BFF y pantallas de lista y formulario de rol (SCR-001-01/02) en el portal. Se retira el `catalog-stub` de docker-compose. Los supuestos del agente están en API-SPEC-003 §8.
 - Artefactos afectados: `API-SPEC-003`, `changelog.md`.
+
+- SCR-001-01: la implementación de `/catalogo` se alineó con el diseño Stitch (GEN-001-G): título «Catálogo de roles y competencias», pestañas Roles y Competencias en una tarjeta, búsqueda con icono, «Crear rol» y «Crear competencia» (esta última deshabilitada: el alta no existe aún), tabla de roles sin columna de competencias, tabla de competencias con versión vigente y «X de 4» niveles con requisitos, y los estados cargando (filas esqueleto), vacío, error con «Reintentar» y solo lectura. El servicio añade `levels_with_requirements`. Artefactos afectados: `API-SPEC-003`.

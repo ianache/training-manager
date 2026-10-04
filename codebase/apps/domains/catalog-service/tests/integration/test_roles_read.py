@@ -116,7 +116,22 @@ async def test_competencias_lista_y_detalle(async_client, factory, colaborador):
     lista = (await async_client.get("/api/v1/competencies", params={"status": "ACTIVE"}, headers=colaborador)).json()
     assert [c["name"] for c in lista["data"]] == ["Git"]
     assert lista["data"][0]["current_version"] == {"id": comp["version_id"], "version_number": 1, "status": "APPROVED"}
+    assert lista["data"][0]["levels_with_requirements"] == 3  # L1, L2 y L3 tienen requisitos; L4 no
     detalle = (await async_client.get(f"/api/v1/competencies/{comp['competency_id']}", headers=colaborador)).json()
+    assert detalle["levels_with_requirements"] == 3
     reqs = detalle["versions"][0]["evidence_requirements"]
     assert {r["level"] for r in reqs} == {"L1", "L2", "L3"} and sum(r["is_required"] for r in reqs) == 3
     assert (await async_client.get(f"/api/v1/competencies/{uuid.uuid4()}", headers=colaborador)).status_code == 404
+
+
+async def test_competencia_sin_version_aprobada_tiene_cero_niveles_con_requisitos(async_client, factory, colaborador):
+    await factory.competency("Solo borrador", version_status="DRAFT")
+    item = (await async_client.get("/api/v1/competencies", headers=colaborador)).json()["data"][0]
+    assert item["current_version"] is None and item["levels_with_requirements"] == 0
+
+
+async def test_niveles_con_requisitos_cuenta_niveles_distintos_de_la_version_vigente(async_client, factory, colaborador):
+    comp = await factory.competency("Git", requirements={"L1": [True, False, False], "L4": [False]})
+    await factory.competency("Git", competency_id=comp["competency_id"], version_number=2, requirements={"L2": [True]})
+    item = (await async_client.get("/api/v1/competencies", headers=colaborador)).json()["data"][0]
+    assert item["current_version"]["version_number"] == 2 and item["levels_with_requirements"] == 1

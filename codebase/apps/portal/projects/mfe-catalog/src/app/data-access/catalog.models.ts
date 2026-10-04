@@ -65,6 +65,8 @@ export interface CompetencySummary {
   description: string | null;
   status: CatalogStatus;
   current_version: VersionRef | null;
+  /** Niveles L1 a L4 con al menos un requisito de evidencia en la versión vigente (SCR-001-01: «2 de 4»). */
+  levels_with_requirements: number;
   row_version: number;
 }
 

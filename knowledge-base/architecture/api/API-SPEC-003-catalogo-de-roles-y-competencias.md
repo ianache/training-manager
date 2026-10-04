@@ -165,6 +165,7 @@ Código en `codebase/apps/domains/catalog-service` (FastAPI, esquema propio `cat
 | `evidence_requirements` | Cuenta todos los requisitos (requeridos y deseados) del L esperado, solo de versiones no borrador | AQ-2 lo deja informativo |
 | `PUT /roles` y niveles omitidos | Un nivel que no viene en la petición se conserva; los nuevos van sin `id`, los existentes con `id` | El contrato dice «solo añade o renombra» sin fijar cómo se identifica un nivel |
 | `If-Match` | Obligatorio en `PUT` (428 si falta); opcional en `POST /roles/{id}/deactivate`; acepta comillas de ETag | El contrato no lo pide para desactivar |
+| `levels_with_requirements` en competencias | Niveles L1 a L4 con al menos un requisito (requerido o deseado) en la versión vigente; 0 sin versión aprobada (campo aditivo) | SCR-001-01 muestra «X de 4»; el contrato no define «con requisitos definidos» |
 | `competency_count` en la lista | Competencias distintas del rol (campo aditivo) | La lista del portal lo necesita |
 | Reactivar un rol | No existe | El contrato solo define reactivar niveles y competencias |
 | Datos de ejemplo | `SEED_DEMO_DATA` crea 8 competencias y 4 roles (ids del antiguo stub) solo en desarrollo | Sirven para probar; no son contenido del negocio |
