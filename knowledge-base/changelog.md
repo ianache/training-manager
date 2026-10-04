@@ -392,3 +392,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0223 a 0228): una certificación vigente de nivel mayor o igual cumple lo exigido (BR-ACR-25); se registra la evaluación no aprobada (BR-ACR-24); 403 ante una persona anonimizada; un usuario sin código de party se muestra solo con el nombre de su rol; los motivos los gestiona el Jefe de Ingeniería o ADMIN; la consulta del nivel certificado también por competencia (US-006). Cambios: `NOT_APPROVED` en el DDL de certificaciones (6 casos nuevos probados: ahora 33, 19 fallan y 14 pasan) y en API-SPEC-005 (`outcome`, `X-Actor-Role`, consulta por competencia). **Corrección:** las entradas anteriores decían «25 casos» y eran 27 (17 + 10). Preguntas nuevas AQ-8 (visibilidad de una evaluación no aprobada) y AQ-9. IMD-001 (la evaluación no aprobada) queda por actualizar.
 - Artefactos afectados: `BRC-001`, `LDM-003`, `certification-postgresql.sql`, `API-SPEC-005`.
+
+- SCR-028-01 C (sin resultados) y E (sin organización interna) localizados en Stitch tras reprocesar: los timeouts habían generado las pantallas. Verificadas con el HTML y anotadas en GEN-028; defecto en E: `nav` sin `aria-label`. Lección: tras un timeout hay que consultar `list_screens` unos minutos después antes de reintentar.
+- Artefactos afectados: `knowledge-base/design/generations/GEN-028-*.md`, `knowledge-base/changelog.md`.

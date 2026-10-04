@@ -98,3 +98,14 @@ Revisión de accesibilidad: [ARP-UNIDADES-V2](../handoff/ARP-UNIDADES-REGENERACI
 ## Estados vacíos de SCR-028-01 (2026-10-03, segundo intento)
 
 Se generó una hoja por estado, en serie. **D · Sin unidades registradas:** `projects/13050549605434273903/screens/0799c949029c48ff9a2a7e2fac9a82b7` (verificada; HTML descargado). **C · Sin resultados:** la llamada respondió con texto de confirmación pero **sin devolver pantalla ni ID**, así que no hay artefacto verificable y no se registra. **E · Sin organización interna:** timeout, sin artefacto. Siguen pendientes C y E.
+
+## Cierre de los estados C y E (2026-10-03)
+
+Los timeouts de Stitch **no significan que la pantalla no se generó**: las llamadas de SCR-028-01 C y E, dadas por perdidas, aparecieron más tarde en `list_screens`. Verificadas con `get_screen` y con el HTML descargado:
+
+| Estado | Resource name (Stitch) | Revisión del HTML |
+|---|---|---|
+| C · Sin resultados | `projects/13050549605434273903/screens/f61fccddd0c34be0ac077882ddcb22a6` | Búsqueda y «Estado» con `label for`, filtro «Estado: Activa», «Limpiar filtros» y mensaje en `role="status"`; iconos ocultos; `nav` con nombre y `aria-current`; sin «Soporte»/«Ajustes». |
+| E · Sin organización interna | `projects/13050549605434273903/screens/2699220ea5404eec96661060e1b596c8` | Mensaje en `role="status"` y enlace «Registrar organización interna»; iconos ocultos. **Defecto:** el único `nav` no tiene `aria-label`. |
+
+Además hay dos hojas más de «estados vacíos» (`e72f753aa88a46788f99dbbbe361771a` y `5c821e8a409549b982fa97a0e3b4767b`), resultado de llamadas anteriores que dieron timeout; no se revisaron y quedan como residuo. Con C y E, SCR-028-01 tiene ya todos sus estados generados (A y B, C, D, E, F a H); falta solo corregir el `aria-label` de E y la revisión humana.
