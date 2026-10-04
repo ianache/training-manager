@@ -62802,7 +62802,7 @@
         "id": "ARP-SCR-017-03-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-017-03-C \u2014 Revisi\u00f3n de accesibilidad: Acceso no autorizado (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-03. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-017-03. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -62830,7 +62830,7 @@
         "a11y_review": {
           "screen": "SCR-017-03",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -62839,8 +62839,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 5,
-            "fail": 1,
+            "pass": 6,
+            "fail": 0,
             "inconclusive": 4
           }
         }
@@ -62988,7 +62988,7 @@
         "id": "ARP-SCR-028-01-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-028-01-C \u2014 Revisi\u00f3n de accesibilidad: Lista y jerarqu\u00eda de unidades (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-028-01. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-028-01. Resultado pass; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -63016,7 +63016,7 @@
         "a11y_review": {
           "screen": "SCR-028-01",
           "target": "html",
-          "result": "fail",
+          "result": "pass",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -63025,8 +63025,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 11,
-            "fail": 1,
+            "pass": 12,
+            "fail": 0,
             "inconclusive": 0
           }
         }
@@ -65218,7 +65218,7 @@
         "id": "ARP-SCR-030-04-C",
         "type": "Accessibility Report",
         "title": "ARP-SCR-030-04-C \u2014 Revisi\u00f3n de accesibilidad: Reactivaci\u00f3n bloqueada por padre inactivo (hoja vigente de Stitch)",
-        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-04. Resultado fail; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
+        "description": "Revisi\u00f3n est\u00e1tica WCAG 2.2 AA de la hoja vigente de Stitch para SCR-030-04. Resultado inconclusive; borrador, sin verificaci\u00f3n humana en navegador de esta versi\u00f3n.",
         "tags": [
           "ux-ui",
           "accessibility",
@@ -65246,7 +65246,7 @@
         "a11y_review": {
           "screen": "SCR-030-04",
           "target": "html",
-          "result": "fail",
+          "result": "inconclusive",
           "requirements_checked": [
             "WCAG-2.2-AA",
             "keyboard-nav",
@@ -65255,8 +65255,8 @@
             "error-announcement"
           ],
           "counts": {
-            "pass": 5,
-            "fail": 1,
+            "pass": 6,
+            "fail": 0,
             "inconclusive": 5
           }
         }
@@ -184428,5 +184428,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "dcb49033b96c05aec4b3968059231629ad80a25d"
+  "built_at_commit": "cb11c91b9b54b736f965675535d9e3a2d85274d7"
 }

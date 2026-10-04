@@ -1,7 +1,7 @@
 # Graph Report - UX_UI_agentic  (2026-10-04)
 
 ## Corpus Check
-- 683 files · ~582,190 words
+- 683 files · ~582,231 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 35 file(s) not represented in the graph (top: (none) 14, .scss 7, .example 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2f6f5d64`
+- Built from commit: `dcb49033`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1815,11 +1815,11 @@ Nodes (3): 6. NFRs & Fitness Criteria Validation, ✅ Auditability NFRs Defined,
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `admin()` connect `catalog-service/tests/conftest.py` to `READY_FOR_DEV Assessment`, `AGENTS.md — UX/UI Potenciado por IA (Pack V2)`, `Arquitectura de la aplicación web — Plataforma de Gestión de Formación`, `Docker Compose — Plataforma de Gestión de Formación (entorno local completo)`, `Traceability Matrix: Requirements → Architecture → Implementation → Verification`, `Development Context Pack — Party Management Service API`, `DCP-002-VALIDADO: Party Management Service API`, `API-SPEC-004 — Asignación de Rol-Nivel`, `Handoff Report`, `API-SPEC-006 — Gestión de la estructura organizacional`?**
-  _High betweenness centrality (0.078) - this node is a cross-community bridge._
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
 - **Why does `product_owner()` connect `catalog-service/tests/conftest.py` to `FLW-001 — Gestionar el catálogo de roles y competencias`, `Reglas, dependencias e impactos`, `AGENTS.md — UX/UI Potenciado por IA (Pack V2)`, `SCR-001 — Gestionar el catálogo de roles y competencias`, `Registro de cambios`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
-- **Why does `sources()` connect `AGENTS.md — UX/UI Potenciado por IA (Pack V2)` to `check-ui-library.mjs`?**
-  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+- **Why does `SessionService` connect `role-list.page.ts` to `ADR-009 — Composición de microUIs con Native Federation`, `role-form.page.ts`, `ref_angular_common`?**
+  _High betweenness centrality (0.066) - this node is a cross-community bridge._
 - **Are the 16 inferred relationships involving `RoleService` (e.g. with `create_role()` and `deactivate_level()`) actually correct?**
   _`RoleService` has 16 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 21 inferred relationships involving `OrganizationService` (e.g. with `create_organization()` and `get_organization()`) actually correct?**
