@@ -112,7 +112,7 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~DSP2-Q8~~ | ~~¿La revocación exige un motivo, y cómo se audita?~~ **Respondida (ianache, 2026-10-04):** sí; motivo tipificado más una descripción de quien revoca que sustente la decisión, con registro de auditoría (EVD-2026-0194) |
 | ~~DSP2-Q9~~ | ~~¿Cuáles son los motivos tipificados de revocación? Hace falta la lista (tipo de dato que se puede ampliar)~~ **Respondida (ianache, 2026-10-04):** `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO` (se retiró `CONFLICTO_DE_INTERES`, EVD-2026-0200), lista ampliable, descripción de hasta 1000 caracteres (EVD-2026-0195 a 0197). |
 | ~~DSP2-Q10~~ | ~~¿Largo mínimo de la descripción de la revocación? Se entendió «1000 caracteres» como el máximo; el mínimo no se definió~~ **Respondida (ianache, 2026-10-04):** mínimo 10 caracteres; entre 10 y 1000 (EVD-2026-0201). |
-| DSP2-Q13 | ¿La certificación guarda una calificación o un sustento propios (aparte de la descripción de la revocación)? Hoy no figuran en ninguna historia; se supone que no |
+| ~~DSP2-Q13~~ | ~~¿La certificación guarda una calificación o un sustento propios (aparte de la descripción de la revocación)? Hoy no figuran en ninguna historia; se supone que no~~ **Respondida (ianache, 2026-10-04):** una calificación simple CUMPLE / NO CUMPLE, por evidencia (interpretación a confirmar), EVD-2026-0210. |
 | ~~DSP2-Q14~~ | ~~Un requisito puede exigir varias piezas (EVD-2026-0203): ¿dónde se declara la cantidad? El catálogo (LDM-002, `tb_evidence_requirement`) no tiene un campo de cantidad: ¿se añade una «cantidad mínima» o se declara un requisito por pieza?~~ **Respondida (ianache, 2026-10-04):** no hay cantidad por definir; un requisito obligatorio se cumple con al menos una pieza (EVD-2026-0208). El catálogo no necesita un campo de cantidad. |
 | ~~DSP2-Q15~~ | ~~«Quienes tienen el rol evaluador» que ven la descripción de una revocación (EVD-2026-0206): ¿todos los evaluadores o solo quien certificó?~~ **Respondida (ianache, 2026-10-04):** cualquier evaluador (EVD-2026-0209). |
 
@@ -120,7 +120,7 @@ The delivery team or supplier must implement only the included scope, provide te
 
 | ID | Pregunta | Responsable |
 |---|---|---|
-| ~~P-09~~ | ~~¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.?~~ **Respondida en parte (ianache, 2026-10-04):** un evaluador no puede certificar a su propio equipo (EVD-2026-0198); queda abierto qué hace Gestión de formación / RR. HH. | Responsable de producto |
+| ~~P-09~~ | ~~¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.?~~ **Respondida en parte (ianache, 2026-10-04):** un evaluador no puede certificar a su propio equipo (EVD-2026-0198); queda abierto qué hace Gestión de formación / RR. HH. **Segunda mitad diferida (2026-10-04):** no es relevante por ahora (EVD-2026-0212). | Responsable de producto |
 | ~~DSP2-Q11~~ | ~~**Bloquea la regla de BR-ACR-17:** ¿qué es el «equipo» de un evaluador? ¿Sus reportes directos (relación de reporte, solo empleados, BR-PTY-19), su unidad organizacional o sus proyectos?~~ **Respondida (ianache, 2026-10-04):** ya no aplica: el rol reemplaza la regla del equipo (EVD-2026-0200). | Jefe de Ingeniería |
 | ~~DSP2-Q12~~ | ~~**Respuesta del 2026-10-04 (EVD-2026-0199):** se habilita un rol de evaluador y cualquier usuario con él puede evaluar; se usa el rol `evaluador` existente. **Esto no define el «equipo»** de DSP2-Q11, que BR-ACR-17 sigue necesitando para saber a quién no puede certificar un evaluador. ¿Se mantiene BR-ACR-17 y se define el equipo, o la regla se reemplaza por el rol?~~ **Respondida (ianache, 2026-10-04):** el rol `evaluador` reemplaza la regla; se retira BR-ACR-17 y el motivo `CONFLICTO_DE_INTERES` (EVD-2026-0200). | Jefe de Ingeniería |
 | ~~P-23~~ | ~~Equivalencias de evidencia (parcialmente respondida)~~ **Respondida (ianache, 2026-10-04):** sin equivalencias; un requisito puede exigir varias piezas (EVD-2026-0202, 0203). | Jefe de Ingeniería |
@@ -130,7 +130,7 @@ The delivery team or supplier must implement only the included scope, provide te
 
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
 1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.
-2. Actualizar el modelo conceptual (IMD-001: Certificación, Evidencia, Nivel certificado) con `af-conceptual-model-designer`.
+2. ~~Actualizar el modelo conceptual (IMD-001)~~ Hecho el 2026-10-04: la evidencia es una entidad propia y R-20 y R-07 pasan a N : M (EVD-2026-0213).
 3. Modelo de datos (`data-model-designer`); el ADR del Certification Service ya está aceptado (ADR-013).
 4. API-SPEC con la consulta del nivel certificado y el alta de certificación.
 5. UXR-003 y UXR-004 ya existen: faltan FLW, SCR y GEN.

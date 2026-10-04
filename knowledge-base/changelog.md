@@ -368,3 +368,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0208, 0209): no hay una cantidad de piezas por definir (un requisito obligatorio se cumple con al menos una pieza), así que el catálogo no cambia y LDM-002 no necesita un campo nuevo; ven la descripción de una revocación todos los evaluadores. Cierra DSP2-Q14 y DSP2-Q15. Queda abierta DSP2-Q13 (calificación o sustento propios, se supone que no).
 - Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0210 a 0213): la certificación guarda una calificación simple CUMPLE / NO CUMPLE (interpretada por evidencia, a confirmar; BR-ACR-19); las evidencias de GitLab son solo URLs a elementos de GitLab (aclara BR-IA-01); la segunda mitad de P-09 se difiere; y se actualizó IMD-001: la evidencia pasa a ser una entidad propia y R-20 y R-07 pasan a N : M (P-35 e IM-Q8 respondidas). DSP2-Q13 cerrada.
+- Artefactos afectados: `IMD-001`, `BRC-001`, `US-003`, `DSP-002`.
