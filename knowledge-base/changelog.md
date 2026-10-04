@@ -421,3 +421,6 @@ sources:
 - SCR-029-01, estados de validación (B a D) localizados y verificados en Stitch (`2be6838e…`) sin el defecto de «Soporte» y «Ajustes». Solo queda con él la hoja E a H. Anotado en `GEN-029`.
 
 - SCR-003-02 apareció en Stitch (generación original) y se registró en el DTM con `--evidence`; la «parte A» del relanzamiento quedó como duplicado incompleto sin registrar y la «parte B» no se generó. Artefactos afectados: `GEN-003`, `DTM-PPM-001`.
+
+- Lista de comprobación CHK-UNIDADES-001 para la revisión manual en navegador de las 12 pantallas de unidades (teclado, foco, zoom, espaciado, lector de pantalla), con los resource names de Stitch de cada hoja. El agente no puede ejecutarla; una persona la rellena y el `pass` solo se asigna con sus notas.
+- Artefactos afectados: `knowledge-base/design/handoff/CHK-UNIDADES-REVISION-NAVEGADOR.md`, `knowledge-base/index.md`, `knowledge-base/changelog.md`.
