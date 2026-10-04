@@ -3000,9 +3000,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md": {
-    "mtime": 1791138944.50443,
-    "seen": 1791138981.8783314,
-    "ast_hash": "9bc8c6c21cd4aa3bb10fd8b4fee8093e",
+    "mtime": 1791139370.670909,
+    "seen": 1791139411.7067878,
+    "ast_hash": "d3d8093cfc3cb3b42ade01728587159e",
     "semantic_hash": ""
   },
   "knowledge-base/design/tokens/TKN-SET-001-sovereign-enterprise.md": {
@@ -3426,9 +3426,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/generations/GEN-030-stitch-desactivar-y-reactivar-unidades-organizacionales.md": {
-    "mtime": 1791138945.0249486,
-    "seen": 1791138981.8693132,
-    "ast_hash": "e72be194ff60d0b912e32c536e7ba84e",
+    "mtime": 1791139371.2801936,
+    "seen": 1791139411.6962583,
+    "ast_hash": "a1423c27f5b2bf41ceda34342504385d",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_api.py": {
