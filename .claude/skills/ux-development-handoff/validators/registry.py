@@ -114,3 +114,28 @@ def register_governed(kb_root, dtm_id: str, screen: str, file_ref: str, node_ref
     if approved and exp and exp.get("status") == "current":
         exp["status"] = "superseded"  # stays as exploration lineage, no longer the design to build
     dump_concept(dtm.path, dtm.fm, dtm.body)
+
+
+def register_governed_stitch(kb_root, dtm_id: str, screen: str, artifact_ref: str, version: str,
+                             approved_by: str | None, states_covered: list, responsive_covered: list) -> None:
+    """Records an approved Stitch artifact as the governed design of a screen (Figma not used).
+
+    The artifact must be the one already registered as exploration_design for that screen, and the approval
+    must come from a human. Without approval the design stays a candidate and the gate does not pass.
+    """
+    if approved_by is not None and not str(approved_by).startswith("human:"):
+        raise RegistryError("approval must come from a human (human:<id>); agents cannot approve a design")
+    kb = load_kb(kb_root)
+    dtm, entry = _dtm_entry(kb, dtm_id, screen)
+    exp = entry.get("exploration_design") or {}
+    if not exp or exp.get("artifact_ref") != artifact_ref:
+        raise RegistryError(f"{C.DANGLING_REFERENCE}: {artifact_ref} is not the exploration_design registered for {screen}; "
+                            "register it first with register-exploration")
+    approved = approved_by is not None
+    entry["governed_design"] = {
+        "tool": "stitch", "project_ref": exp.get("project_ref"), "artifact_ref": artifact_ref, "version": version,
+        "status": "approved" if approved else "candidate", "approved_by": approved_by,
+        "states_covered": list(states_covered), "responsive_covered": list(responsive_covered),
+        "latest_known_version": version}
+    entry["stitch_figma"] = {"divergence": "none"}
+    dump_concept(dtm.path, dtm.fm, dtm.body)

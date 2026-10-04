@@ -25,6 +25,7 @@ Cada SCR del alcance tiene entrada DTM, FLW y lineage; ver el DTM en `references
 
 ## Invariants
 - Se entrega a Dev el `governed_design`. Nunca se selecciona un artefacto Stitch cuando existe Figma gobernado; Stitch solo aparece como `exploration_lineage` no autoritativa.
+- **Stitch como diseño gobernado (decisión de `human:ianache`, 2026-10-04: Figma descartado en este repositorio).** Un `governed_design` puede ser `tool: stitch` si es el **mismo artefacto** ya registrado como `exploration_design` de ese SCR, con `project_ref`, `artifact_ref`, `version` y un aprobador humano (`human:<id>`). Se registra con `python validators/cli.py register-governed-stitch --kb knowledge-base --dtm <DTM> --screen <SCR> --artifact-ref <ref> --version <v> --approved-by human:<id> --states … --breakpoints …`; sin `--approved-by` queda `candidate` y el gate no pasa. El agente nunca aporta la aprobación. Si el SCR tiene gobierno de Stitch no se exige la comparación Stitch↔Figma; si hay Figma gobernado, rige Figma.
 - Sin `governed_design` identificable → no hay handoff.
 - La aprobación del gate es humana: el validador nunca escribe `human_review.status: approved`.
 - `PASSED` = comprobaciones automáticas superadas, pendiente de revisión humana.

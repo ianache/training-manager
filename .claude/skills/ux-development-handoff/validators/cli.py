@@ -1,4 +1,4 @@
-"""CLI: python validators/cli.py {preflight|gate|dev-context|register-exploration|register-governed} ...
+"""CLI: python validators/cli.py {preflight|gate|dev-context|register-exploration|register-governed|register-governed-stitch} ...
 
 Exit code: 0 = PASSED/READY, 1 = FAILED, 2 = BLOCKED. JSON on stdout.
 """
@@ -48,6 +48,13 @@ def main(argv=None) -> int:
     p.add_argument("--approved-by"); p.add_argument("--decision-ref")
     p.add_argument("--states", nargs="*", default=[]); p.add_argument("--breakpoints", nargs="*", default=[])
 
+    p = sub.add_parser("register-governed-stitch")
+    p.add_argument("--kb", required=True)
+    for a in ("dtm", "screen", "artifact-ref", "version"):
+        p.add_argument(f"--{a}", required=True)
+    p.add_argument("--approved-by", help="human:<id>; without it the design stays a candidate")
+    p.add_argument("--states", nargs="*", default=[]); p.add_argument("--breakpoints", nargs="*", default=[])
+
     a = ap.parse_args(argv)
     try:
         if a.cmd == "preflight":
@@ -59,6 +66,10 @@ def main(argv=None) -> int:
             out = dev_context.build(a.kb, a.screen, a.profile); key = out["status"]
         elif a.cmd == "register-exploration":
             registry.register_exploration(a.kb, a.dtm, a.screen, a.project_ref, a.artifact_ref, a.version, evidence=a.evidence)
+            out, key = {"status": "READY", "registered": a.screen}, "READY"
+        elif a.cmd == "register-governed-stitch":
+            registry.register_governed_stitch(a.kb, a.dtm, a.screen, a.artifact_ref, a.version, a.approved_by,
+                                              a.states, a.breakpoints)
             out, key = {"status": "READY", "registered": a.screen}, "READY"
         else:
             registry.register_governed(a.kb, a.dtm, a.screen, a.file_ref, a.node_ref, a.version, a.approved_by,

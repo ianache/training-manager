@@ -117,22 +117,33 @@ def check_design_entry(kb: KB, scr_id: str, entry: dict, initiative: str) -> lis
             out.append(Finding(C.STALE_STITCH_REFERENCE, scr_id, "Stitch reference is stale"))
 
     gov = entry.get("governed_design") or {}
+    from_stitch = gov.get("tool") == "stitch"
     if gov.get("status") != "approved":
-        out.append(Finding(C.MISSING_GOVERNED_DESIGN, scr_id, "no approved governed_design (Figma) for this screen"))
+        out.append(Finding(C.MISSING_GOVERNED_DESIGN, scr_id, "no approved governed_design (Figma or Stitch) for this screen"))
         return out
-    if not all(gov.get(k) for k in ("file_ref", "node_ref", "version")) or \
-            not str(gov.get("approved_by", "")).startswith("human:"):
-        out.append(Finding(C.MISSING_GOVERNED_DESIGN, scr_id,
-                           "governed_design needs file_ref, node_ref, version and a human approver"))
-    if _stale(gov):
-        out.append(Finding(C.STALE_FIGMA_REFERENCE, scr_id, "Figma reference is stale"))
+    if from_stitch:
+        # The governed design is an approved Stitch artifact: it must be the registered exploration artifact itself.
+        if not all(gov.get(k) for k in ("project_ref", "artifact_ref", "version")) or                 not str(gov.get("approved_by", "")).startswith("human:"):
+            out.append(Finding(C.MISSING_GOVERNED_DESIGN, scr_id,
+                               "governed_design (Stitch) needs project_ref, artifact_ref, version and a human approver"))
+        elif not exp or gov.get("artifact_ref") != exp.get("artifact_ref"):
+            out.append(Finding(C.DANGLING_REFERENCE, scr_id,
+                               "governed Stitch artifact is not the registered exploration artifact of this screen"))
+        if _stale(gov) or (exp and _stale(exp)):
+            out.append(Finding(C.STALE_STITCH_REFERENCE, scr_id, "governed Stitch reference is stale"))
+    else:
+        if not all(gov.get(k) for k in ("file_ref", "node_ref", "version")) or                 not str(gov.get("approved_by", "")).startswith("human:"):
+            out.append(Finding(C.MISSING_GOVERNED_DESIGN, scr_id,
+                               "governed_design needs file_ref, node_ref, version and a human approver"))
+        if _stale(gov):
+            out.append(Finding(C.STALE_FIGMA_REFERENCE, scr_id, "Figma reference is stale"))
     miss = sorted(set(_list(s.get("required_states"))) - set(_list(gov.get("states_covered"))))
     if miss:
         out.append(Finding(C.MISSING_SCREEN_STATE, scr_id, f"governed design lacks states: {', '.join(miss)}"))
     miss = sorted(set(_list(s.get("responsive"))) - set(_list(gov.get("responsive_covered"))))
     if miss:
         out.append(Finding(C.MISSING_RESPONSIVE_RULE, scr_id, f"governed design lacks breakpoints: {', '.join(miss)}"))
-    if exp:
+    if exp and not from_stitch:
         sf = entry.get("stitch_figma") or {}
         div = sf.get("divergence")
         if div not in ("none", "resolved"):

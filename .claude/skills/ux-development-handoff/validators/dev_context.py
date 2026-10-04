@@ -31,10 +31,11 @@ def build(kb_root, screen: str, profile: str = "production") -> dict:
     return {
         "status": "READY", "screen": screen, "handoff": hof.id, "authoritative_design": "governed_design",
         "flow": entry["flow"], "requirements": entry["requirements"],
-        "governed_design": {k: gov.get(k) for k in ("tool", "file_ref", "node_ref", "version", "approved_by",
+        "governed_design": {k: gov.get(k) for k in ("tool", "file_ref", "node_ref", "project_ref", "artifact_ref", "version", "approved_by",
                                                      "states_covered", "responsive_covered")},
-        "exploration_lineage": {"authoritative": False, "tool": exp.get("tool"), "project_ref": exp.get("project_ref"),
-                                "artifact_ref": exp.get("artifact_ref"), "status": exp.get("status")} if exp else None,
+        "exploration_lineage": {"authoritative": gov.get("tool") == "stitch", "tool": exp.get("tool"),
+                                "project_ref": exp.get("project_ref"), "artifact_ref": exp.get("artifact_ref"),
+                                "status": exp.get("status")} if exp else None,
         "required_states": spec.get("required_states"), "responsive": spec.get("responsive"),
         "a11y_requirements": spec.get("a11y_requirements"),
         "components": entry.get("components") or spec.get("components"),
@@ -42,6 +43,8 @@ def build(kb_root, screen: str, profile: str = "production") -> dict:
         "design_decisions": hof.fm.get("design_decisions") or [],
         "open_questions": hof.fm.get("open_questions") or [], "assumptions": hof.fm.get("assumptions") or [],
         "human_review": gate.human_review, "gate_result": gate.result, "codes": [], "findings": [],
-        "rules": ["Implement governed_design only; do not use Stitch as the source of truth.",
+        "rules": (["Implement the approved governed_design (an approved Stitch artifact); there is no Figma file for this screen."]
+                  if gov.get("tool") == "stitch" else
+                  ["Implement governed_design only; do not use Stitch as the source of truth."]) + [
                   "Do not invent missing states or substitute components; ask (BLOCKED) instead."],
     }
