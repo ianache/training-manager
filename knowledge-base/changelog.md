@@ -403,3 +403,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0231 a 0233): la evaluación no aprobada lleva un motivo con una descripción; la ve también el evaluador que la registró; a quien no puede verla se le omite de las listas y se le responde 404. Abierta AQ-13 / DM-Q-09: si el motivo es tipificado, su lista y el largo de la descripción; el DDL no tiene aún esas columnas.
 - Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
+
+- Decisión de `human:ianache` 2026-10-04 (EVD-2026-0234): los motivos de una evaluación no aprobada están tipificados, para poder generar estadísticas. Falta aprobar la lista, el largo de la descripción y si el catálogo es propio o compartido (AQ-13, DM-Q-09); el DDL se ajusta al decidirlo. Las estadísticas en sí no están diseñadas.
+- Artefactos afectados: `BRC-001`, `LDM-003`, `API-SPEC-005`.
