@@ -69,10 +69,10 @@ Decidir, con fundamento y dejando trazabilidad, si un colaborador alcanza un niv
 |---|---|---|---|
 | UXR-003-Q1 | ¿Cómo se incorpora una evidencia: se sube un archivo, se enlaza a Drive o GitLab, o se describe? No está definido | Jefe de Ingeniería | Alta |
 | RCP-Q1 | ¿Quiénes son los evaluadores y cómo se les asigna una certificación? Define cómo llega el evaluador al caso | Jefe de Ingeniería | Alta |
-| P-23 | ¿Se aceptan evidencias equivalentes? Define si hay una acción de "aceptar como equivalente". Parcialmente respondida el 2026-09-27: requeridas y deseadas (BR-ACR-12); la equivalencia sigue abierta | Jefe de Ingeniería | Media |
+| P-23 | ¿Se aceptan evidencias equivalentes? Define si hay una acción de "aceptar como equivalente". Parcialmente respondida el 2026-09-27: requeridas y deseadas (BR-ACR-12); la equivalencia sigue abierta **Respondida (2026-10-04):** no hay equivalencias, así que **no hay acción «aceptar como equivalente»** (EVD-2026-0202). | Jefe de Ingeniería | Media |
 | ~~P-39~~ | ~~¿Se puede certificar un nivel sin requisitos de evidencia definidos?~~ Respondida (ianache (Jefe de Ingeniería), 2026-09-27): no (BR-ACR-13). El estado "sin requisitos" bloquea la certificación | Jefe de Ingeniería | — |
-| P-41 | ¿Cómo "refuerza" una evidencia deseada la certificación? Define si la certificación muestra algo distinto cuando las incluye | Jefe de Ingeniería | Media |
+| P-41 | ¿Cómo "refuerza" una evidencia deseada la certificación? Define si la certificación muestra algo distinto cuando las incluye **Respondida (2026-10-04):** la certificación no muestra nada distinto; las evidencias deseadas solo se registran y se ven (EVD-2026-0205). | Jefe de Ingeniería | Media |
 | P-14 | ¿Una certificación vence o se revoca? ¿Se puede recertificar hacia arriba o hacia abajo? | Jefe de Ingeniería | Baja |
 | P-09 | ¿Un evaluador puede certificar a alguien de su equipo? | Responsable de producto | Media |
-| P-54 | ¿Las calificaciones y el sustento del evaluador son visibles para todos, o solo el resultado? | Jefe de Ingeniería | Media |
+| P-54 | ¿Las calificaciones y el sustento del evaluador son visibles para todos, o solo el resultado? **Respondida en parte (2026-10-04):** la descripción de una revocación es restringida (EVD-2026-0206); las calificaciones y el sustento son de cursos (H2). | Jefe de Ingeniería | Media |
 | UXR-003-Q2 | ¿Quién inicia una certificación: el colaborador la solicita o el evaluador la abre? No está definido | Jefe de Ingeniería | Alta |

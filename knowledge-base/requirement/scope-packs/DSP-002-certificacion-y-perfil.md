@@ -112,6 +112,9 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~DSP2-Q8~~ | ~~¿La revocación exige un motivo, y cómo se audita?~~ **Respondida (ianache, 2026-10-04):** sí; motivo tipificado más una descripción de quien revoca que sustente la decisión, con registro de auditoría (EVD-2026-0194) |
 | ~~DSP2-Q9~~ | ~~¿Cuáles son los motivos tipificados de revocación? Hace falta la lista (tipo de dato que se puede ampliar)~~ **Respondida (ianache, 2026-10-04):** `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS` y `OTRO` (se retiró `CONFLICTO_DE_INTERES`, EVD-2026-0200), lista ampliable, descripción de hasta 1000 caracteres (EVD-2026-0195 a 0197). |
 | ~~DSP2-Q10~~ | ~~¿Largo mínimo de la descripción de la revocación? Se entendió «1000 caracteres» como el máximo; el mínimo no se definió~~ **Respondida (ianache, 2026-10-04):** mínimo 10 caracteres; entre 10 y 1000 (EVD-2026-0201). |
+| DSP2-Q13 | ¿La certificación guarda una calificación o un sustento propios (aparte de la descripción de la revocación)? Hoy no figuran en ninguna historia; se supone que no |
+| DSP2-Q14 | Un requisito puede exigir varias piezas (EVD-2026-0203): ¿dónde se declara la cantidad? El catálogo (LDM-002, `tb_evidence_requirement`) no tiene un campo de cantidad: ¿se añade una «cantidad mínima» o se declara un requisito por pieza? |
+| DSP2-Q15 | «Quienes tienen el rol evaluador» que ven la descripción de una revocación (EVD-2026-0206): ¿todos los evaluadores o solo quien certificó? |
 
 **No bloquean pero hay que decidir antes de construir:**
 
@@ -120,9 +123,9 @@ The delivery team or supplier must implement only the included scope, provide te
 | ~~P-09~~ | ~~¿Un evaluador puede certificar a su propio equipo? ¿Qué hace Gestión de formación / RR. HH.?~~ **Respondida en parte (ianache, 2026-10-04):** un evaluador no puede certificar a su propio equipo (EVD-2026-0198); queda abierto qué hace Gestión de formación / RR. HH. | Responsable de producto |
 | ~~DSP2-Q11~~ | ~~**Bloquea la regla de BR-ACR-17:** ¿qué es el «equipo» de un evaluador? ¿Sus reportes directos (relación de reporte, solo empleados, BR-PTY-19), su unidad organizacional o sus proyectos?~~ **Respondida (ianache, 2026-10-04):** ya no aplica: el rol reemplaza la regla del equipo (EVD-2026-0200). | Jefe de Ingeniería |
 | ~~DSP2-Q12~~ | ~~**Respuesta del 2026-10-04 (EVD-2026-0199):** se habilita un rol de evaluador y cualquier usuario con él puede evaluar; se usa el rol `evaluador` existente. **Esto no define el «equipo»** de DSP2-Q11, que BR-ACR-17 sigue necesitando para saber a quién no puede certificar un evaluador. ¿Se mantiene BR-ACR-17 y se define el equipo, o la regla se reemplaza por el rol?~~ **Respondida (ianache, 2026-10-04):** el rol `evaluador` reemplaza la regla; se retira BR-ACR-17 y el motivo `CONFLICTO_DE_INTERES` (EVD-2026-0200). | Jefe de Ingeniería |
-| P-23 | Equivalencias de evidencia (parcialmente respondida) | Jefe de Ingeniería |
-| P-41 | Cómo «refuerza» una evidencia deseada la certificación | Jefe de Ingeniería |
-| P-54 | Visibilidad de las calificaciones y del sustento del evaluador | Jefe de Ingeniería |
+| ~~P-23~~ | ~~Equivalencias de evidencia (parcialmente respondida)~~ **Respondida (ianache, 2026-10-04):** sin equivalencias; un requisito puede exigir varias piezas (EVD-2026-0202, 0203). | Jefe de Ingeniería |
+| ~~P-41~~ | ~~Cómo «refuerza» una evidencia deseada la certificación~~ **Respondida (ianache, 2026-10-04):** solo queda registrada y visible en H1; la marca «reforzada» queda abierta (EVD-2026-0205). | Jefe de Ingeniería |
+| ~~P-54~~ | ~~Visibilidad de las calificaciones y del sustento del evaluador~~ **Respondida (ianache, 2026-10-04):** descripción de la revocación restringida; GitLab según BR-TRA-05 (EVD-2026-0206, 0207). Calificaciones y sustento de BR-CER-07: de cursos (H2). | Jefe de Ingeniería |
 | RCP-Q2 | ¿En H1 un evaluador registra a mano evidencia de GitLab? | Jefe de Ingeniería |
 
 **Camino para desbloquear US-019 (siguiente en la cadena, igual que con el catálogo):**
