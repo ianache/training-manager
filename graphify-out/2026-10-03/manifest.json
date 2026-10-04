@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791086068.216991,
-    "seen": 1791086144.0351696,
-    "ast_hash": "6823dc93a68278d6b6cc3a833f90134b",
+    "mtime": 1791086349.6495128,
+    "seen": 1791086434.3268356,
+    "ast_hash": "bfb1976e57b42247af8560cc7458225c",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791086068.1738422,
-    "seen": 1791086144.0351696,
-    "ast_hash": "3686b5578b38071897fe63d48333bfb2",
+    "mtime": 1791086349.6195858,
+    "seen": 1791086434.3268356,
+    "ast_hash": "37ea6a1c2b9d9922ec614b7a1a5cac6c",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -3648,21 +3648,21 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791086068.1970935,
-    "seen": 1791086144.1584127,
-    "ast_hash": "1ffb4a063ca5ee26000e2507eff0744d",
+    "mtime": 1791086349.6358654,
+    "seen": 1791086434.4170637,
+    "ast_hash": "b52becf38a245619f413c3a7e903d7e0",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
-    "mtime": 1791085398.6115866,
-    "seen": 1791085474.483662,
-    "ast_hash": "8f8ed46ea77bcdf6b1f21bdc5fcc2eb1",
+    "mtime": 1791086349.640339,
+    "seen": 1791086434.2324882,
+    "ast_hash": "f01f84cb4bf1ff3ba9ec42dfeb77bb35",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
-    "mtime": 1791086068.206238,
-    "seen": 1791086143.894015,
-    "ast_hash": "9d0fa4e951b5d714c47d68e1b271650e",
+    "mtime": 1791086364.6930268,
+    "seen": 1791086434.2456686,
+    "ast_hash": "521cb4a9152a4cf6f3c2c089ba9985e3",
     "semantic_hash": ""
   }
 }

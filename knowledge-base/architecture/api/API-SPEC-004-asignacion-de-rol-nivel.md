@@ -55,7 +55,7 @@ Party solo conoce ids; el catálogo es de otro servicio y no existe servicio de 
 | 3. Persona vigente, no anonimizada, un solo nivel vigente por rol, no bajar, fechas | Party | BR-PTY-11, 12, 14; EVD-2026-0146, 0166 |
 | 4. Permiso | BFF y party | EVD-0152 |
 
-**Consecuencia (EVD-2026-0177, 0178):** la comprobación del paso 2 **no puede ejecutarse hoy** porque no hay servicio de certificación; por eso **subir de nivel se bloquea** con `503 CERTIFICATION_UNAVAILABLE` hasta que existan US-003 y US-004. Asignar un rol nuevo (`assigned`) no comprueba certificaciones y sigue funcionando.
+**El contrato de la certificación está en [API-SPEC-005](API-SPEC-005-certificaciones-y-evidencias.md)** (`GET /certified-levels`), sin implementar. **Consecuencia (EVD-2026-0177, 0178):** la comprobación del paso 2 **no puede ejecutarse hoy** porque no hay servicio de certificación; por eso **subir de nivel se bloquea** con `503 CERTIFICATION_UNAVAILABLE` hasta que existan US-003 y US-004. Asignar un rol nuevo (`assigned`) no comprueba certificaciones y sigue funcionando.
 
 ## 4. Contratos
 

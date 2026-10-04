@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791086349.6495128,
-    "seen": 1791086434.3268356,
-    "ast_hash": "bfb1976e57b42247af8560cc7458225c",
+    "mtime": 1791086768.8699603,
+    "seen": 1791086845.5248501,
+    "ast_hash": "03b152ba1ce6e7bc2720446999363232",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791084990.839282,
-    "seen": 1791085073.3050094,
-    "ast_hash": "cd6ddae8a180f51457850b81496a1df2",
+    "mtime": 1791086768.8405657,
+    "seen": 1791086845.6202211,
+    "ast_hash": "c1984359479b810049121e343ea0359a",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -3642,15 +3642,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md": {
-    "mtime": 1791080866.3915112,
-    "seen": 1791080901.321817,
-    "ast_hash": "74076c789616e5149b995288f8e43dc1",
+    "mtime": 1791086768.8540213,
+    "seen": 1791086845.3763633,
+    "ast_hash": "4aa11d9b9ee4bbe0ae4e45b366c961f0",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/scope-packs/DSP-002-certificacion-y-perfil.md": {
-    "mtime": 1791086349.6358654,
-    "seen": 1791086434.4170637,
-    "ast_hash": "b52becf38a245619f413c3a7e903d7e0",
+    "mtime": 1791086768.8563814,
+    "seen": 1791086845.6326795,
+    "ast_hash": "c4eef2452be2a46f59ac4283047e47e3",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/adrs/ADR-013-certification-service-como-microservicio-propio.md": {
@@ -3663,6 +3663,12 @@
     "mtime": 1791086364.6930268,
     "seen": 1791086434.2456686,
     "ast_hash": "521cb4a9152a4cf6f3c2c089ba9985e3",
+    "semantic_hash": ""
+  },
+  "knowledge-base/architecture/api/API-SPEC-005-certificaciones-y-evidencias.md": {
+    "mtime": 1791086768.8385236,
+    "seen": 1791086845.3763633,
+    "ast_hash": "39b70f7d07bd26a4e32aa2868902f8ae",
     "semantic_hash": ""
   }
 }

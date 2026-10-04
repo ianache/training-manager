@@ -79,6 +79,7 @@ sources:
 - [API-SPEC-002 — Organizaciones (unidades y proveedores): consulta y alta](architecture/api/API-SPEC-002-organizations.md) — Technical Design, `draft`; implementado
 - [API-SPEC-003 — Catálogo de roles, niveles y competencias con versiones](architecture/api/API-SPEC-003-catalogo-de-roles-y-competencias.md) — Technical Design, `draft`, REQUIRES_REVIEW; sin implementar
 - [API-SPEC-004 — Asignación de Rol-Nivel a una persona](architecture/api/API-SPEC-004-asignacion-de-rol-nivel.md) — Technical Design, `draft`, REQUIRES_REVIEW; sin implementar
+- [API-SPEC-005 — Certificaciones de nivel, evidencias y nivel certificado vigente](architecture/api/API-SPEC-005-certificaciones-y-evidencias.md) — Technical Design, `draft`, REQUIRES_REVIEW; sin implementar
 - [DCP-003 — Development Context Pack: catálogo de roles y niveles](architecture/ad-handoff/DCP-003-catalogo-de-roles-y-niveles.md) — `REQUIRES_REVIEW`; alcance completo de DSP-001
 - [DSP-001 — Catálogo de roles y niveles](requirement/scope-packs/DSP-001-catalogo-de-roles-y-niveles.md) — Development Scope Pack, `REQUIRES_REVIEW`
 - [DSP-002 — Certificación manual de niveles y perfil de competencias](requirement/scope-packs/DSP-002-certificacion-y-perfil.md) — Development Scope Pack, `REQUIRES_REVIEW`; US-003 y US-004, dependencia de US-019 AC-3 y AC-5

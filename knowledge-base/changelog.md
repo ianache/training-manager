@@ -386,3 +386,6 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0222): el actor de la auditoría de certificaciones se identifica con el código de party (BR-ACR-23). Se cambiaron a `CHAR(36)` las columnas de actor del DDL de certificaciones y se volvió a probar. Pregunta nueva DM-Q-07: qué identifica a un usuario sin código de party (un ADMIN que no es colaborador) y cómo se traduce el usuario de Keycloak a su código (US-022).
 - Artefactos afectados: `BRC-001`, `LDM-003`, `certification-postgresql.sql`, `DSP-002`, `ADR-013`.
+
+- API-SPEC-005: contrato del certification-service (certificar, recertificar, revocar, consultar certificaciones, evidencias, motivos de revocación y `GET /certified-levels`, la consulta que necesita API-SPEC-004 para desbloquear los cambios de nivel de US-019). `REQUIRES_REVIEW`, sin implementar. El BFF compone con catálogo y party; el actor se envía como código de party; la descripción de una revocación se omite a quien no puede verla (BR-TRA-07) y las certificaciones de una persona anonimizada solo las ve ADMIN. Preguntas abiertas AQ-1 a AQ-7, entre ellas: si un nivel mayor cumple lo exigido, si se registra una evaluación no aprobada y DM-Q-07.
+- Artefactos afectados: `knowledge-base/architecture/api/API-SPEC-005-certificaciones-y-evidencias.md`, `API-SPEC-004`, `DSP-002`, `index.md`.

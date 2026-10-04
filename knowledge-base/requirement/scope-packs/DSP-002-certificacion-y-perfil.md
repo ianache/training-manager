@@ -133,7 +133,7 @@ The delivery team or supplier must implement only the included scope, provide te
 1. ~~Responder P-14 y DSP2-Q1~~ Hecho (EVD-2026-0185 a 0189); responder DSP2-Q3 a Q6.
 2. ~~Actualizar el modelo conceptual (IMD-001)~~ Hecho el 2026-10-04: la evidencia es una entidad propia y R-20 y R-07 pasan a N : M (EVD-2026-0213).
 3. ~~Modelo de datos~~ Hecho el 2026-10-04: [LDM-003](../../architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md) y su DDL, probados en PostgreSQL; el ADR del Certification Service ya está aceptado (ADR-013).
-4. API-SPEC con la consulta del nivel certificado y el alta de certificación.
+4. ~~API-SPEC con la consulta del nivel certificado y el alta de certificación~~ Hecho el 2026-10-04: [API-SPEC-005](../../architecture/api/API-SPEC-005-certificaciones-y-evidencias.md), `REQUIRES_REVIEW`.
 5. UXR-003 y UXR-004 ya existen: faltan FLW, SCR y GEN.
 6. DCP de este alcance.
 
