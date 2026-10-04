@@ -344,3 +344,9 @@ sources:
 
 - Decisión de `human:ianache` 2026-10-04 (EVD-2026-0194): al revocar una certificación se elige un motivo tipificado y quien revoca deja una descripción que sustente la decisión, con registro de auditoría. Falta la lista de motivos (DSP2-Q9). Se completaron las filas DSP2-Q7 y US-019-Q2 (retorno a niveles previos, a futuro).
 - Artefactos afectados: `BRC-001`, `US-003`, `US-019`, `DSP-002`, `ADR-013`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0195 a 0197): motivos tipificados de revocación `ERROR_DE_REGISTRO`, `EVIDENCIA_INVALIDA`, `REQUISITOS_NO_CUMPLIDOS`, `CONFLICTO_DE_INTERES` y `OTRO`, lista ampliable, y descripción de hasta 1000 caracteres (interpretado como máximo; el mínimo queda abierto, DSP2-Q10). `CONFLICTO_DE_INTERES` depende de resolver P-09. DSP2-Q9 cerrada.
+- Artefactos afectados: `BRC-001`, `US-003`, `DSP-002`, `ADR-013`.
+
+- Stitch: generados el resumen previo (D) de SCR-029-03 y el estado de nombre duplicado de SCR-029-02, ambos verificados sobre el HTML y anotados en GEN-029. Siguen pendientes por timeout SCR-028-01 C y E.
+- Artefactos afectados: `knowledge-base/design/generations/GEN-029-*.md`, `knowledge-base/changelog.md`.

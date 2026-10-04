@@ -172,3 +172,14 @@ Dos hojas de una sola variante, generadas en serie, corrigen los defectos del AR
 | SCR-029-03 (E error al guardar, F éxito) | `projects/13050549605434273903/screens/1a449427811041479e3a60465018472f` | 2 de 2 campos con `label for`; iconos con `aria-hidden`; sin el verde `#059669`. No está en el DTM (que apunta a la hoja A–C). |
 
 Las hojas de SCR-029-01 (A–D, E–H) y SCR-029-03 (D–F) anteriores quedan **reemplazadas** en lo que toca a esos defectos, pero conservan los estados de validación (SCR-029-01 B a D) y el resumen previo D de SCR-029-03, que no se regeneraron. **Pendientes:** el resumen D de SCR-029-03, SCR-029-02 y los estados C y E de SCR-028-01.
+
+## Cierre de pendientes (2026-10-03, v3 en serie)
+
+Con la fórmula «Create a NEW screen …» y una sola variante por llamada se generaron dos hojas más; HTML descargado y revisado (iconos ocultos o dentro de contenedores `aria-hidden`, controles con `label for`, `aria-invalid` + `aria-describedby`, sin «Soporte»/«Ajustes»):
+
+| Pantalla | Resource name (Stitch) | Notas |
+|---|---|---|
+| SCR-029-03 (resumen previo D) | `projects/13050549605434273903/screens/34736ed5134349e6b5c37ee7bd9390ad` | Diálogo con `role`, `aria-modal`, `aria-labelledby`; cuerpo solo «Calidad de Software: de Ingeniería a Operaciones de Formación»; formulario de fondo atenuado. Cierra el pendiente del resumen. |
+| SCR-029-02 (nombre duplicado) | `projects/13050549605434273903/screens/b00dc58356824c6d907d47c0932d7081` | Campo con etiqueta ligada, `aria-invalid`, `aria-describedby`, error con `role="alert"`. Complementa la hoja vigente del DTM (`f497a299…`, estados A a E), que no se reemplaza. |
+
+Con esto, SCR-029-03 queda con todos sus estados regenerados (A–C, D, E–F). Los estados B a D de SCR-029-01 siguen solo en la hoja anterior (con «Soporte» y «Ajustes»). Una llamada de SCR-029-02 (estado predeterminado) respondió con texto pero sin devolver pantalla ni ID. Pendientes por timeout: SCR-028-01 C (sin resultados) y E (sin organización interna).
