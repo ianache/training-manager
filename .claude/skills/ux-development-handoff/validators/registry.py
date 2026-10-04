@@ -1,7 +1,9 @@
 """Writes lineage into the Design Traceability Map. The DTM is the single source of SCR<->design links."""
 from __future__ import annotations
 
+import re
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 from . import codes as C
 from .okf import KB, dump_concept, load_kb
@@ -38,21 +40,52 @@ def _dtm_entry(kb: KB, dtm_id: str, screen: str):
     return dtm, entry
 
 
+_ARTIFACT_RE = re.compile(r"^projects/(\d+)/screens/([0-9a-f]{32})$")
+
+
+def _verify_artifact_ref(artifact_ref: str, project, evidence: str | None) -> str | None:
+    """Un artifact_ref real se copia de la salida de Stitch, no se compone: forma exacta, mismo proyecto que el STP y
+    aparición literal en un archivo de evidencia (la salida guardada de list_screens/get_screen/generate)."""
+    if artifact_ref.startswith("PLACEHOLDER:"):
+        return None
+    m = _ARTIFACT_RE.match(artifact_ref)
+    if not m:
+        raise RegistryError(f"{C.INVALID_ARTIFACT_REF}: {artifact_ref!r} no tiene la forma projects/<n>/screens/<32 hex en minúscula>; "
+                            "cópialo literal de la salida de Stitch")
+    external = project.fm.get("external_ref") or ""
+    if external and not external.startswith("PLACEHOLDER:") and not artifact_ref.startswith(external + "/screens/"):
+        raise RegistryError(f"{C.INVALID_ARTIFACT_REF}: {artifact_ref} no pertenece al proyecto {external} de {project.id}")
+    if not evidence:
+        raise RegistryError(f"{C.UNVERIFIED_ARTIFACT_REF}: falta --evidence con la salida guardada de Stitch donde aparece "
+                            f"screens/{m.group(2)}")
+    path = Path(evidence)
+    if not path.is_file():
+        raise RegistryError(f"{C.UNVERIFIED_ARTIFACT_REF}: el archivo de evidencia {evidence} no existe")
+    if f"screens/{m.group(2)}" not in path.read_text(encoding="utf-8", errors="ignore"):
+        raise RegistryError(f"{C.UNVERIFIED_ARTIFACT_REF}: screens/{m.group(2)} no aparece en {path.name}; "
+                            "no se registra un id que Stitch no devolvió")
+    return path.name
+
+
 def register_exploration(kb_root, dtm_id: str, screen: str, project_ref: str, artifact_ref: str,
-                         version: str, captured_at: str | None = None) -> None:
+                         version: str, captured_at: str | None = None, evidence: str | None = None) -> None:
     kb = load_kb(kb_root)
     dtm, entry = _dtm_entry(kb, dtm_id, screen)
     initiative = dtm.fm.get("initiative") or ""
-    if project_ref not in {c.id for c in kb.active_projects(initiative)}:
+    projects = {c.id: c for c in kb.active_projects(initiative)}
+    if project_ref not in projects:
         raise RegistryError(f"{C.WRONG_STITCH_PROJECT}: {project_ref} is not the active project of {initiative}")
     if not artifact_ref:
         raise RegistryError(f"{C.ORPHAN_STITCH_ARTIFACT}: artifact_ref is empty")
+    evidence_name = _verify_artifact_ref(artifact_ref, projects[project_ref], evidence)
     old = entry.get("exploration_design")
     if old:
         entry.setdefault("exploration_history", []).append({**old, "status": "superseded"})
     entry["exploration_design"] = {
         "tool": "google-stitch", "project_ref": project_ref, "artifact_ref": artifact_ref, "version": version,
         "status": "current", "captured_at": captured_at or _now(), "latest_known_version": version}
+    if evidence_name:
+        entry["exploration_design"]["evidence"] = evidence_name
     dump_concept(dtm.path, dtm.fm, dtm.body)
 
 

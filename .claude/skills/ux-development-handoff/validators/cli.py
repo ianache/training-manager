@@ -39,6 +39,8 @@ def main(argv=None) -> int:
     p.add_argument("--kb", required=True)
     for a in ("dtm", "screen", "project-ref", "artifact-ref", "version"):
         p.add_argument(f"--{a}", required=True)
+    p.add_argument("--evidence", help="archivo con la salida guardada de Stitch (list_screens/get_screen/generate) donde aparece "
+                                      "screens/<id>; obligatorio salvo para refs PLACEHOLDER:")
     p = sub.add_parser("register-governed")
     p.add_argument("--kb", required=True)
     for a in ("dtm", "screen", "file-ref", "node-ref", "version", "divergence"):
@@ -56,7 +58,7 @@ def main(argv=None) -> int:
         elif a.cmd == "dev-context":
             out = dev_context.build(a.kb, a.screen, a.profile); key = out["status"]
         elif a.cmd == "register-exploration":
-            registry.register_exploration(a.kb, a.dtm, a.screen, a.project_ref, a.artifact_ref, a.version)
+            registry.register_exploration(a.kb, a.dtm, a.screen, a.project_ref, a.artifact_ref, a.version, evidence=a.evidence)
             out, key = {"status": "READY", "registered": a.screen}, "READY"
         else:
             registry.register_governed(a.kb, a.dtm, a.screen, a.file_ref, a.node_ref, a.version, a.approved_by,

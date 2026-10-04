@@ -320,3 +320,6 @@ sources:
 
 - SCR-019-02 regenerado por completo en Stitch con el bloqueo del nivel destino (v2, `d5465d68…`) y registrado en `DTM-PPM-001` (la v1 pasa al historial). Texto del HTML revisado: cinco estados y textos exigidos presentes. Un duplicado huérfano `c3342d35…` queda sin registrar. Corrección: al registrar usé primero un id inventado y lo reemplacé por el real antes de commitear.
 - Artefactos afectados: `knowledge-base/design/generations/GEN-019-stitch-asignar-rol-nivel.md`, `knowledge-base/design/traceability/DTM-PPM-001-plataforma-ppm.md`.
+
+- Skill `stitch-ui-generator` y validador `register-exploration` reforzados tras el incidente del 2026-10-04 (se registró un `artifact_ref` con prefijo real y sufijo inventado): el id se copia de la salida de Stitch y se prueba con `--evidence`; el validador rechaza ids mal formados, de otro proyecto o ausentes de la evidencia (`INVALID_ARTIFACT_REF`, `UNVERIFIED_ARTIFACT_REF`). 8 pruebas nuevas (96 en total) y 3 mutaciones detectadas.
+- Artefactos afectados: `.claude/skills/stitch-ui-generator/SKILL.md`, `.claude/skills/stitch-ui-generator/references/stitch-project-governance.md`, `.claude/skills/ux-development-handoff/validators/{registry,codes,cli}.py`, `.claude/skills/ux-development-handoff/tests/test_artifact_ref_verification.py`.
