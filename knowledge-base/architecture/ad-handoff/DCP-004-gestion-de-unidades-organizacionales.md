@@ -5,7 +5,7 @@ id: DCP-004
 title: Development Context Pack — Gestión de la estructura organizacional (US-017, US-028, US-029, US-030)
 generated: 2026-10-04
 verified: false
-status: REQUIRES_REVIEW
+status: READY_FOR_DEV
 sources:
   - /knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md
   - /knowledge-base/requirement/user-stories/US-028-listar-y-buscar-unidades-organizacionales.md
@@ -36,7 +36,19 @@ human-reviewed: false
 
 # Development Context Pack — Gestión de la estructura organizacional
 
-**Estado: `REQUIRES_REVIEW`.** No es `READY_FOR_DEV`. Todos los insumos están en `draft`; el gate `DESIGN_READY_FOR_DEV` de `HOF-PPM-002` está en **`FAILED`** (23 hallazgos, 2026-10-04: sin aprobación humana del diseño por pantalla, informes de accesibilidad sin `pass` en 10 pantallas y revisión humana del gate) y el contrato de API (API-SPEC-006) y el de componentes (CMP-017) son propuestas sin revisión humana. El diseño de referencia es solo Stitch (decisión de `human:ianache`, 2026-10-03; Figma descartado).
+**Estado: `READY_FOR_DEV`, por decisión de ianache (Jefe de Ingeniería) del 2026-10-04.** El gate `DESIGN_READY_FOR_DEV` de `HOF-PPM-002` está en **`PASSED`** con revisión humana aprobada (ver sus desviaciones aceptadas), y API-SPEC-006 y CMP-017 están aprobados por ianache. El diseño de referencia es solo Stitch (Figma descartado) y sigue siendo exploración aprobada por ianache, no un diseño gobernado en Figma.
+
+**Condiciones abiertas que ianache acepta como no bloqueantes al pasar a `READY_FOR_DEV`** (el agente las declara; el pack no las resuelve):
+
+| Condición | Qué implica para Desarrollo |
+|---|---|
+| Carga de la organización interna sin decidir (BR-PTY-28, DTC-017) | **No implementar US-017** hasta decidirla; el resto (US-028, 029, 030) puede avanzar |
+| 7 brechas de CMP-017 sin diseño atómico | Pasar cada una por `web-atomic-component-designer` **antes** de construirla |
+| API-SPEC-006 sin `api-contract-reviewer` ni `api-security-reviewer` | Hacer ambas revisiones antes de exponer las rutas |
+| Q-4 a Q-8 de API-SPEC-006 abiertas | Resolverlas al llegar a cada pieza: árbol (Q-4), unidad inactiva (Q-5), unidad superior (Q-6), `code`/`location` (Q-7) y concurrencia (Q-8) |
+| Índice de unicidad del nombre por padre sin migración | Escribir la migración (posterior a `0005`) antes del `PATCH` y del cambio de padre |
+| Diálogos: foco atrapado, Escape y retorno del foco | Obligación de la implementación (aceptado en el gate) |
+| 13 pruebas de integración anteriores fallan en PostgreSQL | Corregirlas o aislarlas antes de apoyarse en esa suite |
 
 ## Scope and identity
 

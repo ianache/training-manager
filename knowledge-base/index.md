@@ -153,7 +153,7 @@ sources:
 - [ARP-SCR-029-03 — Cambiar unidad padre](design/handoff/ARP-SCR-029-03-cambiar-unidad-padre.md) — Accessibility Report, `draft`, resultado `fail`
 - [ARP-SCR-029-04 — Historial de relaciones y vigencias](design/handoff/ARP-SCR-029-04-historial-de-relaciones.md) — Accessibility Report, `draft`, resultado `fail`
 - [ARP-UNIDADES-V2 — Regeneración de las pantallas de unidades organizacionales](design/handoff/ARP-UNIDADES-REGENERACION-v2.md) — Accessibility Report, `draft`, 2 `fail` y 14 `inconclusive`
-- [DCP-004 — Development Context Pack de la gestión de unidades organizacionales](architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md) — `REQUIRES_REVIEW`
+- [DCP-004 — Development Context Pack de la gestión de unidades organizacionales](architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md) — `READY_FOR_DEV` (decisión de ianache, 2026-10-04)
 - [DTC-017 — Handoff de Desarrollo: Registrar la organización interna](implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md) — `REQUIRES_REVIEW`
 - [DTC-028 — Handoff de Desarrollo: Listar y buscar unidades](implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md) — `REQUIRES_REVIEW`
 - [DTC-029 — Handoff de Desarrollo: Registrar y editar unidades](implementation/DTC-029-handoff-desarrollo-registrar-y-editar-unidades-organizacionales.md) — `REQUIRES_REVIEW`

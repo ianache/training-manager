@@ -12,7 +12,7 @@ This directory contains validated Development Context Packs (DCPs) that bridge a
 
 ### DCP-004 — Gestión de la estructura organizacional (US-017, 028, 029, 030)
 
-**Estado:** `REQUIRES_REVIEW`: gate `DESIGN_READY_FOR_DEV` en `FAILED` (23 hallazgos), API-SPEC-006 y CMP-017 sin revisión, y la carga de la organización interna sin decidir (BR-PTY-28). Q-1 (correo laboral), Q-2 (ADMIN) y Q-9 (historial del nombre, migración 0005) resueltas. Contratos por historia: DTC-017, DTC-028, DTC-029 y DTC-030 (en `implementation/`, todos `REQUIRES_REVIEW`). Archivo: [DCP-004-gestion-de-unidades-organizacionales.md](DCP-004-gestion-de-unidades-organizacionales.md).
+**Estado:** `READY_FOR_DEV` por decisión de ianache (2026-10-04): gate `DESIGN_READY_FOR_DEV` en `PASSED` con revisión humana, API-SPEC-006 y CMP-017 aprobados. Condiciones abiertas aceptadas (ver DCP-004): carga de la organización interna sin decidir (BR-PTY-28; no implementar US-017), 7 brechas de componentes sin diseño atómico, revisiones de API pendientes y Q-4 a Q-8. Q-1 (correo laboral), Q-2 (ADMIN) y Q-9 (historial del nombre, migración 0005) resueltas. Contratos por historia: DTC-017, DTC-028, DTC-029 y DTC-030 (en `implementation/`, todos `REQUIRES_REVIEW`). Archivo: [DCP-004-gestion-de-unidades-organizacionales.md](DCP-004-gestion-de-unidades-organizacionales.md).
 
 ### DCP-003 — Catálogo de roles y niveles (DSP-001)
 

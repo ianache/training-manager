@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791137159.6561692,
-    "seen": 1791137198.7702935,
-    "ast_hash": "dd2531658591990a04e59814bc19301f",
+    "mtime": 1791141060.953998,
+    "seen": 1791141105.3825176,
+    "ast_hash": "1bc9ce2967119d4b90d41ed36760b0a2",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791137159.6442027,
-    "seen": 1791137198.7987423,
-    "ast_hash": "61a6071e155762fffb87608994774e52",
+    "mtime": 1791141060.9489834,
+    "seen": 1791141105.4171205,
+    "ast_hash": "1c62cde936db5aefb4bcfb9076606cfe",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -2346,9 +2346,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/INDEX.md": {
-    "mtime": 1791137159.6505504,
-    "seen": 1791137198.715693,
-    "ast_hash": "8bea0612f5216ba4e315276ff975f306",
+    "mtime": 1791141060.9445093,
+    "seen": 1791141105.32337,
+    "ast_hash": "095412bebe8474522924f3666610acc5",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/context-packs/RCP-003-gestion-data-maestra-party.md": {
@@ -4014,9 +4014,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md": {
-    "mtime": 1791137076.080199,
-    "seen": 1791137198.715693,
-    "ast_hash": "0c16f822f68f79df011dce6c5241cf20",
+    "mtime": 1791141060.939226,
+    "seen": 1791141105.32337,
+    "ast_hash": "2db789d8e680a6b13a35b739b4108f66",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md": {

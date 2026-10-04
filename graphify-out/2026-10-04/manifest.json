@@ -3948,9 +3948,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md": {
-    "mtime": 1791140664.40056,
-    "seen": 1791140706.785379,
-    "ast_hash": "e76e345edf7be5743f50c85e3114776e",
+    "mtime": 1791140830.5172217,
+    "seen": 1791140877.7315545,
+    "ast_hash": "812e11014d9780ca647f4113b88dd3df",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-catalog/src/app/data-access/catalog.api.spec.ts": {

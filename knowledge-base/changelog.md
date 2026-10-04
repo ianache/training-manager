@@ -444,3 +444,5 @@ sources:
 
 - Se actualizó DCP-004 al estado actual (ADMIN gestiona la estructura, correo laboral obligatorio, organización interna fuera de la API gestionada, migración 0005 hecha, gate con 23 hallazgos) y se crearon DTC-017, DTC-028, DTC-029 y DTC-030, uno por historia, todos `REQUIRES_REVIEW`.
 - Artefactos afectados: `architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md`, `architecture/ad-handoff/INDEX.md`, `implementation/DTC-017-*`, `DTC-028-*`, `DTC-029-*`, `DTC-030-*`, `index.md`, `changelog.md`.
+- DCP-004 pasó a `READY_FOR_DEV` por decisión de ianache: gate de HOF-PPM-002 en `PASSED` con revisión humana; API-SPEC-006 y CMP-017 aprobados. Las condiciones abiertas aceptadas (organización interna, brechas de componentes, revisiones de API, Q-4 a Q-8, migración del índice, diálogos) están en el propio DCP. Los DTC-017, 028, 029 y 030 siguen en `REQUIRES_REVIEW`.
+- Artefactos afectados: `architecture/ad-handoff/DCP-004-gestion-de-unidades-organizacionales.md`, `architecture/ad-handoff/INDEX.md`, `index.md`, `changelog.md`.
