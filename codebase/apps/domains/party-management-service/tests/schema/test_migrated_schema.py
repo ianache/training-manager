@@ -16,7 +16,7 @@ pytestmark = pytest.mark.skipif(not TEST_DATABASE_URL, reason="requiere TEST_DAT
 
 def test_version_en_head(migrated_postgres):
     with migrated_postgres.connect() as conn:
-        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0004_org_contact_purposes"
+        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == "0005_org_name_history"
 
 
 def test_orm_coincide_con_la_base(migrated_postgres):
@@ -70,3 +70,21 @@ def test_propositos_de_contacto_de_la_organizacion(migrated_postgres):
             "SELECT pk_code, fk_contact_mechanism_type_code FROM tb_contact_purpose_type "
             "WHERE pk_code IN ('ORGANIZATION_EMAIL', 'ORGANIZATION_PHONE')")).all())
     assert rows == {"ORGANIZATION_EMAIL": "EMAIL", "ORGANIZATION_PHONE": "PHONE"}
+
+
+def test_historial_del_nombre_de_la_organizacion(migrated_postgres):
+    """US-029 AC-2 / BR-PTY-12: el valor anterior se conserva; nombre vacío o sin cambio, y el padre inexistente, se rechazan."""
+    with migrated_postgres.begin() as conn:
+        conn.execute(text("INSERT INTO tb_party (pk_party_id, party_kind, created_by) VALUES ('p-hist', 'ORGANIZATION', 't')"))
+        conn.execute(text("INSERT INTO tb_organization (pk_party_id, party_kind, organization_name, created_by) VALUES ('p-hist', 'ORGANIZATION', 'Soporte', 't')"))
+        conn.execute(text("INSERT INTO tb_organization_name_history (pk_organization_name_history_id, fk_party_id, previous_name, new_name, changed_by) VALUES ('h1', 'p-hist', 'Soporte', 'Soporte Técnico', 'u1')"))
+    with migrated_postgres.connect() as conn:
+        assert conn.execute(text("SELECT previous_name, new_name FROM tb_organization_name_history WHERE pk_organization_name_history_id = 'h1'")).one() == ("Soporte", "Soporte Técnico")
+    for sql in (
+        "INSERT INTO tb_organization_name_history (pk_organization_name_history_id, fk_party_id, previous_name, new_name, changed_by) VALUES ('h2', 'p-hist', 'A', 'A', 'u1')",
+        "INSERT INTO tb_organization_name_history (pk_organization_name_history_id, fk_party_id, previous_name, new_name, changed_by) VALUES ('h3', 'p-hist', ' ', 'B', 'u1')",
+        "INSERT INTO tb_organization_name_history (pk_organization_name_history_id, fk_party_id, previous_name, new_name, changed_by) VALUES ('h4', 'no-existe', 'A', 'B', 'u1')",
+    ):
+        with pytest.raises(IntegrityError):
+            with migrated_postgres.begin() as conn:
+                conn.execute(text(sql))

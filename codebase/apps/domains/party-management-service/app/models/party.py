@@ -250,6 +250,19 @@ class Organization(Base):
     updated_by: Mapped[str | None] = mapped_column(String(36))
 
 
+class OrganizationNameHistory(Base):
+    """Cada cambio de nombre de una organización con su valor anterior (BR-PTY-12; solo inserción)."""
+
+    __tablename__ = "tb_organization_name_history"
+
+    pk_organization_name_history_id: Mapped[str] = mapped_column(CHAR(36), primary_key=True)
+    fk_party_id: Mapped[str] = mapped_column(CHAR(36), ForeignKey("tb_organization.pk_party_id"))
+    previous_name: Mapped[str] = mapped_column(String(200))
+    new_name: Mapped[str] = mapped_column(String(200))
+    changed_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
+    changed_by: Mapped[str] = mapped_column(String(36))
+
+
 class PartyRelationship(Base):
     __tablename__ = "tb_party_relationship"
 
