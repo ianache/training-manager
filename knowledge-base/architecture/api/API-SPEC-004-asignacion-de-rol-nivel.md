@@ -138,7 +138,7 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 | Persona anonimizada | `PARTY_ANONYMIZED` | 409 | BR-PTY-14 |
 | Persona sin rol vigente de Empleado o Contratista | `PERSON_NOT_CURRENT` | 422 | EVD-0146 |
 | Rol o nivel que no existe, o nivel que no es del rol | `CATALOG_LEVEL_NOT_FOUND` | 400 | BR-CAT-09 |
-| Nivel o rol `INACTIVE` | `CATALOG_LEVEL_INACTIVE` | 422 | BR-CAT-30 |
+| Nivel o rol de **destino** `INACTIVE` (el nivel vigente de origen puede estar inactivo, EVD-2026-0184) | `CATALOG_LEVEL_INACTIVE` | 422 | BR-CAT-30 |
 | Mismo nivel que el vigente | `LEVEL_UNCHANGED` | 409 | BR-PTY-11 |
 | Nivel menor que el vigente | `LEVEL_DOWNGRADE_NOT_ALLOWED` | 422 | EVD-0166 |
 | `from_date` anterior al `from_date` de la vigente, o posterior a hoy | `INVALID_DATE_RANGE` | 422 | `ck_rla_dates`, EVD-0180 |
@@ -186,11 +186,11 @@ Formato estándar (`{error:{code,message,status,timestamp,request_id,details}}`,
 | ~~AQ-3~~ | ~~Fechas: ¿la anterior termina el mismo día que empieza la nueva (`thru_date = from_date`) o el día previo? ¿Se admiten `from_date` pasadas o futuras? (SCR-019-Q1)~~ Respondida (ianache, 2026-10-04): igual día (`thru_date = from_date`) y fecha pasada u hoy, sin futuras (EVD-2026-0179, 0180). | Cierre de vigencias |
 | ~~AQ-4~~ | ~~Instantánea de nombres y orden en party (propuesta) frente a completarlos desde el catálogo.~~ Respondida (ianache, 2026-10-04): instantánea de nombres y orden en party (EVD-2026-0181). | Migración 0005 |
 | ~~AQ-5~~ | ~~Idempotencia: ¿se añade `Idempotency-Key` al `POST`?~~ Respondida (ianache, 2026-10-04): el BFF no reintenta el `POST` (EVD-2026-0182). | Reintentos de escrituras (ADR-012) |
-| AQ-6 | ¿Quién desactiva o reactiva un nivel? (BR-CAT-30, se asume como las competencias) | Fuera de esta API, en API-SPEC-003 |
-| AQ-7 | Si un nivel se desactiva después de asignarlo, la persona lo conserva (BR-CAT-30); ¿puede cambiar **desde** él a otro nivel activo? Se asume que sí. | `CATALOG_LEVEL_INACTIVE` solo para el destino |
+| ~~AQ-6~~ | ~~¿Quién desactiva o reactiva un nivel? (BR-CAT-30, se asume como las competencias)~~ Respondida (ianache, 2026-10-04): el Jefe de Ingeniería o ADMIN (EVD-2026-0183). | Fuera de esta API, en API-SPEC-003 |
+| ~~AQ-7~~ | ~~Si un nivel se desactiva después de asignarlo, la persona lo conserva (BR-CAT-30); ¿puede cambiar **desde** él a otro nivel activo? Se asume que sí.~~ Respondida (ianache, 2026-10-04): sí, se puede cambiar desde un nivel inactivo a otro nivel activo (EVD-2026-0184). | `CATALOG_LEVEL_INACTIVE` solo para el destino |
 
 ## 10. Siguiente acción
 
-1. Responder AQ-1 a AQ-5 y revisar el documento.
+1. Revisar el documento: AQ-1 a AQ-7 están resueltas (EVD-2026-0177 a 0184).
 2. `api-contract-reviewer` y `api-security-reviewer`.
 3. Diseñar el servicio de certificación (o su sustituto) que alimenta `eligibility`; sin él, US-019 AC-5 no se puede cumplir.

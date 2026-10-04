@@ -107,6 +107,7 @@ Token de servicio del BFF + `X-User-Name` y `X-User-Roles`, como party (ADR-005,
 | Aprobar una versión | `jefe_ingenieria` o `admin` | EVD-2026-0144 |
 | Desactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0159 |
 | Reactivar una competencia | `jefe_ingenieria` o `admin` | BR-CAT-29, EVD-2026-0161 |
+| Desactivar o reactivar un nivel de rol | `jefe_ingenieria` o `admin` | BR-CAT-30, EVD-2026-0183 |
 
 **Resuelto el 2026-10-03:** el rol `product_owner` (Responsable de producto) existe en el realm y en `roles.ts` del BFF y del portal (EVD-2026-0165). Edita roles; no se asume que edite competencias.
 

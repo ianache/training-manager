@@ -329,3 +329,6 @@ sources:
 
 - Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0179 a 0182): al cambiar de nivel la anterior termina el mismo día que empieza la nueva; la fecha desde puede ser pasada u hoy, no futura; party guarda una instantánea de nombres y orden (migración `0005`); el BFF no reintenta el `POST` de asignación. AQ-1 a AQ-5 de API-SPEC-004 resueltas. La regla común de fechas para las demás vigencias (UXR-029-Q2, UXR-030-Q3) sigue abierta.
 - Artefactos afectados: `BRC-001`, `API-SPEC-004`, `SCR-019`, `DCP-003`.
+
+- Decisiones de `human:ianache` 2026-10-04 (EVD-2026-0183, 0184): un nivel de rol lo desactiva o reactiva el Jefe de Ingeniería o ADMIN; quien tiene un nivel que se desactiva después lo conserva y puede cambiar desde él a otro nivel activo. BR-CAT-30 sin interpretaciones pendientes; AQ-1 a AQ-7 de API-SPEC-004 resueltas.
+- Artefactos afectados: `BRC-001`, `API-SPEC-003`, `API-SPEC-004`, `DCP-003`.

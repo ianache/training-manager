@@ -82,7 +82,7 @@ Preguntas abiertas: si el nivel inicial al registrar sigue siendo la excepción 
 ### Risks and dependencies
 
 - **Reintentos y cortacircuito sin parámetros:** ADR-012 decide la política pero no el número de reintentos, las esperas ni los umbrales; hace falta antes de implementar. Reintentar escrituras exige idempotencia, que API-SPEC-003 no define.
-- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): AQ-1 a AQ-5 están resueltas (EVD-2026-0177 a 0182); siguen abiertas AQ-6 y AQ-7. Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
+- **API de asignación de Rol-Nivel diseñada** (API-SPEC-004, REQUIRES_REVIEW): AQ-1 a AQ-7 están resueltas (EVD-2026-0177 a 0184). Un nivel desactivado (BR-CAT-30) no se asigna: lo valida el BFF con el catálogo.
 - **Certificación (decidido, EVD-2026-0177, 0178):** hasta que existan US-003 y US-004, subir de nivel se bloquea con `CERTIFICATION_UNAVAILABLE`. Son dependencia de US-019 AC-3 y AC-5, **no están en DSP-001** y hay que planificarlas. Asignar un rol nuevo no depende de ellas.
 - **Sin servicio de certificación ni curso:** el bloqueo y `course_ref` quedan simulados o desactivados hasta que existan.
 - **SQLite no detecta** errores de PostgreSQL (orden de INSERT, longitud de la revisión de Alembic, claves foráneas): las pruebas del servicio deben correr contra PostgreSQL real.
