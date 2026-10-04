@@ -43,7 +43,7 @@ Formato de errores, cabeceras y paginación (`page`, `limit`, `sort`) como API-S
 
 ## 2. Identidad del actor
 
-La auditoría identifica a quien certifica, califica o revoca con su **código de party** (EVD-2026-0222). El BFF traduce el usuario de la sesión a ese código con el vínculo de US-022 y lo envía en la cabecera `X-Actor-Party-Code` (**nombre propuesto por el agente**) junto con el token de servicio y `X-User-Roles`. El servicio no acepta el actor en el cuerpo. Un usuario **sin** código de party (por ejemplo, un ADMIN que no es colaborador) se muestra en la auditoría **solo con el nombre de su rol** (EVD-2026-0226): el BFF envía entonces `X-Actor-Role` (el rol que autoriza la acción, por ejemplo `ADMIN`) en lugar de `X-Actor-Party-Code`. El servicio guarda ese valor en las columnas de actor.
+La auditoría identifica a quien certifica, califica o revoca con su **código de party** (EVD-2026-0222). El BFF traduce el usuario de la sesión a ese código con el vínculo de US-022 y lo envía en la cabecera `X-Actor-Party-Code` (**nombre propuesto por el agente**) junto con el token de servicio y `X-User-Roles`. El servicio no acepta el actor en el cuerpo. Un usuario **sin** código de party (por ejemplo, un ADMIN que no es colaborador) se muestra en la auditoría **solo con el nombre de su rol** (EVD-2026-0226): el BFF envía entonces `X-Actor-Role` (el rol que autoriza la acción, por ejemplo `ADMIN`, EVD-2026-0230) en lugar de `X-Actor-Party-Code`. El servicio guarda ese valor en las columnas de actor.
 
 ## 3. Contratos
 
@@ -140,6 +140,7 @@ Query de la lista: `person_id`, `competency_id`, `status` (`ACTIVE`|`REPLACED`|`
 **Visibilidad (BR-TRA-06, BR-TRA-07, BR-TRA-08):**
 - Cualquier colaborador ve la certificación, sus evidencias y su auditoría: quién, cuándo y con qué evidencia.
 - De una revocación, todos ven el hecho, el motivo tipificado, quién y cuándo. La **`description`** solo la ven la persona certificada, todos los evaluadores (cualquier usuario con el rol `evaluador`), el Jefe de Ingeniería y ADMIN (EVD-2026-0206, 0209); a los demás el campo se omite.
+- Una evaluación no aprobada (`status = NOT_APPROVED`) la ven solo el colaborador evaluado, el Jefe de Ingeniería y ADMIN (EVD-2026-0229, BR-TRA-09); no figura en las listas ni en el detalle de los demás (AQ-12).
 - Si la persona está **anonimizada**, sus certificaciones solo las ve ADMIN (EVD-2026-0218): los demás reciben `403 PERSON_ANONYMIZED` (EVD-2026-0225).
 
 ### Evidencias
@@ -206,8 +207,11 @@ Servicio nuevo: todo es aditivo bajo `/api/v1`. Cuando exista, `eligibility` de 
 | ~~AQ-5~~ | ~~¿Se registra una **evaluación no aprobada**? Hoy una certificación solo existe si se cumplen los requisitos, así que una evaluación con todo `NO_CUMPLE` no deja rastro ni auditoría. Las calificaciones `NO_CUMPLE` solo se guardan dentro de una certificación que sí se emitió~~ **Respondida (ianache, 2026-10-04):** sí, se registra la evaluación no aprobada (EVD-2026-0224). | UX de evaluación; auditoría |
 | ~~AQ-6~~ | ~~Consumidores futuros: la búsqueda de candidatos (US-006) necesitará `GET /certified-levels` por competencia y nivel mínimo, para varias personas. No se diseña aquí~~ **Respondida (ianache, 2026-10-04):** la consulta también por competencia (EVD-2026-0228); US-006 sigue sin diseñarse. | US-006 |
 | AQ-7 | ¿Se añade `Idempotency-Key` a los `POST`? (como AQ-5 de API-SPEC-004, se decidió no reintentar) | Reintentos |
-| AQ-8 | De la evaluación no aprobada: ¿quién la ve y lleva motivo o descripción? Se propone, por defecto restrictivo, la persona evaluada, los evaluadores, el Jefe de Ingeniería y ADMIN (DM-Q-08 de LDM-003) | Privacidad y API de consulta |
-| AQ-9 | Si un usuario tiene varios roles y no tiene código de party, ¿qué nombre de rol se muestra? Se propone el rol que autoriza la acción | Auditoría |
+| ~~AQ-8~~ | ~~De la evaluación no aprobada: ¿quién la ve y lleva motivo o descripción? Se propone, por defecto restrictivo, la persona evaluada, los evaluadores, el Jefe de Ingeniería y ADMIN (DM-Q-08 de LDM-003)~~ **Respondida (ianache, 2026-10-04):** la ven el colaborador evaluado, el Jefe de Ingeniería y ADMIN (EVD-2026-0229). Sigue abierto si lleva motivo o descripción (AQ-10) y qué pasa con el evaluador que la registró (AQ-11). | Privacidad y API de consulta |
+| ~~AQ-9~~ | ~~Si un usuario tiene varios roles y no tiene código de party, ¿qué nombre de rol se muestra? Se propone el rol que autoriza la acción~~ **Respondida (ianache, 2026-10-04):** el rol que autoriza la acción (EVD-2026-0230). | Auditoría |
+| AQ-10 | ¿La evaluación no aprobada lleva un motivo o una descripción? Hoy solo guarda las calificaciones por evidencia | Auditoría |
+| AQ-11 | El evaluador que registró una evaluación no aprobada **no figura** entre quienes la ven (EVD-2026-0229): ¿ni siquiera la propia? Sin verla no puede saber que ya evaluó a esa persona. Se propone que la vea quien la registró (a confirmar) | Privacidad y flujo de evaluación |
+| AQ-12 | Respuesta ante quien no puede ver una evaluación no aprobada: se propone omitirla de las listas y responder `404` en el detalle | API de consulta |
 
 ## 10. Siguiente acción
 

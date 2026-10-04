@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791086768.8699603,
-    "seen": 1791086845.5248501,
-    "ast_hash": "03b152ba1ce6e7bc2720446999363232",
+    "mtime": 1791087624.0697172,
+    "seen": 1791087714.1206996,
+    "ast_hash": "dc509be65ba7253c364246b2a103b051",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791086349.6195858,
-    "seen": 1791086434.3268356,
-    "ast_hash": "37ea6a1c2b9d9922ec614b7a1a5cac6c",
+    "mtime": 1791087624.0220668,
+    "seen": 1791087714.1195264,
+    "ast_hash": "80336da3d70aca9001b508d4f387b19c",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -468,8 +468,8 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-003-acreditar-manualmente-un-nivel.md": {
-    "mtime": 1791084558.075329,
-    "seen": 1791084638.7961686,
+    "mtime": 1791087624.0678515,
+    "seen": 1791087714.2273328,
     "ast_hash": "3bfd1f5e4a086d5b3fdfcaea81e480d3",
     "semantic_hash": ""
   },
@@ -3660,15 +3660,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/data-model/LDM-003-modelo-de-datos-de-certificaciones.md": {
-    "mtime": 1791086364.6930268,
-    "seen": 1791086434.2456686,
-    "ast_hash": "521cb4a9152a4cf6f3c2c089ba9985e3",
+    "mtime": 1791087624.0470395,
+    "seen": 1791087713.9857886,
+    "ast_hash": "231dcd73a1543b23c2fc2c6b8d951446",
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-005-certificaciones-y-evidencias.md": {
-    "mtime": 1791086768.8385236,
-    "seen": 1791086845.3763633,
-    "ast_hash": "39b70f7d07bd26a4e32aa2868902f8ae",
+    "mtime": 1791087624.0608323,
+    "seen": 1791087713.9643464,
+    "ast_hash": "ac557be0b14e28b33ae592e116705db9",
     "semantic_hash": ""
   }
 }
