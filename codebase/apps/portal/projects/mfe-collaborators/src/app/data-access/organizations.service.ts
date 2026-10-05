@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { APP_CONFIG, Page } from '@gf/core';
 import { Observable, map } from 'rxjs';
-import { CreateUnitInput, InternalOrganization, OrganizationUnit, UnitListQuery, UnitRelationship } from './organizations.models';
+import { CreateInternalOrganizationInput, CreateUnitInput, InternalOrganization, OrganizationUnit, UnitListQuery, UnitRelationship } from './organizations.models';
 
 /** Acceso a unidades organizacionales a través del BFF (/api/v1/organizations). */
 @Injectable({ providedIn: 'root' })
@@ -64,6 +64,15 @@ export class OrganizationsService {
   /** Solo lectura (BR-PTY-28, API-SPEC-007 borrador): 404 = aún no registrada; 403 = sin permiso. */
   internalOrganization(): Observable<InternalOrganization> {
     return this.http.get<{ data: InternalOrganization }>(`${this.root}/internal-organization`).pipe(map((r) => r.data));
+  }
+
+  /**
+   * Alta inicial única (API-SPEC-007 §2.1, EVD-2026-0242): país fijo PE; la vigencia la fija el sistema.
+   * 409 INTERNAL_ORGANIZATION_ALREADY_EXISTS si ya existe; 409 ORGANIZATION_DUPLICATE si el RUC está repetido.
+   */
+  createInternalOrganization(input: CreateInternalOrganizationInput): Observable<InternalOrganization> {
+    const body = { name: input.name.trim(), ruc: input.ruc.trim(), ruc_country: 'PE' };
+    return this.http.post<{ data: InternalOrganization }>(`${this.root}/internal-organization`, body).pipe(map((r) => r.data));
   }
 
   private path(id: string): string {

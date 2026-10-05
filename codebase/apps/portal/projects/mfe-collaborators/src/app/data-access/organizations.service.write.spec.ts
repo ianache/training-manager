@@ -112,4 +112,14 @@ describe('OrganizationsService (lectura por id, escritura e historial)', () => {
     http.expectOne(`${base}/internal-organization`).flush({ data: { id: 'o', name: 'COMSATEL', ruc: '20123456789', ruc_country: 'PE', from_date: '2020-01-01', thru_date: null } });
     expect(got).toMatchObject({ name: 'COMSATEL', ruc: '20123456789' });
   });
+
+  it('createInternalOrganization: POST /internal-organization con name recortado, ruc y ruc_country PE; devuelve data (API-SPEC-007 §2.1)', () => {
+    let got: unknown;
+    service.createInternalOrganization({ name: '  COMSATEL S.A.C. ', ruc: ' 20123456780 ' }).subscribe((o) => (got = o));
+    const req = http.expectOne(`${base}/internal-organization`);
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toEqual({ name: 'COMSATEL S.A.C.', ruc: '20123456780', ruc_country: 'PE' });
+    req.flush({ data: { id: 'o-1', name: 'COMSATEL S.A.C.' } });
+    expect(got).toEqual({ id: 'o-1', name: 'COMSATEL S.A.C.' });
+  });
 });

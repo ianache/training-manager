@@ -54,6 +54,12 @@ export interface InternalOrganization {
   thru_date: string | null;
 }
 
+/** Alta inicial de la organización interna (SCR-017-02): el país (PE) y la vigencia no los envía el usuario. */
+export interface CreateInternalOrganizationInput {
+  name: string;
+  ruc: string;
+}
+
 export interface CreateUnitInput {
   name: string;
   emailWork: string;

@@ -6,7 +6,7 @@ import { NEVER, Observable, of, throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { InternalOrganization } from '../../data-access/organizations.models';
 import { OrganizationsService } from '../../data-access/organizations.service';
-import { UNITS_URL } from '../../shared/unit-nav';
+import { INTERNAL_ORG_REGISTER_URL, UNITS_URL } from '../../shared/unit-nav';
 import { InternalOrganizationPage } from './internal-organization.page';
 
 const ORG: InternalOrganization = { id: 'o-1', name: 'COMSATEL S.A.', ruc: '20123456789', ruc_country: 'PE', from_date: '2020-03-05', thru_date: null };
@@ -47,12 +47,29 @@ describe('InternalOrganizationPage (SCR-017-01 organización interna, SCR-017-03
     expect(el().querySelector('input, select, form')).toBeNull();
   });
 
-  it('no ofrece «Registrar organización interna»: la carga es inicial y fuera de la API (BR-PTY-28)', async () => {
+  it('con la organización registrada no ofrece «Registrar organización interna»: es un alta única (BR-PTY-28, EVD-2026-0242)', async () => {
     await open(() => of(ORG));
     expect(text()).not.toContain('Registrar organización');
-    TestBed.resetTestingModule();
-    await open(() => throwError(() => notFound()), true);
+  });
+
+  it('estado vacío: ofrece «Registrar organización interna» hacia SCR-017-02 (solo quien gestiona)', async () => {
+    await open(() => throwError(() => notFound()));
+    const link = Array.from(el().querySelectorAll('a')).find((a) => a.textContent!.trim() === 'Registrar organización interna')!;
+    expect(link.getAttribute('href')).toBe(INTERNAL_ORG_REGISTER_URL);
+  });
+
+  it('sin permiso (SCR-017-03) la acción no existe en el DOM (se oculta, no se deshabilita)', async () => {
+    await open(() => throwError(() => notFound()), false);
     expect(text()).not.toContain('Registrar organización');
+    expect(el().querySelector('a')).toBeNull();
+  });
+
+  it('tras registrar, muestra la confirmación recibida por navegación y la organización', async () => {
+    history.replaceState({ notice: 'Organización interna registrada' }, '');
+    await open(() => of(ORG));
+    expect(el().querySelector('[role="status"], [role="alert"]')!.textContent).toContain('Organización interna registrada');
+    expect(text()).toContain('COMSATEL S.A.');
+    expect(history.state?.notice).toBeUndefined();
   });
 
   it('ofrece continuar a la gestión de unidades', async () => {

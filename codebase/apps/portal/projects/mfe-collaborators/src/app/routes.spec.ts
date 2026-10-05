@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ROUTES } from './routes';
+import { InternalOrganizationFormPage } from './pages/internal-organization-form/internal-organization-form.page';
 import { InternalOrganizationPage } from './pages/internal-organization/internal-organization.page';
 import { UnitDeactivatePage } from './pages/unit-deactivate/unit-deactivate.page';
 import { UnitFormPage } from './pages/unit-form/unit-form.page';
@@ -30,6 +31,7 @@ describe('ROUTES de mfe-collaborators', () => {
     ['unidades/:unitId/desactivar', 'Desactivar unidad', UnitDeactivatePage],
     ['unidades/:unitId/reactivar', 'Reactivar unidad', UnitReactivatePage],
     ['organizacion-interna', 'Organización interna', InternalOrganizationPage],
+    ['organizacion-interna/registrar', 'Registrar organización interna', InternalOrganizationFormPage],
   ])('expone «%s» (%s) con carga perezosa de su página', async (path, title, component) => {
     const route = ROUTES.find((r) => r.path === path);
     expect(route, path).toBeDefined();
@@ -40,7 +42,7 @@ describe('ROUTES de mfe-collaborators', () => {
   it('las rutas de unidades y de organización interna van antes de «:partyId/…» para no confundirse con un colaborador', () => {
     const paths = ROUTES.map((r) => r.path!);
     const party = paths.indexOf(':partyId/datos/editar');
-    for (const p of ['unidades/nueva', 'unidades/:unitId/editar', 'unidades/:unitId/padre', 'unidades/:unitId/historial', 'unidades/:unitId/desactivar', 'unidades/:unitId/reactivar', 'organizacion-interna']) {
+    for (const p of ['unidades/nueva', 'unidades/:unitId/editar', 'unidades/:unitId/padre', 'unidades/:unitId/historial', 'unidades/:unitId/desactivar', 'unidades/:unitId/reactivar', 'organizacion-interna', 'organizacion-interna/registrar']) {
       expect(paths.indexOf(p), p).toBeGreaterThanOrEqual(0);
       expect(paths.indexOf(p), p).toBeLessThan(party);
     }

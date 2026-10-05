@@ -6,3 +6,7 @@ export interface UnitReturnState {
   highlightUnitId?: string;
   notice?: string;
 }
+
+/** SCR-017-01 y su alta inicial SCR-017-02 (`/registrar`), bajo /colaboradores. */
+export const INTERNAL_ORG_URL = '/colaboradores/organizacion-interna';
+export const INTERNAL_ORG_REGISTER_URL = `${INTERNAL_ORG_URL}/registrar`;

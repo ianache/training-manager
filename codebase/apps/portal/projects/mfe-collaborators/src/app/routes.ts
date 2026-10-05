@@ -51,7 +51,14 @@ export const ROUTES: Routes = [
     title: 'Reactivar unidad',
   },
   {
-    // SCR-017-01/03 (solo lectura; SCR-017-02 no se implementa, BR-PTY-28).
+    // SCR-017-02: alta inicial única de la organización interna (EVD-2026-0242); sin edición ni baja.
+    path: 'organizacion-interna/registrar',
+    loadComponent: () =>
+      import('./pages/internal-organization-form/internal-organization-form.page').then((m) => m.InternalOrganizationFormPage),
+    title: 'Registrar organización interna',
+  },
+  {
+    // SCR-017-01/03 (lectura, con el alta inicial desde el estado vacío).
     path: 'organizacion-interna',
     loadComponent: () =>
       import('./pages/internal-organization/internal-organization.page').then((m) => m.InternalOrganizationPage),

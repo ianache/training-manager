@@ -2,26 +2,36 @@ import { ChangeDetectionStrategy, Component, ElementRef, Injector, afterNextRend
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { AppRole, SessionService, ViewState, toViewState } from '@gf/core';
-import { GfBadge, GfDescriptionItem, GfDescriptionList, GfEmptyState, GfViewState } from '@gf/ui';
+import { GfAlert, GfBadge, GfDescriptionItem, GfDescriptionList, GfEmptyState, GfViewState } from '@gf/ui';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError, of, switchMap, throwError } from 'rxjs';
 import { InternalOrganization } from '../../data-access/organizations.models';
 import { OrganizationsService } from '../../data-access/organizations.service';
-import { UNITS_URL } from '../../shared/unit-nav';
+import { INTERNAL_ORG_REGISTER_URL, UNITS_URL } from '../../shared/unit-nav';
 import { formatDate } from '../unit-list/unit-list.page';
 
 const COUNTRY: Record<string, string> = { PE: 'Perú' };
 
+function consumeNotice(): string {
+  const s = (history.state ?? {}) as Record<string, unknown>;
+  const notice = typeof s['notice'] === 'string' ? s['notice'] : '';
+  if (notice) {
+    const { notice: _n, ...rest } = s;
+    history.replaceState(rest, '');
+  }
+  return notice;
+}
+
 /**
  * SCR-017-01 (organización interna, solo lectura) y SCR-017-03 (acceso no autorizado).
- * SCR-017-02 (formulario de registro) NO se implementa: la organización interna es un registro único cargado por
- * migración, fuera de la API gestionada (BR-PTY-28, DTC-017 §2); no existe endpoint de escritura. Por eso el estado
- * vacío no ofrece «Registrar organización interna» (el SCR lo pedía) y se reporta como bloqueo/desviación.
+ * Decisión del 2026-10-05 (EVD-2026-0242, BR-PTY-28 enmendada): hay un alta inicial única (SCR-017-02, ruta `/registrar`).
+ * El estado vacío ofrece «Registrar organización interna» (solo quien gestiona: para el resto se presenta SCR-017-03 y
+ * la acción no existe); con la organización registrada la acción no se ofrece, y no hay edición ni baja.
  * Textos «propuestos» sin fuente: estado vacío y acceso no autorizado (SCR-017 §SCR-017-01/03, SCR-017-Q4).
  */
 @Component({
   selector: 'gf-internal-organization-page',
-  imports: [RouterLink, GfBadge, GfDescriptionList, GfEmptyState, GfViewState],
+  imports: [RouterLink, GfAlert, GfBadge, GfDescriptionList, GfEmptyState, GfViewState],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './internal-organization.page.scss',
   template: `
@@ -33,9 +43,14 @@ const COUNTRY: Record<string, string> = { PE: 'Perú' };
         <p>No tienes permiso para gestionar la organización interna.</p>
       </section>
     } @else {
+      @if (notice()) {
+        <gf-alert tone="success" icon="check_circle">{{ notice() }}</gf-alert>
+      }
       <gf-view-state [state]="state()" loadingLabel="Cargando organización interna" (retry)="retry()">
         <ng-template #empty>
-          <gf-empty-state title="Aún no has registrado la organización interna." />
+          <gf-empty-state title="Aún no has registrado la organización interna.">
+            <a class="gf-link-button" [routerLink]="registerUrl">Registrar organización interna</a>
+          </gf-empty-state>
         </ng-template>
         <ng-template #success let-org>
           <gf-description-list [items]="items(org)" layout="inline" />
@@ -52,6 +67,9 @@ export class InternalOrganizationPage {
   private readonly injector = inject(Injector);
 
   protected readonly unitsUrl = UNITS_URL;
+  protected readonly registerUrl = INTERNAL_ORG_REGISTER_URL;
+  /** Confirmación que deja SCR-017-02 al volver (se consume una vez, como en el listado de unidades). */
+  protected readonly notice = signal(consumeNotice());
   protected readonly fmt = formatDate;
   private readonly allowed = inject(SessionService).hasAnyRole([AppRole.JefeIngenieria, AppRole.Admin]);
   private readonly nonce = signal(0);

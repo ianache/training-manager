@@ -12,6 +12,7 @@ export type UnitErrorKind =
   | 'validation'
   | 'forbidden'
   | 'not-found'
+  | 'internal-exists'
   | 'unknown';
 
 export interface UnitError {
@@ -32,6 +33,7 @@ const BY_CODE: Record<string, UnitErrorKind> = {
   PRECONDITION_FAILED: 'stale',
   VALIDATION_ERROR: 'validation',
   RESOURCE_NOT_FOUND: 'not-found',
+  INTERNAL_ORGANIZATION_ALREADY_EXISTS: 'internal-exists',
 };
 
 /** Clasifica el error del BFF/servicio (formato API-SPEC-001 §4.2) sin reescribir sus códigos. */
