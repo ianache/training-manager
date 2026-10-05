@@ -14,6 +14,13 @@ export const ROUTES: Routes = [
     title: 'Registrar colaborador',
   },
   {
+    // SCR-028-01 (DTC-028). Las rutas hijas (:unitId/editar, /padre, /desactivar, /reactivar, nueva) son de SCR-029/030, aún sin implementar.
+    path: 'unidades',
+    loadComponent: () =>
+      import('./pages/unit-list/unit-list.page').then((m) => m.UnitListPage),
+    title: 'Unidades organizacionales',
+  },
+  {
     path: '',
     loadComponent: () =>
       import('./pages/party-list/party-list.page').then((m) => m.PartyListPage),
