@@ -451,3 +451,8 @@ sources:
 - Artefactos afectados: `design/components/CMP-018-diseno-atomico-brechas-gestion-de-unidades.md`, `design/components/CMP-017-componentes-gestion-de-unidades.md`, `index.md`, `changelog.md`.
 - Se propuso API-SPEC-007 (lectura de la organización interna, `GET /api/v1/internal-organization`) y se enlazó desde DTC-017; `codebase/.env.example` documenta `INTERNAL_ORG_NAME` e `INTERNAL_ORG_RUC` con datos de muestra.
 - Artefactos afectados: `architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md`, `implementation/DTC-017-*`, `index.md`, `changelog.md`.
+
+## 2026-10-05
+
+- Decisión de ianache (opción B, EVD-2026-0242): la organización interna tiene un ALTA INICIAL única por API/UI (`POST /api/v1/internal-organization`) mientras no exista ninguna, sin edición ni baja; enmienda parcial de BR-PTY-28 / EVD-2026-0240. Se enmendaron BR-PTY-28 (BRC-001), API-SPEC-007 (POST, 201/400/401/403/409, supuestos y Q-4 a Q-6), la nota de exclusión de US-017, DTC-017 y una nota en SCR-017-02 (país fijo Perú y vigencia fijada por el sistema, supuestos por validar). Todo sigue en `draft`/`REQUIRES_REVIEW`, sin revisión humana.
+- Artefactos afectados: `business/rules/BRC-001-reglas-plataforma-gestion-formacion.md`, `architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md`, `requirement/user-stories/US-017-gestionar-estructura-organizacional.md`, `implementation/DTC-017-*`, `design/screens/SCR-017-registrar-la-organizacion-interna.md`, `index.md`, `changelog.md`.

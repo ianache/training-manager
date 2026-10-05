@@ -3,7 +3,7 @@ okf: google-okf-v0.2
 artifact: DTC-017
 id: dtc-017-registrar-la-organizacion-interna
 title: "DTC-017 — Handoff de Desarrollo: Registrar la organización interna (US-017)"
-description: "Contrato de desarrollo de la organización interna (COMSATEL) con razón social y RUC. Pendiente de decidir cómo se carga, porque queda fuera de la API gestionada."
+description: "Contrato de desarrollo de la organización interna (COMSATEL) con razón social y RUC: carga inicial por migración 0006 y alta inicial única por API/UI (decisión 2026-10-05), sin edición ni baja."
 status: REQUIRES_REVIEW
 human-reviewed: false
 verified: false
@@ -54,9 +54,9 @@ sources:
 
 | Pieza | Fuente | Estado |
 |---|---|---|
-| Registro de la organización interna con razón social y RUC | US-017 AC-1 | **Sin mecanismo definido** |
-| Rechazo de un RUC ya registrado | US-017 AC-2, BR-PTY-07 | `POST /organizations` ya lo hace con `409 ORGANIZATION_DUPLICATE` |
-| Pantallas SCR-017-01 a 03 (organización registrada, formulario, acceso no autorizado) | SCR-017 | Hojas de Stitch; consolidada solo SCR-017-02 |
+| Registro de la organización interna con razón social y RUC | US-017 AC-1 | Migración 0006 y alta inicial `POST /api/v1/internal-organization` (solo si no existe ninguna; decisión 2026-10-05) |
+| Rechazo de un RUC ya registrado | US-017 AC-2, BR-PTY-07 | El alta devuelve `409 ORGANIZATION_DUPLICATE`; si ya hay organización interna, `409 INTERNAL_ORGANIZATION_ALREADY_EXISTS` |
+| Pantallas SCR-017-01 a 03 (organización registrada, formulario, acceso no autorizado) | SCR-017 | Hojas de Stitch; consolidada solo SCR-017-02. SCR-017-02 se usa para el alta inicial |
 
 ## 2. Decisión (2026-10-04) y qué se implementó
 
@@ -70,16 +70,16 @@ Decisión de ianache tras explorar tres opciones: **carga inicial por migración
 
 **Consecuencias que debes conocer**
 - **Primer arranque:** el entrypoint del servicio ejecuta `alembic upgrade head`. Al reconstruir la imagen, el contenedor no arrancará hasta definir `INTERNAL_ORG_NAME` e `INTERNAL_ORG_RUC` en `.env`, porque la base de desarrollo todavía no tiene la organización interna.
-- **SCR-017-02 (formulario) queda sin uso** y SCR-017-01 solo la muestra; US-017 AC-1 (registrar) se cumple con la carga inicial, no con una pantalla.
-- **Contrato de lectura propuesto:** [API-SPEC-007](../architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md), `GET /api/v1/internal-organization` de solo lectura (`404` = estado vacío, `403` = sin permiso). Sin aprobar; Q-1 a Q-3 abiertas. Falta implementarlo en el servicio, el BFF y el portal.
+- **Revisión del 2026-10-05 (opción B, EVD-2026-0242):** SCR-017-02 **deja de estar sin uso**: es el alta inicial única, accesible desde el estado vacío de SCR-017-01 («Registrar organización interna», solo Jefe de Ingeniería y ADMIN). Una vez registrada no hay edición ni baja. La migración 0006 sigue siendo válida.
+- **Contrato propuesto:** [API-SPEC-007](../architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md): `GET` (`404` = estado vacío, `403` = sin permiso) y alta `POST /api/v1/internal-organization` (`201`, `400`, `401`, `403`, `409`). Sin aprobar; Q-1 a Q-6 abiertas (país fijo `PE` y vigencia = fecha del sistema son supuestos).
 
 ## 3. Reglas
 
-BR-PTY-02, 03 y 07 (RUC único por número y país, 11 dígitos); BR-PTY-17 (Jefe de Ingeniería y ADMIN); BR-PTY-28. Cambiar el RUC o la razón social después de registrar queda sin decidir (UXR-017-Q2).
+BR-PTY-02, 03 y 07 (RUC único por número y país, 11 dígitos); BR-PTY-17 (Jefe de Ingeniería y ADMIN); BR-PTY-28 (enmendada el 2026-10-05). Cambiar el RUC o la razón social después de registrar queda sin decidir (UXR-017-Q2).
 
 ## 4. Pruebas
 
-AC-1 y AC-2 de US-017, el caso de DNI o formato de persona (`400 VALIDATION_ERROR`) y la autorización. Dependen de la decisión de la sección 2.
+AC-1 y AC-2 de US-017, el caso de DNI o formato de persona (`400 VALIDATION_ERROR`), la autorización, el `409` por organización ya existente (incluida la carrera de dos altas simultáneas) y la ausencia de edición y baja.
 
 ## Cómo usar este DTC
 
@@ -90,7 +90,7 @@ Es un contrato de trabajo **derivado** de [DCP-004](../architecture/ad-handoff/D
 - **`REQUIRES_REVIEW`, no `READY_FOR_DEV`.** El gate `DESIGN_READY_FOR_DEV` de [HOF-PPM-002](../design/handoff/HOF-PPM-002-gestion-unidades-organizacionales.md) está en `FAILED` (23 hallazgos, 2026-10-04): falta la aprobación humana del diseño de Stitch por pantalla, informes de accesibilidad en `pass` en varias pantallas y la revisión humana del gate.
 - [API-SPEC-006](../architecture/api/API-SPEC-006-gestion-de-unidades-organizacionales.md) y [CMP-017](../design/components/CMP-017-componentes-gestion-de-unidades.md) son propuestas sin revisión humana ni de `api-contract-reviewer`, `api-security-reviewer` o `web-atomic-component-designer`.
 - Diseño de referencia: solo Stitch (Figma descartado, decisión de `human:ianache`, 2026-10-03), en exploración; no es diseño gobernado hasta que un humano lo apruebe.
-- Decisiones del 2026-10-04: ADMIN también gestiona la estructura (EVD-2026-0238); el correo laboral es obligatorio al registrar una unidad (BR-PTY-27); solo unidades y proveedores se gestionan por la API (BR-PTY-28); el historial del nombre vive en `tb_organization_name_history`, migración 0005 ya en el código (EVD-2026-0241).
+- Decisiones del 2026-10-04: ADMIN también gestiona la estructura (EVD-2026-0238); el correo laboral es obligatorio al registrar una unidad (BR-PTY-27); solo unidades y proveedores se gestionan por la API, y la organización interna tiene alta inicial única (BR-PTY-28, EVD-2026-0240 y 0242); el historial del nombre vive en `tb_organization_name_history`, migración 0005 ya en el código (EVD-2026-0241).
 
 ## No sustituciones
 

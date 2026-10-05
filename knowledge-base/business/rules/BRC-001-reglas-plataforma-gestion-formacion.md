@@ -242,6 +242,7 @@ La fuente no define **estados** explícitos. Los únicos que se pueden derivar s
 | EVD-2026-0239 | Registrar una unidad exige el correo laboral (`contact.email_work`), que se añade al formulario (DCP-004 Q-1). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DCP-004 / API-SPEC-006 | decision | high |
 | EVD-2026-0240 | La API gestiona solo unidades organizacionales y proveedores; la organización interna es un registro único fuera de la API gestionada. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DCP-004 / API-SPEC-006 | decision | high |
 | EVD-2026-0241 | El historial del nombre de una organización se guarda en una tabla nueva (`tb_organization_name_history`, migración 0005). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-04, en respuesta a DCP-004 / API-SPEC-006 | decision | high |
+| EVD-2026-0242 | Revisa parcialmente EVD-2026-0240: la organización interna tiene un ALTA INICIAL por API/UI (`POST /api/v1/internal-organization`), solo mientras no exista ninguna; sin edición ni baja (opción B de SCR-017-02). | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-05, en respuesta a la pregunta sobre SCR-017-02 | decision | high |
 | EVD-2026-0152 | La versión de una competencia incluye su rúbrica y sus requisitos de evidencia. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-01 (LDM-002) | decision | high |
 | EVD-2026-0153 | Al aprobar una versión, la anterior pasa a DEPRECATED. Una versión no se aprueba sin pasar por DRAFT, para asegurar revisión y control. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-02 (LDM-002) | decision | high |
 | EVD-2026-0154 | No hay eliminaciones: solo se desactiva. Las competencias tienen estado ACTIVE o INACTIVE. | Decisión humana: ianache (Jefe de Ingeniería), 2026-10-03, en respuesta a DM-Q-03 (LDM-002) | decision | high |
@@ -471,7 +472,7 @@ Reglas de [SPEC-001](../../requirement/specs/SPEC-001-gestion-de-colaboradores.m
 | BR-PTY-25 | Validación | Solo una unidad Activa puede ser unidad padre. *Decisión del 2026-10-03 (US-017-Q5).* | EVD-2026-0141 |
 | BR-PTY-26 | Validación | El nombre de una unidad organizacional es único entre las unidades con el mismo padre. *Decisión del 2026-10-03 (US-017-Q4).* | EVD-2026-0140 |
 | BR-PTY-27 | Validación | Registrar una unidad exige el correo laboral. *Decisión del 2026-10-04.* | EVD-2026-0239 |
-| BR-PTY-28 | Alcance | La gestión (listar, registrar, editar, desactivar) cubre solo unidades y proveedores; la organización interna es un registro único fuera de esa gestión. *Decisión del 2026-10-04.* | EVD-2026-0240 |
+| BR-PTY-28 | Alcance | La gestión (listar, editar, desactivar) cubre solo unidades y proveedores. La organización interna es un registro único con ALTA INICIAL por API mientras no exista ninguna (`409` si ya existe), sin edición ni baja. *Decisión del 2026-10-04, enmendada el 2026-10-05.* | EVD-2026-0240, EVD-2026-0242 |
 
 ### Dependencias
 

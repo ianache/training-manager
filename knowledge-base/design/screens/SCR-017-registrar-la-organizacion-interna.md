@@ -133,6 +133,8 @@ Especificación independiente de herramienta (sin referencias a Stitch ni a Figm
 
 **Propósito:** capturar razón social, RUC y país emisor (AC-1). El rol «Organización interna» lo fija el flujo, no el usuario.
 
+> **Nota (2026-10-05, EVD-2026-0242, opción B):** SCR-017-02 es el **alta inicial única**, solo mientras no exista organización interna (API-SPEC-007 §2.1). Supuestos de implementación aún sin validar con UX: País emisor fijo en Perú (único valor que acepta la API) y «Vigencia desde» de solo lectura, fijada por el sistema (responde provisionalmente FLW-017-Q1 y Q2). No hay edición ni baja posteriores.
+
 | Campo | Componente | Oblig. | Validación y mensaje | Fuente |
 |---|---|---|---|---|
 | Razón social | text-input (CMP-015) | Sí | obligatoria; longitud máxima sin definir (SCR-017-Q2) | UXR-017 §4 |
