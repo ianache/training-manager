@@ -53,6 +53,11 @@
     margin: 0;
     padding: 0;
   }
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+  }
   a {
     display: flex;
     align-items: center;
@@ -61,8 +66,13 @@
     border-radius: var(--gf-radius-sm);
     color: var(--gf-color-text);
     text-decoration: none;
+    gap: var(--gf-space-2);
     &:hover {
       background: var(--gf-color-surface-container);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--gf-color-primary);
+      outline-offset: 2px;
     }
     &.is-active {
       background: var(--gf-color-surface-selected);

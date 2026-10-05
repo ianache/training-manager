@@ -19,10 +19,14 @@
           <li>
             <a
               [routerLink]="item.path"
-              routerLinkActive="is-active"
-              ariaCurrentWhenActive="page"
-              >{{ item.label }}</a
+              [class.is-active]="isActive(item.path)"
+              [attr.aria-current]="isActive(item.path) ? 'page' : null"
             >
+              @if (item.icon) {
+                <svg class="sidebar__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path [attr.d]="item.icon" fill="currentColor" /></svg>
+              }
+              <span>{{ item.label }}</span>
+            </a>
           </li>
         }
       </ul>
