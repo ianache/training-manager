@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "knowledge-base/changelog.md": {
-    "mtime": 1791141873.050567,
-    "seen": 1791141915.8349998,
-    "ast_hash": "40bf58a6763a43409dc38ff7da803f0a",
+    "mtime": 1791207536.8205945,
+    "seen": 1791211513.3034546,
+    "ast_hash": "ce01b08afb77cd8fe7f477e2f06dfe68",
     "semantic_hash": ""
   },
   "knowledge-base/index.md": {
-    "mtime": 1791141873.0452096,
-    "seen": 1791141915.8808563,
-    "ast_hash": "3816f6ab65ed96a572f1044eecbc9a18",
+    "mtime": 1791183833.7582347,
+    "seen": 1791211513.4293056,
+    "ast_hash": "5b173fcc3d517df71b887d47fe66e64d",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/business/rules/BRC-001-reglas-plataforma-gestion-formacion.md": {
-    "mtime": 1791129959.6057374,
-    "seen": 1791130067.3264897,
-    "ast_hash": "3390f2978d5284e328b0e36a516a1846",
+    "mtime": 1791183829.7116418,
+    "seen": 1791211513.3001752,
+    "ast_hash": "82ce94e2e73ff8f66e28fd0ddb87b072",
     "semantic_hash": ""
   },
   "knowledge-base/vision/VIS-001-plataforma-gestion-formacion.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-017-gestionar-estructura-organizacional.md": {
-    "mtime": 1791129980.8789973,
-    "seen": 1791130067.3952901,
-    "ast_hash": "d51020a9401c11b027890b80b044d910",
+    "mtime": 1791183831.8024251,
+    "seen": 1791211513.4466758,
+    "ast_hash": "26acd8953bc0d0671787bdbcd8268581",
     "semantic_hash": ""
   },
   "knowledge-base/requirement/user-stories/US-018-gestionar-proveedores-y-contratistas.md": {
@@ -2010,9 +2010,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/routes.ts": {
-    "mtime": 1791179194.6853373,
-    "seen": 1791180898.7960787,
-    "ast_hash": "5added91fd94c390bbc86a1202cf0db9",
+    "mtime": 1791207198.5768049,
+    "seen": 1791211513.028717,
+    "ast_hash": "d405a42f3ba3d8f4e6e5cf229f10793d",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/bootstrap.ts": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-017-registrar-la-organizacion-interna.md": {
-    "mtime": 1791053979.3551486,
-    "seen": 1791054214.508993,
-    "ast_hash": "dd64bf44e84c0dc59a40880ef83cba88",
+    "mtime": 1791207497.9768906,
+    "seen": 1791211513.3775704,
+    "ast_hash": "c97169ae2ec2e6471a2a88d5036d68cf",
     "semantic_hash": ""
   },
   "knowledge-base/design/screens/SCR-028-listar-y-buscar-unidades-organizacionales.md": {
@@ -3444,15 +3444,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/schemas/organization.py": {
-    "mtime": 1791149339.9756656,
-    "seen": 1791150012.4486246,
-    "ast_hash": "657c5ac6d58f8b49048d48381b0a591c",
+    "mtime": 1791185990.137172,
+    "seen": 1791211512.9176035,
+    "ast_hash": "67bc0ece775a93c8c034126a058c89d6",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/services/organization_service.py": {
-    "mtime": 1791149671.852842,
-    "seen": 1791150012.4486246,
-    "ast_hash": "303133cbf03a79bf82cd3b391cf1e163",
+    "mtime": 1791185123.871703,
+    "seen": 1791211512.918821,
+    "ast_hash": "be6831130d0ed639014292610f674f9b",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_organizations_create.py": {
@@ -3462,9 +3462,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/organizations/organizations.router.ts": {
-    "mtime": 1791174416.4814367,
-    "seen": 1791174533.6592016,
-    "ast_hash": "15e95fb70ddb3fc38408d7e73f10a32e",
+    "mtime": 1791185754.7402027,
+    "seen": 1791211512.863525,
+    "ast_hash": "6194a7240c0e7735f80059ca4efbe69c",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-01-organizacion-interna.md": {
@@ -4068,9 +4068,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-017-handoff-desarrollo-registrar-la-organizacion-interna.md": {
-    "mtime": 1791141873.03921,
-    "seen": 1791141915.8791819,
-    "ast_hash": "9ffea649b0348fb56b67525086c93b00",
+    "mtime": 1791183833.5377145,
+    "seen": 1791211513.424056,
+    "ast_hash": "0c27f8daafc07cc3151bb7558bbca8ff",
     "semantic_hash": ""
   },
   "knowledge-base/implementation/DTC-028-handoff-desarrollo-listar-y-buscar-unidades-organizacionales.md": {
@@ -4146,9 +4146,9 @@
     "semantic_hash": ""
   },
   "knowledge-base/architecture/api/API-SPEC-007-lectura-de-la-organizacion-interna.md": {
-    "mtime": 1791141872.4575722,
-    "seen": 1791141915.7822003,
-    "ast_hash": "7fdfe692384e218b495093ce8dd9f687",
+    "mtime": 1791183831.6740997,
+    "seen": 1791211513.180005,
+    "ast_hash": "7caf69ca7db3c831753a9ea9c69c364b",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/ui/src/lib/atoms/chip/chip.spec.ts": {
@@ -4260,9 +4260,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/app/routers/internal_organization.py": {
-    "mtime": 1791148163.454077,
-    "seen": 1791150012.447625,
-    "ast_hash": "15f1851ab4e5755b353cb394497640f5",
+    "mtime": 1791184278.542583,
+    "seen": 1791211512.915472,
+    "ast_hash": "e36dda9d3c67f0bf2850ec8911657e8e",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/migrations/versions/0007_unit_name_scope.py": {
@@ -4278,9 +4278,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_internal_organization.py": {
-    "mtime": 1791148138.0126898,
-    "seen": 1791150012.4526248,
-    "ast_hash": "5fdc17c40c17278bb0e2a63bd2b1d32e",
+    "mtime": 1791184004.1362755,
+    "seen": 1791211512.935591,
+    "ast_hash": "877122c8c4bc69445283e20a621c2fa0",
     "semantic_hash": ""
   },
   "codebase/apps/domains/party-management-service/tests/integration/test_org_create_rules.py": {
@@ -4332,15 +4332,15 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/test/organizations-structure.test.ts": {
-    "mtime": 1791174302.4654007,
-    "seen": 1791174533.6612,
-    "ast_hash": "d24c47e6ca25abe478b2c180f09d45ca",
+    "mtime": 1791185482.0752738,
+    "seen": 1791211512.8689454,
+    "ast_hash": "2f9ca86b4c135a73e8b214cb919a8ba6",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/organizations.models.ts": {
-    "mtime": 1791177887.0387383,
-    "seen": 1791180898.7770011,
-    "ast_hash": "c0e5a4dc946fe0914ba37c320dab5c83",
+    "mtime": 1791207198.4485748,
+    "seen": 1791211512.9968936,
+    "ast_hash": "7785ca9fdb4a114cfb0231ed7af20434",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/organizations.service.spec.ts": {
@@ -4350,9 +4350,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/organizations.service.ts": {
-    "mtime": 1791179589.5834975,
-    "seen": 1791180898.7770011,
-    "ast_hash": "80308a83f9f979a01776d9d635e7339b",
+    "mtime": 1791207198.3869426,
+    "seen": 1791211512.9982457,
+    "ast_hash": "7ebbfef3e6696948995373203566ac5b",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/unit-list/unit-list.page.spec.ts": {
@@ -4368,9 +4368,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/routes.spec.ts": {
-    "mtime": 1791179153.3416252,
-    "seen": 1791180898.7960787,
-    "ast_hash": "bbc8bf30808566e268ed1f38e303fc28",
+    "mtime": 1791203335.0145166,
+    "seen": 1791211513.028717,
+    "ast_hash": "88baf64d7f31cc7afaf4642797bb2e26",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/unit-list/unit-list.page.html": {
@@ -4380,9 +4380,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/organizations.service.write.spec.ts": {
-    "mtime": 1791177902.8416955,
-    "seen": 1791180898.7770011,
-    "ast_hash": "96f21ff356310fb139c616e3183133ac",
+    "mtime": 1791203335.5833876,
+    "seen": 1791211512.9982457,
+    "ast_hash": "f7ff2f31a297bef1832ef722dd5b189a",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/unit-errors.spec.ts": {
@@ -4392,21 +4392,21 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/data-access/unit-errors.ts": {
-    "mtime": 1791179604.8304257,
-    "seen": 1791180898.7770011,
-    "ast_hash": "4074cfd6326464bfa32d38aa8534ce86",
+    "mtime": 1791207198.2927506,
+    "seen": 1791211513.000434,
+    "ast_hash": "f159032344440946a6ecdf254fb7db57",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/internal-organization/internal-organization.page.spec.ts": {
-    "mtime": 1791179080.4853213,
-    "seen": 1791180898.7770011,
-    "ast_hash": "1fbd7033b46a239a0671e71296c916db",
+    "mtime": 1791203002.6714816,
+    "seen": 1791211513.0025315,
+    "ast_hash": "6419e7019fac0ea79bb8f0b8b4842443",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/internal-organization/internal-organization.page.ts": {
-    "mtime": 1791180275.745762,
-    "seen": 1791180898.7770011,
-    "ast_hash": "16773fe068fc962258057b745d3151e6",
+    "mtime": 1791209291.4042122,
+    "seen": 1791211513.0025315,
+    "ast_hash": "f3e9bed9f036f77f849b6e3ff9f64e6e",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/unit-deactivate/unit-deactivate.page.spec.ts": {
@@ -4470,15 +4470,33 @@
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/shared/unit-nav.ts": {
-    "mtime": 1791178141.212025,
-    "seen": 1791180898.7960787,
-    "ast_hash": "a8157488066d7961675f09e5a159f222",
+    "mtime": 1791202864.6959121,
+    "seen": 1791211513.028717,
+    "ast_hash": "22fbc09f2c3df2d18c564e22d67231ab",
     "semantic_hash": ""
   },
   "codebase/apps/portal/projects/mfe-collaborators/src/app/testing/dialog-polyfill.ts": {
     "mtime": 1791178357.428571,
     "seen": 1791180898.7960787,
     "ast_hash": "94492379ec887d78166af328b8bb3d70",
+    "semantic_hash": ""
+  },
+  "codebase/apps/domains/party-management-service/tests/integration/test_internal_organization_create.py": {
+    "mtime": 1791183999.4711316,
+    "seen": 1791211512.935591,
+    "ast_hash": "4ee3dba3f4219c993206f5832280b804",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/internal-organization-form/internal-organization-form.page.spec.ts": {
+    "mtime": 1791202972.0396955,
+    "seen": 1791211513.0025315,
+    "ast_hash": "d3b8f7fc26e4e289333561f974a88d90",
+    "semantic_hash": ""
+  },
+  "codebase/apps/portal/projects/mfe-collaborators/src/app/pages/internal-organization-form/internal-organization-form.page.ts": {
+    "mtime": 1791209439.7717292,
+    "seen": 1791211513.0025315,
+    "ast_hash": "4b95db1549ca4694b94fc91b84cd2c30",
     "semantic_hash": ""
   }
 }
