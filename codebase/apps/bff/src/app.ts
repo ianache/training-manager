@@ -16,7 +16,7 @@ import { csrf } from './middleware/csrf.js';
 import { errorHandler, notFound } from './middleware/error-handler.js';
 import { requestId } from './middleware/request-id.js';
 import { catalogRouter } from './modules/catalog/catalog.router.js';
-import { organizationsRouter } from './modules/organizations/organizations.router.js';
+import { internalOrganizationRouter, organizationsRouter } from './modules/organizations/organizations.router.js';
 import { partiesRouter } from './modules/parties/parties.router.js';
 
 export interface AppDeps {
@@ -80,6 +80,7 @@ export function createApp(deps: AppDeps): Express {
   const partyClient = client('party-management-service', env.PARTY_SERVICE_URL);
   api.use('/parties', partiesRouter(partyClient));
   api.use('/organizations', organizationsRouter(partyClient));
+  api.use('/internal-organization', internalOrganizationRouter(partyClient));
   api.use('/catalog', catalogRouter(env.CATALOG_SERVICE_URL ? client('catalog-service', env.CATALOG_SERVICE_URL) : null));
   app.use('/api/v1', api);
 

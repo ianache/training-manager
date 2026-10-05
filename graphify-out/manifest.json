@@ -1620,9 +1620,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/app.ts": {
-    "mtime": 1791055879.4920757,
-    "seen": 1791056009.211578,
-    "ast_hash": "32a45e99430bc17b29ef7868765896b4",
+    "mtime": 1791174416.5627618,
+    "seen": 1791174533.6562006,
+    "ast_hash": "f01e145026baa612e10e980dfc8fe7a3",
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/auth/auth.router.ts": {
@@ -1668,8 +1668,8 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/downstream/service-client.ts": {
-    "mtime": 1791094221.0027966,
-    "seen": 1791094406.3588834,
+    "mtime": 1791174416.758389,
+    "seen": 1791174533.6582005,
     "ast_hash": "070402e3cc95cc6593e7814aedbe8c65",
     "semantic_hash": ""
   },
@@ -3462,9 +3462,9 @@
     "semantic_hash": ""
   },
   "codebase/apps/bff/src/modules/organizations/organizations.router.ts": {
-    "mtime": 1791055877.3765967,
-    "seen": 1791056009.221638,
-    "ast_hash": "f11ca7f5f9a4f79a5e84df92d5b200db",
+    "mtime": 1791174416.4814367,
+    "seen": 1791174533.6592016,
+    "ast_hash": "15e95fb70ddb3fc38408d7e73f10a32e",
     "semantic_hash": ""
   },
   "knowledge-base/design/handoff/ARP-SCR-017-01-organizacion-interna.md": {
@@ -4329,6 +4329,12 @@
     "mtime": 1791148256.65781,
     "seen": 1791150012.4541295,
     "ast_hash": "0410ed679e09798a0aa0c0bcdd63c128",
+    "semantic_hash": ""
+  },
+  "codebase/apps/bff/test/organizations-structure.test.ts": {
+    "mtime": 1791174302.4654007,
+    "seen": 1791174533.6612,
+    "ast_hash": "d24c47e6ca25abe478b2c180f09d45ca",
     "semantic_hash": ""
   }
 }
