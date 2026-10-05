@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, computed, inject, linkedSignal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, computed, effect, inject, Injector, linkedSignal, signal, untracked, viewChild } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Page, ViewState, toViewState } from '@gf/core';
@@ -6,6 +6,7 @@ import {
   AutocompleteOption,
   GfActiveFilter,
   GfActiveFilters,
+  GfAlert,
   GfAutocomplete,
   GfBadge,
   GfButton,
@@ -38,21 +39,44 @@ export function formatDate(iso: string | null): string {
   return m ? `${m[3]}/${m[2]}/${m[1]}` : '';
 }
 
+interface ReturnState {
+  highlightUnitId?: string;
+  notice?: string;
+}
+
+/** Lee y borra el estado que SCR-029/030 pasan al volver al listado, para que no se repita al recargar. */
+function consumeReturnState(): ReturnState {
+  const s = (history.state ?? {}) as ReturnState & Record<string, unknown>;
+  const out: ReturnState = { highlightUnitId: s.highlightUnitId, notice: s.notice };
+  if (out.highlightUnitId || out.notice) {
+    const { highlightUnitId: _h, notice: _n, ...rest } = s;
+    history.replaceState(rest, '');
+  }
+  return out;
+}
+
 /**
  * SCR-028-01 — Gestión de unidades organizacionales: consulta con búsqueda, filtros y orden (US-028 AC-1 a AC-6).
  * Las rutas de las acciones de fila son las previstas para SCR-029/030 (aún no implementadas).
  */
 @Component({
   selector: 'gf-unit-list-page',
-  imports: [RouterLink, GfActiveFilters, GfAutocomplete, GfBadge, GfButton, GfCellDef, GfDataTable, GfEmptyState, GfRowActions, GfSelect, GfTextInput, GfToggleGroup, GfTree, GfTreeNodeDef, GfViewState],
+  imports: [RouterLink, GfActiveFilters, GfAlert, GfAutocomplete, GfBadge, GfButton, GfCellDef, GfDataTable, GfEmptyState, GfRowActions, GfSelect, GfTextInput, GfToggleGroup, GfTree, GfTreeNodeDef, GfViewState],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './unit-list.page.html',
   styleUrl: './unit-list.page.scss',
 })
 export class UnitListPage {
   private readonly api = inject(OrganizationsService);
+  private readonly injector = inject(Injector);
 
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly table = viewChild(GfDataTable);
+  /** Estado de navegación que dejan SCR-029/030 al volver: unidad a resaltar y confirmación (se consume una vez). */
+  private readonly returned = consumeReturnState();
+  protected readonly notice = signal(this.returned.notice ?? '');
+  protected readonly highlightId = signal<string | null>(this.returned.highlightUnitId ?? null);
+  private pendingFocus = this.returned.highlightUnitId ?? null;
   private readonly query = signal<UnitListQuery & { nonce: number }>({ search: '', status: 'active', view: 'list', sort: null, page: 1, nonce: 0 });
 
   protected readonly ancestorName = signal('');
@@ -139,6 +163,17 @@ export class UnitListPage {
   });
 
   protected readonly formatDate = formatDate;
+
+  constructor() {
+    effect(() => {
+      const table = this.table();
+      if (table && this.pendingFocus) {
+        const id = this.pendingFocus;
+        this.pendingFocus = null;
+        untracked(() => afterNextRender(() => table.focusRow(id), { injector: this.injector }));
+      }
+    });
+  }
 
   protected parentName(u: OrganizationUnit): string {
     return u.parent_id ? (this.directory().get(u.parent_id) ?? u.parent_id) : '';

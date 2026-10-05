@@ -1,0 +1,19 @@
+.page-header h1 {
+  margin: var(--gf-space-4) 0 var(--gf-space-6);
+  font-size: var(--gf-font-size-xl);
+}
+
+.unit-form {
+  display: grid;
+  gap: var(--gf-space-4);
+  max-width: 560px;
+}
+
+.context {
+  margin: 0 0 var(--gf-space-4);
+}
+
+.actions {
+  display: flex;
+  gap: var(--gf-space-3);
+}

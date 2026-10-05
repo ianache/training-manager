@@ -47,12 +47,13 @@ describe('UnitListPage (SCR-028-01)', () => {
     fixture.detectChanges();
   }
 
-  async function open(result: (q: UnitListQuery) => Observable<Page<OrganizationUnit>>) {
+  async function open(result: (q: UnitListQuery) => Observable<Page<OrganizationUnit>>, attach = false) {
     list = vi.fn((q: UnitListQuery) => (isDirectory(q) ? of(page([ROOT, CHILD, OLD])) : result(q)));
     TestBed.configureTestingModule({
       providers: [provideRouter([]), { provide: OrganizationsService, useValue: { list } }],
     });
     fixture = TestBed.createComponent(UnitListPage);
+    if (attach) document.body.appendChild(fixture.nativeElement);
     await settle();
   }
 
@@ -478,6 +479,33 @@ describe('UnitListPage (SCR-028-01)', () => {
     it('si el padre no está en el directorio muestra su identificador en lugar de ocultarlo', async () => {
       await open(() => of(page([unit({ id: 'u-9', name: 'Huérfana', parent_id: 'id-desconocido' })])));
       expect(el().querySelector('tbody tr:first-child td')!.textContent).toContain('id-desconocido');
+    });
+  });
+
+  describe('retorno desde SCR-029/030: unidad resaltada y confirmación', () => {
+    afterEach(() => history.replaceState(null, ''));
+
+    it('muestra la confirmación en un role="status" y resalta la fila de la unidad, llevándole el foco', async () => {
+      history.replaceState({ highlightUnitId: 'u-2', notice: 'Unidad registrada' }, '');
+      await open(() => of(page([ROOT, CHILD])), true);
+      const status = Array.from(el().querySelectorAll('[role="status"]')).find((n) => n.textContent?.includes('Unidad registrada'));
+      expect(status).toBeTruthy();
+      const row = el().querySelector<HTMLElement>('tr[data-row-id="u-2"]')!;
+      expect(row.getAttribute('aria-current')).toBe('true');
+      expect(document.activeElement).toBe(row);
+      el().remove();
+    });
+
+    it('sin estado de navegación no muestra confirmación ni resalta filas', async () => {
+      await open(() => of(page([ROOT, CHILD])));
+      expect(text()).not.toContain('Unidad registrada');
+      expect(el().querySelector('tr[aria-current="true"]')).toBeNull();
+    });
+
+    it('la confirmación no se repite al recargar (el estado se consume)', async () => {
+      history.replaceState({ highlightUnitId: 'u-2', notice: 'Unidad registrada' }, '');
+      await open(() => of(page([ROOT, CHILD])));
+      expect(history.state?.notice).toBeUndefined();
     });
   });
 });

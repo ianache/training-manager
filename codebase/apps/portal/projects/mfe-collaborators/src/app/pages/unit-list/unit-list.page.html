@@ -2,6 +2,10 @@
   <h1>Unidades organizacionales</h1>
 </header>
 
+@if (notice()) {
+  <gf-alert tone="success" icon="check_circle">{{ notice() }}</gf-alert>
+}
+
 <div class="query-bar" role="search">
   <div class="field">
     <label for="unit-search">Buscar por nombre</label>
@@ -60,7 +64,7 @@
         </gf-tree>
       </div>
     } @else {
-      <gf-data-table [columns]="columns" [rows]="result.data" [rowId]="rowId" caption="Unidades organizacionales" [loading]="refreshing()" [sort]="tableSort()" (sortChange)="onSort($event)">
+      <gf-data-table [columns]="columns" [rows]="result.data" [rowId]="rowId" caption="Unidades organizacionales" [loading]="refreshing()" [sort]="tableSort()" [highlightedRowId]="highlightId()" (sortChange)="onSort($event)">
         <ng-template gfCellDef="parent" let-u>{{ parentName(u) }}</ng-template>
         <ng-template gfCellDef="status" let-u>
           <gf-badge [tone]="u.status === 'active' ? 'success' : 'neutral'">{{ statusLabel(u) }}</gf-badge>

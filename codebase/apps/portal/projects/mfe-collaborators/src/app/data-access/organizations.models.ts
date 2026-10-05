@@ -13,6 +13,8 @@ export interface OrganizationUnit {
   thru_date: string | null;
   active_children_count: number | null;
   current_people_count: number | null;
+  /** Versión para If-Match (Q-8); también viaja en la cabecera ETag. */
+  row_version?: number | null;
   /** Solo con view=tree. */
   children?: OrganizationUnit[] | null;
 }
@@ -26,4 +28,34 @@ export interface UnitListQuery {
   view?: 'list' | 'tree';
   page?: number;
   limit?: number;
+}
+
+export interface ParentRef {
+  id: string;
+  name: string;
+}
+
+/** GET /organizations/{id}/relationships (RelationshipOut, SCR-029-04). */
+export interface UnitRelationship {
+  previous_parent: ParentRef | null;
+  new_parent: ParentRef | null;
+  from_date: string;
+  thru_date: string | null;
+  changed_by: string;
+}
+
+/** GET /internal-organization (InternalOrganizationOut, API-SPEC-007 borrador). */
+export interface InternalOrganization {
+  id: string;
+  name: string;
+  ruc: string | null;
+  ruc_country: string | null;
+  from_date: string;
+  thru_date: string | null;
+}
+
+export interface CreateUnitInput {
+  name: string;
+  emailWork: string;
+  parentId: string | null;
 }

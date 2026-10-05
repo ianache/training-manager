@@ -14,11 +14,48 @@ export const ROUTES: Routes = [
     title: 'Registrar colaborador',
   },
   {
-    // SCR-028-01 (DTC-028). Las rutas hijas (:unitId/editar, /padre, /desactivar, /reactivar, nueva) son de SCR-029/030, aún sin implementar.
+    // SCR-028-01 (DTC-028) y las páginas de gestión que enlaza: SCR-029 (registrar, editar, cambiar padre, historial) y SCR-030 (desactivar, reactivar).
     path: 'unidades',
     loadComponent: () =>
       import('./pages/unit-list/unit-list.page').then((m) => m.UnitListPage),
     title: 'Unidades organizacionales',
+  },
+  {
+    path: 'unidades/nueva',
+    loadComponent: () => import('./pages/unit-form/unit-form.page').then((m) => m.UnitFormPage),
+    title: 'Registrar unidad',
+  },
+  {
+    path: 'unidades/:unitId/editar',
+    loadComponent: () => import('./pages/unit-form/unit-form.page').then((m) => m.UnitFormPage),
+    title: 'Editar nombre de la unidad',
+  },
+  {
+    path: 'unidades/:unitId/padre',
+    loadComponent: () => import('./pages/unit-parent/unit-parent.page').then((m) => m.UnitParentPage),
+    title: 'Cambiar unidad padre',
+  },
+  {
+    path: 'unidades/:unitId/historial',
+    loadComponent: () => import('./pages/unit-history/unit-history.page').then((m) => m.UnitHistoryPage),
+    title: 'Historial de relaciones',
+  },
+  {
+    path: 'unidades/:unitId/desactivar',
+    loadComponent: () => import('./pages/unit-deactivate/unit-deactivate.page').then((m) => m.UnitDeactivatePage),
+    title: 'Desactivar unidad',
+  },
+  {
+    path: 'unidades/:unitId/reactivar',
+    loadComponent: () => import('./pages/unit-reactivate/unit-reactivate.page').then((m) => m.UnitReactivatePage),
+    title: 'Reactivar unidad',
+  },
+  {
+    // SCR-017-01/03 (solo lectura; SCR-017-02 no se implementa, BR-PTY-28).
+    path: 'organizacion-interna',
+    loadComponent: () =>
+      import('./pages/internal-organization/internal-organization.page').then((m) => m.InternalOrganizationPage),
+    title: 'Organización interna',
   },
   {
     path: '',
