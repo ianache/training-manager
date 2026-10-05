@@ -31,6 +31,7 @@ from app.models.party import (
     PartyRole,
 )
 from app.schemas.organization import (
+    InternalOrganizationCreateRequest,
     InternalOrganizationOut,
     OrganizationContact,
     OrganizationOut,
@@ -45,6 +46,7 @@ from app.services.party_service import total_pages  # noqa: F401  (se reexporta 
 
 ROOT_SCOPE = "ROOT"  # alcance del nombre de una unidad superior (migración 0007)
 HIERARCHY_LOCK_KEY = 7_404_001  # advisory lock de las ediciones de la jerarquía (solo PostgreSQL)
+INTERNAL_ORG_LOCK_KEY = 7_404_002  # advisory lock del alta única de la organización interna (solo PostgreSQL)
 MAX_TREE_DEPTH = 10  # Q-4 sin responder: profundidad máxima de view=tree (supuesto; ver informe)
 # criterios de orden del listado; parent_name se resuelve con el padre vigente unido en la consulta
 SORT_FIELDS = ("name", "parent_name", "status", "from_date", "created_at")
@@ -762,9 +764,9 @@ class OrganizationService:
         ]
         return items[(page - 1) * limit : page * limit], len(items)
 
-    async def get_internal(self) -> InternalOrganizationOut:
-        """API-SPEC-007: la organización con el rol INTERNAL_ORGANIZATION vigente (la más reciente si hubiera varias)."""
-        row = (
+    async def _internal_row(self):
+        """La organización con el rol INTERNAL_ORGANIZATION vigente (la más reciente si hubiera varias) o None."""
+        return (
             await self.db.execute(
                 select(Organization, PartyRole, PartyIdentification.identification_number, PartyIdentification.issuing_country_code)
                 .join(PartyRole, PartyRole.fk_party_id == Organization.pk_party_id)
@@ -781,13 +783,46 @@ class OrganizationService:
                 .limit(1)
             )
         ).first()
+
+    async def get_internal(self) -> InternalOrganizationOut:
+        """API-SPEC-007: la organización con el rol INTERNAL_ORGANIZATION vigente (la más reciente si hubiera varias)."""
+        row = await self._internal_row()
         if row is None:
             raise ApiError(404, "INTERNAL_ORGANIZATION_NOT_FOUND", "No hay una organización interna registrada.")
         org, role, ruc, country = row
         return InternalOrganizationOut(
             id=org.pk_party_id, name=org.organization_name, ruc=ruc, ruc_country=country,
-            from_date=role.from_date, thru_date=role.thru_date,
+            from_date=role.from_date, thru_date=role.thru_date, row_version=org.row_version,
         )
+
+    async def create_internal(self, payload: InternalOrganizationCreateRequest, actor: str) -> InternalOrganizationOut:
+        """API-SPEC-007 §2.1 (EVD-2026-0242): alta inicial única; mismas filas que la migración 0006, con el actor real."""
+        if self.db.get_bind().dialect.name == "postgresql":
+            # dos altas simultáneas se serializan: la segunda espera al commit de la primera y ve que ya existe
+            await self.db.execute(text("SELECT pg_advisory_xact_lock(:k)"), {"k": INTERNAL_ORG_LOCK_KEY})
+        if await self._internal_row() is not None:
+            raise ApiError(409, "INTERNAL_ORGANIZATION_ALREADY_EXISTS", "Ya existe una organización interna.")
+        if await self._ruc_taken(payload.ruc):
+            raise _duplicate("ruc")
+        pid, rid = str(uuid4()), str(uuid4())
+        self.db.add(Party(pk_party_id=pid, party_kind=ORGANIZATION, created_by=actor))
+        await self._flush()
+        self.db.add(Organization(pk_party_id=pid, organization_name=payload.name, created_by=actor))
+        self.db.add(
+            PartyRole(
+                pk_party_role_id=rid, fk_party_id=pid, party_kind=ORGANIZATION, fk_party_role_type_code=ROLE_INTERNAL,
+                from_date=date.today(), created_by=actor,
+            )
+        )
+        self.db.add(
+            PartyIdentification(
+                pk_party_identification_id=str(uuid4()), fk_party_id=pid, party_kind=ORGANIZATION,
+                fk_identification_type_code=ID_RUC, identification_number=payload.ruc,
+                issuing_country_code=payload.ruc_country, created_by=actor,
+            )
+        )
+        await self._commit()
+        return await self.get_internal()
 
     async def get(self, org_id: UUID | str) -> OrganizationOut:
         rows = (await self.db.execute(self._base().where(Organization.pk_party_id == str(org_id)))).all()

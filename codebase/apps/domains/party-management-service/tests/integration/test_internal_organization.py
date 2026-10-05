@@ -47,7 +47,7 @@ async def test_sin_token_401(async_client):
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("method", ["post", "patch", "put", "delete"])
+@pytest.mark.parametrize("method", ["patch", "put", "delete"])
 async def test_solo_lectura_405(async_client, engine, jefe, method):
     await add_internal_org(engine)
     r = await getattr(async_client, method)(URL, headers=jefe)

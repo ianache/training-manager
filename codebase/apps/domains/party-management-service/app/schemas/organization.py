@@ -2,7 +2,7 @@
 import re
 from enum import Enum
 from datetime import date
-from typing import Optional, Self
+from typing import Literal, Optional, Self
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator, model_validator
@@ -137,6 +137,23 @@ class RelationshipOut(BaseModel):
     changed_by: str
 
 
+class InternalOrganizationCreateRequest(BaseModel):
+    """POST /internal-organization (API-SPEC-007 §2.1): el país es PE (único valor aceptado) y la vigencia la fija el sistema."""
+
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    name: str = Field(min_length=1, max_length=200)
+    ruc: str
+    ruc_country: Literal["PE"] = "PE"
+
+    @field_validator("ruc")
+    @classmethod
+    def _ruc_format(cls, v):
+        if not RUC_RE.match(v):
+            raise ValueError("El RUC debe tener 11 dígitos.")
+        return v
+
+
 class InternalOrganizationOut(BaseModel):
     """API-SPEC-007 §2: la organización interna vigente (registro único, BR-PTY-28)."""
 
@@ -146,6 +163,7 @@ class InternalOrganizationOut(BaseModel):
     ruc_country: Optional[str] = None
     from_date: date
     thru_date: Optional[date] = None
+    row_version: Optional[int] = Field(None, exclude=True)  # solo para la cabecera ETag; no viaja en el cuerpo
 
 
 class InternalOrganizationEnvelope(BaseModel):

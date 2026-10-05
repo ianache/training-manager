@@ -197,6 +197,49 @@ describe('GET /api/v1/internal-organization', () => {
   });
 });
 
+describe('POST /api/v1/internal-organization (alta inicial, API-SPEC-007 §2.1)', () => {
+  const body = { name: 'COMSATEL S.A.C.', ruc: '20123456780' };
+
+  it.each(MANAGERS)('%s: reenvía método, ruta, cuerpo e identidad y devuelve 201 con ETag', async (role) => {
+    const reply = { status: 201, body: { data: { id: ORG, name: 'COMSATEL S.A.C.' } }, headers: { ETag: '"1"' } };
+    const { agent, calls } = setup([role], reply);
+    const xsrf = await login(agent);
+    const res = await agent.post('/api/v1/internal-organization').set('X-XSRF-TOKEN', xsrf).send(body).expect(201);
+    expect(res.headers.etag).toBe('"1"');
+    expect(res.body).toEqual(reply.body);
+    const call = calls.at(-1)!;
+    expect(call.url).toBe('http://party.test/api/v1/internal-organization');
+    expect(call.method).toBe('POST');
+    expect(JSON.parse(String(call.body))).toEqual(body);
+    expect(call.headers['X-User-Name']).toBe('jefe.ing');
+  });
+
+  it('un colaborador recibe 403 sin llamar al servicio', async () => {
+    const { agent, calls } = setup(['colaborador']);
+    const xsrf = await login(agent);
+    await agent.post('/api/v1/internal-organization').set('X-XSRF-TOKEN', xsrf).send(body).expect(403);
+    expect(calls).toHaveLength(0);
+  });
+
+  it('sin sesión no llega al servicio (el CSRF corta antes que la autenticación: 403)', async () => {
+    const { agent, calls } = setup(['admin']);
+    const res = await agent.post('/api/v1/internal-organization').send(body);
+    expect([401, 403]).toContain(res.status);
+    expect(calls).toHaveLength(0);
+  });
+
+  it.each([
+    [400, { error: { code: 'VALIDATION_ERROR', message: 'm', status: 400 } }],
+    [409, { error: { code: 'INTERNAL_ORGANIZATION_ALREADY_EXISTS', message: 'm', status: 409 } }],
+    [409, { error: { code: 'ORGANIZATION_DUPLICATE', message: 'm', status: 409, details: { field: 'ruc' } } }],
+  ])('el %s del servicio llega intacto', async (status, payload) => {
+    const { agent } = setup(['admin'], { status, body: payload });
+    const xsrf = await login(agent);
+    const res = await agent.post('/api/v1/internal-organization').set('X-XSRF-TOKEN', xsrf).send(body).expect(status);
+    expect(res.body).toEqual(payload);
+  });
+});
+
 describe('POST /api/v1/organizations (alta) con Q-2 resuelta', () => {
   it('ADMIN también registra unidades (EVD-2026-0238)', async () => {
     const { agent, calls } = setup(['admin']);

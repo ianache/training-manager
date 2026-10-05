@@ -59,11 +59,18 @@ export function organizationsRouter(party: ServiceClient): Router {
   return r;
 }
 
-/** /api/v1/internal-organization → party-management-service (API-SPEC-007, borrador): solo lectura, Jefe de Ingeniería o ADMIN. */
+/**
+ * /api/v1/internal-organization → party-management-service (API-SPEC-007, borrador): lectura y alta inicial única
+ * (EVD-2026-0242), Jefe de Ingeniería o ADMIN. Sin edición ni baja. 400/409 y ETag del servicio se reenvían sin reescribir.
+ */
 export function internalOrganizationRouter(party: ServiceClient): Router {
   const r = Router();
-  r.get('/', requireAnyRole(Role.JefeIngenieria, Role.Admin), async (req, res) => {
+  const managers = requireAnyRole(Role.JefeIngenieria, Role.Admin);
+  r.get('/', managers, async (req, res) => {
     relay(res, await party.call({ path: '/api/v1/internal-organization', ...identity(req) }));
+  });
+  r.post('/', managers, async (req, res) => {
+    relay(res, await party.call({ method: 'POST', path: '/api/v1/internal-organization', body: req.body, ...identity(req) }));
   });
   return r;
 }
