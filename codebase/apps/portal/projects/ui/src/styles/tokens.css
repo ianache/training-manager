@@ -1,24 +1,24 @@
 /*
  * Design tokens semánticos de la plataforma.
- * Fuente: TKN-SET-002 «Comsatel Styled» (decisión de ianache, 2026-10-02; sustituye a TKN-SET-001).
+ * Fuente: paleta y tipografía del dashboard de referencia de KPI (decisión de ianache, 2026-10-06; sustituye los valores de TKN-SET-002 «Comsatel Styled»).
  * Las vistas usan solo variables semánticas (--gf-*), nunca valores crudos (AGENTS.md, "Diseño").
  */
 :root {
-  /* Color — marca y acción (primary #bc0100: 6.68:1 con blanco, AA). */
-  --gf-color-primary: #bc0100;
-  --gf-color-primary-hover: #930100;
-  --gf-color-primary-active: #410000;
+  /* Color — marca y acción (primary #8b0000: ~10:1 con blanco, AA). */
+  --gf-color-primary: #8b0000;
+  --gf-color-primary-hover: #a31515;
+  --gf-color-primary-active: #5c0000;
   --gf-color-on-primary: #ffffff;
   --gf-color-focus-ring: #0059ba;
 
   /* Color — superficies y texto */
-  --gf-color-surface: #fff8f6;
-  --gf-color-surface-container: #ffe9e6;
-  --gf-color-surface-selected: #ffe2dd;
-  --gf-color-border: #956d67;
-  --gf-color-border-strong: #855f59;
-  --gf-color-text: #2b1613;
-  --gf-color-text-muted: #603e39;
+  --gf-color-surface: #fafafa;
+  --gf-color-surface-container: #ededed;
+  --gf-color-surface-selected: #f6e7e7;
+  --gf-color-border: #8c8c8c;
+  --gf-color-border-strong: #4a4a4a;
+  --gf-color-text: #111111;
+  --gf-color-text-muted: #4a4a4a;
 
   /* Color — estado (siempre acompañado de icono + texto, UI-INV-001 §6).
    * success, warning y neutral no existen en «Comsatel Styled»: se conservan. */
@@ -28,18 +28,20 @@
   --gf-color-warning-fg: #92400e;
   --gf-color-danger-bg: #ffdad6;
   --gf-color-danger-fg: #93000a;
-  --gf-color-neutral-bg: #e8eaef;
-  --gf-color-neutral-fg: #43474d;
+  --gf-color-neutral-bg: #ededed;
+  --gf-color-neutral-fg: #4a4a4a;
   --gf-color-info-bg: #d7e2ff;
   --gf-color-info-fg: #004491;
 
-  /* Tipografía (GEN-002 F-01: unificar en Inter) */
-  --gf-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Tipografía: IBM Plex Sans (texto) e IBM Plex Mono (cifras, códigos). Se carga en shell/index.html. */
+  --gf-font-family: 'IBM Plex Sans', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --gf-font-family-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
   --gf-font-size-sm: 0.875rem;
   --gf-font-size-md: 1rem;
   --gf-font-size-lg: 1.25rem;
   --gf-font-size-xl: 1.5rem;
   --gf-font-weight-regular: 400;
+  --gf-font-weight-medium: 500;
   --gf-font-weight-semibold: 600;
 
   /* Espaciado (escala de 4 px) */
